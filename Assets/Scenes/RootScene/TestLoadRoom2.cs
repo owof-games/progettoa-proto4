@@ -1,30 +1,25 @@
-using Components.RoomTransitionHandler;
-using Cysharp.Threading.Tasks;
-using JetBrains.Annotations;
+#nullable enable
 using NUnit.Framework;
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Scenes.RootScene
 {
     public class TestLoadRoom2 : MonoBehaviour
     {
-        [SerializeField] [CanBeNull] private RoomTransitionHandler roomTransitionHandler;
+        [FormerlySerializedAs("moveToRoomEvent")] [SerializeField]
+        private StringEvent? interactExitEvent;
 
         private void Awake()
         {
-            Assert.IsNotNull(roomTransitionHandler);
+            Assert.IsNotNull(interactExitEvent);
         }
-
-        // private UniTaskVoid Start()
-        // {
-        //     Assert.IsNotNull(roomTransitionHandler);
-        //     return roomTransitionHandler.LoadRoom("room1");
-        // }
 
         public void OnClick()
         {
-            Assert.IsNotNull(roomTransitionHandler);
-            roomTransitionHandler.LoadRoom("room2").Forget();
+            Assert.IsNotNull(interactExitEvent);
+            interactExitEvent!.Raise("room2");
         }
     }
 }

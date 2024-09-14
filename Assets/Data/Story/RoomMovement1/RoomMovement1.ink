@@ -1,9 +1,15 @@
-﻿-> start
+﻿@moveTo roomName:room1
 
-=== start ===
+-> loop
 
-@moveTo roomName:room1
+=== loop ===
 
-something.
+@interact
++ [exit:room2]
+  @moveTo roomName:room2
+  -> loop
++ [exit:room1]
+  @moveTo roomName:room1
+  -> loop
 
 -> DONE

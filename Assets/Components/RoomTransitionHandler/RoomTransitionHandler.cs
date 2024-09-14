@@ -7,9 +7,9 @@ using Eflatun.SceneReference;
 using LitMotion;
 using LitMotion.Extensions;
 using NUnit.Framework;
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 namespace Components.RoomTransitionHandler
 {
@@ -43,20 +43,23 @@ namespace Components.RoomTransitionHandler
 
     public class RoomTransitionHandler : MonoBehaviour
     {
+        [SerializeField] private float transitionDuration;
         [SerializeField] private List<RoomDescription> roomDescriptions = new();
         [SerializeField] private List<RoomConnections> roomConnections = new();
-        [SerializeField] private float transitionDuration;
-
-        private Dictionary<string, RoomDescription> _roomDescriptionsByName = new();
-        private Dictionary<string, RoomConnections> _roomConnectionsBySourceName = new();
+        [SerializeField] private GameObjectVariable? roomTransitionHandlerGameObject;
 
         private string? _currentlyLoadedRoomName; // jumps directly to the new value at the beginning of transition
+        private Dictionary<string, RoomConnections> _roomConnectionsBySourceName = new();
+
+        private Dictionary<string, RoomDescription> _roomDescriptionsByName = new();
 
         private void Awake()
         {
             // check data consistency and create intermediary data structures
             Assert.IsTrue(transitionDuration > 0);
-            
+
+            Assert.IsNotNull(roomTransitionHandlerGameObject);
+
             Assert.IsNotNull(roomDescriptions);
             Assert.IsNotNull(roomConnections);
             Assert.IsTrue(roomDescriptions.Select(r => r.name).ToHashSet().Count == roomDescriptions.Count,
@@ -68,6 +71,9 @@ namespace Components.RoomTransitionHandler
                     _roomDescriptionsByName.ContainsKey(c.destinationRoomName)),
                 "there's at least one room in the connections that is not in the descriptions");
             _roomConnectionsBySourceName = roomConnections.ToDictionary(c => c.sourceRoomName, c => c);
+
+            // save the room transition handler game object at the end of the checks and data structure creation
+            roomTransitionHandlerGameObject!.Value = gameObject;
         }
 
         // ReSharper disable once Unity.IncorrectMethodSignature
@@ -85,7 +91,7 @@ namespace Components.RoomTransitionHandler
         /// </summary>
         /// <param name="roomName"></param>
         /// <returns></returns>
-        public async UniTaskVoid LoadRoom(string roomName)
+        public async UniTask LoadRoom(string roomName)
         {
             // immediately update the loaded room
             var previouslyLoadedRoomName = _currentlyLoadedRoomName;
@@ -110,11 +116,11 @@ namespace Components.RoomTransitionHandler
                 var previousSceneRootGameObject = previousSceneRootGameObjects[0];
                 await UniTask.WhenAll(
                     LMotion
-                        .Create(deltaPosition, Vector3.zero, (float)transitionDuration)
+                        .Create(deltaPosition, Vector3.zero, transitionDuration)
                         .BindToPosition(newSceneRootGameObject.transform)
                         .ToUniTask(),
                     LMotion
-                        .Create(Vector3.zero, -deltaPosition, (float)transitionDuration)
+                        .Create(Vector3.zero, -deltaPosition, transitionDuration)
                         .BindToPosition(previousSceneRootGameObject.transform)
                         .ToUniTask());
 

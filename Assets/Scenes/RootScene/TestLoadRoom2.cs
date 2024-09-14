@@ -1,4 +1,3 @@
-using System;
 using Components.RoomTransitionHandler;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
@@ -16,11 +15,11 @@ namespace Scenes.RootScene
             Assert.IsNotNull(roomTransitionHandler);
         }
 
-        private UniTaskVoid Start()
-        {
-            Assert.IsNotNull(roomTransitionHandler);
-            return roomTransitionHandler.LoadRoom("room1");
-        }
+        // private UniTaskVoid Start()
+        // {
+        //     Assert.IsNotNull(roomTransitionHandler);
+        //     return roomTransitionHandler.LoadRoom("room1");
+        // }
 
         public void OnClick()
         {

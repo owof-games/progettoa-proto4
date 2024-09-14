@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f2dce150a417d34eb4f7de1e2603e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionDuration: 1
   roomDescriptions:
   - name: room1
     scene:
@@ -57,4 +58,4 @@ MonoBehaviour:
   - sourceRoomName: room1
     direction: 0
     destinationRoomName: room2
-  transitionDuration: 1
+  roomTransitionHandlerGameObject: {fileID: 11400000, guid: 5a706c78bfbc25e4bbb350f38da38efe, type: 2}

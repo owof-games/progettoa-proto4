@@ -1,15 +1,25 @@
-﻿@moveTo roomName:room1
+﻿INCLUDE characters.ink
+INCLUDE rooms.ink
+INCLUDE exceptions.ink
+INCLUDE interact.ink
+
+@moveTo roomName:{Room1}
+
 
 -> loop
 
 === loop ===
 
+
 @interact
-+ [exit:room2]
-  @moveTo roomName:room2
++ [{interaction_exit(Room1)}]
+  ~ move_entity(Ettore, Room1)
   -> loop
-+ [exit:room1]
-  @moveTo roomName:room1
++ [{interaction_exit(RoomRed)}]
+  ~ move_entity(Ettore, RoomRed)
+  -> loop
++ [{interaction_exit(RoomGreen)}]
+  ~ move_entity(Ettore, RoomGreen)
   -> loop
 
 -> DONE

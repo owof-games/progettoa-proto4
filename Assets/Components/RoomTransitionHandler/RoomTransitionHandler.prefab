@@ -45,17 +45,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionDuration: 1
+  roomWidth: 19.27
   roomDescriptions:
-  - name: room1
+  - name: Room1
     scene:
       asset: {fileID: 102900000, guid: 0d20cc41c6098174ea22af6b6731629d, type: 3}
       guid: 0d20cc41c6098174ea22af6b6731629d
-  - name: room2
+  - name: RoomRed
     scene:
       asset: {fileID: 102900000, guid: 400ccdff07145e34d976ea329b81ab35, type: 3}
       guid: 400ccdff07145e34d976ea329b81ab35
+  - name: RoomGreen
+    scene:
+      asset: {fileID: 102900000, guid: 5ac6afc8588c7124baadd06d812ca135, type: 3}
+      guid: 5ac6afc8588c7124baadd06d812ca135
   roomConnections:
-  - sourceRoomName: room1
+  - sourceRoomName: Room1
     direction: 0
-    destinationRoomName: room2
+    destinationRoomName: RoomRed
+  - sourceRoomName: RoomRed
+    direction: 0
+    destinationRoomName: RoomGreen
   roomTransitionHandlerGameObject: {fileID: 11400000, guid: 5a706c78bfbc25e4bbb350f38da38efe, type: 2}

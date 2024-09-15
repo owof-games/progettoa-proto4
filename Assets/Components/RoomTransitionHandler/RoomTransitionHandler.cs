@@ -44,12 +44,13 @@ namespace Components.RoomTransitionHandler
     public class RoomTransitionHandler : MonoBehaviour
     {
         [SerializeField] private float transitionDuration;
+        [SerializeField] private float roomWidth = 19.27f;
         [SerializeField] private List<RoomDescription> roomDescriptions = new();
         [SerializeField] private List<RoomConnections> roomConnections = new();
         [SerializeField] private GameObjectVariable? roomTransitionHandlerGameObject;
 
         private string? _currentlyLoadedRoomName; // jumps directly to the new value at the beginning of transition
-        private Dictionary<string, RoomConnections> _roomConnectionsBySourceName = new();
+        private Dictionary<string, List<RoomConnections>> _roomConnectionsBySourceName = new();
 
         private Dictionary<string, RoomDescription> _roomDescriptionsByName = new();
 
@@ -70,7 +71,24 @@ namespace Components.RoomTransitionHandler
                     _roomDescriptionsByName.ContainsKey(c.sourceRoomName) &&
                     _roomDescriptionsByName.ContainsKey(c.destinationRoomName)),
                 "there's at least one room in the connections that is not in the descriptions");
-            _roomConnectionsBySourceName = roomConnections.ToDictionary(c => c.sourceRoomName, c => c);
+            _roomConnectionsBySourceName = new Dictionary<string, List<RoomConnections>>();
+            foreach (var roomConnection in roomConnections)
+            {
+                var sourceRoomConnectionsList = _roomConnectionsBySourceName
+                    .GetValueOrDefault(roomConnection.sourceRoomName, new List<RoomConnections>());
+                sourceRoomConnectionsList.Add(roomConnection);
+                _roomConnectionsBySourceName[roomConnection.sourceRoomName] = sourceRoomConnectionsList;
+
+                var destRoomConnectionsList = _roomConnectionsBySourceName
+                    .GetValueOrDefault(roomConnection.destinationRoomName, new List<RoomConnections>());
+                destRoomConnectionsList.Add(new RoomConnections
+                {
+                    sourceRoomName = roomConnection.destinationRoomName,
+                    direction = roomConnection.direction == Direction.Left ? Direction.Right : Direction.Left,
+                    destinationRoomName = roomConnection.sourceRoomName
+                });
+                _roomConnectionsBySourceName[roomConnection.destinationRoomName] = destRoomConnectionsList;
+            }
 
             // save the room transition handler game object at the end of the checks and data structure creation
             roomTransitionHandlerGameObject!.Value = gameObject;
@@ -80,10 +98,29 @@ namespace Components.RoomTransitionHandler
         private async UniTaskVoid Start()
         {
             // unload all room scenes and wait for the unload operation to complete (useful in debug)
-            await UniTask.WhenAll(from roomDescription in roomDescriptions
-                let scene = roomDescription.scene.LoadedScene
-                where scene.IsValid()
-                select SceneManager.UnloadSceneAsync(scene).ToUniTask());
+            var unloadTasks = new List<UniTask>();
+            foreach (var roomDescription in roomDescriptions)
+            {
+                Debug.Log($"Examining {roomDescription.name}");
+                var scene = roomDescription.scene.LoadedScene;
+                if (!scene.IsValid()) continue;
+
+                Debug.Log("Scene is valid");
+                var unloadOperation = SceneManager.UnloadSceneAsync(scene.buildIndex);
+                Debug.Log($"Unload operation: {unloadOperation}");
+                if (unloadOperation == null)
+                {
+                    Debug.Log(
+                        "Well, maybe the documentation is shit and it's not enough for LoadedScene to be valid in order to have, well, an actually loaded scene");
+                    continue;
+                }
+
+                var task = unloadOperation.ToUniTask();
+                Debug.Log($"Task: {task}");
+                unloadTasks.Add(task);
+            }
+
+            if (unloadTasks.Count > 0) await UniTask.WhenAll(unloadTasks);
         }
 
         /// <summary>
@@ -93,6 +130,15 @@ namespace Components.RoomTransitionHandler
         /// <returns></returns>
         public async UniTask LoadRoom(string roomName)
         {
+            // determine the direction of the movement (if there's a movement)
+            var direction = Direction.Left;
+            if (_currentlyLoadedRoomName != null)
+                direction = _roomConnectionsBySourceName[_currentlyLoadedRoomName]
+                    .First(c => c.destinationRoomName == roomName)
+                    .direction;
+
+            var directionFlag = direction == Direction.Left ? -1 : 1;
+
             // immediately update the loaded room
             var previouslyLoadedRoomName = _currentlyLoadedRoomName;
             _currentlyLoadedRoomName = roomName;
@@ -104,7 +150,7 @@ namespace Components.RoomTransitionHandler
             var newSceneRootGameObjects = newSceneReference.LoadedScene.GetRootGameObjects();
             Assert.AreEqual(newSceneRootGameObjects.Length, 1);
             var newSceneRootGameObject = newSceneRootGameObjects[0];
-            var deltaPosition = new Vector3(-19.27f, 0, 0); // TODO!
+            var deltaPosition = new Vector3(directionFlag * roomWidth, 0, 0); // TODO!
             newSceneRootGameObject.transform.position = deltaPosition;
 
             // transition and unload (if there's a previous room)

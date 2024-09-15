@@ -1,4 +1,5 @@
 #nullable enable
+using System;
 using System.Collections;
 using System.Linq;
 using LemuRivolta.InkAtoms;
@@ -31,8 +32,10 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
         if (moveToRoomName != null)
         {
             // asked to move to room: take the given choice
-            var choice = context.Choices.First(choice => choice.Text == $"exit:{moveToRoomName}");
-            Assert.IsNotNull(choice);
+            var choice = context.Choices.FirstOrDefault(choice => choice.Text == $"exit:{moveToRoomName}");
+            if (choice.Text == null)
+                throw new Exception($"Cannot find an interaction choice in Ink to exit to room {moveToRoomName}");
+
             context.TakeChoice(choice.Index);
         }
     }

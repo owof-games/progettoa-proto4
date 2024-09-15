@@ -2,24 +2,34 @@
 using NUnit.Framework;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Scenes.RootScene
 {
     public class TestLoadRoom2 : MonoBehaviour
     {
-        [FormerlySerializedAs("moveToRoomEvent")] [SerializeField]
-        private StringEvent? interactExitEvent;
+        [SerializeField] private StringEvent? interactExitEvent;
 
         private void Awake()
         {
             Assert.IsNotNull(interactExitEvent);
         }
 
-        public void OnClick()
+        public void OnClickRoom1()
+        {
+            Assert.IsNotNull(interactExitEvent);
+            interactExitEvent!.Raise("room1");
+        }
+
+        public void OnClickRoom2()
         {
             Assert.IsNotNull(interactExitEvent);
             interactExitEvent!.Raise("room2");
+        }
+
+        public void OnClickRoom(string roomName)
+        {
+            Assert.IsNotNull(interactExitEvent);
+            interactExitEvent!.Raise(roomName);
         }
     }
 }

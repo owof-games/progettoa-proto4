@@ -1,0 +1,1 @@
+LIST Characters = Paola, Elia, Zeca, Matteo, Greta, Ettore

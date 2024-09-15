@@ -18,7 +18,8 @@ MonoBehaviour:
   inkAtomsStoryInitializedVariable: {fileID: 11400000, guid: c64d263f342401a43aaad9c76887e99f, type: 2}
   debugCurrentState: 0
   variableObservers: []
-  externalFunctions: []
+  externalFunctions:
+  - {fileID: 11400000, guid: 8cbb6008e1940ed4eac5047ad0050b74, type: 2}
   commandLineParsers:
   - {fileID: 11400000, guid: c57cf009d21d3ad44aa5bad1063bb775, type: 2}
   - {fileID: 11400000, guid: ba4fe05af865e7f44a3123e5dd4533c6, type: 2}

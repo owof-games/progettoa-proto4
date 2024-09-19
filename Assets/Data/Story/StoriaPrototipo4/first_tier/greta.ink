@@ -1,12 +1,16 @@
 === cb_first_tier_greta ===
 
-+ {areTwoEntitiesTogether} [Greta]
++ {areTwoEntitiesTogether(Greta, Ettore)} [Greta]
     -> greta_dialogues->
 -
 
--> character_based
+-> cb_first_tier
 
 
 = greta_dialogues
-+ XXX
+    Greta
+    + XXX
+    + YYY
+    -
+    Cose dette
 ->->

@@ -56,4 +56,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 */
 
 
--> character_based
+{
+- TierState == first_tier: -> cb_first_tier
+- TierState == second_tier: -> cb_second_tier
+}

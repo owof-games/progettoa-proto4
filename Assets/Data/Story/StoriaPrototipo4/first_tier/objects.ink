@@ -4,13 +4,11 @@
     -> limetta_unghie ->
 
 
--> character_based
+-> cb_first_tier
 
 = limetta_unghie 
-    + (taccu_vestitiStrappati) I vestiti sono strappati in più punti
-        + + E c'è un biglietto.
-        "Studio Perugini & Perugini".
-        Questo è il biglietto da visita di un avvocato.
+    + XXX
+    + YYY
     -
 ->->
 
@@ -23,13 +21,11 @@
     -> antico_pugnale ->
 
 
--> character_based
+-> cb_first_tier
 
 = antico_pugnale
-    + (taccu_vestitiStrappati) I vestiti sono strappati in più punti
-        + + E c'è un biglietto.
-        "Studio Perugini & Perugini".
-        Questo è il biglietto da visita di un avvocato.
+    + XXX
+    + YYY
     -
 ->->
 
@@ -43,13 +39,11 @@
     -> spiedino_cocktail ->
 
 
--> character_based
+-> cb_first_tier
 
 = spiedino_cocktail
-    + (taccu_vestitiStrappati) I vestiti sono strappati in più punti
-        + + E c'è un biglietto.
-        "Studio Perugini & Perugini".
-        Questo è il biglietto da visita di un avvocato.
+    + XXX
+    + YYY
     -
 ->->
 
@@ -62,14 +56,12 @@
     -> lettera ->
 
 
--> character_based
+-> cb_first_tier
 
 
 
 = lettera 
-    + (taccu_vestitiStrappati) I vestiti sono strappati in più punti
-        + + E c'è un biglietto.
-        "Studio Perugini & Perugini".
-        Questo è il biglietto da visita di un avvocato.
+    + XXX
+    + YYY
     -
 ->->

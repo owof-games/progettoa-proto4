@@ -4,9 +4,13 @@
     -> paola_dialogues->
 -
 
--> character_based
+-> cb_first_tier
 
 
 = paola_dialogues
-+ XXX
+    Paola
+    + XXX
+    + YYY
+    -
+    Cose dette
 ->->

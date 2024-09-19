@@ -11,6 +11,7 @@ LIST Objects = LimettaUnghie, AnticoPugnale, SpiedinoCocktail, Lettera
 //list of variables to reset on every loop
 LIST LoopableVariables = Zeca_ha_risposta, elia_in_cucina, paola_sa, greta_risposta
 
+//list to set the current tier
 LIST TierState = (first_tier), second_tier
 ////////////////////////////////////////////////////////////
 

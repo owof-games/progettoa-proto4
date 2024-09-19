@@ -4,9 +4,13 @@
     -> matteo_dialogues ->
 -
 
--> character_based
+-> cb_first_tier
 
 
 = matteo_dialogues
-+ XXX
+    Matteo
+    + XXX
+    + YYY
+    -
+    Cose dette
 ->->

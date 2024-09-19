@@ -6,24 +6,26 @@
 
 = intro_first_tier
 Inizio primo tier
-+ Cose
--> character_based
++ Cose, che chiama il malloppone di tunnel
++ Test: vai da Paola direttamente -> cb_first_tier_paola
+-
+-> cb_first_tier
 
 
 = intro_second_tier
 Inizio secondo tier
 + Cose
--> character_based
+-> cb_second_tier
 
-=== character_based ===
+//=== character_based ===
 
-~ temp my_location = entity_location(Ettore)
-{debug: [sono le {print_time()}, sei in {my_location}]}
+//~ temp my_location = entity_location(Ettore)
+//{debug: [sono le {print_time()}, sei in {my_location}]}
 
-{
+/*{
 - TierState == first_tier: -> cb_first_tier
 - TierState == second_tier: -> cb_second_tier
-}
+}*/
 
 === cb_first_tier
 ~ temp my_location = entity_location(Ettore)
@@ -47,7 +49,7 @@ Inizio secondo tier
 + ->
 -
 
--> character_based
+-> cb_first_tier
 
 = nothing
 
@@ -74,7 +76,7 @@ DEBUG: errore, nessun personaggio con cui interagire
 + ->
 -
 
--> character_based
+-> cb_second_tier
 
 = nothing
 

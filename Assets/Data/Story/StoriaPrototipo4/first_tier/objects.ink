@@ -7,13 +7,13 @@
 -> cb_first_tier
 
 = limetta_unghie 
-    + Raccogli la limetta per le unghie
+    + {inventory_contents !? LimettaUnghie}Raccogli la limetta per le unghie
     ~ takeObject(LimettaUnghie)
+    + {inventory_contents has LimettaUnghie} Mostra limetta unghie
+    + {inventory_contents has LimettaUnghie} Lascia limetta unghie
     + YYY
     -
 ->->
-
-
 
 
 === cb_first_tier_antico_pugnale ===
@@ -25,13 +25,13 @@
 -> cb_first_tier
 
 = antico_pugnale
-    + Afferri il pugnale
+    + {inventory_contents !? AnticoPugnale}Afferri il pugnale
     ~ takeObject(AnticoPugnale)
+    + {inventory_contents has AnticoPugnale} Mostra limetta unghie
+    + {inventory_contents has AnticoPugnale} Lascia limetta unghie
     + Lo lasci dov'è
     -
 ->->
-
-
 
 
 
@@ -44,13 +44,13 @@
 -> cb_first_tier
 
 = spiedino_cocktail
-    + Afferri lo spiedino
+    + {inventory_contents !? SpiedinoCocktail}Afferri lo spiedino
     ~ takeObject(SpiedinoCocktail)
+    + {inventory_contents has SpiedinoCocktail} Mostra limetta unghie
+    + {inventory_contents has SpiedinoCocktail} Lascia limetta unghie
     + YYY
     -
 ->->
-
-
 
 
 === cb_first_tier_lettera ===
@@ -58,14 +58,15 @@
 + {areTwoEntitiesTogether(Ettore, Lettera)} [C'è una lettera]
     -> lettera ->
 
-
+Lettera
 -> cb_first_tier
 
 
-
 = lettera 
-    + Prendi la lettera
+    + {inventory_contents !? Lettera} Prendi la lettera
     ~ takeObject(Lettera)
+    + {inventory_contents has Lettera} Mostra limetta unghie
+    + {inventory_contents has Lettera} Lascia limetta unghie
     + YYY
     -
 ->->

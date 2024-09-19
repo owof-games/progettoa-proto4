@@ -9,6 +9,7 @@
 
 = paola_dialogues
     Paola
+    -> storylets ->
     + XXX
     + YYY
     -

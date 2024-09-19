@@ -2,7 +2,6 @@
 
 == storylets
 
-TODO: creare funzione per chiamare gli storylets
 {
 
 - areThreeEntitiesTogether(Elia, Greta, Ettore) && not relationshipDiscovered:

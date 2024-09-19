@@ -9,6 +9,7 @@
 
 = greta_dialogues
     Greta
+    -> storylets ->
     + XXX
     + YYY
     -

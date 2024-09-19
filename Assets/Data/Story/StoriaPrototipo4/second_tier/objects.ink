@@ -9,9 +9,10 @@
 
 
 = lettera 
-    + (taccu_vestitiStrappati) I vestiti sono strappati in più punti
-        + + E c'è un biglietto.
-        "Studio Perugini & Perugini".
-        Questo è il biglietto da visita di un avvocato.
+    + {inventory_contents !? Lettera}Prendi la lettera
+    ~ takeObject(Lettera)
+    + {inventory_contents has Lettera} Mostra limetta unghie
+    + {inventory_contents has Lettera} Lascia limetta unghie
+    + YYY
     -
 ->->

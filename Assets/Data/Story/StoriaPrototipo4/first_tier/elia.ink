@@ -9,6 +9,7 @@
 
 = elia_dialogues
     Elia
+    -> storylets ->
     + XXX
     + YYY
     -

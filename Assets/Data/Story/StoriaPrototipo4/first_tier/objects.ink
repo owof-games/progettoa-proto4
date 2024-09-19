@@ -7,11 +7,13 @@
 -> cb_first_tier
 
 = limetta_unghie 
-    + {inventory_contents !? LimettaUnghie}Raccogli la limetta per le unghie
-    ~ takeObject(LimettaUnghie)
+    + (interagito) [Controlla la limetta per le unghie]
+    + {inventory_contents !? LimettaUnghie && interagito}Raccogli la limetta per le unghie
+        ~ takeObject(LimettaUnghie)
     + {inventory_contents has LimettaUnghie} Mostra limetta unghie
     + {inventory_contents has LimettaUnghie} Lascia limetta unghie
-    + YYY
+        ~ removeEntity(LimettaUnghie)
+    + La lasci dov'è
     -
 ->->
 
@@ -25,10 +27,12 @@
 -> cb_first_tier
 
 = antico_pugnale
-    + {inventory_contents !? AnticoPugnale}Afferri il pugnale
-    ~ takeObject(AnticoPugnale)
-    + {inventory_contents has AnticoPugnale} Mostra limetta unghie
-    + {inventory_contents has AnticoPugnale} Lascia limetta unghie
+    + (interagito) [Ispeziona il pugnale]
+    + {inventory_contents !? AnticoPugnale && interagito}Afferri il pugnale
+        ~ takeObject(AnticoPugnale)
+    + {inventory_contents has AnticoPugnale} Mostra il pugnale
+    + {inventory_contents has AnticoPugnale} Lascia il pugnale
+        ~ removeEntity(AnticoPugnale)
     + Lo lasci dov'è
     -
 ->->
@@ -44,11 +48,13 @@
 -> cb_first_tier
 
 = spiedino_cocktail
-    + {inventory_contents !? SpiedinoCocktail}Afferri lo spiedino
-    ~ takeObject(SpiedinoCocktail)
-    + {inventory_contents has SpiedinoCocktail} Mostra limetta unghie
-    + {inventory_contents has SpiedinoCocktail} Lascia limetta unghie
-    + YYY
+    + (interagito) [Osserva lo spiedino]
+    + {inventory_contents !? SpiedinoCocktail && interagito}Afferri lo spiedino
+        ~ takeObject(SpiedinoCocktail)
+    + {inventory_contents has SpiedinoCocktail} Mostra lo spiedino
+    + {inventory_contents has SpiedinoCocktail} Lascia lo spiedino
+        ~ removeEntity(SpiedinoCocktail)
+    + Lo lasci dov'è
     -
 ->->
 
@@ -62,11 +68,13 @@ Lettera
 -> cb_first_tier
 
 
-= lettera 
-    + {inventory_contents !? Lettera} Prendi la lettera
-    ~ takeObject(Lettera)
-    + {inventory_contents has Lettera} Mostra limetta unghie
-    + {inventory_contents has Lettera} Lascia limetta unghie
-    + YYY
+= lettera
+    + (interagito) [Leggi la lettera]
+    + {inventory_contents !? Lettera && interagito} Prendi la lettera
+        ~ takeObject(Lettera)
+    + {inventory_contents has Lettera} Mostra lettera
+    + {inventory_contents has Lettera} Lascia lettera
+        ~ removeEntity(Lettera)
+    + La lasci dov'è
     -
 ->->

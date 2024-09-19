@@ -2,6 +2,7 @@ TODO: scegliere se farli accadere una sola volta, o ripeterli. Potrebbe essere c
 //STORYLETS ABOUT THE ELIA + ZECA + GRETA DRAMA
 === aStolenKissStorylet
 Stolen Kiss Storylet
+~ relationshipDiscovered = true
     + XX
     -
 ->->

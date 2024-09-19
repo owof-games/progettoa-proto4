@@ -92,7 +92,7 @@ VAR yellow_room_contents = (SpiedinoCocktail)
 //questa funzione verifica se ho spazio nell'inventario prima di permettermi di prendere un altro oggetto
 === function takeObject(entity)
 {
-        - LIST_COUNT(inventory_contents) > 0: "Ho le mani piene, non posso portare nulla"
+        - LIST_COUNT(inventory_contents) > 0: Ho le mani piene, non posso portare altro.
         - else:
                 ~ inventory_contents += entity
                 ~ white_room_contents -= entity
@@ -102,8 +102,21 @@ VAR yellow_room_contents = (SpiedinoCocktail)
 
     }
     
-//=== function removeEntity(entity)
-
+=== function removeEntity(entity)
+{
+    - white_room_contents has Ettore:
+        ~ white_room_contents += entity
+        ~ inventory_contents -= entity
+    - green_room_contents has Ettore:
+        ~ green_room_contents += entity
+        ~ inventory_contents -= entity
+    - red_room_contents has Ettore:
+        ~ red_room_contents += entity
+        ~ inventory_contents -= entity
+    - yellow_room_contents has Ettore:
+        ~ yellow_room_contents += entity
+        ~ inventory_contents -= entity
+ }
     
 
 

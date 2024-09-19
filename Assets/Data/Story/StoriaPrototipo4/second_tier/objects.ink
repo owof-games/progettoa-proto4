@@ -9,10 +9,10 @@
 
 
 = lettera 
-    + {inventory_contents !? Lettera}Prendi la lettera
-    ~ takeObject(Lettera)
-    + {inventory_contents has Lettera} Mostra limetta unghie
-    + {inventory_contents has Lettera} Lascia limetta unghie
-    + YYY
+    + (interagito) [Leggi la lettera]
+    + {inventory_contents !? Lettera && interagito} [Prendi la lettera]
+        ~ takeObject(Lettera)
+    + {inventory_contents has Lettera} [Mostra la lettera]
+    + La lasci dov'è
     -
 ->->

@@ -54,7 +54,16 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 
 */
-
+//INVENTARIO//
++ {inventory_contents has Lettera} [Lascia la lettera]
+        ~ removeEntity(Lettera)
++ {inventory_contents has SpiedinoCocktail} [Lascia lo spiedino]
+        ~ removeEntity(SpiedinoCocktail)
++ {inventory_contents has AnticoPugnale} [Lascia il pugnale]
+        ~ removeEntity(AnticoPugnale)
++ {inventory_contents has LimettaUnghie} [Lascia limetta unghie]
+        ~ removeEntity(LimettaUnghie)
+-       
 TODO: trovare una soluzione che non duplichi codice
 {
 - TierState == first_tier: -> cb_first_tier

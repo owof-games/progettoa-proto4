@@ -7,8 +7,6 @@
 = intro_first_tier
 Inizio primo tier
 + Cose, che chiama il malloppone di tunnel
-+ Test: vai da Paola direttamente -> cb_first_tier_paola
--
 -> cb_first_tier
 
 

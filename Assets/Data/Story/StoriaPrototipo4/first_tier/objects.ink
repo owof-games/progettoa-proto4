@@ -7,7 +7,8 @@
 -> cb_first_tier
 
 = limetta_unghie 
-    + XXX
+    + Raccogli la limetta per le unghie
+    ~ takeObject(LimettaUnghie)
     + YYY
     -
 ->->
@@ -24,8 +25,9 @@
 -> cb_first_tier
 
 = antico_pugnale
-    + XXX
-    + YYY
+    + Afferri il pugnale
+    ~ takeObject(AnticoPugnale)
+    + Lo lasci dov'è
     -
 ->->
 
@@ -42,7 +44,8 @@
 -> cb_first_tier
 
 = spiedino_cocktail
-    + XXX
+    + Afferri lo spiedino
+    ~ takeObject(SpiedinoCocktail)
     + YYY
     -
 ->->
@@ -61,7 +64,8 @@
 
 
 = lettera 
-    + XXX
+    + Prendi la lettera
+    ~ takeObject(Lettera)
     + YYY
     -
 ->->

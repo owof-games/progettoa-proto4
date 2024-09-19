@@ -19,7 +19,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 */
 
 === notebook
-
++ Scelta taccuino
 /*
 + [Aggiorna taccuino]
 
@@ -55,7 +55,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 */
 
-
+TODO: trovare una soluzione che non duplichi codice
 {
 - TierState == first_tier: -> cb_first_tier
 - TierState == second_tier: -> cb_second_tier

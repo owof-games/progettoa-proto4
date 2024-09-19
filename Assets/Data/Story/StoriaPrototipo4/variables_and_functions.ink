@@ -76,12 +76,7 @@ VAR yellow_room_contents = (SpiedinoCocktail)
 }
 {destination:
     - Inventory:
-    {
-        //mi sa che non va benissimo in realtà, perché dobbiamo anche prevenire che l'oggetto venga rimosso dalla precedente location, giusto?
-        - inventory_contents > 0: "Ho le mani piene, non posso portare nulla";
-        - else:
-                ~ inventory_contents += entity
-    }
+        ~ inventory_contents += entity
     - WhiteRoom:
         ~ white_room_contents += entity
     - GreenRoom:
@@ -93,6 +88,24 @@ VAR yellow_room_contents = (SpiedinoCocktail)
     - else:
         DEBUG: error, cannot understand location {destination} while trying to move {entity} in.
 }
+
+//questa funzione verifica se ho spazio nell'inventario prima di permettermi di prendere un altro oggetto
+=== function takeObject(entity)
+{
+        - LIST_COUNT(inventory_contents) > 0: "Ho le mani piene, non posso portare nulla"
+        - else:
+                ~ inventory_contents += entity
+                ~ white_room_contents -= entity
+                ~ green_room_contents -= entity
+                ~ red_room_contents -= entity
+                ~ yellow_room_contents -= entity
+
+    }
+    
+//=== function removeEntity(entity)
+
+    
+
 
 /**
  * Check if entity1 and entity2 are both in the same location.

@@ -17,16 +17,6 @@ Inizio secondo tier
 + Cose
 -> cb_second_tier
 
-//=== character_based ===
-
-//~ temp my_location = entity_location(Ettore)
-//{debug: [sono le {print_time()}, sei in {my_location}]}
-
-/*{
-- TierState == first_tier: -> cb_first_tier
-- TierState == second_tier: -> cb_second_tier
-}*/
-
 === cb_first_tier
 ~ temp my_location = entity_location(Ettore)
 {debug: [sono le {print_time()}, sei in {my_location}]}

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "per avere pi\xF9 o meno un idea_0": 4183303168015435852
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

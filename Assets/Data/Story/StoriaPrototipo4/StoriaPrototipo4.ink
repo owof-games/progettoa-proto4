@@ -22,6 +22,8 @@ INCLUDE second_tier/matteo.ink
 INCLUDE second_tier/elia.ink
 INCLUDE second_tier/zeca.ink
 INCLUDE second_tier/objects.ink
+INCLUDE second_tier/storylets.ink
+
 
 -> intro
 

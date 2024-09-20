@@ -17,7 +17,7 @@ LIST TierState = (first_tier), second_tier
 
 
 // list of all places (the inventory is considered a physical place)
-LIST Places = Inventory, WhiteRoom, GreenRoom, RedRoom, YellowRoom
+LIST Places = Inventory, WhiteRoom, GreenRoom, RedRoom, YellowRoom, ObjectStorage
 
 // variables for each location, containing the list of characters and objects in them
 // can't name them like "white_room" because there are knots with that name
@@ -26,7 +26,8 @@ VAR inventory_contents = ()
 VAR white_room_contents = (Ettore, Matteo, Paola, Zeca, Elia, Greta, AnticoPugnale)
 VAR green_room_contents = (LimettaUnghie)
 VAR red_room_contents = (Lettera)
-VAR yellow_room_contents = (SpiedinoCocktail)
+VAR yellow_room_contents = ()
+VAR object_storage_contents = (SpiedinoCocktail)
 
 
 /*
@@ -48,6 +49,8 @@ VAR yellow_room_contents = (SpiedinoCocktail)
         ~ return RedRoom
     - yellow_room_contents has entity:
         ~ return YellowRoom
+    - object_storage_contents has entity:
+        ~ return ObjectStorage
     - else:
         DEBUG: error, cannot find {entity} anywhere!
         ~ return 0
@@ -71,6 +74,8 @@ VAR yellow_room_contents = (SpiedinoCocktail)
         ~ red_room_contents -= entity
     - YellowRoom:
         ~ yellow_room_contents -= entity
+    - ObjectStorage:
+        ~ object_storage_contents -= entity
     - else:
         DEBUG: error, cannot understand location {current_location} while trying to move {entity} out.
 }
@@ -85,6 +90,8 @@ VAR yellow_room_contents = (SpiedinoCocktail)
         ~ red_room_contents += entity
     - YellowRoom:
         ~ yellow_room_contents += entity
+    - ObjectStorage:
+        ~ object_storage_contents += entity
     - else:
         DEBUG: error, cannot understand location {destination} while trying to move {entity} in.
 }
@@ -116,6 +123,7 @@ VAR yellow_room_contents = (SpiedinoCocktail)
     - yellow_room_contents has Ettore:
         ~ yellow_room_contents += entity
         ~ inventory_contents -= entity
+
  }
     
 
@@ -142,6 +150,9 @@ VAR yellow_room_contents = (SpiedinoCocktail)
 
 === function areFiveEntitiesTogether (entity1, entity2, entity3, entity4, entity5)
 ~ return entity_location(entity1) == entity_location(entity2) && entity_location(entity3) && entity_location(entity4) && entity_location(entity5)
+
+=== function areSixEntitiesTogether (entity1, entity2, entity3, entity4, entity5, entity6)
+~ return entity_location(entity1) == entity_location(entity2) && entity_location(entity3) && entity_location(entity4) && entity_location(entity5) && entity_location(entity6)
 
 ////////////////////////////////////////////////////////////
 

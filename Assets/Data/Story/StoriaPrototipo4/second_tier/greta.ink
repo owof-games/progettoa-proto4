@@ -8,5 +8,8 @@
 
 
 = greta_dialogues
-+ XXX
+    //INFO GENERALI
+    + XXX
+    //SCELTE CONDIZIONALI
+
 ->->

@@ -1,6 +1,24 @@
-//FIRST TIER STORYLETS
+=== first_tier_storylets
+{
 
-=== storylets
+- areSixEntitiesTogether(Elia, Matteo, Ettore, Zeca, Paola, Greta):
+    -> startingDinnerStorylet
+
+
+- areThreeEntitiesTogether(Elia, Matteo, Ettore) && not areTwoEntitiesTogether(Elia, Zeca) && not areTwoEntitiesTogether(Elia, Paola) && not areTwoEntitiesTogether(Elia, Greta):
+    -> weddingAtThePubStorylet
+
+- areThreeEntitiesTogether(Elia, Greta, Ettore) && not areTwoEntitiesTogether(Elia, Matteo) && not areTwoEntitiesTogether(Elia, Paola) && not areTwoEntitiesTogether(Elia, Zeca):
+    -> anEavesdropAboutFriendshipStorylet
+
+}
+
+
+->->
+
+//SECOND TIER STORYLETS
+
+=== second_tier_storylets
 
 {
 

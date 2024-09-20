@@ -1,30 +1,24 @@
-TODO: scegliere se farli accadere una sola volta, o ripeterli. Potrebbe essere carino lasciarli sempre ma, dopo il primo ascolto, offrire l'opzione di fuga (diversa a seconda del contesto, da "ho già sentito questa storia" a "te ne vai e li lasci litigare").
-//STORYLETS ABOUT THE ELIA + ZECA + GRETA DRAMA
-=== aStolenKissStorylet
-Stolen Kiss Storylet
-~ relationshipDiscovered = true
-    + XX
-    -
+=== startingDinnerStorylet
+Scena iniziale
+    Matteo: xxx
+    Paola: yyy
+        + Opzione Storylet
+        + Altra Opzione Storylet
+        -
+    Greta: 2222    
+
 ->->
 
 
 
-=== hotMessStorylet
-Hot Mess Storylet
-    + XX
-    -
+
+=== weddingAtThePubStorylet 
+Discussione Matteo ed Elia su matrimonio al bar
+
 ->->
 
 
-=== aPainfullConfessionStorylet
-a Painfull Confession Storylet
-    + XX
-    -
-->->
 
-
-=== hardLifeStorylet
-Hard Life Storylet
-    + XX
-    -
+=== anEavesdropAboutFriendshipStorylet 
+Conversazione origliata: capiamo che Greta non ce l'ha con Paola, ma cagate tipo "prima che papà mi adottasse ho vissuto in strada, non possono rivivere quel trauma".
 ->->

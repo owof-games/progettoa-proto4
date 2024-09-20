@@ -8,6 +8,8 @@
 
 
 = elia_dialogues
+    //INFO GENERALI
+    + XXX
+    //SCELTE CONDIZIONALI
 
-+ xxx
 ->->

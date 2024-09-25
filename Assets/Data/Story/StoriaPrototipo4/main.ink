@@ -8,6 +8,7 @@
 === cb_first_tier
 ~ temp my_location = entity_location(Ettore)
 {debug: [sono le {print_time()}, sei in {my_location}]}
+@interact
 // thread per ogni personaggio
 <- cb_first_tier_paola
 <- cb_first_tier_elia
@@ -39,6 +40,7 @@ DEBUG: errore, nessun personaggio con cui interagire
 === cb_second_tier
 ~ temp my_location = entity_location(Ettore)
 {debug: [sono le {print_time()}, sei in {my_location}]}
+@interact
 // thread per ogni personaggio
 <- cb_second_tier_paola
 <- cb_second_tier_elia

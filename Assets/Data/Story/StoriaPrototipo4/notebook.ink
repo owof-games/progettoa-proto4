@@ -66,13 +66,13 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 */
 //INVENTARIO//
 + {inventory_contents has Lettera} [Lascia la lettera]
-        ~ removeEntity(Lettera)
+        ~ remove_entity(Lettera)
 + {inventory_contents has SpiedinoCocktail} [Lascia lo spiedino]
-        ~ removeEntity(SpiedinoCocktail)
+        ~ remove_entity(SpiedinoCocktail)
 + {inventory_contents has AnticoPugnale} [Lascia il pugnale]
-        ~ removeEntity(AnticoPugnale)
+        ~ remove_entity(AnticoPugnale)
 + {inventory_contents has LimettaUnghie} [Lascia limetta unghie]
-        ~ removeEntity(LimettaUnghie)
+        ~ remove_entity(LimettaUnghie)
 -       
 TODO: trovare una soluzione che non duplichi codice
 {

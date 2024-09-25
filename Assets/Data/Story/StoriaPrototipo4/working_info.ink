@@ -1,3 +1,6 @@
+//NOMENCLATURA FUNZIONI
+//sempre_col_cammello
+
 
 //NOMENCLATURA LABELS
 // _taccu = prefisso per le etichette che abilitano informazioni nel notebook

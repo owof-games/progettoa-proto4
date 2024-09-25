@@ -13,9 +13,9 @@
 = paola_acting
     -> first_tier_storylets ->
     //INFO GENERALI
-    + Cose Paola
+    + [character:Paola]Cose Paola
         ~ acting = false
-    + Altre Cose Paola
+    + [character:Paola]Altre Cose Paola
     
     
     //SCELTE CONDIZIONALI
@@ -26,10 +26,11 @@
 
 = paola_talking
     //INFO GENERALI
-    + Paola sei stronza
-    + Altre Cose Paola
+    + [character:Paola]Paola sei stronza
+    + [character:Paola]Altre Cose Paola
     
     
     //SCELTE CONDIZIONALI
     -
 ->->
+

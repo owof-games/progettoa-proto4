@@ -9,10 +9,10 @@
 = limetta_unghie 
     + (interagito) [Controlla la limetta per le unghie]
     + {inventory_contents !? LimettaUnghie && interagito}Raccogli la limetta per le unghie
-        ~ takeObject(LimettaUnghie)
+        ~ take_object(LimettaUnghie)
     + {inventory_contents has LimettaUnghie} Mostra limetta unghie
     + {inventory_contents has LimettaUnghie} Lascia limetta unghie
-        ~ removeEntity(LimettaUnghie)
+        ~ remove_entity(LimettaUnghie)
     + La lasci dov'è
     -
 ->->
@@ -29,10 +29,10 @@
 = antico_pugnale
     + (interagito) [Ispeziona il pugnale]
     + {inventory_contents !? AnticoPugnale && interagito}Afferri il pugnale
-        ~ takeObject(AnticoPugnale)
+        ~ take_object(AnticoPugnale)
     + {inventory_contents has AnticoPugnale} Mostra il pugnale
     + {inventory_contents has AnticoPugnale} Lascia il pugnale
-        ~ removeEntity(AnticoPugnale)
+        ~ remove_entity(AnticoPugnale)
     + Lo lasci dov'è
     -
 ->->
@@ -50,10 +50,10 @@
 = spiedino_cocktail
     + (interagito) [Osserva lo spiedino]
     + {inventory_contents !? SpiedinoCocktail && interagito}Afferri lo spiedino
-        ~ takeObject(SpiedinoCocktail)
+        ~ take_object(SpiedinoCocktail)
     + {inventory_contents has SpiedinoCocktail} Mostra lo spiedino
     + {inventory_contents has SpiedinoCocktail} Lascia lo spiedino
-        ~ removeEntity(SpiedinoCocktail)
+        ~ remove_entity(SpiedinoCocktail)
     + Lo lasci dov'è
     -
 ->->
@@ -71,10 +71,10 @@ Lettera
 = lettera
     + (interagito) [Leggi la lettera]
     + {inventory_contents !? Lettera && interagito} Prendi la lettera
-        ~ takeObject(Lettera)
+        ~ take_object(Lettera)
     + {inventory_contents has Lettera} Mostra lettera
     + {inventory_contents has Lettera} Lascia lettera
-        ~ removeEntity(Lettera)
+        ~ remove_entity(Lettera)
     + La lasci dov'è
     -
 ->->

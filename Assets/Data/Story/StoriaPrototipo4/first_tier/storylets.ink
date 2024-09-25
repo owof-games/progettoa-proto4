@@ -1,3 +1,21 @@
+//INDEX
+=== first_tier_storylets
+{
+
+- areSixEntitiesTogether(Elia, Matteo, Ettore, Zeca, Paola, Greta):
+    -> startingDinnerStorylet
+
+
+- areThreeEntitiesTogether(Elia, Matteo, Ettore) && not areTwoEntitiesTogether(Elia, Zeca) && not areTwoEntitiesTogether(Elia, Paola) && not areTwoEntitiesTogether(Elia, Greta):
+    -> weddingAtThePubStorylet
+
+- areThreeEntitiesTogether(Elia, Greta, Ettore) && not areTwoEntitiesTogether(Elia, Matteo) && not areTwoEntitiesTogether(Elia, Paola) && not areTwoEntitiesTogether(Elia, Zeca):
+    -> anEavesdropAboutFriendshipStorylet
+
+}
+->->
+
+//TESTI
 === startingDinnerStorylet
 Scena iniziale
     Matteo: xxx

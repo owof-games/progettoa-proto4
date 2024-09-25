@@ -1,19 +1,9 @@
 === intro ===
 {
-- TierState == first_tier: -> intro_first_tier
-- TierState == second_tier: -> intro_second_tier
+- TierState == first_tier: -> cb_first_tier
+- TierState == second_tier: -> cb_second_tier
 }
 
-= intro_first_tier
-Inizio primo tier
-+ Cose, che chiama il malloppone di tunnel
--> cb_first_tier
-
-
-= intro_second_tier
-Inizio secondo tier
-+ Cose
--> cb_second_tier
 
 === cb_first_tier
 ~ temp my_location = entity_location(Ettore)
@@ -21,6 +11,7 @@ Inizio secondo tier
 // thread per ogni personaggio
 <- cb_first_tier_paola
 <- cb_first_tier_elia
+<- prove_per_follow_up
 <- cb_first_tier_zeca
 <- cb_first_tier_greta
 <- cb_first_tier_matteo

@@ -96,10 +96,17 @@ VAR object_storage_contents = (SpiedinoCocktail)
         DEBUG: error, cannot understand location {destination} while trying to move {entity} in.
 }
 
+// if the entity is Ettore, also trigger the room switch animation
+{entity == Ettore:
+  @moveTo roomName:{destination}
+}
+
+
 //questa funzione verifica se ho spazio nell'inventario prima di permettermi di prendere un altro oggetto
-=== function takeObject(entity)
+=== function take_object(entity)
 {
-        - LIST_COUNT(inventory_contents) > 0: Ho le mani piene, non posso portare altro.
+        - LIST_COUNT(inventory_contents) > 0:
+            ~ throw_exception("Inventario pieno")
         - else:
                 ~ inventory_contents += entity
                 ~ white_room_contents -= entity
@@ -109,7 +116,7 @@ VAR object_storage_contents = (SpiedinoCocktail)
 
     }
     
-=== function removeEntity(entity)
+=== function remove_entity(entity)
 {
     - white_room_contents has Ettore:
         ~ white_room_contents += entity
@@ -139,19 +146,19 @@ VAR object_storage_contents = (SpiedinoCocktail)
 ~ return entity_location(entity1) == entity_location(entity2) and entity_location(entity1) == location
 
 //funzione solo per fare check presenza assieme personagge
-=== function areTwoEntitiesTogether (entity1, entity2)
+=== function areTwoEntitiesTogether(entity1, entity2)
 ~ return entity_location(entity1) == entity_location(entity2)
 
-=== function areThreeEntitiesTogether (entity1, entity2, entity3)
+=== function areThreeEntitiesTogether(entity1, entity2, entity3)
 ~ return entity_location(entity1) == entity_location(entity2) && entity_location(entity3)
 
-=== function areFourEntitiesTogether (entity1, entity2, entity3, entity4)
+=== function areFourEntitiesTogether(entity1, entity2, entity3, entity4)
 ~ return entity_location(entity1) == entity_location(entity2) && entity_location(entity3) && entity_location(entity4)
 
-=== function areFiveEntitiesTogether (entity1, entity2, entity3, entity4, entity5)
+=== function areFiveEntitiesTogether(entity1, entity2, entity3, entity4, entity5)
 ~ return entity_location(entity1) == entity_location(entity2) && entity_location(entity3) && entity_location(entity4) && entity_location(entity5)
 
-=== function areSixEntitiesTogether (entity1, entity2, entity3, entity4, entity5, entity6)
+=== function areSixEntitiesTogether(entity1, entity2, entity3, entity4, entity5, entity6)
 ~ return entity_location(entity1) == entity_location(entity2) && entity_location(entity3) && entity_location(entity4) && entity_location(entity5) && entity_location(entity6)
 
 ////////////////////////////////////////////////////////////

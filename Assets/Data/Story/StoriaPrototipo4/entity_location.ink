@@ -2,6 +2,22 @@
 /* NOTA: per com'è strutturato ora, se passiamo per un nodo che modifica la posizione di un soggetto, quel soggetto poi rimarrà in quella stanza anche negli altri loop, per noi è ok?*/
 
 {debug: [applico la timeline per {current_time}]}
+
+/*
+// Matteo
+{current_time:
+    - 0:
+        ~ move_entity(Matteo, GreenRoom)
+    - 100:
+        ~ move_entity(Matteo, WhiteRoom)
+    - 200:
+        ~ move_entity(Matteo, RedRoom)
+}
+
+// Paola
+// ...
+*/
+
 { current_time:
 
 - Time_22_35:

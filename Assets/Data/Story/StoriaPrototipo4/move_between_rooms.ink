@@ -15,10 +15,9 @@
 -
 
 {
+    // TODO: se serve il nodo di loop per la tecnica ingold che serve a supportare le scelte "*", possiamo scorporare questo pezzettino di codice qua sotto in un suo nodo e usare quel nodo per il read count
     - current_time == Time_22_35:
     @next-loop
     // loop restarted!
     -> intro
-    - TierState == first_tier: -> cb_first_tier
-    - TierState == second_tier: -> cb_second_tier
 }

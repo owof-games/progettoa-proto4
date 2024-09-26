@@ -4,12 +4,12 @@
     -> elia_dialogues ->
 -
 
--> cb_second_tier
+-> intro
 
 
 = elia_dialogues
     //INFO GENERALI
-    + XXX
+    + [character:Elia]XXX
     //SCELTE CONDIZIONALI
 
 ->->

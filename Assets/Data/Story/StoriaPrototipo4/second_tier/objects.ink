@@ -1,18 +1,18 @@
 === cb_second_tier_lettera ===
 
-+ {areTwoEntitiesTogether(Ettore, Lettera)} [C'è una lettera]
++ {areTwoEntitiesTogether(Ettore, Lettera)} [object:Lettera] C'è una lettera
     -> lettera ->
 
-
--> cb_second_tier
-
+-> intro
 
 
-= lettera 
-    + (interagito) [Leggi la lettera]
-    + {inventory_contents !? Lettera && interagito} [Prendi la lettera]
+= lettera
+    + (interagito) [object:Lettera] Leggi la lettera
+    + {inventory_contents !? Lettera && interagito} [object:Lettera] Prendi la lettera
         ~ take_object(Lettera)
-    + {inventory_contents has Lettera} [Mostra la lettera]
+    + {inventory_contents has Lettera} [object:Lettera] Mostra lettera
+    + {inventory_contents has Lettera} [object:Lettera] Lascia lettera
+        ~ remove_entity(Lettera)
     + La lasci dov'è
     -
 ->->

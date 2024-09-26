@@ -4,12 +4,12 @@
     -> paola_dialogues->
 -
 
--> cb_second_tier
+-> intro
 
 
 = paola_dialogues
     //INFO GENERALI
-    + XXX
+    + [character:Paola]XXX
     //SCELTE CONDIZIONALI
 
 ->->

@@ -4,12 +4,12 @@
     -> matteo_dialogues ->
 -
 
--> cb_second_tier
+-> intro
 
 
 = matteo_dialogues
     //INFO GENERALI
-    + XXX
+    + [character:Matteo]XXX
     //SCELTE CONDIZIONALI
 
 ->->

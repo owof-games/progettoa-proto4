@@ -19,7 +19,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 */
 
 === notebook
-+ [Aggiorna taccuino]
++ [notebook]
 {
 - relationshipDiscovered: <b>Chi ha ucciso Paola?:</b>
 - else: <b>Il taccuino è vuoto</b>
@@ -29,8 +29,8 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 
 
-{cb_first_tier_elia.elia_acting.senzatetto: <i>Informazioni di Elia</i>}
-{cb_first_tier_elia.elia_acting.senzatetto: "Paola voleva trasformare il nostro locale in un rifugio per senzatetto, e Greta per questo ha giurato più volte che piuttosto l'avrebbe uccisa!"}
+{elia_acting.senzatetto: <i>Informazioni di Elia</i>}
+{elia_acting.senzatetto: "Paola voleva trasformare il nostro locale in un rifugio per senzatetto, e Greta per questo ha giurato più volte che piuttosto l'avrebbe uccisa!"}
 
 /*
 {cb_drug_bottle.matteo_room.taccu_drogaCameraMatteo or cb_paola.paola_room.taccu_Spacciatore or cb_Greta.paola_room.taccu_GretaNoDrogaMatteo or cb_paola.paola_room.taccu_IG or cb_vestiti_strappati.matteo_room.taccu_vestitiStrappati: <b>Perché Matteo è preso male?</b>}
@@ -74,8 +74,5 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 + {inventory_contents has LimettaUnghie} [Lascia limetta unghie]
         ~ remove_entity(LimettaUnghie)
 -       
-TODO: trovare una soluzione che non duplichi codice
-{
-- TierState == first_tier: -> cb_first_tier
-- TierState == second_tier: -> cb_second_tier
-}
+-> intro
+

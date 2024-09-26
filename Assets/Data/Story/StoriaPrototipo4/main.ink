@@ -12,7 +12,7 @@
 // thread per ogni personaggio
 <- cb_first_tier_paola
 <- cb_first_tier_elia
-<- prove_per_follow_up
+/**<- prove_per_follow_up**/
 <- cb_first_tier_zeca
 <- cb_first_tier_greta
 <- cb_first_tier_matteo
@@ -25,11 +25,13 @@
 <- move_between_rooms(my_location)
 // thread per gestire il notebook
 <- notebook
+// thread per gestire il notebook
+<- phone
 // only present because ink doesn't allow to produce a choice list made ONLY of threads: at least one choice must be in this list (using a default choice that will never appear)
 + ->
 -
 
--> cb_first_tier
+-> intro
 
 = nothing
 
@@ -53,11 +55,13 @@ DEBUG: errore, nessun personaggio con cui interagire
 <- move_between_rooms(my_location)
 // thread per gestire il notebook
 <- notebook
+// thread per gestire il notebook
+<- phone
 // only present because ink doesn't allow to produce a choice list made ONLY of threads: at least one choice must be in this list (using a default choice that will never appear)
 + ->
 -
 
--> cb_second_tier
+-> intro
 
 = nothing
 

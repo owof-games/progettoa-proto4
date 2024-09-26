@@ -7,14 +7,14 @@
     -> matteo_talking ->    
 -
 
--> cb_first_tier
+-> intro
 
 
 = matteo_acting
     -> first_tier_storylets ->
     //INFO GENERALI
-    + XXX
-    + YYY
+    + [character:Matteo] XXX
+    + [character:Matteo] YYY
     
     //SCELTE CONDIZIONALI
     -

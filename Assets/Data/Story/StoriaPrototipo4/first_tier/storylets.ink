@@ -2,7 +2,7 @@
 === first_tier_storylets
 {
 
-- areSixEntitiesTogether(Elia, Matteo, Ettore, Zeca, Paola, Greta):
+- areSixEntitiesTogether(Elia, Matteo, Ettore, Zeca, Paola, Greta) && not startingDinnerStorylet:
     -> startingDinnerStorylet
 
 
@@ -17,23 +17,26 @@
 
 //TESTI
 === startingDinnerStorylet
-Scena iniziale
-    Matteo: xxx
-    Paola: yyy
-        + Opzione Storylet
-        + Altra Opzione Storylet
+starting Dinner Storylet
+Matteo: c'è Paola!
+    Paola: c'è Matteo!
+        + Ci sono anche io!
+        + E ci sono dei gatti!
+        + {not new_this_loop(->startingDinnerStorylet)} ["Me ne vado"]
         -
-    Greta: 2222    
+    Greta: Ma soprattutto c'è un coniglio    
 
 ->->
 
 
 
 
-=== weddingAtThePubStorylet 
+=== weddingAtThePubStorylet
+weddingAtThePubStorylet 
 Discussione Matteo ed Elia su matrimonio al bar
-    + {seen_ever(->weddingAtThePubStorylet)} ["Me ne vado"]
+    + {not new_this_loop(->weddingAtThePubStorylet)} ["Me ne vado"]
     + [Opzione normale]
+    -
 
 ->->
 
@@ -41,6 +44,7 @@ Discussione Matteo ed Elia su matrimonio al bar
 
 === anEavesdropAboutFriendshipStorylet 
 Conversazione origliata: capiamo che Greta non ce l'ha con Paola, ma cagate tipo "prima che papà mi adottasse ho vissuto in strada, non possono rivivere quel trauma".
-    + {seen_ever(->nEavesdropAboutFriendshipStorylet)} ["Me ne vado"]
+    + {not new_this_loop(->anEavesdropAboutFriendshipStorylet )} ["Me ne vado"]
     + [Opzione normale]
+    -
 ->->

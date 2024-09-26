@@ -7,6 +7,7 @@ INCLUDE main.ink
 INCLUDE entity_location.ink
 INCLUDE exceptions.ink
 INCLUDE OverboardFunctions.ink
+INCLUDE phone.ink
 
 
 
@@ -25,6 +26,7 @@ INCLUDE second_tier/elia.ink
 INCLUDE second_tier/zeca.ink
 INCLUDE second_tier/objects.ink
 INCLUDE second_tier/storylets.ink
+
 
 
 

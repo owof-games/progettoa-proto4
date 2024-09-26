@@ -22,7 +22,7 @@
 
 
 - Time_23_13:
-    ~ move_entity(Matteo, GreenRoom)
+    ~ move_entity(Matteo, RedRoom)
     ~ move_entity(Greta, WhiteRoom)
     ~ move_entity(Paola, GreenRoom)
     ~ move_entity(Zeca, YellowRoom)

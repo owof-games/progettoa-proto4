@@ -4,13 +4,13 @@
     -> zeca_dialogues ->
 -
 
--> cb_second_tier
+-> intro
 
 
 
 = zeca_dialogues
     //INFO GENERALI
-    + XXX
+    + [character:Zeca] XXX
     //SCELTE CONDIZIONALI
 
 ->->

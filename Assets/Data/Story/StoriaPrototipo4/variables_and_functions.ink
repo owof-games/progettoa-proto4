@@ -9,7 +9,7 @@ LIST Characters = Paola, Elia, Zeca, Matteo, Greta, Ettore
 LIST Objects = LimettaUnghie, AnticoPugnale, SpiedinoCocktail, Lettera
 
 //list of variables to reset on every loop
-LIST LoopableVariables = Zeca_ha_risposta, elia_in_cucina, paola_sa, greta_risposta
+LIST LoopableVariables = elia_raggiunge_Greta
 
 //list to set the current tier
 LIST TierState = (first_tier), second_tier
@@ -296,6 +296,9 @@ LIST current_time = (Time_22_35), Time_23_13, Time_00_12, Time_01_49
 
 ~ LoopableVariables = ()
 
+TODO: trovare una soluzione più sensata
+~ EliaActing = 0
+
 // print something for the user
 Questo è il testo che dice che è avvenuto un loop!
 
@@ -304,3 +307,12 @@ Questo è il testo che dice che è avvenuto un loop!
  * Update the location of the various entities according to the timeline.
  */
 
+=== function new_this_loop(-> x)
+// only fail if we've seen both at all...
+  {  loop_reset && TURNS_SINCE(x) >= 0:
+      // and we saw the choice more recently than the reset
+       { TURNS_SINCE(x) < TURNS_SINCE(-> loop_reset):
+            ~ return false
+       }
+  }
+  ~ return true

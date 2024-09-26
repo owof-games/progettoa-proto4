@@ -4,36 +4,90 @@
     -> elia_acting ->
     
 + {areTwoEntitiesTogether(Elia, Ettore) && !acting} [Elia]
-    -> elia_talking ->    
+    -> elia_talking -> 
+    
+/**+ {areTwoEntitiesTogether(Elia, Ettore)} [Elia]
+    -> prove_per_follow_up ->**/
 -
 
--> cb_first_tier
+-> intro
 
 
-= elia_acting
+=== elia_acting
     -> first_tier_storylets ->
     //INFO GENERALI//
-    + XXX
-    + YYY
-    
+    + [character:Elia] Fai domande sul personaggio Elia -> esplora_elia
+
     //SCELTE CONDIZIONALI//
-    + (senzatetto){cb_first_tier_greta.greta_acting.missioneGreta}: Elia, Greta vorrebbe parlare con te.
+    + (senzatetto){cb_first_tier_greta.greta_acting.missioneGreta} [character:Elia] Elia, Greta vorrebbe parlare con te.
         Elia: col cavolo!
         Ettore: Posso fare qualcosa per te?
         Elia: No, non c'è nulla che puoi fare!
-        + + (uniti){weddingAtThePubStorylet} Non è vero! So che vuoi organizzare il nostro matrimonio al bar. Posso convincere Matteo!
+        + + (uniti){weddingAtThePubStorylet} [character:Elia] Non è vero! So che vuoi organizzare il nostro matrimonio al bar. Posso convincere Matteo!
             Elia: Non ti conosco ma mi fido di te, va bene!
             Ettore: Ti aspetta nella stanza bianca.
                 ~ move_entity(Elia, WhiteRoom)
+                // ~ elia_raggiunge_Greta = true
                 ~ move_entity_from_object_storage_to_Ettore_location(SpiedinoCocktail)
+        + + ->
+    
+    //SCELTE CONDIZIONALI OGGETTI//
+     + {inventory_contents has AnticoPugnale} [character:Elia] Guarda questo pugnale!
+     + {inventory_contents has SpiedinoCocktail} [character:Elia] Guarda questo spiedino!
+     + {inventory_contents has Lettera} [character:Elia] Guarda questa lettera!
+     + {inventory_contents has LimettaUnghie} [character:Elia] Guarda questa limetta da unghie!
+    -
+        
+    + Te ne vai -> intro        
+    
+    //SCENE DI FALL BACK
+
+     
     -
 ->->
 
-= elia_talking
+= esplora_elia
+VAR EliaActing = 0
+
+
+{
+- EliaActing > 1: Elia: "Non mi va di rispondere ad altre domande personali". -> intro
+- else:
+    { shuffle:
+    -   -> first_qn
+    -   -> second_qn
+    -   -> third_qn
+    
+    }
+}
+
+//DOMANDE SUL PERSONAGGIO DI ELIA
+
+= first_qn
+~ EliaActing++
+    + [character:Elia] Prima domanda
+    
+    -
+-> elia_acting 
+
+= second_qn
+ ~ EliaActing++
+    + [character:Elia] altra domanda
+   
+    -
+-> elia_acting     
+
+= third_qn
+~ EliaActing++
+    Elia dice cose
+        + [character:Elia] tu chiedi
+    -    
+-> elia_acting
+
+
+=== elia_talking
 ->->
-
-
-
+/**
 === prove_per_follow_up
  {   //se Greta ci chiede di poter parlare con Elia, parte la missione
     - cb_first_tier_greta.greta_acting.missioneGreta && not came_from(-> matrimonio_uno):
@@ -60,11 +114,11 @@
 -> intro
 
 = matrimonio_uno
-    Ettore: Elia, Greta ti vuole vedere.
+    + Ettore: Elia, Greta ti vuole vedere.
     Elia: Io no!
     Ettore: Posso farti cambiare idea?
     Elia: Col cavolo!
-->->
+-> intro
 
 = matrimonio_due_consecutivo
         Ettore: Non è vero! So che vuoi organizzare il nostro matrimonio al bar. Posso convincere Matteo!
@@ -143,3 +197,4 @@
 = donechat
     + Chiedo qualcosa di diverso -> prove_per_follow_up
     + Me ne vado -> intro
+**/

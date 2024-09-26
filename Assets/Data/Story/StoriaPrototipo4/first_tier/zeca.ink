@@ -7,15 +7,15 @@
     -> zeca_talking ->    
 -
 
--> cb_first_tier
+-> intro
 
 
 
 = zeca_acting
     -> first_tier_storylets ->
     //INFO GENERALI
-    + XXX
-    + YYY
+    + [character:Zeca] XXX
+    + [character:Zeca]YYY
     -
     
     //SCELTE CONDIZIONALI

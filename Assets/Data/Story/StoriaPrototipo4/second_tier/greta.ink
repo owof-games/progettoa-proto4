@@ -4,12 +4,12 @@
     -> greta_dialogues->
 -
 
--> cb_second_tier
+-> intro
 
 
 = greta_dialogues
     //INFO GENERALI
-    + XXX
+    + [character:Greta]XXX
     //SCELTE CONDIZIONALI
 
 ->->

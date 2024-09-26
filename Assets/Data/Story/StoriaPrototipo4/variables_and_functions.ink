@@ -133,7 +133,21 @@ VAR object_storage_contents = (SpiedinoCocktail)
 
  }
     
-
+=== function move_entity_from_object_storage_to_Ettore_location(entity)
+    {
+    - white_room_contents has Ettore:
+        ~ white_room_contents += entity
+        ~ object_storage_contents -= entity
+    - green_room_contents has Ettore:
+        ~ green_room_contents += entity
+        ~ object_storage_contents -= entity
+    - red_room_contents has Ettore:
+        ~ red_room_contents += entity
+        ~ object_storage_contents -= entity
+    - yellow_room_contents has Ettore:
+        ~ yellow_room_contents += entity
+        ~ object_storage_contents -= entity
+ }
 
 /**
  * Check if entity1 and entity2 are both in the same location.

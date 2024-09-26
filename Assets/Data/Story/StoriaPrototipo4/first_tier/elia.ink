@@ -25,7 +25,7 @@
             Elia: Non ti conosco ma mi fido di te, va bene!
             Ettore: Ti aspetta nella stanza bianca.
                 ~ move_entity(Elia, WhiteRoom)
-               TODO:  ~ move_entity(SpiedinoCocktail, RedRoom) lasciare un oggetto nella stanza in cui ci troviamo
+                ~ move_entity_from_object_storage_to_Ettore_location(SpiedinoCocktail)
     -
 ->->
 
@@ -111,6 +111,8 @@
         Elia e Greta
     +  (sport) {ranLim(cnt)} 
         Elia parla di sport
+    +   {CHOICE_COUNT()==cnt}
+        Elia è stanco e ci ignora
     -    
     -> donechat
 
@@ -133,6 +135,8 @@
         Hai cani o gatti?
     +   (zeca) {ranLim(cnt)}
         Com'è il rapporto con Zeca?
+    +   {CHOICE_COUNT()==cnt}
+    Elia è stanco e ci ignora   
     -    
     -> donechat
 

@@ -32,6 +32,8 @@ Scena iniziale
 
 === weddingAtThePubStorylet 
 Discussione Matteo ed Elia su matrimonio al bar
+    + {seen_ever(->weddingAtThePubStorylet)} ["Me ne vado"]
+    + [Opzione normale]
 
 ->->
 
@@ -39,4 +41,6 @@ Discussione Matteo ed Elia su matrimonio al bar
 
 === anEavesdropAboutFriendshipStorylet 
 Conversazione origliata: capiamo che Greta non ce l'ha con Paola, ma cagate tipo "prima che papà mi adottasse ho vissuto in strada, non possono rivivere quel trauma".
+    + {seen_ever(->nEavesdropAboutFriendshipStorylet)} ["Me ne vado"]
+    + [Opzione normale]
 ->->

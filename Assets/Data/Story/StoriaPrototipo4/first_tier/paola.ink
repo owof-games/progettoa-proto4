@@ -1,9 +1,9 @@
 === cb_first_tier_paola ===
 
-+ {areTwoEntitiesTogether(Paola, Ettore) && acting} [Paola]
++ {areTwoEntitiesTogether(Paola, Ettore) && acting} [character:Paola]
     -> paola_acting->
 
-+ {areTwoEntitiesTogether(Paola, Ettore) && !acting} [Paola]
++ {areTwoEntitiesTogether(Paola, Ettore) && !acting} [character:Paola]
     -> paola_talking->    
 -
 

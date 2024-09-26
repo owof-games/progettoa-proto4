@@ -28,6 +28,8 @@
             Ettore: Ti aspetta nella stanza bianca.
                 ~ move_entity(Elia, WhiteRoom)
                 // ~ elia_raggiunge_Greta = true
+                ~ LoopableVariables += elia_raggiunge_Greta
+                Ho impostato loopable
                 ~ move_entity_from_object_storage_to_Ettore_location(SpiedinoCocktail)
         + + ->
     

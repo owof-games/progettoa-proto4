@@ -1,6 +1,6 @@
 === cb_second_tier_paola ===
 
-+ {areTwoEntitiesTogether(Paola, Ettore)} [Paola]
++ {areTwoEntitiesTogether(Paola, Ettore)} [character:Paola]
     -> paola_dialogues->
 -
 
@@ -9,7 +9,7 @@
 
 = paola_dialogues
     //INFO GENERALI
-    + [character:Paola]XXX
+    + XXX
     //SCELTE CONDIZIONALI
 
 ->->

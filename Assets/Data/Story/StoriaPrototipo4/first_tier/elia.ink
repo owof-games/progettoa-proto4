@@ -1,9 +1,9 @@
 === cb_first_tier_elia ===
 
-+ {areTwoEntitiesTogether(Elia, Ettore) && acting} [Elia]
++ {areTwoEntitiesTogether(Elia, Ettore) && acting} [character:Elia]
     -> elia_acting ->
     
-+ {areTwoEntitiesTogether(Elia, Ettore) && !acting} [Elia]
++ {areTwoEntitiesTogether(Elia, Ettore) && !acting} [character:Elia]
     -> elia_talking -> 
     
 /**+ {areTwoEntitiesTogether(Elia, Ettore)} [Elia]
@@ -16,14 +16,14 @@
 === elia_acting
     -> first_tier_storylets ->
     //INFO GENERALI//
-    + [character:Elia] Fai domande sul personaggio Elia -> esplora_elia
+    + Fai domande sul personaggio Elia -> esplora_elia
 
     //SCELTE CONDIZIONALI//
-    + (senzatetto){cb_first_tier_greta.greta_acting.missioneGreta} [character:Elia] Elia, Greta vorrebbe parlare con te.
+    + (senzatetto){cb_first_tier_greta.greta_acting.missioneGreta} Elia, Greta vorrebbe parlare con te.
         Elia: col cavolo!
         Ettore: Posso fare qualcosa per te?
         Elia: No, non c'è nulla che puoi fare!
-        + + (uniti){weddingAtThePubStorylet} [character:Elia] Non è vero! So che vuoi organizzare il nostro matrimonio al bar. Posso convincere Matteo!
+        + + (uniti){weddingAtThePubStorylet} Non è vero! So che vuoi organizzare il nostro matrimonio al bar. Posso convincere Matteo!
             Elia: Non ti conosco ma mi fido di te, va bene!
             Ettore: Ti aspetta nella stanza bianca.
                 ~ move_entity(Elia, WhiteRoom)
@@ -34,10 +34,10 @@
         + + ->
     
     //SCELTE CONDIZIONALI OGGETTI//
-     + {inventory_contents has AnticoPugnale} [character:Elia] Guarda questo pugnale!
-     + {inventory_contents has SpiedinoCocktail} [character:Elia] Guarda questo spiedino!
-     + {inventory_contents has Lettera} [character:Elia] Guarda questa lettera!
-     + {inventory_contents has LimettaUnghie} [character:Elia] Guarda questa limetta da unghie!
+     + {inventory_contents has AnticoPugnale} Guarda questo pugnale!
+     + {inventory_contents has SpiedinoCocktail} Guarda questo spiedino!
+     + {inventory_contents has Lettera} Guarda questa lettera!
+     + {inventory_contents has LimettaUnghie} Guarda questa limetta da unghie!
     -
         
     + Te ne vai -> intro        
@@ -67,14 +67,14 @@ VAR EliaActing = 0
 
 = first_qn
 ~ EliaActing++
-    + [character:Elia] Prima domanda
+    + Prima domanda
     
     -
 -> elia_acting 
 
 = second_qn
  ~ EliaActing++
-    + [character:Elia] altra domanda
+    +  altra domanda
    
     -
 -> elia_acting     
@@ -82,7 +82,7 @@ VAR EliaActing = 0
 = third_qn
 ~ EliaActing++
     Elia dice cose
-        + [character:Elia] tu chiedi
+        +  tu chiedi
     -    
 -> elia_acting
 

@@ -1,6 +1,6 @@
 === cb_second_tier_matteo ===
 
-+ {areTwoEntitiesTogether(Matteo, Ettore)} [{~ Chiacchieri con|Parli con|Ti avvicini a} Matteo]
++ {areTwoEntitiesTogether(Matteo, Ettore)} [character:Matteo]
     -> matteo_dialogues ->
 -
 
@@ -9,7 +9,7 @@
 
 = matteo_dialogues
     //INFO GENERALI
-    + [character:Matteo]XXX
+    + XXX
     //SCELTE CONDIZIONALI
 
 ->->

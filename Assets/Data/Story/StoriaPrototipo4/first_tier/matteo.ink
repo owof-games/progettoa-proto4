@@ -1,9 +1,9 @@
 === cb_first_tier_matteo ===
 
-+ {areTwoEntitiesTogether(Matteo, Ettore) && acting} [Matteo]
++ {areTwoEntitiesTogether(Matteo, Ettore) && acting} [character:Matteo]
     -> matteo_acting ->
 
-+ {areTwoEntitiesTogether(Matteo, Ettore) && !acting} [Matteo]
++ {areTwoEntitiesTogether(Matteo, Ettore) && !acting} [character:Matteo]
     -> matteo_talking ->    
 -
 
@@ -13,8 +13,8 @@
 = matteo_acting
     -> first_tier_storylets ->
     //INFO GENERALI
-    + [character:Matteo] XXX
-    + [character:Matteo] YYY
+    +  XXX
+    +  YYY
     
     //SCELTE CONDIZIONALI
     -

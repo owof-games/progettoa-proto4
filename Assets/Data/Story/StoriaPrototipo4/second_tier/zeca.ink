@@ -1,6 +1,6 @@
 === cb_second_tier_zeca ===
 
-+ {areTwoEntitiesTogether(Zeca, Ettore)} [Zeca]
++ {areTwoEntitiesTogether(Zeca, Ettore)} [character:Zeca]
     -> zeca_dialogues ->
 -
 
@@ -10,7 +10,7 @@
 
 = zeca_dialogues
     //INFO GENERALI
-    + [character:Zeca] XXX
+    + XXX
     //SCELTE CONDIZIONALI
 
 ->->

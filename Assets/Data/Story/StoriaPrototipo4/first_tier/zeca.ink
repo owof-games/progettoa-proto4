@@ -1,9 +1,9 @@
 === cb_first_tier_zeca ===
 
-+ {areTwoEntitiesTogether(Zeca, Ettore) && acting} [Zeca]
++ {areTwoEntitiesTogether(Zeca, Ettore) && acting} [character:Zeca]
     -> zeca_acting ->
     
-+ {areTwoEntitiesTogether(Zeca, Ettore) && !acting} [Zeca]
++ {areTwoEntitiesTogether(Zeca, Ettore) && !acting} [character:Zeca]
     -> zeca_talking ->    
 -
 
@@ -14,8 +14,8 @@
 = zeca_acting
     -> first_tier_storylets ->
     //INFO GENERALI
-    + [character:Zeca] XXX
-    + [character:Zeca]YYY
+    +  XXX
+    +  YYY
     -
     
     //SCELTE CONDIZIONALI

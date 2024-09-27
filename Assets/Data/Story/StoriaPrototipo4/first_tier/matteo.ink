@@ -20,7 +20,6 @@
     
     //SCELTE CONDIZIONALI
     -
-    TODO: vedi Notion
     Cose dette
     -> advance_time ->
 ->->

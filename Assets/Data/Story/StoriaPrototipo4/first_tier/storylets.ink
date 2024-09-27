@@ -1,7 +1,6 @@
 //INDEX
 === first_tier_storylets
 {debug: <i>Passo per first_tier_storylets</i>}
-TODO: ho l'impressione che queste formule siano un "alcuni di", possibile? esempio: per la prima scena, devo essere tutti assieme, per questo ho usato la formula "six entities together". Ma poi partiva anche in situazione in cui i personaggi non erano assieme (es: seconda scena, redroom, Matteo + Elia e basta). Con la struttura attuale invece parte solo se effettivamente sono assieme.
 {
 - are_three_entities_together(Elia, Matteo, Ettore) && are_two_entitites_together(Elia, Zeca) && are_two_entitites_together(Elia, Paola) && are_two_entitites_together(Elia, Greta) && not startingDinnerStorylet && new_this_loop(->startingDinnerStorylet):
     -> startingDinnerStorylet

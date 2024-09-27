@@ -160,6 +160,7 @@ VAR objectStorageContents = (SpiedinoCocktail)
  * + {are_entities_together_in(Matteo, Ettore, WhiteRoom)} Parla con Matteo
  *   -> parla_con_matteo
  */
+TODO: le condizioni devono essere tutte nella forma "entity_location(entity1) == entity_location(entity2)" oppure "entity_location(entity1) == location".
 === function are_entities_together_in(entity1, entity2, location)
 {debug: <i>Passo per function are_entities_together_in</i>}
 ~ return entity_location(entity1) == entity_location(entity2) and entity_location(entity1) == location

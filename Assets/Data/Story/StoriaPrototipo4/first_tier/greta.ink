@@ -17,7 +17,6 @@
     + Domanda
     
     //SCELTE CONDIZIONALI NARRATIVE//
-    TODO: la prima domanda continua ad essere accessibile, me disperata
     + (missioneGreta) {new_this_loop(->missioneGreta)} Sai chi potrebbe avere ucciso Paola?
             -> advance_time ->
             Greta: Di più! Ma ti dirò chi è l'assassino se tu convinci Elia a venire a parlarmi.

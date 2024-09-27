@@ -35,13 +35,6 @@ Matteo: c'è Paola!
 
 === weddingAtThePubStorylet
 {debug: <i>Passo per weddingAtThePubStorylet</i>}
-TODO: come struttura funziona, ma solo dopo il primo loop, e non mi stanno venendo in mente soluzioni.
-{
-- new_this_loop(->weddingAtThePubStorylet): -> discussione
-- else:->->
-}
-
-- (discussione)
 Discussione Matteo ed Elia su matrimonio al bar
     -> advance_time ->
     + [Avanzo]

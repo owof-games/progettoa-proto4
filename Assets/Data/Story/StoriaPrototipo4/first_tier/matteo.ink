@@ -20,7 +20,7 @@
     
     //SCELTE CONDIZIONALI
     -
-    TODO: quando ho loopato su una delle scelte di dialogo sopra, mi ha fatto il loop e poi ha comunque stampato la riga sotto.
+    TODO: vedi Notion
     Cose dette
     ~ advance_time()
 ->->

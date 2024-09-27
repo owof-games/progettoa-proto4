@@ -330,7 +330,7 @@ VAR currentTime = 0
 
 ~ loopableVariables = ()
 
-TODO: trovare una soluzione più sensata
+TODO: trovare una soluzione più sensata che non il listone di variabili?
 ~ EliaActing = 0
 
 // print something for the user

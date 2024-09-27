@@ -40,7 +40,7 @@
                 Ho impostato loopable
                 ~ move_entity_from_object_storage_to_Ettore_location(SpiedinoCocktail)
         + + -> elia_acting
-        TODO: mettere un modo più pulito, o che permetta di fare un distinguo tra selezioni diverse quando devo ritornare su "Elia, Greta vorrebbe parlare con te"
+        TODO: qui senza il ++> mi si blocca tutto. Vorrei mettere un modo più pulito, o che permetta di fare un distinguo tra selezioni diverse quando devo ritornare su "Elia, Greta vorrebbe parlare con te"
           
 
     //SCELTE CONDIZIONALI OGGETTI//

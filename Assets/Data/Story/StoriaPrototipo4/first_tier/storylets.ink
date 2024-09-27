@@ -21,12 +21,12 @@ TODO: ho l'impressione che queste formule siano un "alcuni di", possibile? esemp
 {debug: <i>Passo per startingDinnerStorylet</i>}
 Matteo: c'è Paola!
     Paola: c'è Matteo!
-    ~ advance_time()
+    -> advance_time ->
         + Ci sono anche io!
         + E ci sono dei gatti!
         -
     Greta: Ma soprattutto c'è un coniglio
-    ~ advance_time()
+    -> advance_time ->
 
 ->->
 
@@ -43,7 +43,7 @@ TODO: come struttura funziona, ma solo dopo il primo loop, e non mi stanno venen
 
 - (discussione)
 Discussione Matteo ed Elia su matrimonio al bar
-    ~ advance_time()
+    -> advance_time ->
     + [Avanzo]
     -
 
@@ -54,7 +54,7 @@ Discussione Matteo ed Elia su matrimonio al bar
 === anEavesdropAboutFriendshipStorylet
 {debug: <i>Passo per anEavesdropAboutFriendshipStorylet</i>}
 Conversazione origliata: capiamo che Greta non ce l'ha con Paola, ma cagate tipo "prima che papà mi adottasse ho vissuto in strada, non possono rivivere quel trauma".
-    ~ advance_time()
+    -> advance_time ->
     + [Avanzo]
     -
 ->->

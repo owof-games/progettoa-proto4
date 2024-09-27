@@ -306,23 +306,25 @@ VAR currentTime = 0
  * Make the time advance one step, or trigger a loop.
  * Used in move_between_rooms.
  */
-=== function advance_time()
+=== advance_time
 {debug: <i>Passo per function advance_time</i>}
 //~ temp max_time = LIST_MAX(LIST_ALL(currentTime))
-{ currentTime == 240:
-    ~ loop_reset()
+{ currentTime >= 240:
+    -> loop_reset
 - else:
     ~ currentTime = currentTime + 15
 }
 
 ~ updateEntitiesLocations()
 
+->->
+
 
 /**
  * Called whenever the loop resets. All state must be brought back
  * to its initial state here
  */
-=== function loop_reset()
+=== loop_reset
 {debug: <i>Passo per function loop_reset</i>}
 // set the current time
 ~ currentTime = 0
@@ -337,4 +339,4 @@ TODO: trovare una soluzione più sensata che non il listone di variabili?
 Questo è il testo che dice che è avvenuto un loop!
 
 
-
+-> intro

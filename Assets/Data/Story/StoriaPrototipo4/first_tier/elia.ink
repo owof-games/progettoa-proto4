@@ -22,19 +22,19 @@
 
     //SCELTE CONDIZIONALI//
     + (senzatetto){cb_first_tier_greta.greta_acting.missioneGreta} Elia, Greta vorrebbe parlare con te.
-        ~ advance_time()
+        -> advance_time ->
         Elia: col cavolo!
-        ~ advance_time()
+        -> advance_time ->
         Ettore: Posso fare qualcosa per te?
-        ~ advance_time()
+        -> advance_time ->
         Elia: No, non c'è nulla che puoi fare!
-        ~ advance_time()
+        -> advance_time ->
         + + (uniti){weddingAtThePubStorylet} Non è vero! So che vuoi organizzare il nostro matrimonio al bar. Posso convincere Matteo!
-            ~ advance_time()
+            -> advance_time ->
             Elia: Non ti conosco ma mi fido di te, va bene!
-            ~ advance_time()
+            -> advance_time ->
             Ettore: Ti aspetta nella stanza bianca.
-                ~ advance_time()
+                -> advance_time ->
                 ~ move_entity(Elia, WhiteRoom)
                 ~ loopableVariables += EliaRaggiungeGreta
                 Ho impostato loopable
@@ -63,7 +63,7 @@ VAR EliaActing = 0
 
 {
 - EliaActing > 1: Elia: "Non mi va di rispondere ad altre domande personali".
-    ~ advance_time()
+    -> advance_time ->
     -> intro
 - else:
     { shuffle:
@@ -79,7 +79,7 @@ VAR EliaActing = 0
 = first_qn
 ~ EliaActing++
     + Prima domanda
-    ~ advance_time()
+    -> advance_time ->
     
     -
 -> elia_acting 
@@ -87,7 +87,7 @@ VAR EliaActing = 0
 = second_qn
  ~ EliaActing++
     +  altra domanda
-    ~ advance_time()
+    -> advance_time ->
    
     -
 -> elia_acting     
@@ -96,7 +96,7 @@ VAR EliaActing = 0
 ~ EliaActing++
     Elia dice cose
         +  tu chiedi
-    ~ advance_time()    
+    -> advance_time ->    
     -    
 -> elia_acting
 

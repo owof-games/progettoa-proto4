@@ -14,9 +14,9 @@
     -> first_tier_storylets ->
     //INFO GENERALI
     + Cose Paola
-    ~ advance_time()
+    -> advance_time ->
     + Altre Cose Paola
-    ~ advance_time()
+    -> advance_time ->
     
     
     //SCELTE CONDIZIONALI

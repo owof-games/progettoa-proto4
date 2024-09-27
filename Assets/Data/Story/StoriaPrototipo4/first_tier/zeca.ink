@@ -16,9 +16,9 @@
     -> first_tier_storylets ->
     //INFO GENERALI
     +  XXX
-        ~ advance_time()
+        -> advance_time ->
     +  YYY
-        ~ advance_time()
+        -> advance_time ->
     -
     
     //SCELTE CONDIZIONALI

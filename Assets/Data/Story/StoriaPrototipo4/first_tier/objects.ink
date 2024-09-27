@@ -8,7 +8,7 @@
 
 = limetta_unghie 
     + (interagito) Controlla la limetta per le unghie
-        ~ advance_time()
+        -> advance_time ->
         + + {inventoryContents !? LimettaUnghie && interagito} Raccogli la limetta per le unghie
         ~ take_object(LimettaUnghie)
     + {inventoryContents has LimettaUnghie} Mostra limetta unghie

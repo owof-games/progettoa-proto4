@@ -1,6 +1,6 @@
 
 // activate debug text
-VAR debug = true
+VAR debug = false
 
 // list of all characters
 LIST characters = Paola, Elia, Zeca, Matteo, Greta, Ettore
@@ -337,28 +337,4 @@ TODO: trovare una soluzione più sensata che non il listone di variabili?
 Questo è il testo che dice che è avvenuto un loop!
 
 
-/**
- * Update the location of the various entities according to the timeline.
- */
 
-=== function new_this_loop(-> x)
-{debug: <i>Passo per function new_this_loop</i>}
-// only fail if we've seen both at all...
-  {  loop_restarted && TURNS_SINCE(x) >= 0:
-      // and we saw the choice more recently than the reset
-       { TURNS_SINCE(x) < TURNS_SINCE(-> loop_restarted):
-            ~ return false
-       }
-  }
-  ~ return true
-  
- === function seen_in_this_loop(-> x)
-{debug: <i>Passo per function seen_in_this_loop</i>}
-// only fail if we've seen both at all...
-  {  loop_restarted && TURNS_SINCE(x) >= 0:
-      // and we saw the choice more recently than the reset
-       { TURNS_SINCE(x) < TURNS_SINCE(-> loop_restarted):
-            ~ return true
-       }
-  }
-  ~ return false 

@@ -36,4 +36,31 @@
 === function limitToThree() 
     // Overboard's house style is to limit every moment to 3 choices maximum 
     // We actually do this in the UI, but you can do it in inky if you want to
-    ~ return CHOICE_COUNT() < 3 
+    ~ return CHOICE_COUNT() < 3
+    
+    
+/**
+ * Update the location of the various entities according to the timeline.
+ */
+
+=== function new_this_loop(-> x)
+{debug: <i>Passo per function new_this_loop</i>}
+// only fail if we've seen both at all...
+  { loop_restarted && TURNS_SINCE(x) >= 0:
+      // and we saw the choice more recently than the reset
+       { TURNS_SINCE(x) < TURNS_SINCE(-> loop_restarted):
+            ~ return false
+       }
+  }
+  ~ return true
+  
+ === function seen_in_this_loop(-> x)
+{debug: <i>Passo per function seen_in_this_loop</i>}
+// only fail if we've seen both at all...
+  { loop_restarted && TURNS_SINCE(x) >= 0:
+      // and we saw the choice more recently than the reset
+       { TURNS_SINCE(x) > TURNS_SINCE(-> loop_restarted):
+            ~ return true
+       }
+  }
+  ~ return false     

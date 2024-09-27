@@ -22,7 +22,7 @@
     ~ advance_time()
             Greta: Di più! Ma ti dirò chi è l'assassino se tu convinci Elia a venire a parlarmi.
     ~ advance_time()        
-    + {not new_this_loop(->missioneGreta) && not EliaRaggiungeGreta} Non sono ancora riuscito a convincere Elia
+    + {seen_in_this_loop(->missioneGreta) && not EliaRaggiungeGreta} Non sono ancora riuscito a convincere Elia
     ~ advance_time()
     + {loopableVariables == (EliaRaggiungeGreta)} Ho fatto quello che mi hai chiesto, Greta.
     ~ advance_time()

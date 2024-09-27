@@ -1,6 +1,6 @@
 === cb_second_tier_greta ===
 
-+ {areTwoEntitiesTogether(Greta, Ettore)} [character:Greta]
++ {are_two_entitites_together(Greta, Ettore)} [character:Greta]
     -> greta_dialogues->
 -
 

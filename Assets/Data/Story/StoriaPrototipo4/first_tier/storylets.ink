@@ -1,15 +1,16 @@
 //INDEX
 === first_tier_storylets
+{debug: <i>Passo per first_tier_storylets</i>}
+TODO: ho l'impressione che queste formule siano un "alcuni di", possibile? esempio: per la prima scena, devo essere tutti assieme, per questo ho usato la formula "six entities together". Ma poi partiva anche in situazione in cui i personaggi non erano assieme (es: seconda scena, redroom, Matteo + Elia e basta). Con la struttura attuale invece parte solo se effettivamente sono assieme.
 {
-
-- areSixEntitiesTogether(Elia, Matteo, Ettore, Zeca, Paola, Greta) && not startingDinnerStorylet:
+- are_three_entities_together(Elia, Matteo, Ettore) && are_two_entitites_together(Elia, Zeca) && are_two_entitites_together(Elia, Paola) && are_two_entitites_together(Elia, Greta) && not startingDinnerStorylet:
     -> startingDinnerStorylet
 
 
-- areThreeEntitiesTogether(Elia, Matteo, Ettore) && not areTwoEntitiesTogether(Elia, Zeca) && not areTwoEntitiesTogether(Elia, Paola) && not areTwoEntitiesTogether(Elia, Greta):
+- are_three_entities_together(Elia, Matteo, Ettore) && not are_two_entitites_together(Elia, Zeca) && not are_two_entitites_together(Elia, Paola) && not are_two_entitites_together(Elia, Greta):
     -> weddingAtThePubStorylet
 
-- areThreeEntitiesTogether(Elia, Greta, Ettore) && not areTwoEntitiesTogether(Elia, Matteo) && not areTwoEntitiesTogether(Elia, Paola) && not areTwoEntitiesTogether(Elia, Zeca):
+- are_three_entities_together(Elia, Greta, Ettore) && not are_two_entitites_together(Elia, Matteo) && not are_two_entitites_together(Elia, Paola) && not are_two_entitites_together(Elia, Zeca):
     -> anEavesdropAboutFriendshipStorylet
 
 }
@@ -17,14 +18,15 @@
 
 //TESTI
 === startingDinnerStorylet
-starting Dinner Storylet
+{debug: <i>Passo per startingDinnerStorylet</i>}
 Matteo: c'è Paola!
     Paola: c'è Matteo!
+    ~ advance_time()
         + Ci sono anche io!
         + E ci sono dei gatti!
-        + {not new_this_loop(->startingDinnerStorylet)} ["Me ne vado"]
         -
-    Greta: Ma soprattutto c'è un coniglio    
+    Greta: Ma soprattutto c'è un coniglio
+    ~ advance_time()
 
 ->->
 
@@ -32,19 +34,27 @@ Matteo: c'è Paola!
 
 
 === weddingAtThePubStorylet
-weddingAtThePubStorylet 
+{debug: <i>Passo per weddingAtThePubStorylet</i>}
+TODO: come struttura funziona, ma solo dopo il primo loop, e non mi stanno venendo in mente soluzioni eleganti.
+{
+- new_this_loop(->weddingAtThePubStorylet): -> discussione
+- else:->->
+}
+
+- (discussione)
 Discussione Matteo ed Elia su matrimonio al bar
-    + {not new_this_loop(->weddingAtThePubStorylet)} ["Me ne vado"]
-    + [Opzione normale]
+    ~ advance_time()
+    + [Avanzo]
     -
 
 ->->
 
 
 
-=== anEavesdropAboutFriendshipStorylet 
+=== anEavesdropAboutFriendshipStorylet
+{debug: <i>Passo per anEavesdropAboutFriendshipStorylet</i>}
 Conversazione origliata: capiamo che Greta non ce l'ha con Paola, ma cagate tipo "prima che papà mi adottasse ho vissuto in strada, non possono rivivere quel trauma".
-    + {not new_this_loop(->anEavesdropAboutFriendshipStorylet )} ["Me ne vado"]
-    + [Opzione normale]
+    ~ advance_time()
+    + [Avanzo]
     -
 ->->

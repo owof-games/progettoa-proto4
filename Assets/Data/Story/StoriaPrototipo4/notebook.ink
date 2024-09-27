@@ -65,13 +65,13 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 */
 //INVENTARIO//
-+ {inventory_contents has Lettera} [Lascia la lettera]
++ {inventoryContents has Lettera} [Lascia la lettera]
         ~ remove_entity(Lettera)
-+ {inventory_contents has SpiedinoCocktail} [Lascia lo spiedino]
++ {inventoryContents has SpiedinoCocktail} [Lascia lo spiedino]
         ~ remove_entity(SpiedinoCocktail)
-+ {inventory_contents has AnticoPugnale} [Lascia il pugnale]
++ {inventoryContents has AnticoPugnale} [Lascia il pugnale]
         ~ remove_entity(AnticoPugnale)
-+ {inventory_contents has LimettaUnghie} [Lascia limetta unghie]
++ {inventoryContents has LimettaUnghie} [Lascia limetta unghie]
         ~ remove_entity(LimettaUnghie)
 -       
 -> intro

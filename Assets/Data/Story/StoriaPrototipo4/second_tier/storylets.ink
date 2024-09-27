@@ -3,16 +3,16 @@
 
 {
 
-- areThreeEntitiesTogether(Elia, Greta, Ettore) && not areTwoEntitiesTogether(Elia, Zeca)||areTwoEntitiesTogether(Elia, Paola)||areTwoEntitiesTogether(Elia, Matteo) && not relationshipDiscovered:
+- are_three_entities_together(Elia, Greta, Ettore) && not are_two_entitites_together(Elia, Zeca)||are_two_entitites_together(Elia, Paola)||are_two_entitites_together(Elia, Matteo) && not relationshipDiscovered:
     -> aStolenKissStorylet
 
-- areFourEntitiesTogether(Elia, Greta, Zeca, Ettore) && not areTwoEntitiesTogether(Elia, Paola)||areTwoEntitiesTogether(Elia, Matteo) && relationshipDiscovered:
+- are_four_entities_together(Elia, Greta, Zeca, Ettore) && not are_two_entitites_together(Elia, Paola)||are_two_entitites_together(Elia, Matteo) && relationshipDiscovered:
     -> hotMessStorylet
     
-- areTwoEntitiesTogether(Elia, Ettore) && inventory_contents == Lettera && not areTwoEntitiesTogether(Elia, Paola)||areTwoEntitiesTogether(Elia, Matteo):
+- are_two_entitites_together(Elia, Ettore) && inventoryContents == Lettera && not are_two_entitites_together(Elia, Paola)||are_two_entitites_together(Elia, Matteo):
     -> hardLifeStorylet
 
-- areTwoEntitiesTogether(Elia, Ettore) && not areFourEntitiesTogether(Zeca, Greta, Paola, Matteo) && hotMessStorylet == true:
+- are_two_entitites_together(Elia, Ettore) && not are_four_entities_together(Zeca, Greta, Paola, Matteo) && hotMessStorylet == true:
     -> aPainfullConfessionStorylet
 
 - else: ->->

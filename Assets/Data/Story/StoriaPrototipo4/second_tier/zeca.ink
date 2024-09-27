@@ -1,6 +1,6 @@
 === cb_second_tier_zeca ===
 
-+ {areTwoEntitiesTogether(Zeca, Ettore)} [character:Zeca]
++ {are_two_entitites_together(Zeca, Ettore)} [character:Zeca]
     -> zeca_dialogues ->
 -
 

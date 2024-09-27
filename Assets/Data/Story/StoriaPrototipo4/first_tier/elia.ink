@@ -1,12 +1,13 @@
 === cb_first_tier_elia ===
-
-+ {areTwoEntitiesTogether(Elia, Ettore) && acting} [character:Elia]
+{debug: <i>passo per first_tier_elia</i>}
++ {are_two_entitites_together(Elia, Ettore) && acting} [character:Elia]
+    {debug: <i>Ho scelto di parlare con Elia</i>}
     -> elia_acting ->
     
-+ {areTwoEntitiesTogether(Elia, Ettore) && !acting} [character:Elia]
++ {are_two_entitites_together(Elia, Ettore) && !acting} [character:Elia]
     -> elia_talking -> 
     
-/**+ {areTwoEntitiesTogether(Elia, Ettore)} [Elia]
+/**+ {are_two_entitites_together(Elia, Ettore)} [Elia]
     -> prove_per_follow_up ->**/
 -
 
@@ -14,46 +15,56 @@
 
 
 === elia_acting
+    {debug: <i>Passo per elia_acting</i>}
     -> first_tier_storylets ->
     //INFO GENERALI//
     + Fai domande sul personaggio Elia -> esplora_elia
 
     //SCELTE CONDIZIONALI//
     + (senzatetto){cb_first_tier_greta.greta_acting.missioneGreta} Elia, Greta vorrebbe parlare con te.
+        ~ advance_time()
         Elia: col cavolo!
+        ~ advance_time()
         Ettore: Posso fare qualcosa per te?
+        ~ advance_time()
         Elia: No, non c'è nulla che puoi fare!
+        ~ advance_time()
         + + (uniti){weddingAtThePubStorylet} Non è vero! So che vuoi organizzare il nostro matrimonio al bar. Posso convincere Matteo!
+            ~ advance_time()
             Elia: Non ti conosco ma mi fido di te, va bene!
+            ~ advance_time()
             Ettore: Ti aspetta nella stanza bianca.
+                ~ advance_time()
                 ~ move_entity(Elia, WhiteRoom)
-                // ~ elia_raggiunge_Greta = true
-                ~ LoopableVariables += elia_raggiunge_Greta
+                ~ loopableVariables += EliaRaggiungeGreta
                 Ho impostato loopable
                 ~ move_entity_from_object_storage_to_Ettore_location(SpiedinoCocktail)
-        + + ->
-    
+        + + -> elia_acting
+        TODO: mettere un modo più pulito, o che permetta di fare un distinguo tra selezioni diverse quando devo ritornare su "Elia, Greta vorrebbe parlare con te"
+          
+
     //SCELTE CONDIZIONALI OGGETTI//
-     + {inventory_contents has AnticoPugnale} Guarda questo pugnale!
-     + {inventory_contents has SpiedinoCocktail} Guarda questo spiedino!
-     + {inventory_contents has Lettera} Guarda questa lettera!
-     + {inventory_contents has LimettaUnghie} Guarda questa limetta da unghie!
-    -
-        
-    + Te ne vai -> intro        
+     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
+     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
+     + {inventoryContents has Lettera} Guarda questa lettera!
+     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
     
-    //SCENE DI FALL BACK
+      
+    + Te ne vai -> intro        
 
      
     -
 ->->
 
 = esplora_elia
+{debug: <i>Passo per esplora_elia</i>}
 VAR EliaActing = 0
 
 
 {
-- EliaActing > 1: Elia: "Non mi va di rispondere ad altre domande personali". -> intro
+- EliaActing > 1: Elia: "Non mi va di rispondere ad altre domande personali".
+    ~ advance_time()
+    -> intro
 - else:
     { shuffle:
     -   -> first_qn
@@ -68,6 +79,7 @@ VAR EliaActing = 0
 = first_qn
 ~ EliaActing++
     + Prima domanda
+    ~ advance_time()
     
     -
 -> elia_acting 
@@ -75,6 +87,7 @@ VAR EliaActing = 0
 = second_qn
  ~ EliaActing++
     +  altra domanda
+    ~ advance_time()
    
     -
 -> elia_acting     
@@ -83,6 +96,7 @@ VAR EliaActing = 0
 ~ EliaActing++
     Elia dice cose
         +  tu chiedi
+    ~ advance_time()    
     -    
 -> elia_acting
 

@@ -1,7 +1,7 @@
 === intro ===
 {
-- TierState == first_tier: -> cb_first_tier
-- TierState == second_tier: -> cb_second_tier
+- tierState == FirstTier: -> cb_first_tier
+- tierState == SecondTier: -> cb_second_tier
 }
 
 

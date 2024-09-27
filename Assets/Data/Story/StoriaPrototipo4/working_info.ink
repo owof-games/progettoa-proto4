@@ -1,5 +1,8 @@
-//NOMENCLATURA FUNZIONI
-//sempre_col_cammello
+//NOMENCLATURE
+//Funzioni: sempre_col_cammello
+//nome variabili o liste: scritteCosi
+//contenuto variabili: ScritteCosi
+
 
 
 //NOMENCLATURA LABELS

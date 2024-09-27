@@ -3,31 +3,31 @@
 VAR debug = true
 
 // list of all characters
-LIST Characters = Paola, Elia, Zeca, Matteo, Greta, Ettore
+LIST characters = Paola, Elia, Zeca, Matteo, Greta, Ettore
 
 // list of all objects
-LIST Objects = LimettaUnghie, AnticoPugnale, SpiedinoCocktail, Lettera
+LIST objects = LimettaUnghie, AnticoPugnale, SpiedinoCocktail, Lettera
 
 //list of variables to reset on every loop
-LIST LoopableVariables = elia_raggiunge_Greta
+LIST loopableVariables = EliaRaggiungeGreta
 
 //list to set the current tier
-LIST TierState = (first_tier), second_tier
+LIST tierState = (FirstTier), SecondTier
 ////////////////////////////////////////////////////////////
 
 
 // list of all places (the inventory is considered a physical place)
-LIST Places = Inventory, WhiteRoom, GreenRoom, RedRoom, YellowRoom, ObjectStorage
+LIST places = Inventory, WhiteRoom, GreenRoom, RedRoom, YellowRoom, ObjectStorage
 
 // variables for each location, containing the list of characters and objects in them
 // can't name them like "white_room" because there are knots with that name
 // inventory = mano di Ettore
-VAR inventory_contents = ()
-VAR white_room_contents = (Ettore, Matteo, Paola, Zeca, Elia, Greta, AnticoPugnale)
-VAR green_room_contents = (LimettaUnghie)
-VAR red_room_contents = (Lettera)
-VAR yellow_room_contents = ()
-VAR object_storage_contents = (SpiedinoCocktail)
+VAR inventoryContents = ()
+VAR whiteRoomContents = (Ettore, Matteo, Paola, Zeca, Elia, Greta, AnticoPugnale)
+VAR greenRoomContents = (LimettaUnghie)
+VAR redRoomContents = (Lettera)
+VAR yellowRoomContents = ()
+VAR objectStorageContents = (SpiedinoCocktail)
 
 
 /*
@@ -39,17 +39,17 @@ VAR object_storage_contents = (SpiedinoCocktail)
 */
 === function entity_location(entity)
 {
-    - inventory_contents has entity:
+    - inventoryContents has entity:
         ~ return Inventory
-    - white_room_contents has entity:
+    - whiteRoomContents has entity:
         ~ return WhiteRoom
-    - green_room_contents has entity:
+    - greenRoomContents has entity:
         ~ return GreenRoom
-    - red_room_contents has entity:
+    - redRoomContents has entity:
         ~ return RedRoom
-    - yellow_room_contents has entity:
+    - yellowRoomContents has entity:
         ~ return YellowRoom
-    - object_storage_contents has entity:
+    - objectStorageContents has entity:
         ~ return ObjectStorage
     - else:
         DEBUG: error, cannot find {entity} anywhere!
@@ -62,36 +62,37 @@ VAR object_storage_contents = (SpiedinoCocktail)
  ~ move_entity(Greta, WhiteRoom)
 */
 === function move_entity(entity, destination)
-~ temp current_location = entity_location(entity)
-{current_location:
+{debug: <i>Passo per function move_entity</i>}
+~ temp CurrentLocation = entity_location(entity)
+{CurrentLocation:
     - Inventory:
-        ~ inventory_contents -= entity
+        ~ inventoryContents -= entity
     - WhiteRoom:
-        ~ white_room_contents -= entity
+        ~ whiteRoomContents -= entity
     - GreenRoom:
-        ~ green_room_contents -= entity
+        ~ greenRoomContents -= entity
     - RedRoom:
-        ~ red_room_contents -= entity
+        ~ redRoomContents -= entity
     - YellowRoom:
-        ~ yellow_room_contents -= entity
+        ~ yellowRoomContents -= entity
     - ObjectStorage:
-        ~ object_storage_contents -= entity
+        ~ objectStorageContents -= entity
     - else:
-        DEBUG: error, cannot understand location {current_location} while trying to move {entity} out.
+        DEBUG: error, cannot understand location {CurrentLocation} while trying to move {entity} out.
 }
 {destination:
     - Inventory:
-        ~ inventory_contents += entity
+        ~ inventoryContents += entity
     - WhiteRoom:
-        ~ white_room_contents += entity
+        ~ whiteRoomContents += entity
     - GreenRoom:
-        ~ green_room_contents += entity
+        ~ greenRoomContents += entity
     - RedRoom:
-        ~ red_room_contents += entity
+        ~ redRoomContents += entity
     - YellowRoom:
-        ~ yellow_room_contents += entity
+        ~ yellowRoomContents += entity
     - ObjectStorage:
-        ~ object_storage_contents += entity
+        ~ objectStorageContents += entity
     - else:
         DEBUG: error, cannot understand location {destination} while trying to move {entity} in.
 }
@@ -104,75 +105,84 @@ VAR object_storage_contents = (SpiedinoCocktail)
 
 //questa funzione verifica se ho spazio nell'inventario prima di permettermi di prendere un altro oggetto
 === function take_object(entity)
+{debug: <i>Passo per function take_object</i>}
 {
-        - LIST_COUNT(inventory_contents) > 0:
+        - LIST_COUNT(inventoryContents) > 0:
             ~ throw_exception("Inventario pieno")
         - else:
-                ~ inventory_contents += entity
-                ~ white_room_contents -= entity
-                ~ green_room_contents -= entity
-                ~ red_room_contents -= entity
-                ~ yellow_room_contents -= entity
+                ~ inventoryContents += entity
+                ~ whiteRoomContents -= entity
+                ~ greenRoomContents -= entity
+                ~ redRoomContents -= entity
+                ~ yellowRoomContents -= entity
 
     }
     
 === function remove_entity(entity)
+{debug: <i>Passo per function remove_entity</i>}
 {
-    - white_room_contents has Ettore:
-        ~ white_room_contents += entity
-        ~ inventory_contents -= entity
-    - green_room_contents has Ettore:
-        ~ green_room_contents += entity
-        ~ inventory_contents -= entity
-    - red_room_contents has Ettore:
-        ~ red_room_contents += entity
-        ~ inventory_contents -= entity
-    - yellow_room_contents has Ettore:
-        ~ yellow_room_contents += entity
-        ~ inventory_contents -= entity
+    - whiteRoomContents has Ettore:
+        ~ whiteRoomContents += entity
+        ~ inventoryContents -= entity
+    - greenRoomContents has Ettore:
+        ~ greenRoomContents += entity
+        ~ inventoryContents -= entity
+    - redRoomContents has Ettore:
+        ~ redRoomContents += entity
+        ~ inventoryContents -= entity
+    - yellowRoomContents has Ettore:
+        ~ yellowRoomContents += entity
+        ~ inventoryContents -= entity
 
  }
     
 === function move_entity_from_object_storage_to_Ettore_location(entity)
+{debug: <i>Passo per function move_entity_from_object_storage_to_Ettore_location</i>}
     {
-    - white_room_contents has Ettore:
-        ~ white_room_contents += entity
-        ~ object_storage_contents -= entity
-    - green_room_contents has Ettore:
-        ~ green_room_contents += entity
-        ~ object_storage_contents -= entity
-    - red_room_contents has Ettore:
-        ~ red_room_contents += entity
-        ~ object_storage_contents -= entity
-    - yellow_room_contents has Ettore:
-        ~ yellow_room_contents += entity
-        ~ object_storage_contents -= entity
+    - whiteRoomContents has Ettore:
+        ~ whiteRoomContents += entity
+        ~ objectStorageContents -= entity
+    - greenRoomContents has Ettore:
+        ~ greenRoomContents += entity
+        ~ objectStorageContents -= entity
+    - redRoomContents has Ettore:
+        ~ redRoomContents += entity
+        ~ objectStorageContents -= entity
+    - yellowRoomContents has Ettore:
+        ~ yellowRoomContents += entity
+        ~ objectStorageContents -= entity
  }
 
 /**
  * Check if entity1 and entity2 are both in the same location.
  * E.g.:
  * Sei nella sala.
- * + {areEntitiesTogetherIn(Matteo, Ettore, WhiteRoom)} Parla con Matteo
+ * + {are_entities_together_in(Matteo, Ettore, WhiteRoom)} Parla con Matteo
  *   -> parla_con_matteo
  */
-=== function areEntitiesTogetherIn(entity1, entity2, location)
+=== function are_entities_together_in(entity1, entity2, location)
+{debug: <i>Passo per function are_entities_together_in</i>}
 ~ return entity_location(entity1) == entity_location(entity2) and entity_location(entity1) == location
 
 //funzione solo per fare check presenza assieme personagge
-=== function areTwoEntitiesTogether(entity1, entity2)
+=== function are_two_entitites_together(entity1, entity2)
+{debug: <i>Passo per function are_two_entitites_together</i>}
 ~ return entity_location(entity1) == entity_location(entity2)
 
-=== function areThreeEntitiesTogether(entity1, entity2, entity3)
+=== function are_three_entities_together(entity1, entity2, entity3)
+{debug: <i>Passo per function are_three_entities_together</i>}
 ~ return entity_location(entity1) == entity_location(entity2) && entity_location(entity3)
 
-=== function areFourEntitiesTogether(entity1, entity2, entity3, entity4)
+=== function are_four_entities_together(entity1, entity2, entity3, entity4)
+{debug: <i>Passo per function are_four_entities_together</i>}
 ~ return entity_location(entity1) == entity_location(entity2) && entity_location(entity3) && entity_location(entity4)
 
-=== function areFiveEntitiesTogether(entity1, entity2, entity3, entity4, entity5)
+=== function are_five_entities_together(entity1, entity2, entity3, entity4, entity5)
+{debug: <i>Passo per function are_five_entities_together</i>}
 ~ return entity_location(entity1) == entity_location(entity2) && entity_location(entity3) && entity_location(entity4) && entity_location(entity5)
 
-=== function areSixEntitiesTogether(entity1, entity2, entity3, entity4, entity5, entity6)
+=== function are_six_entities_together(entity1, entity2, entity3, entity4, entity5, entity6)
+{debug: <i>Passo per function are_six_entities_together</i>}
 ~ return entity_location(entity1) == entity_location(entity2) && entity_location(entity3) && entity_location(entity4) && entity_location(entity5) && entity_location(entity6)
 
 ////////////////////////////////////////////////////////////
@@ -180,11 +190,11 @@ VAR object_storage_contents = (SpiedinoCocktail)
 
 
 // variables containing the state of various objects
-LIST limettaUnghie_state = (Clean), Dirty
-LIST paola_state = (Angry), Happy
-LIST lettera_state = (Whole), Torn
-LIST anticoPugnale_state = (Clean), Dirty
-LIST spiedinoCocktail_state = (Whole), Broken
+LIST limettaUnghieState = (Clean), Dirty
+LIST paolaState = (Angry), Happy
+LIST letteraState = (Whole), Torn
+LIST anticoPugnaleState = (Clean), Dirty
+LIST spiedinoCocktailState = (Whole), Broken
 
 /*
  * Get the current status of an entity (object or character).
@@ -195,15 +205,15 @@ LIST spiedinoCocktail_state = (Whole), Broken
 === function get_status(entity)
 { entity:
     - LimettaUnghie:
-        ~ return limettaUnghie_state
+        ~ return limettaUnghieState
     - Paola:
-        ~ return paola_state
+        ~ return paolaState
     - Lettera:
-        ~ return lettera_state
+        ~ return letteraState
     - AnticoPugnale:
-        ~ return anticoPugnale_state
+        ~ return anticoPugnaleState
     - SpiedinoCocktail:
-        ~ return spiedinoCocktail_state   
+        ~ return spiedinoCocktailState   
     - else:
         DEBUG: error, entity {entity} has no state
         ~ return 0
@@ -219,15 +229,15 @@ LIST spiedinoCocktail_state = (Whole), Broken
 === function change_status(entity, new_status)
 { entity:
     - LimettaUnghie:
-        ~ _change_status_inner(entity, new_status, limettaUnghie_state)
+        ~ _change_status_inner(entity, new_status, limettaUnghieState)
     - AnticoPugnale:
-        ~ _change_status_inner(entity, new_status, anticoPugnale_state)
+        ~ _change_status_inner(entity, new_status, anticoPugnaleState)
     - SpiedinoCocktail:
-        ~ _change_status_inner(entity, new_status, spiedinoCocktail_state)
+        ~ _change_status_inner(entity, new_status, spiedinoCocktailState)
     - Lettera:
-        ~ _change_status_inner(entity, new_status, lettera_state)    
+        ~ _change_status_inner(entity, new_status, letteraState)    
     - Paola:
-        ~ _change_status_inner(entity, new_status, paola_state)
+        ~ _change_status_inner(entity, new_status, paolaState)
     - else:
         DEBUG: error, entity {entity} has no state
         ~ return 0
@@ -248,8 +258,10 @@ LIST spiedinoCocktail_state = (Whole), Broken
  * List of all the moments in time during a single loop
  POI SARANNO DA RAVVICINARE, ACCADE TUTTO IN UN'ORA?
  */
-LIST current_time = (Time_22_35), Time_23_13, Time_00_12, Time_01_49
+ 
+//NOTA: dopo un po' di prove, indicativamente 8 righe sono 15 secondi, per cui proverei a muovermi a blocchi di quindici. 
 
+VAR currentTime = 0
 /**
  * Print the current time.
  * E.g.:
@@ -257,17 +269,37 @@ LIST current_time = (Time_22_35), Time_23_13, Time_00_12, Time_01_49
  * =======> Sono le 23:13
  */
 === function print_time()
-{ current_time:
-    - Time_22_35:
-        22:35
-    - Time_23_13:
-        23:13
-    - Time_00_12:
-        00:12
-    - Time_01_49:
-        01:49
+{ currentTime:
+    - 0:
+        22:00:00
+    - 15:
+        22:00:15
+    - 30:
+        22:00:30
+    - 45:
+        22:00:45
+    - 60:
+        22:01:00
+    - 120:
+        22:02:00
+    - 180:
+        22:03:00
+    - 240:
+        22:04:00
+    - 300:
+        22:05:00
+    - 360:
+        22:06:00
+    - 420:
+        22:07:00
+    - 480:
+        22:08:00
+    - 540:
+        22:09:00
+    - 600:
+        22:10:00     
     - else:
-        UNKNOWN TIME {current_time}
+        UNKNOWN TIME /INTERMEDIATE TIME {currentTime}
 }
 
 /**
@@ -275,11 +307,12 @@ LIST current_time = (Time_22_35), Time_23_13, Time_00_12, Time_01_49
  * Used in move_between_rooms.
  */
 === function advance_time()
-~ temp max_time = LIST_MAX(LIST_ALL(current_time))
-{ current_time == max_time:
+{debug: <i>Passo per function advance_time</i>}
+//~ temp max_time = LIST_MAX(LIST_ALL(currentTime))
+{ currentTime == 240:
     ~ loop_reset()
 - else:
-    ~ current_time++
+    ~ currentTime = currentTime + 15
 }
 
 ~ updateEntitiesLocations()
@@ -290,11 +323,12 @@ LIST current_time = (Time_22_35), Time_23_13, Time_00_12, Time_01_49
  * to its initial state here
  */
 === function loop_reset()
+{debug: <i>Passo per function loop_reset</i>}
 // set the current time
-~ current_time = Time_22_35
+~ currentTime = 0
 // clear story variables
 
-~ LoopableVariables = ()
+~ loopableVariables = ()
 
 TODO: trovare una soluzione più sensata
 ~ EliaActing = 0
@@ -308,11 +342,23 @@ Questo è il testo che dice che è avvenuto un loop!
  */
 
 === function new_this_loop(-> x)
+{debug: <i>Passo per function new_this_loop</i>}
 // only fail if we've seen both at all...
-  {  loop_reset && TURNS_SINCE(x) >= 0:
+  {  loop_restarted && TURNS_SINCE(x) >= 0:
       // and we saw the choice more recently than the reset
-       { TURNS_SINCE(x) < TURNS_SINCE(-> loop_reset):
+       { TURNS_SINCE(x) < TURNS_SINCE(-> loop_restarted):
             ~ return false
        }
   }
   ~ return true
+  
+ === function seen_in_this_loop(-> x)
+{debug: <i>Passo per function seen_in_this_loop</i>}
+// only fail if we've seen both at all...
+  {  loop_restarted && TURNS_SINCE(x) >= 0:
+      // and we saw the choice more recently than the reset
+       { TURNS_SINCE(x) < TURNS_SINCE(-> loop_restarted):
+            ~ return true
+       }
+  }
+  ~ return false 

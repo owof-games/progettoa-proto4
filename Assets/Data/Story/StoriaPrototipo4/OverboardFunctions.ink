@@ -44,23 +44,22 @@
  */
 
 === function new_this_loop(-> x)
-{debug: <i>Passo per function new_this_loop</i>}
-// only fail if we've seen both at all...
-  { loop_restarted && TURNS_SINCE(x) >= 0:
-      // and we saw the choice more recently than the reset
-       { TURNS_SINCE(x) < TURNS_SINCE(-> loop_restarted):
-            ~ return false
-       }
-  }
-  ~ return true
-  
+{
+    - loop_reset == 0:
+        // non c'è stato ancora nessun loop: mi baso solo sul fatto che sia passato o meno dal nodo
+        ~ return TURNS_SINCE(x) < 0
+    - else:
+        // c'è stato almeno un loop: controllo se sono passato o meno dal nodo dopo l'ultimo loop
+        ~ temp turns_since_loop = TURNS_SINCE(-> loop_reset)
+        ~ temp turns_since_this_knot = TURNS_SINCE(x)
+        {
+            - turns_since_loop < turns_since_this_knot:
+                ~ return true
+            -
+                ~ return false
+        }
+}
+
  === function seen_in_this_loop(-> x)
 {debug: <i>Passo per function seen_in_this_loop</i>}
-// only fail if we've seen both at all...
-  { loop_restarted && TURNS_SINCE(x) >= 0:
-      // and we saw the choice more recently than the reset
-       { TURNS_SINCE(x) > TURNS_SINCE(-> loop_restarted):
-            ~ return true
-       }
-  }
-  ~ return false     
+~ return !new_this_loop(x)

@@ -4,6 +4,11 @@
 {debug: [applico la timeline per {currentTime}]}
 
 
+// Ettore
+{ currentTime == 0:
+    ~ move_entity(Ettore, WhiteRoom)
+}
+
 // Matteo
 {currentTime:
     - 0:

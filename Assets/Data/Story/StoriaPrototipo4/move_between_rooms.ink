@@ -14,15 +14,4 @@
     -> advance_time ->
 -    
 
-{
-    - currentTime == 0:
-    -> loop_restarted
-    - else:
     -> intro
-}
-
-=== loop_restarted
-{debug: <i>passo per loop_restarted</i>}
-    @next-loop
-    loop restarted!
--> intro    

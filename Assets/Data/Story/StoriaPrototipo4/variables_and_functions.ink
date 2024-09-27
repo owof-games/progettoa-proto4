@@ -338,5 +338,6 @@ TODO: trovare una soluzione più sensata che non il listone di variabili?
 // print something for the user
 Questo è il testo che dice che è avvenuto un loop!
 
+~ updateEntitiesLocations()
 
 -> intro

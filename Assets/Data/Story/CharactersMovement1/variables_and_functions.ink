@@ -52,7 +52,7 @@ VAR object_storage_contents = (SpiedinoCocktail)
     - object_storage_contents has entity:
         ~ return ObjectStorage
     - else:
-        DEBUG: error, cannot find {entity} anywhere!
+        ~ throw_exception("error, cannot find {entity} anywhere!")
         ~ return 0
 }
 
@@ -77,7 +77,7 @@ VAR object_storage_contents = (SpiedinoCocktail)
     - ObjectStorage:
         ~ object_storage_contents -= entity
     - else:
-        DEBUG: error, cannot understand location {current_location} while trying to move {entity} out.
+        ~ throw_exception("error, cannot understand location {current_location} while trying to move {entity} out.")
 }
 {destination:
     - Inventory:
@@ -248,7 +248,7 @@ LIST spiedinoCocktail_state = (Whole), Broken
  * List of all the moments in time during a single loop
  POI SARANNO DA RAVVICINARE, ACCADE TUTTO IN UN'ORA?
  */
-LIST current_time = (Time_22_35), Time_23_13, Time_00_12, Time_01_49
+VAR current_time = 0
 
 /**
  * Print the current time.
@@ -257,29 +257,20 @@ LIST current_time = (Time_22_35), Time_23_13, Time_00_12, Time_01_49
  * =======> Sono le 23:13
  */
 === function print_time()
-{ current_time:
-    - Time_22_35:
-        22:35
-    - Time_23_13:
-        23:13
-    - Time_00_12:
-        00:12
-    - Time_01_49:
-        01:49
-    - else:
-        UNKNOWN TIME {current_time}
-}
+~ temp minutes = current_time / 60
+~ temp seconds = current_time % 60
+{minutes}:{seconds}
 
 /**
  * Make the time advance one step, or trigger a loop.
  * Used in move_between_rooms.
  */
 === function advance_time()
-~ temp max_time = LIST_MAX(LIST_ALL(current_time))
-{ current_time == max_time:
+~ temp max_time = 240
+{ current_time >= max_time:
     ~ loop_reset()
 - else:
-    ~ current_time++
+    ~ current_time+=15
 }
 
 ~ updateEntitiesLocations()
@@ -291,13 +282,13 @@ LIST current_time = (Time_22_35), Time_23_13, Time_00_12, Time_01_49
  */
 === function loop_reset()
 // set the current time
-~ current_time = Time_22_35
+~ current_time = 0
 // clear story variables
 
 ~ LoopableVariables = ()
 
-TODO: trovare una soluzione più sensata
-~ EliaActing = 0
+//TODO: trovare una soluzione più sensata
+//~ EliaActing = 0
 
 // print something for the user
 Questo è il testo che dice che è avvenuto un loop!

@@ -1,0 +1,8621 @@
+﻿{
+  "inkVersion": 21,
+  "root": [
+    [
+      "\n",
+      "\n",
+      "\n",
+      "\n",
+      "\n",
+      "\n",
+      "\n",
+      "\n",
+      "\n",
+      "\n",
+      "\n",
+      "\n",
+      "\n",
+      "\n",
+      "\n",
+      "\n",
+      "\n",
+      "\n",
+      "\n",
+      "\n",
+      "\n",
+      "\n",
+      "\n",
+      {
+        "->": "intro"
+      },
+      [
+        "done",
+        {
+          "#f": 5,
+          "#n": "g-0"
+        }
+      ],
+      null
+    ],
+    "done",
+    {
+      "entity_location": [
+        {
+          "temp=": "entity"
+        },
+        [
+          "ev",
+          {
+            "VAR?": "inventory_contents"
+          },
+          {
+            "VAR?": "entity"
+          },
+          "?",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "Inventory"
+              },
+              "/ev",
+              "~ret",
+              {
+                "->": ".^.^.^.8"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "ev",
+          {
+            "VAR?": "white_room_contents"
+          },
+          {
+            "VAR?": "entity"
+          },
+          "?",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "WhiteRoom"
+              },
+              "/ev",
+              "~ret",
+              {
+                "->": ".^.^.^.8"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "ev",
+          {
+            "VAR?": "green_room_contents"
+          },
+          {
+            "VAR?": "entity"
+          },
+          "?",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "GreenRoom"
+              },
+              "/ev",
+              "~ret",
+              {
+                "->": ".^.^.^.8"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "ev",
+          {
+            "VAR?": "red_room_contents"
+          },
+          {
+            "VAR?": "entity"
+          },
+          "?",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "RedRoom"
+              },
+              "/ev",
+              "~ret",
+              {
+                "->": ".^.^.^.8"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "ev",
+          {
+            "VAR?": "yellow_room_contents"
+          },
+          {
+            "VAR?": "entity"
+          },
+          "?",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "YellowRoom"
+              },
+              "/ev",
+              "~ret",
+              {
+                "->": ".^.^.^.8"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "ev",
+          {
+            "VAR?": "object_storage_contents"
+          },
+          {
+            "VAR?": "entity"
+          },
+          "?",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "ObjectStorage"
+              },
+              "/ev",
+              "~ret",
+              {
+                "->": ".^.^.^.8"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "\n",
+              "^DEBUG: error, cannot find ",
+              "ev",
+              {
+                "VAR?": "entity"
+              },
+              "out",
+              "/ev",
+              "^ anywhere!",
+              "\n",
+              "ev",
+              0,
+              "/ev",
+              "~ret",
+              {
+                "->": ".^.^.^.8"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "move_entity": [
+        {
+          "temp=": "destination"
+        },
+        {
+          "temp=": "entity"
+        },
+        "ev",
+        {
+          "VAR?": "entity"
+        },
+        {
+          "f()": "entity_location"
+        },
+        "/ev",
+        {
+          "temp=": "current_location"
+        },
+        "\n",
+        "ev",
+        {
+          "VAR?": "current_location"
+        },
+        "/ev",
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "Inventory"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "-",
+              {
+                "VAR=": "inventory_contents",
+                "re": true
+              },
+              "/ev",
+              {
+                "->": ".^.^.^.18"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "WhiteRoom"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "white_room_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "-",
+              {
+                "VAR=": "white_room_contents",
+                "re": true
+              },
+              "/ev",
+              {
+                "->": ".^.^.^.18"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "GreenRoom"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "green_room_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "-",
+              {
+                "VAR=": "green_room_contents",
+                "re": true
+              },
+              "/ev",
+              {
+                "->": ".^.^.^.18"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "RedRoom"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "red_room_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "-",
+              {
+                "VAR=": "red_room_contents",
+                "re": true
+              },
+              "/ev",
+              {
+                "->": ".^.^.^.18"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "YellowRoom"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "yellow_room_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "-",
+              {
+                "VAR=": "yellow_room_contents",
+                "re": true
+              },
+              "/ev",
+              {
+                "->": ".^.^.^.18"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "ObjectStorage"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "object_storage_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "-",
+              {
+                "VAR=": "object_storage_contents",
+                "re": true
+              },
+              "/ev",
+              {
+                "->": ".^.^.^.18"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^DEBUG: error, cannot understand location ",
+              "ev",
+              {
+                "VAR?": "current_location"
+              },
+              "out",
+              "/ev",
+              "^ while trying to move ",
+              "ev",
+              {
+                "VAR?": "entity"
+              },
+              "out",
+              "/ev",
+              "^ out.",
+              "\n",
+              {
+                "->": ".^.^.^.18"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "destination"
+        },
+        "/ev",
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "Inventory"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "+",
+              {
+                "VAR=": "inventory_contents",
+                "re": true
+              },
+              "/ev",
+              {
+                "->": ".^.^.^.30"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "WhiteRoom"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "white_room_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "+",
+              {
+                "VAR=": "white_room_contents",
+                "re": true
+              },
+              "/ev",
+              {
+                "->": ".^.^.^.30"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "GreenRoom"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "green_room_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "+",
+              {
+                "VAR=": "green_room_contents",
+                "re": true
+              },
+              "/ev",
+              {
+                "->": ".^.^.^.30"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "RedRoom"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "red_room_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "+",
+              {
+                "VAR=": "red_room_contents",
+                "re": true
+              },
+              "/ev",
+              {
+                "->": ".^.^.^.30"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "YellowRoom"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "yellow_room_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "+",
+              {
+                "VAR=": "yellow_room_contents",
+                "re": true
+              },
+              "/ev",
+              {
+                "->": ".^.^.^.30"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "ObjectStorage"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "object_storage_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "+",
+              {
+                "VAR=": "object_storage_contents",
+                "re": true
+              },
+              "/ev",
+              {
+                "->": ".^.^.^.30"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^DEBUG: error, cannot understand location ",
+              "ev",
+              {
+                "VAR?": "destination"
+              },
+              "out",
+              "/ev",
+              "^ while trying to move ",
+              "ev",
+              {
+                "VAR?": "entity"
+              },
+              "out",
+              "/ev",
+              "^ in.",
+              "\n",
+              {
+                "->": ".^.^.^.30"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "entity"
+        },
+        {
+          "VAR?": "Ettore"
+        },
+        "==",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "^@moveTo roomName:",
+              "ev",
+              {
+                "VAR?": "destination"
+              },
+              "out",
+              "/ev",
+              "\n",
+              {
+                "->": ".^.^.^.38"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "take_object": [
+        {
+          "temp=": "entity"
+        },
+        [
+          "ev",
+          {
+            "VAR?": "inventory_contents"
+          },
+          "LIST_COUNT",
+          0,
+          ">",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              "str",
+              "^Inventario pieno",
+              "/str",
+              {
+                "x()": "throw_exception",
+                "exArgs": 1
+              },
+              "pop",
+              "/ev",
+              "\n",
+              {
+                "->": ".^.^.^.3"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "+",
+              {
+                "VAR=": "inventory_contents",
+                "re": true
+              },
+              "/ev",
+              "ev",
+              {
+                "VAR?": "white_room_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "-",
+              {
+                "VAR=": "white_room_contents",
+                "re": true
+              },
+              "/ev",
+              "ev",
+              {
+                "VAR?": "green_room_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "-",
+              {
+                "VAR=": "green_room_contents",
+                "re": true
+              },
+              "/ev",
+              "ev",
+              {
+                "VAR?": "red_room_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "-",
+              {
+                "VAR=": "red_room_contents",
+                "re": true
+              },
+              "/ev",
+              "ev",
+              {
+                "VAR?": "yellow_room_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "-",
+              {
+                "VAR=": "yellow_room_contents",
+                "re": true
+              },
+              "/ev",
+              {
+                "->": ".^.^.^.3"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "remove_entity": [
+        {
+          "temp=": "entity"
+        },
+        [
+          "ev",
+          {
+            "VAR?": "white_room_contents"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          "?",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "white_room_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "+",
+              {
+                "VAR=": "white_room_contents",
+                "re": true
+              },
+              "/ev",
+              "ev",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "-",
+              {
+                "VAR=": "inventory_contents",
+                "re": true
+              },
+              "/ev",
+              {
+                "->": ".^.^.^.5"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "ev",
+          {
+            "VAR?": "green_room_contents"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          "?",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "green_room_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "+",
+              {
+                "VAR=": "green_room_contents",
+                "re": true
+              },
+              "/ev",
+              "ev",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "-",
+              {
+                "VAR=": "inventory_contents",
+                "re": true
+              },
+              "/ev",
+              {
+                "->": ".^.^.^.5"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "ev",
+          {
+            "VAR?": "red_room_contents"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          "?",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "red_room_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "+",
+              {
+                "VAR=": "red_room_contents",
+                "re": true
+              },
+              "/ev",
+              "ev",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "-",
+              {
+                "VAR=": "inventory_contents",
+                "re": true
+              },
+              "/ev",
+              {
+                "->": ".^.^.^.5"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "ev",
+          {
+            "VAR?": "yellow_room_contents"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          "?",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "yellow_room_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "+",
+              {
+                "VAR=": "yellow_room_contents",
+                "re": true
+              },
+              "/ev",
+              "ev",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "-",
+              {
+                "VAR=": "inventory_contents",
+                "re": true
+              },
+              "/ev",
+              {
+                "->": ".^.^.^.5"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "move_entity_from_object_storage_to_Ettore_location": [
+        {
+          "temp=": "entity"
+        },
+        [
+          "ev",
+          {
+            "VAR?": "white_room_contents"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          "?",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "white_room_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "+",
+              {
+                "VAR=": "white_room_contents",
+                "re": true
+              },
+              "/ev",
+              "ev",
+              {
+                "VAR?": "object_storage_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "-",
+              {
+                "VAR=": "object_storage_contents",
+                "re": true
+              },
+              "/ev",
+              {
+                "->": ".^.^.^.5"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "ev",
+          {
+            "VAR?": "green_room_contents"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          "?",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "green_room_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "+",
+              {
+                "VAR=": "green_room_contents",
+                "re": true
+              },
+              "/ev",
+              "ev",
+              {
+                "VAR?": "object_storage_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "-",
+              {
+                "VAR=": "object_storage_contents",
+                "re": true
+              },
+              "/ev",
+              {
+                "->": ".^.^.^.5"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "ev",
+          {
+            "VAR?": "red_room_contents"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          "?",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "red_room_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "+",
+              {
+                "VAR=": "red_room_contents",
+                "re": true
+              },
+              "/ev",
+              "ev",
+              {
+                "VAR?": "object_storage_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "-",
+              {
+                "VAR=": "object_storage_contents",
+                "re": true
+              },
+              "/ev",
+              {
+                "->": ".^.^.^.5"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "ev",
+          {
+            "VAR?": "yellow_room_contents"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          "?",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "yellow_room_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "+",
+              {
+                "VAR=": "yellow_room_contents",
+                "re": true
+              },
+              "/ev",
+              "ev",
+              {
+                "VAR?": "object_storage_contents"
+              },
+              {
+                "VAR?": "entity"
+              },
+              "-",
+              {
+                "VAR=": "object_storage_contents",
+                "re": true
+              },
+              "/ev",
+              {
+                "->": ".^.^.^.5"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "areEntitiesTogetherIn": [
+        {
+          "temp=": "location"
+        },
+        {
+          "temp=": "entity2"
+        },
+        {
+          "temp=": "entity1"
+        },
+        "ev",
+        {
+          "VAR?": "entity1"
+        },
+        {
+          "f()": "entity_location"
+        },
+        {
+          "VAR?": "entity2"
+        },
+        {
+          "f()": "entity_location"
+        },
+        "==",
+        {
+          "VAR?": "entity1"
+        },
+        {
+          "f()": "entity_location"
+        },
+        {
+          "VAR?": "location"
+        },
+        "==",
+        "&&",
+        "/ev",
+        "~ret",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "areTwoEntitiesTogether": [
+        {
+          "temp=": "entity2"
+        },
+        {
+          "temp=": "entity1"
+        },
+        "ev",
+        {
+          "VAR?": "entity1"
+        },
+        {
+          "f()": "entity_location"
+        },
+        {
+          "VAR?": "entity2"
+        },
+        {
+          "f()": "entity_location"
+        },
+        "==",
+        "/ev",
+        "~ret",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "areThreeEntitiesTogether": [
+        {
+          "temp=": "entity3"
+        },
+        {
+          "temp=": "entity2"
+        },
+        {
+          "temp=": "entity1"
+        },
+        "ev",
+        {
+          "VAR?": "entity1"
+        },
+        {
+          "f()": "entity_location"
+        },
+        {
+          "VAR?": "entity2"
+        },
+        {
+          "f()": "entity_location"
+        },
+        "==",
+        {
+          "VAR?": "entity3"
+        },
+        {
+          "f()": "entity_location"
+        },
+        "&&",
+        "/ev",
+        "~ret",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "areFourEntitiesTogether": [
+        {
+          "temp=": "entity4"
+        },
+        {
+          "temp=": "entity3"
+        },
+        {
+          "temp=": "entity2"
+        },
+        {
+          "temp=": "entity1"
+        },
+        "ev",
+        {
+          "VAR?": "entity1"
+        },
+        {
+          "f()": "entity_location"
+        },
+        {
+          "VAR?": "entity2"
+        },
+        {
+          "f()": "entity_location"
+        },
+        "==",
+        {
+          "VAR?": "entity3"
+        },
+        {
+          "f()": "entity_location"
+        },
+        "&&",
+        {
+          "VAR?": "entity4"
+        },
+        {
+          "f()": "entity_location"
+        },
+        "&&",
+        "/ev",
+        "~ret",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "areFiveEntitiesTogether": [
+        {
+          "temp=": "entity5"
+        },
+        {
+          "temp=": "entity4"
+        },
+        {
+          "temp=": "entity3"
+        },
+        {
+          "temp=": "entity2"
+        },
+        {
+          "temp=": "entity1"
+        },
+        "ev",
+        {
+          "VAR?": "entity1"
+        },
+        {
+          "f()": "entity_location"
+        },
+        {
+          "VAR?": "entity2"
+        },
+        {
+          "f()": "entity_location"
+        },
+        "==",
+        {
+          "VAR?": "entity3"
+        },
+        {
+          "f()": "entity_location"
+        },
+        "&&",
+        {
+          "VAR?": "entity4"
+        },
+        {
+          "f()": "entity_location"
+        },
+        "&&",
+        {
+          "VAR?": "entity5"
+        },
+        {
+          "f()": "entity_location"
+        },
+        "&&",
+        "/ev",
+        "~ret",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "areSixEntitiesTogether": [
+        {
+          "temp=": "entity6"
+        },
+        {
+          "temp=": "entity5"
+        },
+        {
+          "temp=": "entity4"
+        },
+        {
+          "temp=": "entity3"
+        },
+        {
+          "temp=": "entity2"
+        },
+        {
+          "temp=": "entity1"
+        },
+        "ev",
+        {
+          "VAR?": "entity1"
+        },
+        {
+          "f()": "entity_location"
+        },
+        {
+          "VAR?": "entity2"
+        },
+        {
+          "f()": "entity_location"
+        },
+        "==",
+        {
+          "VAR?": "entity3"
+        },
+        {
+          "f()": "entity_location"
+        },
+        "&&",
+        {
+          "VAR?": "entity4"
+        },
+        {
+          "f()": "entity_location"
+        },
+        "&&",
+        {
+          "VAR?": "entity5"
+        },
+        {
+          "f()": "entity_location"
+        },
+        "&&",
+        {
+          "VAR?": "entity6"
+        },
+        {
+          "f()": "entity_location"
+        },
+        "&&",
+        "/ev",
+        "~ret",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "get_status": [
+        {
+          "temp=": "entity"
+        },
+        "ev",
+        {
+          "VAR?": "entity"
+        },
+        "/ev",
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "LimettaUnghie"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "limettaUnghie_state"
+              },
+              "/ev",
+              "~ret",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "Paola"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "paola_state"
+              },
+              "/ev",
+              "~ret",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "Lettera"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "lettera_state"
+              },
+              "/ev",
+              "~ret",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "AnticoPugnale"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "anticoPugnale_state"
+              },
+              "/ev",
+              "~ret",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "SpiedinoCocktail"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "spiedinoCocktail_state"
+              },
+              "/ev",
+              "~ret",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^DEBUG: error, entity ",
+              "ev",
+              {
+                "VAR?": "entity"
+              },
+              "out",
+              "/ev",
+              "^ has no state",
+              "\n",
+              "ev",
+              0,
+              "/ev",
+              "~ret",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "change_status": [
+        {
+          "temp=": "new_status"
+        },
+        {
+          "temp=": "entity"
+        },
+        "ev",
+        {
+          "VAR?": "entity"
+        },
+        "/ev",
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "LimettaUnghie"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "entity"
+              },
+              {
+                "VAR?": "new_status"
+              },
+              {
+                "^var": "limettaUnghie_state",
+                "ci": -1
+              },
+              {
+                "f()": "_change_status_inner"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              {
+                "->": ".^.^.^.11"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "AnticoPugnale"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "entity"
+              },
+              {
+                "VAR?": "new_status"
+              },
+              {
+                "^var": "anticoPugnale_state",
+                "ci": -1
+              },
+              {
+                "f()": "_change_status_inner"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              {
+                "->": ".^.^.^.11"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "SpiedinoCocktail"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "entity"
+              },
+              {
+                "VAR?": "new_status"
+              },
+              {
+                "^var": "spiedinoCocktail_state",
+                "ci": -1
+              },
+              {
+                "f()": "_change_status_inner"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              {
+                "->": ".^.^.^.11"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "Lettera"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "entity"
+              },
+              {
+                "VAR?": "new_status"
+              },
+              {
+                "^var": "lettera_state",
+                "ci": -1
+              },
+              {
+                "f()": "_change_status_inner"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              {
+                "->": ".^.^.^.11"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "Paola"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "entity"
+              },
+              {
+                "VAR?": "new_status"
+              },
+              {
+                "^var": "paola_state",
+                "ci": -1
+              },
+              {
+                "f()": "_change_status_inner"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              {
+                "->": ".^.^.^.11"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^DEBUG: error, entity ",
+              "ev",
+              {
+                "VAR?": "entity"
+              },
+              "out",
+              "/ev",
+              "^ has no state",
+              "\n",
+              "ev",
+              0,
+              "/ev",
+              "~ret",
+              {
+                "->": ".^.^.^.11"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "_change_status_inner": [
+        {
+          "temp=": "status_lst"
+        },
+        {
+          "temp=": "new_status"
+        },
+        {
+          "temp=": "entity"
+        },
+        "ev",
+        {
+          "VAR?": "status_lst"
+        },
+        "LIST_ALL",
+        {
+          "VAR?": "new_status"
+        },
+        "?",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "new_status"
+              },
+              "/ev",
+              {
+                "temp=": "status_lst",
+                "re": true
+              },
+              {
+                "->": ".^.^.^.11"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "\n",
+              "^DEBUG: error, entity ",
+              "ev",
+              {
+                "VAR?": "entity"
+              },
+              "out",
+              "/ev",
+              "^ does not support status ",
+              "ev",
+              {
+                "VAR?": "new_status"
+              },
+              "out",
+              "/ev",
+              "^ (supported states are: ",
+              "ev",
+              {
+                "VAR?": "status_lst"
+              },
+              "LIST_ALL",
+              "out",
+              "/ev",
+              "^).",
+              "\n",
+              {
+                "->": ".^.^.^.11"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "print_time": [
+        "ev",
+        {
+          "VAR?": "current_time"
+        },
+        "/ev",
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "Time_22_35"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^22:35",
+              "\n",
+              {
+                "->": ".^.^.^.8"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "Time_23_13"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^23:13",
+              "\n",
+              {
+                "->": ".^.^.^.8"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "Time_00_12"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^00:12",
+              "\n",
+              {
+                "->": ".^.^.^.8"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "Time_01_49"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^01:49",
+              "\n",
+              {
+                "->": ".^.^.^.8"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^UNKNOWN TIME ",
+              "ev",
+              {
+                "VAR?": "current_time"
+              },
+              "out",
+              "/ev",
+              "\n",
+              {
+                "->": ".^.^.^.8"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "advance_time": [
+        "ev",
+        {
+          "VAR?": "current_time"
+        },
+        "LIST_ALL",
+        "LIST_MAX",
+        "/ev",
+        {
+          "temp=": "max_time"
+        },
+        "\n",
+        "ev",
+        {
+          "VAR?": "current_time"
+        },
+        {
+          "VAR?": "max_time"
+        },
+        "==",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "f()": "loop_reset"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              {
+                "->": ".^.^.^.14"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "current_time"
+              },
+              1,
+              "+",
+              {
+                "VAR=": "current_time",
+                "re": true
+              },
+              "/ev",
+              {
+                "->": ".^.^.^.14"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "f()": "updateEntitiesLocations"
+        },
+        "pop",
+        "/ev",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "loop_reset": [
+        "ev",
+        {
+          "VAR?": "Time_22_35"
+        },
+        "/ev",
+        {
+          "VAR=": "current_time",
+          "re": true
+        },
+        "ev",
+        {
+          "list": {}
+        },
+        "/ev",
+        {
+          "VAR=": "LoopableVariables",
+          "re": true
+        },
+        "ev",
+        0,
+        "/ev",
+        {
+          "VAR=": "EliaActing",
+          "re": true
+        },
+        "^Questo è il testo che dice che è avvenuto un loop!",
+        "\n",
+        {
+          "#f": 3
+        }
+      ],
+      "new_this_loop": [
+        {
+          "temp=": "x"
+        },
+        "ev",
+        {
+          "CNT?": "loop_reset"
+        },
+        {
+          "VAR?": "x"
+        },
+        "turns",
+        0,
+        ">=",
+        "&&",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "x"
+              },
+              "turns",
+              {
+                "^->": "loop_reset"
+              },
+              "turns",
+              "<",
+              "/ev",
+              [
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "\n",
+                    "ev",
+                    false,
+                    "/ev",
+                    "~ret",
+                    {
+                      "->": ".^.^.^.9"
+                    },
+                    null
+                  ]
+                }
+              ],
+              "nop",
+              "\n",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        true,
+        "/ev",
+        "~ret",
+        {
+          "#f": 1
+        }
+      ],
+      "move_between_rooms": [
+        {
+          "temp=": "my_location"
+        },
+        [
+          "ev",
+          "str",
+          "^exit:WhiteRoom",
+          "/str",
+          {
+            "VAR?": "my_location"
+          },
+          {
+            "VAR?": "RedRoom"
+          },
+          "==",
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 5
+          },
+          "ev",
+          "str",
+          "^exit:GreenRoom",
+          "/str",
+          {
+            "VAR?": "my_location"
+          },
+          {
+            "VAR?": "RedRoom"
+          },
+          "==",
+          {
+            "VAR?": "my_location"
+          },
+          {
+            "VAR?": "YellowRoom"
+          },
+          "==",
+          "||",
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 5
+          },
+          "ev",
+          "str",
+          "^exit:RedRoom",
+          "/str",
+          {
+            "VAR?": "my_location"
+          },
+          {
+            "VAR?": "WhiteRoom"
+          },
+          "==",
+          {
+            "VAR?": "my_location"
+          },
+          {
+            "VAR?": "GreenRoom"
+          },
+          "==",
+          "||",
+          "/ev",
+          {
+            "*": ".^.c-2",
+            "flg": 5
+          },
+          "ev",
+          "str",
+          "^exit:YellowRoom",
+          "/str",
+          {
+            "VAR?": "my_location"
+          },
+          {
+            "VAR?": "GreenRoom"
+          },
+          "==",
+          "/ev",
+          {
+            "*": ".^.c-3",
+            "flg": 5
+          },
+          {
+            "c-0": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "Ettore"
+              },
+              {
+                "VAR?": "WhiteRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "f()": "advance_time"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "Ettore"
+              },
+              {
+                "VAR?": "GreenRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "f()": "advance_time"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-2": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "Ettore"
+              },
+              {
+                "VAR?": "RedRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "f()": "advance_time"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-3": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "Ettore"
+              },
+              {
+                "VAR?": "YellowRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "f()": "advance_time"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              [
+                "ev",
+                {
+                  "VAR?": "current_time"
+                },
+                {
+                  "VAR?": "Time_22_35"
+                },
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "\n",
+                    "^@next-loop",
+                    "\n",
+                    {
+                      "->": "intro"
+                    },
+                    {
+                      "->": ".^.^.^.1"
+                    },
+                    null
+                  ]
+                }
+              ],
+              "nop",
+              "\n",
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "#f": 1
+        }
+      ],
+      "notebook": [
+        [
+          "ev",
+          "str",
+          "^notebook",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 4
+          },
+          "ev",
+          "str",
+          "^Lascia la lettera",
+          "/str",
+          {
+            "VAR?": "inventory_contents"
+          },
+          {
+            "VAR?": "Lettera"
+          },
+          "?",
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 5
+          },
+          "ev",
+          "str",
+          "^Lascia lo spiedino",
+          "/str",
+          {
+            "VAR?": "inventory_contents"
+          },
+          {
+            "VAR?": "SpiedinoCocktail"
+          },
+          "?",
+          "/ev",
+          {
+            "*": ".^.c-2",
+            "flg": 5
+          },
+          "ev",
+          "str",
+          "^Lascia il pugnale",
+          "/str",
+          {
+            "VAR?": "inventory_contents"
+          },
+          {
+            "VAR?": "AnticoPugnale"
+          },
+          "?",
+          "/ev",
+          {
+            "*": ".^.c-3",
+            "flg": 5
+          },
+          "ev",
+          "str",
+          "^Lascia limetta unghie",
+          "/str",
+          {
+            "VAR?": "inventory_contents"
+          },
+          {
+            "VAR?": "LimettaUnghie"
+          },
+          "?",
+          "/ev",
+          {
+            "*": ".^.c-4",
+            "flg": 5
+          },
+          {
+            "c-0": [
+              "\n",
+              [
+                "ev",
+                {
+                  "VAR?": "relationshipDiscovered"
+                },
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "\n",
+                    "^<b>Chi ha ucciso Paola?:</b>",
+                    "\n",
+                    {
+                      "->": ".^.^.^.3"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                {
+                  "->": ".^.b"
+                },
+                {
+                  "b": [
+                    "\n",
+                    "^<b>Il taccuino è vuoto</b>",
+                    "\n",
+                    {
+                      "->": ".^.^.^.3"
+                    },
+                    null
+                  ]
+                }
+              ],
+              "nop",
+              "\n",
+              "ev",
+              {
+                "CNT?": "elia_acting.0.c-1"
+              },
+              "/ev",
+              [
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "^ <i>Informazioni di Elia</i>",
+                    {
+                      "->": ".^.^.^.9"
+                    },
+                    null
+                  ]
+                }
+              ],
+              "nop",
+              "\n",
+              "ev",
+              {
+                "CNT?": "elia_acting.0.c-1"
+              },
+              "/ev",
+              [
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "^ \"Paola voleva trasformare il nostro locale in un rifugio per senzatetto, e Greta per questo ha giurato più volte che piuttosto l'avrebbe uccisa!\"",
+                    {
+                      "->": ".^.^.^.15"
+                    },
+                    null
+                  ]
+                }
+              ],
+              "nop",
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "Lettera"
+              },
+              {
+                "f()": "remove_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-2": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "SpiedinoCocktail"
+              },
+              {
+                "f()": "remove_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-3": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "AnticoPugnale"
+              },
+              {
+                "f()": "remove_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-4": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "LimettaUnghie"
+              },
+              {
+                "f()": "remove_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              {
+                "->": "intro"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "#f": 1
+        }
+      ],
+      "intro": [
+        [
+          "ev",
+          {
+            "VAR?": "TierState"
+          },
+          {
+            "VAR?": "first_tier"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              {
+                "->": "cb_first_tier"
+              },
+              {
+                "->": "intro.2"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "ev",
+          {
+            "VAR?": "TierState"
+          },
+          {
+            "VAR?": "second_tier"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              {
+                "->": "cb_second_tier"
+              },
+              {
+                "->": "intro.2"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "cb_first_tier": [
+        [
+          "ev",
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "entity_location"
+          },
+          "/ev",
+          {
+            "temp=": "my_location"
+          },
+          "\n",
+          "ev",
+          {
+            "VAR?": "debug"
+          },
+          "/ev",
+          [
+            {
+              "->": ".^.b",
+              "c": true
+            },
+            {
+              "b": [
+                "^ [sono le ",
+                "ev",
+                {
+                  "f()": "print_time"
+                },
+                "out",
+                "/ev",
+                "^, sei in ",
+                "ev",
+                {
+                  "VAR?": "my_location"
+                },
+                "out",
+                "/ev",
+                "^]",
+                {
+                  "->": ".^.^.^.10"
+                },
+                null
+              ]
+            }
+          ],
+          "nop",
+          "\n",
+          "^@interact",
+          "\n",
+          "thread",
+          {
+            "->": "cb_first_tier_paola"
+          },
+          "thread",
+          {
+            "->": "cb_first_tier_elia"
+          },
+          "thread",
+          {
+            "->": "cb_first_tier_zeca"
+          },
+          "thread",
+          {
+            "->": "cb_first_tier_greta"
+          },
+          "thread",
+          {
+            "->": "cb_first_tier_matteo"
+          },
+          "thread",
+          {
+            "->": "cb_first_tier_limetta_unghie"
+          },
+          "thread",
+          {
+            "->": "cb_first_tier_antico_pugnale"
+          },
+          "thread",
+          {
+            "->": "cb_first_tier_spiedino_cocktail"
+          },
+          "thread",
+          {
+            "->": "cb_first_tier_lettera"
+          },
+          "ev",
+          {
+            "VAR?": "my_location"
+          },
+          "/ev",
+          "thread",
+          {
+            "->": "move_between_rooms"
+          },
+          "thread",
+          {
+            "->": "notebook"
+          },
+          "thread",
+          {
+            "->": "phone"
+          },
+          {
+            "*": ".^.c-0",
+            "flg": 8
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              {
+                "->": "intro"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "nothing": [
+            "^DEBUG: errore, nessun personaggio con cui interagire",
+            "\n",
+            "end",
+            {
+              "#f": 1
+            }
+          ],
+          "#f": 1
+        }
+      ],
+      "cb_second_tier": [
+        [
+          "ev",
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "entity_location"
+          },
+          "/ev",
+          {
+            "temp=": "my_location"
+          },
+          "\n",
+          "ev",
+          {
+            "VAR?": "debug"
+          },
+          "/ev",
+          [
+            {
+              "->": ".^.b",
+              "c": true
+            },
+            {
+              "b": [
+                "^ [sono le ",
+                "ev",
+                {
+                  "f()": "print_time"
+                },
+                "out",
+                "/ev",
+                "^, sei in ",
+                "ev",
+                {
+                  "VAR?": "my_location"
+                },
+                "out",
+                "/ev",
+                "^]",
+                {
+                  "->": ".^.^.^.10"
+                },
+                null
+              ]
+            }
+          ],
+          "nop",
+          "\n",
+          "^@interact",
+          "\n",
+          "thread",
+          {
+            "->": "cb_second_tier_paola"
+          },
+          "thread",
+          {
+            "->": "cb_second_tier_elia"
+          },
+          "thread",
+          {
+            "->": "cb_second_tier_zeca"
+          },
+          "thread",
+          {
+            "->": "cb_second_tier_greta"
+          },
+          "thread",
+          {
+            "->": "cb_second_tier_matteo"
+          },
+          "thread",
+          {
+            "->": "cb_first_tier_lettera"
+          },
+          "ev",
+          {
+            "VAR?": "my_location"
+          },
+          "/ev",
+          "thread",
+          {
+            "->": "move_between_rooms"
+          },
+          "thread",
+          {
+            "->": "notebook"
+          },
+          "thread",
+          {
+            "->": "phone"
+          },
+          {
+            "*": ".^.c-0",
+            "flg": 8
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              {
+                "->": "intro"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "nothing": [
+            "^DEBUG: errore, nessun personaggio con cui interagire",
+            "\n",
+            "end",
+            {
+              "#f": 1
+            }
+          ],
+          "#f": 1
+        }
+      ],
+      "updateEntitiesLocations": [
+        "ev",
+        {
+          "VAR?": "debug"
+        },
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ [applico la timeline per ",
+              "ev",
+              {
+                "VAR?": "current_time"
+              },
+              "out",
+              "/ev",
+              "^]",
+              {
+                "->": ".^.^.^.4"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "current_time"
+        },
+        "/ev",
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "Time_22_35"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "Matteo"
+              },
+              {
+                "VAR?": "WhiteRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "VAR?": "Matteo"
+              },
+              {
+                "VAR?": "WhiteRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "VAR?": "Paola"
+              },
+              {
+                "VAR?": "WhiteRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "VAR?": "Zeca"
+              },
+              {
+                "VAR?": "WhiteRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "VAR?": "Greta"
+              },
+              {
+                "VAR?": "WhiteRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "VAR?": "Ettore"
+              },
+              {
+                "VAR?": "WhiteRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "VAR?": "LimettaUnghie"
+              },
+              {
+                "VAR?": "GreenRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "VAR?": "AnticoPugnale"
+              },
+              {
+                "VAR?": "WhiteRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "VAR?": "SpiedinoCocktail"
+              },
+              {
+                "VAR?": "YellowRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "VAR?": "Lettera"
+              },
+              {
+                "VAR?": "RedRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              {
+                "->": ".^.^.^.14"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "Time_23_13"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "Matteo"
+              },
+              {
+                "VAR?": "RedRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "VAR?": "Greta"
+              },
+              {
+                "VAR?": "WhiteRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "VAR?": "Paola"
+              },
+              {
+                "VAR?": "GreenRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "VAR?": "Zeca"
+              },
+              {
+                "VAR?": "YellowRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "VAR?": "Elia"
+              },
+              {
+                "VAR?": "RedRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              {
+                "->": ".^.^.^.14"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "Time_00_12"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "Matteo"
+              },
+              {
+                "VAR?": "RedRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "VAR?": "Greta"
+              },
+              {
+                "VAR?": "WhiteRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "VAR?": "Paola"
+              },
+              {
+                "VAR?": "RedRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "VAR?": "Zeca"
+              },
+              {
+                "VAR?": "GreenRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "VAR?": "Elia"
+              },
+              {
+                "VAR?": "GreenRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              {
+                "->": ".^.^.^.14"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          {
+            "VAR?": "Time_01_49"
+          },
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "Matteo"
+              },
+              {
+                "VAR?": "RedRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "VAR?": "Greta"
+              },
+              {
+                "VAR?": "WhiteRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "VAR?": "Paola"
+              },
+              {
+                "VAR?": "GreenRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "VAR?": "Zeca"
+              },
+              {
+                "VAR?": "GreenRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "VAR?": "Elia"
+              },
+              {
+                "VAR?": "YellowRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              {
+                "->": ".^.^.^.14"
+              },
+              null
+            ]
+          }
+        ],
+        "pop",
+        "nop",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "throw_exception": [
+        {
+          "temp=": "str"
+        },
+        "^EXCEPTION: ",
+        "ev",
+        {
+          "VAR?": "str"
+        },
+        "out",
+        "/ev",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "seen_ever": [
+        {
+          "temp=": "x"
+        },
+        "ev",
+        {
+          "VAR?": "x"
+        },
+        "turns",
+        0,
+        ">=",
+        "/ev",
+        "~ret",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "came_from": [
+        {
+          "temp=": "x"
+        },
+        "ev",
+        {
+          "VAR?": "x"
+        },
+        "turns",
+        0,
+        "==",
+        "/ev",
+        "~ret",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "one_turn_after": [
+        {
+          "temp=": "x"
+        },
+        "ev",
+        {
+          "VAR?": "x"
+        },
+        "turns",
+        1,
+        "<=",
+        {
+          "VAR?": "x"
+        },
+        {
+          "f()": "seen_ever"
+        },
+        "&&",
+        "/ev",
+        "~ret",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "seen_very_recently": [
+        {
+          "temp=": "x"
+        },
+        "ev",
+        {
+          "VAR?": "x"
+        },
+        "turns",
+        3,
+        "<=",
+        {
+          "VAR?": "x"
+        },
+        {
+          "f()": "seen_ever"
+        },
+        "&&",
+        "/ev",
+        "~ret",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "maybe": [
+        "ev",
+        1,
+        3,
+        "rnd",
+        1,
+        "==",
+        "/ev",
+        "~ret",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "oneChoice": [
+        {
+          "temp=": "choiceCount"
+        },
+        "ev",
+        {
+          "VAR?": "choiceCount"
+        },
+        "choiceCnt",
+        "==",
+        "/ev",
+        "~ret",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "ranLim": [
+        {
+          "temp=": "choiceCount"
+        },
+        "ev",
+        {
+          "VAR?": "choiceCount"
+        },
+        {
+          "f()": "oneChoice"
+        },
+        {
+          "f()": "maybe"
+        },
+        "&&",
+        "/ev",
+        "~ret",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "limitToThree": [
+        "ev",
+        "choiceCnt",
+        3,
+        "<",
+        "/ev",
+        "~ret",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "phone": [
+        [
+          "ev",
+          "str",
+          "^phone",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 4
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->": "intro"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "#f": 1
+        }
+      ],
+      "cb_first_tier_paola": [
+        [
+          "ev",
+          "str",
+          "^character:Paola",
+          "/str",
+          {
+            "VAR?": "Paola"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          {
+            "VAR?": "acting"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 5
+          },
+          "ev",
+          "str",
+          "^character:Paola",
+          "/str",
+          {
+            "VAR?": "Paola"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          {
+            "VAR?": "acting"
+          },
+          "!",
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 5
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->t->": ".^.^.^.paola_acting"
+              },
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "\n",
+              {
+                "->t->": ".^.^.^.paola_talking"
+              },
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              {
+                "->": "intro"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "paola_acting": [
+            [
+              {
+                "->t->": "first_tier_storylets"
+              },
+              "ev",
+              "str",
+              "^character:Paola",
+              "/str",
+              "/ev",
+              {
+                "*": ".^.c-0",
+                "flg": 4
+              },
+              "ev",
+              "str",
+              "^character:Paola",
+              "/str",
+              "/ev",
+              {
+                "*": ".^.c-1",
+                "flg": 4
+              },
+              {
+                "c-0": [
+                  "^Cose Paola",
+                  "\n",
+                  "ev",
+                  false,
+                  "/ev",
+                  {
+                    "VAR=": "acting",
+                    "re": true
+                  },
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-1": [
+                  "^Altre Cose Paola",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "g-0": [
+                  "ev",
+                  "void",
+                  "/ev",
+                  "->->",
+                  {
+                    "#f": 5
+                  }
+                ]
+              }
+            ],
+            {
+              "#f": 1
+            }
+          ],
+          "paola_talking": [
+            [
+              "ev",
+              "str",
+              "^character:Paola",
+              "/str",
+              "/ev",
+              {
+                "*": ".^.c-0",
+                "flg": 4
+              },
+              "ev",
+              "str",
+              "^character:Paola",
+              "/str",
+              "/ev",
+              {
+                "*": ".^.c-1",
+                "flg": 4
+              },
+              {
+                "c-0": [
+                  "^Paola sei stronza",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-1": [
+                  "^Altre Cose Paola",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "g-0": [
+                  "ev",
+                  "void",
+                  "/ev",
+                  "->->",
+                  {
+                    "#f": 5
+                  }
+                ]
+              }
+            ],
+            {
+              "#f": 1
+            }
+          ],
+          "#f": 1
+        }
+      ],
+      "cb_first_tier_greta": [
+        [
+          "ev",
+          "str",
+          "^Greta",
+          "/str",
+          {
+            "VAR?": "Greta"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          {
+            "VAR?": "acting"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 5
+          },
+          "ev",
+          "str",
+          "^Greta",
+          "/str",
+          {
+            "VAR?": "Greta"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          {
+            "VAR?": "acting"
+          },
+          "!",
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 5
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->t->": ".^.^.^.greta_acting"
+              },
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "\n",
+              {
+                "->t->": ".^.^.^.greta_talking"
+              },
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              {
+                "->": "intro"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "greta_acting": [
+            [
+              {
+                "->t->": "first_tier_storylets"
+              },
+              [
+                "ev",
+                {
+                  "^->": "cb_first_tier_greta.greta_acting.0.1.$r1"
+                },
+                {
+                  "temp=": "$r"
+                },
+                "str",
+                {
+                  "->": ".^.s"
+                },
+                [
+                  {
+                    "#n": "$r1"
+                  }
+                ],
+                "/str",
+                "/ev",
+                {
+                  "*": ".^.^.c-0",
+                  "flg": 2
+                },
+                {
+                  "s": [
+                    "^Domanda",
+                    {
+                      "->": "$r",
+                      "var": true
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "ev",
+                {
+                  "^->": "cb_first_tier_greta.greta_acting.0.2.$r1"
+                },
+                {
+                  "temp=": "$r"
+                },
+                "str",
+                {
+                  "->": ".^.s"
+                },
+                [
+                  {
+                    "#n": "$r1"
+                  }
+                ],
+                "/str",
+                "/ev",
+                {
+                  "*": ".^.^.c-1",
+                  "flg": 2
+                },
+                {
+                  "s": [
+                    "^Domanda",
+                    {
+                      "->": "$r",
+                      "var": true
+                    },
+                    null
+                  ]
+                }
+              ],
+              "ev",
+              "str",
+              "^character:Greta",
+              "/str",
+              {
+                "^->": "cb_first_tier_greta.greta_acting.0.c-2"
+              },
+              {
+                "f()": "new_this_loop"
+              },
+              "/ev",
+              {
+                "*": ".^.c-2",
+                "flg": 5
+              },
+              "ev",
+              "str",
+              "^character:Greta",
+              "/str",
+              {
+                "^->": "cb_first_tier_greta.greta_acting.0.c-2"
+              },
+              {
+                "f()": "new_this_loop"
+              },
+              "!",
+              {
+                "VAR?": "elia_raggiunge_Greta"
+              },
+              "!",
+              "&&",
+              "/ev",
+              {
+                "*": ".^.c-3",
+                "flg": 5
+              },
+              "ev",
+              "str",
+              "^character:Greta",
+              "/str",
+              {
+                "^->": "cb_first_tier_greta.greta_acting.0.c-2"
+              },
+              {
+                "f()": "new_this_loop"
+              },
+              "!",
+              {
+                "VAR?": "elia_raggiunge_Greta"
+              },
+              "&&",
+              "/ev",
+              {
+                "*": ".^.c-4",
+                "flg": 5
+              },
+              "ev",
+              "str",
+              "^character:Greta",
+              "/str",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "AnticoPugnale"
+              },
+              "?",
+              "/ev",
+              {
+                "*": ".^.c-5",
+                "flg": 5
+              },
+              "ev",
+              "str",
+              "^character:Greta",
+              "/str",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "SpiedinoCocktail"
+              },
+              "?",
+              "/ev",
+              {
+                "*": ".^.c-6",
+                "flg": 5
+              },
+              "ev",
+              "str",
+              "^character:Greta",
+              "/str",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "Lettera"
+              },
+              "?",
+              "/ev",
+              {
+                "*": ".^.c-7",
+                "flg": 5
+              },
+              "ev",
+              "str",
+              "^character:Greta",
+              "/str",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "LimettaUnghie"
+              },
+              "?",
+              "/ev",
+              {
+                "*": ".^.c-8",
+                "flg": 5
+              },
+              {
+                "c-0": [
+                  "ev",
+                  {
+                    "^->": "cb_first_tier_greta.greta_acting.0.c-0.$r2"
+                  },
+                  "/ev",
+                  {
+                    "temp=": "$r"
+                  },
+                  {
+                    "->": ".^.^.1.s"
+                  },
+                  [
+                    {
+                      "#n": "$r2"
+                    }
+                  ],
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-1": [
+                  "ev",
+                  {
+                    "^->": "cb_first_tier_greta.greta_acting.0.c-1.$r2"
+                  },
+                  "/ev",
+                  {
+                    "temp=": "$r"
+                  },
+                  {
+                    "->": ".^.^.2.s"
+                  },
+                  [
+                    {
+                      "#n": "$r2"
+                    }
+                  ],
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-2": [
+                  "^ Sai chi potrebbe avere ucciso Paola?",
+                  "\n",
+                  "^Greta: Di più! Ma ti dirò chi è l'assassino se tu convinci Elia a venire a parlarmi.",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 7
+                  }
+                ],
+                "c-3": [
+                  "^ Non sono ancora riuscito a convincere Elia       ",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-4": [
+                  "^ Ho fatto quello che mi hai chiesto, Greta.",
+                  "\n",
+                  "^Greta: Scusa, ti ho preso un po' in giro. Non ho idea di chi possa aver ucciso Paola, era perfetta.",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-5": [
+                  "^ Guarda questo pugnale!",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-6": [
+                  "^ Guarda questo spiedino!",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-7": [
+                  "^ Guarda questa lettera!",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-8": [
+                  "^ Guarda questa limetta da unghie!",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "g-0": [
+                  [
+                    "ev",
+                    {
+                      "^->": "cb_first_tier_greta.greta_acting.0.g-0.0.$r1"
+                    },
+                    {
+                      "temp=": "$r"
+                    },
+                    "str",
+                    {
+                      "->": ".^.s"
+                    },
+                    [
+                      {
+                        "#n": "$r1"
+                      }
+                    ],
+                    "/str",
+                    "/ev",
+                    {
+                      "*": ".^.^.c-9",
+                      "flg": 2
+                    },
+                    {
+                      "s": [
+                        "^Te ne vai",
+                        {
+                          "->": "$r",
+                          "var": true
+                        },
+                        null
+                      ]
+                    }
+                  ],
+                  {
+                    "c-9": [
+                      "ev",
+                      {
+                        "^->": "cb_first_tier_greta.greta_acting.0.g-0.c-9.$r2"
+                      },
+                      "/ev",
+                      {
+                        "temp=": "$r"
+                      },
+                      {
+                        "->": ".^.^.0.s"
+                      },
+                      [
+                        {
+                          "#n": "$r2"
+                        }
+                      ],
+                      "\n",
+                      "ev",
+                      "void",
+                      "/ev",
+                      "->->",
+                      {
+                        "#f": 5
+                      }
+                    ],
+                    "#f": 5
+                  }
+                ]
+              }
+            ],
+            {
+              "#f": 1
+            }
+          ],
+          "greta_talking": [
+            "ev",
+            "void",
+            "/ev",
+            "->->",
+            {
+              "#f": 1
+            }
+          ],
+          "#f": 1
+        }
+      ],
+      "cb_first_tier_matteo": [
+        [
+          "ev",
+          "str",
+          "^Matteo",
+          "/str",
+          {
+            "VAR?": "Matteo"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          {
+            "VAR?": "acting"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 5
+          },
+          "ev",
+          "str",
+          "^Matteo",
+          "/str",
+          {
+            "VAR?": "Matteo"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          {
+            "VAR?": "acting"
+          },
+          "!",
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 5
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->t->": ".^.^.^.matteo_acting"
+              },
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "\n",
+              {
+                "->t->": ".^.^.^.matteo_talking"
+              },
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              {
+                "->": "intro"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "matteo_acting": [
+            [
+              {
+                "->t->": "first_tier_storylets"
+              },
+              "ev",
+              "str",
+              "^character:Matteo",
+              "/str",
+              "/ev",
+              {
+                "*": ".^.c-0",
+                "flg": 4
+              },
+              "ev",
+              "str",
+              "^character:Matteo",
+              "/str",
+              "/ev",
+              {
+                "*": ".^.c-1",
+                "flg": 4
+              },
+              {
+                "c-0": [
+                  "^ XXX",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-1": [
+                  "^ YYY",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "g-0": [
+                  "^Cose dette",
+                  "\n",
+                  "ev",
+                  "void",
+                  "/ev",
+                  "->->",
+                  {
+                    "#f": 5
+                  }
+                ]
+              }
+            ],
+            {
+              "#f": 1
+            }
+          ],
+          "matteo_talking": [
+            "ev",
+            "void",
+            "/ev",
+            "->->",
+            {
+              "#f": 1
+            }
+          ],
+          "#f": 1
+        }
+      ],
+      "cb_first_tier_elia": [
+        [
+          "ev",
+          "str",
+          "^Elia",
+          "/str",
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          {
+            "VAR?": "acting"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 5
+          },
+          "ev",
+          "str",
+          "^Elia",
+          "/str",
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          {
+            "VAR?": "acting"
+          },
+          "!",
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 5
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->t->": "elia_acting"
+              },
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "\n",
+              {
+                "->t->": "elia_talking"
+              },
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              {
+                "->": "intro"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "#f": 1
+        }
+      ],
+      "elia_acting": [
+        [
+          {
+            "->t->": "first_tier_storylets"
+          },
+          "ev",
+          "str",
+          "^character:Elia",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 4
+          },
+          "ev",
+          "str",
+          "^character:Elia",
+          "/str",
+          {
+            "CNT?": "cb_first_tier_greta.greta_acting.0.c-2"
+          },
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 5
+          },
+          "ev",
+          "str",
+          "^character:Elia",
+          "/str",
+          {
+            "VAR?": "inventory_contents"
+          },
+          {
+            "VAR?": "AnticoPugnale"
+          },
+          "?",
+          "/ev",
+          {
+            "*": ".^.c-2",
+            "flg": 5
+          },
+          "ev",
+          "str",
+          "^character:Elia",
+          "/str",
+          {
+            "VAR?": "inventory_contents"
+          },
+          {
+            "VAR?": "SpiedinoCocktail"
+          },
+          "?",
+          "/ev",
+          {
+            "*": ".^.c-3",
+            "flg": 5
+          },
+          "ev",
+          "str",
+          "^character:Elia",
+          "/str",
+          {
+            "VAR?": "inventory_contents"
+          },
+          {
+            "VAR?": "Lettera"
+          },
+          "?",
+          "/ev",
+          {
+            "*": ".^.c-4",
+            "flg": 5
+          },
+          "ev",
+          "str",
+          "^character:Elia",
+          "/str",
+          {
+            "VAR?": "inventory_contents"
+          },
+          {
+            "VAR?": "LimettaUnghie"
+          },
+          "?",
+          "/ev",
+          {
+            "*": ".^.c-5",
+            "flg": 5
+          },
+          {
+            "c-0": [
+              "^ Fai domande sul personaggio Elia ",
+              {
+                "->": ".^.^.^.esplora_elia"
+              },
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "^ Elia, Greta vorrebbe parlare con te.",
+              "\n",
+              "^Elia: col cavolo!",
+              "\n",
+              "^Ettore: Posso fare qualcosa per te?",
+              "\n",
+              "^Elia: No, non c'è nulla che puoi fare!",
+              "\n",
+              [
+                "ev",
+                "str",
+                "^character:Elia",
+                "/str",
+                {
+                  "CNT?": "weddingAtThePubStorylet"
+                },
+                "/ev",
+                {
+                  "*": ".^.c-0",
+                  "flg": 5
+                },
+                {
+                  "*": ".^.c-1",
+                  "flg": 8
+                },
+                {
+                  "c-0": [
+                    "^ Non è vero! So che vuoi organizzare il nostro matrimonio al bar. Posso convincere Matteo!",
+                    "\n",
+                    "^Elia: Non ti conosco ma mi fido di te, va bene!",
+                    "\n",
+                    "^Ettore: Ti aspetta nella stanza bianca.",
+                    "\n",
+                    "ev",
+                    {
+                      "VAR?": "Elia"
+                    },
+                    {
+                      "VAR?": "WhiteRoom"
+                    },
+                    {
+                      "f()": "move_entity"
+                    },
+                    "pop",
+                    "/ev",
+                    "\n",
+                    "ev",
+                    {
+                      "VAR?": "LoopableVariables"
+                    },
+                    {
+                      "VAR?": "elia_raggiunge_Greta"
+                    },
+                    "+",
+                    {
+                      "VAR=": "LoopableVariables",
+                      "re": true
+                    },
+                    "/ev",
+                    "^Ho impostato loopable",
+                    "\n",
+                    "ev",
+                    {
+                      "VAR?": "SpiedinoCocktail"
+                    },
+                    {
+                      "f()": "move_entity_from_object_storage_to_Ettore_location"
+                    },
+                    "pop",
+                    "/ev",
+                    "\n",
+                    {
+                      "->": ".^.^.^.^.g-0"
+                    },
+                    {
+                      "#f": 5
+                    }
+                  ],
+                  "c-1": [
+                    "\n",
+                    {
+                      "->": ".^.^.^.^.g-0"
+                    },
+                    {
+                      "#f": 5
+                    }
+                  ]
+                }
+              ],
+              {
+                "#f": 5
+              }
+            ],
+            "c-2": [
+              "^ Guarda questo pugnale!",
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-3": [
+              "^ Guarda questo spiedino!",
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-4": [
+              "^ Guarda questa lettera!",
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-5": [
+              "^ Guarda questa limetta da unghie!",
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              [
+                "ev",
+                {
+                  "^->": "elia_acting.0.g-0.0.$r1"
+                },
+                {
+                  "temp=": "$r"
+                },
+                "str",
+                {
+                  "->": ".^.s"
+                },
+                [
+                  {
+                    "#n": "$r1"
+                  }
+                ],
+                "/str",
+                "/ev",
+                {
+                  "*": ".^.^.c-6",
+                  "flg": 2
+                },
+                {
+                  "s": [
+                    "^Te ne vai ",
+                    {
+                      "->": "$r",
+                      "var": true
+                    },
+                    null
+                  ]
+                }
+              ],
+              {
+                "c-6": [
+                  "ev",
+                  {
+                    "^->": "elia_acting.0.g-0.c-6.$r2"
+                  },
+                  "/ev",
+                  {
+                    "temp=": "$r"
+                  },
+                  {
+                    "->": ".^.^.0.s"
+                  },
+                  [
+                    {
+                      "#n": "$r2"
+                    }
+                  ],
+                  {
+                    "->": "intro"
+                  },
+                  "\n",
+                  {
+                    "->": ".^.^.^.g-1"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "#f": 5
+              }
+            ],
+            "g-1": [
+              "ev",
+              "void",
+              "/ev",
+              "->->",
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "esplora_elia": [
+            [
+              "ev",
+              {
+                "VAR?": "EliaActing"
+              },
+              1,
+              ">",
+              "/ev",
+              {
+                "->": ".^.b",
+                "c": true
+              },
+              {
+                "b": [
+                  "\n",
+                  "^Elia: \"Non mi va di rispondere ad altre domande personali\". ",
+                  {
+                    "->": "intro"
+                  },
+                  "\n",
+                  {
+                    "->": ".^.^.^.2"
+                  },
+                  null
+                ]
+              }
+            ],
+            [
+              {
+                "->": ".^.b"
+              },
+              {
+                "b": [
+                  "\n",
+                  [
+                    "ev",
+                    "visit",
+                    3,
+                    "seq",
+                    "/ev",
+                    "ev",
+                    "du",
+                    0,
+                    "==",
+                    "/ev",
+                    {
+                      "->": ".^.s0",
+                      "c": true
+                    },
+                    "ev",
+                    "du",
+                    1,
+                    "==",
+                    "/ev",
+                    {
+                      "->": ".^.s1",
+                      "c": true
+                    },
+                    "ev",
+                    "du",
+                    2,
+                    "==",
+                    "/ev",
+                    {
+                      "->": ".^.s2",
+                      "c": true
+                    },
+                    "nop",
+                    {
+                      "s0": [
+                        "pop",
+                        "\n",
+                        {
+                          "->": "elia_acting.first_qn"
+                        },
+                        {
+                          "->": ".^.^.23"
+                        },
+                        null
+                      ],
+                      "s1": [
+                        "pop",
+                        "\n",
+                        {
+                          "->": "elia_acting.second_qn"
+                        },
+                        {
+                          "->": ".^.^.23"
+                        },
+                        null
+                      ],
+                      "s2": [
+                        "pop",
+                        "\n",
+                        {
+                          "->": "elia_acting.third_qn"
+                        },
+                        {
+                          "->": ".^.^.23"
+                        },
+                        null
+                      ],
+                      "#f": 5
+                    }
+                  ],
+                  "\n",
+                  {
+                    "->": ".^.^.^.2"
+                  },
+                  null
+                ]
+              }
+            ],
+            "nop",
+            "\n",
+            {
+              "#f": 1
+            }
+          ],
+          "first_qn": [
+            [
+              "ev",
+              {
+                "VAR?": "EliaActing"
+              },
+              1,
+              "+",
+              {
+                "VAR=": "EliaActing",
+                "re": true
+              },
+              "/ev",
+              "ev",
+              "str",
+              "^character:Elia",
+              "/str",
+              "/ev",
+              {
+                "*": ".^.c-0",
+                "flg": 4
+              },
+              {
+                "c-0": [
+                  "^ Prima domanda",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "g-0": [
+                  {
+                    "->": ".^.^.^.^"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ]
+              }
+            ],
+            {
+              "#f": 1
+            }
+          ],
+          "second_qn": [
+            [
+              "ev",
+              {
+                "VAR?": "EliaActing"
+              },
+              1,
+              "+",
+              {
+                "VAR=": "EliaActing",
+                "re": true
+              },
+              "/ev",
+              "ev",
+              "str",
+              "^character:Elia",
+              "/str",
+              "/ev",
+              {
+                "*": ".^.c-0",
+                "flg": 4
+              },
+              {
+                "c-0": [
+                  "^ altra domanda",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "g-0": [
+                  {
+                    "->": ".^.^.^.^"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ]
+              }
+            ],
+            {
+              "#f": 1
+            }
+          ],
+          "third_qn": [
+            [
+              "ev",
+              {
+                "VAR?": "EliaActing"
+              },
+              1,
+              "+",
+              {
+                "VAR=": "EliaActing",
+                "re": true
+              },
+              "/ev",
+              "^Elia dice cose",
+              "\n",
+              "ev",
+              "str",
+              "^character:Elia",
+              "/str",
+              "/ev",
+              {
+                "*": ".^.c-0",
+                "flg": 4
+              },
+              {
+                "c-0": [
+                  "^ tu chiedi",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "g-0": [
+                  {
+                    "->": ".^.^.^.^"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ]
+              }
+            ],
+            {
+              "#f": 1
+            }
+          ],
+          "#f": 1
+        }
+      ],
+      "elia_talking": [
+        "ev",
+        "void",
+        "/ev",
+        "->->",
+        {
+          "#f": 1
+        }
+      ],
+      "cb_first_tier_zeca": [
+        [
+          "ev",
+          "str",
+          "^Zeca",
+          "/str",
+          {
+            "VAR?": "Zeca"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          {
+            "VAR?": "acting"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 5
+          },
+          "ev",
+          "str",
+          "^Zeca",
+          "/str",
+          {
+            "VAR?": "Zeca"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          {
+            "VAR?": "acting"
+          },
+          "!",
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 5
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->t->": ".^.^.^.zeca_acting"
+              },
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "\n",
+              {
+                "->t->": ".^.^.^.zeca_talking"
+              },
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              {
+                "->": "intro"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "zeca_acting": [
+            [
+              {
+                "->t->": "first_tier_storylets"
+              },
+              "ev",
+              "str",
+              "^character:Zeca",
+              "/str",
+              "/ev",
+              {
+                "*": ".^.c-0",
+                "flg": 4
+              },
+              "ev",
+              "str",
+              "^character:Zeca",
+              "/str",
+              "/ev",
+              {
+                "*": ".^.c-1",
+                "flg": 4
+              },
+              {
+                "c-0": [
+                  "^ XXX",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-1": [
+                  "^YYY",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "g-0": [
+                  "^Cose dette",
+                  "\n",
+                  "ev",
+                  "void",
+                  "/ev",
+                  "->->",
+                  {
+                    "#f": 5
+                  }
+                ]
+              }
+            ],
+            {
+              "#f": 1
+            }
+          ],
+          "zeca_talking": [
+            "ev",
+            "void",
+            "/ev",
+            "->->",
+            {
+              "#f": 1
+            }
+          ],
+          "#f": 1
+        }
+      ],
+      "cb_first_tier_limetta_unghie": [
+        [
+          "ev",
+          "str",
+          "^object:LimettaUnghie",
+          "/str",
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "VAR?": "LimettaUnghie"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 5
+          },
+          {
+            "c-0": [
+              "^C'è una limetta da unghie",
+              "\n",
+              {
+                "->t->": ".^.^.^.limetta_unghie"
+              },
+              {
+                "->": "intro"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "limetta_unghie": [
+            [
+              "ev",
+              "str",
+              "^object:LimettaUnghie",
+              "/str",
+              "/ev",
+              {
+                "*": ".^.c-0",
+                "flg": 4
+              },
+              "ev",
+              "str",
+              "^object:LimettaUnghie",
+              "/str",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "LimettaUnghie"
+              },
+              "!?",
+              {
+                "CNT?": ".^.c-0"
+              },
+              "&&",
+              "/ev",
+              {
+                "*": ".^.c-1",
+                "flg": 5
+              },
+              "ev",
+              "str",
+              "^object:LimettaUnghie",
+              "/str",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "LimettaUnghie"
+              },
+              "?",
+              "/ev",
+              {
+                "*": ".^.c-2",
+                "flg": 5
+              },
+              "ev",
+              "str",
+              "^object:LimettaUnghie",
+              "/str",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "LimettaUnghie"
+              },
+              "?",
+              "/ev",
+              {
+                "*": ".^.c-3",
+                "flg": 5
+              },
+              [
+                "ev",
+                {
+                  "^->": "cb_first_tier_limetta_unghie.limetta_unghie.0.35.$r1"
+                },
+                {
+                  "temp=": "$r"
+                },
+                "str",
+                {
+                  "->": ".^.s"
+                },
+                [
+                  {
+                    "#n": "$r1"
+                  }
+                ],
+                "/str",
+                "/ev",
+                {
+                  "*": ".^.^.c-4",
+                  "flg": 2
+                },
+                {
+                  "s": [
+                    "^La lasci dov'è",
+                    {
+                      "->": "$r",
+                      "var": true
+                    },
+                    null
+                  ]
+                }
+              ],
+              {
+                "c-0": [
+                  "^ Controlla la limetta per le unghie",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-1": [
+                  "^ Raccogli la limetta per le unghie",
+                  "\n",
+                  "ev",
+                  {
+                    "VAR?": "LimettaUnghie"
+                  },
+                  {
+                    "f()": "take_object"
+                  },
+                  "pop",
+                  "/ev",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-2": [
+                  "^ Mostra limetta unghie",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-3": [
+                  "^ Lascia limetta unghie",
+                  "\n",
+                  "ev",
+                  {
+                    "VAR?": "LimettaUnghie"
+                  },
+                  {
+                    "f()": "remove_entity"
+                  },
+                  "pop",
+                  "/ev",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-4": [
+                  "ev",
+                  {
+                    "^->": "cb_first_tier_limetta_unghie.limetta_unghie.0.c-4.$r2"
+                  },
+                  "/ev",
+                  {
+                    "temp=": "$r"
+                  },
+                  {
+                    "->": ".^.^.35.s"
+                  },
+                  [
+                    {
+                      "#n": "$r2"
+                    }
+                  ],
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "g-0": [
+                  "ev",
+                  "void",
+                  "/ev",
+                  "->->",
+                  {
+                    "#f": 5
+                  }
+                ]
+              }
+            ],
+            {
+              "#f": 1
+            }
+          ],
+          "#f": 1
+        }
+      ],
+      "cb_first_tier_antico_pugnale": [
+        [
+          "ev",
+          "str",
+          "^object:AnticoPugnale",
+          "/str",
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "VAR?": "AnticoPugnale"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 5
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->t->": ".^.^.^.antico_pugnale"
+              },
+              {
+                "->": "intro"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "antico_pugnale": [
+            [
+              "ev",
+              "str",
+              "^object:AnticoPugnale",
+              "/str",
+              "/ev",
+              {
+                "*": ".^.c-0",
+                "flg": 4
+              },
+              "ev",
+              "str",
+              "^object:AnticoPugnale",
+              "/str",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "AnticoPugnale"
+              },
+              "!?",
+              {
+                "CNT?": ".^.c-0"
+              },
+              "&&",
+              "/ev",
+              {
+                "*": ".^.c-1",
+                "flg": 5
+              },
+              "ev",
+              "str",
+              "^object:AnticoPugnale",
+              "/str",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "AnticoPugnale"
+              },
+              "?",
+              "/ev",
+              {
+                "*": ".^.c-2",
+                "flg": 5
+              },
+              "ev",
+              "str",
+              "^object:AnticoPugnale",
+              "/str",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "AnticoPugnale"
+              },
+              "?",
+              "/ev",
+              {
+                "*": ".^.c-3",
+                "flg": 5
+              },
+              [
+                "ev",
+                {
+                  "^->": "cb_first_tier_antico_pugnale.antico_pugnale.0.35.$r1"
+                },
+                {
+                  "temp=": "$r"
+                },
+                "str",
+                {
+                  "->": ".^.s"
+                },
+                [
+                  {
+                    "#n": "$r1"
+                  }
+                ],
+                "/str",
+                "/ev",
+                {
+                  "*": ".^.^.c-4",
+                  "flg": 2
+                },
+                {
+                  "s": [
+                    "^Lo lasci dov'è",
+                    {
+                      "->": "$r",
+                      "var": true
+                    },
+                    null
+                  ]
+                }
+              ],
+              {
+                "c-0": [
+                  "^ Ispeziona il pugnale",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-1": [
+                  "^ Afferri il pugnale",
+                  "\n",
+                  "ev",
+                  {
+                    "VAR?": "AnticoPugnale"
+                  },
+                  {
+                    "f()": "take_object"
+                  },
+                  "pop",
+                  "/ev",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-2": [
+                  "^ Mostra il pugnale",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-3": [
+                  "^ Lascia il pugnale",
+                  "\n",
+                  "ev",
+                  {
+                    "VAR?": "AnticoPugnale"
+                  },
+                  {
+                    "f()": "remove_entity"
+                  },
+                  "pop",
+                  "/ev",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-4": [
+                  "ev",
+                  {
+                    "^->": "cb_first_tier_antico_pugnale.antico_pugnale.0.c-4.$r2"
+                  },
+                  "/ev",
+                  {
+                    "temp=": "$r"
+                  },
+                  {
+                    "->": ".^.^.35.s"
+                  },
+                  [
+                    {
+                      "#n": "$r2"
+                    }
+                  ],
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "g-0": [
+                  "ev",
+                  "void",
+                  "/ev",
+                  "->->",
+                  {
+                    "#f": 5
+                  }
+                ]
+              }
+            ],
+            {
+              "#f": 1
+            }
+          ],
+          "#f": 1
+        }
+      ],
+      "cb_first_tier_spiedino_cocktail": [
+        [
+          "ev",
+          "str",
+          "^object:SpiedinoCocktail",
+          "/str",
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "VAR?": "SpiedinoCocktail"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 5
+          },
+          {
+            "c-0": [
+              "^ C'è uno spiedino da cocktail",
+              "\n",
+              {
+                "->t->": ".^.^.^.spiedino_cocktail"
+              },
+              {
+                "->": "intro"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "spiedino_cocktail": [
+            [
+              "ev",
+              "str",
+              "^object:SpiedinoCocktail",
+              "/str",
+              "/ev",
+              {
+                "*": ".^.c-0",
+                "flg": 4
+              },
+              "ev",
+              "str",
+              "^object:SpiedinoCocktail",
+              "/str",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "SpiedinoCocktail"
+              },
+              "!?",
+              {
+                "CNT?": ".^.c-0"
+              },
+              "&&",
+              "/ev",
+              {
+                "*": ".^.c-1",
+                "flg": 5
+              },
+              "ev",
+              "str",
+              "^object:SpiedinoCocktail",
+              "/str",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "SpiedinoCocktail"
+              },
+              "?",
+              "/ev",
+              {
+                "*": ".^.c-2",
+                "flg": 5
+              },
+              "ev",
+              "str",
+              "^object:SpiedinoCocktail",
+              "/str",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "SpiedinoCocktail"
+              },
+              "?",
+              "/ev",
+              {
+                "*": ".^.c-3",
+                "flg": 5
+              },
+              [
+                "ev",
+                {
+                  "^->": "cb_first_tier_spiedino_cocktail.spiedino_cocktail.0.35.$r1"
+                },
+                {
+                  "temp=": "$r"
+                },
+                "str",
+                {
+                  "->": ".^.s"
+                },
+                [
+                  {
+                    "#n": "$r1"
+                  }
+                ],
+                "/str",
+                "/ev",
+                {
+                  "*": ".^.^.c-4",
+                  "flg": 2
+                },
+                {
+                  "s": [
+                    "^Lo lasci dov'è",
+                    {
+                      "->": "$r",
+                      "var": true
+                    },
+                    null
+                  ]
+                }
+              ],
+              {
+                "c-0": [
+                  "^ Osserva lo spiedino",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-1": [
+                  "^ Afferri lo spiedino",
+                  "\n",
+                  "ev",
+                  {
+                    "VAR?": "SpiedinoCocktail"
+                  },
+                  {
+                    "f()": "take_object"
+                  },
+                  "pop",
+                  "/ev",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-2": [
+                  "^ Mostra lo spiedino",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-3": [
+                  "^ Lascia lo spiedino",
+                  "\n",
+                  "ev",
+                  {
+                    "VAR?": "SpiedinoCocktail"
+                  },
+                  {
+                    "f()": "remove_entity"
+                  },
+                  "pop",
+                  "/ev",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-4": [
+                  "ev",
+                  {
+                    "^->": "cb_first_tier_spiedino_cocktail.spiedino_cocktail.0.c-4.$r2"
+                  },
+                  "/ev",
+                  {
+                    "temp=": "$r"
+                  },
+                  {
+                    "->": ".^.^.35.s"
+                  },
+                  [
+                    {
+                      "#n": "$r2"
+                    }
+                  ],
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "g-0": [
+                  "ev",
+                  "void",
+                  "/ev",
+                  "->->",
+                  {
+                    "#f": 5
+                  }
+                ]
+              }
+            ],
+            {
+              "#f": 1
+            }
+          ],
+          "#f": 1
+        }
+      ],
+      "cb_first_tier_lettera": [
+        [
+          "ev",
+          "str",
+          "^object:Lettera",
+          "/str",
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "VAR?": "Lettera"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 5
+          },
+          {
+            "c-0": [
+              "^ C'è una lettera",
+              "\n",
+              {
+                "->t->": ".^.^.^.lettera"
+              },
+              {
+                "->": "intro"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "lettera": [
+            [
+              "ev",
+              "str",
+              "^object:Lettera",
+              "/str",
+              "/ev",
+              {
+                "*": ".^.c-0",
+                "flg": 4
+              },
+              "ev",
+              "str",
+              "^object:Lettera",
+              "/str",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "Lettera"
+              },
+              "!?",
+              {
+                "CNT?": ".^.c-0"
+              },
+              "&&",
+              "/ev",
+              {
+                "*": ".^.c-1",
+                "flg": 5
+              },
+              "ev",
+              "str",
+              "^object:Lettera",
+              "/str",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "Lettera"
+              },
+              "?",
+              "/ev",
+              {
+                "*": ".^.c-2",
+                "flg": 5
+              },
+              "ev",
+              "str",
+              "^object:Lettera",
+              "/str",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "Lettera"
+              },
+              "?",
+              "/ev",
+              {
+                "*": ".^.c-3",
+                "flg": 5
+              },
+              [
+                "ev",
+                {
+                  "^->": "cb_first_tier_lettera.lettera.0.35.$r1"
+                },
+                {
+                  "temp=": "$r"
+                },
+                "str",
+                {
+                  "->": ".^.s"
+                },
+                [
+                  {
+                    "#n": "$r1"
+                  }
+                ],
+                "/str",
+                "/ev",
+                {
+                  "*": ".^.^.c-4",
+                  "flg": 2
+                },
+                {
+                  "s": [
+                    "^La lasci dov'è",
+                    {
+                      "->": "$r",
+                      "var": true
+                    },
+                    null
+                  ]
+                }
+              ],
+              {
+                "c-0": [
+                  "^ Leggi la lettera",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-1": [
+                  "^ Prendi la lettera",
+                  "\n",
+                  "ev",
+                  {
+                    "VAR?": "Lettera"
+                  },
+                  {
+                    "f()": "take_object"
+                  },
+                  "pop",
+                  "/ev",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-2": [
+                  "^ Mostra lettera",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-3": [
+                  "^ Lascia lettera",
+                  "\n",
+                  "ev",
+                  {
+                    "VAR?": "Lettera"
+                  },
+                  {
+                    "f()": "remove_entity"
+                  },
+                  "pop",
+                  "/ev",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-4": [
+                  "ev",
+                  {
+                    "^->": "cb_first_tier_lettera.lettera.0.c-4.$r2"
+                  },
+                  "/ev",
+                  {
+                    "temp=": "$r"
+                  },
+                  {
+                    "->": ".^.^.35.s"
+                  },
+                  [
+                    {
+                      "#n": "$r2"
+                    }
+                  ],
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "g-0": [
+                  "ev",
+                  "void",
+                  "/ev",
+                  "->->",
+                  {
+                    "#f": 5
+                  }
+                ]
+              }
+            ],
+            {
+              "#f": 1
+            }
+          ],
+          "#f": 1
+        }
+      ],
+      "first_tier_storylets": [
+        [
+          "ev",
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Matteo"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "VAR?": "Zeca"
+          },
+          {
+            "VAR?": "Paola"
+          },
+          {
+            "VAR?": "Greta"
+          },
+          {
+            "f()": "areSixEntitiesTogether"
+          },
+          {
+            "CNT?": "startingDinnerStorylet"
+          },
+          "!",
+          "&&",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              {
+                "->": "startingDinnerStorylet"
+              },
+              {
+                "->": ".^.^.^.3"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "ev",
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Matteo"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "areThreeEntitiesTogether"
+          },
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Zeca"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          "!",
+          "&&",
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Paola"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          "!",
+          "&&",
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Greta"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          "!",
+          "&&",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              {
+                "->": "weddingAtThePubStorylet"
+              },
+              {
+                "->": ".^.^.^.3"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "ev",
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Greta"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "areThreeEntitiesTogether"
+          },
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Matteo"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          "!",
+          "&&",
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Paola"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          "!",
+          "&&",
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Zeca"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          "!",
+          "&&",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              {
+                "->": "anEavesdropAboutFriendshipStorylet"
+              },
+              {
+                "->": ".^.^.^.3"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        "void",
+        "/ev",
+        "->->",
+        {
+          "#f": 1
+        }
+      ],
+      "startingDinnerStorylet": [
+        [
+          "^starting Dinner Storylet",
+          "\n",
+          "^Matteo: c'è Paola!",
+          "\n",
+          "^Paola: c'è Matteo!",
+          "\n",
+          [
+            "ev",
+            {
+              "^->": "startingDinnerStorylet.0.6.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            "/ev",
+            {
+              "*": ".^.^.c-0",
+              "flg": 2
+            },
+            {
+              "s": [
+                "^Ci sono anche io!",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          [
+            "ev",
+            {
+              "^->": "startingDinnerStorylet.0.7.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            "/ev",
+            {
+              "*": ".^.^.c-1",
+              "flg": 2
+            },
+            {
+              "s": [
+                "^E ci sono dei gatti!",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          "ev",
+          "str",
+          "^\"Me ne vado\"",
+          "/str",
+          {
+            "^->": "startingDinnerStorylet"
+          },
+          {
+            "f()": "new_this_loop"
+          },
+          "!",
+          "/ev",
+          {
+            "*": ".^.c-2",
+            "flg": 5
+          },
+          {
+            "c-0": [
+              "ev",
+              {
+                "^->": "startingDinnerStorylet.0.c-0.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.6.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "ev",
+              {
+                "^->": "startingDinnerStorylet.0.c-1.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.7.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-2": [
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              "^Greta: Ma soprattutto c'è un coniglio",
+              "\n",
+              "ev",
+              "void",
+              "/ev",
+              "->->",
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "#f": 3
+        }
+      ],
+      "weddingAtThePubStorylet": [
+        [
+          "^weddingAtThePubStorylet",
+          "\n",
+          "^Discussione Matteo ed Elia su matrimonio al bar",
+          "\n",
+          "ev",
+          "str",
+          "^\"Me ne vado\"",
+          "/str",
+          {
+            "^->": "weddingAtThePubStorylet"
+          },
+          {
+            "f()": "new_this_loop"
+          },
+          "!",
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 5
+          },
+          "ev",
+          "str",
+          "^Opzione normale",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 4
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              "ev",
+              "void",
+              "/ev",
+              "->->",
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "#f": 3
+        }
+      ],
+      "anEavesdropAboutFriendshipStorylet": [
+        [
+          "^Conversazione origliata: capiamo che Greta non ce l'ha con Paola, ma cagate tipo \"prima che papà mi adottasse ho vissuto in strada, non possono rivivere quel trauma\".",
+          "\n",
+          "ev",
+          "str",
+          "^\"Me ne vado\"",
+          "/str",
+          {
+            "^->": "anEavesdropAboutFriendshipStorylet"
+          },
+          {
+            "f()": "new_this_loop"
+          },
+          "!",
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 5
+          },
+          "ev",
+          "str",
+          "^Opzione normale",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 4
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              "ev",
+              "void",
+              "/ev",
+              "->->",
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "#f": 3
+        }
+      ],
+      "cb_second_tier_paola": [
+        [
+          "ev",
+          "str",
+          "^Paola",
+          "/str",
+          {
+            "VAR?": "Paola"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 5
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->t->": ".^.^.^.paola_dialogues"
+              },
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              {
+                "->": "intro"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "paola_dialogues": [
+            [
+              "ev",
+              "str",
+              "^character:Paola",
+              "/str",
+              "/ev",
+              {
+                "*": ".^.c-0",
+                "flg": 4
+              },
+              {
+                "c-0": [
+                  "^XXX",
+                  "\n",
+                  "ev",
+                  "void",
+                  "/ev",
+                  "->->",
+                  {
+                    "#f": 5
+                  }
+                ]
+              }
+            ],
+            {
+              "#f": 1
+            }
+          ],
+          "#f": 1
+        }
+      ],
+      "cb_second_tier_greta": [
+        [
+          "ev",
+          "str",
+          "^Greta",
+          "/str",
+          {
+            "VAR?": "Greta"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 5
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->t->": ".^.^.^.greta_dialogues"
+              },
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              {
+                "->": "intro"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "greta_dialogues": [
+            [
+              "ev",
+              "str",
+              "^character:Greta",
+              "/str",
+              "/ev",
+              {
+                "*": ".^.c-0",
+                "flg": 4
+              },
+              {
+                "c-0": [
+                  "^XXX",
+                  "\n",
+                  "ev",
+                  "void",
+                  "/ev",
+                  "->->",
+                  {
+                    "#f": 5
+                  }
+                ]
+              }
+            ],
+            {
+              "#f": 1
+            }
+          ],
+          "#f": 1
+        }
+      ],
+      "cb_second_tier_matteo": [
+        [
+          "ev",
+          "str",
+          [
+            "ev",
+            "visit",
+            3,
+            "seq",
+            "/ev",
+            "ev",
+            "du",
+            0,
+            "==",
+            "/ev",
+            {
+              "->": ".^.s0",
+              "c": true
+            },
+            "ev",
+            "du",
+            1,
+            "==",
+            "/ev",
+            {
+              "->": ".^.s1",
+              "c": true
+            },
+            "ev",
+            "du",
+            2,
+            "==",
+            "/ev",
+            {
+              "->": ".^.s2",
+              "c": true
+            },
+            "nop",
+            {
+              "s0": [
+                "pop",
+                "^ Chiacchieri con",
+                {
+                  "->": ".^.^.23"
+                },
+                null
+              ],
+              "s1": [
+                "pop",
+                "^Parli con",
+                {
+                  "->": ".^.^.23"
+                },
+                null
+              ],
+              "s2": [
+                "pop",
+                "^Ti avvicini a",
+                {
+                  "->": ".^.^.23"
+                },
+                null
+              ],
+              "#f": 5
+            }
+          ],
+          "^ Matteo",
+          "/str",
+          {
+            "VAR?": "Matteo"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 5
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->t->": ".^.^.^.matteo_dialogues"
+              },
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              {
+                "->": "intro"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "matteo_dialogues": [
+            [
+              "ev",
+              "str",
+              "^character:Matteo",
+              "/str",
+              "/ev",
+              {
+                "*": ".^.c-0",
+                "flg": 4
+              },
+              {
+                "c-0": [
+                  "^XXX",
+                  "\n",
+                  "ev",
+                  "void",
+                  "/ev",
+                  "->->",
+                  {
+                    "#f": 5
+                  }
+                ]
+              }
+            ],
+            {
+              "#f": 1
+            }
+          ],
+          "#f": 1
+        }
+      ],
+      "cb_second_tier_elia": [
+        [
+          "ev",
+          "str",
+          "^Elia",
+          "/str",
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 5
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->t->": ".^.^.^.elia_dialogues"
+              },
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              {
+                "->": "intro"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "elia_dialogues": [
+            [
+              "ev",
+              "str",
+              "^character:Elia",
+              "/str",
+              "/ev",
+              {
+                "*": ".^.c-0",
+                "flg": 4
+              },
+              {
+                "c-0": [
+                  "^XXX",
+                  "\n",
+                  "ev",
+                  "void",
+                  "/ev",
+                  "->->",
+                  {
+                    "#f": 5
+                  }
+                ]
+              }
+            ],
+            {
+              "#f": 1
+            }
+          ],
+          "#f": 1
+        }
+      ],
+      "cb_second_tier_zeca": [
+        [
+          "ev",
+          "str",
+          "^Zeca",
+          "/str",
+          {
+            "VAR?": "Zeca"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 5
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->t->": ".^.^.^.zeca_dialogues"
+              },
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              {
+                "->": "intro"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "zeca_dialogues": [
+            [
+              "ev",
+              "str",
+              "^character:Zeca",
+              "/str",
+              "/ev",
+              {
+                "*": ".^.c-0",
+                "flg": 4
+              },
+              {
+                "c-0": [
+                  "^ XXX",
+                  "\n",
+                  "ev",
+                  "void",
+                  "/ev",
+                  "->->",
+                  {
+                    "#f": 5
+                  }
+                ]
+              }
+            ],
+            {
+              "#f": 1
+            }
+          ],
+          "#f": 1
+        }
+      ],
+      "cb_second_tier_lettera": [
+        [
+          "ev",
+          "str",
+          "^object:Lettera",
+          "/str",
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "VAR?": "Lettera"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 5
+          },
+          {
+            "c-0": [
+              "^ C'è una lettera",
+              "\n",
+              {
+                "->t->": ".^.^.^.lettera"
+              },
+              {
+                "->": "intro"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "lettera": [
+            [
+              "ev",
+              "str",
+              "^object:Lettera",
+              "/str",
+              "/ev",
+              {
+                "*": ".^.c-0",
+                "flg": 4
+              },
+              "ev",
+              "str",
+              "^object:Lettera",
+              "/str",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "Lettera"
+              },
+              "!?",
+              {
+                "CNT?": ".^.c-0"
+              },
+              "&&",
+              "/ev",
+              {
+                "*": ".^.c-1",
+                "flg": 5
+              },
+              "ev",
+              "str",
+              "^object:Lettera",
+              "/str",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "Lettera"
+              },
+              "?",
+              "/ev",
+              {
+                "*": ".^.c-2",
+                "flg": 5
+              },
+              "ev",
+              "str",
+              "^object:Lettera",
+              "/str",
+              {
+                "VAR?": "inventory_contents"
+              },
+              {
+                "VAR?": "Lettera"
+              },
+              "?",
+              "/ev",
+              {
+                "*": ".^.c-3",
+                "flg": 5
+              },
+              [
+                "ev",
+                {
+                  "^->": "cb_second_tier_lettera.lettera.0.35.$r1"
+                },
+                {
+                  "temp=": "$r"
+                },
+                "str",
+                {
+                  "->": ".^.s"
+                },
+                [
+                  {
+                    "#n": "$r1"
+                  }
+                ],
+                "/str",
+                "/ev",
+                {
+                  "*": ".^.^.c-4",
+                  "flg": 2
+                },
+                {
+                  "s": [
+                    "^La lasci dov'è",
+                    {
+                      "->": "$r",
+                      "var": true
+                    },
+                    null
+                  ]
+                }
+              ],
+              {
+                "c-0": [
+                  "^ Leggi la lettera",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-1": [
+                  "^ Prendi la lettera",
+                  "\n",
+                  "ev",
+                  {
+                    "VAR?": "Lettera"
+                  },
+                  {
+                    "f()": "take_object"
+                  },
+                  "pop",
+                  "/ev",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-2": [
+                  "^ Mostra lettera",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-3": [
+                  "^ Lascia lettera",
+                  "\n",
+                  "ev",
+                  {
+                    "VAR?": "Lettera"
+                  },
+                  {
+                    "f()": "remove_entity"
+                  },
+                  "pop",
+                  "/ev",
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "c-4": [
+                  "ev",
+                  {
+                    "^->": "cb_second_tier_lettera.lettera.0.c-4.$r2"
+                  },
+                  "/ev",
+                  {
+                    "temp=": "$r"
+                  },
+                  {
+                    "->": ".^.^.35.s"
+                  },
+                  [
+                    {
+                      "#n": "$r2"
+                    }
+                  ],
+                  "\n",
+                  {
+                    "->": ".^.^.g-0"
+                  },
+                  {
+                    "#f": 5
+                  }
+                ],
+                "g-0": [
+                  "ev",
+                  "void",
+                  "/ev",
+                  "->->",
+                  {
+                    "#f": 5
+                  }
+                ]
+              }
+            ],
+            {
+              "#f": 1
+            }
+          ],
+          "#f": 1
+        }
+      ],
+      "second_tier_storylets": [
+        [
+          "ev",
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Greta"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "areThreeEntitiesTogether"
+          },
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Zeca"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          "!",
+          "&&",
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Paola"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          "||",
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Matteo"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          "||",
+          {
+            "VAR?": "relationshipDiscovered"
+          },
+          "!",
+          "&&",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              {
+                "->": "aStolenKissStorylet"
+              },
+              {
+                "->": ".^.^.^.5"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "ev",
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Greta"
+          },
+          {
+            "VAR?": "Zeca"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "areFourEntitiesTogether"
+          },
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Paola"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          "!",
+          "&&",
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Matteo"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          "||",
+          {
+            "VAR?": "relationshipDiscovered"
+          },
+          "&&",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              {
+                "->": "hotMessStorylet"
+              },
+              {
+                "->": ".^.^.^.5"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "ev",
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          {
+            "VAR?": "inventory_contents"
+          },
+          {
+            "VAR?": "Lettera"
+          },
+          "==",
+          "&&",
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Paola"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          "!",
+          "&&",
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Matteo"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          "||",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              {
+                "->": "hardLifeStorylet"
+              },
+              {
+                "->": ".^.^.^.5"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "ev",
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "areTwoEntitiesTogether"
+          },
+          {
+            "VAR?": "Zeca"
+          },
+          {
+            "VAR?": "Greta"
+          },
+          {
+            "VAR?": "Paola"
+          },
+          {
+            "VAR?": "Matteo"
+          },
+          {
+            "f()": "areFourEntitiesTogether"
+          },
+          "!",
+          "&&",
+          {
+            "CNT?": "hotMessStorylet"
+          },
+          true,
+          "==",
+          "&&",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              {
+                "->": "aPainfullConfessionStorylet"
+              },
+              {
+                "->": ".^.^.^.5"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              "void",
+              "/ev",
+              "->->",
+              {
+                "->": ".^.^.^.5"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        "void",
+        "/ev",
+        "->->",
+        {
+          "#f": 1
+        }
+      ],
+      "aStolenKissStorylet": [
+        [
+          "^Stolen Kiss Storylet",
+          "\n",
+          "ev",
+          true,
+          "/ev",
+          {
+            "VAR=": "relationshipDiscovered",
+            "re": true
+          },
+          [
+            "ev",
+            {
+              "^->": "aStolenKissStorylet.0.6.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            "/ev",
+            {
+              "*": ".^.^.c-0",
+              "flg": 2
+            },
+            {
+              "s": [
+                "^XX",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          {
+            "c-0": [
+              "ev",
+              {
+                "^->": "aStolenKissStorylet.0.c-0.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.6.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              "ev",
+              "void",
+              "/ev",
+              "->->",
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "#f": 1
+        }
+      ],
+      "hotMessStorylet": [
+        [
+          "^Hot Mess Storylet",
+          "\n",
+          [
+            "ev",
+            {
+              "^->": "hotMessStorylet.0.2.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            "/ev",
+            {
+              "*": ".^.^.c-0",
+              "flg": 2
+            },
+            {
+              "s": [
+                "^XX",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          {
+            "c-0": [
+              "ev",
+              {
+                "^->": "hotMessStorylet.0.c-0.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.2.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              "ev",
+              "void",
+              "/ev",
+              "->->",
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "#f": 1
+        }
+      ],
+      "aPainfullConfessionStorylet": [
+        [
+          "^a Painfull Confession Storylet",
+          "\n",
+          [
+            "ev",
+            {
+              "^->": "aPainfullConfessionStorylet.0.2.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            "/ev",
+            {
+              "*": ".^.^.c-0",
+              "flg": 2
+            },
+            {
+              "s": [
+                "^XX",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          {
+            "c-0": [
+              "ev",
+              {
+                "^->": "aPainfullConfessionStorylet.0.c-0.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.2.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              "ev",
+              "void",
+              "/ev",
+              "->->",
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "#f": 1
+        }
+      ],
+      "hardLifeStorylet": [
+        [
+          "^Hard Life Storylet",
+          "\n",
+          [
+            "ev",
+            {
+              "^->": "hardLifeStorylet.0.2.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            "/ev",
+            {
+              "*": ".^.^.c-0",
+              "flg": 2
+            },
+            {
+              "s": [
+                "^XX",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          {
+            "c-0": [
+              "ev",
+              {
+                "^->": "hardLifeStorylet.0.c-0.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.2.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              "ev",
+              "void",
+              "/ev",
+              "->->",
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "#f": 1
+        }
+      ],
+      "global decl": [
+        "ev",
+        true,
+        {
+          "VAR=": "debug"
+        },
+        {
+          "list": {},
+          "origins": [
+            "Characters"
+          ]
+        },
+        {
+          "VAR=": "Characters"
+        },
+        {
+          "list": {},
+          "origins": [
+            "Objects"
+          ]
+        },
+        {
+          "VAR=": "Objects"
+        },
+        {
+          "list": {},
+          "origins": [
+            "LoopableVariables"
+          ]
+        },
+        {
+          "VAR=": "LoopableVariables"
+        },
+        {
+          "list": {
+            "TierState.first_tier": 1
+          }
+        },
+        {
+          "VAR=": "TierState"
+        },
+        {
+          "list": {},
+          "origins": [
+            "Places"
+          ]
+        },
+        {
+          "VAR=": "Places"
+        },
+        {
+          "list": {}
+        },
+        {
+          "VAR=": "inventory_contents"
+        },
+        {
+          "list": {
+            "Characters.Ettore": 6,
+            "Characters.Matteo": 4,
+            "Characters.Paola": 1,
+            "Characters.Zeca": 3,
+            "Characters.Elia": 2,
+            "Characters.Greta": 5,
+            "Objects.AnticoPugnale": 2
+          }
+        },
+        {
+          "VAR=": "white_room_contents"
+        },
+        {
+          "list": {
+            "Objects.LimettaUnghie": 1
+          }
+        },
+        {
+          "VAR=": "green_room_contents"
+        },
+        {
+          "list": {
+            "Objects.Lettera": 4
+          }
+        },
+        {
+          "VAR=": "red_room_contents"
+        },
+        {
+          "list": {}
+        },
+        {
+          "VAR=": "yellow_room_contents"
+        },
+        {
+          "list": {
+            "Objects.SpiedinoCocktail": 3
+          }
+        },
+        {
+          "VAR=": "object_storage_contents"
+        },
+        false,
+        {
+          "VAR=": "relationshipDiscovered"
+        },
+        false,
+        {
+          "VAR=": "nota"
+        },
+        true,
+        {
+          "VAR=": "acting"
+        },
+        {
+          "list": {},
+          "origins": [
+            "QuestionAnswer"
+          ]
+        },
+        {
+          "VAR=": "QuestionAnswer"
+        },
+        {
+          "VAR?": "Unexplored"
+        },
+        {
+          "VAR=": "choice_Zeca_is_right_about_elia"
+        },
+        {
+          "VAR?": "Unexplored"
+        },
+        {
+          "VAR=": "choice_Ibrahim_Innocence"
+        },
+        {
+          "list": {
+            "limettaUnghie_state.Clean": 1
+          }
+        },
+        {
+          "VAR=": "limettaUnghie_state"
+        },
+        {
+          "list": {
+            "paola_state.Angry": 1
+          }
+        },
+        {
+          "VAR=": "paola_state"
+        },
+        {
+          "list": {
+            "lettera_state.Whole": 1
+          }
+        },
+        {
+          "VAR=": "lettera_state"
+        },
+        {
+          "list": {
+            "anticoPugnale_state.Clean": 1
+          }
+        },
+        {
+          "VAR=": "anticoPugnale_state"
+        },
+        {
+          "list": {
+            "spiedinoCocktail_state.Whole": 1
+          }
+        },
+        {
+          "VAR=": "spiedinoCocktail_state"
+        },
+        {
+          "list": {
+            "current_time.Time_22_35": 1
+          }
+        },
+        {
+          "VAR=": "current_time"
+        },
+        0,
+        {
+          "VAR=": "EliaActing"
+        },
+        "/ev",
+        "end",
+        null
+      ],
+      "#f": 1
+    }
+  ],
+  "listDefs": {
+    "Characters": {
+      "Paola": 1,
+      "Elia": 2,
+      "Zeca": 3,
+      "Matteo": 4,
+      "Greta": 5,
+      "Ettore": 6
+    },
+    "Objects": {
+      "LimettaUnghie": 1,
+      "AnticoPugnale": 2,
+      "SpiedinoCocktail": 3,
+      "Lettera": 4
+    },
+    "LoopableVariables": {
+      "elia_raggiunge_Greta": 1
+    },
+    "TierState": {
+      "first_tier": 1,
+      "second_tier": 2
+    },
+    "Places": {
+      "Inventory": 1,
+      "WhiteRoom": 2,
+      "GreenRoom": 3,
+      "RedRoom": 4,
+      "YellowRoom": 5,
+      "ObjectStorage": 6
+    },
+    "QuestionAnswer": {
+      "True": 1,
+      "False": 2,
+      "DontKnow": 3,
+      "Unexplored": 4
+    },
+    "limettaUnghie_state": {
+      "Clean": 1,
+      "Dirty": 2
+    },
+    "paola_state": {
+      "Angry": 1,
+      "Happy": 2
+    },
+    "lettera_state": {
+      "Whole": 1,
+      "Torn": 2
+    },
+    "anticoPugnale_state": {
+      "Clean": 1,
+      "Dirty": 2
+    },
+    "spiedinoCocktail_state": {
+      "Whole": 1,
+      "Broken": 2
+    },
+    "current_time": {
+      "Time_22_35": 1,
+      "Time_23_13": 2,
+      "Time_00_12": 3,
+      "Time_01_49": 4
+    }
+  }
+}

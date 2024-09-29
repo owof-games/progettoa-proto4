@@ -22,8 +22,10 @@ MonoBehaviour:
   - rid: 7305916764181758035
   - rid: 7305916764181758036
   - rid: 7305916764181758037
+  - rid: 7305916783598239897
   externalFunctions:
   - {fileID: 11400000, guid: 8cbb6008e1940ed4eac5047ad0050b74, type: 2}
+  - {fileID: 11400000, guid: 06bcf72ffa424404ead936e80f675f28, type: 2}
   commandLineParsers:
   - {fileID: 11400000, guid: c57cf009d21d3ad44aa5bad1063bb775, type: 2}
   - {fileID: 11400000, guid: ba4fe05af865e7f44a3123e5dd4533c6, type: 2}
@@ -54,3 +56,8 @@ MonoBehaviour:
       data:
         inkVariableName: yellow_room_contents
         variable: {fileID: 11400000, guid: 698b04a1e3ed22d4db3f3b5f98e93c2f, type: 2}
+    - rid: 7305916783598239897
+      type: {class: IntVariableObserver, ns: LemuRivolta.InkAtoms.VariableObserver, asm: LemuRivolta.InkAtoms}
+      data:
+        inkVariableName: currentTime
+        variable: {fileID: 11400000, guid: 4937416b12754d54999bc5f6dfc8a878, type: 2}

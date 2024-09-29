@@ -1,3 +1,4 @@
+#nullable enable
 using System.Linq;
 using Components.NavigationNetwork;
 using Cysharp.Threading.Tasks;
@@ -5,6 +6,7 @@ using LitMotion;
 using LitMotion.Extensions;
 using UnityEngine;
 using UnityEngine.Assertions;
+using Debug = System.Diagnostics.Debug;
 
 namespace Components.Character
 {
@@ -19,20 +21,39 @@ namespace Components.Character
         [SerializeField] private float movementJitter = 0.1f;
         [SerializeField] private float speed = 2f;
 
+        private NavigationGraph? _cachedNavigationGraph;
+
+        private int? _currentNodeIndex;
+
         /// <summary>
         ///     Current node index we are at on the navigation graph. null if the character must still be setup.
         ///     When moving, it jumps to the new value as soon as the animation starts.
         /// </summary>
-        private int? _currentNodeIndex;
-
-        private NavigationGraph _navigationGraph;
+        public int? CurrentNodeIndex => _currentNodeIndex;
 
         private void Start()
         {
-            _navigationGraph = FindObjectsByType
+            // force obtaining the navigation graph
+            GetNavigationGraph();
+        }
+
+        private NavigationGraph GetNavigationGraph()
+        {
+            if (_cachedNavigationGraph == null)
+            {
+                _cachedNavigationGraph = GetNavigationGraphUncached();
+            }
+
+            return _cachedNavigationGraph;
+        }
+
+        private NavigationGraph GetNavigationGraphUncached()
+        {
+            var navigationGraph = FindObjectsByType
                     <NavigationGraph>(FindObjectsInactive.Exclude, FindObjectsSortMode.None)
                 .First(ng => ng.gameObject.scene == gameObject.scene);
-            Assert.IsNotNull(_navigationGraph);
+            Assert.IsNotNull(navigationGraph);
+            return navigationGraph;
         }
 
         /// <summary>
@@ -42,9 +63,20 @@ namespace Components.Character
         public void SetUp(RoomDirection direction)
         {
             var nodeIndex = direction == RoomDirection.Left
-                ? _navigationGraph.GetLeftmostNodeIndex()
-                : _navigationGraph.GetRightmostNodeIndex();
-            transform.position = _navigationGraph.GetNodePosition(nodeIndex);
+                ? GetNavigationGraph().GetLeftmostNodeIndex()
+                : GetNavigationGraph().GetRightmostNodeIndex();
+            SetUp(nodeIndex);
+        }
+
+        /// <summary>
+        ///     Sets up the character position and node assigned from a given node index.
+        /// </summary>
+        /// <param name="nodeIndex"></param>
+        public void SetUp(int nodeIndex)
+        {
+            var navigationGraph = GetNavigationGraph();
+            transform.position =
+                navigationGraph.GetNodePosition(nodeIndex) + (Vector2)navigationGraph.transform.position;
             _currentNodeIndex = nodeIndex;
         }
 
@@ -54,20 +86,32 @@ namespace Components.Character
         /// <param name="direction"></param>
         public UniTask ExitTo(RoomDirection direction)
         {
-            Debug.Assert(_currentNodeIndex.HasValue);
+            Debug.Assert(_currentNodeIndex != null, nameof(_currentNodeIndex) + " != null");
+            var navigationGraph = GetNavigationGraph();
             var nodeIndex = direction == RoomDirection.Left
-                ? _navigationGraph.GetLeftmostNodeIndex()
-                : _navigationGraph.GetRightmostNodeIndex();
-            var path = _navigationGraph.GetPath(_currentNodeIndex.Value, nodeIndex);
+                ? navigationGraph.GetLeftmostNodeIndex()
+                : navigationGraph.GetRightmostNodeIndex();
+            var path = navigationGraph.GetPath(_currentNodeIndex.Value, nodeIndex);
+            return AnimateMovement(path);
+        }
+
+        public UniTask EnterTo(int nodeIndex)
+        {
+            Debug.Assert(_currentNodeIndex != null, nameof(_currentNodeIndex) + " != null");
+            var navigationGraph = GetNavigationGraph();
+            var path = navigationGraph.GetPath(_currentNodeIndex.Value, nodeIndex);
             return AnimateMovement(path);
         }
 
         private async UniTask AnimateMovement(int[] path)
         {
+            // immediately update the current index to the destination node
+            _currentNodeIndex = path[^1];
+            var navigationGraph = GetNavigationGraph();
             for (var i = 1; i < path.Length; i++)
             {
                 var from = (Vector2)transform.position;
-                var to = _navigationGraph.GetNodePosition(path[i]);
+                var to = navigationGraph.GetNodePosition(path[i]);
                 to += new Vector2(Random.Range(0, 1), Random.Range(0, 1)).normalized * movementJitter;
                 await LMotion
                     .Create(from, to, (from - to).magnitude / speed)

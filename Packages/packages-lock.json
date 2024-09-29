@@ -374,15 +374,14 @@
       "url": "https://packages.unity.com"
     },
     "it.lemurivolta.ink-atoms": {
-      "version": "https://github.com/lemurivolta/ink-atoms.git#upm",
+      "version": "file:E:/ProgettiUnity/ink-atoms/ink-atoms/Packages/it.lemurivolta.ink-atoms",
       "depth": 0,
-      "source": "git",
+      "source": "local",
       "dependencies": {
         "com.unity-atoms.unity-atoms-core": "4.4.8",
         "com.unity-atoms.unity-atoms-base-atoms": "4.4.8",
         "com.inkle.ink-unity-integration": "1.1.8"
-      },
-      "hash": "2355e25053ad230833baccb959173d3d11dfdaea"
+      }
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",

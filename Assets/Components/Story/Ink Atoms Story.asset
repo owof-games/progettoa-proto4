@@ -16,8 +16,12 @@ MonoBehaviour:
   continueEvent: {fileID: 11400000, guid: f1836d32c09bf4f4ca4b1bc5567fda79, type: 2}
   choiceEvent: {fileID: 11400000, guid: bbb734abb5780294fb5a335d48beee17, type: 2}
   inkAtomsStoryInitializedVariable: {fileID: 11400000, guid: c64d263f342401a43aaad9c76887e99f, type: 2}
-  debugCurrentState: 0
-  variableObservers: []
+  debugCurrentState: 1
+  variableObservers:
+  - rid: 7305916763889991764
+  - rid: 7305916764181758035
+  - rid: 7305916764181758036
+  - rid: 7305916764181758037
   externalFunctions:
   - {fileID: 11400000, guid: 8cbb6008e1940ed4eac5047ad0050b74, type: 2}
   commandLineParsers:
@@ -26,7 +30,27 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d66b704e310bc664b91b701c40cc7041, type: 2}
   cmdLinePrefix: '@'
   tagProcessors: []
-  inkFileAsset: {fileID: 102900000, guid: 7745120a0dbc9c344b65a1a3d9c47161, type: 3}
+  inkFileAsset: {fileID: 102900000, guid: 406223946fbf55b4686ee8a64eff7756, type: 3}
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 7305916763889991764
+      type: {class: ListVariableObserver, ns: LemuRivolta.InkAtoms.VariableObserver, asm: LemuRivolta.InkAtoms}
+      data:
+        inkVariableName: white_room_contents
+        variable: {fileID: 11400000, guid: 921a8e543c1ef08419c36800a14fabf6, type: 2}
+    - rid: 7305916764181758035
+      type: {class: ListVariableObserver, ns: LemuRivolta.InkAtoms.VariableObserver, asm: LemuRivolta.InkAtoms}
+      data:
+        inkVariableName: green_room_contents
+        variable: {fileID: 11400000, guid: ada24e44ebed4ae43af7517085159b37, type: 2}
+    - rid: 7305916764181758036
+      type: {class: ListVariableObserver, ns: LemuRivolta.InkAtoms.VariableObserver, asm: LemuRivolta.InkAtoms}
+      data:
+        inkVariableName: red_room_contents
+        variable: {fileID: 11400000, guid: 39fb7627434374a438f565dc9509fdfd, type: 2}
+    - rid: 7305916764181758037
+      type: {class: ListVariableObserver, ns: LemuRivolta.InkAtoms.VariableObserver, asm: LemuRivolta.InkAtoms}
+      data:
+        inkVariableName: yellow_room_contents
+        variable: {fileID: 11400000, guid: 698b04a1e3ed22d4db3f3b5f98e93c2f, type: 2}

@@ -634,7 +634,6 @@ Transform:
   - {fileID: 1441603933}
   - {fileID: 701430472}
   - {fileID: 1513622425}
-  - {fileID: 1143444581}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &701430471
@@ -707,6 +706,7 @@ MonoBehaviour:
     toIndex: 3
   - fromIndex: 5
     toIndex: 7
+  nodesInScene: 010000000200000003000000040000000500000006000000
 --- !u!1 &790663305
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,80 +787,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!1001 &1143444580
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 672457377}
-    m_Modifications:
-    - target: {fileID: 1311202368344366251, guid: a3c5f7a9349a3fd47a335107cd15e7c1, type: 3}
-      propertyPath: m_Name
-      value: Ettore
-      objectReference: {fileID: 0}
-    - target: {fileID: 9034597799772624900, guid: a3c5f7a9349a3fd47a335107cd15e7c1, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.42953658
-      objectReference: {fileID: 0}
-    - target: {fileID: 9034597799772624900, guid: a3c5f7a9349a3fd47a335107cd15e7c1, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.42953658
-      objectReference: {fileID: 0}
-    - target: {fileID: 9034597799772624900, guid: a3c5f7a9349a3fd47a335107cd15e7c1, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.42953658
-      objectReference: {fileID: 0}
-    - target: {fileID: 9034597799772624900, guid: a3c5f7a9349a3fd47a335107cd15e7c1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9034597799772624900, guid: a3c5f7a9349a3fd47a335107cd15e7c1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 9034597799772624900, guid: a3c5f7a9349a3fd47a335107cd15e7c1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9034597799772624900, guid: a3c5f7a9349a3fd47a335107cd15e7c1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9034597799772624900, guid: a3c5f7a9349a3fd47a335107cd15e7c1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9034597799772624900, guid: a3c5f7a9349a3fd47a335107cd15e7c1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9034597799772624900, guid: a3c5f7a9349a3fd47a335107cd15e7c1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9034597799772624900, guid: a3c5f7a9349a3fd47a335107cd15e7c1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9034597799772624900, guid: a3c5f7a9349a3fd47a335107cd15e7c1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9034597799772624900, guid: a3c5f7a9349a3fd47a335107cd15e7c1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a3c5f7a9349a3fd47a335107cd15e7c1, type: 3}
---- !u!4 &1143444581 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9034597799772624900, guid: a3c5f7a9349a3fd47a335107cd15e7c1, type: 3}
-  m_PrefabInstance: {fileID: 1143444580}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1161326697
 GameObject:
   m_ObjectHideFlags: 0
@@ -2219,7 +2145,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1605230796317988711, guid: 0e0e801d6b77fa64b904ab5bd4f4dc26, type: 3}
       propertyPath: interactionKey
-      value: RoomRed
+      value: RedRoom
       objectReference: {fileID: 0}
     - target: {fileID: 2050075081792760631, guid: 0e0e801d6b77fa64b904ab5bd4f4dc26, type: 3}
       propertyPath: m_Creator

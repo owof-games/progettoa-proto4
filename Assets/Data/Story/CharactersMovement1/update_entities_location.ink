@@ -1,64 +1,105 @@
 === function updateEntitiesLocations()
 /* NOTA: per com'è strutturato ora, se passiamo per un nodo che modifica la posizione di un soggetto, quel soggetto poi rimarrà in quella stanza anche negli altri loop, per noi è ok?*/
 
-{debug: [applico la timeline per {current_time}]}
+{debug: [applico la timeline per {currentTime}]}
 
-/*
-// Matteo
-{current_time:
-    - 0:
-        ~ move_entity(Matteo, GreenRoom)
-    - 100:
-        ~ move_entity(Matteo, WhiteRoom)
-    - 200:
-        ~ move_entity(Matteo, RedRoom)
+
+// Ettore
+{ currentTime == 0:
+    ~ move_entity(Ettore, WhiteRoom)
 }
 
+// Matteo
+{currentTime:
+    - 0:
+        ~ move_entity(Matteo, WhiteRoom)
+    - 180:
+        ~ move_entity(Matteo, RedRoom)
+    - 240:
+        ~ move_entity(Matteo, RedRoom)
+    - 300:
+        ~ move_entity(Matteo, RedRoom)    
+}
+
+
 // Paola
-// ...
-*/
+{currentTime:
+    - 0:
+        ~ move_entity(Paola, WhiteRoom)
+        - 165:
+            ~ move_entity(Paola, RedRoom)   //lascio spostati in avanti gli orari di "decoro", che ci servono per dare senso di movimento quando passa da una stanza a ad una b e ci sono una o due stanze lungo il percorso
+    - 180:
+        ~ move_entity(Paola, GreenRoom)
+    - 240:
+        ~ move_entity(Paola, RedRoom)
+        - 285:
+            ~ move_entity(Paola, GreenRoom)    
+    - 300:
+        ~ move_entity(Paola, YellowRoom)   
+}
 
-{ current_time:
+// Elia
+{currentTime:
+    - 0:
+        ~ move_entity(Elia, WhiteRoom)
+    - 180:
+        // {
+        // - loopable_variables has EliaRaggiungeGreta:
+        //     ~ move_entity(Elia, WhiteRoom)
+        // - else:
+            ~ move_entity(Elia, RedRoom)    
+        // }
+    - 240:
+        // {
+        // - loopable_variables has EliaRaggiungeGreta:
+        //     ~ move_entity(Elia, WhiteRoom)
+        // - else:
+            ~ move_entity(Elia, RedRoom)    
+        // }
+    - 300:
+        // {
+        // - loopable_variables has EliaRaggiungeGreta:
+        //     ~ move_entity(Elia, WhiteRoom)
+        // -else:
+            ~ move_entity(Elia, RedRoom)    
+        // }
+ 
+}
 
-- 0:
-    ~ move_entity(Matteo, WhiteRoom)
-    ~ move_entity(Matteo, WhiteRoom)
-    ~ move_entity(Paola, WhiteRoom)
-    /*  {Zeca_ha_risposta and elia_in_cucina:
-        ~ move_entity(Elia, YellowRoom) } */
-    ~ move_entity(Zeca, WhiteRoom)
-    ~ move_entity(Greta, WhiteRoom)
-    ~ move_entity(Ettore, WhiteRoom)
-    
-    ~ move_entity(LimettaUnghie, GreenRoom)
-    ~ move_entity(AnticoPugnale, WhiteRoom)
-    ~ move_entity(SpiedinoCocktail, YellowRoom)
-    ~ move_entity(Lettera, RedRoom)
+// Greta
+{currentTime:
+    - 0:
+        ~ move_entity(Greta, WhiteRoom)
+    - 180:
+        ~ move_entity(Greta, WhiteRoom)
+    - 240:
+        ~ move_entity(Greta, WhiteRoom)
+    - 300:
+        ~ move_entity(Greta, WhiteRoom)    
+}
 
 
+// Zeca
+{currentTime:
+    - 0:
+        ~ move_entity(Zeca, WhiteRoom)
+        - 150:
+            ~ move_entity(Zeca, RedRoom)
+        - 165:
+            ~ move_entity(Zeca, GreenRoom)    
+    - 180:
+        ~ move_entity(Zeca, YellowRoom)
+    - 240:
+        ~ move_entity(Zeca, GreenRoom)
+    - 300:
+        ~ move_entity(Zeca, GreenRoom)    
+}
 
-- 60:
-    ~ move_entity(Matteo, RedRoom)
-    ~ move_entity(Greta, WhiteRoom)
-    ~ move_entity(Paola, GreenRoom)
-    ~ move_entity(Zeca, YellowRoom)
-    ~ move_entity(Elia, RedRoom)
-
-
-- 120:
-    ~ move_entity(Matteo, RedRoom)
-    ~ move_entity(Greta, WhiteRoom)
-    ~ move_entity(Paola, RedRoom)
-    ~ move_entity(Zeca, GreenRoom)
-    ~ move_entity(Elia, GreenRoom)
-
-    
-
-- 180:
-    ~ move_entity(Matteo, RedRoom)
-    ~ move_entity(Greta, WhiteRoom)
-    ~ move_entity(Paola, GreenRoom)
-    ~ move_entity(Zeca, GreenRoom)
-    ~ move_entity(Elia, YellowRoom)
-
+// Settaggio oggetti
+{currentTime:
+    - 0:
+        ~ move_entity(LimettaUnghie, GreenRoom)
+        ~ move_entity(AnticoPugnale, WhiteRoom)
+        ~ move_entity(SpiedinoCocktail, YellowRoom)
+        ~ move_entity(Lettera, RedRoom)    
 }

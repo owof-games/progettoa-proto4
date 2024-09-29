@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -16,11 +17,15 @@ namespace Components.NavigationNetwork
             foreach (var node in nodes)
             {
                 var position = new Vector3(node.x, node.y, 0);
-                Handles.color = Color.black;
-                Handles.Label(position + new Vector3(0.1f, 0.2f, 0), i.ToString(), new GUIStyle
+                var guiStyle = new GUIStyle
                 {
-                    fontSize = 20
-                });
+                    fontSize = 20,
+                    normal =
+                    {
+                        textColor = navigationGraph.NodesInScene.Contains(i) ? Color.black : Color.gray
+                    }
+                };
+                Handles.Label(position + new Vector3(0.1f, 0.2f, 0), i.ToString(), guiStyle);
                 var newPosition = (Vector2)Handles.PositionHandle(position, Quaternion.identity);
                 if (node != newPosition) navigationGraph.EditorSetNodePosition(i, newPosition);
 

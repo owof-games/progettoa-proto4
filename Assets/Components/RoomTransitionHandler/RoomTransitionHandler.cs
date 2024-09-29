@@ -2,6 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Components.Character;
+using Components.NavigationNetwork;
+using Components.Story.Rooms;
 using Cysharp.Threading.Tasks;
 using Eflatun.SceneReference;
 using LitMotion;
@@ -10,6 +13,9 @@ using NUnit.Framework;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Debug = System.Diagnostics.Debug;
+using InvalidOperationException = System.InvalidOperationException;
+using Random = UnityEngine.Random;
 
 namespace Components.RoomTransitionHandler
 {
@@ -48,8 +54,18 @@ namespace Components.RoomTransitionHandler
         [SerializeField] private List<RoomDescription> roomDescriptions = new();
         [SerializeField] private List<RoomConnections> roomConnections = new();
         [SerializeField] private GameObjectVariable? roomTransitionHandlerGameObject;
+        [SerializeField] private RoomContents? roomContents;
+        [SerializeField] private CharacterMappings? characterMappings;
 
         private string? _currentlyLoadedRoomName; // jumps directly to the new value at the beginning of transition
+        private GameObject? _currentSceneRootGameObject;
+
+        /// <summary>
+        /// A map between characters and the last room they were removed from (which indicates where they come from
+        /// at the next Add)
+        /// </summary>
+        private Dictionary<Character.Character, Room> _lastRemovedFrom = new();
+
         private Dictionary<string, List<RoomConnections>> _roomConnectionsBySourceName = new();
 
         private Dictionary<string, RoomDescription> _roomDescriptionsByName = new();
@@ -60,6 +76,11 @@ namespace Components.RoomTransitionHandler
             Assert.IsTrue(transitionDuration > 0);
 
             Assert.IsNotNull(roomTransitionHandlerGameObject);
+
+            Debug.Assert(roomContents != null, nameof(roomContents) + " != null");
+            roomContents.RoomContentAdded += OnRoomContentAdded;
+            roomContents.RoomContentRemoved += OnRoomContentRemoved;
+            Assert.IsNotNull(characterMappings);
 
             Assert.IsNotNull(roomDescriptions);
             Assert.IsNotNull(roomConnections);
@@ -101,26 +122,79 @@ namespace Components.RoomTransitionHandler
             var unloadTasks = new List<UniTask>();
             foreach (var roomDescription in roomDescriptions)
             {
-                Debug.Log($"Examining {roomDescription.name}");
                 var scene = roomDescription.scene.LoadedScene;
                 if (!scene.IsValid()) continue;
 
-                Debug.Log("Scene is valid");
                 var unloadOperation = SceneManager.UnloadSceneAsync(scene.buildIndex);
-                Debug.Log($"Unload operation: {unloadOperation}");
                 if (unloadOperation == null)
                 {
-                    Debug.Log(
+                    UnityEngine.Debug.Log(
                         "Well, maybe the documentation is shit and it's not enough for LoadedScene to be valid in order to have, well, an actually loaded scene");
                     continue;
                 }
 
                 var task = unloadOperation.ToUniTask();
-                Debug.Log($"Task: {task}");
                 unloadTasks.Add(task);
             }
 
             if (unloadTasks.Count > 0) await UniTask.WhenAll(unloadTasks);
+        }
+
+        private void OnRoomContentRemoved(object sender, RoomContentEventArgs e)
+        {
+            // get the character (if it's a character, otherwise just ignore)
+            if (!Enum.TryParse<Character.Character>(e.SerializableInkListItem.itemName, out var character))
+            {
+                return;
+            }
+
+            // save
+            _lastRemovedFrom[character] = e.Room;
+        }
+
+        private void OnRoomContentAdded(object sender, RoomContentEventArgs e)
+        {
+            if (_currentlyLoadedRoomName == null)
+            {
+                UnityEngine.Debug.Log("room contents changed when no room was loaded");
+                return;
+            }
+
+            if (!Enum.TryParse<Character.Character>(e.SerializableInkListItem.itemName, out var character))
+            {
+                return;
+            }
+
+            Debug.Assert(characterMappings != null, nameof(characterMappings) + " != null");
+            Debug.Assert(_currentSceneRootGameObject != null,
+                nameof(_currentSceneRootGameObject) + " != null");
+
+            // find direction
+            var sourceRoom = _lastRemovedFrom[character];
+            var connections = _roomConnectionsBySourceName[sourceRoom.ToString()];
+            var connection = connections.Single(c => c.destinationRoomName == e.Room.ToString());
+            var direction = connection.direction;
+
+            // navigate the character
+            var navigationGraph = GetCurrentNavigationGraph();
+            var source = direction == Direction.Left
+                ? navigationGraph.GetRightmostNodeIndex()
+                : navigationGraph.GetLeftmostNodeIndex();
+            var characterPrefab = characterMappings.GetCharacterPrefab(character);
+            var instantiatedCharacter = Instantiate(characterPrefab, _currentSceneRootGameObject.transform);
+            var characterNavigation = instantiatedCharacter.GetComponent<CharacterNavigation>();
+            characterNavigation.SetUp(source);
+            var destinationNodeIndex = navigationGraph.GetRandomFreeNode();
+            characterNavigation.EnterTo(destinationNodeIndex).Forget();
+        }
+
+        private NavigationGraph GetCurrentNavigationGraph()
+        {
+            Debug.Assert(_currentlyLoadedRoomName != null,
+                nameof(_currentlyLoadedRoomName) + " != null");
+            var newSceneReference = _roomDescriptionsByName[_currentlyLoadedRoomName].scene;
+            return FindObjectsByType<NavigationGraph>(FindObjectsInactive.Exclude, FindObjectsSortMode.None)
+                .First(gn => gn.gameObject.scene == newSceneReference.LoadedScene);
         }
 
         /// <summary>
@@ -130,6 +204,14 @@ namespace Components.RoomTransitionHandler
         /// <returns></returns>
         public async UniTask LoadRoom(string roomName)
         {
+            Debug.Assert(roomContents != null, nameof(roomContents) + " != null");
+            Debug.Assert(characterMappings != null, nameof(characterMappings) + " != null");
+
+            if (!Enum.TryParse<Room>(roomName, out var newRoom))
+            {
+                throw new InvalidOperationException($"Cannot find room {roomName}");
+            }
+
             // determine the direction of the movement (if there's a movement)
             var direction = Direction.Left;
             if (_currentlyLoadedRoomName != null)
@@ -145,13 +227,28 @@ namespace Components.RoomTransitionHandler
 
             // load the new room and immediately move it out of sight
             Assert.IsTrue(_roomDescriptionsByName.ContainsKey(roomName));
-            var newSceneReference = _roomDescriptionsByName[roomName].scene;
+            var newSceneReference = _roomDescriptionsByName[_currentlyLoadedRoomName].scene;
             await SceneManager.LoadSceneAsync(newSceneReference.BuildIndex, LoadSceneMode.Additive);
             var newSceneRootGameObjects = newSceneReference.LoadedScene.GetRootGameObjects();
             Assert.AreEqual(newSceneRootGameObjects.Length, 1);
-            var newSceneRootGameObject = newSceneRootGameObjects[0];
+            _currentSceneRootGameObject = newSceneRootGameObjects[0];
             var deltaPosition = new Vector3(directionFlag * roomWidth, 0, 0); // TODO!
-            newSceneRootGameObject.transform.position = deltaPosition;
+            _currentSceneRootGameObject.transform.position = deltaPosition;
+
+            // instantiate characters that are present in that scene in random positions
+            var characters = roomContents.GetCharacters(newRoom);
+            var newSceneNavigationGraph = GetCurrentNavigationGraph();
+            var availableNodes = newSceneNavigationGraph.NodesInScene.ToList();
+            foreach (var character in characters)
+            {
+                var prefab = characterMappings.GetCharacterPrefab(character);
+                var instantiatedCharacter = Instantiate(prefab, _currentSceneRootGameObject.transform);
+                var characterNavigation = instantiatedCharacter.GetComponent<CharacterNavigation>();
+                var idx = Random.Range(0, availableNodes.Count);
+                var nodeIndex = availableNodes[idx];
+                availableNodes.Remove(nodeIndex);
+                characterNavigation.SetUp(nodeIndex);
+            }
 
             // transition and unload (if there's a previous room)
             if (previouslyLoadedRoomName != null)
@@ -160,10 +257,21 @@ namespace Components.RoomTransitionHandler
                 var previousSceneRootGameObjects = previousSceneReference.LoadedScene.GetRootGameObjects();
                 Assert.AreEqual(previousSceneRootGameObjects.Length, 1);
                 var previousSceneRootGameObject = previousSceneRootGameObjects[0];
+                // animate Ettore going out
+                var mainCharacterNavigation = (from characterName in FindObjectsByType<CharacterName>(
+                        FindObjectsInactive.Exclude,
+                        FindObjectsSortMode.None)
+                    where characterName.Character == Character.Character.Ettore &&
+                          characterName.gameObject.scene == previousSceneRootGameObject.scene
+                    select characterName.gameObject.GetComponent<CharacterNavigation>()).Single();
+                await mainCharacterNavigation.ExitTo(direction == Direction.Left
+                    ? RoomDirection.Left
+                    : RoomDirection.Right);
+                // animate room transition
                 await UniTask.WhenAll(
                     LMotion
                         .Create(deltaPosition, Vector3.zero, transitionDuration)
-                        .BindToPosition(newSceneRootGameObject.transform)
+                        .BindToPosition(_currentSceneRootGameObject.transform)
                         .ToUniTask(),
                     LMotion
                         .Create(Vector3.zero, -deltaPosition, transitionDuration)
@@ -175,7 +283,7 @@ namespace Components.RoomTransitionHandler
             }
 
             // assure that the new scene is now in the correct position
-            newSceneRootGameObject.transform.position = Vector3.zero;
+            _currentSceneRootGameObject.transform.position = Vector3.zero;
         }
     }
 }

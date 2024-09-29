@@ -1,6 +1,6 @@
 
 // activate debug text
-VAR debug = true
+VAR debug = false
 
 // list of all characters
 LIST Characters = Paola, Elia, Zeca, Matteo, Greta, Ettore
@@ -9,7 +9,7 @@ LIST Characters = Paola, Elia, Zeca, Matteo, Greta, Ettore
 LIST Objects = LimettaUnghie, AnticoPugnale, SpiedinoCocktail, Lettera
 
 //list of variables to reset on every loop
-LIST LoopableVariables = elia_raggiunge_Greta
+LIST loopable_variables = elia_raggiunge_Greta
 
 //list to set the current tier
 LIST TierState = (first_tier), second_tier
@@ -248,7 +248,7 @@ LIST spiedinoCocktail_state = (Whole), Broken
  * List of all the moments in time during a single loop
  POI SARANNO DA RAVVICINARE, ACCADE TUTTO IN UN'ORA?
  */
-VAR current_time = 0
+VAR currentTime = 0
 
 /**
  * Print the current time.
@@ -257,8 +257,8 @@ VAR current_time = 0
  * =======> Sono le 23:13
  */
 === function print_time()
-~ temp minutes = current_time / 60
-~ temp seconds = current_time % 60
+~ temp minutes = currentTime / 60
+~ temp seconds = currentTime % 60
 {minutes}:{seconds}
 
 /**
@@ -267,10 +267,10 @@ VAR current_time = 0
  */
 === function advance_time()
 ~ temp max_time = 240
-{ current_time >= max_time:
+{ currentTime >= max_time:
     ~ loop_reset()
 - else:
-    ~ current_time+=15
+    ~ currentTime+=15
 }
 
 ~ updateEntitiesLocations()
@@ -282,10 +282,10 @@ VAR current_time = 0
  */
 === function loop_reset()
 // set the current time
-~ current_time = 0
+~ currentTime = 0
 // clear story variables
 
-~ LoopableVariables = ()
+~ loopable_variables = ()
 
 //TODO: trovare una soluzione più sensata
 //~ EliaActing = 0

@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Components.Character;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Components.NavigationNetwork
 {
@@ -10,6 +12,10 @@ namespace Components.NavigationNetwork
         [SerializeField] private Vector2[] nodes;
 
         [SerializeField] private List<Connection> connections;
+
+        [SerializeField] private List<int> nodesInScene;
+
+        public IEnumerable<int> NodesInScene => nodesInScene.AsReadOnly();
 
         public void EditorSetNodePosition(int index, Vector2 value)
         {
@@ -111,6 +117,29 @@ namespace Components.NavigationNetwork
         public Vector2 GetNodePosition(int nodeIndex)
         {
             return nodes[nodeIndex];
+        }
+
+        public int GetNumNodes()
+        {
+            return nodes.Length;
+        }
+
+        /// <summary>
+        /// Get a free node at random between all nodes in the scene.
+        /// </summary>
+        /// <returns>the index of the randomly chosen free node.</returns>
+        public int GetRandomFreeNode()
+        {
+            var usedNodeIndices = (from characterNavigation in FindObjectsByType<CharacterNavigation>(
+                    FindObjectsInactive.Exclude,
+                    FindObjectsSortMode.None)
+                where characterNavigation.gameObject.scene == gameObject.scene &&
+                      characterNavigation.CurrentNodeIndex != null
+                select characterNavigation.CurrentNodeIndex!).ToList();
+            var nodesSet = new HashSet<int>(nodesInScene);
+            nodesSet.RemoveWhere(nodeIndex => usedNodeIndices.Contains(nodeIndex));
+            var nodesList = nodesSet.ToList();
+            return nodesList[Random.Range(0, nodesList.Count)];
         }
 
         [Serializable]

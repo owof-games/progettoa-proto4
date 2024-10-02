@@ -2,7 +2,7 @@
 === first_tier_storylets
 {debug: <i>Passo per first_tier_storylets</i>}
 {
-- are_three_entities_together(Elia, Matteo, Ettore) && are_two_entitites_together(Elia, Zeca) && are_two_entitites_together(Elia, Paola) && are_two_entitites_together(Elia, Greta) && not startingDinnerStorylet && new_this_loop(->startingDinnerStorylet):
+- are_six_entities_together(Elia, Matteo, Ettore, Greta, Paola, Zeca) && not startingDinnerStorylet && new_this_loop(->startingDinnerStorylet):
     -> startingDinnerStorylet
 
 

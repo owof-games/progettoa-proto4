@@ -10,21 +10,140 @@
 -> intro
 
 
-= matteo_acting
+
+/* ---------------------------------
+Opzioni di dialogo con il personaggio Matteo
+ ----------------------------------*/
+
+
+=== matteo_acting
+    {debug: <i>Passo per matteo_acting</i>}
     -> first_tier_storylets ->
-    //INFO GENERALI
-    +  XXX
+    //INFO GENERALI//
+    + Fai domande sul personaggio Matteo -> esplora_matteo_personaggia
+    
+    //SCELTE CONDIZIONALI//
+        
+    //SCELTE CONDIZIONALI OGGETTI//
+     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
+     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
+     + {inventoryContents has Lettera} Guarda questa lettera!
+     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
+    
+      
+    + Te ne vai
+        -> intro
+    -
+->->
+
+= esplora_matteo_personaggia
+{debug: <i>Passo per esplora_matteo_personaggia</i>}
+VAR MatteoActing = 0
+
+{
+- MatteoActing > 1: Matteo: "Non mi va di rispondere ad altre domande personali".
     -> advance_time ->
-    +  YYY
+    -> intro
+- else:
+    { shuffle:
+    -   -> first_qn
+    -   -> second_qn
+    -   -> third_qn
+    }
+}
+
+
+= first_qn
+~ MatteoActing++
+    + Prima domanda
     -> advance_time ->
     
-    //SCELTE CONDIZIONALI
     -
-    Cose dette
+-> matteo_acting 
+
+= second_qn
+ ~ MatteoActing++
+    +  altra domanda
     -> advance_time ->
-->->
+   
+    -
+-> matteo_acting     
+
+= third_qn
+~ MatteoActing++
+    Matteo dice cose
+        +  tu chiedi
+    -> advance_time ->    
+    -    
+-> matteo_acting
 
 
-= matteo_talking
 
-->->
+
+/* ---------------------------------
+Opzioni di dialogo con la persona Matteo
+ ----------------------------------*/
+
+=== matteo_talking
+ {debug: <i>Passo per matteo_talking</i>}
+    -> first_tier_storylets ->
+    //INFO GENERALI//
+    + Fai domande sulla persona Matteo -> esplora_matteo
+
+    //SCELTE CONDIZIONALI//
+    
+
+    //SCELTE CONDIZIONALI OGGETTI//
+     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
+     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
+     + {inventoryContents has Lettera} Guarda questa lettera!
+     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
+    
+      
+    + Te ne vai
+    -> intro
+    -
+
+= esplora_matteo
+{debug: <i>Passo per esplora_matteo</i>}
+VAR MatteoTalking = 0
+
+
+{
+- MatteoTalking > 1: Matteo: "Non mi va di rispondere ad altre domande personali".
+    -> advance_time ->
+    -> intro
+- else:
+    { shuffle:
+    -   -> first_qn
+    -   -> second_qn
+    -   -> third_qn
+    
+    }
+}
+
+//DOMANDE SUllA PERSONA MATTEO
+
+= first_qn
+~ MatteoTalking++
+    + Prima domanda
+    -> advance_time ->
+    
+    -
+-> matteo_talking 
+
+= second_qn
+ ~ MatteoTalking++
+    +  altra domanda
+    -> advance_time ->
+   
+    -
+-> matteo_talking    
+
+= third_qn
+~ MatteoTalking++
+    Matteo dice cose
+        +  tu chiedi
+    -> advance_time ->    
+    -    
+-> matteo_talking

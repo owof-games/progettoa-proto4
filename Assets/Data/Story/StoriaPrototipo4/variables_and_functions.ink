@@ -160,7 +160,6 @@ VAR objectStorageContents = (SpiedinoCocktail)
  * + {are_entities_together_in(Matteo, Ettore, WhiteRoom)} Parla con Matteo
  *   -> parla_con_matteo
  */
-TODO: le condizioni devono essere tutte nella forma "entity_location(entity1) == entity_location(entity2)" oppure "entity_location(entity1) == location".
 === function are_entities_together_in(entity1, entity2, location)
 {debug: <i>Passo per function are_entities_together_in</i>}
 ~ return entity_location(entity1) == entity_location(entity2) and entity_location(entity1) == location
@@ -172,19 +171,19 @@ TODO: le condizioni devono essere tutte nella forma "entity_location(entity1) ==
 
 === function are_three_entities_together(entity1, entity2, entity3)
 {debug: <i>Passo per function are_three_entities_together</i>}
-~ return entity_location(entity1) == entity_location(entity2) && entity_location(entity3)
+~ return entity_location(entity1) == entity_location(entity2) && entity_location(entity2) == entity_location(entity3)
 
 === function are_four_entities_together(entity1, entity2, entity3, entity4)
 {debug: <i>Passo per function are_four_entities_together</i>}
-~ return entity_location(entity1) == entity_location(entity2) && entity_location(entity3) && entity_location(entity4)
+~ return entity_location(entity1) == entity_location(entity2) && entity_location(entity2) == entity_location(entity3) && entity_location(entity3) == entity_location(entity4)
 
 === function are_five_entities_together(entity1, entity2, entity3, entity4, entity5)
 {debug: <i>Passo per function are_five_entities_together</i>}
-~ return entity_location(entity1) == entity_location(entity2) && entity_location(entity3) && entity_location(entity4) && entity_location(entity5)
+~ return entity_location(entity1) == entity_location(entity2) && entity_location(entity2) == entity_location(entity3) && entity_location(entity3) == entity_location(entity4) && entity_location(entity4) == entity_location(entity5)
 
 === function are_six_entities_together(entity1, entity2, entity3, entity4, entity5, entity6)
 {debug: <i>Passo per function are_six_entities_together</i>}
-~ return entity_location(entity1) == entity_location(entity2) && entity_location(entity3) && entity_location(entity4) && entity_location(entity5) && entity_location(entity6)
+~ return entity_location(entity1) == entity_location(entity2) && entity_location(entity2) == entity_location(entity3) && entity_location(entity3) == entity_location(entity4) && entity_location(entity4) == entity_location(entity5) && entity_location(entity5) == entity_location(entity6)
 
 ////////////////////////////////////////////////////////////
 
@@ -333,7 +332,18 @@ VAR currentTime = 0
 
 ~ loopableVariables = ()
 
+// clear talking tracking variables
 ~ EliaActing = 0
+~ PaolaActing = 0
+~ GretaActing = 0
+~ ZecaActing = 0
+~ MatteoActing = 0
+
+~ PaolaTalking = 0
+~ EliaTalking = 0
+~ GretaTalking = 0
+~ ZecaTalking = 0
+~ MatteoTalking = 0
 
 // print something for the user
 Questo è il testo che dice che è avvenuto un loop!

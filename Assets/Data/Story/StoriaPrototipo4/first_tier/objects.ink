@@ -7,14 +7,14 @@
 -> intro
 
 = limetta_unghie 
-    + (interagito) Controlla la limetta per le unghie
+    + Controlla la limetta per le unghie
         -> advance_time ->
-        + + {inventoryContents !? LimettaUnghie && interagito} Raccogli la limetta per le unghie
+        + + Raccogli la limetta per le unghie
         ~ take_object(LimettaUnghie)
+        + + La lasci dov'è
     + {inventoryContents has LimettaUnghie} Mostra limetta unghie
     + {inventoryContents has LimettaUnghie} Lascia limetta unghie
         ~ remove_entity(LimettaUnghie)
-    + La lasci dov'è
     -
 ->->
 
@@ -28,13 +28,15 @@
 -> intro
 
 = antico_pugnale
-    + (interagito) Ispeziona il pugnale
-    + {inventoryContents !? AnticoPugnale && interagito} Afferri il pugnale
+    + Ispeziona il pugnale
+        -> advance_time ->
+        + + Afferri il pugnale
         ~ take_object(AnticoPugnale)
+        + + Lo lasci dov'è    
     + {inventoryContents has AnticoPugnale} Mostra il pugnale
     + {inventoryContents has AnticoPugnale} Lascia il pugnale
         ~ remove_entity(AnticoPugnale)
-    + Lo lasci dov'è
+
     -
 ->->
 
@@ -49,13 +51,14 @@
 -> intro
 
 = spiedino_cocktail
-    + (interagito) Osserva lo spiedino
-    + {inventoryContents !? SpiedinoCocktail && interagito} Afferri lo spiedino
+    + Osserva lo spiedino
+        + + Afferri lo spiedino
         ~ take_object(SpiedinoCocktail)
+        + + Lo lasci dov'è
     + {inventoryContents has SpiedinoCocktail} Mostra lo spiedino
     + {inventoryContents has SpiedinoCocktail}  Lascia lo spiedino
         ~ remove_entity(SpiedinoCocktail)
-    + Lo lasci dov'è
+    
     -
 ->->
 
@@ -69,12 +72,13 @@
 
 
 = lettera
-    + (interagito) Leggi la lettera
-    + {inventoryContents !? Lettera && interagito} Prendi la lettera
+    + Leggi la lettera
+        + + Prendi la lettera
         ~ take_object(Lettera)
+        + + La lasci dov'è
     + {inventoryContents has Lettera} Mostra lettera
     + {inventoryContents has Lettera} Lascia lettera
         ~ remove_entity(Lettera)
-    + La lasci dov'è
+    
     -
 ->->

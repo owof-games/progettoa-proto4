@@ -10,13 +10,18 @@
 -> intro
 
 
-= greta_acting
+/* ---------------------------------
+Opzioni di dialogo con il personaggio Greta
+ ----------------------------------*/
+
+
+=== greta_acting
+    {debug: <i>Passo per greta_acting</i>}
     -> first_tier_storylets ->
     //INFO GENERALI//
-    + Domanda
-    + Domanda
+    + Fai domande sul personaggio Greta -> esplora_greta_personaggia
     
-    //SCELTE CONDIZIONALI NARRATIVE//
+    //SCELTE CONDIZIONALI//
     + (missioneGreta) {new_this_loop(->missioneGreta)} Sai chi potrebbe avere ucciso Paola?
             -> advance_time ->
             Greta: Di più! Ma ti dirò chi è l'assassino se tu convinci Elia a venire a parlarmi.
@@ -26,22 +31,127 @@
     + {loopableVariables has EliaRaggiungeGreta} Ho fatto quello che mi hai chiesto, Greta.
     -> advance_time ->
         Greta: Scusa, ti ho preso un po' in giro. Non ho idea di chi possa aver ucciso Paola, era perfetta.
-    -> advance_time ->    
-        
+    -> advance_time ->       
     //SCELTE CONDIZIONALI OGGETTI//
      + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
      + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
      + {inventoryContents has Lettera} Guarda questa lettera!
      + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    -
     
+      
     + Te ne vai
+        -> intro
+    -
+->->
+
+= esplora_greta_personaggia
+{debug: <i>Passo per esplora_greta_personaggia</i>}
+VAR GretaActing = 0
+
+{
+- GretaActing > 1: Greta: "Non mi va di rispondere ad altre domande personali".
+    -> advance_time ->
+    -> intro
+- else:
+    { shuffle:
+    -   -> first_qn
+    -   -> second_qn
+    -   -> third_qn
+    }
+}
+
+
+= first_qn
+~ GretaActing++
+    + Prima domanda
     -> advance_time ->
     
-->->
+    -
+-> greta_acting 
+
+= second_qn
+ ~ GretaActing++
+    +  altra domanda
+    -> advance_time ->
+   
+    -
+-> greta_acting     
+
+= third_qn
+~ GretaActing++
+    Greta dice cose
+        +  tu chiedi
+    -> advance_time ->    
+    -    
+-> greta_acting
 
 
-= greta_talking
 
 
-->->
+/* ---------------------------------
+Opzioni di dialogo con la persona Greta
+ ----------------------------------*/
+
+=== greta_talking
+ {debug: <i>Passo per greta_talking</i>}
+    -> first_tier_storylets ->
+    //INFO GENERALI//
+    + Fai domande sulla persona Greta -> esplora_greta
+
+    //SCELTE CONDIZIONALI//
+    
+
+    //SCELTE CONDIZIONALI OGGETTI//
+     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
+     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
+     + {inventoryContents has Lettera} Guarda questa lettera!
+     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
+    
+      
+    + Te ne vai -> intro
+    -
+    
+
+= esplora_greta
+{debug: <i>Passo per esplora_greta</i>}
+VAR GretaTalking = 0
+
+
+{
+- GretaTalking > 1: Greta: "Non mi va di rispondere ad altre domande personali".
+    -> advance_time ->
+    -> intro
+- else:
+    { shuffle:
+    -   -> first_qn
+    -   -> second_qn
+    -   -> third_qn
+    
+    }
+}
+
+//DOMANDE SUllA PERSONA GRETA
+
+= first_qn
+~ GretaTalking++
+    + Prima domanda
+    -> advance_time ->
+    
+    -
+-> greta_talking 
+
+= second_qn
+ ~ GretaTalking++
+    +  altra domanda
+    -> advance_time ->
+   
+    -
+-> greta_talking    
+
+= third_qn
+~ GretaTalking++
+    Greta dice cose
+        +  tu chiedi
+    -> advance_time ->    
+    -    
+-> greta_talking

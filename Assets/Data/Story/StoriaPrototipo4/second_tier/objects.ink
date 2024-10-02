@@ -7,12 +7,13 @@
 
 
 = lettera
-    + (interagito) Leggi la lettera
-    + {inventoryContents !? Lettera && interagito} Prendi la lettera
-        ~ take_object(Lettera)
+    + Leggi la lettera
+        + Prendi la lettera
+            ~ take_object(Lettera)
+        + La lasci dov'è
     + {inventoryContents has Lettera} Mostra lettera
     + {inventoryContents has Lettera} Lascia lettera
         ~ remove_entity(Lettera)
-    + La lasci dov'è
+
     -
 ->->

@@ -152,6 +152,33 @@ VAR objectStorageContents = (SpiedinoCocktail)
         ~ yellowRoomContents += entity
         ~ objectStorageContents -= entity
  }
+ 
+ === function move_first_entity_to_second_entity_location(entity1,entity2)
+{debug: <i>Passo per function move_first_entity_to_second_entity_location</i>}
+    {
+    - whiteRoomContents has entity1:
+        ~ whiteRoomContents += entity2
+        ~ greenRoomContents -= entity2
+        ~ redRoomContents -= entity2
+        ~ yellowRoomContents -= entity2
+    - greenRoomContents has entity1:
+        ~ whiteRoomContents -= entity2
+        ~ greenRoomContents += entity2
+        ~ redRoomContents -= entity2
+        ~ yellowRoomContents -= entity2
+    - redRoomContents has entity1:
+        ~ whiteRoomContents -= entity2
+        ~ greenRoomContents -= entity2
+        ~ redRoomContents += entity2
+        ~ yellowRoomContents -= entity2
+    - yellowRoomContents has entity1:
+        ~ whiteRoomContents -= entity2
+        ~ greenRoomContents -= entity2
+        ~ redRoomContents -= entity2
+        ~ yellowRoomContents += entity2
+ }
+ 
+ 
 
 /**
  * Check if entity1 and entity2 are both in the same location.

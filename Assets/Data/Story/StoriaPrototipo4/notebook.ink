@@ -1,7 +1,7 @@
 LIST QuestionAnswer = True, False, DontKnow, Unexplored
 
-VAR choice_Zeca_is_right_about_elia = Unexplored
-VAR choice_Ibrahim_Innocence = Unexplored
+VAR choiceMatteoVuoleSposareEttore = Unexplored
+VAR choiceMenteZeca = Unexplored
 // tutte le altre variabili che indicano quali scelte abbiamo preso...
 
 
@@ -21,7 +21,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 === notebook
 + [notebook]
 {
-- relationshipDiscovered: <b>Chi ha ucciso Paola?:</b>
+- startingDinnerStorylet.PaolaMorta: <b>Chi ha ucciso Paola?:</b>
 - else: <b>Il taccuino è vuoto</b>
 }
 
@@ -29,41 +29,93 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 
 
-{elia_acting.senzatetto: <i>Informazioni di Elia</i>}
-{elia_acting.senzatetto: "Paola voleva trasformare il nostro locale in un rifugio per senzatetto, e Greta per questo ha giurato più volte che piuttosto l'avrebbe uccisa!"}
+{elia_acting.senzatetto: <i>Informazioni su Elia</i>}
+{elia_acting.senzatetto: Elia: "Paola voleva trasformare il nostro locale in un rifugio per senzatetto, e Greta per questo ha giurato più volte che piuttosto l'avrebbe uccisa!"}
+{elia_acting.sincero: Elia: "Ettore, mi spiace tantissimo. Sapevo da tempo che Matteo provava qualcosa per Greta, ma non sapevo come dirtelo!"}
 
-/*
-{cb_drug_bottle.matteo_room.taccu_drogaCameraMatteo or cb_paola.paola_room.taccu_Spacciatore or cb_Greta.paola_room.taccu_GretaNoDrogaMatteo or cb_paola.paola_room.taccu_IG or cb_vestiti_strappati.matteo_room.taccu_vestitiStrappati: <b>Perché Matteo è preso male?</b>}
 
-{
-- cb_drug_bottle.matteo_room.taccu_drogaCameraMatteo or cb_paola.paola_room.taccu_Spacciatore or cb_Greta.paola_room.taccu_GretaNoDrogaMatteo or cb_paola.paola_room.taccu_IG or cb_vestiti_strappati.matteo_room.taccu_vestitiStrappati: <i>Le info sul tuo taccuino sono:</i>
-- else: <i>Il taccuino è vuoto</i>
-}
-  
+{elia_acting.sincero: <i>Informazioni su Matteo</i>}
+{hardTrueFeelingsStorylet.MatteoGreta: Matteo: "Mi spiace, ma amo Greta, non te. Il matrimonio era solo una scusa per farla ingelosire."}
+{elia_acting.sincero: Elia: "Ettore, mi spiace tantissimo. Sapevo da tempo che Matteo provava qualcosa per Greta, ma non sapevo come dirtelo!"}
+{greta_acting.MatteoGreta: Greta: "Mi spiace Ettore, ma abbiamo scopato solo una volta, è Matteo che è proprio andato in fissa!"}
+{weddingAtThePubStorylet.MatteoSiSposa: Matteo: "Elia, non festeggerò mai il mio matrimonio nel tuo bar triste con la tua insopportabile collega!"}
+{marryMeStorylet.MatteoSiSposa: Matteo: "Ettore, sei il miglior progetto della mia vita, sposami!"}
+{zeca_acting.MatteoGreta: Zeca: "Sono abbastanza sicuro che Greta stia ricattando Matteo."}
 
-    ~ temp contraddizione_Zeca_elia = cb_Zeca.kitchen.taccu_EliaAssente and cb_elia.eliaAndZeca_room.taccu_eliaDatoDroga
+
+
+{elia_acting.paolaSiSposa:<i>Informazioni su Paola</i>}
+{elia_acting.paolaSiSposa:Elia: "Ha organizzato un matrimonio in fretta e furia, manco sappiamo con chi."}
+{matteo_acting.paolaSiSposa && marryMeStorylet: Matteo: "Paola ha organizzato il matrimonio appena le ho confidato che avrei voluto sposarti."}
+{matteo_acting.ZecaTestimone: Matteo:"La cosa che mi ha stupito è che abbia chiesto a Zeca di farle da testimone!"}
+{greta_acting.PaolaPerfetta: Greta: "Nessuno avrebbe potuto fare male a Paola, è perfetta!"}
+
+
+{anEavesdropAboutFriendshipStorylet.GretaTriste: <i>Informazioni su Greta</i>}
+{anEavesdropAboutFriendshipStorylet.GretaTriste: Greta: "Storia dolorosa infanzia"}
+
+
+{matteo_acting.ZecaTestimone or worstBestManStorylet.PaolaZeca: <i>Informazioni su Zeca</i>}
+{matteo_acting.ZecaTestimone: Matteo:"Sappiamo tutti che Zeca odia la povera Paola da sempre!"}
+{worstBestManStorylet.PaolaZeca: Zeca: "Non vedevo Paola da una vita. Era la mia migliore amica, e ora solo una sconosciuta."}
+
+{elia_acting.paolaSiSposa:<i>Informazioni sullo spiedino da cocktail</i>}
+{elia_acting.paolaSiSposa:Elia: "L'ho portato per mostrarlo a Paola, per il matrimonio."}
+
+
+{elia_acting.pugnaleMatteo:<i>Informazioni sull'antico pugnale rituale</i>}
+{elia_acting.pugnaleMatteo:Elia: "Matteo era disperato, l'aveva perso da settimane!"}
+{zeca_acting.pugnaleMatteo:Elia: "Matteo lo usa per pulirsi la suola delle scarpe, che schifo."}
+
+{greta_acting.GretaHaLettera: <i>Informazioni sulla lettera</i>}
+{greta_acting.GretaHaLettera: Greta: "Uh, è la calligrafia di Paola. Strano. Questa rimane a me per un po'".}
+
+
+
+{marryMeStorylet.MatteoSiSposa && hardTrueFeelingsStorylet.MatteoGreta: <b>Quali sono le intenzioni di Matteo sul matrimonio?</b>}
+
+
+    ~ temp contraddizione_matteo = marryMeStorylet.MatteoSiSposa && hardTrueFeelingsStorylet.MatteoGreta
     
     {
-        - cb_Zeca.kitchen.taccu_EliaAssente and not cb_elia.eliaAndZeca_room.taccu_eliaDatoDroga:
-            Secondo Zeca, Elia ieri sera non era a casa
-        - not cb_Zeca.kitchen.taccu_EliaAssente and cb_elia.eliaAndZeca_room.taccu_eliaDatoDroga:
-            Elia ci ha detto che ieri sera ha dato le droghe a Matteo.
-        - contraddizione_Zeca_elia:
-            Zeca sostiene che Elia ieri sera non fosse in casa, ma Elia ha detto di aver dato ieri sera delle droghe a Matteo. Chi mente: Zeca o Elia?
+        - contraddizione_matteo:
+            Matteo prima mi ha chiesto la mano, poi mi ha detto che ama Greta.
+            Cosa sta succedendo?
             
     }
     
-        ++ {contraddizione_Zeca_elia} Elia {choice_Zeca_is_right_about_elia == True: (scelta attuale)}
-            ~ choice_Zeca_is_right_about_elia = True
-        ++ {contraddizione_Zeca_elia} Zeca {choice_Zeca_is_right_about_elia == False: (scelta attuale)}
-            ~ choice_Zeca_is_right_about_elia = False
-        ++ {contraddizione_Zeca_elia} Continua a investigare {choice_Zeca_is_right_about_elia == DontKnow: (scelta attuale)}
-            ~ choice_Zeca_is_right_about_elia = DontKnow
+        ++ {contraddizione_matteo} Vuole sposare me {choiceMatteoVuoleSposareEttore == True: (scelta attuale)}
+            ~ choiceMatteoVuoleSposareEttore = True
+        ++ {contraddizione_matteo} vuole sposare Greta {choiceMatteoVuoleSposareEttore == False: (scelta attuale)}
+            ~ choiceMatteoVuoleSposareEttore = False
+        ++ {contraddizione_matteo} Continuo a investigare {choiceMatteoVuoleSposareEttore == DontKnow: (scelta attuale)}
+            ~ choiceMatteoVuoleSposareEttore = DontKnow
         ++ ->    
         --
 
 
-*/
+{matteo_acting.ZecaTestimone && worstBestManStorylet.PaolaZeca: <b>La relazione tra Paola e Zeca</b>}
+
+
+    ~ temp contraddizione_zeca = matteo_acting.ZecaTestimone && worstBestManStorylet.PaolaZeca
+    
+    {
+        - contraddizione_zeca:
+            Zeca dice di non aver parlato per anni con Paola, ma secondo Matteo lui sarebbe stato il testimone del matrimonio di Paola.
+            Chi mente?
+            
+    }
+    
+        ++ {contraddizione_zeca} Zeca {choiceMenteZeca == True: (scelta attuale)}
+            ~ choiceMatteoVuoleSposareEttore = True
+        ++ {contraddizione_zeca} Matteo {choiceMenteZeca == False: (scelta attuale)}
+            ~ choiceMatteoVuoleSposareEttore = False
+        ++ {contraddizione_zeca} Continuo a investigare {choiceMenteZeca == DontKnow: (scelta attuale)}
+            ~ choiceMatteoVuoleSposareEttore = DontKnow
+        ++ ->    
+        --
+
+
 //INVENTARIO//
 + {inventoryContents has Lettera} [Lascia la lettera]
         ~ remove_entity(Lettera)

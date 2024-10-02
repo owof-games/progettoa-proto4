@@ -36,30 +36,50 @@ Opzioni di dialogo con il personaggio Elia
             Ettore: Tu vuoi che festeggiamo al pub. Se lo convinco, andrai da Greta?
             Elia: Se ci riesci, parlerò con quella arpia.
             
-    + {!new_this_loop(->senzatetto) && !matteo_acting.MatteoGreta} Ettore: "Sto ancora cercando il modo di convincere Matteo, ma ce la farò!"
+    + {!new_this_loop(->senzatetto) && !hardTrueFeelingsStorylet} Ettore: "Sto ancora cercando il modo di convincere Matteo, ma ce la farò!"
 
-    + {matteo_acting.MatteoGreta} Ettore: "Ho convinto Matteo."
+    + {hardTrueFeelingsStorylet} Ettore: "Ho convinto Matteo."
             Elia: "Bene, vado, dove la trovo?"
-            Ettore: "Ti aspetta nella stanza bianca."
+            ~ move_entity_from_object_storage_to_Ettore_location(SpiedinoCocktail)
+            TODO: Check con Mattia per vedere se c'è modo di trasformare in funzione o simile visto che riuseremo più volte questa strategia.
+        + + {whiteRoomContents hasnt Ettore} Ettore: "Ti aspetta nella stanza bianca."
                 ~ move_entity(Elia, WhiteRoom)
-                ~ loopableVariables += EliaRaggiungeGreta
-                Ho impostato loopable
-                ~ move_entity_from_object_storage_to_Ettore_location(SpiedinoCocktail)
+                {
+                - whiteRoomContents has Greta:~ loopableVariables += EliaRaggiungeGreta
+                }
+        + + {greenRoomContents hasnt Ettore} Ettore: "Ti aspetta nella stanza verde."
+                ~ move_entity(Elia, GreenRoom)
+                {
+                - greenRoomContents has Greta:~ loopableVariables += EliaRaggiungeGreta
+                }
+        + + {yellowRoomContents hasnt Ettore} Ettore: "Ti aspetta nella stanza gialla."                
+                ~ move_entity(Elia, YellowRoom)
+                {
+                - yellowRoomContents has Greta:~ loopableVariables += EliaRaggiungeGreta
+                }
+        + + {redRoomContents hasnt Ettore} Ettore: "Ti aspetta nella stanza rossa."                
+                ~ move_entity(Elia, RedRoom)
+                {
+                - redRoomContents has Greta:~ loopableVariables += EliaRaggiungeGreta
+                }      
+                
    
-    + {matteo_acting.MatteoGreta} Ettore: "Matteo mi ha detto di lui e di Greta."
+    + (sincero) {hardTrueFeelingsStorylet} Ettore: "Matteo mi ha detto di lui e di Greta."
             Elia: "Merda, mi spiace. Per questo volevo fare il matrimonio al pub."
             Elia: "Andrò lo stesso da Greta, te lo devo."
             Ettore: "Ti aspetta nella stanza bianca."
+            ~ move_entity_from_object_storage_to_Ettore_location(SpiedinoCocktail)
+            
                 ~ move_entity(Elia, WhiteRoom)
                 ~ loopableVariables += EliaRaggiungeGreta
-                Ho impostato loopable
-                ~ move_entity_from_object_storage_to_Ettore_location(SpiedinoCocktail)
-            
+                
+                
     
         -          
         
     //SCELTE CONDIZIONALI OGGETTI//
-     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
+     + (pugnaleMatteo){inventoryContents has AnticoPugnale} Guarda questo pugnale!
+            Elia: "Matteo era disperato, l'aveva perso da settimane!"
      + {inventoryContents has SpiedinoCocktail} Elia, hai lasciato alle tue spalle questo oggetto.
         + + (paolaSiSposa)Sarebbe perfetto per uccidere qualcuno!
             Elia si incazza

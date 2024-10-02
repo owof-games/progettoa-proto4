@@ -7,6 +7,7 @@
 
 //NOMENCLATURA LABELS
 // _taccu = prefisso per le etichette che abilitano informazioni nel notebook
+TODO: questa cosa non funziona più benissimo perché molte cose passano per nodi ora
 
 
 

@@ -25,12 +25,14 @@ Opzioni di dialogo con il personaggio Zeca
     + Fai domande sul personaggio Zeca -> esplora_zeca_personaggia
     
     //SCELTE CONDIZIONALI//
-        
+    + (Matrimonio) {marryMeStorylet} Zeca ci fa capire che sapeva da un po' del matrimonio.    
     //SCELTE CONDIZIONALI OGGETTI//
-     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
-     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
-     + {inventoryContents has Lettera} Guarda questa lettera!
-     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
+    + (pugnaleMatteo){inventoryContents has AnticoPugnale} Guarda questo pugnale!
+        Zeca: "Matteo lo usa in modo <b>ossessivo</b> per pulirsi la soletta delle scarpe!"
+    + (MatteoGreta) {hardTrueFeelingsStorylet} Zeca ci dice che Matteo è ricattato da Greta, ma non sa bene per cosa.  
+    + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
+    + {inventoryContents has Lettera} Guarda questa lettera!
+    + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
     
       
     + Te ne vai

@@ -89,12 +89,14 @@ Opzioni di dialogo con la persona Paola
     //INFO GENERALI//
     + Fai domande sulla persona Paola -> esplora_paola
 
+    TODO: che interventi di tutorial ci servono?
     //SCELTE CONDIZIONALI//
     + (tutorial_oggetti) Dopo un tot di cose, primo stop alle riprese da parte di Paola.
         Aggiungere condizione (come step di variabili e bona?)
         Paola: "Sant'iddio Greta, dove hai messo le potenziali armi?"
         Paola: "Ettore, ricordati che se hai un oggetto in mano puoi mostrarlo e ottenere nuove informazioni"
-
+    + (altro_tutorial)
+        Elia: "Cerca di trovare la limetta più avanti possibile perché è quella l'arma del delitto!"
 
     //SCELTE CONDIZIONALI OGGETTI//
      + {inventoryContents has AnticoPugnale} Guarda questo pugnale!

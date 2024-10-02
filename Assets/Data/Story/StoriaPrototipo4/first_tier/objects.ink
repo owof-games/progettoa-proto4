@@ -1,6 +1,6 @@
 === cb_first_tier_limetta_unghie ===
 
-+ {are_two_entitites_together(Ettore, LimettaUnghie)} [object:LimettaUnghie]
++ {are_two_entitites_together(Ettore, LimettaUnghie) && paola_talking.tutorial_oggetti} [object:LimettaUnghie]
     -> limetta_unghie ->
 
 
@@ -21,7 +21,7 @@
 
 === cb_first_tier_antico_pugnale ===
 
-+ {are_two_entitites_together(Ettore, AnticoPugnale)} [object:AnticoPugnale]
++ {are_two_entitites_together(Ettore, AnticoPugnale) && paola_talking.tutorial_oggetti} [object:AnticoPugnale]
     -> antico_pugnale ->
 
 
@@ -44,7 +44,7 @@
 
 === cb_first_tier_spiedino_cocktail ===
 
-+ {are_two_entitites_together(Ettore, SpiedinoCocktail)} [object:SpiedinoCocktail]
++ {are_two_entitites_together(Ettore, SpiedinoCocktail) && paola_talking.tutorial_oggetti} [object:SpiedinoCocktail]
     -> spiedino_cocktail ->
 
 
@@ -65,7 +65,7 @@
 
 === cb_first_tier_lettera ===
 
-+ {are_two_entitites_together(Ettore, Lettera)} [object:Lettera]
++ {are_two_entitites_together(Ettore, Lettera) && paola_talking.tutorial_oggetti} [object:Lettera]
     -> lettera ->
 
 -> intro
@@ -73,6 +73,7 @@
 
 = lettera
     + Leggi la lettera
+        "So cosa hai fatto, e la pagherai!"
         + + Prendi la lettera
         ~ take_object(Lettera)
         + + La lasci dov'è

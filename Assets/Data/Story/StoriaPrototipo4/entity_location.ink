@@ -99,7 +99,13 @@
 {currentTime:
     - 0:
         ~ move_entity(LimettaUnghie, GreenRoom)
-        ~ move_entity(AnticoPugnale, WhiteRoom)
         ~ move_entity(SpiedinoCocktail, YellowRoom)
-        ~ move_entity(Lettera, RedRoom)    
+        ~ move_entity(AnticoPugnale, WhiteRoom)
+        {
+        - greta_acting.GretaHaLettera:
+            ~ move_entity(Lettera, ObjectStorage)
+        - else:
+            ~ move_entity(Lettera, RedRoom)
+        }
+        
 }

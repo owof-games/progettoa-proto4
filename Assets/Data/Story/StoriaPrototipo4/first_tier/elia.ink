@@ -23,23 +23,52 @@ Opzioni di dialogo con il personaggio Elia
     + Fai domande sul personaggio Elia -> esplora_elia_personaggia
     
     //SCELTE CONDIZIONALI//
-    + (senzatetto){greta_acting.missioneGreta} Elia, Greta vorrebbe parlare con te.
-        Elia: col cavolo!
-        Ettore: Posso fare qualcosa per te?
-        Elia: No, non c'è nulla che puoi fare!
-        + + (uniti){weddingAtThePubStorylet} Non è vero! So che vuoi organizzare il nostro matrimonio al bar. Posso convincere Matteo!
-            Elia: Non ti conosco ma mi fido di te, va bene!
-            Ettore: Ti aspetta nella stanza bianca.
+    + (senzatetto){greta_acting.missioneGreta && new_this_loop(->senzatetto)} Elia, Greta vorrebbe parlare con te.
+        Elia: Così può uccidere anche me?
+        Ettore: In che senso?
+        Elia: Paola voleva rilevare il pub per trasformarlo in un rifugio per senzatetto, e Greta ha detto cose terribili e ripetuto che avrebbe fatto di tutto per fermarla.
+        Elia: Di tutto.
+        Elia: Per cui, vattene.
+        // route "lo mandi nella stanza di Greta con una trappola"
+        
+        // route "lo mandi da Greta proponendo uno scambio"
+    +  (uniti){weddingAtThePubStorylet && new_this_loop(->senzatetto)} Ho una proposta. So che tu e Matteo avete litigato, per via del matrimonio.
+            Ettore: Tu vuoi che festeggiamo al pub. Se lo convinco, andrai da Greta?
+            Elia: Se ci riesci, parlerò con quella arpia.
+            
+    + {!new_this_loop(->senzatetto) && !matteo_acting.MatteoGreta} Ettore: "Sto ancora cercando il modo di convincere Matteo, ma ce la farò!"
+
+    + {matteo_acting.MatteoGreta} Ettore: "Ho convinto Matteo."
+            Elia: "Bene, vado, dove la trovo?"
+            Ettore: "Ti aspetta nella stanza bianca."
                 ~ move_entity(Elia, WhiteRoom)
                 ~ loopableVariables += EliaRaggiungeGreta
                 Ho impostato loopable
                 ~ move_entity_from_object_storage_to_Ettore_location(SpiedinoCocktail)
-        + + ->
+   
+    + {matteo_acting.MatteoGreta} Ettore: "Matteo mi ha detto di lui e di Greta."
+            Elia: "Merda, mi spiace. Per questo volevo fare il matrimonio al pub."
+            Elia: "Andrò lo stesso da Greta, te lo devo."
+            Ettore: "Ti aspetta nella stanza bianca."
+                ~ move_entity(Elia, WhiteRoom)
+                ~ loopableVariables += EliaRaggiungeGreta
+                Ho impostato loopable
+                ~ move_entity_from_object_storage_to_Ettore_location(SpiedinoCocktail)
+            
+    
         -          
         
     //SCELTE CONDIZIONALI OGGETTI//
      + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
-     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
+     + {inventoryContents has SpiedinoCocktail} Elia, hai lasciato alle tue spalle questo oggetto.
+        + + (paolaSiSposa)Sarebbe perfetto per uccidere qualcuno!
+            Elia si incazza
+            Elia: "L'ho portato a Paola per valutarlo per il matrimonio."
+            Ettore: "Il matrimonio mio e di Matteo?"
+            Elia: "No, il suo. Paola si sposa."
+        + + Cosa volevi farci?
+            Elia ci dice che non l'ha mia visto.
+        - -
      + {inventoryContents has Lettera} Guarda questa lettera!
      + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
     

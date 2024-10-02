@@ -23,6 +23,17 @@ Opzioni di dialogo con il personaggio Matteo
     + Fai domande sul personaggio Matteo -> esplora_matteo_personaggia
     
     //SCELTE CONDIZIONALI//
+    
+    + {elia_acting.paolaSiSposa} Ettore: "Matteo, tu sapevi che Paola si stava per sposare?"
+        + + {marryMe} Ettore
+            Matteo: "Sì, ero incazzatissimo perché ci ha detto che ci sarebbe sposata il giorno dopo che le ho detto che volevo farti la proposta, la stronza."
+        + + (ZecaTestimone)Ettore
+            Matteo: "La cosa che mi ha stupito è che abbia chiesto a Zeca di farle da testimone!"
+    + (MatteoGreta) {elia_acting.uniti} Ettore: "Amore, in merito al nostro matrimonio..."
+        Ettore: Elia vorrebbe che
+        Matteo: Amo Greta
+        Ettore: Ah.
+        
         
     //SCELTE CONDIZIONALI OGGETTI//
      + {inventoryContents has AnticoPugnale} Guarda questo pugnale!

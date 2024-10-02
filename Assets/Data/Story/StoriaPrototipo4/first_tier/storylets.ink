@@ -11,6 +11,9 @@
 
 - are_three_entities_together(Elia, Greta, Ettore) && not are_two_entitites_together(Elia, Matteo) && not are_two_entitites_together(Elia, Paola) && not are_two_entitites_together(Elia, Zeca) && new_this_loop(->anEavesdropAboutFriendshipStorylet):
     -> anEavesdropAboutFriendshipStorylet
+    
+- are_two_entitites_together(Matteo, Ettore) && not are_two_entitites_together(Elia, Ettore) && not are_two_entitites_together(Ettore, Paola) && not are_two_entitites_together(Ettore, Zeca) && not are_two_entitites_together(Ettore, Greta) && new_this_loop(->marryMe):
+    -> marryMe 
 
 }
 ->->
@@ -34,7 +37,7 @@ Matteo: c'è Paola!
 
 === weddingAtThePubStorylet
 {debug: <i>Passo per weddingAtThePubStorylet</i>}
-Discussione Matteo ed Elia su matrimonio al bar
+Discussione Matteo ed Elia su matrimonio al bar. Elia vuole farlo al pub, Matteo non ne vuole sapere.
     -> advance_time ->
     + [Avanzo]
     -
@@ -46,6 +49,14 @@ Discussione Matteo ed Elia su matrimonio al bar
 === anEavesdropAboutFriendshipStorylet
 {debug: <i>Passo per anEavesdropAboutFriendshipStorylet</i>}
 Conversazione origliata: capiamo che Greta non ce l'ha con Paola, ma cagate tipo "prima che papà mi adottasse ho vissuto in strada, non possono rivivere quel trauma".
+    -> advance_time ->
+    + [Avanzo]
+    -
+->->
+
+=== marryMe
+Finalmente siamo soli, momento romantico.
+
     -> advance_time ->
     + [Avanzo]
     -

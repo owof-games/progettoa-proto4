@@ -35,7 +35,10 @@ Opzioni di dialogo con il personaggio Greta
     //SCELTE CONDIZIONALI OGGETTI//
      + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
      + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
-     + {inventoryContents has Lettera} Guarda questa lettera!
+     + (GretaHaLettera) {inventoryContents has Lettera} Guarda questa lettera!
+        Greta: "Uh, è la calligrafia di Paola. Strano. Questa rimane a me per un po'".
+            ~ inventoryContents -= Lettera
+            ~ objectStorageContents += Lettera
      + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
     
       

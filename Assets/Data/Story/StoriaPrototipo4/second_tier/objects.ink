@@ -1,6 +1,6 @@
 === cb_second_tier_lettera ===
 
-+ {are_two_entitites_together(Ettore, Lettera)} [object:Lettera]
++ {are_two_entitites_together(Ettore, Lettera) && paola_talking.tutorial_oggetti} [object:Lettera]
     -> lettera ->
 
 -> intro

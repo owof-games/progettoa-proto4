@@ -1,6 +1,6 @@
 === cb_first_tier_paola ===
 {debug: <i>passo per first_tier_paola</i>}
-+ {are_two_entitites_together(Paola, Ettore) && !peopleTalking && !startingDinnerStorylet.PaolaMorta} [character:Paola] {debug: <i>Ho scelto di parlare con Paola</i>}
++ {are_two_entitites_together(Paola, Ettore) && !peopleTalking && !startingDinnerStorylet.paolaMorta} [character:Paola] {debug: <i>Ho scelto di parlare con Paola</i>}
     -> paola_acting->
 
 + {are_two_entitites_together(Paola, Ettore) && peopleTalking} [character:Paola]
@@ -17,6 +17,8 @@ Opzioni di dialogo con il personaggio Paola: assenti perché more
 === paola_acting
     {debug: <i>Passo per paola_acting</i>}
     -> first_tier_storylets ->
+    + {objects_tutorial} "Non mi parlare, sono morta."
+    -
     ->->
 
 

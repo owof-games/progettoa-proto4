@@ -21,7 +21,7 @@ Hai chiamato per chiedere aiuto
 -> phone
 
 = browse
-    + (Indagini) Scopriamo le indagini sull'azienda di Paola, e che sta scaricando la colpa su Elia
-        + + (Sindacato) E del tentativo di sindacalizzazione da parte di Matteo.
+    + (indagini) Scopriamo le indagini sull'azienda di Paola, e che sta scaricando la colpa su Elia
+        + + (sindacato) E del tentativo di sindacalizzazione da parte di Matteo.
 -> phone  
 

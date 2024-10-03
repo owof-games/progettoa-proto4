@@ -9,7 +9,7 @@ LIST characters = Paola, Elia, Zeca, Matteo, Greta, Ettore
 LIST objects = LimettaUnghie, AnticoPugnale, SpiedinoCocktail, Lettera, BottigliaDiVino, FlaconcinoAsma, SigarettaElettronica, Cibo
 
 //list of variables to reset on every loop
-LIST loopableVariables = EliaRaggiungeGreta
+LIST loopableVariables = EliaRaggiungeGreta, EliaSpaventatoPerZeca
 
 //list to set the current tier
 LIST tierState = (FirstTier), SecondTier

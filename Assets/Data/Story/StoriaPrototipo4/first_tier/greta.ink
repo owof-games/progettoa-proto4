@@ -28,14 +28,14 @@ Opzioni di dialogo con il personaggio Greta
             -> advance_time ->        
     + {seen_in_this_loop(->missioneGreta) && loopableVariables hasnt EliaRaggiungeGreta} Non sono ancora riuscito a convincere Elia
     -> advance_time ->
-    + (PaolaPerfetta) {loopableVariables has EliaRaggiungeGreta} Ho fatto quello che mi hai chiesto, Greta.
+    + (paolaPerfetta) {loopableVariables has EliaRaggiungeGreta} Ho fatto quello che mi hai chiesto, Greta.
     -> advance_time ->
         Greta: Scusa, ti ho preso un po' in giro. Non ho idea di chi possa aver ucciso Paola, era perfetta.
     -> advance_time ->
-     + (MatteoGreta) {hardTrueFeelingsStorylet} Greta si scusa, dice che lei e Matteo hanno scopato solo una volta ma lui ha perso la testa e non sa cosa fare.
+     + (matteoGreta) {hardTrueFeelingsStorylet} Greta si scusa, dice che lei e Matteo hanno scopato solo una volta ma lui ha perso la testa e non sa cosa fare.
     
     //SCELTE CONDIZIONALI OGGETTI//
-    + (GretaHaLettera) {inventoryContents has Lettera} Guarda questa lettera!
+    + (minacce) {inventoryContents has Lettera} Guarda questa lettera!
         Greta: "Uh, è la calligrafia di Paola. Strano. Questa rimane a me per un po'".
             ~ inventoryContents -= Lettera
             ~ objectStorageContents += Lettera

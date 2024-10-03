@@ -25,8 +25,8 @@ Opzioni di dialogo con il personaggio Zeca
     + Fai domande sul personaggio Zeca -> esplora_zeca_personaggia
     
     //SCELTE CONDIZIONALI//
-    + (Matrimonio) {marryMeStorylet} Zeca ci fa capire che sapeva da un po' del matrimonio.
-    + (MatteoGreta) {hardTrueFeelingsStorylet} Zeca ci dice che Matteo è ricattato da Greta, ma non sa bene per cosa.
+    + (matrimonio) {marryMeStorylet} Zeca ci fa capire che sapeva da un po' del matrimonio.
+    + (matteoGreta) {hardTrueFeelingsStorylet} Zeca ci dice che Matteo è ricattato da Greta, ma non sa bene per cosa.
     
     //SCELTE CONDIZIONALI OGGETTI//
     + (pugnaleMatteo){inventoryContents has AnticoPugnale} Guarda questo pugnale!

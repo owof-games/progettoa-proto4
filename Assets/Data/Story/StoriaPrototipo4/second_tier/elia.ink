@@ -94,12 +94,26 @@ Opzioni di dialogo con la persona Elia
     + Fai domande sulla persona Elia -> esplora_elia
 
     //SCELTE CONDIZIONALI//
+    + {greta_talking_second_tier.indagini && not are_two_entitites_together(Elia, Zeca)} Qui è dove Elia mette la musica al massimo per non risponderci.
+    + (allestimento) {notABigSecretPartOneStorylet.allestimento} Ci dice che lui e Greta hanno lasciato le bottiglie all'ingresso, avvisando Zeca, perché dovevano risolvere un problema coi tavoli
+    + (indagini) {iTryToBeAGoodFriendStorylet} Se lo diciamo ad Elia, ci rimane male.
+        Dice che si aspettava qualcosa di diverso da Matteo, e che lui sa una cosa ed è stato zitto per difenderlo.
+        Elia ci dice che Greta ha dato a Matteo info per "contrattare" meglio con Paola per la sindacalizzazione.
+    + {zeca_talking_second_tier.allestimento2} Dice una cosa che contraddice Greta
+    + (allestimento2) {iTryToBeAGoodFriendStorylet.allestimento} Elia ci rimane malissimo, inizia a piangere, dice che non se lo aspettava.
+        E poi va a cercare Zeca.
+    + {zeca_talking_second_tier.love && phone.browse.indagini && elia_talking_second_tier.minacce} Se chiediamo ad Elia se Zeca potrebbe aver denunciato Paola
+        Elia sbotta, dice che non ha senso, che il suo "socio d'affari" che motivo avrebbe di rovinarlo? e si allontana subito, possiamo "pedinarlo"
+                ~ move_first_entity_to_second_entity_location(Elia,Zeca)
+                ~ loopableVariables += EliaSpaventatoPerZeca
     
-
+    TODO: foto o qualcosa che otteniamo a una certa condizione, per far "cedere" Elia?
+    
     //SCELTE CONDIZIONALI OGGETTI//
     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
-    + {inventoryContents has Lettera} Guarda questa lettera!
+    + (minacce) {inventoryContents has Lettera} Guarda questa lettera!
+        Elia: "Parlerò solo in presenza del mio avvocato! Via di qui!"
     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
     + {inventoryContents has Cibo} Guarda questo cibo!
     + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!

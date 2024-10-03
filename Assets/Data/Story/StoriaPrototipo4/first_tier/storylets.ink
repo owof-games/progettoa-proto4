@@ -50,7 +50,7 @@ Matteo: c'è Paola!
         + E ci sono dei gatti!
         -
     Greta: Ma soprattutto c'è un coniglio
-        + (PaolaMorta) E qui Paola muore (per finta).
+        + (paolaMorta) E qui Paola muore (per finta).
     -> advance_time ->
 
 ->->
@@ -62,18 +62,18 @@ Matteo: c'è Paola!
 {debug: <i>Passo per weddingAtThePubStorylet</i>}
 Discussione Matteo ed Elia su matrimonio al bar. Elia vuole farlo al pub, Matteo non ne vuole sapere.
     -> advance_time ->
-    + (MatteoSiSposa) [Avanzo]
+    + (matteoSiSposa) [Avanzo]
     -
 
 ->->
 
 
-
+TODO: come gestiamo le conversazioni origliate, con questa struttura di se/allora?
 === anEavesdropAboutFriendshipStorylet
 {debug: <i>Passo per anEavesdropAboutFriendshipStorylet</i>}
 Conversazione origliata: capiamo che Greta non ce l'ha con Paola, ma cagate tipo "prima che papà mi adottasse ho vissuto in strada, non possono rivivere quel trauma".
     -> advance_time ->
-    + (GretaTriste) [Avanzo]
+    + (gretaTriste) [Avanzo]
     -
 ->->
 
@@ -84,7 +84,7 @@ Conversazione origliata: capiamo che Greta non ce l'ha con Paola, ma cagate tipo
 Finalmente siamo soli, proposta di matrimonio.
 
     -> advance_time ->
-    + (MatteoSiSposa) [Avanzo]
+    + (matteoSiSposa) [Avanzo]
     -
 ->->
 
@@ -92,7 +92,7 @@ Finalmente siamo soli, proposta di matrimonio.
 {debug: <i>Passo per worstBestMate</i>}
 Zeca ci dice che non vede e sente Paola da una vita, che prima erano molto legati ma poi cose.
     -> advance_time ->
-    + (PaolaZeca) [Avanzo]
+    + (paolaZeca) [Avanzo]
     -
 ->->
 
@@ -110,7 +110,7 @@ Matteo ci dice cose se ci vede in giro col suo coltello, e se lo riprende.
 Matteo ci dice che ama Greta
 
     -> advance_time ->
-    + (MatteoGreta)[Avanzo]
+    + (matteoGreta)[Avanzo]
     -
 ->->
 
@@ -173,8 +173,8 @@ Matteo ci dice che ama Greta
 
 
 //MORTE DI PAOLA
-
 === paolaIsDeadStorylet
+TODO: questa scena in realtà avrebbe senso che capitasse sempre come chiusura del secondo tier, quando il tempo scade. Come ha senso settarla?
 //QUI POTREBBE AVER SENSO NON FAR AVANZARE IL TIMER
 {debug: <i>paolaIsDeadStorylet</i>}
 Scatta la scena in cui Paola è morta

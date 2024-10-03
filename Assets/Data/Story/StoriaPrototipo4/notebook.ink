@@ -21,7 +21,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 === notebook
 + {activeNotebook} [notebook]
 {
-- startingDinnerStorylet.PaolaMorta: <b>Chi ha ucciso Paola?:</b>
+- startingDinnerStorylet.paolaMorta: <b>Chi ha ucciso Paola?:</b>
 - else: <b>Il taccuino è vuoto</b>
 }
 
@@ -36,29 +36,29 @@ TODO: come gestiamo le info sui due tier? Mi farebbe piacere dare info sul secon
 
 
 {elia_acting.sincero: <i>Informazioni su Matteo</i>}
-{hardTrueFeelingsStorylet.MatteoGreta: Matteo: "Mi spiace, ma amo Greta, non te. Il matrimonio era solo una scusa per farla ingelosire."}
+{hardTrueFeelingsStorylet.matteoGreta: Matteo: "Mi spiace, ma amo Greta, non te. Il matrimonio era solo una scusa per farla ingelosire."}
 {elia_acting.sincero: Elia: "Ettore, mi spiace tantissimo. Sapevo da tempo che Matteo provava qualcosa per Greta, ma non sapevo come dirtelo!"}
-{greta_acting.MatteoGreta: Greta: "Mi spiace Ettore, ma abbiamo scopato solo una volta, è Matteo che è proprio andato in fissa!"}
-{weddingAtThePubStorylet.MatteoSiSposa: Matteo: "Elia, non festeggerò mai il mio matrimonio nel tuo bar triste con la tua insopportabile collega!"}
-{marryMeStorylet.MatteoSiSposa: Matteo: "Ettore, sei il miglior progetto della mia vita, sposami!"}
-{zeca_acting.MatteoGreta: Zeca: "Sono abbastanza sicuro che Greta stia ricattando Matteo."}
+{greta_acting.matteoGreta: Greta: "Mi spiace Ettore, ma abbiamo scopato solo una volta, è Matteo che è proprio andato in fissa!"}
+{weddingAtThePubStorylet.matteoSiSposa: Matteo: "Elia, non festeggerò mai il mio matrimonio nel tuo bar triste con la tua insopportabile collega!"}
+{marryMeStorylet.matteoSiSposa: Matteo: "Ettore, sei il miglior progetto della mia vita, sposami!"}
+{zeca_acting.matteoGreta: Zeca: "Sono abbastanza sicuro che Greta stia ricattando Matteo."}
 
 
 
 {elia_acting.paolaSiSposa:<i>Informazioni su Paola</i>}
 {elia_acting.paolaSiSposa:Elia: "Ha organizzato un matrimonio in fretta e furia, manco sappiamo con chi."}
 {matteo_acting.paolaSiSposa && marryMeStorylet: Matteo: "Paola ha organizzato il matrimonio appena le ho confidato che avrei voluto sposarti."}
-{matteo_acting.ZecaTestimone: Matteo:"La cosa che mi ha stupito è che abbia chiesto a Zeca di farle da testimone!"}
-{greta_acting.PaolaPerfetta: Greta: "Nessuno avrebbe potuto fare male a Paola, è perfetta!"}
+{matteo_acting.zecaTestimone: Matteo:"La cosa che mi ha stupito è che abbia chiesto a Zeca di farle da testimone!"}
+{greta_acting.paolaPerfetta: Greta: "Nessuno avrebbe potuto fare male a Paola, è perfetta!"}
 
 
-{anEavesdropAboutFriendshipStorylet.GretaTriste: <i>Informazioni su Greta</i>}
-{anEavesdropAboutFriendshipStorylet.GretaTriste: Greta: "Storia dolorosa infanzia"}
+{anEavesdropAboutFriendshipStorylet.gretaTriste: <i>Informazioni su Greta</i>}
+{anEavesdropAboutFriendshipStorylet.gretaTriste: Greta: "Storia dolorosa infanzia"}
 
 
-{matteo_acting.ZecaTestimone or worstBestManStorylet.PaolaZeca: <i>Informazioni su Zeca</i>}
-{matteo_acting.ZecaTestimone: Matteo:"Sappiamo tutti che Zeca odia la povera Paola da sempre!"}
-{worstBestManStorylet.PaolaZeca: Zeca: "Non vedevo Paola da una vita. Era la mia migliore amica, e ora solo una sconosciuta."}
+{matteo_acting.zecaTestimone or worstBestManStorylet.paolaZeca: <i>Informazioni su Zeca</i>}
+{matteo_acting.zecaTestimone: Matteo:"Sappiamo tutti che Zeca odia la povera Paola da sempre!"}
+{worstBestManStorylet.paolaZeca: Zeca: "Non vedevo Paola da una vita. Era la mia migliore amica, e ora solo una sconosciuta."}
 
 {cb_first_tier_spiedino_cocktail.primoCheck:<i>Informazioni sullo spiedino da cocktail</i>}
 {cb_first_tier_spiedino_cocktail.primoCheck: Info spiedino}
@@ -72,7 +72,7 @@ TODO: come gestiamo le info sui due tier? Mi farebbe piacere dare info sul secon
 
 {cb_first_tier_lettera.primoCheck: <i>Informazioni sulla lettera</i>}
 {cb_first_tier_lettera.primoCheck: La lettera dice: "So cosa hai fatto, e la pagherai!"}
-{greta_acting.GretaHaLettera: Greta: "Uh, è la calligrafia di Paola. Strano. Questa rimane a me per un po'".}
+{greta_acting.minacce: Greta: "Uh, è la calligrafia di Paola. Strano. Questa rimane a me per un po'".}
 
 {cb_first_tier_bottiglia_di_vino.primoCheck: <i>Informazioni sulla bottiglia di vino</i>}
 {cb_first_tier_bottiglia_di_vino.primoCheck: Cose}
@@ -99,10 +99,10 @@ TODO: come gestiamo le info sui due tier? Mi farebbe piacere dare info sul secon
 
 
 
-{marryMeStorylet.MatteoSiSposa && hardTrueFeelingsStorylet.MatteoGreta: <b>Quali sono le intenzioni di Matteo sul matrimonio?</b>}
+{marryMeStorylet.matteoSiSposa && hardTrueFeelingsStorylet.matteoGreta: <b>Quali sono le intenzioni di Matteo sul matrimonio?</b>}
 
 
-    ~ temp contraddizione_matteo = marryMeStorylet.MatteoSiSposa && hardTrueFeelingsStorylet.MatteoGreta
+    ~ temp contraddizione_matteo = marryMeStorylet.matteoSiSposa && hardTrueFeelingsStorylet.matteoGreta
     
     {
         - contraddizione_matteo:
@@ -121,10 +121,10 @@ TODO: come gestiamo le info sui due tier? Mi farebbe piacere dare info sul secon
         --
 
 
-{matteo_acting.ZecaTestimone && worstBestManStorylet.PaolaZeca: <b>La relazione tra Paola e Zeca</b>}
+{matteo_acting.zecaTestimone && worstBestManStorylet.paolaZeca: <b>La relazione tra Paola e Zeca</b>}
 
 
-    ~ temp contraddizione_zeca = matteo_acting.ZecaTestimone && worstBestManStorylet.PaolaZeca
+    ~ temp contraddizione_zeca = matteo_acting.zecaTestimone && worstBestManStorylet.paolaZeca
     
     {
         - contraddizione_zeca:

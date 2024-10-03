@@ -26,7 +26,6 @@ Opzioni di dialogo con il personaggio Zeca
     
     //SCELTE CONDIZIONALI//
 
-    
     //SCELTE CONDIZIONALI OGGETTI//
     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
@@ -97,7 +96,12 @@ Opzioni di dialogo con la persona Zeca
     + Fai domande sulla persona Zeca -> esplora_zeca
 
     //SCELTE CONDIZIONALI//
-    
+    + (allestimento) {notABigSecretPartTwoStorylet.allestimento} Ci dice che lui e Matteo hanno lasciato il cibo sui tavoli e poi chiesto a Greta di occuparsene, che loro dovevano sistemare i costumi.
+    + (allestimento2) {elia_talking_second_tier.allestimento} Zeca ci dice che qualcuno si è chiuso nella stanza a scopare a una certa, mentre lui e Matteo montavano le luci
+        Senza convinzione, dice "forse Paola e il suo vibratore"
+    + (money) {matteo_talking_second_tier.money} Se lo diciamo a Zeca, ci dice che Matteo è un infame, e che è lui a campare sulle spalle dei due fratelli.
+    + (love) Zeca ci dice che farebbe di tutto per proteggere Elia.
+        
 
     //SCELTE CONDIZIONALI OGGETTI//
     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!

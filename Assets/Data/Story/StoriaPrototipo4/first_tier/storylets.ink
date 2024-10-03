@@ -50,7 +50,7 @@ Matteo: c'è Paola!
         + E ci sono dei gatti!
         -
     Greta: Ma soprattutto c'è un coniglio
-        + (PaolaMorta) E qui Paola muore.
+        + (PaolaMorta) E qui Paola muore (per finta).
     -> advance_time ->
 
 ->->

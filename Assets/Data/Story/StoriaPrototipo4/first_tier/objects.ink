@@ -12,7 +12,7 @@
         + + Raccogli la limetta per le unghie
         ~ take_object(LimettaUnghie)
         + + La lasci dov'è
-    + {inventoryContents has LimettaUnghie} Mostra limetta unghie
+    // + {inventoryContents has LimettaUnghie} Mostra limetta unghie
     + {inventoryContents has LimettaUnghie} Lascia limetta unghie
         ~ remove_entity(LimettaUnghie)
     -
@@ -33,7 +33,7 @@
         + + Afferri il pugnale
         ~ take_object(AnticoPugnale)
         + + Lo lasci dov'è    
-    + {inventoryContents has AnticoPugnale} Mostra il pugnale
+    // + {inventoryContents has AnticoPugnale} Mostra il pugnale
     + {inventoryContents has AnticoPugnale} Lascia il pugnale
         ~ remove_entity(AnticoPugnale)
 
@@ -55,7 +55,7 @@
         + + Afferri lo spiedino
         ~ take_object(SpiedinoCocktail)
         + + Lo lasci dov'è
-    + {inventoryContents has SpiedinoCocktail} Mostra lo spiedino
+    // + {inventoryContents has SpiedinoCocktail} Mostra lo spiedino
     + {inventoryContents has SpiedinoCocktail}  Lascia lo spiedino
         ~ remove_entity(SpiedinoCocktail)
     
@@ -77,7 +77,7 @@
         + + Prendi la lettera
         ~ take_object(Lettera)
         + + La lasci dov'è
-    + {inventoryContents has Lettera} Mostra lettera
+    // + {inventoryContents has Lettera} Mostra lettera
     + {inventoryContents has Lettera} Lascia lettera
         ~ remove_entity(Lettera)
     
@@ -98,7 +98,7 @@
         + + Prendi la bottiglia
         ~ take_object(BottigliaDiVino)
         + + La lasci dov'è
-    + {inventoryContents has BottigliaDiVino} Mostra la bottiglia
+    // + {inventoryContents has BottigliaDiVino} Mostra la bottiglia
     + {inventoryContents has BottigliaDiVino} Lascia la bottiglia
         ~ remove_entity(BottigliaDiVino)
     
@@ -117,7 +117,7 @@
         + + Prendi il flaconcino per l'asma
         ~ take_object(FlaconcinoAsma)
         + + La lasci dov'è
-    + {inventoryContents has FlaconcinoAsma} Mostra il flaconcino per l'asma
+    // + {inventoryContents has FlaconcinoAsma} Mostra il flaconcino per l'asma
     + {inventoryContents has FlaconcinoAsma} Lascia il flaconcino per l'asma
         ~ remove_entity(FlaconcinoAsma)
     
@@ -136,7 +136,7 @@
         + + Prendi la sigaretta elettronica
         ~ take_object(SigarettaElettronica)
         + + La lasci dov'è
-    + {inventoryContents has SigarettaElettronica} Mostra la sigaretta elettronica
+    // + {inventoryContents has SigarettaElettronica} Mostra la sigaretta elettronica
     + {inventoryContents has SigarettaElettronica} Lascia la sigaretta elettronica
         ~ remove_entity(SigarettaElettronica)
     
@@ -155,7 +155,7 @@
         + + Prendi cibo
         ~ take_object(Cibo)
         + + La lasci dov'è
-    + {inventoryContents has Cibo} Mostra cibo
+    // + {inventoryContents has Cibo} Mostra cibo
     + {inventoryContents has Cibo} Lascia cibo
         ~ remove_entity(Cibo)
     

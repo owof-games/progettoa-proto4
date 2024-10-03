@@ -99,6 +99,9 @@ Opzioni di dialogo con la persona Paola
      + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
      + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
      + {inventoryContents has Lettera} Guarda questa lettera!
+        Paola: "Uh, guarda un po' chi si dovrebbe fare i cazzi propri!'".
+            ~ inventoryContents -= Lettera
+            ~ objectStorageContents += Lettera
      + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
     
       

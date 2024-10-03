@@ -7,7 +7,7 @@
 -> intro
 
 = limetta_unghie 
-    + Controlla la limetta per le unghie
+    + (primoCheck)Controlla la limetta per le unghie
         -> advance_time ->
         + + Raccogli la limetta per le unghie
         ~ take_object(LimettaUnghie)
@@ -28,7 +28,7 @@
 -> intro
 
 = antico_pugnale
-    + Ispeziona il pugnale
+    + (primoCheck) Ispeziona il pugnale
         -> advance_time ->
         + + Afferri il pugnale
         ~ take_object(AnticoPugnale)
@@ -51,7 +51,7 @@
 -> intro
 
 = spiedino_cocktail
-    + Osserva lo spiedino
+    + (primoCheck) Osserva lo spiedino
         + + Afferri lo spiedino
         ~ take_object(SpiedinoCocktail)
         + + Lo lasci dov'è
@@ -72,7 +72,7 @@
 
 
 = lettera
-    + Leggi la lettera
+    + (primoCheck) Leggi la lettera
         "So cosa hai fatto, e la pagherai!"
         + + Prendi la lettera
         ~ take_object(Lettera)
@@ -94,7 +94,7 @@
 
 
 = bottiglia_di_vino
-    + Osservi la bottiglia
+    + (primoCheck) Osservi la bottiglia
         + + Prendi la bottiglia
         ~ take_object(BottigliaDiVino)
         + + La lasci dov'è
@@ -113,7 +113,7 @@
 
 
 = flaconcino_asma
-    + Osservi il flaconcino per l'asma
+    + (primoCheck) Osservi il flaconcino per l'asma
         + + Prendi il flaconcino per l'asma
         ~ take_object(FlaconcinoAsma)
         + + La lasci dov'è
@@ -132,7 +132,7 @@
 
 
 = sigaretta_elettronica
-    + Osservi la sigaretta elettronica
+    + (primoCheck) Osservi la sigaretta elettronica
         + + Prendi la sigaretta elettronica
         ~ take_object(SigarettaElettronica)
         + + La lasci dov'è
@@ -151,7 +151,7 @@
 
 
 = cibo
-    + Osservi cibo
+    + (primoCheck) Osservi cibo
         + + Prendi cibo
         ~ take_object(Cibo)
         + + La lasci dov'è

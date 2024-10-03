@@ -211,4 +211,5 @@ Poi ispezione corpo, una sola scelta
             -> loop_reset
         -
     ~ tierState = SecondTier
+    ~ gretaHaLaLettera = false
 ->->

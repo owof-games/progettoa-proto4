@@ -19,3 +19,6 @@ VAR MatteoTalking = 0
 VAR peopleTalking = false
 VAR activeNotebook = false
 VAR activePhone = false
+
+// situazioni complicate
+VAR gretaHaLaLettera = false

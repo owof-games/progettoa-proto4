@@ -39,6 +39,7 @@ Opzioni di dialogo con il personaggio Greta
         Greta: "Uh, è la calligrafia di Paola. Strano. Questa rimane a me per un po'".
             ~ inventoryContents -= Lettera
             ~ objectStorageContents += Lettera
+            ~ gretaHaLaLettera = true
     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!

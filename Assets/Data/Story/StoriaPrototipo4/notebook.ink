@@ -60,16 +60,42 @@ TODO: come gestiamo le info sui due tier? Mi farebbe piacere dare info sul secon
 {matteo_acting.ZecaTestimone: Matteo:"Sappiamo tutti che Zeca odia la povera Paola da sempre!"}
 {worstBestManStorylet.PaolaZeca: Zeca: "Non vedevo Paola da una vita. Era la mia migliore amica, e ora solo una sconosciuta."}
 
-{elia_acting.paolaSiSposa:<i>Informazioni sullo spiedino da cocktail</i>}
+{cb_first_tier_spiedino_cocktail.primoCheck:<i>Informazioni sullo spiedino da cocktail</i>}
+{cb_first_tier_spiedino_cocktail.primoCheck: Info spiedino}
 {elia_acting.paolaSiSposa:Elia: "L'ho portato per mostrarlo a Paola, per il matrimonio."}
 
 
-{elia_acting.pugnaleMatteo:<i>Informazioni sull'antico pugnale rituale</i>}
+{cb_first_tier_antico_pugnale.primoCheck:<i>Informazioni sull'antico pugnale rituale</i>}
+{cb_first_tier_antico_pugnale.primoCheck: Info sul pugnale}
 {elia_acting.pugnaleMatteo:Elia: "Matteo era disperato, l'aveva perso da settimane!"}
 {zeca_acting.pugnaleMatteo:Elia: "Matteo lo usa per pulirsi la suola delle scarpe, che schifo."}
 
-{greta_acting.GretaHaLettera: <i>Informazioni sulla lettera</i>}
+{cb_first_tier_lettera.primoCheck: <i>Informazioni sulla lettera</i>}
+{cb_first_tier_lettera.primoCheck: La lettera dice: "So cosa hai fatto, e la pagherai!"}
 {greta_acting.GretaHaLettera: Greta: "Uh, è la calligrafia di Paola. Strano. Questa rimane a me per un po'".}
+
+{cb_first_tier_bottiglia_di_vino.primoCheck: <i>Informazioni sulla bottiglia di vino</i>}
+{cb_first_tier_bottiglia_di_vino.primoCheck: Cose}
+
+
+
+{cb_first_tier_flaconcino_asma.primoCheck: <i>Informazioni sul flaconcino dell'asma</i>}
+{cb_first_tier_flaconcino_asma.primoCheck: XXX}
+
+
+
+{cb_first_tier_limetta_unghie.primoCheck: <i>Informazioni sulla limetta da unghie</i>}
+{cb_first_tier_limetta_unghie.primoCheck: sss}
+
+
+
+{cb_first_tier_sigaretta_elettronica.primoCheck: <i>Informazioni sulla sigaretta elettronica</i>}
+{cb_first_tier_sigaretta_elettronica.primoCheck: fff}
+
+
+
+{cb_first_tier_cibo.primoCheck: <i>Informazioni sul cibo</i>}
+{cb_first_tier_cibo.primoCheck: eee}
 
 
 
@@ -115,17 +141,5 @@ TODO: come gestiamo le info sui due tier? Mi farebbe piacere dare info sul secon
             ~ choiceMatteoVuoleSposareEttore = DontKnow
         ++ ->    
         --
-
-
-//INVENTARIO//
-+ {inventoryContents has Lettera} [Lascia la lettera]
-        ~ remove_entity(Lettera)
-+ {inventoryContents has SpiedinoCocktail} [Lascia lo spiedino]
-        ~ remove_entity(SpiedinoCocktail)
-+ {inventoryContents has AnticoPugnale} [Lascia il pugnale]
-        ~ remove_entity(AnticoPugnale)
-+ {inventoryContents has LimettaUnghie} [Lascia limetta unghie]
-        ~ remove_entity(LimettaUnghie)
--       
 -> intro
 

@@ -102,7 +102,7 @@
         ~ move_entity(SpiedinoCocktail, YellowRoom)
         ~ move_entity(AnticoPugnale, WhiteRoom)
         {
-        - greta_acting.GretaHaLettera:
+        - gretaHaLaLettera == true:
             ~ move_entity(Lettera, ObjectStorage)
         - else:
             ~ move_entity(Lettera, RedRoom)

@@ -1,10 +1,10 @@
 === cb_first_tier_elia ===
 {debug: <i>passo per first_tier_elia</i>}
-+ {are_two_entitites_together(Elia, Ettore) && acting} [character:Elia]
++ {are_two_entitites_together(Elia, Ettore) && !peopleTalking} [character:Elia]
     {debug: <i>Ho scelto di parlare con Elia</i>}
     -> elia_acting ->
     
-+ {are_two_entitites_together(Elia, Ettore) && !acting} [character:Elia]
++ {are_two_entitites_together(Elia, Ettore) && peopleTalking} [character:Elia]
     -> elia_talking -> 
     
 -
@@ -41,7 +41,7 @@ Opzioni di dialogo con il personaggio Elia
     + {hardTrueFeelingsStorylet} Ettore: "Ho convinto Matteo."
             Elia: "Bene, vado, dove la trovo?"
             ~ move_entity_from_object_storage_to_Ettore_location(SpiedinoCocktail)
-            TODO: Check con Mattia per vedere se c'è modo di trasformare in funzione o simile visto che riuseremo più volte questa strategia.
+            TODO: Check con Mattia per vedere se c'è modo di trasformare in funzione o simile visto che riuseremo più volte questa strategia. o in un tunnel tipo se stanza non ha ettore, sposta, move entity 
         + + {whiteRoomContents hasnt Ettore} Ettore: "Ti aspetta nella stanza bianca."
                 ~ move_entity(Elia, WhiteRoom)
                 {
@@ -89,8 +89,12 @@ Opzioni di dialogo con il personaggio Elia
         + + Cosa volevi farci?
             Elia ci dice che non l'ha mia visto.
         - -
-     + {inventoryContents has Lettera} Guarda questa lettera!
-     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
+    + {inventoryContents has Lettera} Guarda questa lettera!
+    + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
+    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
+    + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
+    + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
     
       
     + Te ne vai
@@ -100,7 +104,6 @@ Opzioni di dialogo con il personaggio Elia
 
 = esplora_elia_personaggia
 {debug: <i>Passo per esplora_elia</i>}
-VAR EliaActing = 0
 
 {
 - EliaActing > 1: Elia: "Non mi va di rispondere ad altre domande personali".
@@ -153,10 +156,14 @@ Opzioni di dialogo con la persona Elia
     
 
     //SCELTE CONDIZIONALI OGGETTI//
-     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
-     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
-     + {inventoryContents has Lettera} Guarda questa lettera!
-     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
+    + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
+    + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
+    + {inventoryContents has Lettera} Guarda questa lettera!
+    + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
+    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
+    + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
+    + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
     
       
     + Te ne vai -> intro
@@ -164,7 +171,6 @@ Opzioni di dialogo con la persona Elia
 
 = esplora_elia
 {debug: <i>Passo per esplora_elia</i>}
-VAR EliaTalking = 0
 
 
 {

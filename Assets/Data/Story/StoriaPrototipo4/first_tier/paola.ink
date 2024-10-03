@@ -1,9 +1,9 @@
 === cb_first_tier_paola ===
 {debug: <i>passo per first_tier_paola</i>}
-+ {are_two_entitites_together(Paola, Ettore) && acting} [character:Paola] {debug: <i>Ho scelto di parlare con Paola</i>}
++ {are_two_entitites_together(Paola, Ettore) && !peopleTalking} [character:Paola] {debug: <i>Ho scelto di parlare con Paola</i>}
     -> paola_acting->
 
-+ {are_two_entitites_together(Paola, Ettore) && !acting} [character:Paola]
++ {are_two_entitites_together(Paola, Ettore) && peopleTalking} [character:Paola]
     -> paola_talking->    
 -
 
@@ -24,10 +24,14 @@ Opzioni di dialogo con il personaggio Paola
     
         
     //SCELTE CONDIZIONALI OGGETTI//
-     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
-     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
-     + {inventoryContents has Lettera} Guarda questa lettera!
-     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
+    + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
+    + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
+    + {inventoryContents has Lettera} Guarda questa lettera!
+    + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
+    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
+    + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
+    + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
     
       
     + Te ne vai
@@ -37,7 +41,6 @@ Opzioni di dialogo con il personaggio Paola
 
 = esplora_paola_personaggia
 {debug: <i>Passo per esplora_paola_personaggia</i>}
-VAR PaolaActing = 0
 
 {
 - PaolaActing > 1: Paola: "Non mi va di rispondere ad altre domande personali".
@@ -89,20 +92,18 @@ Opzioni di dialogo con la persona Paola
     //INFO GENERALI//
     + Fai domande sulla persona Paola -> esplora_paola
 
-    TODO: che interventi di tutorial ci servono?
     //SCELTE CONDIZIONALI//
-    + (tutorial_oggetti) Dopo un tot di cose, primo stop alle riprese da parte di Paola.
-        Aggiungere condizione (come step di variabili e bona?)
-        Paola: "Sant'iddio Greta, dove hai messo le potenziali armi?"
-        Paola: "Ettore, ricordati che se hai un oggetto in mano puoi mostrarlo e ottenere nuove informazioni"
-    + (altro_tutorial)
-        Elia: "Cerca di trovare la limetta più avanti possibile perché è quella l'arma del delitto!"
+    
 
     //SCELTE CONDIZIONALI OGGETTI//
-     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
-     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
-     + {inventoryContents has Lettera} Guarda questa lettera!
-     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
+    + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
+    + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
+    + {inventoryContents has Lettera} Guarda questa lettera!
+    + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
+    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
+    + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
+    + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
     
       
     + Te ne vai
@@ -111,7 +112,6 @@ Opzioni di dialogo con la persona Paola
 
 = esplora_paola
 {debug: <i>Passo per esplora_paola</i>}
-VAR PaolaTalking = 0
 
 
 {

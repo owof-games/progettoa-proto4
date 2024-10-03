@@ -1,10 +1,10 @@
 === cb_first_tier_zeca ===
 {debug: <i>passo per first_tier_zeca</i>}
 
-+ {are_two_entitites_together(Zeca, Ettore) && acting} [character:Zeca] {debug: <i>Ho scelto di parlare con Zeca</i>}
++ {are_two_entitites_together(Zeca, Ettore) && !peopleTalking} [character:Zeca] {debug: <i>Ho scelto di parlare con Zeca</i>}
     -> zeca_acting ->
     
-+ {are_two_entitites_together(Zeca, Ettore) && !acting} [character:Zeca]
++ {are_two_entitites_together(Zeca, Ettore) && peopleTalking} [character:Zeca]
     -> zeca_talking ->    
 -
 
@@ -25,14 +25,19 @@ Opzioni di dialogo con il personaggio Zeca
     + Fai domande sul personaggio Zeca -> esplora_zeca_personaggia
     
     //SCELTE CONDIZIONALI//
-    + (Matrimonio) {marryMeStorylet} Zeca ci fa capire che sapeva da un po' del matrimonio.    
+    + (Matrimonio) {marryMeStorylet} Zeca ci fa capire che sapeva da un po' del matrimonio.
+    + (MatteoGreta) {hardTrueFeelingsStorylet} Zeca ci dice che Matteo è ricattato da Greta, ma non sa bene per cosa.
+    
     //SCELTE CONDIZIONALI OGGETTI//
     + (pugnaleMatteo){inventoryContents has AnticoPugnale} Guarda questo pugnale!
         Zeca: "Matteo lo usa in modo <b>ossessivo</b> per pulirsi la soletta delle scarpe!"
-    + (MatteoGreta) {hardTrueFeelingsStorylet} Zeca ci dice che Matteo è ricattato da Greta, ma non sa bene per cosa.  
     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
     + {inventoryContents has Lettera} Guarda questa lettera!
     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
+    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
+    + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
+    + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
     
       
     + Te ne vai
@@ -42,7 +47,6 @@ Opzioni di dialogo con il personaggio Zeca
 
 = esplora_zeca_personaggia
 {debug: <i>Passo per esplora_zeca_personaggia</i>}
-VAR ZecaActing = 0
 
 {
 - ZecaActing > 1: Zeca: "Non mi va di rispondere ad altre domande personali".
@@ -98,10 +102,14 @@ Opzioni di dialogo con la persona Zeca
     
 
     //SCELTE CONDIZIONALI OGGETTI//
-     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
-     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
-     + {inventoryContents has Lettera} Guarda questa lettera!
-     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
+    + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
+    + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
+    + {inventoryContents has Lettera} Guarda questa lettera!
+    + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
+    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
+    + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
+    + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
     
       
     + Te ne vai
@@ -111,7 +119,6 @@ Opzioni di dialogo con la persona Zeca
 
 = esplora_zeca
 {debug: <i>Passo per esplora_zeca</i>}
-VAR ZecaTalking = 0
 
 
 {

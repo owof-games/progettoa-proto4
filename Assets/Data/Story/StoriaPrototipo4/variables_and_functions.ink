@@ -6,7 +6,7 @@ VAR debug = false
 LIST characters = Paola, Elia, Zeca, Matteo, Greta, Ettore
 
 // list of all objects
-LIST objects = LimettaUnghie, AnticoPugnale, SpiedinoCocktail, Lettera
+LIST objects = LimettaUnghie, AnticoPugnale, SpiedinoCocktail, Lettera, BottigliaDiVino, FlaconcinoAsma, SigarettaElettronica, Cibo
 
 //list of variables to reset on every loop
 LIST loopableVariables = EliaRaggiungeGreta
@@ -23,11 +23,11 @@ LIST places = Inventory, WhiteRoom, GreenRoom, RedRoom, YellowRoom, ObjectStorag
 // can't name them like "white_room" because there are knots with that name
 // inventory = mano di Ettore
 VAR inventoryContents = ()
-VAR whiteRoomContents = (Ettore, Matteo, Paola, Zeca, Elia, Greta, AnticoPugnale)
-VAR greenRoomContents = (LimettaUnghie)
-VAR redRoomContents = (Lettera)
-VAR yellowRoomContents = ()
-VAR objectStorageContents = (SpiedinoCocktail)
+VAR whiteRoomContents = (Ettore, Matteo, Paola, Zeca, Elia, Greta)
+VAR greenRoomContents = (LimettaUnghie, AnticoPugnale)
+VAR redRoomContents = (Lettera, Cibo, BottigliaDiVino)
+VAR yellowRoomContents = (SigarettaElettronica)
+VAR objectStorageContents = (SpiedinoCocktail, FlaconcinoAsma)
 
 
 /*
@@ -157,25 +157,13 @@ VAR objectStorageContents = (SpiedinoCocktail)
 {debug: <i>Passo per function move_first_entity_to_second_entity_location</i>}
     {
     - whiteRoomContents has entity1:
-        ~ whiteRoomContents += entity2
-        ~ greenRoomContents -= entity2
-        ~ redRoomContents -= entity2
-        ~ yellowRoomContents -= entity2
+        ~ move_entity(entity2, WhiteRoom)
     - greenRoomContents has entity1:
-        ~ whiteRoomContents -= entity2
-        ~ greenRoomContents += entity2
-        ~ redRoomContents -= entity2
-        ~ yellowRoomContents -= entity2
+        ~ move_entity(entity2, GreenRoom)
     - redRoomContents has entity1:
-        ~ whiteRoomContents -= entity2
-        ~ greenRoomContents -= entity2
-        ~ redRoomContents += entity2
-        ~ yellowRoomContents -= entity2
+        ~ move_entity(entity2, RedRoom)
     - yellowRoomContents has entity1:
-        ~ whiteRoomContents -= entity2
-        ~ greenRoomContents -= entity2
-        ~ redRoomContents -= entity2
-        ~ yellowRoomContents += entity2
+        ~ move_entity(entity2, YellowRoom)
  }
  
  
@@ -372,8 +360,14 @@ VAR currentTime = 0
 ~ ZecaTalking = 0
 ~ MatteoTalking = 0
 
+~ peopleTalking = false
+
 // print something for the user
-Questo è il testo che dice che è avvenuto un loop!
+{
+- tierState == FirstTier: Paola: "La festa è finita, resettiamo tutto, ripartiamo da XXX!"
+- else: Questo è il testo che dice che è avvenuto un loop!
+}
+
 
 ~ updateEntitiesLocations()
 

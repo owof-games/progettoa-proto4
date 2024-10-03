@@ -1,9 +1,9 @@
 === cb_first_tier_matteo ===
 {debug: <i>passo per first_tier_matteo</i>}
-+ {are_two_entitites_together(Matteo, Ettore) && acting} [character:Matteo] {debug: <i>Ho scelto di parlare con Matteo</i>}
++ {are_two_entitites_together(Matteo, Ettore) && !peopleTalking} [character:Matteo] {debug: <i>Ho scelto di parlare con Matteo</i>}
     -> matteo_acting ->
 
-+ {are_two_entitites_together(Matteo, Ettore) && !acting} [character:Matteo]
++ {are_two_entitites_together(Matteo, Ettore) && peopleTalking} [character:Matteo]
     -> matteo_talking ->    
 -
 
@@ -34,11 +34,14 @@ Opzioni di dialogo con il personaggio Matteo
         Matteo: "Sappiamo tutti che Zeca odia la povera Paola da sempre!"
         
     //SCELTE CONDIZIONALI OGGETTI//
-     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
-     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
-     + {inventoryContents has Lettera} Guarda questa lettera!
-     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
+    + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
+    + {inventoryContents has Lettera} Guarda questa lettera!
+    + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
             Matteo: "Ma è di Greta!"
+    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
+    + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
+    + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!        
     
       
     + Te ne vai
@@ -48,7 +51,6 @@ Opzioni di dialogo con il personaggio Matteo
 
 = esplora_matteo_personaggia
 {debug: <i>Passo per esplora_matteo_personaggia</i>}
-VAR MatteoActing = 0
 
 {
 - MatteoActing > 1: Matteo: "Non mi va di rispondere ad altre domande personali".
@@ -104,10 +106,14 @@ Opzioni di dialogo con la persona Matteo
     
 
     //SCELTE CONDIZIONALI OGGETTI//
-     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
-     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
-     + {inventoryContents has Lettera} Guarda questa lettera!
-     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
+    + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
+    + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
+    + {inventoryContents has Lettera} Guarda questa lettera!
+    + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
+    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
+    + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
+    + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
     
       
     + Te ne vai
@@ -116,7 +122,6 @@ Opzioni di dialogo con la persona Matteo
 
 = esplora_matteo
 {debug: <i>Passo per esplora_matteo</i>}
-VAR MatteoTalking = 0
 
 
 {

@@ -12,7 +12,6 @@
 // thread per ogni personaggio
 <- cb_first_tier_paola
 <- cb_first_tier_elia
-/**<- prove_per_follow_up**/
 <- cb_first_tier_zeca
 <- cb_first_tier_greta
 <- cb_first_tier_matteo
@@ -21,6 +20,10 @@
 <- cb_first_tier_antico_pugnale
 <- cb_first_tier_spiedino_cocktail
 <- cb_first_tier_lettera
+<- cb_first_tier_cibo
+<- cb_first_tier_flaconcino_asma
+<- cb_first_tier_bottiglia_di_vino
+<- cb_first_tier_sigaretta_elettronica
 // thread per spostarsi tra le stanze
 <- move_between_rooms(my_location)
 // thread per gestire il notebook
@@ -50,7 +53,14 @@ DEBUG: errore, nessun personaggio con cui interagire
 <- cb_second_tier_greta
 <- cb_second_tier_matteo
 // thread per ogni oggetto
-<- cb_first_tier_lettera
+<- cb_second_tier_limetta_unghie
+<- cb_second_tier_antico_pugnale
+<- cb_second_tier_spiedino_cocktail
+<- cb_second_tier_lettera
+<- cb_second_tier_cibo
+<- cb_second_tier_flaconcino_asma
+<- cb_second_tier_bottiglia_di_vino
+<- cb_second_tier_sigaretta_elettronica
 // thread per spostarsi tra le stanze
 <- move_between_rooms(my_location)
 // thread per gestire il notebook

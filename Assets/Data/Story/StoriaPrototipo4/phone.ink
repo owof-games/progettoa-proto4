@@ -1,4 +1,4 @@
 === phone
-+ [phone]
++ {activePhone} [phone]
 
 -> intro

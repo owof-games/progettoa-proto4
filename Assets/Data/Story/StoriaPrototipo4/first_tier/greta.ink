@@ -1,9 +1,9 @@
 === cb_first_tier_greta ===
-{debug: <i>passo per first_tier_greta</i>}
-+ {are_two_entitites_together(Greta, Ettore) && acting} [character:Greta] {debug: <i>Ho scelto di parlare con Greta</i>}
+{debug: <i>passo per second_tier_greta</i>}
++ {are_two_entitites_together(Greta, Ettore) && !peopleTalking} [character:Greta] {debug: <i>Ho scelto di parlare con Greta</i>}
     -> greta_acting->
     
-+ {are_two_entitites_together(Greta, Ettore) && !acting} [character:Greta] 
++ {are_two_entitites_together(Greta, Ettore) && peopleTalking} [character:Greta] 
     -> greta_talking->    
 -
 
@@ -35,14 +35,17 @@ Opzioni di dialogo con il personaggio Greta
      + (MatteoGreta) {hardTrueFeelingsStorylet} Greta si scusa, dice che lei e Matteo hanno scopato solo una volta ma lui ha perso la testa e non sa cosa fare.
     
     //SCELTE CONDIZIONALI OGGETTI//
-     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
-     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
-     + (GretaHaLettera) {inventoryContents has Lettera} Guarda questa lettera!
+    + (GretaHaLettera) {inventoryContents has Lettera} Guarda questa lettera!
         Greta: "Uh, è la calligrafia di Paola. Strano. Questa rimane a me per un po'".
             ~ inventoryContents -= Lettera
             ~ objectStorageContents += Lettera
-     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-   
+    + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
+    + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
+    + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
+    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
+    + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
+    + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
       
     + Te ne vai
         -> intro
@@ -51,7 +54,6 @@ Opzioni di dialogo con il personaggio Greta
 
 = esplora_greta_personaggia
 {debug: <i>Passo per esplora_greta_personaggia</i>}
-VAR GretaActing = 0
 
 {
 - GretaActing > 1: Greta: "Non mi va di rispondere ad altre domande personali".
@@ -107,10 +109,14 @@ Opzioni di dialogo con la persona Greta
     
 
     //SCELTE CONDIZIONALI OGGETTI//
-     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
-     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
-     + {inventoryContents has Lettera} Guarda questa lettera!
-     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
+    + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
+    + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
+    + {inventoryContents has Lettera} Guarda questa lettera!
+    + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
+    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
+    + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
+    + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
     
       
     + Te ne vai -> intro
@@ -119,7 +125,6 @@ Opzioni di dialogo con la persona Greta
 
 = esplora_greta
 {debug: <i>Passo per esplora_greta</i>}
-VAR GretaTalking = 0
 
 
 {

@@ -19,7 +19,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 */
 
 === notebook
-+ [notebook]
++ {activeNotebook} [notebook]
 {
 - startingDinnerStorylet.PaolaMorta: <b>Chi ha ucciso Paola?:</b>
 - else: <b>Il taccuino è vuoto</b>

@@ -1,6 +1,6 @@
 === cb_first_tier_limetta_unghie ===
 
-+ {are_two_entitites_together(Ettore, LimettaUnghie) && paola_talking.tutorial_oggetti} [object:LimettaUnghie]
++ {are_two_entitites_together(Ettore, LimettaUnghie) && objects_tutorial} [object:LimettaUnghie]
     -> limetta_unghie ->
 
 
@@ -21,7 +21,7 @@
 
 === cb_first_tier_antico_pugnale ===
 
-+ {are_two_entitites_together(Ettore, AnticoPugnale) && paola_talking.tutorial_oggetti} [object:AnticoPugnale]
++ {are_two_entitites_together(Ettore, AnticoPugnale) && objects_tutorial} [object:AnticoPugnale]
     -> antico_pugnale ->
 
 
@@ -44,7 +44,7 @@
 
 === cb_first_tier_spiedino_cocktail ===
 
-+ {are_two_entitites_together(Ettore, SpiedinoCocktail) && paola_talking.tutorial_oggetti} [object:SpiedinoCocktail]
++ {are_two_entitites_together(Ettore, SpiedinoCocktail) && objects_tutorial} [object:SpiedinoCocktail]
     -> spiedino_cocktail ->
 
 
@@ -65,7 +65,7 @@
 
 === cb_first_tier_lettera ===
 
-+ {are_two_entitites_together(Ettore, Lettera) && paola_talking.tutorial_oggetti} [object:Lettera]
++ {are_two_entitites_together(Ettore, Lettera) && objects_tutorial} [object:Lettera]
     -> lettera ->
 
 -> intro
@@ -83,3 +83,83 @@
     
     -
 ->->
+
+
+=== cb_first_tier_bottiglia_di_vino ===
+
++ {are_two_entitites_together(Ettore, BottigliaDiVino) && objects_tutorial} [object:Bottiglia di Vino]
+    -> bottiglia_di_vino ->
+
+-> intro
+
+
+= bottiglia_di_vino
+    + Osservi la bottiglia
+        + + Prendi la bottiglia
+        ~ take_object(BottigliaDiVino)
+        + + La lasci dov'è
+    + {inventoryContents has BottigliaDiVino} Mostra la bottiglia
+    + {inventoryContents has BottigliaDiVino} Lascia la bottiglia
+        ~ remove_entity(BottigliaDiVino)
+    
+    -
+->->
+
+=== cb_first_tier_flaconcino_asma ===
++ {are_two_entitites_together(Ettore, FlaconcinoAsma) && objects_tutorial} [object:Flaconcino Asma]
+    -> flaconcino_asma->
+
+-> intro
+
+
+= flaconcino_asma
+    + Osservi il flaconcino per l'asma
+        + + Prendi il flaconcino per l'asma
+        ~ take_object(FlaconcinoAsma)
+        + + La lasci dov'è
+    + {inventoryContents has FlaconcinoAsma} Mostra il flaconcino per l'asma
+    + {inventoryContents has FlaconcinoAsma} Lascia il flaconcino per l'asma
+        ~ remove_entity(FlaconcinoAsma)
+    
+    -
+->->
+
+=== cb_first_tier_sigaretta_elettronica ===
++ {are_two_entitites_together(Ettore, SigarettaElettronica) && objects_tutorial} [object:Sigaretta Elettronica]
+    -> sigaretta_elettronica->
+
+-> intro
+
+
+= sigaretta_elettronica
+    + Osservi la sigaretta elettronica
+        + + Prendi la sigaretta elettronica
+        ~ take_object(SigarettaElettronica)
+        + + La lasci dov'è
+    + {inventoryContents has SigarettaElettronica} Mostra la sigaretta elettronica
+    + {inventoryContents has SigarettaElettronica} Lascia la sigaretta elettronica
+        ~ remove_entity(SigarettaElettronica)
+    
+    -
+->->
+
+=== cb_first_tier_cibo ===
++ {are_two_entitites_together(Ettore, Cibo) && objects_tutorial} [object:Cibo]
+    -> cibo ->
+
+-> intro
+
+
+= cibo
+    + Osservi cibo
+        + + Prendi cibo
+        ~ take_object(Cibo)
+        + + La lasci dov'è
+    + {inventoryContents has Cibo} Mostra cibo
+    + {inventoryContents has Cibo} Lascia cibo
+        ~ remove_entity(Cibo)
+    
+    -
+->->
+
+

@@ -17,7 +17,10 @@
     -> liesAndPromisesStorylet
     
     - are_three_entities_together(Elia, Ettore, Zeca) && not are_four_entities_together(Greta, Matteo, Paola, Elia) && elia_talking_second_tier.allestimento2 && paola_talking_second_tier.foto2 && iTryToBeAGoodFriendStorylet.allestimento && new_this_loop(-> trueLoveStorylet):
-    -> trueLoveStorylet    
+    -> trueLoveStorylet
+
+    - currentTime >= 200:
+    -> paolaIsDeadStorylet    
 
 TODO: come evitare che questo storylet compaia quando siamo in stanza con loro?
     - are_three_entities_together (Elia, Ettore, Zeca)  && not are_four_entities_together(Zeca, Greta, Paola, Matteo)  && greta_talking_second_tier.indagini && loopableVariables == (EliaSpaventatoPerZeca) && new_this_loop(-> whisperingSecretsStorylet): -> whisperingSecretsStorylet

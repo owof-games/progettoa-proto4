@@ -25,7 +25,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 - else: <b>Il taccuino è vuoto</b>
 }
 
-TODO: come gestiamo le info sui due tier? Mi farebbe piacere dare info sul secondo già nel primo (nei momenti di pausa) ma se ci incasina non serve.
+
 
 
 

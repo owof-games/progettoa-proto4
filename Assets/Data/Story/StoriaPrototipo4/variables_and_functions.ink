@@ -1,5 +1,3 @@
-TODO: da decidere cosa attiva o disattiva la recitazione nel tier due (nel primo è Paola)
-
 // activate debug text
 VAR debug = false
 
@@ -324,6 +322,12 @@ VAR currentTime = 0
 === advance_time
 {debug: <i>Passo per function advance_time</i>}
 //~ temp max_time = LIST_MAX(LIST_ALL(currentTime))
+{
+    - tierState == FirstTier: -> first_tier_storylets ->
+    - else: -> second_tier_storylets ->
+}
+
+
 { currentTime >= 240:
     -> loop_reset
 - else:

@@ -13,7 +13,7 @@
     -> anEavesdropAboutFriendshipStorylet
 
 //La morte di Paola deve arrivare solo quando abbbiamo fatto tutti i tutorial e abbiamo compiuto le scelte su Matteo e Zeca
- - are_three_entities_together(Elia, Greta, Paola) && objects_tutorial && notebook_tutorial && talking_tutorial && (choiceMatteoVuoleSposareEttore == True or choiceMatteoVuoleSposareEttore == False) && (choiceMenteZeca == True or choiceMenteZeca == False): -> paolaIsDeadStorylet
+ - objects_tutorial && notebook_tutorial && talking_tutorial && (choiceMatteoVuoleSposareEttore == True or choiceMatteoVuoleSposareEttore == False) && (choiceMenteZeca == True or choiceMenteZeca == False) && currentTime >= 200: -> paolaIsDeadStorylet
 
 
 
@@ -192,7 +192,7 @@ Matteo: "Uh, è il caso di parlarne solo quando saremo soli".
 
 //MORTE DI PAOLA
 === paolaIsDeadStorylet
-TODO: questa scena in realtà avrebbe senso che capitasse sempre come chiusura del secondo tier, quando il tempo scade. Come ha senso settarla?
+TODO: fare in modo che a seconda di chi è in stanza quella persona urla, e se non c'è nessuna, nessuna urla
 //QUI POTREBBE AVER SENSO NON FAR AVANZARE IL TIMER
 {debug: <i>paolaIsDeadStorylet</i>}
 Scatta la scena in cui Paola è morta

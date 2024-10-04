@@ -31,7 +31,7 @@ Opzioni di dialogo con il personaggio Zeca
     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
     + {inventoryContents has Lettera} Guarda questa lettera!
     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has Briciole} Guarda questo cibo!
     + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
     + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
     + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
@@ -99,7 +99,7 @@ Opzioni di dialogo con la persona Zeca
     + (allestimento) {notABigSecretPartTwoStorylet.allestimento} Ci dice che lui e Matteo hanno lasciato il cibo sui tavoli e poi chiesto a Greta di occuparsene, che loro dovevano sistemare i costumi.
     + (allestimento2) {elia_talking_second_tier.allestimento} Zeca ci dice che qualcuno si è chiuso nella stanza a scopare a una certa, mentre lui e Matteo montavano le luci
         Senza convinzione, dice "forse Paola e il suo vibratore"
-    + (money) {matteo_talking_second_tier.money} Se lo diciamo a Zeca, ci dice che Matteo è un infame, e che è lui a campare sulle spalle dei due fratelli.
+    + (money) {paola_talking_second_tier.money} Se lo diciamo a Zeca, ci dice che Paola piuttosto dovrebbe farsi delle domande su Matteo, che è lui a campare sulle spalle dei due fratelli.
     + (love) Zeca ci dice che farebbe di tutto per proteggere Elia.
         
 
@@ -108,7 +108,7 @@ Opzioni di dialogo con la persona Zeca
     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
     + {inventoryContents has Lettera} Guarda questa lettera!
     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has Briciole} Guarda questo cibo!
     + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
     + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
     + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!

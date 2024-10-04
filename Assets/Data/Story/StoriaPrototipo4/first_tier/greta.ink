@@ -26,7 +26,7 @@ Opzioni di dialogo con il personaggio Greta
             -> advance_time ->
             Greta: Di più! Ma ti dirò chi è l'assassino se tu convinci Elia a venire a parlarmi.
             -> advance_time ->        
-    + {seen_in_this_loop(->missioneGreta) && loopableVariables hasnt EliaRaggiungeGreta} Non sono ancora riuscito a convincere Elia
+    + {seen_in_this_loop(->missioneGreta) && not are_two_entitites_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta} Non sono ancora riuscito a convincere Elia
     -> advance_time ->
     + (paolaPerfetta) {loopableVariables has EliaRaggiungeGreta} Ho fatto quello che mi hai chiesto, Greta.
     -> advance_time ->
@@ -43,7 +43,7 @@ Opzioni di dialogo con il personaggio Greta
     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has Briciole} Guarda questo cibo!
     + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
     + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
     + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
@@ -114,7 +114,7 @@ Opzioni di dialogo con la persona Greta
     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
     + {inventoryContents has Lettera} Guarda questa lettera!
     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has Briciole} Guarda questo cibo!
     + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
     + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
     + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!

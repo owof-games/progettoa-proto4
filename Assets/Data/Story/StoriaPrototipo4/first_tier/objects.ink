@@ -144,7 +144,7 @@
 ->->
 
 === cb_first_tier_cibo ===
-+ {are_two_entitites_together(Ettore, Cibo) && objects_tutorial} [object:Cibo]
++ {are_two_entitites_together(Ettore, Briciole) && objects_tutorial} [object:Briciole]
     -> cibo ->
 
 -> intro
@@ -153,11 +153,11 @@
 = cibo
     + (primoCheck) Osservi cibo
         + + Prendi cibo
-        ~ take_object(Cibo)
+        ~ take_object(Briciole)
         + + La lasci dov'è
-    // + {inventoryContents has Cibo} Mostra cibo
-    + {inventoryContents has Cibo} Lascia cibo
-        ~ remove_entity(Cibo)
+    // + {inventoryContents has Briciole} Mostra cibo
+    + {inventoryContents has Briciole} Lascia cibo
+        ~ remove_entity(Briciole)
     
     -
 ->->

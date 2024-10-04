@@ -28,7 +28,7 @@ Opzioni di dialogo con il personaggio Greta
     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has Briciole} Guarda questo cibo!
     + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
     + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
     + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
@@ -93,21 +93,24 @@ Opzioni di dialogo con la persona Greta
 
     //SCELTE CONDIZIONALI//
     + (indagini) {phone.browse.indagini} Qui Greta ci dice che Paola vuole estromettere Elia dall'azienda.
-    + (allestimento) {zeca_talking_second_tier.allestimento} Ripetiamo quello che ci ha detto Zeca.
-        Greta: "Greta dice di aver sentito Zeca e Matteo litigare nella stanza prima del buffet"
+
     + (indagini2) {elia_talking_second_tier.indagini} Greta ci dice che Elia sta usando il discorso sindacato per mostrare al CdA che Paola è troppo debole e inetta
     + {zeca_talking_second_tier.allestimento2} Dice una cosa che contraddice Elia
     + (allestimento2) {iTryToBeAGoodFriendStorylet.allestimento} Diciamo del veleno per topi.
         Se diciamo questa cosa a Greta, ci dirà che sarebbe bastata una fialetta di liquido per le sigarette nel vino per uccidere Paola, e chi l'ha comprato il veleno?
+        TODO: Paola non è morta XD
     + (indagini3) {trueLoveStorylet} Se diciamo della tresca tra Elia e Zeca.
-    Se lo diciamo a Greta, lei si sente usata, e giura che smetterà di coprire i furti di denaro di Elia
+    Se lo diciamo a Greta, lei si sente usata, e giura che smetterà di coprire i furti di denaro di Elia.
+    + {paola_talking_second_tier.foto} Possiamo allontanare Greta con una scusa.
+        + + (foto) Greta se ne va.
+        + +  Abbiamo una sola opzione a tier
 
     //SCELTE CONDIZIONALI OGGETTI//
     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
     + {inventoryContents has Lettera} Guarda questa lettera!
     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has Briciole} Guarda questo cibo!
     + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
     + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
     + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!

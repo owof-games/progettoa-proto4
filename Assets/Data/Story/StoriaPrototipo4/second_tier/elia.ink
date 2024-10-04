@@ -32,7 +32,7 @@ Opzioni di dialogo con il personaggio Elia
      + {inventoryContents has SpiedinoCocktail} Elia, hai lasciato alle tue spalle questo oggetto.
     + {inventoryContents has Lettera} Guarda questa lettera!
     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has Briciole} Guarda questo cibo!
     + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
     + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
     + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
@@ -115,7 +115,7 @@ Opzioni di dialogo con la persona Elia
     + (minacce) {inventoryContents has Lettera} Guarda questa lettera!
         Elia: "Parlerò solo in presenza del mio avvocato! Via di qui!"
     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has Briciole} Guarda questo cibo!
     + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
     + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
     + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!

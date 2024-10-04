@@ -2,6 +2,7 @@
 + {activePhone} [phone]
 -> contents
 
+TODO: che è una nota, again. Di fatto è il cellulare a portarci nel secondo tier, perché ha quelle info sulle indagini che possono farci capire cosa sta accadendo al di là della recita, e i tag (tipo indagini e sindacato) ci servono per aprire nuovi dialoghi.
 = contents
 + Controlla i messaggi -> messages
 + Chiama per chiedere aiuto -> call

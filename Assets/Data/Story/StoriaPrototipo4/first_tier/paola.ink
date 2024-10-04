@@ -12,7 +12,7 @@
 /* ---------------------------------
 Opzioni di dialogo con il personaggio Paola: assenti perché more
  ----------------------------------*/
-
+TODO: che è più una nota. Nella parte di recitazione ci sta che gli step per fare qualcosa siano sempre gli stessi, no? Ha senso resettare il notebook ed evitare opzioni che fanno skippare tutto il processo, vs il secondo tier, dove effettivamente il loop esiste?
 
 === paola_acting
     {debug: <i>Passo per paola_acting</i>}
@@ -40,7 +40,7 @@ Opzioni di dialogo con la persona Paola
     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
     + {inventoryContents has Lettera} Guarda questa lettera!
     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has Briciole} Guarda questo cibo!
     + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
     + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
     + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!

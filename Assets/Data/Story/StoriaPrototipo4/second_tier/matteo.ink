@@ -31,7 +31,7 @@ Opzioni di dialogo con il personaggio Matteo
     + {inventoryContents has Lettera} Guarda questa lettera!
     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
             Matteo: "Ma è di Greta!"
-    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has Briciole} Guarda questo cibo!
     + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
     + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
     + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!        
@@ -97,7 +97,7 @@ Opzioni di dialogo con la persona Matteo
     
     TODO: una volta fatto il check che tutto torni, mettere tutte le domande plausibili su tutti i personaggi (es: anche per Matteo domande sul rapporto Elia e Zeca).
     //SCELTE CONDIZIONALI//
-    + (allestimento) {greta_talking_second_tier.allestimento} Diciamo quello che Greta ha detto su Matteo e il litigio.
+    + (allestimento) {paola_talking_second_tier.allestimento} Diciamo quello che Greta ha detto su Matteo e il litigio.
         Matteo: "Quella strega! Devo subito trovare Zeca!"
          + + {whiteRoomContents hasnt Ettore} Ettore: "Credo sia nella stanza bianca."
                 ~ move_entity(Elia, WhiteRoom)
@@ -108,7 +108,7 @@ Opzioni di dialogo con la persona Matteo
         + + {redRoomContents hasnt Ettore} Ettore: "Credo sia nella stanza rossa."                
                 ~ move_entity(Elia, RedRoom)
         + + Ettore: "Non ho idea di dove sia, scusa."
-    + (money) Matteo ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro.    
+   
     + {trueLoveStorylet} Matteo è felice per Zeca, e per Greta, ma crede che Elia sia un coglione.
 
     //SCELTE CONDIZIONALI OGGETTI//
@@ -116,7 +116,7 @@ Opzioni di dialogo con la persona Matteo
     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
     + {inventoryContents has Lettera} Guarda questa lettera!
     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has Briciole} Guarda questo cibo!
     + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
     + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
     + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!

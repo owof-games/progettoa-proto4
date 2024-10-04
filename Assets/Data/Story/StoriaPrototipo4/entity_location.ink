@@ -99,13 +99,27 @@
 {currentTime:
     - 0:
         ~ move_entity(LimettaUnghie, GreenRoom)
-        ~ move_entity(SpiedinoCocktail, YellowRoom)
-        ~ move_entity(AnticoPugnale, WhiteRoom)
+        ~ move_entity(SpiedinoCocktail, RedRoom)
+        ~ move_entity(AnticoPugnale, GreenRoom)
         {
         - gretaHaLaLettera == true:
             ~ move_entity(Lettera, ObjectStorage)
         - else:
-            ~ move_entity(Lettera, RedRoom)
+            ~ move_entity(Lettera, YellowRoom)
         }
+        
+        ~ move_entity(BottigliaDiVino, YellowRoom)
+        ~ move_entity(SigarettaElettronica, RedRoom)
+        ~ move_entity(FlaconcinoAsma, WhiteRoom)
+        {
+         - tierState == FirstTier: ~ move_entity(Torta, YellowRoom)
+         - else: ~ move_entity(Torta, ObjectStorage)
+        }
+        
+        {
+         - tierState == SecondTier: ~ move_first_entity_to_second_entity_location(Briciole, Paola)
+         - else: ~ move_entity(Briciole, ObjectStorage)
+        }
+        
         
 }

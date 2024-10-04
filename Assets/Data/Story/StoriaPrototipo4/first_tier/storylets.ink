@@ -2,14 +2,14 @@
 === first_tier_storylets
 {debug: <i>Passo per first_tier_storylets</i>}
 {
-- are_six_entities_together(Elia, Matteo, Ettore, Greta, Paola, Zeca) && not startingDinnerStorylet && new_this_loop(->startingDinnerStorylet):
+    - are_six_entities_together(Elia, Matteo, Ettore, Greta, Paola, Zeca) && not startingDinnerStorylet && new_this_loop(->startingDinnerStorylet):
     -> startingDinnerStorylet
 
 
-- are_three_entities_together(Elia, Matteo, Ettore) && not are_two_entitites_together(Elia, Zeca) && not are_two_entitites_together(Elia, Paola) && not are_two_entitites_together(Elia, Greta) && marryMeStorylet && new_this_loop(->weddingAtThePubStorylet):
+    - are_three_entities_together(Elia, Matteo, Ettore) && not are_two_entitites_together(Elia, Zeca) && not are_two_entitites_together(Elia, Greta) && marryMeStorylet && new_this_loop(->weddingAtThePubStorylet):
     -> weddingAtThePubStorylet
 
-- are_three_entities_together(Elia, Greta, Ettore) && not are_two_entitites_together(Elia, Matteo) && not are_two_entitites_together(Elia, Paola) && not are_two_entitites_together(Elia, Zeca) && new_this_loop(->anEavesdropAboutFriendshipStorylet):
+    - are_three_entities_together(Elia, Greta, Ettore) && elia_acting.missioneGreta && not are_two_entitites_together(Elia, Matteo) && not are_two_entitites_together(Elia, Zeca) && new_this_loop(->anEavesdropAboutFriendshipStorylet):
     -> anEavesdropAboutFriendshipStorylet
 
 //La morte di Paola deve arrivare solo quando abbbiamo fatto tutti i tutorial e abbiamo compiuto le scelte su Matteo e Zeca
@@ -19,13 +19,13 @@
 
 //CONFESSIONI SOLITARIE 
 
-- are_two_entitites_together(Matteo, Ettore) && inventoryContents has AnticoPugnale && not are_two_entitites_together(Elia, Ettore) && not are_two_entitites_together(Ettore, Paola) && not are_two_entitites_together(Ettore, Zeca) && not are_two_entitites_together(Ettore, Greta) && new_this_loop(->aStrangeKnifeStorylet):
+    - are_two_entitites_together(Matteo, Ettore) && inventoryContents has AnticoPugnale && not are_two_entitites_together(Elia, Ettore) && not are_two_entitites_together(Ettore, Zeca) && not are_two_entitites_together(Ettore, Greta) && new_this_loop(->aStrangeKnifeStorylet):
     -> aStrangeKnifeStorylet
 
-- are_two_entitites_together(Matteo, Ettore) && not are_two_entitites_together(Elia, Ettore) && not are_two_entitites_together(Ettore, Paola) && not are_two_entitites_together(Ettore, Zeca) && not are_two_entitites_together(Ettore, Greta) && new_this_loop(->marryMeStorylet):
+    - are_two_entitites_together(Matteo, Ettore) && not are_two_entitites_together(Elia, Ettore) && not are_two_entitites_together(Ettore, Zeca) && not are_two_entitites_together(Ettore, Greta) && new_this_loop(->marryMeStorylet):
     -> marryMeStorylet
     
-- are_two_entitites_together(Zeca, Ettore) && not are_two_entitites_together(Elia, Ettore) && not are_two_entitites_together(Ettore, Paola) && not are_two_entitites_together(Ettore, Matteo) && not are_two_entitites_together(Ettore, Greta) && new_this_loop(->worstBestManStorylet):
+    - are_two_entitites_together(Zeca, Ettore) && not are_two_entitites_together(Elia, Ettore) && not are_two_entitites_together(Ettore, Matteo) && not are_two_entitites_together(Ettore, Greta) && new_this_loop(->worstBestManStorylet):
     -> worstBestManStorylet    
 
 

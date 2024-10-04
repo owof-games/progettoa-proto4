@@ -3,17 +3,17 @@
 
 {
 
-- are_entities_together_in(Matteo, Ettore, RedRoom) && not are_four_entities_together(Zeca, Greta, Paola, Elia) && new_this_loop(->notABigSecretPartOneStorylet): -> notABigSecretPartOneStorylet
+    - are_entities_together_in(Matteo, Ettore, YellowRoom) && not are_four_entities_together(Zeca, Greta, Paola, Elia) && new_this_loop(->notABigSecretPartOneStorylet): -> notABigSecretPartOneStorylet
 
-- are_entities_together_in(Matteo, Elia, RedRoom) && not are_four_entities_together(Zeca, Greta, Paola, Matteo) && new_this_loop(->notABigSecretPartTwoStorylet): -> notABigSecretPartTwoStorylet
+    - are_entities_together_in(Ettore, Elia, YellowRoom) && not are_four_entities_together(Zeca, Greta, Paola, Matteo) && new_this_loop(->notABigSecretPartTwoStorylet): -> notABigSecretPartTwoStorylet
 
-- are_three_entities_together(Elia, Ettore, Zeca) && not are_four_entities_together(Zeca, Greta, Paola, Matteo) && greta_talking_second_tier.indagini && new_this_loop(-> liarCallLiarStorylet):
+    - are_three_entities_together(Elia, Ettore, Zeca) && not are_four_entities_together(Zeca, Greta, Paola, Matteo) && greta_talking_second_tier.indagini && new_this_loop(-> liarCallLiarStorylet):
     -> liarCallLiarStorylet
     
-- are_three_entities_together(Matteo, Ettore, Zeca) && not are_four_entities_together(Zeca, Greta, Paola, Elia) && matteo_talking_second_tier.allestimento && new_this_loop(-> iTryToBeAGoodFriendStorylet):
+    - are_three_entities_together(Matteo, Ettore, Zeca) && not are_four_entities_together(Zeca, Greta, Paola, Elia) && matteo_talking_second_tier.allestimento && new_this_loop(-> iTryToBeAGoodFriendStorylet):
     -> iTryToBeAGoodFriendStorylet   
 
-- are_three_entities_together(Elia, Ettore, Greta) && not are_four_entities_together(Zeca, Matteo, Paola, Elia) && iTryToBeAGoodFriendStorylet.allestimento && new_this_loop(-> liesAndPromisesStorylet ):
+    - are_three_entities_together(Elia, Ettore, Greta) && not are_four_entities_together(Zeca, Matteo, Paola, Elia) && iTryToBeAGoodFriendStorylet.allestimento && new_this_loop(-> liesAndPromisesStorylet ):
     -> liesAndPromisesStorylet
     
 - are_three_entities_together(Elia, Ettore, Zeca) && not are_four_entities_together(Greta, Matteo, Paola, Elia) && elia_talking_second_tier.allestimento2 && iTryToBeAGoodFriendStorylet.allestimento && new_this_loop(-> trueLoveStorylet):

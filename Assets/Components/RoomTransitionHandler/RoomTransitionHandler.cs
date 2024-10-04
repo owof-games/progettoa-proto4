@@ -162,6 +162,38 @@ namespace Components.RoomTransitionHandler
 
             if (!Enum.TryParse<Character.Character>(e.SerializableInkListItem.itemName, out var character))
             {
+                // not interested if the entity added is not a character
+                return;
+            }
+
+            if (e.Room.ToString() != _currentlyLoadedRoomName)
+            {
+                if (_lastRemovedFrom.ContainsKey(character) &&
+                    _lastRemovedFrom[character].ToString() == _currentlyLoadedRoomName)
+                {
+                    // this character is moving away from this room: show the transition animation
+                    // TODO: refactor with code below that does exactly the same
+                    var sourceRoom2 = _lastRemovedFrom[character];
+                    var connections2 = _roomConnectionsBySourceName[sourceRoom2.ToString()];
+                    var connection2 = connections2.Single(c =>
+                        c.destinationRoomName == e.Room.ToString());
+                    var direction2 = connection2.direction;
+
+                    // navigate the character
+                    var navigationGraph2 = GetCurrentNavigationGraph();
+                    // different from here on
+                    // var destinationNodeIndex2 = direction2 == Direction.Left
+                    //     ? navigationGraph2.GetLeftmostNodeIndex() // inverted
+                    //     : navigationGraph2.GetRightmostNodeIndex();
+                    var destination = direction2 == Direction.Left ? RoomDirection.Left : RoomDirection.Right;
+                    var characterNavigation2 = GetCharacterNavigation(_currentSceneRootGameObject!.scene, character);
+                    characterNavigation2.ExitTo(destination).ContinueWith(() =>
+                    {
+                        Destroy(characterNavigation2.gameObject);
+                    }).Forget();
+                }
+
+                // will immediately get to this return if the character neither comes or arrives in the current room
                 return;
             }
 
@@ -258,12 +290,8 @@ namespace Components.RoomTransitionHandler
                 Assert.AreEqual(previousSceneRootGameObjects.Length, 1);
                 var previousSceneRootGameObject = previousSceneRootGameObjects[0];
                 // animate Ettore going out
-                var mainCharacterNavigation = (from characterName in FindObjectsByType<CharacterName>(
-                        FindObjectsInactive.Exclude,
-                        FindObjectsSortMode.None)
-                    where characterName.Character == Character.Character.Ettore &&
-                          characterName.gameObject.scene == previousSceneRootGameObject.scene
-                    select characterName.gameObject.GetComponent<CharacterNavigation>()).Single();
+                var mainCharacterNavigation =
+                    GetCharacterNavigation(previousSceneRootGameObject.scene, Character.Character.Ettore);
                 await mainCharacterNavigation.ExitTo(direction == Direction.Left
                     ? RoomDirection.Left
                     : RoomDirection.Right);
@@ -284,6 +312,16 @@ namespace Components.RoomTransitionHandler
 
             // assure that the new scene is now in the correct position
             _currentSceneRootGameObject.transform.position = Vector3.zero;
+        }
+
+        private static CharacterNavigation GetCharacterNavigation(Scene scene, Character.Character character)
+        {
+            return (from characterName in FindObjectsByType<CharacterName>(
+                    FindObjectsInactive.Exclude,
+                    FindObjectsSortMode.None)
+                where characterName.Character == character &&
+                      characterName.gameObject.scene == scene
+                select characterName.gameObject.GetComponent<CharacterNavigation>()).Single();
         }
     }
 }

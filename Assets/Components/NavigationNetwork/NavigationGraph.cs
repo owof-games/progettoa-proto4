@@ -139,7 +139,11 @@ namespace Components.NavigationNetwork
             var nodesSet = new HashSet<int>(nodesInScene);
             nodesSet.RemoveWhere(nodeIndex => usedNodeIndices.Contains(nodeIndex));
             var nodesList = nodesSet.ToList();
-            return nodesList[Random.Range(0, nodesList.Count)];
+            if (nodesList.Count == 0) throw new InvalidOperationException("There are no free nodes");
+
+            var nodesListIndex = Random.Range(0, nodesList.Count);
+            var randomFreeNode = nodesList[nodesListIndex];
+            return randomFreeNode;
         }
 
         [Serializable]

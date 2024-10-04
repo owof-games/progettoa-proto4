@@ -25,7 +25,6 @@
       "\n",
       "\n",
       "\n",
-      "\n",
       {
         "->": "intro"
       },
@@ -3447,6 +3446,7 @@
               }
             ],
             "c-3": [
+              "^ ",
               "\n",
               "ev",
               {
@@ -6687,7 +6687,7 @@
                 "VAR?": "SpiedinoCocktail"
               },
               {
-                "VAR?": "YellowRoom"
+                "VAR?": "RedRoom"
               },
               {
                 "f()": "move_entity"
@@ -6700,7 +6700,7 @@
                 "VAR?": "AnticoPugnale"
               },
               {
-                "VAR?": "WhiteRoom"
+                "VAR?": "GreenRoom"
               },
               {
                 "f()": "move_entity"
@@ -6755,7 +6755,7 @@
                       "VAR?": "Lettera"
                     },
                     {
-                      "VAR?": "RedRoom"
+                      "VAR?": "YellowRoom"
                     },
                     {
                       "f()": "move_entity"
@@ -6765,6 +6765,177 @@
                     "\n",
                     {
                       "->": ".^.^.^.25"
+                    },
+                    null
+                  ]
+                }
+              ],
+              "nop",
+              "\n",
+              "ev",
+              {
+                "VAR?": "BottigliaDiVino"
+              },
+              {
+                "VAR?": "YellowRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "VAR?": "SigarettaElettronica"
+              },
+              {
+                "VAR?": "RedRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              "ev",
+              {
+                "VAR?": "FlaconcinoAsma"
+              },
+              {
+                "VAR?": "WhiteRoom"
+              },
+              {
+                "f()": "move_entity"
+              },
+              "pop",
+              "/ev",
+              "\n",
+              [
+                "ev",
+                {
+                  "VAR?": "tierState"
+                },
+                {
+                  "VAR?": "FirstTier"
+                },
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "\n",
+                    "ev",
+                    {
+                      "VAR?": "Torta"
+                    },
+                    {
+                      "VAR?": "YellowRoom"
+                    },
+                    {
+                      "f()": "move_entity"
+                    },
+                    "pop",
+                    "/ev",
+                    "\n",
+                    {
+                      "->": ".^.^.^.50"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                {
+                  "->": ".^.b"
+                },
+                {
+                  "b": [
+                    "\n",
+                    "ev",
+                    {
+                      "VAR?": "Torta"
+                    },
+                    {
+                      "VAR?": "ObjectStorage"
+                    },
+                    {
+                      "f()": "move_entity"
+                    },
+                    "pop",
+                    "/ev",
+                    "\n",
+                    {
+                      "->": ".^.^.^.50"
+                    },
+                    null
+                  ]
+                }
+              ],
+              "nop",
+              "\n",
+              [
+                "ev",
+                {
+                  "VAR?": "tierState"
+                },
+                {
+                  "VAR?": "SecondTier"
+                },
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "\n",
+                    "ev",
+                    {
+                      "VAR?": "Briciole"
+                    },
+                    {
+                      "VAR?": "Paola"
+                    },
+                    {
+                      "f()": "move_first_entity_to_second_entity_location"
+                    },
+                    "pop",
+                    "/ev",
+                    "\n",
+                    {
+                      "->": ".^.^.^.54"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                {
+                  "->": ".^.b"
+                },
+                {
+                  "b": [
+                    "\n",
+                    "ev",
+                    {
+                      "VAR?": "Briciole"
+                    },
+                    {
+                      "VAR?": "ObjectStorage"
+                    },
+                    {
+                      "f()": "move_entity"
+                    },
+                    "pop",
+                    "/ev",
+                    "\n",
+                    {
+                      "->": ".^.^.^.54"
                     },
                     null
                   ]
@@ -8049,7 +8220,7 @@
               "VAR?": "inventoryContents"
             },
             {
-              "VAR?": "Cibo"
+              "VAR?": "Briciole"
             },
             "?",
             "/ev",
@@ -9167,6 +9338,17 @@
               "f()": "seen_in_this_loop"
             },
             {
+              "VAR?": "Greta"
+            },
+            {
+              "VAR?": "Elia"
+            },
+            {
+              "f()": "are_two_entitites_together"
+            },
+            "!",
+            "&&",
+            {
               "VAR?": "loopableVariables"
             },
             {
@@ -9454,7 +9636,7 @@
               "VAR?": "inventoryContents"
             },
             {
-              "VAR?": "Cibo"
+              "VAR?": "Briciole"
             },
             "?",
             "/ev",
@@ -10720,7 +10902,7 @@
               "VAR?": "inventoryContents"
             },
             {
-              "VAR?": "Cibo"
+              "VAR?": "Briciole"
             },
             "?",
             "/ev",
@@ -11836,6 +12018,23 @@
             {
               "CNT?": "elia_acting.0.c-2"
             },
+            {
+              "VAR?": "Greta"
+            },
+            {
+              "VAR?": "Elia"
+            },
+            {
+              "VAR?": "Matteo"
+            },
+            {
+              "VAR?": "Zeca"
+            },
+            {
+              "f()": "are_four_entities_together"
+            },
+            "!",
+            "&&",
             "&&",
             "/ev",
             {
@@ -11874,6 +12073,17 @@
             {
               "CNT?": "worstBestManStorylet"
             },
+            {
+              "VAR?": "Zeca"
+            },
+            {
+              "VAR?": "Matteo"
+            },
+            {
+              "f()": "are_two_entitites_together"
+            },
+            "!",
+            "&&",
             "/ev",
             {
               "*": ".^.^.c-3",
@@ -12035,7 +12245,7 @@
               "VAR?": "inventoryContents"
             },
             {
-              "VAR?": "Cibo"
+              "VAR?": "Briciole"
             },
             "?",
             "/ev",
@@ -13271,7 +13481,7 @@
               "VAR?": "inventoryContents"
             },
             {
-              "VAR?": "Cibo"
+              "VAR?": "Briciole"
             },
             "?",
             "/ev",
@@ -14351,6 +14561,17 @@
               "f()": "new_this_loop"
             },
             "&&",
+            {
+              "VAR?": "Greta"
+            },
+            {
+              "VAR?": "Elia"
+            },
+            {
+              "f()": "are_two_entitites_together"
+            },
+            "!",
+            "&&",
             "/ev",
             {
               "*": ".^.^.c-1",
@@ -14394,6 +14615,28 @@
             {
               "f()": "new_this_loop"
             },
+            "&&",
+            {
+              "VAR?": "Matteo"
+            },
+            {
+              "VAR?": "Elia"
+            },
+            {
+              "f()": "are_two_entitites_together"
+            },
+            "!",
+            "&&",
+            {
+              "VAR?": "Greta"
+            },
+            {
+              "VAR?": "Elia"
+            },
+            {
+              "f()": "are_two_entitites_together"
+            },
+            "!",
             "&&",
             "/ev",
             {
@@ -14441,6 +14684,28 @@
             },
             "!",
             "&&",
+            {
+              "VAR?": "Matteo"
+            },
+            {
+              "VAR?": "Elia"
+            },
+            {
+              "f()": "are_two_entitites_together"
+            },
+            "!",
+            "&&",
+            {
+              "VAR?": "Greta"
+            },
+            {
+              "VAR?": "Elia"
+            },
+            {
+              "f()": "are_two_entitites_together"
+            },
+            "!",
+            "&&",
             "/ev",
             {
               "*": ".^.^.c-3",
@@ -14478,6 +14743,17 @@
             {
               "CNT?": "hardTrueFeelingsStorylet"
             },
+            {
+              "VAR?": "Greta"
+            },
+            {
+              "VAR?": "Elia"
+            },
+            {
+              "f()": "are_two_entitites_together"
+            },
+            "!",
+            "&&",
             "/ev",
             {
               "*": ".^.^.c-4",
@@ -14485,7 +14761,7 @@
             },
             {
               "s": [
-                "^Ettore: \"Ho convinto Matteo.\"",
+                "^Ettore: \"Ho convinto Matteo, ora parlerai con Greta?\"",
                 {
                   "->": "$r",
                   "var": true
@@ -15413,7 +15689,7 @@
                   "VAR?": "inventoryContents"
                 },
                 {
-                  "VAR?": "Cibo"
+                  "VAR?": "Briciole"
                 },
                 "?",
                 "/ev",
@@ -15609,6 +15885,62 @@
                   ],
                   "\n",
                   "^Elia: \"Matteo era disperato, l'aveva perso da settimane!\"",
+                  "\n",
+                  [
+                    "ev",
+                    {
+                      "VAR?": "Matteo"
+                    },
+                    {
+                      "VAR?": "Elia"
+                    },
+                    {
+                      "f()": "are_two_entitites_together"
+                    },
+                    "/ev",
+                    {
+                      "->": ".^.b",
+                      "c": true
+                    },
+                    {
+                      "b": [
+                        "\n",
+                        "^Matteo: \"E ora me lo riprendo. Grazie amore mio!\"",
+                        "\n",
+                        "ev",
+                        {
+                          "VAR?": "inventoryContents"
+                        },
+                        {
+                          "VAR?": "AnticoPugnale"
+                        },
+                        "-",
+                        {
+                          "VAR=": "inventoryContents",
+                          "re": true
+                        },
+                        "/ev",
+                        "ev",
+                        {
+                          "VAR?": "objectStorageContents"
+                        },
+                        {
+                          "VAR?": "AnticoPugnale"
+                        },
+                        "+",
+                        {
+                          "VAR=": "objectStorageContents",
+                          "re": true
+                        },
+                        "/ev",
+                        {
+                          "->": ".^.^.^.10"
+                        },
+                        null
+                      ]
+                    }
+                  ],
+                  "nop",
                   "\n",
                   {
                     "->": ".^.^.^.g-1"
@@ -16639,7 +16971,7 @@
               "VAR?": "inventoryContents"
             },
             {
-              "VAR?": "Cibo"
+              "VAR?": "Briciole"
             },
             "?",
             "/ev",
@@ -17749,6 +18081,28 @@
             {
               "CNT?": "hardTrueFeelingsStorylet"
             },
+            {
+              "VAR?": "Zeca"
+            },
+            {
+              "VAR?": "Matteo"
+            },
+            {
+              "f()": "are_two_entitites_together"
+            },
+            "!",
+            "&&",
+            {
+              "VAR?": "Zeca"
+            },
+            {
+              "VAR?": "Greta"
+            },
+            {
+              "f()": "are_two_entitites_together"
+            },
+            "!",
+            "&&",
             "/ev",
             {
               "*": ".^.^.c-2",
@@ -17951,7 +18305,7 @@
               "VAR?": "inventoryContents"
             },
             {
-              "VAR?": "Cibo"
+              "VAR?": "Briciole"
             },
             "?",
             "/ev",
@@ -18225,6 +18579,64 @@
               ],
               "\n",
               "^Zeca: \"Matteo lo usa in modo <b>ossessivo</b> per pulirsi la soletta delle scarpe!\"",
+              "\n",
+              [
+                "ev",
+                {
+                  "VAR?": "Ettore"
+                },
+                {
+                  "VAR?": "Matteo"
+                },
+                {
+                  "f()": "are_two_entitites_together"
+                },
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "\n",
+                    "^Matteo: \"Non sono ossessivo!\"",
+                    "\n",
+                    "^Matteo: \"E ora me lo riprenderei, grazie mille!\"",
+                    "\n",
+                    "ev",
+                    {
+                      "VAR?": "inventoryContents"
+                    },
+                    {
+                      "VAR?": "AnticoPugnale"
+                    },
+                    "-",
+                    {
+                      "VAR=": "inventoryContents",
+                      "re": true
+                    },
+                    "/ev",
+                    "ev",
+                    {
+                      "VAR?": "objectStorageContents"
+                    },
+                    {
+                      "VAR?": "AnticoPugnale"
+                    },
+                    "+",
+                    {
+                      "VAR=": "objectStorageContents",
+                      "re": true
+                    },
+                    "/ev",
+                    {
+                      "->": ".^.^.^.10"
+                    },
+                    null
+                  ]
+                }
+              ],
+              "nop",
               "\n",
               {
                 "->": ".^.^.g-0"
@@ -19115,7 +19527,7 @@
               "VAR?": "inventoryContents"
             },
             {
-              "VAR?": "Cibo"
+              "VAR?": "Briciole"
             },
             "?",
             "/ev",
@@ -22263,13 +22675,13 @@
         [
           "ev",
           "str",
-          "^object:Cibo",
+          "^object:Briciole",
           "/str",
           {
             "VAR?": "Ettore"
           },
           {
-            "VAR?": "Cibo"
+            "VAR?": "Briciole"
           },
           {
             "f()": "are_two_entitites_together"
@@ -22357,7 +22769,7 @@
                   "VAR?": "inventoryContents"
                 },
                 {
-                  "VAR?": "Cibo"
+                  "VAR?": "Briciole"
                 },
                 "?",
                 "/ev",
@@ -22485,7 +22897,7 @@
                         "\n",
                         "ev",
                         {
-                          "VAR?": "Cibo"
+                          "VAR?": "Briciole"
                         },
                         {
                           "f()": "take_object"
@@ -22551,7 +22963,7 @@
                   "\n",
                   "ev",
                   {
-                    "VAR?": "Cibo"
+                    "VAR?": "Briciole"
                   },
                   {
                     "f()": "remove_entity"
@@ -22689,17 +23101,6 @@
             "VAR?": "Elia"
           },
           {
-            "VAR?": "Paola"
-          },
-          {
-            "f()": "are_two_entitites_together"
-          },
-          "!",
-          "&&",
-          {
-            "VAR?": "Elia"
-          },
-          {
             "VAR?": "Greta"
           },
           {
@@ -22751,21 +23152,14 @@
             "f()": "are_three_entities_together"
           },
           {
-            "VAR?": "Elia"
+            "CNT?": "elia_acting.0.c-4"
           },
-          {
-            "VAR?": "Matteo"
-          },
-          {
-            "f()": "are_two_entitites_together"
-          },
-          "!",
           "&&",
           {
             "VAR?": "Elia"
           },
           {
-            "VAR?": "Paola"
+            "VAR?": "Matteo"
           },
           {
             "f()": "are_two_entitites_together"
@@ -22918,17 +23312,6 @@
             "VAR?": "Ettore"
           },
           {
-            "VAR?": "Paola"
-          },
-          {
-            "f()": "are_two_entitites_together"
-          },
-          "!",
-          "&&",
-          {
-            "VAR?": "Ettore"
-          },
-          {
             "VAR?": "Zeca"
           },
           {
@@ -22998,17 +23381,6 @@
             "VAR?": "Ettore"
           },
           {
-            "VAR?": "Paola"
-          },
-          {
-            "f()": "are_two_entitites_together"
-          },
-          "!",
-          "&&",
-          {
-            "VAR?": "Ettore"
-          },
-          {
             "VAR?": "Zeca"
           },
           {
@@ -23068,17 +23440,6 @@
           },
           {
             "VAR?": "Ettore"
-          },
-          {
-            "f()": "are_two_entitites_together"
-          },
-          "!",
-          "&&",
-          {
-            "VAR?": "Ettore"
-          },
-          {
-            "VAR?": "Paola"
           },
           {
             "f()": "are_two_entitites_together"
@@ -24812,12 +25173,8 @@
             ],
             "/str",
             {
-              "VAR?": "inventoryContents"
+              "CNT?": "zeca_talking_second_tier.0.c-1"
             },
-            {
-              "VAR?": "AnticoPugnale"
-            },
-            "?",
             "/ev",
             {
               "*": ".^.^.c-1",
@@ -24825,7 +25182,7 @@
             },
             {
               "s": [
-                "^Guarda questo pugnale!",
+                "^Ripetiamo quello che ci ha detto Zeca.",
                 {
                   "->": "$r",
                   "var": true
@@ -24852,21 +25209,14 @@
               }
             ],
             "/str",
-            {
-              "VAR?": "inventoryContents"
-            },
-            {
-              "VAR?": "SpiedinoCocktail"
-            },
-            "?",
             "/ev",
             {
               "*": ".^.^.c-2",
-              "flg": 3
+              "flg": 2
             },
             {
               "s": [
-                "^Guarda questo spiedino!",
+                "^Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro. ",
                 {
                   "->": "$r",
                   "var": true
@@ -24894,12 +25244,8 @@
             ],
             "/str",
             {
-              "VAR?": "inventoryContents"
+              "CNT?": "zeca_talking_second_tier.0.c-2"
             },
-            {
-              "VAR?": "Lettera"
-            },
-            "?",
             "/ev",
             {
               "*": ".^.^.c-3",
@@ -24907,7 +25253,7 @@
             },
             {
               "s": [
-                "^Guarda questa lettera!",
+                "^Diciamo la cosa del vibratore. Paola ci dice che se allontaniamo Greta dalla stanza, ci darà qualcosa di interessante.",
                 {
                   "->": "$r",
                   "var": true
@@ -24935,12 +25281,8 @@
             ],
             "/str",
             {
-              "VAR?": "inventoryContents"
+              "CNT?": "greta_talking_second_tier.0.c-6.7.c-0"
             },
-            {
-              "VAR?": "LimettaUnghie"
-            },
-            "?",
             "/ev",
             {
               "*": ".^.^.c-4",
@@ -24948,7 +25290,7 @@
             },
             {
               "s": [
-                "^Guarda questa limetta da unghie!",
+                "^Se risolviamo: foto Elia e Greta che scopano al pub.",
                 {
                   "->": "$r",
                   "var": true
@@ -24975,9 +25317,173 @@
               }
             ],
             "/str",
+            {
+              "VAR?": "inventoryContents"
+            },
+            {
+              "VAR?": "AnticoPugnale"
+            },
+            "?",
             "/ev",
             {
               "*": ".^.^.c-5",
+              "flg": 3
+            },
+            {
+              "s": [
+                "^Guarda questo pugnale!",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          [
+            "ev",
+            {
+              "^->": "paola_talking_second_tier.0.13.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            {
+              "VAR?": "inventoryContents"
+            },
+            {
+              "VAR?": "SpiedinoCocktail"
+            },
+            "?",
+            "/ev",
+            {
+              "*": ".^.^.c-6",
+              "flg": 3
+            },
+            {
+              "s": [
+                "^Guarda questo spiedino!",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          [
+            "ev",
+            {
+              "^->": "paola_talking_second_tier.0.14.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            {
+              "VAR?": "inventoryContents"
+            },
+            {
+              "VAR?": "Lettera"
+            },
+            "?",
+            "/ev",
+            {
+              "*": ".^.^.c-7",
+              "flg": 3
+            },
+            {
+              "s": [
+                "^Guarda questa lettera!",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          [
+            "ev",
+            {
+              "^->": "paola_talking_second_tier.0.15.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            {
+              "VAR?": "inventoryContents"
+            },
+            {
+              "VAR?": "LimettaUnghie"
+            },
+            "?",
+            "/ev",
+            {
+              "*": ".^.^.c-8",
+              "flg": 3
+            },
+            {
+              "s": [
+                "^Guarda questa limetta da unghie!",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          [
+            "ev",
+            {
+              "^->": "paola_talking_second_tier.0.16.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            "/ev",
+            {
+              "*": ".^.^.c-9",
               "flg": 2
             },
             {
@@ -25038,6 +25544,8 @@
                 }
               ],
               "\n",
+              "^Paola: \"Ho sentito Zeca e Matteo litigare nella stanza prima del buffet\"",
+              "\n",
               {
                 "->": ".^.^.g-0"
               },
@@ -25088,6 +25596,108 @@
                 }
               ],
               "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-4": [
+              "ev",
+              {
+                "^->": "paola_talking_second_tier.0.c-4.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.11.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              "\n",
+              "^\"Vedi tu che farci!\" (presentarci con qualcosa in mano)",
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-5": [
+              "ev",
+              {
+                "^->": "paola_talking_second_tier.0.c-5.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.12.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-6": [
+              "ev",
+              {
+                "^->": "paola_talking_second_tier.0.c-6.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.13.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-7": [
+              "ev",
+              {
+                "^->": "paola_talking_second_tier.0.c-7.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.14.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              "\n",
               "^Paola: \"Uh, guarda un po' chi si dovrebbe fare i cazzi propri!'\".",
               "\n",
               "ev",
@@ -25123,17 +25733,17 @@
                 "#f": 5
               }
             ],
-            "c-4": [
+            "c-8": [
               "ev",
               {
-                "^->": "paola_talking_second_tier.0.c-4.$r2"
+                "^->": "paola_talking_second_tier.0.c-8.$r2"
               },
               "/ev",
               {
                 "temp=": "$r"
               },
               {
-                "->": ".^.^.11.s"
+                "->": ".^.^.15.s"
               },
               [
                 {
@@ -25148,17 +25758,17 @@
                 "#f": 5
               }
             ],
-            "c-5": [
+            "c-9": [
               "ev",
               {
-                "^->": "paola_talking_second_tier.0.c-5.$r2"
+                "^->": "paola_talking_second_tier.0.c-9.$r2"
               },
               "/ev",
               {
                 "temp=": "$r"
               },
               {
-                "->": ".^.^.12.s"
+                "->": ".^.^.16.s"
               },
               [
                 {
@@ -25982,7 +26592,7 @@
               "VAR?": "inventoryContents"
             },
             {
-              "VAR?": "Cibo"
+              "VAR?": "Briciole"
             },
             "?",
             "/ev",
@@ -26964,7 +27574,7 @@
             ],
             "/str",
             {
-              "CNT?": "zeca_talking_second_tier.0.c-1"
+              "CNT?": "elia_talking_second_tier.0.c-3"
             },
             "/ev",
             {
@@ -26973,7 +27583,7 @@
             },
             {
               "s": [
-                "^Ripetiamo quello che ci ha detto Zeca.",
+                "^Greta ci dice che Elia sta usando il discorso sindacato per mostrare al CdA che Paola è troppo debole e inetta",
                 {
                   "->": "$r",
                   "var": true
@@ -27001,7 +27611,7 @@
             ],
             "/str",
             {
-              "CNT?": "elia_talking_second_tier.0.c-3"
+              "CNT?": "zeca_talking_second_tier.0.c-2"
             },
             "/ev",
             {
@@ -27010,7 +27620,7 @@
             },
             {
               "s": [
-                "^Greta ci dice che Elia sta usando il discorso sindacato per mostrare al CdA che Paola è troppo debole e inetta",
+                "^Dice una cosa che contraddice Elia",
                 {
                   "->": "$r",
                   "var": true
@@ -27038,7 +27648,7 @@
             ],
             "/str",
             {
-              "CNT?": "zeca_talking_second_tier.0.c-2"
+              "CNT?": "iTryToBeAGoodFriendStorylet.0.c-0"
             },
             "/ev",
             {
@@ -27047,7 +27657,7 @@
             },
             {
               "s": [
-                "^Dice una cosa che contraddice Elia",
+                "^Diciamo del veleno per topi.",
                 {
                   "->": "$r",
                   "var": true
@@ -27075,7 +27685,7 @@
             ],
             "/str",
             {
-              "CNT?": "iTryToBeAGoodFriendStorylet.0.c-0"
+              "CNT?": "trueLoveStorylet"
             },
             "/ev",
             {
@@ -27084,7 +27694,7 @@
             },
             {
               "s": [
-                "^Diciamo del veleno per topi.",
+                "^Se diciamo della tresca tra Elia e Zeca.",
                 {
                   "->": "$r",
                   "var": true
@@ -27112,7 +27722,7 @@
             ],
             "/str",
             {
-              "CNT?": "trueLoveStorylet"
+              "CNT?": "paola_talking_second_tier.0.c-3"
             },
             "/ev",
             {
@@ -27121,7 +27731,7 @@
             },
             {
               "s": [
-                "^Se diciamo della tresca tra Elia e Zeca.",
+                "^Possiamo allontanare Greta con una scusa.",
                 {
                   "->": "$r",
                   "var": true
@@ -27316,7 +27926,7 @@
               "VAR?": "inventoryContents"
             },
             {
-              "VAR?": "Cibo"
+              "VAR?": "Briciole"
             },
             "?",
             "/ev",
@@ -27564,8 +28174,6 @@
                 }
               ],
               "\n",
-              "^Greta: \"Greta dice di aver sentito Zeca e Matteo litigare nella stanza prima del buffet\"",
-              "\n",
               {
                 "->": ".^.^.g-0"
               },
@@ -27616,6 +28224,8 @@
                 }
               ],
               "\n",
+              "^Se diciamo questa cosa a Greta, ci dirà che sarebbe bastata una fialetta di liquido per le sigarette nel vino per uccidere Paola, e chi l'ha comprato il veleno?",
+              "\n",
               {
                 "->": ".^.^.g-0"
               },
@@ -27641,7 +28251,7 @@
                 }
               ],
               "\n",
-              "^Se diciamo questa cosa a Greta, ci dirà che sarebbe bastata una fialetta di liquido per le sigarette nel vino per uccidere Paola, e chi l'ha comprato il veleno?",
+              "^Se lo diciamo a Greta, lei si sente usata, e giura che smetterà di coprire i furti di denaro di Elia.",
               "\n",
               {
                 "->": ".^.^.g-0"
@@ -27668,11 +28278,128 @@
                 }
               ],
               "\n",
-              "^Se lo diciamo a Greta, lei si sente usata, e giura che smetterà di coprire i furti di denaro di Elia",
-              "\n",
-              {
-                "->": ".^.^.g-0"
-              },
+              [
+                [
+                  "ev",
+                  {
+                    "^->": "greta_talking_second_tier.0.c-6.7.0.$r1"
+                  },
+                  {
+                    "temp=": "$r"
+                  },
+                  "str",
+                  {
+                    "->": ".^.s"
+                  },
+                  [
+                    {
+                      "#n": "$r1"
+                    }
+                  ],
+                  "/str",
+                  "/ev",
+                  {
+                    "*": ".^.^.c-0",
+                    "flg": 2
+                  },
+                  {
+                    "s": [
+                      "^Greta se ne va.",
+                      {
+                        "->": "$r",
+                        "var": true
+                      },
+                      null
+                    ]
+                  }
+                ],
+                [
+                  "ev",
+                  {
+                    "^->": "greta_talking_second_tier.0.c-6.7.1.$r1"
+                  },
+                  {
+                    "temp=": "$r"
+                  },
+                  "str",
+                  {
+                    "->": ".^.s"
+                  },
+                  [
+                    {
+                      "#n": "$r1"
+                    }
+                  ],
+                  "/str",
+                  "/ev",
+                  {
+                    "*": ".^.^.c-1",
+                    "flg": 2
+                  },
+                  {
+                    "s": [
+                      "^Abbiamo una sola opzione a tier",
+                      {
+                        "->": "$r",
+                        "var": true
+                      },
+                      null
+                    ]
+                  }
+                ],
+                {
+                  "c-0": [
+                    "ev",
+                    {
+                      "^->": "greta_talking_second_tier.0.c-6.7.c-0.$r2"
+                    },
+                    "/ev",
+                    {
+                      "temp=": "$r"
+                    },
+                    {
+                      "->": ".^.^.0.s"
+                    },
+                    [
+                      {
+                        "#n": "$r2"
+                      }
+                    ],
+                    "\n",
+                    {
+                      "->": ".^.^.^.^.g-0"
+                    },
+                    {
+                      "#f": 5
+                    }
+                  ],
+                  "c-1": [
+                    "ev",
+                    {
+                      "^->": "greta_talking_second_tier.0.c-6.7.c-1.$r2"
+                    },
+                    "/ev",
+                    {
+                      "temp=": "$r"
+                    },
+                    {
+                      "->": ".^.^.1.s"
+                    },
+                    [
+                      {
+                        "#n": "$r2"
+                      }
+                    ],
+                    "\n",
+                    {
+                      "->": ".^.^.^.^.g-0"
+                    },
+                    {
+                      "#f": 5
+                    }
+                  ]
+                }
+              ],
               {
                 "#f": 5
               }
@@ -28710,7 +29437,7 @@
               "VAR?": "inventoryContents"
             },
             {
-              "VAR?": "Cibo"
+              "VAR?": "Briciole"
             },
             "?",
             "/ev",
@@ -29657,7 +30384,7 @@
             ],
             "/str",
             {
-              "CNT?": "greta_talking_second_tier.0.c-2"
+              "CNT?": "paola_talking_second_tier.0.c-1"
             },
             "/ev",
             {
@@ -29693,14 +30420,17 @@
               }
             ],
             "/str",
+            {
+              "CNT?": "trueLoveStorylet"
+            },
             "/ev",
             {
               "*": ".^.^.c-2",
-              "flg": 2
+              "flg": 3
             },
             {
               "s": [
-                "^Matteo ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro.    ",
+                "^Matteo è felice per Zeca, e per Greta, ma crede che Elia sia un coglione.",
                 {
                   "->": "$r",
                   "var": true
@@ -29728,8 +30458,12 @@
             ],
             "/str",
             {
-              "CNT?": "trueLoveStorylet"
+              "VAR?": "inventoryContents"
             },
+            {
+              "VAR?": "AnticoPugnale"
+            },
+            "?",
             "/ev",
             {
               "*": ".^.^.c-3",
@@ -29737,7 +30471,7 @@
             },
             {
               "s": [
-                "^Matteo è felice per Zeca, e per Greta, ma crede che Elia sia un coglione.",
+                "^Guarda questo pugnale!",
                 {
                   "->": "$r",
                   "var": true
@@ -29768,7 +30502,7 @@
               "VAR?": "inventoryContents"
             },
             {
-              "VAR?": "AnticoPugnale"
+              "VAR?": "SpiedinoCocktail"
             },
             "?",
             "/ev",
@@ -29778,7 +30512,7 @@
             },
             {
               "s": [
-                "^Guarda questo pugnale!",
+                "^Guarda questo spiedino!",
                 {
                   "->": "$r",
                   "var": true
@@ -29809,7 +30543,7 @@
               "VAR?": "inventoryContents"
             },
             {
-              "VAR?": "SpiedinoCocktail"
+              "VAR?": "Lettera"
             },
             "?",
             "/ev",
@@ -29819,7 +30553,7 @@
             },
             {
               "s": [
-                "^Guarda questo spiedino!",
+                "^Guarda questa lettera!",
                 {
                   "->": "$r",
                   "var": true
@@ -29850,7 +30584,7 @@
               "VAR?": "inventoryContents"
             },
             {
-              "VAR?": "Lettera"
+              "VAR?": "LimettaUnghie"
             },
             "?",
             "/ev",
@@ -29860,7 +30594,7 @@
             },
             {
               "s": [
-                "^Guarda questa lettera!",
+                "^Guarda questa limetta da unghie!",
                 {
                   "->": "$r",
                   "var": true
@@ -29891,7 +30625,7 @@
               "VAR?": "inventoryContents"
             },
             {
-              "VAR?": "LimettaUnghie"
+              "VAR?": "Briciole"
             },
             "?",
             "/ev",
@@ -29901,7 +30635,7 @@
             },
             {
               "s": [
-                "^Guarda questa limetta da unghie!",
+                "^Guarda questo cibo!",
                 {
                   "->": "$r",
                   "var": true
@@ -29932,7 +30666,7 @@
               "VAR?": "inventoryContents"
             },
             {
-              "VAR?": "Cibo"
+              "VAR?": "BottigliaDiVino"
             },
             "?",
             "/ev",
@@ -29942,7 +30676,7 @@
             },
             {
               "s": [
-                "^Guarda questo cibo!",
+                "^Guarda questa bottiglia di vino!",
                 {
                   "->": "$r",
                   "var": true
@@ -29973,7 +30707,7 @@
               "VAR?": "inventoryContents"
             },
             {
-              "VAR?": "BottigliaDiVino"
+              "VAR?": "FlaconcinoAsma"
             },
             "?",
             "/ev",
@@ -29983,7 +30717,7 @@
             },
             {
               "s": [
-                "^Guarda questa bottiglia di vino!",
+                "^Guarda questo flaconcino per l'asma!",
                 {
                   "->": "$r",
                   "var": true
@@ -30014,7 +30748,7 @@
               "VAR?": "inventoryContents"
             },
             {
-              "VAR?": "FlaconcinoAsma"
+              "VAR?": "SigarettaElettronica"
             },
             "?",
             "/ev",
@@ -30024,7 +30758,7 @@
             },
             {
               "s": [
-                "^Guarda questo flaconcino per l'asma!",
+                "^Guarda questa sigaretta elettronica!",
                 {
                   "->": "$r",
                   "var": true
@@ -30051,50 +30785,9 @@
               }
             ],
             "/str",
-            {
-              "VAR?": "inventoryContents"
-            },
-            {
-              "VAR?": "SigarettaElettronica"
-            },
-            "?",
             "/ev",
             {
               "*": ".^.^.c-11",
-              "flg": 3
-            },
-            {
-              "s": [
-                "^Guarda questa sigaretta elettronica!",
-                {
-                  "->": "$r",
-                  "var": true
-                },
-                null
-              ]
-            }
-          ],
-          [
-            "ev",
-            {
-              "^->": "matteo_talking_second_tier.0.19.$r1"
-            },
-            {
-              "temp=": "$r"
-            },
-            "str",
-            {
-              "->": ".^.s"
-            },
-            [
-              {
-                "#n": "$r1"
-              }
-            ],
-            "/str",
-            "/ev",
-            {
-              "*": ".^.^.c-12",
               "flg": 2
             },
             {
@@ -30776,31 +31469,6 @@
               },
               {
                 "->": ".^.^.18.s"
-              },
-              [
-                {
-                  "#n": "$r2"
-                }
-              ],
-              "\n",
-              {
-                "->": ".^.^.g-0"
-              },
-              {
-                "#f": 5
-              }
-            ],
-            "c-12": [
-              "ev",
-              {
-                "^->": "matteo_talking_second_tier.0.c-12.$r2"
-              },
-              "/ev",
-              {
-                "temp=": "$r"
-              },
-              {
-                "->": ".^.^.19.s"
               },
               [
                 {
@@ -31653,7 +32321,7 @@
                   "VAR?": "inventoryContents"
                 },
                 {
-                  "VAR?": "Cibo"
+                  "VAR?": "Briciole"
                 },
                 "?",
                 "/ev",
@@ -32981,7 +33649,7 @@
               "VAR?": "inventoryContents"
             },
             {
-              "VAR?": "Cibo"
+              "VAR?": "Briciole"
             },
             "?",
             "/ev",
@@ -34405,7 +35073,7 @@
               "VAR?": "inventoryContents"
             },
             {
-              "VAR?": "Cibo"
+              "VAR?": "Briciole"
             },
             "?",
             "/ev",
@@ -35424,7 +36092,7 @@
             ],
             "/str",
             {
-              "CNT?": "matteo_talking_second_tier.0.c-2"
+              "CNT?": "paola_talking_second_tier.0.c-2"
             },
             "/ev",
             {
@@ -35433,7 +36101,7 @@
             },
             {
               "s": [
-                "^Se lo diciamo a Zeca, ci dice che Matteo è un infame, e che è lui a campare sulle spalle dei due fratelli.",
+                "^Se lo diciamo a Zeca, ci dice che Paola piuttosto dovrebbe farsi delle domande su Matteo, che è lui a campare sulle spalle dei due fratelli.",
                 {
                   "->": "$r",
                   "var": true
@@ -35662,7 +36330,7 @@
               "VAR?": "inventoryContents"
             },
             {
-              "VAR?": "Cibo"
+              "VAR?": "Briciole"
             },
             "?",
             "/ev",
@@ -38912,13 +39580,13 @@
         [
           "ev",
           "str",
-          "^object:Cibo",
+          "^object:Briciole",
           "/str",
           {
             "VAR?": "Ettore"
           },
           {
-            "VAR?": "Cibo"
+            "VAR?": "Briciole"
           },
           {
             "f()": "are_two_entitites_together"
@@ -39006,7 +39674,7 @@
                   "VAR?": "inventoryContents"
                 },
                 {
-                  "VAR?": "Cibo"
+                  "VAR?": "Briciole"
                 },
                 "?",
                 "/ev",
@@ -39134,7 +39802,7 @@
                         "\n",
                         "ev",
                         {
-                          "VAR?": "Cibo"
+                          "VAR?": "Briciole"
                         },
                         {
                           "f()": "take_object"
@@ -39200,7 +39868,7 @@
                   "\n",
                   "ev",
                   {
-                    "VAR?": "Cibo"
+                    "VAR?": "Briciole"
                   },
                   {
                     "f()": "remove_entity"
@@ -39243,7 +39911,7 @@
             "VAR?": "Ettore"
           },
           {
-            "VAR?": "RedRoom"
+            "VAR?": "YellowRoom"
           },
           {
             "f()": "are_entities_together_in"
@@ -39293,13 +39961,13 @@
         [
           "ev",
           {
-            "VAR?": "Matteo"
+            "VAR?": "Ettore"
           },
           {
             "VAR?": "Elia"
           },
           {
-            "VAR?": "RedRoom"
+            "VAR?": "YellowRoom"
           },
           {
             "f()": "are_entities_together_in"
@@ -40235,7 +40903,7 @@
         {
           "list": {
             "objects.Lettera": 4,
-            "objects.Cibo": 8,
+            "objects.Torta": 9,
             "objects.BottigliaDiVino": 5
           }
         },
@@ -40244,7 +40912,8 @@
         },
         {
           "list": {
-            "objects.SigarettaElettronica": 7
+            "objects.SigarettaElettronica": 7,
+            "objects.FlaconcinoAsma": 6
           }
         },
         {
@@ -40253,7 +40922,8 @@
         {
           "list": {
             "objects.SpiedinoCocktail": 3,
-            "objects.FlaconcinoAsma": 6
+            "objects.Briciole": 8,
+            "objects.Foto": 10
           }
         },
         {
@@ -40408,7 +41078,9 @@
       "BottigliaDiVino": 5,
       "FlaconcinoAsma": 6,
       "SigarettaElettronica": 7,
-      "Cibo": 8
+      "Briciole": 8,
+      "Torta": 9,
+      "Foto": 10
     },
     "loopableVariables": {
       "EliaRaggiungeGreta": 1,

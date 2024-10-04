@@ -110,6 +110,7 @@ Opzioni di dialogo con la persona Matteo
         + + Ettore: "Non ho idea di dove sia, scusa."
    
     + {trueLoveStorylet} Matteo è felice per Zeca, e per Greta, ma crede che Elia sia un coglione.
+    
 
     //SCELTE CONDIZIONALI OGGETTI//
     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!

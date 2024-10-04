@@ -107,8 +107,7 @@ Opzioni di dialogo con la persona Elia
                 ~ move_first_entity_to_second_entity_location(Elia,Zeca)
                 ~ loopableVariables += EliaSpaventatoPerZeca
     
-    TODO: foto o qualcosa che otteniamo a una certa condizione, per far "cedere" Elia?
-    
+
     //SCELTE CONDIZIONALI OGGETTI//
     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!

@@ -163,3 +163,21 @@
 ->->
 
 
+=== cb_second_tier_foto ===
++ {are_two_entitites_together(Ettore, Foto) && objects_tutorial} [object:Foto]
+    -> foto ->
+
+-> intro
+
+
+= foto
+    + Osservi foto
+        + + Prendi foto
+        ~ take_object(Foto)
+        + + La lasci dov'è
+    // + {inventoryContents has Briciole} Mostra cibo
+    + {inventoryContents has Briciole} Lascia foto
+        ~ remove_entity(Briciole)
+    
+    -
+->->

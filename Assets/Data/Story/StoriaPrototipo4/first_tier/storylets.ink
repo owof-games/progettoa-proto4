@@ -81,16 +81,27 @@ Conversazione origliata: capiamo che Greta non ce l'ha con Paola, ma cagate tipo
 
 === marryMeStorylet
 {debug: <i>Passo per marryMe</i>}
-Finalmente siamo soli, proposta di matrimonio.
+Finalmente siamo soli, proposta di matrimonio, ma la prende larga.
+Se qualcuno entra, cambia argomento.
+{
+    - are_three_entities_together(Matteo, Ettore, Elia) or are_three_entities_together(Matteo, Ettore, Greta) or are_three_entities_together(Matteo, Ettore, Zeca): -> quickTalk
+    -else: ->->
+}
+
 
     -> advance_time ->
     + (matteoSiSposa) [Avanzo]
     -
-->->
+ ->->
+ 
+ = quickTalk   
+    Matteo cambia argomento e dice cose a caso.
+-> intro
 
 === worstBestManStorylet
 {debug: <i>Passo per worstBestMate</i>}
 Zeca ci dice che non vede e sente Paola da una vita, che prima erano molto legati ma poi cose.
+{are_two_entitites_together(Zeca, Elia): Zeca porterà Elia ad unirsi al discorso, e ogni tanto metteremo degli incisi, una scenetta dedicata?}
     -> advance_time ->
     + (paolaZeca) [Avanzo]
     -
@@ -108,17 +119,24 @@ Matteo ci dice cose se ci vede in giro col suo coltello, e se lo riprende.
 === hardTrueFeelingsStorylet
 {debug: <i>Passo per hardTrueFeelingsStorylet</i>}
 Matteo ci dice che ama Greta
-
+{
+    - are_three_entities_together(Matteo, Ettore, Elia) or are_three_entities_together(Matteo, Ettore, Greta) or are_three_entities_together(Matteo, Ettore, Zeca): -> quickTalk
+    -else: ->->
+}
     -> advance_time ->
     + (matteoGreta)[Avanzo]
     -
 ->->
 
+= quickTalk
+Matteo: "Uh, è il caso di parlarne solo quando saremo soli".
+-> intro
 //STORYLET PER TUTORIAL
 
 
 === objects_tutorial
         ~ peopleTalking = true
+        TODO: come far uscire dal talking? possibile avere un contatore ad hoc che dopo un po' faccia urlare a Paola "si ricomincia" e resetta tutto?
         Paola: "Stop stop stop maledizione!"
         Paola: "Sant'iddio Greta, dove hai messo le potenziali armi?"
         Paola: "Ettore, ricordati che se hai un oggetto in mano puoi mostrarlo e ottenere nuove informazioni."

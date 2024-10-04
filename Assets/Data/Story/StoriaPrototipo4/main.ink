@@ -61,6 +61,7 @@ DEBUG: errore, nessun personaggio con cui interagire
 <- cb_second_tier_flaconcino_asma
 <- cb_second_tier_bottiglia_di_vino
 <- cb_second_tier_sigaretta_elettronica
+<- cb_second_tier_foto
 // thread per spostarsi tra le stanze
 <- move_between_rooms(my_location)
 // thread per gestire il notebook

@@ -16,11 +16,13 @@
     - are_three_entities_together(Elia, Ettore, Greta) && not are_four_entities_together(Zeca, Matteo, Paola, Elia) && iTryToBeAGoodFriendStorylet.allestimento && new_this_loop(-> liesAndPromisesStorylet ):
     -> liesAndPromisesStorylet
     
-- are_three_entities_together(Elia, Ettore, Zeca) && not are_four_entities_together(Greta, Matteo, Paola, Elia) && elia_talking_second_tier.allestimento2 && iTryToBeAGoodFriendStorylet.allestimento && new_this_loop(-> trueLoveStorylet):
+    - are_three_entities_together(Elia, Ettore, Zeca) && not are_four_entities_together(Greta, Matteo, Paola, Elia) && elia_talking_second_tier.allestimento2 && paola_talking_second_tier.foto2 && iTryToBeAGoodFriendStorylet.allestimento && new_this_loop(-> trueLoveStorylet):
     -> trueLoveStorylet    
 
 TODO: come evitare che questo storylet compaia quando siamo in stanza con loro?
-- are_three_entities_together (Elia, Ettore, Zeca)  && not are_four_entities_together(Zeca, Greta, Paola, Matteo)  && greta_talking_second_tier.indagini && loopableVariables == (EliaSpaventatoPerZeca) && new_this_loop(-> whisperingSecretsStorylet): -> whisperingSecretsStorylet
+    - are_three_entities_together (Elia, Ettore, Zeca)  && not are_four_entities_together(Zeca, Greta, Paola, Matteo)  && greta_talking_second_tier.indagini && loopableVariables == (EliaSpaventatoPerZeca) && new_this_loop(-> whisperingSecretsStorylet): -> whisperingSecretsStorylet
+    
+- inventoryContents(Foto) && are_two_entitites_together (Zeca, Ettore): -> iLlKillThatBitchStorylet    
 
 - else: ->->
 
@@ -49,15 +51,31 @@ Zeca risponde "Figurati. E poi se lei casca come li prendo tutti quei soldi?"
 === notABigSecretPartOneStorylet
     + (allestimento) Matteo ci dice che Greta ed Elia hanno recuperato il bere
         Si sono occupati anche degli elementi della scenografia
-      
-
+{
+    - are_three_entities_together(Matteo, Ettore, Elia) or are_three_entities_together(Matteo, Ettore, Greta) or are_three_entities_together(Matteo, Ettore, Zeca): -> quickTalk
+    -else: ->->
+}
 ->->
+
+= quickTalk
+Matteo dice cazzate e ci caccia.
+
+-> intro
 
 === notABigSecretPartTwoStorylet
     + (allestimento) Elia ci dice che Zeca e Matteo hanno recuperato le cibarie
         Sono anche passati in farmacia, e a prendere le ricariche per le sigarette elettroniche di Paola
-   
-->->
+
+{
+    - are_three_entities_together(Matteo, Ettore, Elia) or are_three_entities_together(Elia, Ettore, Greta) or are_three_entities_together(Elia, Ettore, Zeca): -> quickTalk
+    -else: ->->
+}
+
+= quickTalk
+Elia dice cazzate e ci caccia.
+
+-> intro
+
 
 === iTryToBeAGoodFriendStorylet
 Conversazione origliata
@@ -74,4 +92,8 @@ Storylet solo narrativo con Elia che promette a Greta amore etc.
 === trueLoveStorylet
 Conversazione origliata
 Elia ammette i suoi sentimenti per Zeca, promette che smetterà di cazzeggiare con Greta.
+->->
+
+=== iLlKillThatBitchStorylet
+Zeca ci sgama con la foto e andrà ad aggredire Greta, con piccole variazioni a seconda che lei sia già o meno nella stanza.
 ->->

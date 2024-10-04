@@ -24,12 +24,11 @@ LIST places = Inventory, WhiteRoom, GreenRoom, RedRoom, YellowRoom, ObjectStorag
 // can't name them like "white_room" because there are knots with that name
 // inventory = mano di Ettore
 VAR inventoryContents = ()
-VAR whiteRoomContents = (Ettore, Matteo, Paola, Zeca, Elia, Greta)
+VAR whiteRoomContents = (Ettore, Matteo, Paola, Zeca, Elia, Greta, SigarettaElettronica)
 VAR greenRoomContents = (LimettaUnghie, AnticoPugnale)
-VAR redRoomContents = (Lettera, Torta, BottigliaDiVino)
-VAR yellowRoomContents = (SigarettaElettronica, FlaconcinoAsma)
+VAR yellowRoomContents = (Lettera, Torta, BottigliaDiVino)
+VAR redRoomContents = (FlaconcinoAsma)
 VAR objectStorageContents = (SpiedinoCocktail, Briciole, Foto)
-TODO: finire roba foto
 
 /*
  * Get the location of the given entity (object or character). E.g.:

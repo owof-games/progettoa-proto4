@@ -39,11 +39,11 @@ namespace Components.RoomTransitionHandler
     }
 
     [Serializable]
-    public struct RoomConnections
+    public class RoomConnections
     {
-        public string sourceRoomName;
+        public string sourceRoomName = "";
         public Direction direction;
-        public string destinationRoomName;
+        public string destinationRoomName = "";
     }
 
     public class RoomTransitionHandler : MonoBehaviour
@@ -181,6 +181,12 @@ namespace Components.RoomTransitionHandler
                      */
                     // TODO: refactor with code below that does exactly the same
                     var sourceRoom2 = _lastRemovedFrom[character];
+                    if (sourceRoom2 == e.Room)
+                    {
+                        // the character is not actually moving anywhere
+                        return;
+                    }
+
                     var connections2 = _roomConnectionsBySourceName[sourceRoom2.ToString()];
                     var connection2 = connections2.Single(c =>
                         c.destinationRoomName == e.Room.ToString());
@@ -209,9 +215,18 @@ namespace Components.RoomTransitionHandler
              */
             // find direction
             var sourceRoom = _lastRemovedFrom[character];
+            if (sourceRoom == e.Room)
+            {
+                // the character is not actually moving anywhere
+                return;
+            }
+
             var connections = _roomConnectionsBySourceName[sourceRoom.ToString()];
-            var connection = connections.Single(c => c.destinationRoomName == e.Room.ToString());
-            var direction = connection.direction;
+            Debug.Log($"Looking for connection from {sourceRoom} to {e.Room} for {character}");
+            // TODO: this could error with .Single during loop reset (characters jump from far away rooms)
+            // how to solve this?
+            var connection = connections.SingleOrDefault(c => c.destinationRoomName == e.Room.ToString());
+            var direction = connection?.direction ?? Direction.Left;
 
             // navigate the character
             var navigationGraph = GetCurrentNavigationGraph();
@@ -248,6 +263,12 @@ namespace Components.RoomTransitionHandler
             if (!Enum.TryParse<Room>(roomName, out var newRoom))
             {
                 throw new InvalidOperationException($"Cannot find room {roomName}");
+            }
+
+            // nothing to do if we are already in the room
+            if (_currentlyLoadedRoomName == roomName)
+            {
+                return;
             }
 
             // determine the direction of the movement (if there's a movement)
@@ -346,6 +367,46 @@ namespace Components.RoomTransitionHandler
                 where characterName.Character == character &&
                       characterName.gameObject.scene == scene
                 select characterName.gameObject.GetComponent<CharacterNavigation>()).Single();
+        }
+
+        /// <summary>
+        /// Temporary method to reset the current room's contents without animations or anything
+        /// </summary>
+        public void ResetRoom(int loopNumber)
+        {
+            if (loopNumber == 0)
+            {
+                // first loop is handled by standard initialization code
+                return;
+            }
+            
+            // immediately removes all characters
+            var currentCharactersGameObjects =
+                (from characterName in FindObjectsByType<CharacterName>(FindObjectsInactive.Exclude,
+                        FindObjectsSortMode.None)
+                    let gameObject = characterName.gameObject
+                    where gameObject.scene == _currentSceneRootGameObject.scene
+                    select gameObject).ToList();
+            foreach (var obj in currentCharactersGameObjects)
+            {
+                DestroyImmediate(obj);
+            }
+            
+            // recreate them
+            var characters = roomContents!.GetCharacters(Enum.Parse<Room>(_currentlyLoadedRoomName!));
+            var newSceneNavigationGraph = GetCurrentNavigationGraph();
+            var availableNodes = newSceneNavigationGraph.NodesInScene.ToList();
+            foreach (var character in characters)
+            {
+                var prefab = characterMappings!.GetCharacterPrefab(character);
+                var instantiatedCharacter = Instantiate(prefab, _currentSceneRootGameObject!.transform);
+                var characterNavigation = instantiatedCharacter.GetComponent<CharacterNavigation>();
+                var idx = Random.Range(0, availableNodes.Count);
+                var nodeIndex = availableNodes[idx];
+
+                availableNodes.Remove(nodeIndex);
+                characterNavigation.SetUp(nodeIndex);
+            }
         }
     }
 }

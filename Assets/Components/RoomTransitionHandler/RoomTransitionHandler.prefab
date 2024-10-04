@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7650335190392038523}
   - component: {fileID: 181079882183154070}
+  - component: {fileID: 5613847924454309501}
   m_Layer: 0
   m_Name: RoomTransitionHandler
   m_TagString: Untagged
@@ -59,6 +60,10 @@ MonoBehaviour:
     scene:
       asset: {fileID: 102900000, guid: 5ac6afc8588c7124baadd06d812ca135, type: 3}
       guid: 5ac6afc8588c7124baadd06d812ca135
+  - name: YellowRoom
+    scene:
+      asset: {fileID: 102900000, guid: fbcbd057de6738841bafa843b76ad98b, type: 3}
+      guid: fbcbd057de6738841bafa843b76ad98b
   roomConnections:
   - sourceRoomName: WhiteRoom
     direction: 0
@@ -66,6 +71,48 @@ MonoBehaviour:
   - sourceRoomName: RedRoom
     direction: 0
     destinationRoomName: GreenRoom
+  - sourceRoomName: GreenRoom
+    direction: 0
+    destinationRoomName: YellowRoom
   roomTransitionHandlerGameObject: {fileID: 11400000, guid: 5a706c78bfbc25e4bbb350f38da38efe, type: 2}
   roomContents: {fileID: 11400000, guid: 1466351520fa896449327d03007452a4, type: 2}
   characterMappings: {fileID: 11400000, guid: 683be7d91aa2de5498fa9cad2936114a, type: 2}
+--- !u!114 &5613847924454309501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482440299943104854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050ff37b5550f4b7e9bdf8b985aff484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _developerDescription: 
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 181079882183154070}
+        m_TargetAssemblyTypeName: Components.RoomTransitionHandler.RoomTransitionHandler,
+          Assembly-CSharp
+        m_MethodName: ResetRoom
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _actionResponses: []
+  _conditions: []
+  _operator: 0
+  _replayEventBufferOnRegister: 1
+  _eventReference:
+    _usage: 0
+    _event: {fileID: 11400000, guid: 472a1895552ea2c4b9d2ac0df7686b62, type: 2}
+    _eventInstancer: {fileID: 0}
+    _variable: {fileID: 0}
+    _variableInstancer: {fileID: 0}

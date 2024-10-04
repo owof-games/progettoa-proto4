@@ -271,9 +271,9 @@ VAR currentTime = 0
     ~ loop_reset()
 - else:
     ~ currentTime+=15
+    ~ updateEntitiesLocations()
 }
 
-~ updateEntitiesLocations()
 
 
 /**
@@ -290,8 +290,11 @@ VAR currentTime = 0
 //TODO: trovare una soluzione più sensata
 //~ EliaActing = 0
 
+~ updateEntitiesLocations()
+
 // print something for the user
-Questo è il testo che dice che è avvenuto un loop!
+// Questo è il testo che dice che è avvenuto un loop!
+@next-loop
 
 
 /**

@@ -9,14 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/Rooms/Room1.unity
+    path: Assets/Scenes/Rooms/WhiteRoom.unity
     guid: 0d20cc41c6098174ea22af6b6731629d
   - enabled: 1
-    path: Assets/Scenes/Rooms/Room2.unity
+    path: Assets/Scenes/Rooms/RedRoom.unity
     guid: 400ccdff07145e34d976ea329b81ab35
   - enabled: 1
-    path: Assets/Scenes/Rooms/Room3.unity
+    path: Assets/Scenes/Rooms/GreenRoom.unity
     guid: 5ac6afc8588c7124baadd06d812ca135
+  - enabled: 1
+    path: Assets/Scenes/Rooms/YellowRoom.unity
+    guid: fbcbd057de6738841bafa843b76ad98b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

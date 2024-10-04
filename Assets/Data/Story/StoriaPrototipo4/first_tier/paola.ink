@@ -15,9 +15,9 @@ Opzioni di dialogo con il personaggio Paola: assenti perché more
 
 
 === paola_acting
+TODO: mettere frase ettore random se non morta
     {debug: <i>Passo per paola_acting</i>}
-    -> first_tier_storylets ->
-    + {objects_tutorial} "Non mi parlare, sono morta."
+    + {objects_tutorial} Paola: "Non mi parlare, sono morta."
     -
     ->->
 

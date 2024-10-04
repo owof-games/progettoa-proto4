@@ -68,7 +68,6 @@ Discussione Matteo ed Elia su matrimonio al bar. Elia vuole farlo al pub, Matteo
 ->->
 
 
-TODO: come gestiamo le conversazioni origliate, con questa struttura di se/allora?
 === anEavesdropAboutFriendshipStorylet
 {debug: <i>Passo per anEavesdropAboutFriendshipStorylet</i>}
 Conversazione origliata: capiamo che Greta non ce l'ha con Paola, ma cagate tipo "prima che papà mi adottasse ho vissuto in strada, non possono rivivere quel trauma".
@@ -136,7 +135,7 @@ Matteo: "Uh, è il caso di parlarne solo quando saremo soli".
 
 === objects_tutorial
         ~ peopleTalking = true
-        TODO: come far uscire dal talking? possibile avere un contatore ad hoc che dopo un po' faccia urlare a Paola "si ricomincia" e resetta tutto?
+        TODO: come far uscire dal talking? possibile avere un contatore ad hoc che dopo un po' faccia urlare a Paola "si ricomincia" e resetta tutto? -> creare uno storylet che è uguale a tempo corrente (= reset di paola) + tempo. Mattia imposterebbe una variabile che è -1, quando Paola si incazza la impostiamo a currentTime. Lo storylet parte quando il tempo attuale è uguale a Variabile + tempo definito. Variabile da resettare in ogni loop assieme alle altre variabili.
         Paola: "Stop stop stop maledizione!"
         Paola: "Sant'iddio Greta, dove hai messo le potenziali armi?"
         Paola: "Ettore, ricordati che se hai un oggetto in mano puoi mostrarlo e ottenere nuove informazioni."

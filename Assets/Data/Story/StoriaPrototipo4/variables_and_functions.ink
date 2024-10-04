@@ -203,11 +203,9 @@ VAR objectStorageContents = (SpiedinoCocktail, Briciole, Foto)
 
 
 // variables containing the state of various objects
-LIST limettaUnghieState = (Clean), Dirty
-LIST paolaState = (Angry), Happy
-LIST letteraState = (Whole), Torn
-LIST anticoPugnaleState = (Clean), Dirty
-LIST spiedinoCocktailState = (Whole), Broken
+
+LIST paolaState = (Live), Unalived
+
 
 /*
  * Get the current status of an entity (object or character).
@@ -217,16 +215,8 @@ LIST spiedinoCocktailState = (Whole), Broken
  */
 === function get_status(entity)
 { entity:
-    - LimettaUnghie:
-        ~ return limettaUnghieState
     - Paola:
-        ~ return paolaState
-    - Lettera:
-        ~ return letteraState
-    - AnticoPugnale:
-        ~ return anticoPugnaleState
-    - SpiedinoCocktail:
-        ~ return spiedinoCocktailState   
+        ~ return paolaState  
     - else:
         DEBUG: error, entity {entity} has no state
         ~ return 0
@@ -241,14 +231,6 @@ LIST spiedinoCocktailState = (Whole), Broken
  */
 === function change_status(entity, new_status)
 { entity:
-    - LimettaUnghie:
-        ~ _change_status_inner(entity, new_status, limettaUnghieState)
-    - AnticoPugnale:
-        ~ _change_status_inner(entity, new_status, anticoPugnaleState)
-    - SpiedinoCocktail:
-        ~ _change_status_inner(entity, new_status, spiedinoCocktailState)
-    - Lettera:
-        ~ _change_status_inner(entity, new_status, letteraState)    
     - Paola:
         ~ _change_status_inner(entity, new_status, paolaState)
     - else:

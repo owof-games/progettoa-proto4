@@ -20,7 +20,6 @@ Opzioni di dialogo con il personaggio Zeca
 
 === zeca_acting
     {debug: <i>Passo per zeca_acting</i>}
-    -> first_tier_storylets ->
     //INFO GENERALI//
     + Fai domande sul personaggio Zeca -> esplora_zeca_personaggia
     
@@ -100,7 +99,7 @@ Opzioni di dialogo con la persona Zeca
 
 === zeca_talking
  {debug: <i>Passo per zeca_talking</i>}
-    -> first_tier_storylets ->
+    -> resting_time ->
     //INFO GENERALI//
     + Fai domande sulla persona Zeca -> esplora_zeca
 
@@ -125,7 +124,7 @@ Opzioni di dialogo con la persona Zeca
 
 = esplora_zeca
 {debug: <i>Passo per esplora_zeca</i>}
-
+-> resting_time ->
 
 {
 - ZecaTalking > 1: Zeca: "Non mi va di rispondere ad altre domande personali".

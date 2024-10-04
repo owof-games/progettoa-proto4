@@ -15,9 +15,9 @@ Opzioni di dialogo con il personaggio Paola: assenti perché more
 
 
 === paola_acting
-TODO: mettere frase ettore random se non morta
     {debug: <i>Passo per paola_acting</i>}
     + {objects_tutorial} Paola: "Non mi parlare, sono morta."
+    + {!objects_tutorial} Ettore: "Sembra proprio morta."
     -
     ->->
 
@@ -28,7 +28,7 @@ Opzioni di dialogo con la persona Paola
 
 === paola_talking
  {debug: <i>Passo per paola_talking</i>}
-    -> first_tier_storylets ->
+    -> resting_time ->
     //INFO GENERALI//
     + Fai domande sulla persona Paola -> esplora_paola
 
@@ -52,7 +52,7 @@ Opzioni di dialogo con la persona Paola
 
 = esplora_paola
 {debug: <i>Passo per esplora_paola</i>}
-
+-> resting_time ->
 
 {
 - PaolaTalking > 1: Paola: "Non mi va di rispondere ad altre domande personali".

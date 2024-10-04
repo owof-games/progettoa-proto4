@@ -18,7 +18,6 @@ Opzioni di dialogo con il personaggio Matteo
 
 === matteo_acting
     {debug: <i>Passo per matteo_acting</i>}
-    -> first_tier_storylets ->
     //INFO GENERALI//
     + Fai domande sul personaggio Matteo -> esplora_matteo_personaggia
     
@@ -98,7 +97,7 @@ Opzioni di dialogo con la persona Matteo
 
 === matteo_talking
  {debug: <i>Passo per matteo_talking</i>}
-    -> first_tier_storylets ->
+    -> resting_time ->
     //INFO GENERALI//
     + Fai domande sulla persona Matteo -> esplora_matteo
 
@@ -122,7 +121,7 @@ Opzioni di dialogo con la persona Matteo
 
 = esplora_matteo
 {debug: <i>Passo per esplora_matteo</i>}
-
+-> resting_time ->
 
 {
 - MatteoTalking > 1: Matteo: "Non mi va di rispondere ad altre domande personali".

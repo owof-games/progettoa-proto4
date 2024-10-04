@@ -23,7 +23,7 @@ Opzioni di dialogo con il personaggio Elia
     + Fai domande sul personaggio Elia -> esplora_elia_personaggia
     
     //SCELTE CONDIZIONALI//
-    + (senzatetto){greta_acting.missioneGreta && new_this_loop(->senzatetto)} Elia, Greta vorrebbe parlare con te.
+    + (senzatetto){greta_acting.missioneGreta && new_this_loop(->senzatetto) && not are_two_entitites_together(Greta, Elia)} Elia, Greta vorrebbe parlare con te.
         Elia: Così può uccidere anche me?
         Ettore: In che senso?
         Elia: Paola voleva rilevare il pub per trasformarlo in un rifugio per senzatetto, e Greta ha detto cose terribili e ripetuto che avrebbe fatto di tutto per fermarla.
@@ -32,13 +32,13 @@ Opzioni di dialogo con il personaggio Elia
         // route "lo mandi nella stanza di Greta con una trappola"
         
         // route "lo mandi da Greta proponendo uno scambio"
-    +  (uniti){weddingAtThePubStorylet && new_this_loop(->senzatetto)} Ho una proposta. So che tu e Matteo avete litigato, per via del matrimonio.
+    +  (uniti){weddingAtThePubStorylet && new_this_loop(->senzatetto) && not are_two_entitites_together(Matteo, Elia) && not are_two_entitites_together(Greta, Elia)} Ho una proposta. So che tu e Matteo avete litigato, per via del matrimonio.
             Ettore: Tu vuoi che festeggiamo al pub. Se lo convinco, andrai da Greta?
             Elia: Se ci riesci, parlerò con quella arpia.
             
-    + {!new_this_loop(->senzatetto) && !hardTrueFeelingsStorylet} Ettore: "Sto ancora cercando il modo di convincere Matteo, ma ce la farò!"
+    + {!new_this_loop(->senzatetto) && !hardTrueFeelingsStorylet && not are_two_entitites_together(Matteo, Elia) && not are_two_entitites_together(Greta, Elia)} Ettore: "Sto ancora cercando il modo di convincere Matteo, ma ce la farò!"
 
-    + {hardTrueFeelingsStorylet} Ettore: "Ho convinto Matteo."
+    + (missioneGreta){hardTrueFeelingsStorylet && not are_two_entitites_together(Greta, Elia)} Ettore: "Ho convinto Matteo, ora parlerai con Greta?"
             Elia: "Bene, vado, dove la trovo?"
             ~ move_entity_from_object_storage_to_Ettore_location(SpiedinoCocktail)
             TODO: Check con Mattia per vedere se c'è modo di trasformare in funzione o simile visto che riuseremo più volte questa strategia. o in un tunnel tipo se stanza non ha ettore, sposta, move entity 
@@ -80,6 +80,11 @@ Opzioni di dialogo con il personaggio Elia
     //SCELTE CONDIZIONALI OGGETTI//
      + (pugnaleMatteo){inventoryContents has AnticoPugnale} Guarda questo pugnale!
             Elia: "Matteo era disperato, l'aveva perso da settimane!"
+            {
+            - are_two_entitites_together(Matteo, Elia): Matteo: "E ora me lo riprendo. Grazie amore mio!"
+                ~ inventoryContents -= AnticoPugnale
+                ~ objectStorageContents += AnticoPugnale
+            }
      + {inventoryContents has SpiedinoCocktail} Elia, hai lasciato alle tue spalle questo oggetto.
         + + (paolaSiSposa)Sarebbe perfetto per uccidere qualcuno!
             Elia si incazza
@@ -91,7 +96,7 @@ Opzioni di dialogo con il personaggio Elia
         - -
     + {inventoryContents has Lettera} Guarda questa lettera!
     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has Briciole} Guarda questo cibo!
     + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
     + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
     + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
@@ -160,7 +165,7 @@ Opzioni di dialogo con la persona Elia
     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
     + {inventoryContents has Lettera} Guarda questa lettera!
     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has Briciole} Guarda questo cibo!
     + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
     + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
     + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!

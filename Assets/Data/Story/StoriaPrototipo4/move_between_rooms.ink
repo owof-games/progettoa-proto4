@@ -9,7 +9,7 @@
 + {my_location == WhiteRoom || my_location == GreenRoom} [exit:RedRoom]
     ~ move_entity(Ettore, RedRoom)
     -> advance_time ->
-+ {my_location == GreenRoom} [exit:YellowRoom]
++ {my_location == GreenRoom} [exit:YellowRoom] //area buffet
     ~ move_entity(Ettore, YellowRoom)
     -> advance_time ->
 -    

@@ -24,6 +24,7 @@ Opzioni di dialogo con il personaggio Paola, che però sarà subito morta
 Opzioni di dialogo con la persona Paola
  ----------------------------------*/
 
+TODO: alcune info ha senso che ce le dia Paola
 === paola_talking_second_tier
  {debug: <i>Passo per paola_talking</i>}
     -> second_tier_storylets ->
@@ -31,8 +32,13 @@ Opzioni di dialogo con la persona Paola
     + Fai domande sulla persona Paola -> esplora_paola
 
     //SCELTE CONDIZIONALI//
-    
-
+    + (allestimento) {zeca_talking_second_tier.allestimento} Ripetiamo quello che ci ha detto Zeca.
+        Paola: "Ho sentito Zeca e Matteo litigare nella stanza prima del buffet"
+    + (money) Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro. 
+    + (foto) {zeca_talking_second_tier.allestimento2} Diciamo la cosa del vibratore. Paola ci dice che se allontaniamo Greta dalla stanza, ci darà qualcosa di interessante.
+    + {greta_talking_second_tier.foto} Se risolviamo: foto Elia e Greta che scopano al pub.
+            "Vedi tu che farci!" (presentarci con qualcosa in mano)
+            
     //SCELTE CONDIZIONALI OGGETTI//
      + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
      + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!

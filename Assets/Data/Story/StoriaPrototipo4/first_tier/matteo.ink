@@ -27,9 +27,9 @@ Opzioni di dialogo con il personaggio Matteo
     + (paolaSiSposa) {elia_acting.paolaSiSposa} Ettore: "Matteo, tu sapevi che Paola si stava per sposare?"
         + + {marryMeStorylet} Ettore
             Matteo: "Sì, ero incazzatissimo perché ci ha detto che ci sarebbe sposata il giorno dopo che le ho detto che volevo farti la proposta, la stronza."
-    + {new_this_loop(->hardTrueFeelingsStorylet)} {elia_acting.uniti} Ettore: "Amore, in merito al nostro matrimonio..."
+    + {new_this_loop(->hardTrueFeelingsStorylet)} {elia_acting.uniti && not are_four_entities_together(Greta, Elia, Matteo, Zeca)} Ettore: "Amore, in merito al nostro matrimonio..."
         ->hardTrueFeelingsStorylet->
-    + (zecaTestimone){worstBestManStorylet} Matteo ci dice che Zeca è stato chiamato a fare da testimone.
+    + (zecaTestimone){worstBestManStorylet && not are_two_entitites_together(Zeca, Matteo)} Matteo ci dice che Zeca è stato chiamato a fare da testimone.
         "La cosa che mi ha stupito è che abbia chiesto a Zeca di farle da testimone!"
         Matteo: "Sappiamo tutti che Zeca odia la povera Paola da sempre!"
         
@@ -38,7 +38,7 @@ Opzioni di dialogo con il personaggio Matteo
     + {inventoryContents has Lettera} Guarda questa lettera!
     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
             Matteo: "Ma è di Greta!"
-    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has Briciole} Guarda questo cibo!
     + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
     + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
     + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!        
@@ -110,7 +110,7 @@ Opzioni di dialogo con la persona Matteo
     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
     + {inventoryContents has Lettera} Guarda questa lettera!
     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has Briciole} Guarda questo cibo!
     + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
     + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
     + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!

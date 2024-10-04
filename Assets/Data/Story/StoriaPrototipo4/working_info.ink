@@ -5,12 +5,6 @@
 
 
 
-//NOMENCLATURA LABELS
-// _taccu = prefisso per le etichette che abilitano informazioni nel notebook
-TODO: questa cosa non funziona più benissimo perché molte cose passano per nodi ora
-
-
-
 // REGOLA PER I CHECK
 // se riguarda un'informazione che sa Ettore: check sui knot/stitch/label
 // se riguarda un'informazione che sanno i personaggi: check sulle variabili

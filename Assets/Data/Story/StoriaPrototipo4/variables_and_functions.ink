@@ -1,3 +1,4 @@
+TODO: da decidere cosa attiva o disattiva la recitazione nel tier due (nel primo è Paola)
 
 // activate debug text
 VAR debug = false
@@ -6,7 +7,7 @@ VAR debug = false
 LIST characters = Paola, Elia, Zeca, Matteo, Greta, Ettore
 
 // list of all objects
-LIST objects = LimettaUnghie, AnticoPugnale, SpiedinoCocktail, Lettera, BottigliaDiVino, FlaconcinoAsma, SigarettaElettronica, Cibo
+LIST objects = LimettaUnghie, AnticoPugnale, SpiedinoCocktail, Lettera, BottigliaDiVino, FlaconcinoAsma, SigarettaElettronica, Briciole, Torta, Foto
 
 //list of variables to reset on every loop
 LIST loopableVariables = EliaRaggiungeGreta, EliaSpaventatoPerZeca
@@ -25,10 +26,10 @@ LIST places = Inventory, WhiteRoom, GreenRoom, RedRoom, YellowRoom, ObjectStorag
 VAR inventoryContents = ()
 VAR whiteRoomContents = (Ettore, Matteo, Paola, Zeca, Elia, Greta)
 VAR greenRoomContents = (LimettaUnghie, AnticoPugnale)
-VAR redRoomContents = (Lettera, Cibo, BottigliaDiVino)
-VAR yellowRoomContents = (SigarettaElettronica)
-VAR objectStorageContents = (SpiedinoCocktail, FlaconcinoAsma)
-
+VAR redRoomContents = (Lettera, Torta, BottigliaDiVino)
+VAR yellowRoomContents = (SigarettaElettronica, FlaconcinoAsma)
+VAR objectStorageContents = (SpiedinoCocktail, Briciole, Foto)
+TODO: finire roba foto
 
 /*
  * Get the location of the given entity (object or character). E.g.:

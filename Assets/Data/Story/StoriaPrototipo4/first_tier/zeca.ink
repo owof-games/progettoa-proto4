@@ -26,15 +26,21 @@ Opzioni di dialogo con il personaggio Zeca
     
     //SCELTE CONDIZIONALI//
     + (matrimonio) {marryMeStorylet} Zeca ci fa capire che sapeva da un po' del matrimonio.
-    + (matteoGreta) {hardTrueFeelingsStorylet} Zeca ci dice che Matteo è ricattato da Greta, ma non sa bene per cosa.
+    + (matteoGreta) {hardTrueFeelingsStorylet && not are_two_entitites_together(Zeca, Matteo) && not are_two_entitites_together(Zeca, Greta)} Zeca ci dice che Matteo è ricattato da Greta, ma non sa bene per cosa.
     
     //SCELTE CONDIZIONALI OGGETTI//
     + (pugnaleMatteo){inventoryContents has AnticoPugnale} Guarda questo pugnale!
         Zeca: "Matteo lo usa in modo <b>ossessivo</b> per pulirsi la soletta delle scarpe!"
+        {
+        - are_two_entitites_together(Ettore, Matteo): Matteo: "Non sono ossessivo!"
+        Matteo: "E ora me lo riprenderei, grazie mille!"
+            ~ inventoryContents -= AnticoPugnale
+            ~ objectStorageContents += AnticoPugnale
+            }
     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
     + {inventoryContents has Lettera} Guarda questa lettera!
     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has Briciole} Guarda questo cibo!
     + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
     + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
     + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
@@ -106,7 +112,7 @@ Opzioni di dialogo con la persona Zeca
     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
     + {inventoryContents has Lettera} Guarda questa lettera!
     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    + {inventoryContents has Cibo} Guarda questo cibo!
+    + {inventoryContents has Briciole} Guarda questo cibo!
     + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
     + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
     + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!

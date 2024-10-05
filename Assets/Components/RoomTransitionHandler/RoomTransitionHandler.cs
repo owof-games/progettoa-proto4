@@ -65,6 +65,15 @@ namespace Components.RoomTransitionHandler
         /// </summary>
         private Dictionary<Character.Character, Room> _lastRemovedFrom = new();
 
+        /// <summary>
+        ///     Asynchronous operation representing the last time a room was loaded.
+        ///     It's lazy so that it can be awaited multiple times.
+        ///     (from the sparse documentation, Preserve() should do the same, but it actually throws the error
+        ///     corresponding to the behaviour of waiting twice on a normal task, so... who knows, lazy works, it's ok, not
+        ///     wasting time on this)
+        /// </summary>
+        private AsyncLazy? _lastSceneLoadingOperation;
+
         private Dictionary<string, List<RoomConnections>> _roomConnectionsBySourceName = new();
 
         private Dictionary<string, RoomDescription> _roomDescriptionsByName = new();
@@ -160,15 +169,32 @@ namespace Components.RoomTransitionHandler
             }
 
             if (!Enum.TryParse<Character.Character>(e.SerializableInkListItem.itemName, out var character))
-            {
                 // not interested if the entity added is not a character
                 return;
-            }
 
             if (character == Character.Character.Ettore)
-            {
                 // ettore is handled separately through moveToRoom
                 return;
+
+            OnRoomContentAddedAsync(e, character).Forget();
+        }
+
+        private async UniTaskVoid OnRoomContentAddedAsync(RoomContentEventArgs e, Character.Character character)
+        {
+            // we need this await to be sure that we process room removal BEFORE room add
+            // for reasons not investigated, sometimes we receive the remove before the add,
+            // sometimes vice versa (and this would break this code, which relies on knowing
+            // where the character was)
+            // alternative solution: keep track of where the character _is_, not where it's
+            // removed from
+            await UniTask.NextFrame();
+
+            // in loops, the other room is loaded, and we are asked to immediately move characters
+            // this would cause characters to move to non-loaded rooms
+            // wait for the current loading operation to be completed
+            if (_lastSceneLoadingOperation != null)
+            {
+                await _lastSceneLoadingOperation;
             }
 
             if (e.Room.ToString() != _currentlyLoadedRoomName)
@@ -196,10 +222,10 @@ namespace Components.RoomTransitionHandler
                     // different from here on
                     var destination = direction2 == Direction.Left ? RoomDirection.Left : RoomDirection.Right;
                     var characterNavigation2 = GetCharacterNavigation(_currentSceneRootGameObject!.scene, character);
-                    characterNavigation2.ExitTo(destination).ContinueWith(() =>
+                    await characterNavigation2.ExitTo(destination).ContinueWith(() =>
                     {
                         Destroy(characterNavigation2.gameObject);
-                    }).Forget();
+                    });
                 }
 
                 // will immediately get to this return if the character neither comes neither arrives in the current room
@@ -238,7 +264,7 @@ namespace Components.RoomTransitionHandler
             var characterNavigation = instantiatedCharacter.GetComponent<CharacterNavigation>();
             characterNavigation.SetUp(source);
             var destinationNodeIndex = navigationGraph.GetRandomFreeNode();
-            characterNavigation.EnterTo(destinationNodeIndex).Forget();
+            await characterNavigation.EnterTo(destinationNodeIndex);
         }
 
         private NavigationGraph GetCurrentNavigationGraph()
@@ -287,7 +313,10 @@ namespace Components.RoomTransitionHandler
             // load the new room and immediately move it out of sight
             Assert.IsTrue(_roomDescriptionsByName.ContainsKey(roomName));
             var newSceneReference = _roomDescriptionsByName[_currentlyLoadedRoomName].scene;
-            await SceneManager.LoadSceneAsync(newSceneReference.BuildIndex, LoadSceneMode.Additive);
+            var lastSceneLoadingOperation = UniTask.Lazy(() =>
+                SceneManager.LoadSceneAsync(newSceneReference.BuildIndex, LoadSceneMode.Additive).ToUniTask());
+            _lastSceneLoadingOperation = lastSceneLoadingOperation;
+            await lastSceneLoadingOperation;
             var newSceneRootGameObjects = newSceneReference.LoadedScene.GetRootGameObjects();
             Assert.AreEqual(newSceneRootGameObjects.Length, 1);
             _currentSceneRootGameObject = newSceneRootGameObjects[0];
@@ -340,10 +369,12 @@ namespace Components.RoomTransitionHandler
                     LMotion
                         .Create(deltaPosition, Vector3.zero, transitionDuration)
                         .BindToPosition(_currentSceneRootGameObject.transform)
+                        .AddTo(_currentSceneRootGameObject.transform)
                         .ToUniTask(),
                     LMotion
                         .Create(Vector3.zero, -deltaPosition, transitionDuration)
                         .BindToPosition(previousSceneRootGameObject.transform)
+                        .AddTo(previousSceneRootGameObject.transform)
                         .ToUniTask());
 
                 // animate Ettore coming in
@@ -379,7 +410,7 @@ namespace Components.RoomTransitionHandler
                 // first loop is handled by standard initialization code
                 return;
             }
-            
+
             // immediately removes all characters
             var currentCharactersGameObjects =
                 (from characterName in FindObjectsByType<CharacterName>(FindObjectsInactive.Exclude,
@@ -391,7 +422,7 @@ namespace Components.RoomTransitionHandler
             {
                 DestroyImmediate(obj);
             }
-            
+
             // recreate them
             var characters = roomContents!.GetCharacters(Enum.Parse<Room>(_currentlyLoadedRoomName!));
             var newSceneNavigationGraph = GetCurrentNavigationGraph();

@@ -1,5 +1,6 @@
 #nullable enable
 using System.Linq;
+using System.Threading;
 using Components.NavigationNetwork;
 using Cysharp.Threading.Tasks;
 using LitMotion;
@@ -7,6 +8,7 @@ using LitMotion.Extensions;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Debug = System.Diagnostics.Debug;
+using Random = UnityEngine.Random;
 
 namespace Components.Character
 {
@@ -20,6 +22,8 @@ namespace Components.Character
     {
         [SerializeField] private float movementJitter = 0.1f;
         [SerializeField] private float speed = 2f;
+
+        private readonly CancellationTokenSource _navigationAnimationCancellationSource = new();
 
         private NavigationGraph? _cachedNavigationGraph;
 
@@ -35,6 +39,11 @@ namespace Components.Character
         {
             // force obtaining the navigation graph
             GetNavigationGraph();
+        }
+
+        private void OnDestroy()
+        {
+            _navigationAnimationCancellationSource.Cancel();
         }
 
         private NavigationGraph GetNavigationGraph()
@@ -115,7 +124,9 @@ namespace Components.Character
                 to += new Vector2(Random.Range(0, 1), Random.Range(0, 1)).normalized * movementJitter;
                 await LMotion
                     .Create(from, to, (from - to).magnitude / speed)
-                    .BindToPositionXY(transform);
+                    .BindToPositionXY(transform)
+                    .AddTo(transform)
+                    .ToUniTask(_navigationAnimationCancellationSource.Token);
             }
         }
     }

@@ -1,14 +1,22 @@
-INCLUDE variables_and_functions.ink
-INCLUDE move_between_rooms.ink
-INCLUDE variables_for_story_tracking.ink
-INCLUDE notebook.ink
 INCLUDE working_info.ink
-INCLUDE main.ink
-INCLUDE entity_location.ink
-INCLUDE exceptions.ink
-INCLUDE OverboardFunctions.ink
-INCLUDE phone.ink
 
+
+INCLUDE variables_and_lists.ink
+INCLUDE location_and_move_functions.ink
+INCLUDE status_function.ink
+INCLUDE time_functions.ink
+INCLUDE move_between_rooms.ink
+INCLUDE exceptions.ink
+
+
+
+INCLUDE entity_location.ink
+
+
+INCLUDE phone.ink
+INCLUDE notebook.ink
+
+INCLUDE main.ink
 
 
 INCLUDE first_tier/paola.ink
@@ -26,6 +34,13 @@ INCLUDE second_tier/elia.ink
 INCLUDE second_tier/zeca.ink
 INCLUDE second_tier/objects.ink
 INCLUDE second_tier/storylets.ink
+INCLUDE story_and_storylet_functions.ink
+
+
+
+
+
+
 
 
 

@@ -17,7 +17,6 @@ Opzioni di dialogo con il personaggio Greta
 
 === greta_acting
     {debug: <i>Passo per greta_acting</i>}
-    -> first_tier_storylets ->
     //INFO GENERALI//
     + Fai domande sul personaggio Greta -> esplora_greta_personaggia
     
@@ -102,7 +101,7 @@ Opzioni di dialogo con la persona Greta
 
 === greta_talking
  {debug: <i>Passo per greta_talking</i>}
-    -> first_tier_storylets ->
+    -> resting_time ->
     //INFO GENERALI//
     + Fai domande sulla persona Greta -> esplora_greta
 
@@ -126,7 +125,7 @@ Opzioni di dialogo con la persona Greta
 
 = esplora_greta
 {debug: <i>Passo per esplora_greta</i>}
-
+-> resting_time ->
 
 {
 - GretaTalking > 1: Greta: "Non mi va di rispondere ad altre domande personali".

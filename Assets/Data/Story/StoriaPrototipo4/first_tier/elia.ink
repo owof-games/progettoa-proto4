@@ -18,7 +18,6 @@ Opzioni di dialogo con il personaggio Elia
 
 === elia_acting
     {debug: <i>Passo per elia_acting</i>}
-    -> first_tier_storylets ->
     //INFO GENERALI//
     + Fai domande sul personaggio Elia -> esplora_elia_personaggia
     
@@ -153,7 +152,7 @@ Opzioni di dialogo con la persona Elia
 
 === elia_talking
  {debug: <i>Passo per elia_talking</i>}
-    -> first_tier_storylets ->
+    -> resting_time ->
     //INFO GENERALI//
     + Fai domande sulla persona Elia -> esplora_elia
 
@@ -176,7 +175,7 @@ Opzioni di dialogo con la persona Elia
 
 = esplora_elia
 {debug: <i>Passo per esplora_elia</i>}
-
+-> resting_time ->
 
 {
 - EliaTalking > 1: Elia: "Non mi va di rispondere ad altre domande personali".

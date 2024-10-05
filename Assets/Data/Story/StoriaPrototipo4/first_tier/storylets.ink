@@ -9,13 +9,14 @@
     - are_three_entities_together(Elia, Matteo, Ettore) && not are_two_entitites_together(Elia, Zeca) && not are_two_entitites_together(Elia, Greta) && marryMeStorylet && new_this_loop(->weddingAtThePubStorylet):
     -> weddingAtThePubStorylet
 
-    - are_three_entities_together(Elia, Greta, Ettore) && elia_acting.missioneGreta && not are_two_entitites_together(Elia, Matteo) && not are_two_entitites_together(Elia, Zeca) && new_this_loop(->anEavesdropAboutFriendshipStorylet):
-    -> anEavesdropAboutFriendshipStorylet
+
 
 //La morte di Paola deve arrivare solo quando abbbiamo fatto tutti i tutorial e abbiamo compiuto le scelte su Matteo e Zeca
- - are_three_entities_together(Elia, Greta, Paola) && objects_tutorial && notebook_tutorial && talking_tutorial && (choiceMatteoVuoleSposareEttore == True or choiceMatteoVuoleSposareEttore == False) && (choiceMenteZeca == True or choiceMenteZeca == False): -> paolaIsDeadStorylet
+ - objects_tutorial && notebook_tutorial && talking_tutorial && (choiceMatteoVuoleSposareEttore == True or choiceMatteoVuoleSposareEttore == False) && (choiceMenteZeca == True or choiceMenteZeca == False) && currentTime >= 200: -> paolaIsDeadStorylet
 
-
+//CONVERSAZIONI ORIGLIATE
+    - are_two_entitites_together(Elia, Greta) && elia_acting.missioneGreta && not are_two_entitites_together(Elia, Matteo) && not are_two_entitites_together(Elia, Zeca) && is_this_room_near_Ettore(Elia) == true && new_this_loop(->anEavesdropAboutFriendshipStorylet):
+    -> anEavesdropAboutFriendshipStorylet
 
 //CONFESSIONI SOLITARIE 
 
@@ -68,7 +69,6 @@ Discussione Matteo ed Elia su matrimonio al bar. Elia vuole farlo al pub, Matteo
 ->->
 
 
-TODO: come gestiamo le conversazioni origliate, con questa struttura di se/allora?
 === anEavesdropAboutFriendshipStorylet
 {debug: <i>Passo per anEavesdropAboutFriendshipStorylet</i>}
 Conversazione origliata: capiamo che Greta non ce l'ha con Paola, ma cagate tipo "prima che papà mi adottasse ho vissuto in strada, non possono rivivere quel trauma".
@@ -135,8 +135,6 @@ Matteo: "Uh, è il caso di parlarne solo quando saremo soli".
 
 
 === objects_tutorial
-        ~ peopleTalking = true
-        TODO: come far uscire dal talking? possibile avere un contatore ad hoc che dopo un po' faccia urlare a Paola "si ricomincia" e resetta tutto?
         Paola: "Stop stop stop maledizione!"
         Paola: "Sant'iddio Greta, dove hai messo le potenziali armi?"
         Paola: "Ettore, ricordati che se hai un oggetto in mano puoi mostrarlo e ottenere nuove informazioni."
@@ -145,12 +143,12 @@ Matteo: "Uh, è il caso di parlarne solo quando saremo soli".
         Paola: "Elia, coglione! Ora vi tocca improvvisare, l'arma sarà un'altra. Mi spiace per il livello di non professionalismo, Ettore."
         Paola: "Cinque minuti e poi riprendiamo!"
             -> advance_time ->
+            -> resting_time ->
             + [Avanzo]
             -
             ->->
 
 === notebook_tutorial
-        ~ peopleTalking = true
         Paola: "STOP STOP STOP DI NUOVO!"
         Paola: "GRETA! Ma l'hai dato il taccuino ad Ettore?!?"
             ~ move_first_entity_to_second_entity_location(Greta,Ettore)
@@ -165,12 +163,12 @@ Matteo: "Uh, è il caso di parlarne solo quando saremo soli".
         Paola: "Sarai tu a decidere quando avrai abbastanza informazioni per dare una risposta, e a quel punto incriminare la persona responsabile."
         Paola: "Riposiamo un attimo tutti, ma un attimo!"
         -> advance_time ->
+        -> resting_time ->
             + [Avanzo]
             -
             ->->
 
 === talking_tutorial
-        ~ peopleTalking = true
         Paola: "Madre santa, che fatica prepararvi per questo pezzo!"
         Paola: "Ettore, Ettore. Nel teatro di improvvisazione il ritmo è importante, sono io a dovertelo dire?"
             ~ move_first_entity_to_second_entity_location(Elia,Ettore)
@@ -185,6 +183,7 @@ Matteo: "Uh, è il caso di parlarne solo quando saremo soli".
         Paola: "Cavolo, sei bellino ma non sei sveglio, eh?"
         Paola: "Qualche minuto di pausa e poi riprendiamo, spero in modo definitivo!
         -> advance_time ->
+        -> resting_time ->
             + [Avanzo]
             -
             ->->
@@ -192,28 +191,55 @@ Matteo: "Uh, è il caso di parlarne solo quando saremo soli".
 
 //MORTE DI PAOLA
 === paolaIsDeadStorylet
-TODO: questa scena in realtà avrebbe senso che capitasse sempre come chiusura del secondo tier, quando il tempo scade. Come ha senso settarla?
 //QUI POTREBBE AVER SENSO NON FAR AVANZARE IL TIMER
 {debug: <i>paolaIsDeadStorylet</i>}
 Scatta la scena in cui Paola è morta
 Greta chiede a Paola che senso abbia tutta quella cosa, Paola, non risponde.
 Greta la tocca, urla, e ci dice che è morta.
 Tutti arrivano in quella stanza.
+//Grida di chi è in scena
 {
-- not are_two_entitites_together(Elia, Ettore):
-    ~ move_first_entity_to_second_entity_location(Elia,Ettore)
+- are_two_entitites_together(Elia, Paola):
+    Elia: "Oh merda merda merda non respira!"
+}
+{
+- are_two_entitites_together(Zeca, Paola):
+    ~ move_first_entity_to_second_entity_location(Zeca,Paola)
+    Zeca: "Un ambulanza, qualcuno chiami un ambulanza!"
+}
+{
+- not are_two_entitites_together(Matteo, Paola):
+    ~ move_first_entity_to_second_entity_location(Matteo,Paola)
+    Matteo: "AAAAAAAAAAAAAAAAAAAAAAAAAA!"
+}
+{
+- not are_two_entitites_together(Greta, Paola):
+    ~ move_first_entity_to_second_entity_location(Greta,Paola)
+    Greta: "Ehi, smettila!"
+} 
+
+
+//Grida di chi non è in scena
+{
+- not are_two_entitites_together(Elia, Paola):
+    ~ move_first_entity_to_second_entity_location(Elia,Paola)
     Elia: "Che succede?!"
 }
 {
-- not are_two_entitites_together(Zeca, Ettore):
-    ~ move_first_entity_to_second_entity_location(Zeca,Ettore)
+- not are_two_entitites_together(Zeca, Paola):
+    ~ move_first_entity_to_second_entity_location(Zeca,Paola)
     Zeca: "Qualcuno si è fatto male?!!"
 }
 {
-- not are_two_entitites_together(Matteo, Ettore):
-    ~ move_first_entity_to_second_entity_location(Matteo,Ettore)
+- not are_two_entitites_together(Matteo, Paola):
+    ~ move_first_entity_to_second_entity_location(Matteo,Paola)
     Matteo: "Hanno schiacciato la coda a un gatto?"
-}    
+}
+{
+- not are_two_entitites_together(Greta, Paola):
+    ~ move_first_entity_to_second_entity_location(Greta,Paola)
+    Greta: "Di nuovo il tizio delle pizze?"
+} 
 
 
 Elia: "Ettore, chiama qualcuno! Che lei ci ha sequestrato i telefoni, chiama!"

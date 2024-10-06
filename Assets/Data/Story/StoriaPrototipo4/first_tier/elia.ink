@@ -40,26 +40,29 @@ Opzioni di dialogo con il personaggio Elia
     + (missioneGreta){hardTrueFeelingsStorylet && not are_two_entities_together(Greta, Elia)} Ettore: "Ho convinto Matteo, ora parlerai con Greta?"
             Elia: "Bene, vado, dove la trovo?"
             ~ move_entity_from_object_storage_to_Ettore_location(SpiedinoCocktail)
-            TODO: Check con Mattia per vedere se c'è modo di trasformare in funzione o simile visto che riuseremo più volte questa strategia. o in un tunnel tipo se stanza non ha ettore, sposta, move entity 
         + + {whiteRoomContents hasnt Ettore} Ettore: "Ti aspetta nella stanza bianca."
                 ~ move_entity(Elia, WhiteRoom)
                 {
-                - whiteRoomContents has Greta:~ loopableVariables += EliaRaggiungeGreta
+                - whiteRoomContents has Greta:
+                ~ loopableVariables += EliaRaggiungeGreta
                 }
         + + {greenRoomContents hasnt Ettore} Ettore: "Ti aspetta nella stanza verde."
                 ~ move_entity(Elia, GreenRoom)
                 {
-                - greenRoomContents has Greta:~ loopableVariables += EliaRaggiungeGreta
+                - greenRoomContents has Greta:
+                ~ loopableVariables += EliaRaggiungeGreta
                 }
         + + {yellowRoomContents hasnt Ettore} Ettore: "Ti aspetta nella stanza gialla."                
                 ~ move_entity(Elia, YellowRoom)
                 {
-                - yellowRoomContents has Greta:~ loopableVariables += EliaRaggiungeGreta
+                - yellowRoomContents has Greta:
+                ~ loopableVariables += EliaRaggiungeGreta
                 }
         + + {redRoomContents hasnt Ettore} Ettore: "Ti aspetta nella stanza rossa."                
                 ~ move_entity(Elia, RedRoom)
                 {
-                - redRoomContents has Greta:~ loopableVariables += EliaRaggiungeGreta
+                - redRoomContents has Greta:
+                ~ loopableVariables += EliaRaggiungeGreta
                 }      
                 
    

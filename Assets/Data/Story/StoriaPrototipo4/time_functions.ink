@@ -106,7 +106,7 @@ VAR currentTime = 0
 ~ MatteoTalking = 0
 
 ~ peopleTalking = false
-~ peopleTalking = -1
+~ paolaPausa = -1
 
 // print something for the user
 {

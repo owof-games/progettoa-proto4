@@ -21,7 +21,7 @@
 
 
     
-- inventoryContents(Foto) && are_two_entities_together (Zeca, Ettore): -> iLlKillThatBitchStorylet    
+    - inventoryContents(Foto) && are_two_entities_together (Zeca, Ettore): -> iLlKillThatBitchStorylet    
 
 
 //CONVERSAZIONI ORIGLIATE

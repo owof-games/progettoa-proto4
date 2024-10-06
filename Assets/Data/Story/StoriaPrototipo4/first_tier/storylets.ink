@@ -12,18 +12,18 @@
 
 
 //La morte di Paola deve arrivare solo quando abbbiamo fatto tutti i tutorial e abbiamo compiuto le scelte su Matteo e Zeca
- - objects_tutorial && notebook_tutorial && talking_tutorial && (choiceMatteoVuoleSposareEttore == True or choiceMatteoVuoleSposareEttore == False) && (choiceMenteZeca == True or choiceMenteZeca == False) && currentTime >= 200: -> paolaIsDeadStorylet
+ -  currentTime >= 200 && objects_tutorial && notebook_tutorial && talking_tutorial && (choiceMatteoVuoleSposareEttore == True or choiceMatteoVuoleSposareEttore == False) && (choiceMenteZeca == True or choiceMenteZeca == False): -> paolaIsDeadStorylet
 
 //CONVERSAZIONI ORIGLIATE
     - are_two_entities_together(Elia, Greta) && elia_acting.missioneGreta && not are_two_entities_together(Elia, Matteo) && not are_two_entities_together(Elia, Zeca) && is_this_entity_near_Ettore(Elia) == true && new_this_loop(->anEavesdropAboutFriendshipStorylet):
     -> anEavesdropAboutFriendshipStorylet
 
 //CONVERSAZIONI IN ALTRE STANZE, CHE NON ORIGLIAMO, E CHE CONTINUANO QUANDO ENTRIAMO
-
+    - currentTime >= 240 && are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Elia, Ettore) && new_this_loop(->sheIsTheBestStorylet):
+    -> sheIsTheBestStorylet
 
 
 //CONFESSIONI SOLITARIE 
-
     - are_two_entities_together(Matteo, Ettore) && inventoryContents has AnticoPugnale && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Zeca) && not are_two_entities_together(Ettore, Greta) && new_this_loop(->aStrangeKnifeStorylet):
     -> aStrangeKnifeStorylet
 
@@ -115,14 +115,33 @@ Zeca ci dice che non vede e sente Paola da una vita, che prima erano molto legat
 === aStrangeKnifeStorylet
 {debug: <i>Passo per aStrangeKnifeStorylet</i>}
 Matteo ci dice cose se ci vede in giro col suo coltello, e se lo riprende.
+-> advance_time ->
         ~ inventoryContents -= AnticoPugnale
         ~ objectStorageContents += AnticoPugnale
 ->->
+
+
+//CONVERSAZIONI INDIPENDENTI
+=== sheIsTheBestStorylet
+{debug: <i>Passo per sheIsTheBestStorylet</i>}
+-> advance_time ->
+    Matteo dice cose
+    Elia dice cose
+    Matteo risponde
+    Elia dice cose
+    Matteo dice una cosa importante che finirà nel taccuino o no
+
+->->
+
+
+
+
 
 //STORYLET DA SCELTE
 === hardTrueFeelingsStorylet
 {debug: <i>Passo per hardTrueFeelingsStorylet</i>}
 Matteo ci dice che ama Greta
+    -> advance_time ->
 {
     - are_three_entities_together(Matteo, Ettore, Elia) or are_three_entities_together(Matteo, Ettore, Greta) or are_three_entities_together(Matteo, Ettore, Zeca): -> quickTalk
     -else: ->->
@@ -134,18 +153,23 @@ Matteo ci dice che ama Greta
 
 = quickTalk
 Matteo: "Uh, è il caso di parlarne solo quando saremo soli".
+-> advance_time ->
 -> intro
+
+
+
+
 //STORYLET PER TUTORIAL
-
-
 === objects_tutorial
         Paola: "Stop stop stop maledizione!"
         Paola: "Sant'iddio Greta, dove hai messo tutti i cazzo di oggetti? Mettili al loro posto, ora!"
+        -> advance_time ->
         ~  move_this_entity_in_a_different_room(Greta)
         Paola: "Ettore, ricordati che se hai un oggetto in mano puoi mostrarlo e ottenere nuove informazioni."
         ~ move_first_entity_to_second_entity_location(Elia,Ettore)
         Elia: "Cerca di trovare la limetta più avanti possibile perché è quella l'arma del delitto!"
         Paola: "Elia, coglione! Ora vi tocca improvvisare, l'arma sarà un'altra. Mi spiace per il livello di non professionalismo, Ettore."
+        -> advance_time ->
         Paola: "Cinque minuti e poi riprendiamo!"
         ~ move_entity(LimettaUnghie, GreenRoom)
         ~ move_entity(SpiedinoCocktail, RedRoom)

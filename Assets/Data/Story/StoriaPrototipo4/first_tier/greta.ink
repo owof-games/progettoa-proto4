@@ -1,9 +1,9 @@
 === cb_first_tier_greta ===
 {debug: <i>passo per second_tier_greta</i>}
-+ {are_two_entitites_together(Greta, Ettore) && !peopleTalking} [character:Greta] {debug: <i>Ho scelto di parlare con Greta</i>}
++ {are_two_entities_together(Greta, Ettore) && !peopleTalking} [character:Greta] {debug: <i>Ho scelto di parlare con Greta</i>}
     -> greta_acting->
     
-+ {are_two_entitites_together(Greta, Ettore) && peopleTalking} [character:Greta] 
++ {are_two_entities_together(Greta, Ettore) && peopleTalking} [character:Greta] 
     -> greta_talking->    
 -
 
@@ -25,7 +25,7 @@ Opzioni di dialogo con il personaggio Greta
             -> advance_time ->
             Greta: Di più! Ma ti dirò chi è l'assassino se tu convinci Elia a venire a parlarmi.
             -> advance_time ->        
-    + {seen_in_this_loop(->missioneGreta) && not are_two_entitites_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta} Non sono ancora riuscito a convincere Elia
+    + {seen_in_this_loop(->missioneGreta) && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta} Non sono ancora riuscito a convincere Elia
     -> advance_time ->
     + (paolaPerfetta) {loopableVariables has EliaRaggiungeGreta} Ho fatto quello che mi hai chiesto, Greta.
     -> advance_time ->

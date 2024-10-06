@@ -1,10 +1,10 @@
 === cb_first_tier_zeca ===
 {debug: <i>passo per first_tier_zeca</i>}
 
-+ {are_two_entitites_together(Zeca, Ettore) && !peopleTalking} [character:Zeca] {debug: <i>Ho scelto di parlare con Zeca</i>}
++ {are_two_entities_together(Zeca, Ettore) && !peopleTalking} [character:Zeca] {debug: <i>Ho scelto di parlare con Zeca</i>}
     -> zeca_acting ->
     
-+ {are_two_entitites_together(Zeca, Ettore) && peopleTalking} [character:Zeca]
++ {are_two_entities_together(Zeca, Ettore) && peopleTalking} [character:Zeca]
     -> zeca_talking ->    
 -
 
@@ -25,13 +25,13 @@ Opzioni di dialogo con il personaggio Zeca
     
     //SCELTE CONDIZIONALI//
     + (matrimonio) {marryMeStorylet} Zeca ci fa capire che sapeva da un po' del matrimonio.
-    + (matteoGreta) {hardTrueFeelingsStorylet && not are_two_entitites_together(Zeca, Matteo) && not are_two_entitites_together(Zeca, Greta)} Zeca ci dice che Matteo è ricattato da Greta, ma non sa bene per cosa.
+    + (matteoGreta) {hardTrueFeelingsStorylet && not are_two_entities_together(Zeca, Matteo) && not are_two_entities_together(Zeca, Greta)} Zeca ci dice che Matteo è ricattato da Greta, ma non sa bene per cosa.
     
     //SCELTE CONDIZIONALI OGGETTI//
     + (pugnaleMatteo){inventoryContents has AnticoPugnale} Guarda questo pugnale!
         Zeca: "Matteo lo usa in modo <b>ossessivo</b> per pulirsi la soletta delle scarpe!"
         {
-        - are_two_entitites_together(Ettore, Matteo): Matteo: "Non sono ossessivo!"
+        - are_two_entities_together(Ettore, Matteo): Matteo: "Non sono ossessivo!"
         Matteo: "E ora me lo riprenderei, grazie mille!"
             ~ inventoryContents -= AnticoPugnale
             ~ objectStorageContents += AnticoPugnale

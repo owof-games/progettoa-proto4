@@ -1,6 +1,6 @@
 === cb_second_tier_elia ===
 {debug: <i>passo per cb_second_tier_elia</i>}
-+ {are_two_entitites_together(Elia, Ettore)} [character:Elia]
++ {are_two_entities_together(Elia, Ettore)} [character:Elia]
     -> elia_talking_second_tier -> 
     
 -
@@ -18,7 +18,7 @@ Opzioni di dialogo con la persona Elia
     + Fai domande sulla persona Elia -> esplora_elia
 
     //SCELTE CONDIZIONALI//
-    + {greta_talking_second_tier.indagini && not are_two_entitites_together(Elia, Zeca)} Qui è dove Elia mette la musica al massimo per non risponderci.
+    + {greta_talking_second_tier.indagini && not are_two_entities_together(Elia, Zeca)} Qui è dove Elia mette la musica al massimo per non risponderci.
     + (allestimento) {notABigSecretPartOneStorylet.allestimento} Ci dice che lui e Greta hanno lasciato le bottiglie all'ingresso, avvisando Zeca, perché dovevano risolvere un problema coi tavoli
     + (indagini) {iTryToBeAGoodFriendStorylet} Se lo diciamo ad Elia, ci rimane male.
         Dice che si aspettava qualcosa di diverso da Matteo, e che lui sa una cosa ed è stato zitto per difenderlo.

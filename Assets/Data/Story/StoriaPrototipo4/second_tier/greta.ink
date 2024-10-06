@@ -1,6 +1,6 @@
 === cb_second_tier_greta ===
 {debug: <i>passo per first_tier_greta</i>}
-+ {are_two_entitites_together(Greta, Ettore)} [character:Greta] 
++ {are_two_entities_together(Greta, Ettore)} [character:Greta] 
     -> greta_talking_second_tier->    
 -
 

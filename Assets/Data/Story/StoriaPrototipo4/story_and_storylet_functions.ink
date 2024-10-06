@@ -37,8 +37,8 @@
 ~ return entity_location(entity1) == entity_location(entity2) and entity_location(entity1) == location
 
 //funzione solo per fare check presenza assieme personagge
-=== function are_two_entitites_together(entity1, entity2)
-{debug: <i>Passo per function are_two_entitites_together</i>}
+=== function are_two_entities_together(entity1, entity2)
+{debug: <i>Passo per function are_two_entities_together</i>}
 ~ return entity_location(entity1) == entity_location(entity2)
 
 === function are_three_entities_together(entity1, entity2, entity3)

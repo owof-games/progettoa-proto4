@@ -1,7 +1,7 @@
 === cb_second_tier_zeca ===
 {debug: <i>passo per second_tier_zeca</i>}
 
-+ {are_two_entitites_together(Zeca, Ettore)} [character:Zeca]
++ {are_two_entities_together(Zeca, Ettore)} [character:Zeca]
     -> zeca_talking_second_tier ->    
 -
 

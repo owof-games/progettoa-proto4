@@ -6,7 +6,7 @@
     -> startingDinnerStorylet
 
 
-    - are_three_entities_together(Elia, Matteo, Ettore) && not are_two_entitites_together(Elia, Zeca) && not are_two_entitites_together(Elia, Greta) && marryMeStorylet && new_this_loop(->weddingAtThePubStorylet):
+    - are_three_entities_together(Elia, Matteo, Ettore) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Greta) && marryMeStorylet && new_this_loop(->weddingAtThePubStorylet):
     -> weddingAtThePubStorylet
 
 
@@ -15,18 +15,18 @@
  - objects_tutorial && notebook_tutorial && talking_tutorial && (choiceMatteoVuoleSposareEttore == True or choiceMatteoVuoleSposareEttore == False) && (choiceMenteZeca == True or choiceMenteZeca == False) && currentTime >= 200: -> paolaIsDeadStorylet
 
 //CONVERSAZIONI ORIGLIATE
-    - are_two_entitites_together(Elia, Greta) && elia_acting.missioneGreta && not are_two_entitites_together(Elia, Matteo) && not are_two_entitites_together(Elia, Zeca) && is_this_room_near_Ettore(Elia) == true && new_this_loop(->anEavesdropAboutFriendshipStorylet):
+    - are_two_entities_together(Elia, Greta) && elia_acting.missioneGreta && not are_two_entities_together(Elia, Matteo) && not are_two_entities_together(Elia, Zeca) && is_this_entity_near_Ettore(Elia) == true && new_this_loop(->anEavesdropAboutFriendshipStorylet):
     -> anEavesdropAboutFriendshipStorylet
 
 //CONFESSIONI SOLITARIE 
 
-    - are_two_entitites_together(Matteo, Ettore) && inventoryContents has AnticoPugnale && not are_two_entitites_together(Elia, Ettore) && not are_two_entitites_together(Ettore, Zeca) && not are_two_entitites_together(Ettore, Greta) && new_this_loop(->aStrangeKnifeStorylet):
+    - are_two_entities_together(Matteo, Ettore) && inventoryContents has AnticoPugnale && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Zeca) && not are_two_entities_together(Ettore, Greta) && new_this_loop(->aStrangeKnifeStorylet):
     -> aStrangeKnifeStorylet
 
-    - are_two_entitites_together(Matteo, Ettore) && not are_two_entitites_together(Elia, Ettore) && not are_two_entitites_together(Ettore, Zeca) && not are_two_entitites_together(Ettore, Greta) && new_this_loop(->marryMeStorylet):
+    - are_two_entities_together(Matteo, Ettore) && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Zeca) && not are_two_entities_together(Ettore, Greta) && new_this_loop(->marryMeStorylet):
     -> marryMeStorylet
     
-    - are_two_entitites_together(Zeca, Ettore) && not are_two_entitites_together(Elia, Ettore) && not are_two_entitites_together(Ettore, Matteo) && not are_two_entitites_together(Ettore, Greta) && new_this_loop(->worstBestManStorylet):
+    - are_two_entities_together(Zeca, Ettore) && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Matteo) && not are_two_entities_together(Ettore, Greta) && new_this_loop(->worstBestManStorylet):
     -> worstBestManStorylet    
 
 
@@ -101,7 +101,7 @@ Se qualcuno entra, cambia argomento.
 === worstBestManStorylet
 {debug: <i>Passo per worstBestMate</i>}
 Zeca ci dice che non vede e sente Paola da una vita, che prima erano molto legati ma poi cose.
-{are_two_entitites_together(Zeca, Elia): Zeca porterà Elia ad unirsi al discorso, e ogni tanto metteremo degli incisi, una scenetta dedicata?}
+{are_two_entities_together(Zeca, Elia): Zeca porterà Elia ad unirsi al discorso, e ogni tanto metteremo degli incisi, una scenetta dedicata?}
     -> advance_time ->
     + (paolaZeca) [Avanzo]
     -
@@ -199,21 +199,21 @@ Greta la tocca, urla, e ci dice che è morta.
 Tutti arrivano in quella stanza.
 //Grida di chi è in scena
 {
-- are_two_entitites_together(Elia, Paola):
+- are_two_entities_together(Elia, Paola):
     Elia: "Oh merda merda merda non respira!"
 }
 {
-- are_two_entitites_together(Zeca, Paola):
+- are_two_entities_together(Zeca, Paola):
     ~ move_first_entity_to_second_entity_location(Zeca,Paola)
     Zeca: "Un ambulanza, qualcuno chiami un ambulanza!"
 }
 {
-- not are_two_entitites_together(Matteo, Paola):
+- not are_two_entities_together(Matteo, Paola):
     ~ move_first_entity_to_second_entity_location(Matteo,Paola)
     Matteo: "AAAAAAAAAAAAAAAAAAAAAAAAAA!"
 }
 {
-- not are_two_entitites_together(Greta, Paola):
+- not are_two_entities_together(Greta, Paola):
     ~ move_first_entity_to_second_entity_location(Greta,Paola)
     Greta: "Ehi, smettila!"
 } 
@@ -221,22 +221,22 @@ Tutti arrivano in quella stanza.
 
 //Grida di chi non è in scena
 {
-- not are_two_entitites_together(Elia, Paola):
+- not are_two_entities_together(Elia, Paola):
     ~ move_first_entity_to_second_entity_location(Elia,Paola)
     Elia: "Che succede?!"
 }
 {
-- not are_two_entitites_together(Zeca, Paola):
+- not are_two_entities_together(Zeca, Paola):
     ~ move_first_entity_to_second_entity_location(Zeca,Paola)
     Zeca: "Qualcuno si è fatto male?!!"
 }
 {
-- not are_two_entitites_together(Matteo, Paola):
+- not are_two_entities_together(Matteo, Paola):
     ~ move_first_entity_to_second_entity_location(Matteo,Paola)
     Matteo: "Hanno schiacciato la coda a un gatto?"
 }
 {
-- not are_two_entitites_together(Greta, Paola):
+- not are_two_entities_together(Greta, Paola):
     ~ move_first_entity_to_second_entity_location(Greta,Paola)
     Greta: "Di nuovo il tizio delle pizze?"
 } 

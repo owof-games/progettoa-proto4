@@ -1,6 +1,6 @@
 === cb_first_tier_limetta_unghie ===
-
-+ {are_two_entitites_together(Ettore, LimettaUnghie) && objects_tutorial} [object:LimettaUnghie]
+TODO: togliere formulina su oggetti, metterli nell'ObjectStorage fino a quando object_tutorial non viene affrontato
++ {are_two_entities_together(Ettore, LimettaUnghie) && objects_tutorial} [object:LimettaUnghie]
     -> limetta_unghie ->
 
 
@@ -21,7 +21,7 @@
 
 === cb_first_tier_antico_pugnale ===
 
-+ {are_two_entitites_together(Ettore, AnticoPugnale) && objects_tutorial} [object:AnticoPugnale]
++ {are_two_entities_together(Ettore, AnticoPugnale) && objects_tutorial} [object:AnticoPugnale]
     -> antico_pugnale ->
 
 
@@ -44,7 +44,7 @@
 
 === cb_first_tier_spiedino_cocktail ===
 
-+ {are_two_entitites_together(Ettore, SpiedinoCocktail) && objects_tutorial} [object:SpiedinoCocktail]
++ {are_two_entities_together(Ettore, SpiedinoCocktail) && objects_tutorial} [object:SpiedinoCocktail]
     -> spiedino_cocktail ->
 
 
@@ -65,7 +65,7 @@
 
 === cb_first_tier_lettera ===
 
-+ {are_two_entitites_together(Ettore, Lettera) && objects_tutorial} [object:Lettera]
++ {are_two_entities_together(Ettore, Lettera) && objects_tutorial} [object:Lettera]
     -> lettera ->
 
 -> intro
@@ -87,7 +87,7 @@
 
 === cb_first_tier_bottiglia_di_vino ===
 
-+ {are_two_entitites_together(Ettore, BottigliaDiVino) && objects_tutorial} [object:Bottiglia di Vino]
++ {are_two_entities_together(Ettore, BottigliaDiVino) && objects_tutorial} [object:Bottiglia di Vino]
     -> bottiglia_di_vino ->
 
 -> intro
@@ -106,7 +106,7 @@
 ->->
 
 === cb_first_tier_flaconcino_asma ===
-+ {are_two_entitites_together(Ettore, FlaconcinoAsma) && objects_tutorial} [object:Flaconcino Asma]
++ {are_two_entities_together(Ettore, FlaconcinoAsma) && objects_tutorial} [object:Flaconcino Asma]
     -> flaconcino_asma->
 
 -> intro
@@ -125,7 +125,7 @@
 ->->
 
 === cb_first_tier_sigaretta_elettronica ===
-+ {are_two_entitites_together(Ettore, SigarettaElettronica) && objects_tutorial} [object:Sigaretta Elettronica]
++ {are_two_entities_together(Ettore, SigarettaElettronica) && objects_tutorial} [object:Sigaretta Elettronica]
     -> sigaretta_elettronica->
 
 -> intro
@@ -144,7 +144,7 @@
 ->->
 
 === cb_first_tier_cibo ===
-+ {are_two_entitites_together(Ettore, Briciole) && objects_tutorial} [object:Briciole]
++ {are_two_entities_together(Ettore, Briciole) && objects_tutorial} [object:Briciole]
     -> cibo ->
 
 -> intro

@@ -1,7 +1,7 @@
 === cb_second_tier_matteo ===
 {debug: <i>passo per second_tier_matteo</i>}
 
-+ {are_two_entitites_together(Matteo, Ettore)} [character:Matteo]
++ {are_two_entities_together(Matteo, Ettore)} [character:Matteo]
     -> matteo_talking_second_tier ->    
 -
 

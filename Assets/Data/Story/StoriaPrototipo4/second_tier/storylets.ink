@@ -21,17 +21,17 @@
 
 
     
-- inventoryContents(Foto) && are_two_entitites_together (Zeca, Ettore): -> iLlKillThatBitchStorylet    
+- inventoryContents(Foto) && are_two_entities_together (Zeca, Ettore): -> iLlKillThatBitchStorylet    
 
 
 //CONVERSAZIONI ORIGLIATE
-TODO: come evitare che questo storylet compaia quando siamo in stanza con loro?
-    - are_two_entitites_together(Elia, Zeca) && is_this_room_near_Ettore(Elia) == true && not are_four_entities_together(Zeca, Greta, Paola, Matteo)  && greta_talking_second_tier.indagini && loopableVariables == (EliaSpaventatoPerZeca) && new_this_loop(-> whisperingSecretsStorylet): -> whisperingSecretsStorylet
+TODO: quando due o più persone devono essere da sole, mettere not + are two entities per ogni singola combinazione di personaggie
+    - are_two_entities_together(Elia, Zeca) && is_this_entity_near_Ettore(Elia) && not are_four_entities_together(Zeca, Greta, Paola, Matteo)  && greta_talking_second_tier.indagini && loopableVariables == (EliaSpaventatoPerZeca) && new_this_loop(-> whisperingSecretsStorylet): -> whisperingSecretsStorylet
     
-    - are_two_entitites_together(Elia, Zeca) && is_this_room_near_Ettore(Elia) == true && not are_four_entities_together(Greta, Matteo, Paola, Elia) && elia_talking_second_tier.allestimento2 && paola_talking_second_tier.foto2 && iTryToBeAGoodFriendStorylet.allestimento && new_this_loop(-> trueLoveStorylet):
+    - are_two_entities_together(Elia, Zeca) && is_this_entity_near_Ettore(Elia) && not are_four_entities_together(Greta, Matteo, Paola, Elia) && elia_talking_second_tier.allestimento2 && paola_talking_second_tier.foto2 && iTryToBeAGoodFriendStorylet.allestimento && new_this_loop(-> trueLoveStorylet):
     -> trueLoveStorylet
     
-    - are_two_entitites_together(Matteo, Zeca) && is_this_room_near_Ettore(Matteo) == true && not are_four_entities_together(Zeca, Greta, Paola, Elia) && matteo_talking_second_tier.allestimento && new_this_loop(-> iTryToBeAGoodFriendStorylet):
+    - are_two_entities_together(Matteo, Zeca) && is_this_entity_near_Ettore(Matteo) && not are_four_entities_together(Zeca, Greta, Paola, Elia) && matteo_talking_second_tier.allestimento && new_this_loop(-> iTryToBeAGoodFriendStorylet):
     -> iTryToBeAGoodFriendStorylet  
     
 - else: ->->

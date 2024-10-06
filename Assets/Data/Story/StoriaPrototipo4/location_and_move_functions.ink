@@ -136,17 +136,19 @@
  
  
  
- === function is_this_room_near_Ettore(entity)
+ === function is_this_entity_near_Ettore(entity)
 {debug: <i>passo per is_this_room_near</i>}
 {
-    - redRoomContents has Ettore && entity_location == WhiteRoom or entity_location == WhiteRoom:
+    - redRoomContents has Ettore && (entity_location == WhiteRoom or entity_location == GreenRoom):
         ~ return true
     - yellowRoomContents has Ettore && entity_location == GreenRoom:
         ~ return true
-    - greenRoomContents has Ettore && entity_location == YellowRoom or entity_location == RedRoom:
+    - greenRoomContents has Ettore && (entity_location == YellowRoom or entity_location == RedRoom):
         ~ return true
-    - whiteRoomContents has Ettore && entity_location == RedRoom: ~ return true    
-
+    - whiteRoomContents has Ettore && entity_location == RedRoom:
+        ~ return true
+    - else:
+        ~ return false
 }
 
 ->->

@@ -1,9 +1,9 @@
 === cb_first_tier_matteo ===
 {debug: <i>passo per first_tier_matteo</i>}
-+ {are_two_entitites_together(Matteo, Ettore) && !peopleTalking} [character:Matteo] {debug: <i>Ho scelto di parlare con Matteo</i>}
++ {are_two_entities_together(Matteo, Ettore) && !peopleTalking} [character:Matteo] {debug: <i>Ho scelto di parlare con Matteo</i>}
     -> matteo_acting ->
 
-+ {are_two_entitites_together(Matteo, Ettore) && peopleTalking} [character:Matteo]
++ {are_two_entities_together(Matteo, Ettore) && peopleTalking} [character:Matteo]
     -> matteo_talking ->    
 -
 
@@ -28,7 +28,7 @@ Opzioni di dialogo con il personaggio Matteo
             Matteo: "Sì, ero incazzatissimo perché ci ha detto che ci sarebbe sposata il giorno dopo che le ho detto che volevo farti la proposta, la stronza."
     + {new_this_loop(->hardTrueFeelingsStorylet)} {elia_acting.uniti && not are_four_entities_together(Greta, Elia, Matteo, Zeca)} Ettore: "Amore, in merito al nostro matrimonio..."
         ->hardTrueFeelingsStorylet->
-    + (zecaTestimone){worstBestManStorylet && not are_two_entitites_together(Zeca, Matteo)} Matteo ci dice che Zeca è stato chiamato a fare da testimone.
+    + (zecaTestimone){worstBestManStorylet && not are_two_entities_together(Zeca, Matteo)} Matteo ci dice che Zeca è stato chiamato a fare da testimone.
         "La cosa che mi ha stupito è che abbia chiesto a Zeca di farle da testimone!"
         Matteo: "Sappiamo tutti che Zeca odia la povera Paola da sempre!"
         

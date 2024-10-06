@@ -17,7 +17,6 @@ Opzioni di dialogo con la persona Matteo
     //INFO GENERALI//
     + Fai domande sulla persona Matteo -> esplora_matteo
     
-    TODO: una volta fatto il check che tutto torni, mettere tutte le domande plausibili su tutti i personaggi (es: anche per Matteo domande sul rapporto Elia e Zeca).
     //SCELTE CONDIZIONALI//
     + (allestimento) {paola_talking_second_tier.allestimento} Diciamo quello che Greta ha detto su Matteo e il litigio.
         Matteo: "Quella strega! Devo subito trovare Zeca!"

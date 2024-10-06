@@ -140,12 +140,23 @@ Matteo: "Uh, è il caso di parlarne solo quando saremo soli".
 
 === objects_tutorial
         Paola: "Stop stop stop maledizione!"
-        Paola: "Sant'iddio Greta, dove hai messo le potenziali armi?"
+        Paola: "Sant'iddio Greta, dove hai messo tutti i cazzo di oggetti? Mettili al loro posto, ora!"
+        ~  move_this_entity_in_a_different_room(Greta)
         Paola: "Ettore, ricordati che se hai un oggetto in mano puoi mostrarlo e ottenere nuove informazioni."
         ~ move_first_entity_to_second_entity_location(Elia,Ettore)
         Elia: "Cerca di trovare la limetta più avanti possibile perché è quella l'arma del delitto!"
         Paola: "Elia, coglione! Ora vi tocca improvvisare, l'arma sarà un'altra. Mi spiace per il livello di non professionalismo, Ettore."
         Paola: "Cinque minuti e poi riprendiamo!"
+        ~ move_entity(LimettaUnghie, GreenRoom)
+        ~ move_entity(SpiedinoCocktail, RedRoom)
+        ~ move_entity(AnticoPugnale, GreenRoom)
+        ~ move_entity(Lettera, YellowRoom)
+        ~ move_entity(BottigliaDiVino, YellowRoom)
+        ~ move_entity(SigarettaElettronica, RedRoom)
+        ~ move_entity(FlaconcinoAsma, WhiteRoom)
+        ~ move_entity(Torta, ObjectStorage)
+        ~ move_entity(Briciole, ObjectStorage)
+        
             -> advance_time ->
             -> resting_time ->
             + [Avanzo]

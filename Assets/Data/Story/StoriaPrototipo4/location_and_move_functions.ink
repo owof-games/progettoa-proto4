@@ -85,7 +85,7 @@
                 ~ yellowRoomContents -= entity
 
     }
-    
+//Usiamo questa funzione per rimuovere un oggetto dall'inventario di Ettore e depositarlo nella stanza in cui si trova    
 === function remove_entity(entity)
 {debug: <i>Passo per function remove_entity</i>}
 {
@@ -104,6 +104,7 @@
 
  }
     
+//Usiamo questa funzione quando un oggetto specifico presente nello Storage deve comparire nella scena in cui si trova Ettore.  
 === function move_entity_from_object_storage_to_Ettore_location(entity)
 {debug: <i>Passo per function move_entity_from_object_storage_to_Ettore_location</i>}
     {
@@ -121,6 +122,8 @@
         ~ objectStorageContents -= entity
  }
  
+ 
+ //Usiamo questa funzione quando una personaggia1 deve andare dove si trova una seconda personaggia.
  === function move_first_entity_to_second_entity_location(entity1,entity2)
 {debug: <i>Passo per function move_first_entity_to_second_entity_location</i>}
     {
@@ -135,7 +138,7 @@
  }
  
  
- 
+ //Usiamo questa funzione per capire quando possiamo origliare una conversazione: se la personaggia che sta parlando è in una delle stanze accanto a quella in cui si trova Ettore riusciamo a sentire, altrimenti no.
  === function is_this_entity_near_Ettore(entity)
 {debug: <i>passo per is_this_room_near</i>}
 {
@@ -151,4 +154,23 @@
         ~ return false
 }
 
+->->
+
+//Usiamo questa funzione quando per ragione di scena è necessario che una personaggia se ne vada da una stanza (ma non importa particolarmente dove vada)
+=== function move_this_entity_in_a_different_room(entity)
+{debug: <i>passo per is_this_room_near</i>}
+{
+- whiteRoomContents has Ettore:
+        ~ move_entity(entity, RedRoom)
+
+- redRoomContents has Ettore:
+        ~ move_entity(entity, WhiteRoom)
+
+- greenRoomContents has Ettore:
+        ~ move_entity(entity, YellowRoom)
+        
+- yellowRoomContents has Ettore:
+        ~ move_entity(entity, GreenRoom)        
+        
+}        
 ->->

@@ -73,7 +73,7 @@ Opzioni di dialogo con la persona Paola
 
 = first_qn
 ~ PaolaTalking++
-    + Prima domanda
+    +  [Per ovviare al problema delle cose stampate random, posso mettere scelte random non stampate, imperative.]
     -> advance_time ->
     
     -

@@ -23,12 +23,11 @@ LIST places = Inventory, WhiteRoom, GreenRoom, RedRoom, YellowRoom, ObjectStorag
 // can't name them like "white_room" because there are knots with that name
 // inventory = mano di Ettore
 VAR inventoryContents = ()
-VAR whiteRoomContents = (Ettore, Matteo, Paola, Zeca, Elia, Greta, SigarettaElettronica)
-VAR greenRoomContents = (LimettaUnghie, AnticoPugnale)
-VAR yellowRoomContents = (Lettera, Torta, BottigliaDiVino)
-VAR redRoomContents = (FlaconcinoAsma)
-VAR objectStorageContents = (SpiedinoCocktail, Briciole, Foto)
-
+VAR whiteRoomContents = (Ettore, Matteo, Paola, Zeca, Elia, Greta)
+VAR greenRoomContents = ()
+VAR yellowRoomContents = ()
+VAR redRoomContents = ()
+VAR objectStorageContents = (SpiedinoCocktail, Briciole, Foto, LimettaUnghie, AnticoPugnale, SigarettaElettronica, Lettera, Torta, BottigliaDiVino, FlaconcinoAsma)
 
 
 /* ---------------------------------

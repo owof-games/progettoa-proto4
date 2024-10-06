@@ -3,7 +3,6 @@
 
 {debug: [applico la timeline per {currentTime}]}
 
-TODO: inserire microspostamenti personagge in cambio stanza
 
 // Ettore
 { currentTime == 0:
@@ -14,12 +13,26 @@ TODO: inserire microspostamenti personagge in cambio stanza
 {currentTime:
     - 0:
         ~ move_entity(Matteo, WhiteRoom)
-    - 180:
-        ~ move_entity(Matteo, RedRoom)
-    - 240:
-        ~ move_entity(Matteo, RedRoom)
-    - 300:
+
+    - 120:
         ~ move_entity(Matteo, RedRoom)    
+
+    - 180:
+        ~ move_entity(Matteo, GreenRoom) 
+
+    - 240:
+         ~ move_entity(Matteo, YellowRoom)    
+
+    - 300:
+        ~ move_entity(Matteo, YellowRoom)    
+        
+    - 360:
+        ~ move_entity(Matteo, YellowRoom)    
+        
+    - 420:
+        ~ move_entity(Matteo, WhiteRoom)    
+              
+ 
 }
 
 
@@ -84,22 +97,47 @@ TODO: inserire microspostamenti personagge in cambio stanza
 // Zeca
 {currentTime:
     - 0:
-        ~ move_entity(Zeca, YellowRoom)
+        ~ move_entity(Zeca, WhiteRoom)
 
-    -120: 
-        ~ move_entity(Zeca, GreenRoom)  
-          
+    - 120:
+        ~ move_entity(Zeca, YellowRoom)    
+
     - 180:
-        ~ move_entity(Zeca, YellowRoom)
+        ~ move_entity(Zeca, GreenRoom) 
+
     - 240:
-        ~ move_entity(Zeca, GreenRoom)
+         ~ move_entity(Zeca, WhiteRoom)    
+
     - 300:
-        ~ move_entity(Zeca, GreenRoom)    
+        ~ move_entity(Zeca, RedRoom)    
+        
+    - 360:
+        ~ move_entity(Zeca, RedRoom)    
+        
+    - 420:
+        ~ move_entity(Zeca, YellowRoom)    
+              
+ 
 }
+
+
 
 // Settaggio oggetti
 {currentTime:
-    - 0:
+
+    - 0 && not objects_tutorial:
+        ~ move_entity(LimettaUnghie, GreenRoom)
+        ~ move_entity(SpiedinoCocktail, RedRoom)
+        ~ move_entity(AnticoPugnale, GreenRoom)
+        ~ move_entity(Lettera, YellowRoom)
+        ~ move_entity(BottigliaDiVino, YellowRoom)
+        ~ move_entity(SigarettaElettronica, RedRoom)
+        ~ move_entity(FlaconcinoAsma, WhiteRoom)
+        ~ move_entity(Torta, ObjectStorage)
+        ~ move_entity(Briciole, ObjectStorage)
+        
+        
+    - 0 && objects_tutorial:
         ~ move_entity(LimettaUnghie, GreenRoom)
         ~ move_entity(SpiedinoCocktail, RedRoom)
         ~ move_entity(AnticoPugnale, GreenRoom)
@@ -114,13 +152,17 @@ TODO: inserire microspostamenti personagge in cambio stanza
         ~ move_entity(SigarettaElettronica, RedRoom)
         ~ move_entity(FlaconcinoAsma, WhiteRoom)
         {
-         - tierState == FirstTier: ~ move_entity(Torta, YellowRoom)
-         - else: ~ move_entity(Torta, ObjectStorage)
+         - tierState == FirstTier:
+            ~ move_entity(Torta, YellowRoom)
+         - else:
+            ~ move_entity(Torta, ObjectStorage)
         }
         
         {
-         - tierState == SecondTier: ~ move_first_entity_to_second_entity_location(Briciole, Paola)
-         - else: ~ move_entity(Briciole, ObjectStorage)
+         - tierState == SecondTier:
+            ~ move_first_entity_to_second_entity_location(Briciole, Paola)
+         - else:
+            ~ move_entity(Briciole, ObjectStorage)
         }
         
         

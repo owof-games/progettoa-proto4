@@ -3,6 +3,7 @@
 
 {debug: [applico la timeline per {currentTime}]}
 
+TODO: inserire microspostamenti personagge in cambio stanza
 
 // Ettore
 { currentTime == 0:
@@ -26,43 +27,32 @@
 {currentTime:
     - 0:
         ~ move_entity(Paola, WhiteRoom)
-        - 165:
-            ~ move_entity(Paola, RedRoom)   //lascio spostati in avanti gli orari di "decoro", che ci servono per dare senso di movimento quando passa da una stanza a ad una b e ci sono una o due stanze lungo il percorso
-    - 180:
-        ~ move_entity(Paola, GreenRoom)
-    - 240:
-        ~ move_entity(Paola, RedRoom)
-        - 285:
-            ~ move_entity(Paola, GreenRoom)    
-    - 300:
-        ~ move_entity(Paola, YellowRoom)   
+
 }
 
 // Elia
 {currentTime:
     - 0:
         ~ move_entity(Elia, WhiteRoom)
+
+    - 120:
+        ~ move_entity(Elia, YellowRoom)    
+
     - 180:
-        {
-        - loopableVariables == (EliaRaggiungeGreta):
-            ~ move_entity(Elia, WhiteRoom)
-        - else:
-            ~ move_entity(Elia, RedRoom)    
-        }
+        ~ move_entity(Elia, YellowRoom) 
+
     - 240:
-        {
-        - loopableVariables == (EliaRaggiungeGreta):
-            ~ move_entity(Elia, WhiteRoom)
-        - else:
-            ~ move_entity(Elia, RedRoom)    
-        }
+         ~ move_entity(Elia, YellowRoom)    
+
     - 300:
-        {
-        - loopableVariables == (EliaRaggiungeGreta):
-            ~ move_entity(Elia, WhiteRoom)
-        -else:
-            ~ move_entity(Elia, RedRoom)    
-        }
+        ~ move_entity(Elia, GreenRoom)    
+        
+    - 360:
+        ~ move_entity(Elia, GreenRoom)    
+        
+    - 420:
+        ~ move_entity(Elia, YellowRoom)    
+              
  
 }
 
@@ -70,23 +60,35 @@
 {currentTime:
     - 0:
         ~ move_entity(Greta, WhiteRoom)
+
+    - 120:
+        ~ move_entity(Greta, WhiteRoom)
+
     - 180:
         ~ move_entity(Greta, WhiteRoom)
+
     - 240:
         ~ move_entity(Greta, WhiteRoom)
+
     - 300:
-        ~ move_entity(Greta, WhiteRoom)    
+        ~ move_entity(Greta, WhiteRoom)
+
+    - 360:
+        ~ move_entity(Greta, WhiteRoom)
+
+    - 420:
+        ~ move_entity(Greta, WhiteRoom)             
 }
 
 
 // Zeca
 {currentTime:
     - 0:
-        ~ move_entity(Zeca, WhiteRoom)
-        - 150:
-            ~ move_entity(Zeca, RedRoom)
-        - 165:
-            ~ move_entity(Zeca, GreenRoom)    
+        ~ move_entity(Zeca, YellowRoom)
+
+    -120: 
+        ~ move_entity(Zeca, GreenRoom)  
+          
     - 180:
         ~ move_entity(Zeca, YellowRoom)
     - 240:

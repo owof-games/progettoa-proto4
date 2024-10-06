@@ -15,3 +15,10 @@
 
 //NODO quickTalk
 //Usato negli storylet per gestire tutte le variazioni di conversazione nel caso in cui un attore se ne va o entra in scena in quel momento.
+
+//Indicazioni per effetti testo
+//grido: <cry>...</cry>
+//gioia: <joy>...</joy>
+//titubanza: <hesitate>
+//spavento/paura: <fear>...</fear>
+//rabbia: <rage> parola <waitrage> parola <waitrage> parola </rage>

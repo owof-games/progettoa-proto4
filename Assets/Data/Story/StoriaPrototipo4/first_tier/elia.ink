@@ -172,6 +172,8 @@ Opzioni di dialogo con la persona Elia
       
     + Te ne vai -> intro
     -
+    
+    -> elia_talking
 
 = esplora_elia
 {debug: <i>Passo per esplora_elia</i>}

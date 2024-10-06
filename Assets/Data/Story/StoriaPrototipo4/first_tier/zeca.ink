@@ -121,6 +121,8 @@ Opzioni di dialogo con la persona Zeca
     -> intro
     -
     
+    -> zeca_talking
+    
 
 = esplora_zeca
 {debug: <i>Passo per esplora_zeca</i>}

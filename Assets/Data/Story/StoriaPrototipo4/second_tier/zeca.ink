@@ -42,6 +42,8 @@ Opzioni di dialogo con la persona Zeca
     -> intro
     -
     
+    -> zeca_talking_second_tier
+    
 
 = esplora_zeca
 {debug: <i>Passo per esplora_zeca</i>}

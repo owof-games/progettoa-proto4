@@ -50,7 +50,7 @@ Opzioni di dialogo con il personaggio Greta
     + Te ne vai
         -> intro
     -
-->->
+-> greta_acting
 
 = esplora_greta_personaggia
 {debug: <i>Passo per esplora_greta_personaggia</i>}
@@ -121,6 +121,8 @@ Opzioni di dialogo con la persona Greta
       
     + Te ne vai -> intro
     -
+    
+    -> greta_talking
     
 
 = esplora_greta

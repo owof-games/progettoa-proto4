@@ -43,6 +43,8 @@ Opzioni di dialogo con la persona Greta
     + Te ne vai -> intro
     -
     
+    -> greta_talking_second_tier
+    
 
 = esplora_greta
 {debug: <i>Passo per esplora_greta</i>}

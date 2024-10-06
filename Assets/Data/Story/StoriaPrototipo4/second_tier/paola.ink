@@ -43,6 +43,8 @@ Opzioni di dialogo con la persona Paola
     + Te ne vai
     -> intro
     -
+    
+    -> paola_talking_second_tier
 
 = esplora_paola
 {debug: <i>Passo per esplora_paola</i>}

@@ -46,6 +46,8 @@ Opzioni di dialogo con la persona Elia
       
     + Te ne vai -> intro
     -
+    
+    -> elia_talking_second_tier
 
 = esplora_elia
 {debug: <i>Passo per esplora_elia</i>}

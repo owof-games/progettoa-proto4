@@ -118,6 +118,8 @@ Opzioni di dialogo con la persona Matteo
     + Te ne vai
     -> intro
     -
+    
+    -> matteo_talking
 
 = esplora_matteo
 {debug: <i>Passo per esplora_matteo</i>}

@@ -18,6 +18,10 @@
     - are_two_entities_together(Elia, Greta) && elia_acting.missioneGreta && not are_two_entities_together(Elia, Matteo) && not are_two_entities_together(Elia, Zeca) && is_this_entity_near_Ettore(Elia) == true && new_this_loop(->anEavesdropAboutFriendshipStorylet):
     -> anEavesdropAboutFriendshipStorylet
 
+//CONVERSAZIONI IN ALTRE STANZE, CHE NON ORIGLIAMO, E CHE CONTINUANO QUANDO ENTRIAMO
+
+
+
 //CONFESSIONI SOLITARIE 
 
     - are_two_entities_together(Matteo, Ettore) && inventoryContents has AnticoPugnale && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Zeca) && not are_two_entities_together(Ettore, Greta) && new_this_loop(->aStrangeKnifeStorylet):

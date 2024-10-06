@@ -23,13 +23,6 @@
     
 - inventoryContents(Foto) && are_two_entities_together (Zeca, Ettore): -> iLlKillThatBitchStorylet    
 
-/*
-
-not elia+greta && not elia+paola && not elia+matteo
-
-not (elia+greta or elia+paola or elia+matteo)
-
-*/
 
 //CONVERSAZIONI ORIGLIATE
 TODO: quando due o più persone devono essere da sole, mettere not + are two entities per ogni singola combinazione di personaggie
@@ -43,6 +36,7 @@ TODO: quando due o più persone devono essere da sole, mettere not + are two ent
     
 - else: ->->
 
+//CONVERSAZIONI IN ALTRE STANZE, CHE NON ORIGLIAMO, E CHE CONTINUANO QUANDO ENTRIAMO
 
 }
 

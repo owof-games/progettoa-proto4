@@ -8,6 +8,7 @@ LIST characters = Paola, Elia, Zeca, Matteo, Greta, Ettore
 // list of all objects
 LIST objects = LimettaUnghie, AnticoPugnale, SpiedinoCocktail, Lettera, BottigliaDiVino, FlaconcinoAsma, SigarettaElettronica, Briciole, Torta, Foto
 
+TODO: ricorda che Briciole si trova solo sul corpo di Paola, non si porta in giro.
 //list of variables to reset on every loop
 LIST loopableVariables = EliaRaggiungeGreta, EliaSpaventatoPerZeca
 

@@ -6,13 +6,13 @@
 -> intro
 
 = limetta_unghie 
-    + (primoCheck)Controlla la limetta per le unghie
+    + (primoCheck) [Osserva la limetta per le unghie]
         -> advance_time ->
-        + + Raccogli la limetta per le unghie
+        + + [Raccoglila]
         ~ take_object(LimettaUnghie)
-        + + La lasci dov'è
+        + + [Lasciala dov'è]
     // + {inventoryContents has LimettaUnghie} Mostra limetta unghie
-    + {inventoryContents has LimettaUnghie} Lascia limetta unghie
+    + {inventoryContents has LimettaUnghie} [Lascia la limetta nella stanza]
         ~ remove_entity(LimettaUnghie)
     -
 ->->
@@ -27,13 +27,13 @@
 -> intro
 
 = antico_pugnale
-    + (primoCheck) Ispeziona il pugnale
+    + (primoCheck) [Ispeziona il pugnale]
         -> advance_time ->
-        + + Afferri il pugnale
+        + + [Raccoglilo]
         ~ take_object(AnticoPugnale)
-        + + Lo lasci dov'è    
+        + + [Lascialo dov'è]
     // + {inventoryContents has AnticoPugnale} Mostra il pugnale
-    + {inventoryContents has AnticoPugnale} Lascia il pugnale
+    + {inventoryContents has AnticoPugnale} [Lascia il pugnale nella stanza]
         ~ remove_entity(AnticoPugnale)
 
     -
@@ -50,12 +50,12 @@
 -> intro
 
 = spiedino_cocktail
-    + (primoCheck) Osserva lo spiedino
-        + + Afferri lo spiedino
+    + (primoCheck) [Controlla lo spiedino]
+        + + [Raccoglilo]
         ~ take_object(SpiedinoCocktail)
-        + + Lo lasci dov'è
+        + + [Lascialo dov'è]
     // + {inventoryContents has SpiedinoCocktail} Mostra lo spiedino
-    + {inventoryContents has SpiedinoCocktail}  Lascia lo spiedino
+    + {inventoryContents has SpiedinoCocktail}  [Lascia lo spiedino nella stanza]
         ~ remove_entity(SpiedinoCocktail)
     
     -
@@ -71,13 +71,13 @@
 
 
 = lettera
-    + (primoCheck) Leggi la lettera
-        "So cosa hai fatto, e la pagherai!"
-        + + Prendi la lettera
+    + (primoCheck) [Leggi la lettera]
+        "So cosa hai fatto e la pagherai!"
+        + + [Raccoglila]
         ~ take_object(Lettera)
-        + + La lasci dov'è
+        + + [Lasciala dov'è]
     // + {inventoryContents has Lettera} Mostra lettera
-    + {inventoryContents has Lettera} Lascia lettera
+    + {inventoryContents has Lettera} [Lascia la lettera nella stanza]
         ~ remove_entity(Lettera)
     
     -
@@ -93,12 +93,12 @@
 
 
 = bottiglia_di_vino
-    + (primoCheck) Osservi la bottiglia
-        + + Prendi la bottiglia
+    + (primoCheck) [Ispeziona la bottiglia di vino]
+        + + [Raccoglila]
         ~ take_object(BottigliaDiVino)
-        + + La lasci dov'è
+        + + [Lasciala dov'è]
     // + {inventoryContents has BottigliaDiVino} Mostra la bottiglia
-    + {inventoryContents has BottigliaDiVino} Lascia la bottiglia
+    + {inventoryContents has BottigliaDiVino} [Lascia la bottiglia di vino nella stanza]
         ~ remove_entity(BottigliaDiVino)
     
     -
@@ -112,12 +112,12 @@
 
 
 = flaconcino_asma
-    + (primoCheck) Osservi il flaconcino per l'asma
-        + + Prendi il flaconcino per l'asma
+    + (primoCheck) [Osserva il flaconcino per l'asma]
+        + + [Raccoglilo]
         ~ take_object(FlaconcinoAsma)
-        + + La lasci dov'è
+        + + [Lascialo dov'è]
     // + {inventoryContents has FlaconcinoAsma} Mostra il flaconcino per l'asma
-    + {inventoryContents has FlaconcinoAsma} Lascia il flaconcino per l'asma
+    + {inventoryContents has FlaconcinoAsma} [Lascia il flaconcino per l'asma nella stanza]
         ~ remove_entity(FlaconcinoAsma)
     
     -
@@ -131,12 +131,12 @@
 
 
 = sigaretta_elettronica
-    + (primoCheck) Osservi la sigaretta elettronica
-        + + Prendi la sigaretta elettronica
+    + (primoCheck) [Controlla la sigaretta elettronica]
+        + + [Raccoglila]
         ~ take_object(SigarettaElettronica)
-        + + La lasci dov'è
+        + + [Lasciala dov'è]
     // + {inventoryContents has SigarettaElettronica} Mostra la sigaretta elettronica
-    + {inventoryContents has SigarettaElettronica} Lascia la sigaretta elettronica
+    + {inventoryContents has SigarettaElettronica} [Lascia la sigaretta elettronica nella stanza]
         ~ remove_entity(SigarettaElettronica)
     
     -
@@ -150,13 +150,13 @@
 
 
 = cibo
-    + (primoCheck) Osservi cibo
-        + + Prendi cibo
-        ~ take_object(Briciole)
-        + + La lasci dov'è
+    + (primoCheck) [Assaggia la torta]
+        + + [Raccoglila]
+        ~ take_object(Torta)
+        + + [Lasciala dov'è]
     // + {inventoryContents has Briciole} Mostra cibo
-    + {inventoryContents has Briciole} Lascia cibo
-        ~ remove_entity(Briciole)
+    + {inventoryContents has Torta} [Lascia la torta nella stanza]
+        ~ remove_entity(Torta)
     
     -
 ->->

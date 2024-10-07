@@ -22,43 +22,87 @@ Opzioni di dialogo con il personaggio Elia
     + [Prova ad avere una conversazione con Elia] -> esplora_elia_personaggia
     
     //SCELTE CONDIZIONALI//
-    + (senzatetto){greta_acting.missioneGreta && new_this_loop(->senzatetto) && not are_two_entities_together(Greta, Elia)} Elia, Greta vorrebbe parlare con te.
+    + (senzatetto){greta_acting.missioneGreta && new_this_loop(->senzatetto) && not are_two_entities_together(Greta, Elia)} Ettore: Sai Elia, Greta vorrebbe parlare con te.
         Elia: Così può uccidere anche me?
         Ettore: In che senso?
-        Elia: Paola voleva rilevare il pub per trasformarlo in un rifugio per senzatetto, e Greta ha detto cose terribili e ripetuto che avrebbe fatto di tutto per fermarla.
+        Elia: Chi altri avrebbe potuto uccidere Paola?
+        Elia: Paola voleva rilevare il pub per trasformarlo in un rifugio per senzatetto.
+        Elia: E Greta ha detto cose terribili e ripetuto che avrebbe fatto di tutto per fermarla.
         Elia: Di tutto.
-        Elia: Per cui, vattene.
+        Elia: Per cui se sei un suo semplice, vattene!
+        Ettore: Semplice?
+        Elia: Hai capito. Via!
+        -> advance_time ->
         // route "lo mandi nella stanza di Greta con una trappola"
         
         // route "lo mandi da Greta proponendo uno scambio"
-    +  (uniti){weddingAtThePubStorylet && new_this_loop(->senzatetto) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia)} Ho una proposta. So che tu e Matteo avete litigato, per via del matrimonio.
-            Ettore: Tu vuoi che festeggiamo al pub. Se lo convinco, andrai da Greta?
-            Elia: Se ci riesci, parlerò con quella arpia.
-            
-    + {!new_this_loop(->senzatetto) && !hardTrueFeelingsStorylet && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia)} Ettore: "Sto ancora cercando il modo di convincere Matteo, ma ce la farò!"
+    +  (uniti){weddingAtThePubStorylet && new_this_loop(->senzatetto) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia)} Ettore: Ho una proposta da farti: io faccio una cosa per te, e tu vai da Greta. Che ne dici?
+        Elia: Qualcosa a che fare con la mia micia?
+        Elia: Perché ormai non credo più a nessuno che vuole toccare la mia micia.
+        {!elia_acting.third_qn: Ettore: Ehm, no. Manco sapevo avessi una micia.}
+        {elia_acting.third_qn: Ettore: No, non c'entra Sonia.}
+        Ettore: So che tu e Matteo avete litigato, per via del matrimonio.
+        Ettore: Tu vuoi che festeggiamo al pub, lui non ne vuole sapere. Se lo convinco, andrai da Greta?
+        Elia: Quindi vuoi davvero che io muoia? Va bene.
+        Elia: Se ci riesci, parlerò con quella arpia.
+        Elia: Ma magari aiutami a proteggermi!
+        -> advance_time ->   
+    
+    + {!new_this_loop(->senzatetto) && !hardTrueFeelingsStorylet && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia)} Ettore: Sto ancora cercando il modo di convincere Matteo, ma ce la farò!
+        Elia: Non ho fretta di morire, tranquillo!
 
-    + (missioneGreta){hardTrueFeelingsStorylet && not are_two_entities_together(Greta, Elia)} Ettore: "Ho convinto Matteo, ora parlerai con Greta?"
-            Elia: "Bene, vado, dove la trovo?"
+    + (missioneGreta){hardTrueFeelingsStorylet && not are_two_entities_together(Greta, Elia) && !new_this_loop(->senzatetto)} Ettore: Ho convinto Matteo!
+        Ettore: Faremo la cerimonia da voi, al pub.
+        Ettore: In fondo cosa c'è di più romantico di un esercito di comici ubriachi e incapaci?
+        Ettore: Quindi, ora parlerai con Greta?
+        Elia: Mi dai qualcosa per difendermi da lei?
+        {
+            - inventoryContents has Lettera: Ettore: Puoi provare a minacciarla?
+                ~ inventoryContents -= Lettera
+                ~ objectStorageContents += Lettera
+            - inventoryContents has AnticoPugnale: Ettore: Con questo puoi richiamare i Grandi Antichi!
+                ~ inventoryContents -= AnticoPugnale
+                ~ objectStorageContents += AnticoPugnale
+            - inventoryContents has LimettaUnghie: Ettore: Puoi grattarle i calli?
+                ~ inventoryContents -= LimettaUnghie
+                ~ objectStorageContents += LimettaUnghie
+            - inventoryContents has Torta: Ettore: Puoi provarla a farle venire il diabete?
+                ~ inventoryContents -= Torta
+                ~ objectStorageContents += Torta
+            - inventoryContents has BottigliaDiVino: Ettore: Che ne dici di farla ubriacare?
+                ~ inventoryContents -= BottigliaDiVino
+                ~ objectStorageContents += BottigliaDiVino
+            - inventoryContents has FlaconcinoAsma: Ettore: Ehm, puoi fare qualcosa con un flaconcino?
+                ~ inventoryContents -= FlaconcinoAsma
+                ~ objectStorageContents += FlaconcinoAsma
+            - inventoryContents has SigarettaElettronica: Ettore: Puoi sempre infastidirla col puzzo di questo coso?
+                ~ inventoryContents -= SigarettaElettronica
+                ~ objectStorageContents += SigarettaElettronica
+            - else: Ettore: Ehm, il tuo smagliante sorriso?    
+        }
+        Elia: "Grazie. In qualche modo me la caverò."
+        Elia: "Bene, vado, dove la trovo?"
+            -> advance_time ->
             ~ move_entity_from_object_storage_to_Ettore_location(SpiedinoCocktail)
-        + + {whiteRoomContents hasnt Ettore} Ettore: "Ti aspetta nella stanza bianca."
+        + + {whiteRoomContents hasnt Ettore} Ettore: Ti aspetta nella stanza bianca.
                 ~ move_entity(Elia, WhiteRoom)
                 {
                 - whiteRoomContents has Greta:
                 ~ loopableVariables += EliaRaggiungeGreta
                 }
-        + + {greenRoomContents hasnt Ettore} Ettore: "Ti aspetta nella stanza verde."
+        + + {greenRoomContents hasnt Ettore} Ettore: La trovi nella stanza verde.
                 ~ move_entity(Elia, GreenRoom)
                 {
                 - greenRoomContents has Greta:
                 ~ loopableVariables += EliaRaggiungeGreta
                 }
-        + + {yellowRoomContents hasnt Ettore} Ettore: "Ti aspetta nella stanza gialla."                
+        + + {yellowRoomContents hasnt Ettore} Ettore: Sta cazzeggiando nella stanza gialla.              
                 ~ move_entity(Elia, YellowRoom)
                 {
                 - yellowRoomContents has Greta:
                 ~ loopableVariables += EliaRaggiungeGreta
                 }
-        + + {redRoomContents hasnt Ettore} Ettore: "Ti aspetta nella stanza rossa."                
+        + + {redRoomContents hasnt Ettore} Ettore: Nella stanza rossa.             
                 ~ move_entity(Elia, RedRoom)
                 {
                 - redRoomContents has Greta:
@@ -66,45 +110,132 @@ Opzioni di dialogo con il personaggio Elia
                 }      
                 
    
-    + (sincero) {hardTrueFeelingsStorylet} Ettore: "Matteo mi ha detto di lui e di Greta."
-            Elia: "Merda, mi spiace. Per questo volevo fare il matrimonio al pub."
-            Elia: "Andrò lo stesso da Greta, te lo devo."
-            Ettore: "Ti aspetta nella stanza bianca."
+    + (sincero) {hardTrueFeelingsStorylet} Ettore: Matteo mi ha detto di lui e di Greta.
+            Elia: Merda, mi spiace. Per questo volevo fare il matrimonio al pub.
+            Elia: Sapevo da tempo che Matteo provava qualcosa per Greta, ma non sapevo come dirtelo!
+            Elia: Andrò da Greta, te lo devo.
+            Ettore: Sei un amico.
+            Elia: Dove la trovo?
+            -> advance_time ->
             ~ move_entity_from_object_storage_to_Ettore_location(SpiedinoCocktail)
-            
+            + + {whiteRoomContents hasnt Ettore} Ettore: Ti aspetta nella stanza bianca.
                 ~ move_entity(Elia, WhiteRoom)
+                {
+                - whiteRoomContents has Greta:
                 ~ loopableVariables += EliaRaggiungeGreta
+                }
+            + + {greenRoomContents hasnt Ettore} Ettore: La trovi nella stanza verde.
+                ~ move_entity(Elia, GreenRoom)
+                {
+                - greenRoomContents has Greta:
+                ~ loopableVariables += EliaRaggiungeGreta
+                }
+            + + {yellowRoomContents hasnt Ettore} Ettore: Sta cazzeggiando nella stanza gialla.              
+                ~ move_entity(Elia, YellowRoom)
+                {
+                - yellowRoomContents has Greta:
+                ~ loopableVariables += EliaRaggiungeGreta
+                }
+            + + {redRoomContents hasnt Ettore} Ettore: Nella stanza rossa.             
+                ~ move_entity(Elia, RedRoom)
+                {
+                - redRoomContents has Greta:
+                ~ loopableVariables += EliaRaggiungeGreta
+                }      
                 
                 
     
         -          
         
     //SCELTE CONDIZIONALI OGGETTI//
-     + (pugnaleMatteo){inventoryContents has AnticoPugnale} Guarda questo pugnale!
-            Elia: "Matteo era disperato, l'aveva perso da settimane!"
+     + (pugnaleMatteo){inventoryContents has AnticoPugnale} Ettore: Ehi Elia, hai mai visto questo pugnale?
+            Elia: Sì!
+            Elia: Matteo era disperato, l'aveva perso da settimane!
             {
-            - are_two_entities_together(Matteo, Elia): Matteo: "E ora me lo riprendo. Grazie amore mio!"
+            - are_two_entities_together(Matteo, Elia): Matteo: E ora me lo riprendo. Grazie amore mio!
                 ~ inventoryContents -= AnticoPugnale
                 ~ objectStorageContents += AnticoPugnale
             }
-     + {inventoryContents has SpiedinoCocktail} Elia, hai lasciato alle tue spalle questo oggetto.
-        + + (paolaSiSposa)Sarebbe perfetto per uccidere qualcuno!
-            Elia si incazza
-            Elia: "L'ho portato a Paola per valutarlo per il matrimonio."
-            Ettore: "Il matrimonio mio e di Matteo?"
-            Elia: "No, il suo. Paola si sposa."
-        + + Cosa volevi farci?
-            Elia ci dice che non l'ha mia visto.
+            Elia: Una volta mi ha detto che avrebbe risvegliato un antico demone, col sangue giusto.
+            {are_two_entities_together(Matteo, Elia): Matteo: Era solo una battuta, Elia!}
+            Elia: E una sera mi ha punto con quel coltello tutto contento ed ero terrorizzato.
+            {are_two_entities_together(Matteo, Elia): Matteo: Avevi sei anni ed era l'unico modo per farti un test rapido del sangue.}
+            Elia: E nessuno sa come ne sia venuto in possesso, manco lui.
+            {are_two_entities_together(Matteo, Elia): Matteo: Questo è vero, me lo sono ritrovato in casa una volta e boh. l'ho preso come un segno del destino.}
+            Elia: Paola dice che è un santanista e per questo finirà all'inferno.
+            {are_two_entities_together(Matteo, Elia): Matteo: All'inferno ci finirò ascoltando queste cazzate.}
+            -> advance_time ->
+    
+    + {inventoryContents has SpiedinoCocktail} Ettore: Elia, ti è caduta quest'arma dalla tasca!
+        Elia: Non ho mai visto questa roba, mai.
+        {elia_acting.first_qn: Ettore: Ma ci sono le iniziali del tuo locale, vedi?}
+        Elia: Lasciami in pace!
+        + + (paolaSiSposa) Ettore: Sarebbe perfetto per uccidere qualcuno!
+            Elia: No, una cosa perfetta per uccidere qualcuno è la morte!
+            Elia: L'ho portato a Paola per vedere se va bene per il matrimonio.
+            {!hardTrueFeelingsStorylet.matteoGreta: Ettore: Il matrimonio mio e di Matteo?}
+            {hardTrueFeelingsStorylet.matteoGreta: Ettore: Il non più matrimonio mio e di Matteo?}
+            Elia: No, il suo. Paola si sposa.
+            Elia: Ha organizzato un matrimonio in fretta e furia, manco sappiamo con chi.
+            -> advance_time ->
         - -
-    + {inventoryContents has Lettera} Guarda questa lettera!
-    + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    + {inventoryContents has Briciole} Guarda questo cibo!
-    + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
-    + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
-    + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
+    + (minacce){inventoryContents has Lettera} Ettore: Elia, tu sai chi possa aver scritto questa lettera?
+            Elia: Ehm, cosa, ehm.
+            Elia: Cosa c'è scritto?
+            Ettore: Hai dimenticato gli occhiali?
+            Elia: Sì sì, gli occhiali. Esatto.
+            Ettore: <i>So cosa hai fatto e la pagherai!</i>, ma non c'è il nome.
+            Elia: Sembra una roba da Matteo. Quando è pissato è capace di dire qualunque cosa.
+            Elia: Una volta da piccoli mi ha fatto mangiare le crocchette del gatto.
+            Elia: E solo perché era convinto che fossero avvelenate.
+            -> advance_time ->
+    + {inventoryContents has LimettaUnghie} Ettore: Sai di chi è questa limetta per le unghie?
+            Elia: Zeca?
+            è plausibile che in realtà limetta non sarà mai in lista
+    + {inventoryContents has Torta} Ettore: Sai chi potrebbe aver portato la torta?
+            Elia: Il fornaio?
+            Ettore: Intendi il catering?
+            Elia: No no, il fornaio.
+            Elia: Matteo dice sempre che sta aspettando qualcuno per la farina.
+            Elia: E la farina la usa il fornaio.
+            Elia: E i dolci son del fornaio, no?
+            Elia: E Paola che dice che non capisco nulla.
+            -> advance_time ->
+    + {inventoryContents has BottigliaDiVino} Ettore: Hai mai visto questa bottiglia di.
+            Elia: No non bevo grazie.
+            Ettore: No, ti chiedevo se avessi mai
+            Elia: Non insistere, no.
+            Elia: Non voglio fare la fine di Zeca.
+            Ettore: Elia: vorrei solo sapere chi
+            Elia: Guarda che è maleducato insistere quando
+            Ettore: CHI HA PORTATO QUESTA BOTTIGLIA?!?
+            Elia: Paola. Credo sia della collezione di Paola.
+            Elia: E guarda che non serve urlare!
+            -> advance_time ->
+    + {inventoryContents has FlaconcinoAsma} Ettore: Sei tu a soffrire d'asma?
+            Elia: È quella cosa che ti viene quando hai paura di tutto?
+            Ettore: Intedi l'ansia? Che non è proprio così comunque.
+            Elia: È quella cosa che hanno le camicie?
+            Ettore: Quella è l'asola.
+            Elia: Uh, forse in garage ne ho una.
+            Ettore: Di asola? O di asma?
+            Elia: No, di quelle per saltare.
+            Ettore: Quella è, oh, lascia fare.
+            -> advance_time ->
+    + {inventoryContents has SigarettaElettronica} Ettore: Sai di chi sia questa sigaretta elettronica?
+            Elia: Non dovrebbe essere "a liquidi?"
+            Elia: Che poi Greta mi dice sempre di tenere lontane le cose elettroniche dall'acqua.
+            Elia: Quindi perché qualcuno dovrebbe mettere assieme le due cose, e persino in bocca?
+            Elia: Non mi sembra una cosa intelligente, no.
+            Elia: Però una volta ho fumato della noce moscata, ma non è successo nulla.
+            Ettore: Quindi non sai di chi sia?
+            Elia: No, non posso saperlo, non ora. Non so se mi capisci.
+            Ettore: No Elia, non ti capisco.
+            Elia: Nessuno mi capisce, è sempre stato così.
+            -> advance_time ->
     
       
-    + Te ne vai
+    + [Allontanati]
         -> intro
     -
 ->->
@@ -114,7 +245,6 @@ Opzioni di dialogo con il personaggio Elia
 
 {
 - EliaActing > 1: Elia: Scusa Ettore ma devo segnarmi una battuta bellissima ora.
-    -> advance_time ->
     -> intro
 - else:
     { shuffle:
@@ -128,16 +258,17 @@ Opzioni di dialogo con il personaggio Elia
 = first_qn
 ~ EliaActing++
     + Ettore: Come sta andando con il pub?
-    Elia: Il Funny Elia & Greta? Benissimo! L'altro sabato abbiamo avuto addirittura tre comici di fila.
-    Elia: Anche se uno era così ubriaco che si è addormentato durante il suo stesso show.
+    Elia: Il <i>Funny Elia & Greta</i>? Benissimo! L'altro sabato abbiamo avuto addirittura tre comici di fila.
+    Elia: Anche se uno era così ubriaco che si è addormentato durante il suo sketch.
     Elia: Ma è stato anche il momento in cui il pubblico ha riso di più.
     Elia: E ora sto cercando di convincere Greta a portare dei cani sul palco.
-    Elia: Ma lei dice che ne abbiamo già abbastanza.
-    Elia: Cosa che non capisco perché l'unico cane che può entrare è Grisù, il cane della signora cieca del terzo piano.
+    Elia: Ma lei dice che ne abbiamo già abbasta sufficienza.
+    Elia: Cosa che non ha senso perché l'unico cane che può entrare è Grisù, il labrador della signora cieca del terzo piano.
     Elia: Ma Greta dice che non importa che io capisca, fintanto che faccio buoni cocktail.
     Elia: E stia lontano dalla cassa.
     Elia: E dalla lista degli ospiti.
     Elia: E dalle decisioni per il locale.
+    Elia: E dalla commercialista.
     -> advance_time ->
     
     -
@@ -224,7 +355,6 @@ Opzioni di dialogo con la persona Elia
 
 {
 - EliaTalking > 1: Elia: "Non mi va di rispondere ad altre domande personali".
-    -> advance_time ->
     -> intro
 - else:
     { shuffle:

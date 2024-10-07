@@ -30,12 +30,12 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 
 
-{elia_acting.senzatetto: <i>Informazioni su Elia</i>}
+{elia_acting.senzatetto: <i>Informazioni sul personaggio Elia</i>}
 {elia_acting.senzatetto: Elia: Paola voleva rilevare il pub per trasformarlo in un rifugio per senzatetto. E Greta ha detto cose terribili e ripetuto che avrebbe fatto di tutto per fermarla.}
 
 
 
-{elia_acting.sincero: <i>Informazioni su Matteo</i>}
+{elia_acting.sincero: <i>Informazioni sul personaggio Matteo</i>}
 {hardTrueFeelingsStorylet.matteoGreta: Matteo: "Mi spiace, ma amo Greta, non te. Il matrimonio era solo una scusa per farla ingelosire."}
 {elia_acting.sincero: Elia: Merda, mi spiace. Per questo volevo fare il matrimonio al pub. Sapevo da tempo che Matteo provava qualcosa per Greta, ma non sapevo come dirtelo!}
 {greta_acting.matteoGreta: Greta: "Mi spiace Ettore, ma abbiamo scopato solo una volta, è Matteo che è proprio andato in fissa!"}
@@ -45,14 +45,14 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 
 
-{elia_acting.paolaSiSposa:<i>Informazioni su Paola</i>}
+{elia_acting.paolaSiSposa:<i>Informazioni sul personaggio Paola</i>}
 {elia_acting.paolaSiSposa:Elia: Ha organizzato un matrimonio in fretta e furia, manco sappiamo con chi.}
 {matteo_acting.paolaSiSposa && marryMeStorylet: Matteo: "Paola ha organizzato il matrimonio appena le ho confidato che avrei voluto sposarti."}
 {matteo_acting.zecaTestimone: Matteo:"La cosa che mi ha stupito è che abbia chiesto a Zeca di farle da testimone!"}
 {greta_acting.paolaPerfetta: Greta: "Nessuno avrebbe potuto fare male a Paola, è perfetta!"}
 
 
-{anEavesdropAboutFriendshipStorylet.gretaTriste: <i>Informazioni su Greta</i>}
+{anEavesdropAboutFriendshipStorylet.gretaTriste: <i>Informazioni sul personaggio Greta</i>}
 {anEavesdropAboutFriendshipStorylet.gretaTriste: Greta: "Storia dolorosa infanzia"}
 
 {matteo_acting.zecaTestimone or worstBestManStorylet.paolaZeca: <i>Informazioni su Zeca</i>}

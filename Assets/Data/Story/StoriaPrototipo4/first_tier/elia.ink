@@ -18,9 +18,17 @@ Opzioni di dialogo con il personaggio Elia
 
 === elia_acting
     {debug: <i>Passo per elia_acting</i>}
-    //INFO GENERALI//
+    //INTERAZIONI GENERALI//
     + [Prova ad avere una conversazione con Elia] -> esplora_elia_personaggia
-    
+    + Ettore: Sai chi potrebbe avere ucciso Paola?
+        Elia: Nessuno.
+        Elia: Paola era perfetta, impeccabile.
+        Elia: Quindi direi che è stato un suicidio.
+        Ettore: Ma ci sono dei colpi d'arma nel petto, come avrebbe potuto suicidarsi?
+        Elia: E infatti è impossibile, perché il suicidio è contro Dio.
+        Elia: E Paola non va contro Dio. E quindi:
+        Elia: Paola non è morta.
+        Elia: Il caso è chiuso.
     //SCELTE CONDIZIONALI//
     + (senzatetto){greta_acting.missioneGreta && new_this_loop(->senzatetto) && not are_two_entities_together(Greta, Elia)} Ettore: Sai Elia, Greta vorrebbe parlare con te.
         Elia: Così può uccidere anche me?
@@ -48,10 +56,10 @@ Opzioni di dialogo con il personaggio Elia
         Elia: Ma magari aiutami a proteggermi!
         -> advance_time ->   
     
-    + {!new_this_loop(->senzatetto) && !hardTrueFeelingsStorylet && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia)} Ettore: Sto ancora cercando il modo di convincere Matteo, ma ce la farò!
+    + {seen_in_this_loop(->senzatetto) && !hardTrueFeelingsStorylet && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && not loopableVariables == EliaRaggiungeGreta} Ettore: Sto ancora cercando il modo di convincere Matteo, ma ce la farò!
         Elia: Non ho fretta di morire, tranquillo!
 
-    + (missioneGreta){hardTrueFeelingsStorylet && not are_two_entities_together(Greta, Elia) && !new_this_loop(->senzatetto)} Ettore: Ho convinto Matteo!
+    + (missioneGreta){hardTrueFeelingsStorylet && not are_two_entities_together(Greta, Elia) && seen_in_this_loop(->senzatetto) && not loopableVariables == EliaRaggiungeGreta} Ettore: Ho convinto Matteo!
         Ettore: Faremo la cerimonia da voi, al pub.
         Ettore: In fondo cosa c'è di più romantico di un esercito di comici ubriachi e incapaci?
         Ettore: Quindi, ora parlerai con Greta?
@@ -110,7 +118,7 @@ Opzioni di dialogo con il personaggio Elia
                 }      
                 
    
-    + (sincero) {hardTrueFeelingsStorylet} Ettore: Matteo mi ha detto di lui e di Greta.
+    + (sincero) {hardTrueFeelingsStorylet  && not are_two_entities_together(Greta, Elia) && not loopableVariables == EliaRaggiungeGreta} Ettore: Matteo mi ha detto di lui e di Greta.
             Elia: Merda, mi spiace. Per questo volevo fare il matrimonio al pub.
             Elia: Sapevo da tempo che Matteo provava qualcosa per Greta, ma non sapevo come dirtelo!
             Elia: Andrò da Greta, te lo devo.

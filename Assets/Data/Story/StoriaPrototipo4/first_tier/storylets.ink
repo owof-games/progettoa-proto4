@@ -19,9 +19,11 @@
     -> anEavesdropAboutFriendshipStorylet
 
 //CONVERSAZIONI IN ALTRE STANZE, CHE NON ORIGLIAMO, E CHE CONTINUANO QUANDO ENTRIAMO
-    - currentTime >= 240 && are_three_entities_together(Matteo, Elia, Ettore) && not are_two_entities_together(Elia, Ettore) && new_this_loop(->sheIsTheBestStorylet):
+    - currentTime >= 240 && are_three_entities_together(Matteo, Elia, Ettore) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Zeca) && new_this_loop(->sheIsTheBestStorylet):
     -> sheIsTheBestStorylet
 
+    - currentTime >= 240 && are_three_entities_together(Matteo, Greta, Ettore) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && new_this_loop(->itsOverisntItStorylet):
+    -> itsOverisntItStorylet
 
 //CONFESSIONI SOLITARIE 
     - are_two_entities_together(Matteo, Ettore) && inventoryContents has AnticoPugnale && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Zeca) && not are_two_entities_together(Ettore, Greta) && new_this_loop(->aStrangeKnifeStorylet):
@@ -153,7 +155,11 @@ TODO: questa è una modalità molto scriptata, mi piacerebbe qualcosa di più re
 ->->
 
 
-
+=== itsOverisntItStorylet
+Greta qui fa un cazziatone a Matteo
+se {greta_acting.loVoglio} allora cercherà di convincerlo a tornare con Ettore.
+Ma questa cosa la vediamo all'inizio, le altre due scene sembreranno più provolone.
+->->
 
 
 //STORYLET DA SCELTE

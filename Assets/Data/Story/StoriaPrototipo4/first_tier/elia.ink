@@ -128,7 +128,7 @@ Opzioni di dialogo con il personaggio Elia
 = first_qn
 ~ EliaActing++
     + Ettore: Come sta andando con il pub?
-    Elia: Benissimo, sai? L'altro sabato abbiamo avuto addirittura tre comici di fila.
+    Elia: Il Funny Elia & Greta? Benissimo! L'altro sabato abbiamo avuto addirittura tre comici di fila.
     Elia: Anche se uno era così ubriaco che si è addormentato durante il suo stesso show.
     Elia: Ma è stato anche il momento in cui il pubblico ha riso di più.
     Elia: E ora sto cercando di convincere Greta a portare dei cani sul palco.

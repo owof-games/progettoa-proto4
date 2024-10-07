@@ -19,7 +19,7 @@
     -> anEavesdropAboutFriendshipStorylet
 
 //CONVERSAZIONI IN ALTRE STANZE, CHE NON ORIGLIAMO, E CHE CONTINUANO QUANDO ENTRIAMO
-    - currentTime >= 240 && are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Elia, Ettore) && new_this_loop(->sheIsTheBestStorylet):
+    - currentTime >= 240 && are_three_entities_together(Matteo, Elia, Ettore) && not are_two_entities_together(Elia, Ettore) && new_this_loop(->sheIsTheBestStorylet):
     -> sheIsTheBestStorylet
 
 
@@ -35,11 +35,11 @@
 
 
 //MATERIALI PER TUTORIAL
-- currentTime > 200 && not objects_tutorial: -> objects_tutorial
+- currentTime > 480 && not objects_tutorial: -> objects_tutorial
 
-- currentTime > 200 && objects_tutorial && new_this_loop(->objects_tutorial) && not notebook_tutorial: -> notebook_tutorial
+- currentTime > 480 && objects_tutorial && new_this_loop(->objects_tutorial) && not notebook_tutorial: -> notebook_tutorial
 
-- currentTime > 200 && objects_tutorial && notebook_tutorial && new_this_loop(->notebook_tutorial) && not talking_tutorial: -> talking_tutorial
+- currentTime > 480 && objects_tutorial && notebook_tutorial && new_this_loop(->notebook_tutorial) && not talking_tutorial: -> talking_tutorial
 
 }
 ->->
@@ -88,7 +88,7 @@ Conversazione origliata: capiamo che Greta non ce l'ha con Paola, ma cagate tipo
 Finalmente siamo soli, proposta di matrimonio, ma la prende larga.
 Se qualcuno entra, cambia argomento.
 {
-    - are_three_entities_together(Matteo, Ettore, Elia) or are_three_entities_together(Matteo, Ettore, Greta) or are_three_entities_together(Matteo, Ettore, Zeca): -> quickTalk
+    - are_two_entities_together(Ettore, Elia) or are_two_entities_together(Ettore, Greta) or are_two_entities_together(Ettore, Zeca): -> quickTalk
     -else: ->->
 }
 
@@ -123,14 +123,33 @@ Matteo ci dice cose se ci vede in giro col suo coltello, e se lo riprende.
 
 //CONVERSAZIONI INDIPENDENTI
 === sheIsTheBestStorylet
+TODO: questa è una modalità molto scriptata, mi piacerebbe qualcosa di più reattivo ma non saprei come fare.
 {debug: <i>Passo per sheIsTheBestStorylet</i>}
+{
+    - currentTime == 240: ->step_one
+    - currentTime == 255: ->step_two
+    - currentTime == 270: ->step_three
+    - else: ->->
+    }
+= step_one    
 -> advance_time ->
     Matteo dice cose
     Elia dice cose
     Matteo risponde
     Elia dice cose
     Matteo dice una cosa importante che finirà nel taccuino o no
+-> step_two
 
+= step_two
+    Matteo dice cose
+    Elia dice cose
+
+-> step_three
+
+= step_three
+    Arriviamo in fondo al dialogo, poche frasi per far capire che qualcosa è finito.
+    Matteo dice cose
+    Elia dice cose
 ->->
 
 
@@ -143,7 +162,7 @@ Matteo ci dice cose se ci vede in giro col suo coltello, e se lo riprende.
 Matteo ci dice che ama Greta
     -> advance_time ->
 {
-    - are_three_entities_together(Matteo, Ettore, Elia) or are_three_entities_together(Matteo, Ettore, Greta) or are_three_entities_together(Matteo, Ettore, Zeca): -> quickTalk
+    - are_two_entities_together(Ettore, Elia) or are_two_entities_together(Ettore, Greta) or are_two_entities_together(Ettore, Zeca): -> quickTalk
     -else: ->->
 }
     -> advance_time ->

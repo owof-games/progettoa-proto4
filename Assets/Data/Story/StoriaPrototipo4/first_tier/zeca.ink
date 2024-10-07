@@ -101,7 +101,7 @@ Opzioni di dialogo con la persona Zeca
  {debug: <i>Passo per zeca_talking</i>}
     -> resting_time ->
     //INFO GENERALI//
-    + Fai domande sulla persona Zeca -> esplora_zeca
+    + [Scambia due parole con Zeca] -> esplora_zeca
 
     //SCELTE CONDIZIONALI//
     
@@ -145,7 +145,14 @@ Opzioni di dialogo con la persona Zeca
 
 = first_qn
 ~ ZecaTalking++
-    + Prima domanda
+    + Ettore: Ti era mancato vedere i tuoi fratelli e sorelle?
+    Zeca: Avrei preferito un contesto diverso, ma sì, mi sono mancati.
+    Zeca: Anche se credo mi manchi qualcosa che non c'è più, il passato con loro.
+    Zeca: Quando eravamo poveri, ma felici.
+    Zeca: Quando nessuno di noi doveva tuffarsi in alcool, lavoro o cazzate spirituali per sopravvivere un'altra giornata.
+    Zeca: Mi sembra di stare in una stanza piena di ragazzini che ancora vogliono compiacere papà e mamma.
+    Zeca: Anche se son morti da decenni.
+    Zeca: E alla fine cosa mi rimane da fare se non riprendere a ignorarli e bere?
     -> advance_time ->
     
     -
@@ -153,7 +160,14 @@ Opzioni di dialogo con la persona Zeca
 
 = second_qn
  ~ ZecaTalking++
-    +  altra domanda
+    +  Ettore: Sai, Matteo non mi parla mai molto di te. Cosa fai nella vita?
+    Zeca: Un po' questo, un po' quello.
+    Ettore: Nel senso di tanti lavoretti?
+    Zeca: No no, nel senso letterale del termine.
+    Zeca: Ci sono giornate in cui esploro il <i>questo>/i>, tutto ciò che è prossimo, vicino, a contatto con la mia pelle.
+    Zeca: E notti in cui esploro il <i>quello</i>, l'alieno, fuori e dentro di me.
+    Ettore: Eh, ehm, cosa trovi dentro di te?
+    Zeca: Principalmente arachidi e superalcolici.
     -> advance_time ->
    
     -
@@ -161,8 +175,14 @@ Opzioni di dialogo con la persona Zeca
 
 = third_qn
 ~ ZecaTalking++
-    Zeca dice cose
-        +  tu chiedi
+    Zeca: Ettore, tu sei in giro a fare un sacco di domande, ma ti sei mai chiesto la cosa più grande?
+    Ettore: E quale sarebbe?
+    Zeca: La grande domande non è chi avrebbe avuto motivo di uccidere Paola, ma chi avrebbe avuto un motivo per tenerla in vita.
+    Zeca: Quello è il crimine più grande.
+    Zeca: Davanti a questo mondo che brucia, infettato dal fascismo, distrutto dal capitalismo e dall'individualismo, dimmi:
+    Zeca: non è forse più crudele volere che qualcun altro viva un solo giorno in tutto questo?
+    Zeca: Forse, giovane amico, stai indagando sul crimine sbagliato.
+    Zeca: Pensaci su, mentre vado a cercare del pastis.
     -> advance_time ->    
     -    
 -> zeca_talking

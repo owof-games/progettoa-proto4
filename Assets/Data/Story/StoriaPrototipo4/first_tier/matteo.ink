@@ -19,7 +19,7 @@ Opzioni di dialogo con il personaggio Matteo
 === matteo_acting
     {debug: <i>Passo per matteo_acting</i>}
     //INFO GENERALI//
-    + Fai domande sul personaggio Matteo -> esplora_matteo_personaggia
+    + [Chiacchiera un po' con Matteo] -> esplora_matteo_personaggia
     
     //SCELTE CONDIZIONALI//
     
@@ -52,7 +52,7 @@ Opzioni di dialogo con il personaggio Matteo
 {debug: <i>Passo per esplora_matteo_personaggia</i>}
 
 {
-- MatteoActing > 1: Matteo: "Non mi va di rispondere ad altre domande personali".
+- MatteoActing > 1: Matteo: Amore, fai due passi, che paparino ha da fare due chiamate di lavoro.
     -> advance_time ->
     -> intro
 - else:
@@ -66,7 +66,15 @@ Opzioni di dialogo con il personaggio Matteo
 
 = first_qn
 ~ MatteoActing++
-    + Prima domanda
+    + Ettore: Come posso tirarti su il morale, amore?
+        Matteo: Un pompino in bagno?
+        Ettore: Non credo sia il caso, amore.
+        Matteo: Ma sei così bello.
+        Ettore: E Paola è così morta, no?
+        Matteo: E quindi non dovremmo celebrare la vita?
+        Matteo: Diffondere l'amore, saziarci nei nostri corpi fino a raggiungere le stelle.
+        Ettore: Ti va una merendina?
+        Matteo: Ecco, sì, una merendina sarebbe perfetta.
     -> advance_time ->
     
     -
@@ -74,7 +82,15 @@ Opzioni di dialogo con il personaggio Matteo
 
 = second_qn
  ~ MatteoActing++
-    +  altra domanda
+    +  Ettore: Non mi parli mai molto della tua famiglia, come mai?
+        Matteo: Ovvio: sono tutti invidiosi.
+        Matteo: Zeca è un fallito e pensa solo a chiedermi prestiti.
+        Matteo: Elia ha il cervello di un labrador nel corpo di un trent'enne disgraziato.
+        Matteo: Paola giudica chiunque non rinunci a ogni piacere possibile.
+        Matteo: Greta pensa che essere acide sia un tratto distintivo.
+        Matteo: E i nonni sono i nonni. Insomma, son vecchi e quindi noiosi.
+        Matteo: Ma almeno mi hanno dato una mano con l'azienda.
+        Matteo: Ma solo una mano, giuro, il resto ho fatto da solo!
     -> advance_time ->
    
     -
@@ -82,8 +98,16 @@ Opzioni di dialogo con il personaggio Matteo
 
 = third_qn
 ~ MatteoActing++
-    Matteo dice cose
-        +  tu chiedi
+    Matteo: Ti ricordi la sera in cui ci siamo conosciuti?
+    Ettore: E come potrei dimenticarla? Pensavo sarebbe stato un semplice colloquio di lavoro, ed eccoci quì.
+    Matteo: Sai qual è stata la prima cosa che ho pensato quando ti ho visto entrare?
+    Matteo: "Bel culo. Questo tizio ha davvero un gran bel culo."
+    Ettore: Me lo dicesti pure. Mi imbarazzai un sacco.
+    Matteo: Eh, son sempre stato una persona diretta, vero?
+    Matteo: Anche se mi son dovuto dare una calmata, dopo quelle denuncie.
+    Matteo: Certi ragazzi non sanno stare più allo scherzo.
+    Ettore: E cosa pensi di me, ora?
+    Matteo: Che ti porterei in bagno e te lo mangerei, quel gran bel culo.
     -> advance_time ->    
     -    
 -> matteo_acting

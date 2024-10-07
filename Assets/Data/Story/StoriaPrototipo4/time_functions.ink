@@ -57,7 +57,7 @@ VAR currentTime = 0
 }
 
 
-{ currentTime >= 240:
+{ currentTime >= 600:
     -> loop_reset
 - else:
     ~ currentTime = currentTime + 15

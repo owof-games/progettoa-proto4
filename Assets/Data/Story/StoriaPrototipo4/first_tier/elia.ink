@@ -19,7 +19,7 @@ Opzioni di dialogo con il personaggio Elia
 === elia_acting
     {debug: <i>Passo per elia_acting</i>}
     //INFO GENERALI//
-    + Fai domande sul personaggio Elia -> esplora_elia_personaggia
+    + [Prova ad avere una conversazione con Elia] -> esplora_elia_personaggia
     
     //SCELTE CONDIZIONALI//
     + (senzatetto){greta_acting.missioneGreta && new_this_loop(->senzatetto) && not are_two_entities_together(Greta, Elia)} Elia, Greta vorrebbe parlare con te.
@@ -113,7 +113,7 @@ Opzioni di dialogo con il personaggio Elia
 {debug: <i>Passo per esplora_elia</i>}
 
 {
-- EliaActing > 1: Elia: "Non mi va di rispondere ad altre domande personali".
+- EliaActing > 1: Elia: Scusa Ettore ma devo segnarmi una battuta bellissima ora.
     -> advance_time ->
     -> intro
 - else:
@@ -127,7 +127,17 @@ Opzioni di dialogo con il personaggio Elia
 
 = first_qn
 ~ EliaActing++
-    + Prima domanda
+    + Ettore: Come sta andando con il pub?
+    Elia: Benissimo, sai? L'altro sabato abbiamo avuto addirittura tre comici di fila.
+    Elia: Anche se uno era così ubriaco che si è addormentato durante il suo stesso show.
+    Elia: Ma è stato anche il momento in cui il pubblico ha riso di più.
+    Elia: E ora sto cercando di convincere Greta a portare dei cani sul palco.
+    Elia: Ma lei dice che ne abbiamo già abbastanza.
+    Elia: Cosa che non capisco perché l'unico cane che può entrare è Grisù, il cane della signora cieca del terzo piano.
+    Elia: Ma Greta dice che non importa che io capisca, fintanto che faccio buoni cocktail.
+    Elia: E stia lontano dalla cassa.
+    Elia: E dalla lista degli ospiti.
+    Elia: E dalle decisioni per il locale.
     -> advance_time ->
     
     -
@@ -135,7 +145,20 @@ Opzioni di dialogo con il personaggio Elia
 
 = second_qn
  ~ EliaActing++
-    +  altra domanda
+    Elia: Posso farti una domanda, Ettore?
+    Elia: Cosa ci trovi in mio fratello?
+        + Ettore: Mi fa sentire al sicuro.
+        + Ettore: Mi fa sentire desiderato.
+        + Ettore: A volte me lo chiedo anche io.
+        -
+    Elia: Sai, Paola diceva che stavi con lui solo per i soldi.
+    Elia: E io ripetevo che non aveva senso, perché i soldi sono dei nonni, non suoi.
+    Ettore: In che senso?
+    Elia: Beh, l'azienda è dei nonni. Ma sono sicuro che stia facendo un grande lavoro.
+    Elia: Anche se poi si è rifiutato più volte di assumermi.
+    Elia: Anni fa, quando nonno ha insistito, mi ha messo a distribuire pacchi e comunicazioni.
+    Elia: Ma mi ha licenziato quando, vestito da Babbo Natale, gli ho portato in ufficio i carabinieri con un avviso di garanzia.
+    Elia: Quando ho cantato "Merry Xmas" i carabinieri hanno dovuto staccarmelo di forza.
     -> advance_time ->
    
     -
@@ -143,8 +166,25 @@ Opzioni di dialogo con il personaggio Elia
 
 = third_qn
 ~ EliaActing++
-    Elia dice cose
-        +  tu chiedi
+    Elia: Non ci credo che se ne sia andata, non ci credo.
+    Ettore: Le volevi molto bene?
+    Elia: Sì, anche se la conoscevo da poco.
+    Ettore: Non era tua sorella?
+    Elia: La consideravo più una figlia. L'ho praticamente vista crescere.
+    Ettore: Ma non era molto più grande di te?
+    Elia: Nell'anima di sicuro. Ma non ti preoccupare: so per certo che la raggiungerò presto.
+    Ettore: Elia: se hai bisogno di sfogarti sono qui, ma non fare gesti dati dalla disperazione.
+    -> advance_time -> 
+    Elia: No, non sono così disperato, alla fine starà via un paio d'ore.
+    Ettore: Elia, guarda che è morta.
+    Elia: Come, morta?
+    Ettore: Non hai visto prima? Quando eravamo tutti assieme, che l'hanno pugnalata?
+    Elia: No, no, no!
+    Elia: Povera la mia cucciola, nooooo!
+    Elia: Dov'è la mia micetta, dov'è?
+    Ettore: Ma di chi stai parlando, Elia?
+    Elia: Di Sonia, la mia certosina, la mia povera piccola angioletta.
+    Ettore: Io, io. Niente. Lascia fare.
     -> advance_time ->    
     -    
 -> elia_acting

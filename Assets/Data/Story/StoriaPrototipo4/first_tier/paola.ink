@@ -30,7 +30,7 @@ Opzioni di dialogo con la persona Paola
  {debug: <i>Passo per paola_talking</i>}
     -> resting_time ->
     //INFO GENERALI//
-    + Fai domande sulla persona Paola -> esplora_paola
+    + Conosci meglio Paola. -> esplora_paola
 
     //SCELTE CONDIZIONALI//
     

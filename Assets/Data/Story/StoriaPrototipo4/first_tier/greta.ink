@@ -18,7 +18,7 @@ Opzioni di dialogo con il personaggio Greta
 === greta_acting
     {debug: <i>Passo per greta_acting</i>}
     //INFO GENERALI//
-    + Fai domande sul personaggio Greta -> esplora_greta_personaggia
+    + [Conosci meglio Greta] -> esplora_greta_personaggia
     
     //SCELTE CONDIZIONALI//
     + (missioneGreta) {new_this_loop(->missioneGreta)} Sai chi potrebbe avere ucciso Paola?
@@ -56,7 +56,7 @@ Opzioni di dialogo con il personaggio Greta
 {debug: <i>Passo per esplora_greta_personaggia</i>}
 
 {
-- GretaActing > 1: Greta: "Non mi va di rispondere ad altre domande personali".
+- GretaActing > 1: Greta: Ettore bello, mo basta, vai a giocare da un'altra parte!
     -> advance_time ->
     -> intro
 - else:
@@ -70,7 +70,14 @@ Opzioni di dialogo con il personaggio Greta
 
 = first_qn
 ~ GretaActing++
-    + Prima domanda
+    + Ettore: Com'è essere una sorella acquisita?
+        Greta: Hai presente quando qualcuno della tua famiglia trova un gattino per strada
+        Greta: e quel gattino è adorabile e coccoloso e tutti lo adorano
+        Greta: e magari all'inizio in famiglia dicono che no, non lo voglio un gattino
+        Greta: ma ora fanno a gare a chi lo carezza di più o gli dà da mangiare o lo fa giocare
+        Greta: e quella famiglia che magari prima era un po' infelice, ora ha qualcosa di bello attorno a cui riunirsi
+        Greta: e ogni giorno sembra Natale, una festa di compleanno, un matrimonio?
+        Greta: Ecco, io per loro sono i vermi del micino, e la diarrea che ti caccerà per tutta casa.
     -> advance_time ->
     
     -
@@ -78,7 +85,14 @@ Opzioni di dialogo con il personaggio Greta
 
 = second_qn
  ~ GretaActing++
-    +  altra domanda
+    +  Ettore: Come mai hai deciso di aprire il pub con Elia?
+        Greta: Perché qualcuno doveva chiudere da qualche parte quella specie di labrador.
+        Greta: E perché è un bel luogo dove insultare le persone.
+        Greta: Tanto i comici che vengono sono solo dei falliti.
+        Greta: E poi ho accesso infinito all'alcool, gratuitamente.
+        Greta: Cosa che ora mi renderebbe tutto questo più sopportabile.
+        Greta: E non intendo la morte di Paola.
+        Greta: Intendo questa conversazione.
     -> advance_time ->
    
     -
@@ -86,8 +100,16 @@ Opzioni di dialogo con il personaggio Greta
 
 = third_qn
 ~ GretaActing++
-    Greta dice cose
-        +  tu chiedi
+    Greta: Chissà Matteo come sta.
+        +  Ettore: Non sapevo fossi legata a Matteo.
+        Greta: Vedrai presto che in questa famiglia tutti sono legati, quasi incollati, inchiodati.
+        Greta: Non è una famiglia, è un culto.
+        Greta: E se la divinità è Paola, Matteo è l'eretico che vuole prendere il suo posto, e amo gli eretici.
+        Ettore: Anche Matteo ha stima di te. Racconta spesso di quello che pensi e dici.
+        Greta: E cosa penserei?
+        Ettore: Ehm, io ora non ricordo bene.
+        Greta: Non parla mai di me, vero?
+        Greta: Meglio: adoro essere ignorata dalla mia divinità, è una cosa così cattolica.
     -> advance_time ->    
     -    
 -> greta_acting

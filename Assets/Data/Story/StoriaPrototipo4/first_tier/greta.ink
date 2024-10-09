@@ -46,7 +46,7 @@ Opzioni di dialogo con il personaggio Greta
             Greta: Uh, questa mi è nuova.
             Ettore: Quindi non è vero che avete scopato?
             Greta: Non ho detto questo.
-            Greta: Ma è successo solo una volta, ed ero molto molto molto ubriaca.
+            Greta: Abbiamo scopato solo una volta, ed ero molto molto molto ubriaca, e Matteo ha perso la testa.
             Greta: A un certo punto pensavo fosse mio padre.
             Greta: Scusa, un po' di daddy issues li abbiamo tutti, no?
             -> advance_time ->

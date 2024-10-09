@@ -130,10 +130,10 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
         --
 
 
-{matteo_acting.zecaPaola && worstBestManStorylet.paolaZeca: <b>La relazione tra Paola e Zeca</b>}
+{matteo_acting.paolaZeca && worstBestManStorylet.paolaZeca: <b>La relazione tra Paola e Zeca</b>}
 
 
-    ~ temp contraddizione_zeca = matteo_acting.zecaPaola && worstBestManStorylet.paolaZeca
+    ~ temp contraddizione_zeca = matteo_acting.paolaZeca && worstBestManStorylet.paolaZeca
     
     {
         - contraddizione_zeca:

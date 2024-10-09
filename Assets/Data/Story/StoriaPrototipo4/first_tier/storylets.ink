@@ -187,6 +187,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Matteo: Fammi allontanare da tutta questa cattiveria, prima che mi contagi.
             ~ move_this_entity_in_a_different_room(Matteo)
             -> advance_time ->
+    ->->        
     + (mono)Ettore: Sai che non mi importa molto della monogamia.
         Matteo: Ma importa a me.
         Matteo: Perché se ora tu dai a me la possibilità di stare con altre persone, poi dovrò darla io a te.
@@ -199,7 +200,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Matteo: Fammi andare via di qui!
         ~ move_this_entity_in_a_different_room(Matteo)
         -> advance_time ->
-
+    ->->
 
 
 = quickTalk

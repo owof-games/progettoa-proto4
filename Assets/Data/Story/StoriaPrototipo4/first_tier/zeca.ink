@@ -20,6 +20,7 @@ Opzioni di dialogo con il personaggio Zeca
 
 === zeca_acting
     {debug: <i>Passo per zeca_acting</i>}
+    -> first_tier_storylets ->
     //INFO GENERALI//
     + [Conosci meglio Zeca] -> esplora_zeca_personaggia
     

@@ -2,6 +2,13 @@
 === first_tier_storylets
 {debug: <i>Passo per first_tier_storylets</i>}
 {
+    - are_six_entities_together(Elia, Matteo, Ettore, Greta, Paola, Zeca): Debug: check per Starting Dinner Storylet, i personaggi sono tutti e sei assieme.
+    - else:
+        Debug: check per Starting Dinner Storylet, i personaggi non sono tutti e sei assieme.
+    }
+{
+
+    
     - are_six_entities_together(Elia, Matteo, Ettore, Greta, Paola, Zeca) && not startingDinnerStorylet && new_this_loop(->startingDinnerStorylet):
     -> startingDinnerStorylet
 
@@ -51,7 +58,7 @@
 === startingDinnerStorylet
 {debug: <i>Passo per startingDinnerStorylet</i>}
         Matteo: No, ma ti giuro Paola, ti giuro! Faceva tutto lo sborone quello.
-        -> advance_time -> 
+        ~ currentTime = currentTime + 15
         Matteo: Poi ho chiamato nonno e: tadaaan! Silenzio.
         Matteo: Tutto il consiglio di amministrazione muto.
         Matteo: E il progetto per la piscina sul tetto del grattacielo è passato.
@@ -63,7 +70,7 @@
             + Ettore: Salve a tutti!
             + Ettore: Non ho alcuna innocenza: chi posso spingere dal grattacielo?
             -
-            -> advance_time ->
+            ~ currentTime = currentTime + 15
         Matteo: Amore! Non ti avevo sentito proprio arrivare!
         Matteo: Fratelli, sorella, Greta.
         Greta: Fottiti.
@@ -78,7 +85,7 @@
                 Greta: Bene Matteo, finalmente ci presenti qualcuno di interessante!
                 Zeca: E almeno abbiamo qualcosa in comune.
             -
-            -> advance_time ->
+            ~ currentTime = currentTime + 15
         Paola: Bene! Ora che ci siamo tutti, possiamo anche brindare al motivo per cui siamo qui!
         Elia: Sapete che oggi ho finalmente aperto la porta dal lato giusto?
         Elia: Nessun livido, guardate!
@@ -94,7 +101,7 @@
             + Ettore: Basta che non tocchiate il mio, lol!
                 Paola: Non sono cose su cui si scherza!
             -
-            -> advance_time ->
+            ~ currentTime = currentTime + 15
         Paola: Capperina, ho dimenticato una cosa di là, arrivo subito.
              ~ move_this_entity_in_a_different_room(Paola)
         Greta: Anche io ho scordato una cosa!
@@ -109,7 +116,7 @@
             + Ettore: Boh, a questo punto me ne vado anche io.
             + Ettore: Ma non è che c'è dell'altro vino in giro?
             -
-        -> advance_time ->                         
+        ~ currentTime = currentTime + 15                       
             ~ move_entity(Paola,WhiteRoom)
         Paola entra. Paola muore.
             ~ move_entity(Elia,WhiteRoom)
@@ -121,7 +128,7 @@
             ~ move_entity(Greta,WhiteRoom)        
         Greta: Certo che questo posto è tutto uguale.
         Greta: Raga, ma Paola sta bene?
-            -> advance_time -> 
+            ~ currentTime = currentTime + 15
         Zeca: Mmm, è tiepida.
         Elia: E Non respira.
         Greta: Sempre pensato che fosse un vampiro.
@@ -134,14 +141,16 @@
         Greta: In questa famiglia le cose si affrontano in famiglia.
         Zeca: E infatti ci odiamo tutti.
         Elia: Io me ne vado!
-            -> advance_time -> 
+            ~ currentTime = currentTime + 15
         Matteo: Non puoi. Paola ha pagato un buttadentro perché ci chiudesse qui fino alle 23:00.
         Greta: Ma che cazzata è?
         Zeca: Temeva scappassi di nuovo, immagino.
+        Elia: E ha requisito tutti i cellulari.
+        Ettore: Anche il mio, come diavolo ha fatto?!?
         Zeca: Beh, rega, io mi faccio due passi per queste stanze.
         Matteo: E io sento il mio avvocato.
         Elia: E io, io, io ho paura!
-            -> advance_time ->       
+            ~ currentTime = currentTime + 15     
         ->->
 
 

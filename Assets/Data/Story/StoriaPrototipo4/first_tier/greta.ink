@@ -17,6 +17,7 @@ Opzioni di dialogo con il personaggio Greta
 
 === greta_acting
     {debug: <i>Passo per greta_acting</i>}
+    -> first_tier_storylets ->
     //INFO GENERALI//
     + [Conosci meglio Greta] -> esplora_greta_personaggia
     

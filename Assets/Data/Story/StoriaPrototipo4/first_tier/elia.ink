@@ -18,6 +18,7 @@ Opzioni di dialogo con il personaggio Elia
 
 === elia_acting
     {debug: <i>Passo per elia_acting</i>}
+    -> first_tier_storylets ->
     //INTERAZIONI GENERALI//
     + [Prova ad avere una conversazione con Elia] -> esplora_elia_personaggia
     + Ettore: Sai chi potrebbe avere ucciso Paola?

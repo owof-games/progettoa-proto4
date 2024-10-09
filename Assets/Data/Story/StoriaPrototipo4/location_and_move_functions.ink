@@ -154,7 +154,7 @@
         ~ return false
 }
 
-->->
+
 
 //Usiamo questa funzione quando per ragione di scena è necessario che una personaggia se ne vada da una stanza (ma non importa particolarmente dove vada)
 === function move_this_entity_in_a_different_room(entity)
@@ -173,5 +173,5 @@
         ~ move_entity(entity, GreenRoom)        
         
 }        
-->->
+
 

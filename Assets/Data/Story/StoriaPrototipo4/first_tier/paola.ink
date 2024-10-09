@@ -16,6 +16,7 @@ Opzioni di dialogo con il personaggio Paola: assenti perché more
 
 === paola_acting
     {debug: <i>Passo per paola_acting</i>}
+    -> first_tier_storylets ->
     + {objects_tutorial} Paola: "Non mi parlare, sono morta."
     + {!objects_tutorial} Ettore: "Sembra proprio morta."
     -
@@ -28,6 +29,7 @@ Opzioni di dialogo con la persona Paola
 
 === paola_talking
  {debug: <i>Passo per paola_talking</i>}
+    -> first_tier_storylets ->
     -> resting_time ->
     //INFO GENERALI//
     + Conosci meglio Paola. -> esplora_paola

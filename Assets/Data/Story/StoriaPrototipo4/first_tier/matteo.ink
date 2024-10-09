@@ -18,6 +18,7 @@ Opzioni di dialogo con il personaggio Matteo
 
 === matteo_acting
     {debug: <i>Passo per matteo_acting</i>}
+    -> first_tier_storylets ->
     //INFO GENERALI//
     + [Chiacchiera un po' con Matteo] -> esplora_matteo_personaggia
     

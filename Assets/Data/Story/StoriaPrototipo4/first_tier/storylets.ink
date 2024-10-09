@@ -6,7 +6,7 @@
     -> startingDinnerStorylet
 
 
-    - are_three_entities_together(Elia, Matteo, Ettore) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Greta) && marryMeStorylet && new_this_loop(->weddingAtThePubStorylet):
+    - are_three_entities_together(Elia, Matteo, Ettore) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Greta) && (marryMeStorylet.matteoSiSposa or marryMeStorylet.matteoSiSposa2) && new_this_loop(->weddingAtThePubStorylet):
     -> weddingAtThePubStorylet
 
 
@@ -67,59 +67,145 @@ Matteo: c'è Paola!
 
 === weddingAtThePubStorylet
 {debug: <i>Passo per weddingAtThePubStorylet</i>}
-Discussione Matteo ed Elia su matrimonio al bar. Elia vuole farlo al pub, Matteo non ne vuole sapere.
-    -> advance_time ->
-    + (matteoSiSposa) [Avanzo]
-    -
-
+        Matteo: Te l'ho già detto più volte, Elia: è una scelta pacchiana.
+        Elia: Ma il nostro pub non è pacchiano!
+        Elia: Una volte c'è venuta anche Antonella Elia!
+        Matteo: No. Ho già prenotato al Superbo Castello dei Conti de Viscontinis.
+        Elia: Ma non facciamo mai nulla in famiglia, mai!
+        + (matteoSiSposa) Ettore: Amore, Elia ha ragione. Non è meglio restare in famiglia?
+        + (matteoSiSposa2) Ettore: Elia, ehm, perdonami, ma avete letteralmente una famiglia stabile di blatte nel pub.
+        -
+            Matteo: Elia, non festeggerò mai il mio matrimonio nel tuo bar triste con la tua insopportabile collega!
+            Matteo: Questa è la cosa peggiore che potrebbe capitarmi, ed è il <b>mio</b> matrimonio, capito?!?
+        -> advance_time ->
 ->->
 
 
 === anEavesdropAboutFriendshipStorylet
 {debug: <i>Passo per anEavesdropAboutFriendshipStorylet</i>}
-Conversazione origliata: capiamo che Greta non ce l'ha con Paola, ma cagate tipo "prima che papà mi adottasse ho vissuto in strada, non possono rivivere quel trauma".
-    -> advance_time ->
-    + (gretaTriste) [Avanzo]
-    -
+        Elia: Quindi, ora vuoi uccidermi?
+        Greta: Ucciderti?
+        Elia: Come hai fatto con Paola. Per via dei senzatetto e del pub!
+        Greta: Elia. Credi davvero che. Oh, lascia che ti spieghi una cosa.
+        Greta: Prima che le nostre madri si fidanzassero, sono stata povera.
+        Greta: Papà è stato a lungo un influencer, ma quando le cose sono cambiate per lui, non ha saputo più come affrontare la realtà.
+        Greta: E così papà ed io abbiamo vissuto per mesi per strada.
+            + (gretaTriste) Ettore: Merda, non ne sapevo nulla.
+            -
+            -> advance_time ->
+        Greta: Me ne sono sempre vergognata così tanto, sapete?
+        Greta: Mesi e mesi a vedere le persone passarci davanti.
+        Greta: A spiare dentro la nostra roulotte.
+        Greta: A farci commenti spietati sul colore della carrozzeria.
+        Greta: Una volta ho dovuto persino rinunciare a una borsetta Hermes.
+        Elia: Deve essere stato tremendo.
+        Greta: Non ne hai idea. E per questo ora non voglio rivivere quel trauma.
+        Greta: Non posso aver contatto con altri senzatetto puzzolenti, mi capisci Elia, vero?
+        Elia: Io. No, ma sarò sempre dalla tua parte Greta, promesso!
+            -> advance_time ->
+
 ->->
 
 
 
 === marryMeStorylet
 {debug: <i>Passo per marryMe</i>}
-Finalmente siamo soli, proposta di matrimonio, ma la prende larga.
-Se qualcuno entra, cambia argomento.
-{
-    - are_two_entities_together(Ettore, Elia) or are_two_entities_together(Ettore, Greta) or are_two_entities_together(Ettore, Zeca): -> quickTalk
-    -else: ->->
-}
+        Ettore: Finalmente soli, amore.
+        Matteo: Già. Dio, quanto sei bello, te l'ho mai detto?
+        Ettore: Mai abbastanza, cucciolone.
+        Matteo: E sai, c'è una cosa che vorrei dirti da un bel po'.
+        Matteo: Hai presente che ho fatto ristrutturare l'ala a nord del castello?
+        Matteo: Pensavo di metterci qualcosa di importante.
+        Ettore: Un altro dei tuoi cavalli?
+        Matteo: No, qualcosa di più importante.
+            {
+                - are_two_entities_together(Ettore, Elia) or are_two_entities_together(Ettore, Greta) or are_two_entities_together(Ettore, Zeca): -> quickTalk
+                -else: ->->
+            }
+        -> advance_time ->
+        Matteo: Ah, son così un disastro con queste cose, amore.
+        Matteo: Posso provare a dirtelo in imprenditorese?
+        Ettore: Ma certo, tesoro.
+        Matteo: Stavo pensando a una fusione tra le nostre società.
+        Ettore: Qui, ora? Con tua sorella morta?
+        Matteo: Beh, non era esattamente quella la proposta, ma ora che mi ci fai pensare.
+        Ettore: Chiudi quei pantaloni, amore. A casa poi ci si fonde per bene.
+        Matteo: Non hai capito, cristo. Uffi. Sob.
+                     {
+                - are_two_entities_together(Ettore, Elia) or are_two_entities_together(Ettore, Greta) or are_two_entities_together(Ettore, Zeca): -> quickTalk
+                -else: ->->
+            }
+        -> advance_time ->
+            + (matteoSiSposa) Ettore: Va tutto bene amore, davvero!
+            + (matteoSiSposa2) Ettore: Siamo in due
+            -
+        Matteo: Sii il mio direttore commerciale.
+        Matteo: Sii la mia subholding.
+        Matteo: Sii la firma sul mio accordo prematrimoniale.
+        Matteo: La mia exit strategy.
+        Matteo: Vieni a vivere con me.
+        Matteo: Ettore, sei il miglior pacchetto azionario della mia vita, sposami!
+        Ettore: Oh sì, sì, sì! Accetto!
+        Matteo: Oh, sono così felice Ettore!
+        Matteo: Ti va di fare quella fusione, ora?
+        Ettore: Chiudi i pantaloni, futuro marito.
+         -> advance_time ->
 
-
-    -> advance_time ->
-    + (matteoSiSposa) [Avanzo]
-    -
  ->->
  
  = quickTalk   
-    Matteo cambia argomento e dice cose a caso.
+    Matteo: Comunque non è il caso di farlo, qui, ora.
+    Ettore: Ma cosa? Ma.
+    Matteo: Inutile che insisti, amore.
+    Matteo: Come sanno le altre persone in questa stanza, non si scopa nel raggio di dieci metri da un cadavere.
+    Ettore: Ma io! Ma tu!
+    Matteo: Me ne vado, così ti lascio ripensare a modo alla tua idea di moralità, Ettore.
+    ~ move_this_entity_in_a_different_room(Matteo)
 -> intro
 
 === worstBestManStorylet
 {debug: <i>Passo per worstBestMate</i>}
-Zeca ci dice che non vede e sente Paola da una vita, che prima erano molto legati ma poi cose.
-{are_two_entities_together(Zeca, Elia): Zeca porterà Elia ad unirsi al discorso, e ogni tanto metteremo degli incisi, una scenetta dedicata?}
+    Zeca: Mio nuovo giovane amico, che bello rivederti.
+    Zeca: La vita sa essere crudele, sai?
+    Zeca: Continuo a pensare a come eravamo io e Paola, da piccoli.
+    Zeca: Hai mai avuto qualcuno che sembrava leggerti nel pensiero?
+    {are_two_entities_together(Zeca, Elia): Elia: Cavolo, voi due da piccoli eravate quasi telepatici.}
+    Ettore: Mai, non mi è mai capitato.
+    Zeca: Come sensazione è magnifica. Ma dolorosa, quando si interrompe.
     -> advance_time ->
-    + (paolaZeca) [Avanzo]
-    -
+    Zeca: E il nostro legame è stato reciso violentemente.
+    Zeca: E non ho ancora capito perché.
+    {are_two_entities_together(Zeca, Elia): Elia: Ho sempre pensato fosse colpa di Matteo. Matteo è bravo a fare cose colpevoli.}
+    Zeca: Negli ultimi anni. Ah. Quanto avrei voluto averla vicina.
+    Zeca: Mentre tutto è crollato, mentre tutto si è spento.
+    Zeca: L'allontanamento di tutti mi è pesato, ma il suo è stato quasi un omicidio.
+    Zeca: Non vedevo Paola da una vita. Era la mia migliore amica, e ora solo una sconosciuta.
+    Zeca: Una sconosciuta morta.
+    -> advance_time ->
+        + (paolaZeca) Ettore: Zeca, non so cosa dire, davvero.
+        -
+    Zeca: Promettimi una cosa.
+    Zeca: Che farai pace con le persone a cui tieni.
+    Zeca: Che parlerai con chi non senti da mesi.
+    Zeca: Non saprai mai quando potrai perderle.
+    {are_two_entities_together(Zeca, Elia): Elia: O quando un pazzo psicopatico le ucciderà.}
+    Zeca: Lasciami a meditare amico mio, lasciami a meditare.
+    -> advance_time ->
 ->->
 
 
 === aStrangeKnifeStorylet
 {debug: <i>Passo per aStrangeKnifeStorylet</i>}
-Matteo ci dice cose se ci vede in giro col suo coltello, e se lo riprende.
--> advance_time ->
-        ~ inventoryContents -= AnticoPugnale
-        ~ objectStorageContents += AnticoPugnale
+        Matteo: Ehi, ma quello è il mio antico pugnale sacrificale!
+        Matteo: Grazie per avermelo riportato!
+        Ettore: In realtà.
+        Matteo: Ecco, ora è di nuovo mio.
+                ~ inventoryContents -= AnticoPugnale
+            ~ objectStorageContents += AnticoPugnale
+        Matteo: Non sai quali cose terribili potrebbero accadere.
+        Matteo: Ahah scherzo, scherzo.
+        Matteo: Dove trovo del sangue vergine per purificarlo dal tuo tocco impuro, ora?    
+        -> advance_time ->
 ->->
 
 
@@ -156,10 +242,48 @@ TODO: questa è una modalità molto scriptata, mi piacerebbe qualcosa di più re
 
 
 === itsOverisntItStorylet
-Greta qui fa un cazziatone a Matteo
-se {greta_acting.loVoglio} allora cercherà di convincerlo a tornare con Ettore.
-Ma questa cosa la vediamo all'inizio, le altre due scene sembreranno più provolone.
-->->
+    Greta: Co-glio-ne.
+    Greta: Matteo, sei un coglione infinito.
+    Matteo: Non è quello che ti piace di me?
+    Greta: No, non mi piace nulla di te, Matteo.
+    Greta: A parte i soldi, ma sappiamo benissimo che non sono tuoi.
+    Matteo: Ma quella scopata, dimmi che non è stata la scopata del secolo.
+    Greta: Al massimo, del secondo.
+    -> advance_time ->
+    {
+        - greta_acting.loVoglio: -> perEttore
+        - not greta_acting.loVoglio: -> poveroEttore
+
+    }
+
+    = perEttore
+        Greta: Ascoltami. Non so come sia possibile, ma quel disgraziato di Ettore ti ama ancora.
+        Greta: E credo sia pronto a perdonarti.
+        Greta: Per cui vedi di fare qualcosa e andare da lui, ora, e facci la pace.
+        Matteo: Quindi posso ritenere il nostro debito saldato?
+        Greta: Oh no, piccolo animaletto da compagnia. Assolutamente no.
+        Matteo: Ma col matrimonio...
+        Greta: Pensi davvero che avrei accettato?
+        Greta: Ora vai a fare qualcosa di buono nella tua vita, su.
+        Greta: Io vado a lavarmi le orecchie da questa conversazione.
+            ~ move_this_entity_in_a_different_room(Greta)
+        -> advance_time ->    
+        -> intro
+    
+    =poveroEttore
+        Greta: Hai spezzato il cuore di un poveretto.
+        Greta: E non dovrei essere io la persona che te lo dice, ma sei un coglione.
+        Greta: Sai quante possibilità ci sono che qualcuno possa mai amare un idiota come te?
+        Matteo: Ma tu mi vuoi!
+        Greta: Cristo, come fai ad essere così coglione?
+        Greta: No che non ti voglio. Voglio solo che chiudiamo il nostro accordo, una volta per tutte.
+        Matteo: Quindi ora sono libero?
+        Greta: Libero di andare a fanculo, sì. Ma non libero dal debito.
+        Greta: Fatti una pugnetta, rilassati, e pensa a come darmi quel che mi spetta, coglione.
+        Greta: E stammi lontano.
+            ~ move_this_entity_in_a_different_room(Greta)
+        -> advance_time ->    
+        -> intro
 
 
 //STORYLET DA SCELTE
@@ -239,8 +363,6 @@ Matteo: Anzi, me ne vado io.
         
             -> advance_time ->
             -> resting_time ->
-            + [Avanzo]
-            -
             ->->
 
 === notebook_tutorial
@@ -259,8 +381,6 @@ Matteo: Anzi, me ne vado io.
         Paola: "Riposiamo un attimo tutti, ma un attimo!"
         -> advance_time ->
         -> resting_time ->
-            + [Avanzo]
-            -
             ->->
 
 === talking_tutorial
@@ -279,8 +399,6 @@ Matteo: Anzi, me ne vado io.
         Paola: "Qualche minuto di pausa e poi riprendiamo, spero in modo definitivo!
         -> advance_time ->
         -> resting_time ->
-            + [Avanzo]
-            -
             ->->
 
 

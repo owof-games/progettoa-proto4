@@ -39,12 +39,13 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 {hardTrueFeelingsStorylet.ah or hardTrueFeelingsStorylet.mono: Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelosire.}
 {elia_acting.sincero: Elia: Merda, mi spiace. Per questo volevo fare il matrimonio al pub. Sapevo da tempo che Matteo provava qualcosa per Greta, ma non sapevo come dirtelo!}
 {greta_acting.matteoGreta: Greta: "Mi spiace Ettore, ma abbiamo scopato solo una volta, è Matteo che è proprio andato in fissa!"}
-{weddingAtThePubStorylet.matteoSiSposa: Matteo: "Elia, non festeggerò mai il mio matrimonio nel tuo bar triste con la tua insopportabile collega!"}
-{marryMeStorylet.matteoSiSposa: Matteo: "Ettore, sei il miglior progetto della mia vita, sposami!"}
+{weddingAtThePubStorylet.matteoSiSposa or weddingAtThePubStorylet.matteoSiSposa2: Matteo: Elia, non festeggerò mai il mio matrimonio nel tuo bar triste con la tua insopportabile collega!}
+{marryMeStorylet.matteoSiSposa or marryMeStorylet.matteoSiSposa2: Matteo: Ettore, sei il miglior pacchetto azionario della mia vita, sposami!}
 {zeca_acting.matteoGreta: Zeca: "Sono abbastanza sicuro che Greta stia ricattando Matteo."}
 {zeca_acting.matrimonio: Zeca: No. Matteo mi ha detto che ti avrebbe sposato mesi fa, quando ha prenotato il luogo, l'orchestra e mandato gli inviti.}
 {zeca_acting.matrimonio: Zeca: Matteo e Paola hanno litigato per il matrimonio, perché Paola pensa che lui ti stia usando solo per candidarsi come sindaco.}
-{zeca_acting.matrimonio: Zeca: Zeca: Spero sia cambiato con gli anni, ma il Matteo che conoscevo amava solo una cosa: Matteo.}
+{zeca_acting.matrimonio: Zeca: Spero sia cambiato con gli anni, ma il Matteo che conoscevo amava solo una cosa: Matteo.}
+{itsOverisntItStorylet: Greta: Non mi piace nulla di te, Matteo. A parte i soldi, ma sappiamo benissimo che non sono tuoi.}
 
 
 {elia_acting.paolaSiSposa:<i>Informazioni sul personaggio Paola</i>}
@@ -56,13 +57,13 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 
 {anEavesdropAboutFriendshipStorylet.gretaTriste or zeca_acting.matteoGreta: <i>Informazioni sul personaggio Greta</i>}
-{anEavesdropAboutFriendshipStorylet.gretaTriste: Greta: "Storia dolorosa infanzia"}
+{anEavesdropAboutFriendshipStorylet.gretaTriste: Greta: E così papà ed io abbiamo vissuto per mesi per strada.}
 {zeca_acting.matteoGreta: Zeca: Sinceramente, non ho mai creduto che a Greta interessi tanto il pub, quanto controllare Elia.}
 {zeca_acting.matteoGreta: Zeca: Non mi stupirebbe se Greta stesse ricattando Matteo in qualche modo.}
 
 {matteo_acting.paolaZeca or worstBestManStorylet.paolaZeca: <i>Informazioni su Zeca</i>}
 {matteo_acting.paolaZeca: Matteo: Quando sappiamo tutti in famiglia che Zeca odia Paola da sempre!}
-{worstBestManStorylet.paolaZeca: Zeca: "Non vedevo Paola da una vita. Era la mia migliore amica, e ora solo una sconosciuta."}
+{worstBestManStorylet.paolaZeca: Zeca: Non vedevo Paola da una vita. Era la mia migliore amica, e ora solo una sconosciuta.}
 
 
 

@@ -503,60 +503,72 @@ Matteo: Anzi, me ne vado io.
 
 //MORTE DI PAOLA
 === paolaIsDeadStorylet
-//QUI POTREBBE AVER SENSO NON FAR AVANZARE IL TIMER
 {debug: <i>paolaIsDeadStorylet</i>}
-Scatta la scena in cui Paola è morta
-Greta chiede a Paola che senso abbia tutta quella cosa, Paola, non risponde.
-Greta la tocca, urla, e ci dice che è morta.
-Tutti arrivano in quella stanza.
+        Greta: Paola, ma questa roba non ha senso!
+        Greta: Come dovrebbe capire Ettore chi è l'assassino e perché?
+        Greta: Ma poi qui ci sono motivi a sufficienza per tutti!
+        Greta: Paola, mi senti?!?
 //Grida di chi è in scena
-{
-- are_two_entities_together(Elia, Paola):
-    Elia: "Oh merda merda merda non respira!"
-}
-{
-- are_two_entities_together(Zeca, Paola):
-    ~ move_first_entity_to_second_entity_location(Zeca,Paola)
-    Zeca: "Un ambulanza, qualcuno chiami un ambulanza!"
-}
-{
-- not are_two_entities_together(Matteo, Paola):
-    ~ move_first_entity_to_second_entity_location(Matteo,Paola)
-    Matteo: "AAAAAAAAAAAAAAAAAAAAAAAAAA!"
-}
-{
-- not are_two_entities_together(Greta, Paola):
-    ~ move_first_entity_to_second_entity_location(Greta,Paola)
-    Greta: "Ehi, smettila!"
-} 
+        {
+        - are_two_entities_together(Elia, Paola):
+            Elia: "Oh merda merda merda non respira!"
+        }
+        {
+        - are_two_entities_together(Zeca, Paola):
+            ~ move_first_entity_to_second_entity_location(Zeca,Paola)
+            Zeca: "Un ambulanza, qualcuno chiami un ambulanza!"
+        }
+        {
+        - not are_two_entities_together(Matteo, Paola):
+            ~ move_first_entity_to_second_entity_location(Matteo,Paola)
+            Matteo: "AAAAAAAAAAAAAAAAAAAAAAAAAA!"
+        }
+        {
+        - not are_two_entities_together(Greta, Paola):
+            ~ move_first_entity_to_second_entity_location(Greta,Paola)
+            Greta: "Ehi, smettila!"
+        } 
 
 
 //Grida di chi non è in scena
-{
-- not are_two_entities_together(Elia, Paola):
-    ~ move_first_entity_to_second_entity_location(Elia,Paola)
-    Elia: "Che succede?!"
-}
-{
-- not are_two_entities_together(Zeca, Paola):
-    ~ move_first_entity_to_second_entity_location(Zeca,Paola)
-    Zeca: "Qualcuno si è fatto male?!!"
-}
-{
-- not are_two_entities_together(Matteo, Paola):
-    ~ move_first_entity_to_second_entity_location(Matteo,Paola)
-    Matteo: "Hanno schiacciato la coda a un gatto?"
-}
-{
-- not are_two_entities_together(Greta, Paola):
-    ~ move_first_entity_to_second_entity_location(Greta,Paola)
-    Greta: "Di nuovo il tizio delle pizze?"
-} 
-
-
-Elia: "Ettore, chiama qualcuno! Che lei ci ha sequestrato i telefoni, chiama!"
-  ~ activePhone = true
-Poi ispezione corpo, una sola scelta
+        {
+        - not are_two_entities_together(Elia, Paola):
+            ~ move_first_entity_to_second_entity_location(Elia,Paola)
+            Elia: "Che succede?!"
+        }
+        {
+        - not are_two_entities_together(Zeca, Paola):
+            ~ move_first_entity_to_second_entity_location(Zeca,Paola)
+            Zeca: "Qualcuno si è fatto male?!!"
+        }
+        {
+        - not are_two_entities_together(Matteo, Paola):
+            ~ move_first_entity_to_second_entity_location(Matteo,Paola)
+            Matteo: "Hanno schiacciato la coda a un gatto?"
+        }
+        {
+        - not are_two_entities_together(Greta, Paola):
+            ~ move_first_entity_to_second_entity_location(Greta,Paola)
+            Greta: "Di nuovo il tizio delle pizze?"
+        } 
+        -> advance_time ->
+        + Ettore: Scusate, ma la scena della morte non doveva arrivare dopo la cena?
+        + Ettore: Greta ha ragione, non ci sto capendo nulla.
+        + Ettore: Mmm, avete provato a farle il solletico?
+        -
+        Elia: Ettore, non è uno scherzo, non è recitazione! Paola è morta davvero.
+        Matteo: Merda, non toccatela.
+        Zeca: E perché?
+        Greta: Perché potrebbero rimanere le impronte.
+        Elia: State parlando di mia sorella, ve ne rendete conto?!?
+        Greta: Ettore, tieni, chiama la polizia!
+        Greta: Sei l'unico che non la conosce, e che può riuscire a non balbettare.
+        -> advance_time ->
+        ~ activePhone = true
+        TODO: Settare in qualche modo la chiamata veloce alla polizia.
+        Ettore: Arrivano entro venti minuti.
+        TODO: Come gestire questa cosa? C'è una versione di Paola morta con queste scelte?
+        Poi ispezione corpo, una sola scelta
         + Esamino le briciole.
             -> loop_reset
         + Ispeziono la sigaretta elettronica
@@ -566,6 +578,6 @@ Poi ispezione corpo, una sola scelta
         + Ispeziono la boccia di vino
             -> loop_reset
         -
-    ~ tierState = SecondTier
-    ~ gretaHaLaLettera = false
+     ~ tierState = SecondTier
+     ~ gretaHaLaLettera = false
 ->->

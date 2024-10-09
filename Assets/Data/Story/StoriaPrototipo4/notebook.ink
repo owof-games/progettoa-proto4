@@ -42,18 +42,23 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 {weddingAtThePubStorylet.matteoSiSposa: Matteo: "Elia, non festeggerò mai il mio matrimonio nel tuo bar triste con la tua insopportabile collega!"}
 {marryMeStorylet.matteoSiSposa: Matteo: "Ettore, sei il miglior progetto della mia vita, sposami!"}
 {zeca_acting.matteoGreta: Zeca: "Sono abbastanza sicuro che Greta stia ricattando Matteo."}
-
+{zeca_acting.matrimonio: Zeca: No. Matteo mi ha detto che ti avrebbe sposato mesi fa, quando ha prenotato il luogo, l'orchestra e mandato gli inviti.}
+{zeca_acting.matrimonio: Zeca: Matteo e Paola hanno litigato per il matrimonio, perché Paola pensa che lui ti stia usando solo per candidarsi come sindaco.}
+{zeca_acting.matrimonio: Zeca: Zeca: Spero sia cambiato con gli anni, ma il Matteo che conoscevo amava solo una cosa: Matteo.}
 
 
 {elia_acting.paolaSiSposa:<i>Informazioni sul personaggio Paola</i>}
 {elia_acting.paolaSiSposa:Elia: Ha organizzato un matrimonio in fretta e furia, manco sappiamo con chi.}
 {matteo_acting.paolaSiSposa && marryMeStorylet: Matteo: Paola ha organizzato il matrimonio appena le ho confidato che avrei voluto sposarti, la stronza.}
+{zeca_acting.matrimonio: Zeca: Matteo e Paola hanno litigato per il matrimonio, perché Paola pensa che lui ti stia usando solo per candidarsi come sindaco.}
 {matteo_acting.paolaZeca: Matteo: Ma la cosa più ridicola è che abbia chiesto a Zeca di fare da testimone.}
 {greta_acting.paolaPerfetta: Greta: "Nessuno avrebbe potuto fare male a Paola, è perfetta!"}
 
 
-{anEavesdropAboutFriendshipStorylet.gretaTriste: <i>Informazioni sul personaggio Greta</i>}
+{anEavesdropAboutFriendshipStorylet.gretaTriste or zeca_acting.matteoGreta: <i>Informazioni sul personaggio Greta</i>}
 {anEavesdropAboutFriendshipStorylet.gretaTriste: Greta: "Storia dolorosa infanzia"}
+{zeca_acting.matteoGreta: Zeca: Sinceramente, non ho mai creduto che a Greta interessi tanto il pub, quanto controllare Elia.}
+{zeca_acting.matteoGreta: Zeca: Non mi stupirebbe se Greta stesse ricattando Matteo in qualche modo.}
 
 {matteo_acting.paolaZeca or worstBestManStorylet.paolaZeca: <i>Informazioni su Zeca</i>}
 {matteo_acting.paolaZeca: Matteo: Quando sappiamo tutti in famiglia che Zeca odia Paola da sempre!}
@@ -70,7 +75,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 {cb_first_tier_antico_pugnale.primoCheck:<i>Informazioni sull'antico pugnale rituale</i>}
 {cb_first_tier_antico_pugnale.primoCheck: Un pugnale dall'aria antica, con simboli che non hai mai visto.}
 {elia_acting.pugnaleMatteo:Elia: Matteo era disperato, l'aveva perso da settimane!}
-{zeca_acting.pugnaleMatteo:Elia: "Matteo lo usa per pulirsi la suola delle scarpe, che schifo."}
+{zeca_acting.pugnaleMatteo: Zeca: Matteo lo usa in modo <b>ossessivo</b> per pulirsi la soletta delle scarpe!}
 
 {cb_first_tier_lettera.primoCheck: <i>Informazioni sulla lettera</i>}
 {cb_first_tier_lettera.primoCheck: Con una calligrafia nervosa è stato scritto: <i>So cosa hai fatto e la pagherai!</i>. Non c'è firma.}

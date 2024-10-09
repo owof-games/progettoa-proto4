@@ -1,11 +1,7 @@
 //INDEX
 === first_tier_storylets
 {debug: <i>Passo per first_tier_storylets</i>}
-{
-    - are_six_entities_together(Elia, Matteo, Ettore, Greta, Paola, Zeca): Debug: check per Starting Dinner Storylet, i personaggi sono tutti e sei assieme.
-    - else:
-        Debug: check per Starting Dinner Storylet, i personaggi non sono tutti e sei assieme.
-    }
+
 {
 
     
@@ -150,7 +146,8 @@
         Zeca: Beh, rega, io mi faccio due passi per queste stanze.
         Matteo: E io sento il mio avvocato.
         Elia: E io, io, io ho paura!
-            ~ currentTime = currentTime + 15     
+            ~ currentTime = currentTime + 15
+            ~ updateEntitiesLocations()
         ->->
 
 

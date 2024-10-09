@@ -40,7 +40,24 @@
 {currentTime:
     - 0:
         ~ move_entity(Paola, WhiteRoom)
+    
+    - 120:
+        ~ move_entity(Paola, WhiteRoom)  
 
+    - 180:
+        ~ move_entity(Paola, WhiteRoom)
+
+    - 240:
+         ~ move_entity(Paola, WhiteRoom)  
+
+    - 300:
+        ~ move_entity(Paola, WhiteRoom)   
+        
+    - 360:
+        ~ move_entity(Paola, WhiteRoom)    
+        
+    - 420:
+        ~ move_entity(Paola, WhiteRoom)    
 }
 
 // Elia

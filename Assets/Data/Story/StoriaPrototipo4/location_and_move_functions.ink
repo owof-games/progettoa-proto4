@@ -141,14 +141,15 @@
  //Usiamo questa funzione per capire quando possiamo origliare una conversazione: se la personaggia che sta parlando è in una delle stanze accanto a quella in cui si trova Ettore riusciamo a sentire, altrimenti no.
  === function is_this_entity_near_Ettore(entity)
 {debug: <i>passo per is_this_room_near</i>}
+~ temp CurrentLocation = entity_location(entity)
 {
-    - redRoomContents has Ettore && (entity_location == WhiteRoom or entity_location == GreenRoom):
+    - redRoomContents has Ettore && (CurrentLocation == WhiteRoom or CurrentLocation == GreenRoom):
         ~ return true
-    - yellowRoomContents has Ettore && entity_location == GreenRoom:
+    - yellowRoomContents has Ettore && CurrentLocation== GreenRoom:
         ~ return true
-    - greenRoomContents has Ettore && (entity_location == YellowRoom or entity_location == RedRoom):
+    - greenRoomContents has Ettore && (CurrentLocation == YellowRoom or CurrentLocation == RedRoom):
         ~ return true
-    - whiteRoomContents has Ettore && entity_location == RedRoom:
+    - whiteRoomContents has Ettore && CurrentLocation == RedRoom:
         ~ return true
     - else:
         ~ return false
@@ -172,6 +173,5 @@
 - yellowRoomContents has Ettore:
         ~ move_entity(entity, GreenRoom)        
         
-}        
-
+}       
 

@@ -9,6 +9,7 @@
 
 -> intro
 
+TODO: per tutt3, inserire quelle due/tre domande ovvie: ti manca Paola, cosa pensavi di lei, della sua morte, chi potrebbe essere stato?
 
 /* ---------------------------------
 Opzioni di dialogo con il personaggio Greta
@@ -32,7 +33,7 @@ Opzioni di dialogo con il personaggio Greta
             Greta: Mi sta evitando da quando è venuta a mancare Paola, e non capisco perché.
             -> advance_time ->        
     + {seen_in_this_loop(->missioneGreta) && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta}  Ettore: Non sono ancora riuscito a convincere Elia.
-            Greta: Mi stupisce: quel ragazzo {~ha il cervello di un pesce bollito|ha smesso di ragionare nel '96|ha un unico neurone, ed è disperso da quell'undici settembre|crede che la noce moscata sia un insetto}, non deve essere difficile!
+            Greta: Mi stupisce: quel ragazzo {~ha il cervello di un pesce bollito|ha smesso di ragionare nel '96|ha un unico neurone, ed è disperso dall'undici settembre|crede che la noce moscata sia un insetto}, non deve essere difficile!
     + (paolaPerfetta) {loopableVariables has EliaRaggiungeGreta} Ettore: Ho fatto quello che mi hai chiesto, Greta.
             Greta: E Greta te ne è grata, gretino.
             Greta: Scusa, ti ho preso un po' in giro.
@@ -50,7 +51,7 @@ Opzioni di dialogo con il personaggio Greta
             Greta: A un certo punto pensavo fosse mio padre.
             Greta: Scusa, un po' di daddy issues li abbiamo tutti, no?
             -> advance_time ->
-            Greta: Cioè, anche tu a uscire con quel tizio che è vecchio dentro da quando ha sei anni.
+            Greta: Cioè, anche tu a uscire con quel tizio che ha ottant'anni da quando andava all'asilo.
             Greta: Ma no, niente amore, mai.
             Greta: Greta ama solo due cose: psilocibina e Kesha.
             Greta: Se lo becco provo a farlo ragionare.
@@ -58,26 +59,65 @@ Opzioni di dialogo con il personaggio Greta
                 + + (loVoglio)Ettore: Sì, è l'uomo giusto per me.
                 + + Ettore: No, te lo puoi tenere.
                 - -
-            Greta: Te la butto lì: fatti dare un indennizzo, tanto i nonni son pieni di soldi.
+            Greta: Te la butto lì: fatti dare un indennizzo, tanto i nonni sono pieni di soldi.
             Greta: E facciamoci tre settimane in Messico a farci un po' di allucinogeni.
-            Greta: Comunque due chiacchiere vedi che le faccio appena capita.    
+            Greta: Nel dubbio, due chiacchiere con lui le faccio appena capita.    
             -> advance_time ->
 
     //SCELTE CONDIZIONALI OGGETTI//
-    + (minacce) {inventoryContents has Lettera} Guarda questa lettera!
+    + (minacce) {inventoryContents has Lettera} Ettore: Sai da dove viene questa lettera?
         Greta: Uh, è la calligrafia di Paola. Dove l'hai trovata?
         Greta: Non importa, comunque. Questa rimane a me per un po'.
             ~ inventoryContents -= Lettera
             ~ objectStorageContents += Lettera
             ~ gretaHaLaLettera = true
-        -> advance_time ->    
-    + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
-    + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
-    + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    + {inventoryContents has Briciole} Guarda questo cibo!
-    + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
-    + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
-    + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
+        -> advance_time ->
+    + {inventoryContents has AnticoPugnale} Ettore: Hai mai visto questo pugnale?
+        Greta: Solo in qualche film dell'orrore.
+        Greta: O al battesimo di mia zia Selma.
+        Greta: Ah, lei sapeva come farci divertire!
+    + (spiedino) {inventoryContents has SpiedinoCocktail} Ettore: Sai qualcosa su questo spiedino?
+            Greta: <i>FEG</i>? Questa è la sigla del locale mio e di Elia, ma non ricordo di averne mai visto uno.
+    + {inventoryContents has LimettaUnghie} Ettore: Riconosci questa limetta per unghie?
+        Greta: Yep, è mia.
+        Greta: Ho una seconda unghia che mi sta spuntando sull'alluce destro.
+        Greta: Una cosa mostruosa, sinceramente.
+        Greta: Elia ha anche proposto di vendere le sue foto su internet, e non è una cattiva idea.
+        Greta: E devo limarla spesso o fa male.
+        Greta: Ma non voglio levarla, lo schifo che mi genera è liberatorio.
+        Greta: Per questo l'ho chiamata Zeca.
+            -> advance_time ->
+    + {inventoryContents has Torta} Ettore: Conosci questa torta?
+        Greta: Naa, non le ho chiesto il nome, nulla.
+        Greta: Abbiamo consumato l'atto anonimamente, come piace a me.
+        Greta: E poi addio.
+        Ettore: Quindi è un no?
+        Greta: Quindi è un "Fintanto che farai domande stupide, avrai risposte stupide".
+        Greta: Però sul sesso è un peccato: sei davvero belloccio.
+        Greta: Ma ormai so troppo di te per poterti trovare sexy.
+            -> advance_time ->
+    + {inventoryContents has BottigliaDiVino} Ettore: Sai da dove viene questa bottiglia di vino?
+        Greta: Puglia.
+        Ettore: Ok, ma chi l'ha portata?
+        Greta: Immagino una persona.
+        Greta: O forse è venuta da sola.
+        Greta: Sarebbe una scoperta interessante.
+        Greta: E un segno di acutezza ben maggiore di quella di Elia.
+        Greta: O di qualcuno che va in giro a fare domande a caso.
+            -> advance_time ->
+    + {inventoryContents has FlaconcinoAsma} Ettore: Greta, guarda questo flaconcino per l'asma!
+        Greta: Non ho tempo, ho cose più interessanti da fare.
+        Greta: Tipo sperare di venire uccisa dal serial killer.
+        Ettore: Ma non c'è alcun serial killer, no?
+        Ettore: C'è stato un solo omicidio.
+        Greta: Dipenderà molto da quante domande continuerai a fare.
+        Greta: Qualcuno mi uccida, ora!
+            -> advance_time ->
+    + {inventoryContents has SigarettaElettronica} Ettore: Sai chi potrebbe averla persa?
+        Greta: No.
+        Ettore: Ma..
+        Greta: No.
+
       
     + Te ne vai
         -> intro

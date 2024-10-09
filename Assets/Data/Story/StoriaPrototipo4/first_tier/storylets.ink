@@ -177,7 +177,7 @@ Ettore: Cos
     + (matteoGreta)[Avanzo]
     -
 ->->
-Matteo: Ettore: io amo Greta.
+Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelosire.
     + (ah)Ettore: Ah. E da quando lo sai?
         Matteo: Mesi. Forse anni.
         Ettore: E me lo dici solo ora? Dopo avermi chiesto la mano pochi minuti fa?

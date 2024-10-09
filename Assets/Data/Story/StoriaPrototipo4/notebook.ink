@@ -36,7 +36,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 
 {elia_acting.sincero: <i>Informazioni sul personaggio Matteo</i>}
-{hardTrueFeelingsStorylet.matteoGreta: Matteo: "Mi spiace, ma amo Greta, non te. Il matrimonio era solo una scusa per farla ingelosire."}
+{hardTrueFeelingsStorylet.ah or hardTrueFeelingsStorylet.mono: Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelosire.}
 {elia_acting.sincero: Elia: Merda, mi spiace. Per questo volevo fare il matrimonio al pub. Sapevo da tempo che Matteo provava qualcosa per Greta, ma non sapevo come dirtelo!}
 {greta_acting.matteoGreta: Greta: "Mi spiace Ettore, ma abbiamo scopato solo una volta, è Matteo che è proprio andato in fissa!"}
 {weddingAtThePubStorylet.matteoSiSposa: Matteo: "Elia, non festeggerò mai il mio matrimonio nel tuo bar triste con la tua insopportabile collega!"}
@@ -48,15 +48,15 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 {elia_acting.paolaSiSposa:<i>Informazioni sul personaggio Paola</i>}
 {elia_acting.paolaSiSposa:Elia: Ha organizzato un matrimonio in fretta e furia, manco sappiamo con chi.}
 {matteo_acting.paolaSiSposa && marryMeStorylet: Matteo: Paola ha organizzato il matrimonio appena le ho confidato che avrei voluto sposarti, la stronza.}
-{matteo_acting.zecaTestimone: Matteo:"La cosa che mi ha stupito è che abbia chiesto a Zeca di farle da testimone!"}
+{matteo_acting.paolaZeca: Matteo: Ma la cosa più ridicola è che abbia chiesto a Zeca di fare da testimone.}
 {greta_acting.paolaPerfetta: Greta: "Nessuno avrebbe potuto fare male a Paola, è perfetta!"}
 
 
 {anEavesdropAboutFriendshipStorylet.gretaTriste: <i>Informazioni sul personaggio Greta</i>}
 {anEavesdropAboutFriendshipStorylet.gretaTriste: Greta: "Storia dolorosa infanzia"}
 
-{matteo_acting.zecaTestimone or worstBestManStorylet.paolaZeca: <i>Informazioni su Zeca</i>}
-{matteo_acting.zecaTestimone: Matteo:"Sappiamo tutti che Zeca odia la povera Paola da sempre!"}
+{matteo_acting.paolaZeca or worstBestManStorylet.paolaZeca: <i>Informazioni su Zeca</i>}
+{matteo_acting.paolaZeca: Matteo: Quando sappiamo tutti in famiglia che Zeca odia Paola da sempre!}
 {worstBestManStorylet.paolaZeca: Zeca: "Non vedevo Paola da una vita. Era la mia migliore amica, e ora solo una sconosciuta."}
 
 
@@ -79,7 +79,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 
 {cb_first_tier_bottiglia_di_vino.primoCheck: <i>Informazioni sulla bottiglia di vino</i>}
-{cb_first_tier_bottiglia_di_vino.primoCheck: Un negramaro di prestigio. Probabilmente costa più di quanto tu possa guadagnare in metà mese.}
+{cb_first_tier_bottiglia_di_vino.primoCheck: Un negroamaro di prestigio. Probabilmente costa più di quanto tu possa guadagnare in metà mese.}
 
 
 {cb_first_tier_flaconcino_asma.primoCheck: <i>Informazioni sul flaconcino dell'asma</i>}
@@ -89,6 +89,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 {cb_first_tier_limetta_unghie.primoCheck: <i>Informazioni sulla limetta da unghie</i>}
 {cb_first_tier_limetta_unghie.primoCheck: Una limetta consumata, con il logo di un noto franchise molto economico.}
+{matteo_acting.limetta: Matteo: Pacchiana, economica, e con tracce di schifo? Deve essere di Greta.}
 
 
 
@@ -124,10 +125,10 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
         --
 
 
-{matteo_acting.zecaTestimone && worstBestManStorylet.paolaZeca: <b>La relazione tra Paola e Zeca</b>}
+{matteo_acting.zecaPaola && worstBestManStorylet.paolaZeca: <b>La relazione tra Paola e Zeca</b>}
 
 
-    ~ temp contraddizione_zeca = matteo_acting.zecaTestimone && worstBestManStorylet.paolaZeca
+    ~ temp contraddizione_zeca = matteo_acting.zecaPaola && worstBestManStorylet.paolaZeca
     
     {
         - contraddizione_zeca:

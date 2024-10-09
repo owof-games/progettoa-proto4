@@ -56,7 +56,7 @@ Opzioni di dialogo con il personaggio Elia
         Elia: Ma magari aiutami a proteggermi!
         -> advance_time ->   
     
-    + {seen_in_this_loop(->senzatetto) && !hardTrueFeelingsStorylet && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && not loopableVariables == EliaRaggiungeGreta} Ettore: Sto ancora cercando il modo di convincere Matteo, ma ce la farò!
+    + {seen_in_this_loop(->senzatetto) && !hardTrueFeelingsStorylet && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && (not loopableVariables == EliaRaggiungeGreta)} Ettore: Sto ancora cercando il modo di convincere Matteo, ma ce la farò!
         Elia: Non ho fretta di morire, tranquillo!
 
     + (missioneGreta){hardTrueFeelingsStorylet && not are_two_entities_together(Greta, Elia) && seen_in_this_loop(->senzatetto) && not loopableVariables == EliaRaggiungeGreta} Ettore: Ho convinto Matteo!

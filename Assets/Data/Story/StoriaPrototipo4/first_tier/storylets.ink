@@ -36,21 +36,22 @@
     -> worstBestManStorylet    
 
 
-//MATERIALI PER TUTORIAL
-- currentTime > 480 && not objects_tutorial: -> objects_tutorial
+    //MATERIALI PER TUTORIAL
+    - currentTime > 480 && not objects_tutorial: -> objects_tutorial
 
-- currentTime > 480 && objects_tutorial && new_this_loop(->objects_tutorial) && not notebook_tutorial: -> notebook_tutorial
+    - currentTime > 480 && objects_tutorial && new_this_loop(->objects_tutorial) && not notebook_tutorial: -> notebook_tutorial
 
-- currentTime > 480 && objects_tutorial && notebook_tutorial && new_this_loop(->notebook_tutorial) && not talking_tutorial: -> talking_tutorial
+    - currentTime > 480 && objects_tutorial && notebook_tutorial && new_this_loop(->notebook_tutorial) && not talking_tutorial: -> talking_tutorial
 
+    -else: ->->
 }
 ->->
 
 //STORYLET CONDIZIONALI
 === startingDinnerStorylet
 {debug: <i>Passo per startingDinnerStorylet</i>}
-            -> advance_time -> 
         Matteo: No, ma ti giuro Paola, ti giuro! Faceva tutto lo sborone quello.
+        -> advance_time -> 
         Matteo: Poi ho chiamato nonno e: tadaaan! Silenzio.
         Matteo: Tutto il consiglio di amministrazione muto.
         Matteo: E il progetto per la piscina sul tetto del grattacielo è passato.

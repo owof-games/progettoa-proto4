@@ -22,8 +22,8 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 + {activeNotebook} [notebook]
 
 {
- - tierState == FirstTier -> tier_one_notebook
- - tierState == SecondTier -> tier_two_notebook
+ - tierState == FirstTier: -> tier_one_notebook
+ - tierState == SecondTier: -> tier_two_notebook
 }
 
 

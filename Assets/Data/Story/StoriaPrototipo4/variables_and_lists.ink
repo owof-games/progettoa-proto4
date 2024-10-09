@@ -1,5 +1,5 @@
 // activate debug text
-VAR debug = false
+VAR debug = true
 /////////////////////////////////////////////////////////////
 
 // list of all characters

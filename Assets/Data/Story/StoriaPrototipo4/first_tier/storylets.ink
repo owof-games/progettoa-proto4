@@ -221,24 +221,43 @@ TODO: questa è una modalità molto scriptata, mi piacerebbe qualcosa di più re
     }
 = step_one    
 -> advance_time ->
-    Matteo dice cose
-    Elia dice cose
-    Matteo risponde
-    Elia dice cose
-    Matteo dice una cosa importante che finirà nel taccuino o no
+    Elia: Mi ha sempre sorpreso il modo in cui hai trattato Paola.
+    Matteo: In che senso?
+    Elia: Beh, sei sempre stato crudele con lei.
+    TODO: inserire su taccuino con tag
+    Elia: Eppure è stata Paola a convincere i nonni a prestarti tutti quei soldi!
+    Elia: E non capisco come è possibile.
+    Elia: Lei è così attenta.
+    Elia: Così perfetta.
+    Matteo: Così noiosa!
+    -> advance_time ->
 -> step_two
 
 = step_two
-    Matteo dice cose
-    Elia dice cose
+    Elia: Non provare a ripeterlo, non provarci!
+    Matteo: Così prevedibile.
+    Matteo: Così "So solo io quello che è giusto".
+    Matteo: Sapessi cosa diceva di te alle tue spalle.
+    Elia: Non mi importa saperlo. L'avrai istigata.
+    Matteo: L'ho istigata io a dire che sarai sempre il più piccolo?
+    Elia: Ma è vero.
+    Matteo: E il più empatico?
+    -> advance_time ->
 
 -> step_three
 
 = step_three
-    Arriviamo in fondo al dialogo, poche frasi per far capire che qualcosa è finito.
-    Matteo dice cose
-    Elia dice cose
-->->
+    Elia: Ma mica è una cosa crudele!
+    Matteo: E che non sai gestire gli affari!
+    Elia: Anche questo è vero.
+    Elia: Ma io lo so, e infatti ho chiesto una mano a Greta.
+    Elia: Tu pensi ancora di sapere gestire i soldi, e stai rischiando di finire in bancarotta.
+    Matteo: Non sono in bancarotta!
+    Elia: Certo che no, solo perché i nonni continuano a pararti il culo.
+    Elia: Me ne devo andare da tutta questa negatività.
+    -> advance_time ->
+
+-> intro
 
 
 === itsOverisntItStorylet

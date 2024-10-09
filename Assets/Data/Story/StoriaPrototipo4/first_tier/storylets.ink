@@ -165,8 +165,10 @@ Ma questa cosa la vediamo all'inizio, le altre due scene sembreranno più provol
 //STORYLET DA SCELTE
 === hardTrueFeelingsStorylet
 {debug: <i>Passo per hardTrueFeelingsStorylet</i>}
-Matteo ci dice che ama Greta
-    -> advance_time ->
+Matteo: Anche io.
+Ettore: Uh, dimmi pure.
+Matteo: Non voglio sposarti.
+Ettore: Cos
 {
     - are_two_entities_together(Ettore, Elia) or are_two_entities_together(Ettore, Greta) or are_two_entities_together(Ettore, Zeca): -> quickTalk
     -else: ->->
@@ -175,9 +177,37 @@ Matteo ci dice che ama Greta
     + (matteoGreta)[Avanzo]
     -
 ->->
+Matteo: Ettore: io amo Greta.
+    + (ah)Ettore: Ah. E da quando lo sai?
+        Matteo: Mesi. Forse anni.
+        Ettore: E me lo dici solo ora? Dopo avermi chiesto la mano pochi minuti fa?
+        Matteo: Ettore! Mi aspettavo una reazione più comprensiva.
+        Matteo: Per me è una situazione difficile, dolorosa.
+        Matteo: E tu mi fai questa scenata? Sei davvero egoista!
+        Matteo: Fammi allontanare da tutta questa cattiveria, prima che mi contagi.
+            ~ move_this_entity_in_a_different_room(Matteo)
+            -> advance_time ->
+    + (mono)Ettore: Sai che non mi importa molto della monogamia.
+        Matteo: Ma importa a me.
+        Matteo: Perché se ora tu dai a me la possibilità di stare con altre persone, poi dovrò darla io a te.
+        Matteo: E io non saprei gestire la mia gelosia.
+        Ettore: Sono cose che si imparano.
+        Matteo: Se hai un sacco di tempo libero.
+        Matteo: Questa roba è per gente come te o Zeca.
+        Matteo: Ma io ho una carretta da tirare avanti.
+        Matteo: Dio, non credo di averti mai amato, sei così fastidioso!
+        Matteo: Fammi andare via di qui!
+        ~ move_this_entity_in_a_different_room(Matteo)
+        -> advance_time ->
+
+
 
 = quickTalk
-Matteo: "Uh, è il caso di parlarne solo quando saremo soli".
+Matteo: No no, è il caso di parlarne solo quando saremo soli.
+Ettore: Ma!
+Matteo: Niente ma, vattene.
+Matteo: Anzi, me ne vado io.
+    ~ move_this_entity_in_a_different_room(Matteo)
 -> advance_time ->
 -> intro
 

@@ -23,10 +23,10 @@ Opzioni di dialogo con il personaggio Matteo
     
     //SCELTE CONDIZIONALI//
     
-    + (paolaSiSposa) {elia_acting.paolaSiSposa} Ettore: "Matteo, tu sapevi che Paola si stava per sposare?"
-        + + {marryMeStorylet} Ettore
-            Matteo: "Sì, ero incazzatissimo perché ci ha detto che ci sarebbe sposata il giorno dopo che le ho detto che volevo farti la proposta, la stronza."
-    + {new_this_loop(->hardTrueFeelingsStorylet)} {elia_acting.uniti && not are_four_entities_together(Greta, Elia, Matteo, Zeca)} Ettore: "Amore, in merito al nostro matrimonio..."
+    + (paolaSiSposa) {elia_acting.paolaSiSposa} Ettore: Amore, ma tu sapevi che Paola si stava per sposare?
+        {not marryMeStorylet: Matteo: Non mi va di parlarne ora.}
+        {marryMeStorylet: Matteo: Paola ha organizzato il matrimonio appena le ho confidato che avrei voluto sposarti, la stronza.}
+    + {new_this_loop(->hardTrueFeelingsStorylet)} {elia_acting.uniti && not are_four_entities_together(Greta, Elia, Matteo, Zeca)} Ettore: Amore, avrei un favore da chiederti in merito al matrimonio.
         ->hardTrueFeelingsStorylet->
     + (zecaTestimone){worstBestManStorylet && not are_two_entities_together(Zeca, Matteo)} Matteo ci dice che Zeca è stato chiamato a fare da testimone.
         "La cosa che mi ha stupito è che abbia chiesto a Zeca di farle da testimone!"

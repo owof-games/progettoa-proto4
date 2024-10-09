@@ -169,7 +169,7 @@ Opzioni di dialogo con il personaggio Zeca
         Zeca: Un po' questo, un po' quello.
         Ettore: Nel senso di tanti lavoretti?
         Zeca: No no, nel senso letterale del termine.
-        Zeca: Ci sono giornate in cui esploro il <i>questo>/i>, tutto ciò che è prossimo, vicino, a contatto con la mia pelle.
+        Zeca: Ci sono giornate in cui esploro il <i>questo</i>, tutto ciò che è prossimo, vicino, a contatto con la mia pelle.
         Zeca: E notti in cui esploro il <i>quello</i>, l'alieno, fuori e dentro di me.
         Ettore: Eh, ehm, cosa trovi dentro di te?
         Zeca: Principalmente arachidi e superalcolici.

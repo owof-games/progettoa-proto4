@@ -39,11 +39,6 @@ INCLUDE story_and_storylet_functions.ink
 
 
 
-TODO: sto riavendo problemi che non so risolvere XD
-
-
-
-
 
 -> intro
 

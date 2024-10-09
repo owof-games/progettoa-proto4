@@ -57,10 +57,10 @@ Opzioni di dialogo con il personaggio Elia
         Elia: Ma magari aiutami a proteggermi!
         -> advance_time ->   
     
-    + {seen_in_this_loop(->senzatetto) && !hardTrueFeelingsStorylet && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && (not loopableVariables == EliaRaggiungeGreta)} Ettore: Sto ancora cercando il modo di convincere Matteo, ma ce la farò!
+    + {not new_this_loop(->senzatetto) && !hardTrueFeelingsStorylet && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && (loopableVariables hasnt EliaRaggiungeGreta)} Ettore: Sto ancora cercando il modo di convincere Matteo, ma ce la farò!
         Elia: Non ho fretta di morire, tranquillo!
 
-    + (missioneGreta){hardTrueFeelingsStorylet && not are_two_entities_together(Greta, Elia) && seen_in_this_loop(->senzatetto) && not loopableVariables == EliaRaggiungeGreta} Ettore: Ho convinto Matteo!
+    + (missioneGreta){hardTrueFeelingsStorylet && not are_two_entities_together(Greta, Elia) && seen_in_this_loop(->senzatetto) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Ho convinto Matteo!
         Ettore: Faremo la cerimonia da voi, al pub.
         Ettore: In fondo cosa c'è di più romantico di un esercito di comici ubriachi e incapaci?
         Ettore: Quindi, ora parlerai con Greta?
@@ -119,7 +119,7 @@ Opzioni di dialogo con il personaggio Elia
                 }      
                 
    
-    + (sincero) {hardTrueFeelingsStorylet  && not are_two_entities_together(Greta, Elia) && not loopableVariables == EliaRaggiungeGreta} Ettore: Matteo mi ha detto di lui e di Greta.
+    + (sincero) {hardTrueFeelingsStorylet  && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Matteo mi ha detto di lui e di Greta.
             Elia: Merda, mi spiace. Per questo volevo fare il matrimonio al pub.
             Elia: Sapevo da tempo che Matteo provava qualcosa per Greta, ma non sapevo come dirtelo!
             Elia: Andrò da Greta, te lo devo.

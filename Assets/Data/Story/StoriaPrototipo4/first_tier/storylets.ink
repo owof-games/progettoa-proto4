@@ -98,6 +98,7 @@
                 Paola: Non sono cose su cui si scherza!
             -
             ~ currentTime = currentTime + 15
+            
         Paola: Capperina, ho dimenticato una cosa di là, arrivo subito.
              ~ move_this_entity_in_a_different_room(Paola)
         Greta: Anche io ho scordato una cosa!
@@ -112,7 +113,8 @@
             + Ettore: Boh, a questo punto me ne vado anche io.
             + Ettore: Ma non è che c'è dell'altro vino in giro?
             -
-        ~ currentTime = currentTime + 15                       
+            ~ currentTime = currentTime + 15 
+        
             ~ move_entity(Paola,WhiteRoom)
         Paola entra. Paola muore.
             ~ move_entity(Elia,WhiteRoom)
@@ -137,7 +139,9 @@
         Greta: In questa famiglia le cose si affrontano in famiglia.
         Zeca: E infatti ci odiamo tutti.
         Elia: Io me ne vado!
+        
             ~ currentTime = currentTime + 15
+            
         Matteo: Non puoi. Paola ha pagato un buttadentro perché ci chiudesse qui fino alle 23:00.
         Greta: Ma che cazzata è?
         Zeca: Temeva scappassi di nuovo, immagino.
@@ -146,8 +150,7 @@
         Zeca: Beh, rega, io mi faccio due passi per queste stanze.
         Matteo: E io sento il mio avvocato.
         Elia: E io, io, io ho paura!
-            ~ currentTime = currentTime + 15
-            ~ updateEntitiesLocations()
+            -> advance_time ->
         ->->
 
 
@@ -180,7 +183,7 @@
         Greta: E così papà ed io abbiamo vissuto per mesi per strada.
             + (gretaTriste) Ettore: Merda, non ne sapevo nulla.
             -
-            -> advance_time ->
+            ~ currentTime = currentTime + 15
         Greta: Me ne sono sempre vergognata così tanto, sapete?
         Greta: Mesi e mesi a vedere le persone passarci davanti.
         Greta: A spiare dentro la nostra roulotte.
@@ -206,11 +209,15 @@
         Matteo: Pensavo di metterci qualcosa di importante.
         Ettore: Un altro dei tuoi cavalli?
         Matteo: No, qualcosa di più importante.
+            ~ currentTime = currentTime + 15
+            ~ updateEntitiesLocations()
+            
             {
                 - are_two_entities_together(Ettore, Elia) or are_two_entities_together(Ettore, Greta) or are_two_entities_together(Ettore, Zeca): -> quickTalk
-                -else: ->->
+                -else: -> one
             }
-        -> advance_time ->
+        
+        = one
         Matteo: Ah, son così un disastro con queste cose, amore.
         Matteo: Posso provare a dirtelo in imprenditorese?
         Ettore: Ma certo, tesoro.
@@ -219,11 +226,15 @@
         Matteo: Beh, non era esattamente quella la proposta, ma ora che mi ci fai pensare.
         Ettore: Chiudi quei pantaloni, amore. A casa poi ci si fonde per bene.
         Matteo: Non hai capito, cristo. Uffi. Sob.
+            ~ currentTime = currentTime + 15
+            ~ updateEntitiesLocations()
+            
                      {
                 - are_two_entities_together(Ettore, Elia) or are_two_entities_together(Ettore, Greta) or are_two_entities_together(Ettore, Zeca): -> quickTalk
-                -else: ->->
+                -else: -> two
             }
-        -> advance_time ->
+        
+        = two
             + (matteoSiSposa) Ettore: Va tutto bene amore, davvero!
             + (matteoSiSposa2) Ettore: Siamo in due
             -
@@ -237,7 +248,7 @@
         Matteo: Oh, sono così felice Ettore!
         Matteo: Ti va di fare quella fusione, ora?
         Ettore: Chiudi i pantaloni, futuro marito.
-         -> advance_time ->
+            -> advance_time ->
 
  ->->
  
@@ -248,7 +259,7 @@
     Matteo: Come sanno le altre persone in questa stanza, non si scopa nel raggio di dieci metri da un cadavere.
     Ettore: Ma io! Ma tu!
     Matteo: Me ne vado, così ti lascio ripensare a modo alla tua idea di moralità, Ettore.
-    ~ move_this_entity_in_a_different_room(Matteo)
+        ~ move_this_entity_in_a_different_room(Matteo)
 -> intro
 
 === worstBestManStorylet
@@ -260,7 +271,9 @@
     {are_two_entities_together(Zeca, Elia): Elia: Cavolo, voi due da piccoli eravate quasi telepatici.}
     Ettore: Mai, non mi è mai capitato.
     Zeca: Come sensazione è magnifica. Ma dolorosa, quando si interrompe.
-    -> advance_time ->
+    
+        ~ currentTime = currentTime + 15
+        
     Zeca: E il nostro legame è stato reciso violentemente.
     Zeca: E non ho ancora capito perché.
     {are_two_entities_together(Zeca, Elia): Elia: Ho sempre pensato fosse colpa di Matteo. Matteo è bravo a fare cose colpevoli.}
@@ -269,7 +282,9 @@
     Zeca: L'allontanamento di tutti mi è pesato, ma il suo è stato quasi un omicidio.
     Zeca: Non vedevo Paola da una vita. Era la mia migliore amica, e ora solo una sconosciuta.
     Zeca: Una sconosciuta morta.
-    -> advance_time ->
+    
+        ~ currentTime = currentTime + 15
+        
         + (paolaZeca) Ettore: Zeca, non so cosa dire, davvero.
         -
     Zeca: Promettimi una cosa.
@@ -288,7 +303,7 @@
         Matteo: Grazie per avermelo riportato!
         Ettore: In realtà.
         Matteo: Ecco, ora è di nuovo mio.
-                ~ inventoryContents -= AnticoPugnale
+            ~ inventoryContents -= AnticoPugnale
             ~ objectStorageContents += AnticoPugnale
         Matteo: Non sai quali cose terribili potrebbero accadere.
         Matteo: Ahah scherzo, scherzo.
@@ -308,7 +323,6 @@ TODO: questa è una modalità molto scriptata, mi piacerebbe qualcosa di più re
     - else: ->->
     }
 = step_one    
--> advance_time ->
     Elia: Mi ha sempre sorpreso il modo in cui hai trattato Paola.
     Matteo: In che senso?
     Elia: Beh, sei sempre stato crudele con lei.
@@ -317,7 +331,8 @@ TODO: questa è una modalità molto scriptata, mi piacerebbe qualcosa di più re
     Elia: Lei è così attenta.
     Elia: Così perfetta.
     Matteo: Così noiosa!
-    -> advance_time ->
+            ~ currentTime = currentTime + 15
+            
 -> step_two
 
 = step_two
@@ -329,7 +344,8 @@ TODO: questa è una modalità molto scriptata, mi piacerebbe qualcosa di più re
     Matteo: L'ho istigata io a dire che sarai sempre il più piccolo?
     Elia: Ma è vero.
     Matteo: E il più empatico?
-    -> advance_time ->
+            ~ currentTime = currentTime + 15
+
 
 -> step_three
 
@@ -355,7 +371,7 @@ TODO: questa è una modalità molto scriptata, mi piacerebbe qualcosa di più re
     Greta: A parte i soldi, ma sappiamo benissimo che non sono tuoi.
     Matteo: Ma quella scopata, dimmi che non è stata la scopata del secolo.
     Greta: Al massimo, del secondo.
-    -> advance_time ->
+            ~ currentTime = currentTime + 15
     {
         - greta_acting.loVoglio: -> perEttore
         - not greta_acting.loVoglio: -> poveroEttore
@@ -399,12 +415,13 @@ Matteo: Anche io.
 Ettore: Uh, dimmi pure.
 Matteo: Non voglio sposarti.
 Ettore: Cos
+        ~ currentTime = currentTime + 15
+            ~ updateEntitiesLocations()
 {
     - are_two_entities_together(Ettore, Elia) or are_two_entities_together(Ettore, Greta) or are_two_entities_together(Ettore, Zeca): -> quickTalk
     -else: ->->
 }
-    -> advance_time ->
-    + (matteoGreta)[Avanzo]
+    + (matteoGreta)Ettore: Matteo, così mi preoccupi.
     -
 ->->
 Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelosire.
@@ -447,16 +464,20 @@ Matteo: Anzi, me ne vado io.
 
 //STORYLET PER TUTORIAL
 === objects_tutorial
-        Paola: "Stop stop stop maledizione!"
-        Paola: "Sant'iddio Greta, dove hai messo tutti i cazzo di oggetti? Mettili al loro posto, ora!"
+        Paola: Stop stop stop maledizione!
+        Paola: Sant'iddio Greta, dove hai messo tutti i cazzo di oggetti? Mettili al loro posto, ora!
         -> advance_time ->
         ~  move_this_entity_in_a_different_room(Greta)
-        Paola: "Ettore, ricordati che se hai un oggetto in mano puoi mostrarlo e ottenere nuove informazioni."
+        Paola: Ettore, ricordati che se hai un oggetto in mano puoi mostrarlo e ottenere nuove informazioni.
         ~ move_first_entity_to_second_entity_location(Elia,Ettore)
-        Elia: "Cerca di trovare la limetta più avanti possibile perché è quella l'arma del delitto!"
-        Paola: "Elia, coglione! Ora vi tocca improvvisare, l'arma sarà un'altra. Mi spiace per il livello di non professionalismo, Ettore."
-        -> advance_time ->
-        Paola: "Cinque minuti e poi riprendiamo!"
+        Elia: Cerca di trovare la limetta più avanti possibile perché è quella l'arma del delitto!
+        Paola: "Elia, coglione! Ora vi tocca improvvisare, l'arma sarà un'altra. Mi spiace per il livello di non professionalismo, Ettore.
+            ~ currentTime = currentTime + 15
+
+        Paola: Cinque minuti e poi riprendiamo!
+        ~ peopleTalking = true
+        
+        
         ~ move_entity(LimettaUnghie, GreenRoom)
         ~ move_entity(SpiedinoCocktail, RedRoom)
         ~ move_entity(AnticoPugnale, GreenRoom)
@@ -472,37 +493,41 @@ Matteo: Anzi, me ne vado io.
             ->->
 
 === notebook_tutorial
-        Paola: "STOP STOP STOP DI NUOVO!"
-        Paola: "GRETA! Ma l'hai dato il taccuino ad Ettore?!?"
+        Paola: STOP STOP STOP DI NUOVO!
+        Paola: GRETA! Ma l'hai dato il taccuino ad Ettore?!?
             ~ move_first_entity_to_second_entity_location(Greta,Ettore)
-        Greta: "Io, ehm, no, io."
-        Paola: "Daglielo, ora, svampita! Ettore, sono mortificata."
+        Greta: Io, ehm, no, io...
+        Paola: Daglielo, ora, svampita! Ettore, sono mortificata.
             ~ activeNotebook = true
-        Paola: "Il taccuino è fondamentale: tiene traccia degli elementi fondamentali per l'investigazione."
-        Paola: "Ma presta attenzione: molte verità si capiscono solo prestando attenzione anche a cose che sul taccuino non ci sono."
-        Paola: "E saranno fondamentali per risolvere le contraddizioni.
-        Ettore: "Contraddizioni?"
-        Paola: "Quando avrai due informazioni contrastanti su un personaggio, ti si aprirà sul taccuino la possibilità di scegliere cosa è vero e cosa no."
-        Paola: "Sarai tu a decidere quando avrai abbastanza informazioni per dare una risposta, e a quel punto incriminare la persona responsabile."
-        Paola: "Riposiamo un attimo tutti, ma un attimo!"
+        Paola: Il taccuino è fondamentale: tiene traccia degli elementi fondamentali per l'investigazione.
+        Paola: Ma presta attenzione: molte verità si capiscono solo prestando attenzione anche a cose che sul taccuino non ci sono.
+        Paola: E saranno fondamentali per risolvere le contraddizioni.
+        Ettore: <i>Contraddizioni</i>?
+        Paola: Quando avrai due informazioni contrastanti su un personaggio, ti si aprirà sul taccuino la possibilità di scegliere cosa è vero e cosa no.
+        Paola: Sarai tu a decidere quando avrai abbastanza informazioni per dare una risposta, e a quel punto incriminare la persona responsabile.
+        Paola: Riposiamo un attimo tutti, ma un attimo!
+        ~ peopleTalking = true
+        
         -> advance_time ->
         -> resting_time ->
             ->->
 
 === talking_tutorial
-        Paola: "Madre santa, che fatica prepararvi per questo pezzo!"
-        Paola: "Ettore, Ettore. Nel teatro di improvvisazione il ritmo è importante, sono io a dovertelo dire?"
+        Paola: Madre santa, che fatica prepararvi per questo pezzo!
+        Paola: Ettore, Ettore. Nel teatro di improvvisazione il ritmo è importante, sono io a dovertelo dire?
             ~ move_first_entity_to_second_entity_location(Elia,Ettore)
             ~ move_first_entity_to_second_entity_location(Zeca,Ettore)
-        Elia: "A dire il vero, sì."
-        Paola: "CHI TI HA INTERPELLATO, EUNUCO?!?"
-        Paola: "Dicevo, Ettore. Se vedi che i personaggi non ti dicono nulla di nuovo, non ti viene il dubbio che..."
-        Ettore: "Che si siano annoiati?"
-        Zeca: "Che potrebbero dire cose diverse se sono in stanze diverse, o con persone diverse. O da sole."
-        Paola: "Grazie. Leccaculo."
-        Paola: "Ma stavo pensando anche a un'altra cosa: i personaggi parlano tra loro anche quando tu non ci sei. Hai mai pensato che, con le giuste condizioni, potresti <i>origliare</i> una conversazione?"
-        Paola: "Cavolo, sei bellino ma non sei sveglio, eh?"
-        Paola: "Qualche minuto di pausa e poi riprendiamo, spero in modo definitivo!
+        Elia: A dire il vero, sì.
+        Paola: CHI TI HA INTERPELLATO, EUNUCO?!?
+        Paola: Dicevo, Ettore. Se vedi che i personaggi non ti dicono nulla di nuovo, non ti viene il dubbio che...
+        Ettore: Che si siano annoiati?
+        Zeca: Che potrebbero dire cose diverse se sono in stanze diverse, o con persone diverse. O da sole.
+        Paola:"Grazie. Leccaculo.
+        Paola: Ma stavo pensando anche a un'altra cosa: i personaggi parlano tra loro anche quando tu non ci sei. Hai mai pensato che, con le giuste condizioni, potresti <i>origliare</i> una conversazione?
+        Paola: Cavolo, sei bellino ma non sei sveglio, eh?
+        Paola: Qualche minuto di pausa e poi riprendiamo, spero in modo definitivo!
+        ~ peopleTalking = true
+        
         -> advance_time ->
         -> resting_time ->
             ->->
@@ -558,7 +583,9 @@ Matteo: Anzi, me ne vado io.
             ~ move_first_entity_to_second_entity_location(Greta,Paola)
             Greta: "Di nuovo il tizio delle pizze?"
         } 
-        -> advance_time ->
+        
+            ~ currentTime = currentTime + 15
+            
         + Ettore: Scusate, ma la scena della morte non doveva arrivare dopo la cena?
         + Ettore: Greta ha ragione, non ci sto capendo nulla.
         + Ettore: Mmm, avete provato a farle il solletico?
@@ -570,7 +597,9 @@ Matteo: Anzi, me ne vado io.
         Elia: State parlando di mia sorella, ve ne rendete conto?!?
         Greta: Ettore, tieni, chiama la polizia!
         Greta: Sei l'unico che non la conosce, e che può riuscire a non balbettare.
-        -> advance_time ->
+        
+            ~ currentTime = currentTime + 15
+            
         ~ activePhone = true
         TODO: Settare in qualche modo la chiamata veloce alla polizia.
         Ettore: Arrivano entro venti minuti.

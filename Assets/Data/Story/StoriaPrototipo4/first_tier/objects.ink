@@ -154,7 +154,7 @@
 ->->
 
 === cb_first_tier_cibo ===
-+ {are_two_entities_together(Ettore, Briciole)} [object:Briciole]
++ {are_two_entities_together(Ettore, Torta)} [object:Torta]
     -> cibo ->
 
 -> intro
@@ -167,7 +167,7 @@
         + + [Raccoglila]
         ~ take_object(Torta)
         + + [Lasciala dov'è]
-    // + {inventoryContents has Briciole} Mostra cibo
+    // + {inventoryContents has Torta} Mostra cibo
     + {inventoryContents has Torta} [Lascia la torta nella stanza]
         ~ remove_entity(Torta)
     

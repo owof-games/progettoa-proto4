@@ -9,7 +9,6 @@
 
 -> intro
 
-TODO: per tutt3, inserire quelle due/tre domande ovvie: ti manca Paola, cosa pensavi di lei, della sua morte, chi potrebbe essere stato?
 
 /* ---------------------------------
 Opzioni di dialogo con il personaggio Greta
@@ -207,7 +206,7 @@ Opzioni di dialogo con la persona Greta
     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
     + {inventoryContents has Lettera} Guarda questa lettera!
     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    + {inventoryContents has Briciole} Guarda questo cibo!
+    + {inventoryContents has Torta} Guarda questo cibo!
     + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
     + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
     + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!

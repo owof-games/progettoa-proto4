@@ -162,9 +162,8 @@
 
 
 = cibo
-    + (primoCheck) [Assaggia la torta]
+    + (primoCheck) [Ci sono rimasugli di un dolce.]
     -> advance_time ->
-    Il paradiso di un dodicenne: cioccolata, crema di arachidi, fragole, biscottini sbriciolati. La adori.
         + + [Raccoglila]
         ~ take_object(Torta)
         + + [Lasciala dov'è]

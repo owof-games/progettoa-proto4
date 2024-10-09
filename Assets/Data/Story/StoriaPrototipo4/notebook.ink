@@ -46,6 +46,8 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 {zeca_acting.matrimonio: Zeca: Matteo e Paola hanno litigato per il matrimonio, perché Paola pensa che lui ti stia usando solo per candidarsi come sindaco.}
 {zeca_acting.matrimonio: Zeca: Spero sia cambiato con gli anni, ma il Matteo che conoscevo amava solo una cosa: Matteo.}
 {itsOverisntItStorylet: Greta: Non mi piace nulla di te, Matteo. A parte i soldi, ma sappiamo benissimo che non sono tuoi.}
+{sheIsTheBestStorylet.step_one: Elia: Eppure è stata Paola a convincere i nonni a prestarti tutti quei soldi!}
+{sheIsTheBestStorylet.step_three: Elia: Tu pensi ancora di sapere gestire i soldi, e stai rischiando di finire in bancarotta.}
 
 
 {elia_acting.paolaSiSposa:<i>Informazioni sul personaggio Paola</i>}

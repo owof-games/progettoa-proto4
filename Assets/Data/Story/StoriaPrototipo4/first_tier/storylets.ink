@@ -224,7 +224,6 @@ TODO: questa è una modalità molto scriptata, mi piacerebbe qualcosa di più re
     Elia: Mi ha sempre sorpreso il modo in cui hai trattato Paola.
     Matteo: In che senso?
     Elia: Beh, sei sempre stato crudele con lei.
-    TODO: inserire su taccuino con tag
     Elia: Eppure è stata Paola a convincere i nonni a prestarti tutti quei soldi!
     Elia: E non capisco come è possibile.
     Elia: Lei è così attenta.
@@ -476,8 +475,8 @@ Tutti arrivano in quella stanza.
 
 Elia: "Ettore, chiama qualcuno! Che lei ci ha sequestrato i telefoni, chiama!"
   ~ activePhone = true
-Poi ispezione corpo, una sola scelta  
-        + Ispeziono il cibo
+Poi ispezione corpo, una sola scelta
+        + Esamino le briciole.
             -> loop_reset
         + Ispeziono la sigaretta elettronica
             -> loop_reset

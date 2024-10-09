@@ -49,18 +49,99 @@
 //STORYLET CONDIZIONALI
 === startingDinnerStorylet
 {debug: <i>Passo per startingDinnerStorylet</i>}
-Inizio: cena, battute veloci, salta la luce, torna: Paola è morta. Da lì, indagine
-Matteo: c'è Paola!
-    Paola: c'è Matteo!
-    -> advance_time ->
-        + Ci sono anche io!
-        + E ci sono dei gatti!
-        -
-    Greta: Ma soprattutto c'è un coniglio
-        + (paolaMorta) E qui Paola muore (per finta).
-    -> advance_time ->
-
-->->
+            -> advance_time -> 
+        Matteo: No, ma ti giuro Paola, ti giuro! Faceva tutto lo sborone quello.
+        Matteo: Poi ho chiamato nonno e: tadaaan! Silenzio.
+        Matteo: Tutto il consiglio di amministrazione muto.
+        Matteo: E il progetto per la piscina sul tetto del grattacielo è passato.
+        Greta: Urrà! Una piccola possibilità in più che uno degli stronzi che sta rovinando questa città impari a volare!
+        Paola: Greta! Non si dicono le parolacce.
+        Elia: Quindi è permesso augurare la morte a qualcuno? Perché avrei un po' di nomi, nel caso.
+        Zeca: Elia, almeno tu mantieni la tua innocenza, ti prego, o il mondo è destinato a bruciare.
+            + Ettore: Ehm, ehm. Scusate se vi disturbo.
+            + Ettore: Salve a tutti!
+            + Ettore: Non ho alcuna innocenza: chi posso spingere dal grattacielo?
+            -
+            -> advance_time ->
+        Matteo: Amore! Non ti avevo sentito proprio arrivare!
+        Matteo: Fratelli, sorella, Greta.
+        Greta: Fottiti.
+        Matteo: Vi presento l'uomo che amo: Ettore. Ettore, loro sono i miei familiari.
+            + Ettore: Finalmente incontro il famoso Elia!
+                Elia: Famoso? Sono finito su Tik Tok?
+                Greta: No, nel Guinnes dei Primati come primo essere umano vivo eppure senza cervello.
+            + Ettore: Tu devi essere Paola! Matteo parla un sacco di te!
+                Paola: Oh, sono sicura che esageri su un sacco di cose, sai?
+                Matteo: Non gli parlo così tanto di te. A parte a pranzo, cena, letto e durante le preghiere.
+            + Ettore: Vorrei dire di ricordami un solo dei vostri nomi, ma ho scolato un'intera boccia di gin prima di venire qui.
+                Greta: Bene Matteo, finalmente ci presenti qualcuno di interessante!
+                Zeca: E almeno abbiamo qualcosa in comune.
+            -
+            -> advance_time ->
+        Paola: Bene! Ora che ci siamo tutti, possiamo anche brindare al motivo per cui siamo qui!
+        Elia: Sapete che oggi ho finalmente aperto la porta dal lato giusto?
+        Elia: Nessun livido, guardate!
+        Greta: Questo è un buon motivo per festeggiare in effetti.
+        Matteo: Nessuno ha detto che dobbiamo festeggiare.
+        Paola: Anche nel dolore c'è motivo di festa, Matteo, ce lo insegna nostro signore.
+        Paola: E infatti brindiamo stasera perché siamo tutte riunite con un grande e unico scopo.
+        Paola: Affrontare l'alcolismo di Zeca, e farlo smettere di bere.
+            + Ettore: E avete pensato di partire con un brindisi?
+                Zeca: Ettore, giusto? Ecco, Ettore: non farti domande su questa famiglia, o c'è da perdere il senno.
+            + Ettore: Ehm, e io che c'entro?
+                Matteo: Tu sei la sorpresa speciale, vedrai!
+            + Ettore: Basta che non tocchiate il mio, lol!
+                Paola: Non sono cose su cui si scherza!
+            -
+            -> advance_time ->
+        Paola: Capperina, ho dimenticato una cosa di là, arrivo subito.
+             ~ move_this_entity_in_a_different_room(Paola)
+        Greta: Anche io ho scordato una cosa!
+            ~ move_this_entity_in_a_different_room(Greta)
+        Matteo: A questo punto faccio una chiamata.
+            ~ move_this_entity_in_a_different_room(Matteo)
+        Zeca: E io ne approfitto per scappare.
+            ~ move_this_entity_in_a_different_room(Zeca)
+        Elia: Beh, a questo punto me ne vado anche io!    
+            ~ move_this_entity_in_a_different_room(Matteo)
+            + Ettore: Bella festa, davvero. Grazie.
+            + Ettore: Boh, a questo punto me ne vado anche io.
+            + Ettore: Ma non è che c'è dell'altro vino in giro?
+            -
+        -> advance_time ->                         
+            ~ move_entity(Paola,WhiteRoom)
+        Paola entra. Paola muore.
+            ~ move_entity(Elia,WhiteRoom)
+        Elia: Paola, non mi sembra il momento per dormire.
+            ~ move_entity(Zeca,WhiteRoom)
+        Zeca: Per non farmi bere ti sei scolata tutto il vino?
+            ~ move_entity(Matteo,WhiteRoom)
+        Matteo: Sembra che ci sia un problema con la piscina.
+            ~ move_entity(Greta,WhiteRoom)        
+        Greta: Certo che questo posto è tutto uguale.
+        Greta: Raga, ma Paola sta bene?
+            -> advance_time -> 
+        Zeca: Mmm, è tiepida.
+        Elia: E Non respira.
+        Greta: Sempre pensato che fosse un vampiro.
+        Matteo: E non ha polso.
+        Greta: Questo non cambia la mia teoria.
+        Matteo: Fratelli, Greta: Paola è morta!
+            + (paolaMorta) Ettore: Chiamiamo la polizia!
+            -
+        Matteo: Non esiste.
+        Greta: In questa famiglia le cose si affrontano in famiglia.
+        Zeca: E infatti ci odiamo tutti.
+        Elia: Io me ne vado!
+            -> advance_time -> 
+        Matteo: Non puoi. Paola ha pagato un buttadentro perché ci chiudesse qui fino alle 23:00.
+        Greta: Ma che cazzata è?
+        Zeca: Temeva scappassi di nuovo, immagino.
+        Zeca: Beh, rega, io mi faccio due passi per queste stanze.
+        Matteo: E io sento il mio avvocato.
+        Elia: E io, io, io ho paura!
+            -> advance_time ->       
+        ->->
 
 
 
@@ -376,7 +457,7 @@ Matteo: Anzi, me ne vado io.
         ~ move_entity(BottigliaDiVino, YellowRoom)
         ~ move_entity(SigarettaElettronica, RedRoom)
         ~ move_entity(FlaconcinoAsma, WhiteRoom)
-        ~ move_entity(Torta, ObjectStorage)
+        ~ move_entity(Torta, YellowRoom)
         ~ move_entity(Briciole, ObjectStorage)
         
             -> advance_time ->

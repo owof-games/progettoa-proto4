@@ -20,6 +20,14 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 === notebook
 + {activeNotebook} [notebook]
+
+{
+ - tierState == FirstTier -> tier_one_notebook
+ - tierState == SecondTier -> tier_two_notebook
+}
+
+
+=== tier_one_notebook
 {
 - startingDinnerStorylet.paolaMorta: <b>Chi ha ucciso Paola?:</b>
 - else: <b>Il taccuino è vuoto</b>
@@ -155,3 +163,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
         --
 -> intro
 
+
+=== tier_two_notebook
+
+-> intro

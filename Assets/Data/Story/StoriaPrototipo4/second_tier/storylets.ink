@@ -1,6 +1,8 @@
 //INDEX
 === second_tier_storylets
 
+TODO: Un rifacimento inquietantissimo della scena di recitazione, e poi siamo off, ma con momenti horror lanciati in giro (ok, vorrei direttamente riprendere la struttura di prima, fare quasi solo pausa e poi orrore, ma vediamo). E la frase che ho in mente è "we can't stop we have to run"
+
 {
 
     - are_entities_together_in(Matteo, Ettore, YellowRoom) && not are_two_entities_together(Matteo, Greta) && not are_two_entities_together(Matteo, Paola) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && new_this_loop(->notABigSecretPartOneStorylet): -> notABigSecretPartOneStorylet

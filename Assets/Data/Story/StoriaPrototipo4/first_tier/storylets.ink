@@ -463,6 +463,7 @@ Matteo: Anzi, me ne vado io.
 
 
 //STORYLET PER TUTORIAL
+TODO: potrebbe aver senso, invece di far partire i tre tutorial sempre a 600 secondi, andare a scalare? es: 300 secondi il primo, 405 il secondo, 510 il terzo? Così oggetti e taccuino compaiono prima, e i 600 secondi (22:10) sono già un reward per la giocatrice, che si aspetterà di venire interrotta ma invece non accadrà.
 === objects_tutorial
         Paola: Stop stop stop maledizione!
         Paola: Sant'iddio Greta, dove hai messo tutti i cazzo di oggetti? Mettili al loro posto, ora!

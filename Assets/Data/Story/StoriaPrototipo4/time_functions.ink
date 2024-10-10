@@ -7,6 +7,7 @@ VAR currentTime = 0
  * Sono le {print_time()}
  * =======> Sono le 23:13
  */
+TODO: spingere per avere nei momenti salienti (es: pausa e loop) degli orari facili da ricordare (es:22:08, 22:10)
 === function print_time()
 { currentTime:
     - 0:

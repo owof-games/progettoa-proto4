@@ -31,7 +31,7 @@ Opzioni di dialogo con la persona Paola
  {debug: <i>Passo per paola_talking</i>}
     -> resting_time ->
     //INFO GENERALI//
-    + Conosci meglio Paola. -> esplora_paola
+    + [Conosci meglio Paola] -> esplora_paola
     + [Te ne vai]
     -> intro
     -
@@ -59,7 +59,15 @@ Opzioni di dialogo con la persona Paola
 
 = first_qn
 ~ PaolaTalking++
-    +  [Per ovviare al problema delle cose stampate random, posso mettere scelte random non stampate, imperative.]
+    Paola: Quella cretina.
+    Paola: Quella enorme disgustosa incapace cretina.
+    Ettore: Tutto bene?
+    Paola: Greta è ancora viva?
+    Ettore: Fino a pochi minuti fa, sì.
+    Paola: Allora no, non va nulla bene.
+    Paola: Sa che voglio solo ricariche al rabarbaro per la mia sigaretta elettronica.
+    Paola: E invece, di nuovo, me l'ha presa al mentolo.
+    Paola: Ora la uccido.
     -> advance_time ->
     
     -
@@ -71,16 +79,25 @@ Opzioni di dialogo con la persona Paola
     Paola: Non è recita, è improvvisazione.
     Paola: Ma grazie a te per la pazienza.
     Paola: Come vedi, questa è tutta gente incapace. Enormemente incapace.
-
-    -> advance_time ->
-   
+    Ettore: Da che compagnia vengono?
+    Paola: COMPAGNIA? MA LI HAI VISTI?
+    Paola: Sono parenti e dipendenti e conoscenti.
+    Paola: E odio parenti, dipendenti e conoscenti.
+    Paola: Ma dato che ancora non sei una di queste tre cose, è bene che me ne vada.
+        -> advance_time ->
+    ~ move_this_entity_in_a_different_room(Paola)
     -
 -> paola_talking    
 
 = third_qn
 ~ PaolaTalking++
-    Paola dice cose
-        +  tu chiedi
+    Ettore: Quindi sei una regista?
+    Paola: Anche. In realtà il lavoro principale è gestire l'azienda di famiglia.
+    Paola: Lavoro che dovrebbe toccare anche ad Elia.
+    Ettore: Ma non vuole farlo?
+    Paola: No, il problema è che vuole farlo. Ma non so se ci hai parlato.
+    Paola: Non si lava l'ombelico da quando ha sei anni: è convinto che facendolo gli si aprirà la pancia, le viscere usciranno tutte, e morirà.
+    Paola: A volte spero davvero che accada.
     -> advance_time ->    
     -    
 -> paola_talking

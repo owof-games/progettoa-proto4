@@ -348,10 +348,10 @@ Opzioni di dialogo con la persona Elia
 -> resting_time ->
 
 {
-- EliaTalking > 1: Elia: "Non mi va di rispondere ad altre domande personali".
+- EliaTalking > 0: Elia: Scusa, devo fare un po' di flessioni ora!
     -> intro
 - else:
-    { shuffle:
+    { shuffle once:
     -   -> first_qn
     -   -> second_qn
     -   -> third_qn

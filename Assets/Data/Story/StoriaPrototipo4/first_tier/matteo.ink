@@ -178,11 +178,11 @@ Opzioni di dialogo con la persona Matteo
 -> resting_time ->
 
 {
-- MatteoTalking > 1: Matteo: "Non mi va di rispondere ad altre domande personali".
+- MatteoTalking > 0: Matteo: Perdonami, ma ho del lavoro arretrato da fare mentre riposate.
     -> advance_time ->
     -> intro
 - else:
-    { shuffle:
+    { shuffle once:
     -   -> first_qn
     -   -> second_qn
     -   -> third_qn

@@ -210,11 +210,11 @@ Opzioni di dialogo con la persona Greta
 -> resting_time ->
 
 {
-- GretaTalking > 1: Greta: "Non mi va di rispondere ad altre domande personali".
+- GretaTalking > 0: Greta: Non chiedermi altro ora: se Paola mi vede ferma mi uccide!
     -> advance_time ->
     -> intro
 - else:
-    { shuffle:
+    { shuffle once:
     -   -> first_qn
     -   -> second_qn
     -   -> third_qn

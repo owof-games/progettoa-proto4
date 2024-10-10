@@ -218,11 +218,11 @@ Opzioni di dialogo con la persona Zeca
 -> resting_time ->
 
 {
-- ZecaTalking > 1: Zeca: "Non mi va di rispondere ad altre domande personali".
+- ZecaTalking > 0: Zeca: Ora ho bisogno di riflettere su tutti gli errori che mi hanno portato a questo momento, scusa.
     -> advance_time ->
     -> intro
 - else:
-    { shuffle:
+    { shuffle once:
     -   -> first_qn
     -   -> second_qn
     -   -> third_qn

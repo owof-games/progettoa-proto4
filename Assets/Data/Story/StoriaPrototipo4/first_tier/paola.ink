@@ -43,11 +43,11 @@ Opzioni di dialogo con la persona Paola
 -> resting_time ->
 
 {
-- PaolaTalking > 1: Paola: "Non mi va di rispondere ad altre domande personali".
+- PaolaTalking > 0: Paola: Ti chiedo scusa, ma ho altro da fare ora.
     -> advance_time ->
     -> intro
 - else:
-    { shuffle:
+    { shuffle once:
     -   -> first_qn
     -   -> second_qn
     -   -> third_qn
@@ -67,7 +67,11 @@ Opzioni di dialogo con la persona Paola
 
 = second_qn
  ~ PaolaTalking++
-    +  altra domanda
+    Ettore: Grazie per avermi chiamato per questa recita.
+    Paola: Non è recita, è improvvisazione.
+    Paola: Ma grazie a te per la pazienza.
+    Paola: Come vedi, questa è tutta gente incapace. Enormemente incapace.
+
     -> advance_time ->
    
     -

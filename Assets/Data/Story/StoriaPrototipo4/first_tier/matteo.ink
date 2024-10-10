@@ -167,21 +167,6 @@ Opzioni di dialogo con la persona Matteo
     -> resting_time ->
     //INFO GENERALI//
     + Fai domande sulla persona Matteo -> esplora_matteo
-
-    //SCELTE CONDIZIONALI//
-    
-
-    //SCELTE CONDIZIONALI OGGETTI//
-    + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
-    + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
-    + {inventoryContents has Lettera} Guarda questa lettera!
-    + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    + {inventoryContents has Torta} Guarda questo cibo!
-    + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
-    + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
-    + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
-    
-      
     + Te ne vai
     -> intro
     -

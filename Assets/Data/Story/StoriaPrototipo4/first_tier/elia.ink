@@ -243,8 +243,8 @@ Opzioni di dialogo con il personaggio Elia
             Elia: Nessuno mi capisce, è sempre stato così.
             -> advance_time ->
     
-      
-    + [Allontanati]
+     TODO: come prova anche per il gioco finale, provare a fare un tunnel con randomizzate (e tra [], così non vengono stampate) dichiarative sull'allontamento, andarsene etc?
+    + [Ti allontani]
         -> intro
     -
 ->->
@@ -337,23 +337,8 @@ Opzioni di dialogo con la persona Elia
  {debug: <i>Passo per elia_talking</i>}
     -> resting_time ->
     //INFO GENERALI//
-    + Fai domande sulla persona Elia -> esplora_elia
-
-    //SCELTE CONDIZIONALI//
-    
-
-    //SCELTE CONDIZIONALI OGGETTI//
-    + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
-    + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
-    + {inventoryContents has Lettera} Guarda questa lettera!
-    + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    + {inventoryContents has Torta} Guarda questo cibo!
-    + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
-    + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
-    + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
-    
-      
-    + Te ne vai -> intro
+    + Conosci meglio Elia -> esplora_elia
+    + [Te ne vai] -> intro
     -
     
     -> elia_talking
@@ -378,24 +363,107 @@ Opzioni di dialogo con la persona Elia
 
 = first_qn
 ~ EliaTalking++
-    + Prima domanda
+    Elia: Mi scusi, ha visto Zeca?
+    Ettore: Non mi dare del lei, dammi pure del tu.
+    Elia: Ha ragione. Mi scusi, <i>tu</i> ha visto Zeca?
+    Elia: Non so dove abbia messo la mia riserva di proteine.
+        + Ettore: Ma quindi usate tutti il nome reale anche nella recita?
+            Elia: Sì, è stata una idea di Paola.
+            Elia: Dice che ci spalmiamo meglio nel personaggio così.
+        + Ettore: Riserva di proteine? Devi andare in letargo?
+            Elia: No, al bagno.
+            Elia: Ma non ne sto trovando uno in questo posto.
+        -
     -> advance_time ->
+    Elia: Comunque complimenti per la recita.
+    Elia: Quando Paola è schiattata, tu è stato molto credibile!
+        + Ettore: Perché nessuno mi aveva detto che sarebbe morta!
+            Elia: Ma non è morta, recitava!
+            Ettore: Appunto, ma senza script e con quel sangue ho pensato il peggio!
+            Elia: Se vuole tielo spiego: è un po' come nei film.
+            Elia: Sapeva che le persone nei film non muoiono, vero?
+        + Ettore: Elia, i pronomi non funzionano così, sai?
+            Elia: Non dirmi che sei una persona coi pronomi, per favore.
+            Elia: Che già la vita è difficile, non posso imparare anche quelli!
+            Elia: Zeca mi sta insegnando i grammi, per le proteine.
+            Elia: Ma ci sono troppi numeri.
+        -
+    Elia: Niente, vado a cercare il mio amico. A dopo!
+        ~ move_this_entity_in_a_different_room(Elia)
+        -> advance_time ->       
     
     -
 -> elia_talking 
 
 = second_qn
  ~ EliaTalking++
-    +  altra domanda
-    -> advance_time ->
-   
+    Ettore: Che fai di bello nella vita, Elia?
+    Elia: Sono felice che abbia notato che sono bello!
+    Ettore: Non è quello che...
+    Elia: Temevo che il lavoro in <i>BRO</i> mi sciupasse la pelle.
+    Ettore: Bro?
+    Elia: Come, non conosce BRO?!? BRAVI RAGAZZI wORKOUT!
+    Elia: Chiunque vada in palestra ormai si appoggia ai nostri servizi!
+        + Ettore: Non vedo una palestra dal 2024 Avanti Cristo.
+            Elia: Quindi ha conosciuto i dinosauri?
+            Elia: A me piace un sacco la dieta paleo!
+        + Ettore: Perché chiunque va in palestra, ovviamente. Tutto il mondo.
+            Elia: Beh, sennò cosa fai di tutte quelle ore della giornata?
+            Elia: A parte fare sonnellini di bellezza?
+        -    
+        -> advance_time ->
+    Elia: Poi da quando collaboro con Zeca, è tutto molto più divertente.
+    Ettore: Ma in cosa consiste BRO?
+    Elia: Non è che consiste, perché non lo tocchi.
+    Elia: Anche se ci sono le foto, quelle le tocchi, quindi sì, BRO consiste.
+    Elia: BRO sono? è? BRO può essere vivo? Sì, perché parlo di BRO.
+    Elia: BRO è fare foto a chi fa palestra, così vedi i tuoi cambiamenti.
+    Elia: Entriamo negli spogliatoi, ti facciamo un po' di foto e le appendiamo in giro.
+    Elia: Così tutti vedono i tuoi difetti, e sei spinto a migliorarti.
+    Elia: O ci paghi per levarle.
+        -> advance_time ->
+    Elia: E Zeca le tiene a casa sua per sicurezza.
+    Elia: Così i pirati non le rubano.
+    Elia: Chissà come entrano con la nave a casa tua. Qui non c'è il mare.
+    Elia: E tu sei sicuro che nessuno ti vede nudo.
+    Elia: A parte la gente in palestra.
+    Elia: E Zeca.
+    Elia: Vuole che le facciamo una foto?
+    Ettore: Ehm, facciamo un altro giorno, tipo mai?
+    Elia: Forse dovrei farle a Matteo. Palese che è fuori forma.
+        -> advance_time ->
     -
 -> elia_talking    
 
 = third_qn
 ~ EliaTalking++
-    Elia dice cose
-        +  tu chiedi
-    -> advance_time ->    
+    Elia: Sono così orgoglioso di mia sorella!
+    Ettore: Hai una sorella?
+    Elia: In che senso "Hai una sorella?"?
+    Elia: Mio dio, sta dicendo che non ho una sorella?!?
+    Ettore: No Elia, era solo una domanda!
+    Elia: Ah, meno male. Per un attimo ho temuto Paola fosse morta!
+    Ettore: Dicevi che sei orgoglioso di tua sorella?
+        -> advance_time ->
+    Elia: Non dovrei essere orgoglioso?
+    Ettore: No no, è solo una domanda!
+    Elia: Uh, scusa. A volte è tutto così confuso.
+    Ettore: Ricominciamo. Sei orgoglioso di tua sorella Paola.
+    Elia: E come lo sai?
+    Ettore: Me l'hai detto poco fa.
+    Elia: Sei uno di quelli? Un telepratico?
+    Elia: Greta dice che una volta un telepratico le ha sistemato un dolore alla spalla che si portava da anni.
+        -> advance_time ->
+    Elia: Non è che puoi sistemarmi questo dolorino?
+    Ettore: Come sei arrivato a, quanto, trent'anni?
+    Elia: Ventisei. E questa so che è una domanda.
+    Elia: Perché me la fa sempre anche Paola.
+    Elia: E sono molto orgoglioso di Paola.
+    Ettore: E mi dici di grazia perché sei orgoglioso di Paola?
+    Elia: Non di Grazia, solo di Paola.
+        -> advance_time ->
+        + Ettore: Dio mio, finiamo questa conversazione! -> intro
+        + Ettore: Ok, io ora me ne vado da questa stanza, basta!
+           ~ move_this_entity_in_a_different_room(Ettore)   
     -    
 -> elia_talking

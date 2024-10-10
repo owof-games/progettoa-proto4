@@ -3,8 +3,6 @@
 {debug: <i>Passo per first_tier_storylets</i>}
 
 {
-
-    
     - are_six_entities_together(Elia, Matteo, Ettore, Greta, Paola, Zeca) && not startingDinnerStorylet && new_this_loop(->startingDinnerStorylet):
     -> startingDinnerStorylet
 
@@ -15,7 +13,7 @@
 
 
 //La morte di Paola deve arrivare solo quando abbbiamo fatto tutti i tutorial e abbiamo compiuto le scelte su Matteo e Zeca
- -  currentTime >= 200 && objects_tutorial && notebook_tutorial && talking_tutorial && (choiceMatteoVuoleSposareEttore == True or choiceMatteoVuoleSposareEttore == False) && (choiceMenteZeca == True or choiceMenteZeca == False): -> paolaIsDeadStorylet
+    -  currentTime >= 200 && objects_tutorial && notebook_tutorial && talking_tutorial && (choiceMatteoVuoleSposareEttore == True or choiceMatteoVuoleSposareEttore == False) && (choiceMenteZeca == True or choiceMenteZeca == False): -> paolaIsDeadStorylet
 
 //CONVERSAZIONI ORIGLIATE
     - are_two_entities_together(Elia, Greta) && elia_acting.missioneGreta && not are_two_entities_together(Elia, Matteo) && not are_two_entities_together(Elia, Zeca) && is_this_entity_near_Ettore(Elia) == true && new_this_loop(->anEavesdropAboutFriendshipStorylet):
@@ -40,11 +38,11 @@
 
 
     //MATERIALI PER TUTORIAL
-    - currentTime > 480 && not objects_tutorial: -> objects_tutorial
+    - currentTime > 300 && not objects_tutorial: -> objects_tutorial
 
-    - currentTime > 480 && objects_tutorial && new_this_loop(->objects_tutorial) && not notebook_tutorial: -> notebook_tutorial
+    - currentTime > 405 && objects_tutorial && new_this_loop(->objects_tutorial) && not notebook_tutorial: -> notebook_tutorial
 
-    - currentTime > 480 && objects_tutorial && notebook_tutorial && new_this_loop(->notebook_tutorial) && not talking_tutorial: -> talking_tutorial
+    - currentTime > 510 && objects_tutorial && notebook_tutorial && new_this_loop(->notebook_tutorial) && not talking_tutorial: -> talking_tutorial
 
     -else: ->->
 }
@@ -461,52 +459,58 @@ Matteo: Anzi, me ne vado io.
 
 
 
-
-//STORYLET PER TUTORIAL
-TODO: potrebbe aver senso, invece di far partire i tre tutorial sempre a 600 secondi, andare a scalare? es: 300 secondi il primo, 405 il secondo, 510 il terzo? Così oggetti e taccuino compaiono prima, e i 600 secondi (22:10) sono già un reward per la giocatrice, che si aspetterà di venire interrotta ma invece non accadrà.
 === objects_tutorial
+            ~ move_first_entity_to_second_entity_location(Paola,Ettore)
         Paola: Stop stop stop maledizione!
+            ~ move_first_entity_to_second_entity_location(Greta,Ettore)
         Paola: Sant'iddio Greta, dove hai messo tutti i cazzo di oggetti? Mettili al loro posto, ora!
         -> advance_time ->
-        ~  move_this_entity_in_a_different_room(Greta)
+            ~  move_this_entity_in_a_different_room(Greta)
+            ~ move_first_entity_to_second_entity_location(Zeca,Ettore)
+            ~ move_first_entity_to_second_entity_location(Elia,Ettore)
         Paola: Ettore, ricordati che se hai un oggetto in mano puoi mostrarlo e ottenere nuove informazioni.
-        ~ move_first_entity_to_second_entity_location(Elia,Ettore)
+            ~ move_first_entity_to_second_entity_location(Matteo,Ettore)
         Elia: Cerca di trovare la limetta più avanti possibile perché è quella l'arma del delitto!
-        Paola: "Elia, coglione! Ora vi tocca improvvisare, l'arma sarà un'altra. Mi spiace per il livello di non professionalismo, Ettore.
+        Paola: Elia, coglione! Ora vi tocca improvvisare, l'arma sarà un'altra. Mi spiace per il livello di non professionalismo, Ettore.
+            ~ move_first_entity_to_second_entity_location(Greta,Ettore)
+        Greta: Oggetti sistemati!
             ~ currentTime = currentTime + 15
-
-        Paola: Cinque minuti e poi riprendiamo!
+            ~ move_entity(LimettaUnghie, GreenRoom)
+            ~ move_entity(SpiedinoCocktail, RedRoom)
+            ~ move_entity(AnticoPugnale, GreenRoom)
+            ~ move_entity(Lettera, YellowRoom)
+            ~ move_entity(BottigliaDiVino, YellowRoom)
+            ~ move_entity(SigarettaElettronica, RedRoom)
+            ~ move_entity(FlaconcinoAsma, WhiteRoom)
+            ~ move_entity(Torta, YellowRoom)
+            ~ move_entity(Briciole, ObjectStorage)
+        Paola: Due minuti e poi si riparte dall'omicidio!
         ~ peopleTalking = true
-        
-        
-        ~ move_entity(LimettaUnghie, GreenRoom)
-        ~ move_entity(SpiedinoCocktail, RedRoom)
-        ~ move_entity(AnticoPugnale, GreenRoom)
-        ~ move_entity(Lettera, YellowRoom)
-        ~ move_entity(BottigliaDiVino, YellowRoom)
-        ~ move_entity(SigarettaElettronica, RedRoom)
-        ~ move_entity(FlaconcinoAsma, WhiteRoom)
-        ~ move_entity(Torta, YellowRoom)
-        ~ move_entity(Briciole, ObjectStorage)
         
             -> advance_time ->
             -> resting_time ->
             ->->
 
 === notebook_tutorial
+            ~ move_first_entity_to_second_entity_location(Paola,Ettore)
         Paola: STOP STOP STOP DI NUOVO!
         Paola: GRETA! Ma l'hai dato il taccuino ad Ettore?!?
             ~ move_first_entity_to_second_entity_location(Greta,Ettore)
         Greta: Io, ehm, no, io...
         Paola: Daglielo, ora, svampita! Ettore, sono mortificata.
             ~ activeNotebook = true
+            ~ move_first_entity_to_second_entity_location(Elia,Ettore)
+            ~ move_first_entity_to_second_entity_location(Zeca,Ettore)
         Paola: Il taccuino è fondamentale: tiene traccia degli elementi fondamentali per l'investigazione.
         Paola: Ma presta attenzione: molte verità si capiscono solo prestando attenzione anche a cose che sul taccuino non ci sono.
+            ~ move_first_entity_to_second_entity_location(Matteo,Ettore)
         Paola: E saranno fondamentali per risolvere le contraddizioni.
+            ~ currentTime = currentTime + 15
         Ettore: <i>Contraddizioni</i>?
         Paola: Quando avrai due informazioni contrastanti su un personaggio, ti si aprirà sul taccuino la possibilità di scegliere cosa è vero e cosa no.
         Paola: Sarai tu a decidere quando avrai abbastanza informazioni per dare una risposta, e a quel punto incriminare la persona responsabile.
-        Paola: Riposiamo un attimo tutti, ma un attimo!
+        Paola: Due minuti per schiarirvi le idee, ammasso di coglioni.
+        Paola: Poi ripartiamo dalla scena in cui muoio!
         ~ peopleTalking = true
         
         -> advance_time ->
@@ -514,19 +518,27 @@ TODO: potrebbe aver senso, invece di far partire i tre tutorial sempre a 600 sec
             ->->
 
 === talking_tutorial
+            ~ move_first_entity_to_second_entity_location(Paola,Ettore)
         Paola: Madre santa, che fatica prepararvi per questo pezzo!
+            ~ move_first_entity_to_second_entity_location(Greta,Ettore)
+        Greta: Cosa ho sbagliato ora?!?
+        Paola: A nascere.    
         Paola: Ettore, Ettore. Nel teatro di improvvisazione il ritmo è importante, sono io a dovertelo dire?
             ~ move_first_entity_to_second_entity_location(Elia,Ettore)
             ~ move_first_entity_to_second_entity_location(Zeca,Ettore)
         Elia: A dire il vero, sì.
         Paola: CHI TI HA INTERPELLATO, EUNUCO?!?
+            ~ move_first_entity_to_second_entity_location(Matteo,Ettore)
         Paola: Dicevo, Ettore. Se vedi che i personaggi non ti dicono nulla di nuovo, non ti viene il dubbio che...
         Ettore: Che si siano annoiati?
+            ~ currentTime = currentTime + 15
         Zeca: Che potrebbero dire cose diverse se sono in stanze diverse, o con persone diverse. O da sole.
         Paola:"Grazie. Leccaculo.
         Paola: Ma stavo pensando anche a un'altra cosa: i personaggi parlano tra loro anche quando tu non ci sei. Hai mai pensato che, con le giuste condizioni, potresti <i>origliare</i> una conversazione?
         Paola: Cavolo, sei bellino ma non sei sveglio, eh?
-        Paola: Qualche minuto di pausa e poi riprendiamo, spero in modo definitivo!
+        Paola: Centoventi secondi di riposo, non uno di più, non uno di meno!
+        Paola: Poi ripartiamo da dopo la mia morte.
+        Paola: Peccato sia solo recitazione.
         ~ peopleTalking = true
         
         -> advance_time ->

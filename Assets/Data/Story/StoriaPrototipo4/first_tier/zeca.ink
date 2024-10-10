@@ -261,10 +261,10 @@ Opzioni di dialogo con la persona Zeca
         -
     Zeca: Comunque son contento che non dobbiamo litigarcelo.
     Zeca: Che poi, insomma, con quel fisico che ti ritrovi, davvero non avresti avuto possibilità.
-    Zeca: Cosa sei? Un metro e settanta, settanta chili?
+    Zeca: Cosa sei? Un metro e settanta per settanta chili?
     Zeca: Pancetta da birra, occhiaie da canne e pippe.
     Zeca: Tieni il mio numero. Non per scopà, sia chiaro. Ma per venire a provare i nostri workout.
-    Zeca: C'è speranza anche per te.
+    Zeca: Forse c'è speranza anche per te.
     -> advance_time ->
 -> zeca_talking 
 

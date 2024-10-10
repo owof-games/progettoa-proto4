@@ -445,7 +445,7 @@ Opzioni di dialogo con la persona Elia
     Ettore: Dicevi che sei orgoglioso di tua sorella?
         -> advance_time ->
     Elia: Non dovrei essere orgoglioso?
-    Ettore: No no, è solo una domanda!
+    Ettore: No no, è un'altra domanda!
     Elia: Uh, scusa. A volte è tutto così confuso.
     Ettore: Ricominciamo. Sei orgoglioso di tua sorella Paola.
     Elia: E come lo sai?
@@ -454,12 +454,13 @@ Opzioni di dialogo con la persona Elia
     Elia: Greta dice che una volta un telepratico le ha sistemato un dolore alla spalla che si portava da anni.
         -> advance_time ->
     Elia: Non è che puoi sistemarmi questo dolorino qui al trapezio?
-    Ettore: Come sei arrivato a, quanto, trent'anni?
+    Ettore: Elia: come sei arrivato vivo a, quanto, trent'anni?
     Elia: Ventisei. E questa so che è una domanda.
     Elia: Perché me la fa sempre anche Paola.
     Elia: E sono molto orgoglioso di Paola.
     Ettore: E mi dici di grazia perché sei orgoglioso di Paola?
     Elia: Non di Grazia, solo di Paola.
+    Elia: Grazia pulisce la palestra davvero di merda.
         -> advance_time ->
         + Ettore: Dio mio, finiamo questa conversazione! -> intro
         + Ettore: Ok, io ora me ne vado da questa stanza, basta!

@@ -146,7 +146,7 @@ Opzioni di dialogo con il personaggio Greta
         Greta: Hai presente quando qualcuno della tua famiglia trova un gattino per strada
         Greta: e quel gattino è adorabile e coccoloso e tutti lo adorano
         Greta: e magari all'inizio in famiglia dicono che no, non lo voglio un gattino
-        Greta: ma ora fanno a gare a chi lo carezza di più o gli dà da mangiare o lo fa giocare
+        Greta: ma ora fanno a gara a chi lo carezza di più o gli dà da mangiare o lo fa giocare
         Greta: e quella famiglia che magari prima era un po' infelice, ora ha qualcosa di bello attorno a cui riunirsi
         Greta: e ogni giorno sembra Natale, una festa di compleanno, un matrimonio?
         Greta: Ecco, io per loro sono i vermi del micino, e la diarrea che ti caccerà per tutta casa.
@@ -241,7 +241,7 @@ Opzioni di dialogo con la persona Greta
     Greta: Paola mi aveva promesso le mie prime ferie da sei anni, se avessi fatto un buon lavoro.
     Greta: LE MIE PRIME FERIEEEEE!
     Greta: E ora il massimo del sole che prenderò sarà come sempre la luce del frigorifero.
-    Greta: Forse, se facessi bere Paola a sufficienza, si potrebbe dimenticare di ogni cosa, no?
+    Greta: Forse, se faccio bere Paola a sufficienza, si potrebbe dimenticare di ogni cosa, no?
     -> advance_time ->
 
 -> greta_talking 
@@ -259,12 +259,12 @@ Opzioni di dialogo con la persona Greta
     -> advance_time ->
     Greta: E tu mi chiederai ora: perché mi stai dicendo tutto questo?
     Greta: Non è un po' troppo diretto, quasi uno spiegone?
-    Greta: E avresti ragione ma c'è un grosso ma: queste cose avrei dovuto dirtele all'ingaggio.
+    Greta: E avresti ragion. Ma c'è un grosso <i>ma</i>: queste cose avrei dovuto dirtele all'ingaggio.
     Greta: E invece ero così presa dai casini della Londar e dai malumori di Paola, che alla fine al tuo agente ho solo dato orario e indirizzo.
     Greta: E ora mi sento in colpa perché mi chiedo: quando Paola è morta, hai capito che era una recita, o ti sei spaventato?
         + Ettore: Mi sono cagato addosso.
             Greta: Come temevo.
-        + Ettore: Naa, era tutto troppo ridicolo
+        + Ettore: Naa, era tutto troppo ridicolo.
             Greta: Bene, ma non dirlo a Paola o mi licenzia.
         -
     Greta: Fortuna comunque che il tuo agente ha firmato un accordo superrestrittivo per te.

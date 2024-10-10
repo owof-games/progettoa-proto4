@@ -1,6 +1,6 @@
 === cb_first_tier_greta ===
 {debug: <i>passo per second_tier_greta</i>}
-+ {are_two_entities_together(Greta, Ettore) && !peopleTalking} [character:Greta] {debug: <i>Ho scelto di parlare con Greta</i>}
++ {are_two_entities_together(Greta, Ettore) && peopleTalking==false} [character:Greta] {debug: <i>Ho scelto di parlare con Greta</i>}
     -> greta_acting->
     
 + {are_two_entities_together(Greta, Ettore) && peopleTalking} [character:Greta] 

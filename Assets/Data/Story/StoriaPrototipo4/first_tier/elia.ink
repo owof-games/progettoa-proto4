@@ -1,6 +1,6 @@
 === cb_first_tier_elia ===
 {debug: <i>passo per first_tier_elia</i>}
-+ {are_two_entities_together(Elia, Ettore) && !peopleTalking} [character:Elia]
++ {are_two_entities_together(Elia, Ettore) && peopleTalking==false} [character:Elia]
     {debug: <i>Ho scelto di parlare con Elia</i>}
     -> elia_acting ->
     

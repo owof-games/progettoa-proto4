@@ -1,7 +1,7 @@
 === cb_first_tier_zeca ===
 {debug: <i>passo per first_tier_zeca</i>}
 
-+ {are_two_entities_together(Zeca, Ettore) && !peopleTalking} [character:Zeca] {debug: <i>Ho scelto di parlare con Zeca</i>}
++ {are_two_entities_together(Zeca, Ettore) && peopleTalking==false} [character:Zeca] {debug: <i>Ho scelto di parlare con Zeca</i>}
     -> zeca_acting ->
     
 + {are_two_entities_together(Zeca, Ettore) && peopleTalking} [character:Zeca]

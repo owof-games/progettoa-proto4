@@ -197,8 +197,7 @@ Opzioni di dialogo con la persona Greta
  {debug: <i>Passo per greta_talking</i>}
     -> resting_time ->
     //INFO GENERALI//
-    + Fai domande sulla persona Greta -> esplora_greta
-
+    + [Fai una chiacchierata con Greta] -> esplora_greta
     + [Te ne vai] -> intro
     -
     

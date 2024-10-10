@@ -86,7 +86,7 @@ Opzioni di dialogo con la persona Paola
         -> advance_time ->
     ~ move_this_entity_in_a_different_room(Paola)
     
--> paola_talking    
+-> intro  
 
 = third_qn
 ~ PaolaTalking++

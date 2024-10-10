@@ -166,8 +166,8 @@ Opzioni di dialogo con la persona Matteo
  {debug: <i>Passo per matteo_talking</i>}
     -> resting_time ->
     //INFO GENERALI//
-    + Fai domande sulla persona Matteo -> esplora_matteo
-    + Te ne vai
+    + [Provi a conoscere Matteo] -> esplora_matteo
+    + [Ti guardi attorno]
     -> intro
     -
     
@@ -278,4 +278,4 @@ Opzioni di dialogo con la persona Matteo
     Matteo: Scusa ma devo controllare una cosa, a dopo!            
         -> advance_time ->
         ~ move_this_entity_in_a_different_room(Matteo) 
--> matteo_talking
+-> intro

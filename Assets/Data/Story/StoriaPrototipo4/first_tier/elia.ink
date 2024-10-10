@@ -243,7 +243,6 @@ Opzioni di dialogo con il personaggio Elia
             Elia: Nessuno mi capisce, è sempre stato così.
             -> advance_time ->
     
-     TODO: come prova anche per il gioco finale, provare a fare un tunnel con randomizzate (e tra [], così non vengono stampate) dichiarative sull'allontamento, andarsene etc?
     + [Ti allontani]
         -> intro
     -
@@ -337,7 +336,7 @@ Opzioni di dialogo con la persona Elia
  {debug: <i>Passo per elia_talking</i>}
     -> resting_time ->
     //INFO GENERALI//
-    + Conosci meglio Elia -> esplora_elia
+    + [Conosci meglio Elia] -> esplora_elia
     + [Te ne vai] -> intro
     -
     
@@ -389,10 +388,10 @@ Opzioni di dialogo con la persona Elia
             Elia: Ma ci sono troppi numeri.
         -
     Elia: Niente, vado a cercare il mio amico. A dopo!
+        -> advance_time ->
         ~ move_this_entity_in_a_different_room(Elia)
-        -> advance_time ->       
-    
-    -
+
+
 -> elia_talking 
 
 = second_qn
@@ -466,4 +465,4 @@ Opzioni di dialogo con la persona Elia
         + Ettore: Ok, io ora me ne vado da questa stanza, basta!
            ~ move_this_entity_in_a_different_room(Ettore)   
     -    
--> elia_talking
+-> intro

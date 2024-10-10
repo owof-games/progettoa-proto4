@@ -454,7 +454,7 @@ Opzioni di dialogo con la persona Elia
     Elia: Sei uno di quelli? Un telepratico?
     Elia: Greta dice che una volta un telepratico le ha sistemato un dolore alla spalla che si portava da anni.
         -> advance_time ->
-    Elia: Non è che puoi sistemarmi questo dolorino?
+    Elia: Non è che puoi sistemarmi questo dolorino qui al trapezio?
     Ettore: Come sei arrivato a, quanto, trent'anni?
     Elia: Ventisei. E questa so che è una domanda.
     Elia: Perché me la fa sempre anche Paola.

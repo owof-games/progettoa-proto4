@@ -226,24 +226,76 @@ Opzioni di dialogo con la persona Greta
 
 = first_qn
 ~ GretaTalking++
-    + Prima domanda
+    Greta: Moriremo tutti, tutti.
+    Ettore: Cosa è successo?
+    Greta: COSA E' SUCCESSO?
+    Greta: Ah, mi chiede cosa è successo.
+    Ettore: Forse è il caso che me ne vada.
+    Greta: NO, NON LASCIARMI SOLA!
+    Ettore: Sono confuso in questo momento.
+    Greta: Tu sei un attore professionista. Quindi, dimmi: quanto fa schifo questa roba?
     -> advance_time ->
-    
-    -
+        + Ettore: Su una scala che va da Tommy Wiseau a Manuela Arcuri, noi siamo Alberto Tomba.
+        + Ettore: Le blatte sullo sfondo non se la sono cavata male.
+        -
+    Greta: Pensi di essere divertente?
+    Greta: Paola mi aveva promesso le mie prime ferie da sei anni, se avessi fatto un buon lavoro.
+    Greta: LE MIE PRIME FERIEEEEE!
+    Greta: E ora il massimo del sole che prenderò sarà come sempre la luce del frigorifero.
+    Greta: Forse, se facessi bere Paola a sufficienza, si potrebbe dimenticare di ogni cosa, no?
+    -> advance_time ->
+
 -> greta_talking 
 
 = second_qn
  ~ GretaTalking++
-    +  altra domanda
+    Greta: Sapevi che questa prima era una fonderia?
+    Greta: Poi hanno deciso di costruirci questo inferno social, dove vieni a farti le foto fighe etc etc.
+    Greta: Paola aveva un amico di un amico che aveva un debito, e l'ha avuta a gratis.
+    Greta: E così si è svegliata e ha detto: "Ma sì, oggi sono una regista!"
+    Greta: Ma non poteva fare che ne so, un film, o "The Lady". No.
+    Greta: Doveva tirare su questa cosa superimprovvisata che poi dovremmo fare dal vivo per una settimana.
+    Greta: Portandoci dentro persone inconsapevoli che devono fare il tuo, di ruolo.
+    Greta: Praticamente, un rapimento.
     -> advance_time ->
-   
-    -
+    Greta: E tu mi chiederai ora: perché mi stai dicendo tutto questo?
+    Greta: Non è un po' troppo diretto, quasi uno spiegone?
+    Greta: E avresti ragione ma c'è un grosso ma: queste cose avrei dovuto dirtele all'ingaggio.
+    Greta: E invece ero così presa dai casini della Londar e dai malumori di Paola, che alla fine al tuo agente ho solo dato orario e indirizzo.
+    Greta: E ora mi sento in colpa perché mi chiedo: quando Paola è morta, hai capito che era una recita, o ti sei spaventato?
+        + Ettore: Mi sono cagato addosso.
+            Greta: Come temevo.
+        + Ettore: Naa, era tutto troppo ridicolo
+            Greta: Bene, ma non dirlo a Paola o mi licenzia.
+        -
+    Greta: Fortuna comunque che il tuo agente ha firmato un accordo superrestrittivo per te.
+    Greta: Per cui non potresti denunciarci neanche in caso di menomazione.
+    Greta: C'è altro?
+    -> advance_time ->
 -> greta_talking    
 
 = third_qn
 ~ GretaTalking++
-    Greta dice cose
-        +  tu chiedi
-    -> advance_time ->    
-    -    
+    Greta: Come ti trovi coi gossip?
+        + Ettore: Non vivo senza.
+            Greta: Siamo in due!
+        + Ettore: Basta che non siano su di me.
+            Greta: Tranqui, non sei così interessante.
+        -
+    Greta: Non so se l'hai notato, ma Elia e Zeca sono l'uno l'ombra dell'altro.
+    Greta: E fuori da qui, lavorano assieme H24 su quel loro progetto di merda.
+    Greta: Che è una specie di Onlyfans per sfigati narcisisti.
+    Greta: E sai qual è la cosa più interessante?
+    Greta: Che Elia da un anno dice di avere una fidanzata, ma nessuno quella fidanzata l'ha mai vista.
+    Greta: E a volte sospetto che la fidanzata sia Zeca.
+        -> advance_time ->    
+    Greta: E non ci sarebbe niente di male, figurati.
+    Greta: Solo che non mi piace essere tirata in giro.
+    Greta: Cioè, prova a immaginare ad esempio una situazione in cui tu scopi con Elia.
+    Greta: Non sempre, saltuariamente, proprio quando c'hai un prurito.
+    Greta: E lui si scopa anche altra gente.
+    Greta: Un po' la cosa ti farebbe incazzare, no?
+    Greta: E mi immagino il povero Zeca, come potrebbe sentirsi.
+    Greta: Se tutto sommato questa ragazza immaginaria, non sarebbe poi così tanto immaginaria.
+        -> advance_time ->
 -> greta_talking

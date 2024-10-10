@@ -70,7 +70,6 @@ Opzioni di dialogo con la persona Paola
     Paola: Ora la uccido.
     -> advance_time ->
     
-    -
 -> paola_talking 
 
 = second_qn
@@ -86,7 +85,7 @@ Opzioni di dialogo con la persona Paola
     Paola: Ma dato che ancora non sei una di queste tre cose, è bene che me ne vada.
         -> advance_time ->
     ~ move_this_entity_in_a_different_room(Paola)
-    -
+    
 -> paola_talking    
 
 = third_qn
@@ -99,5 +98,5 @@ Opzioni di dialogo con la persona Paola
     Paola: Non si lava l'ombelico da quando ha sei anni: è convinto che facendolo gli si aprirà la pancia, le viscere usciranno tutte, e morirà.
     Paola: A volte spero davvero che accada.
     -> advance_time ->    
-    -    
+
 -> paola_talking

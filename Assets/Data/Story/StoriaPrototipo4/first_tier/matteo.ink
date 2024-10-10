@@ -194,24 +194,88 @@ Opzioni di dialogo con la persona Matteo
 
 = first_qn
 ~ MatteoTalking++
-    + Prima domanda
-    -> advance_time ->
-    
+    Matteo: Mi sa ma tra una cosa e l'altra non ci siamo presentati, vero?
+    Matteo: Mi chiamo Matteo, e sono intrappolato contro la mia volontà in questa recita.
+    Matteo: Ma ci sono cose peggiori, direi.
+    Matteo: E tu invece?
+        + Ettore: Mi chiamo Ettore, piacere.
+            Matteo: Ok, quindi la maledizione del nome uguale per il personaggio non ha risparmiato nemmeno te.
+        + Ettore: Sono colpevole di essere qui per scelta.
+            Matteo: Beh, almeno se butta male puoi andartene.
+        -
+    Ettore: Ma come mai sei obbligato ad essere qui?
+    Matteo: Oh, lo siamo un po' tutti, direi.
+        -> advance_time ->
+    Matteo: Greta è la segretaria di Paola.
+    Matteo: Io faccio le pulizie a casa di Elia, e lavoro in un call centre dell'azienda di Paola.
+    Matteo: Se da qualche parte c'è Elia, Zeca è sempre dietro di lui.
+    Matteo: Ed Elia è qui perché non sa mai dire di no a Paola.
+    Matteo: Anche se, e rimanga tra noi, sono settimane che litigano, e di brutto, davvero di brutto.       
+    Ettore: Hai idea del perché?
+    Matteo: Diciamo che non sono cose che si dicono a chi non fa parte dell'inner circle.
+    Matteo: Ma se ti capitasse un cellulare sotto mano, beh: cerca Londar INC e avrai le idee un po' più chiare.
+        -> advance_time ->
     -
 -> matteo_talking 
 
 = second_qn
  ~ MatteoTalking++
-    +  altra domanda
-    -> advance_time ->
-   
-    -
+    Matteo: Dio, quanto vorrei avere il ruolo del morto, almeno potrei dormire.
+    Ettore: Sei molto stanco?
+    Matteo: Questa risposta è sempre vera negli ultimi sei anni.
+    Matteo: Per campare in questa economia mi tocca fare due lavori. E ora persino recitare.
+    Matteo: Ironico che Paola mi abbia appioppato il ruolo del ricco idiota che non sa fare niente.
+    Matteo: Una manco velata rappresentazione di come lei vede Elia, sinceramente.
+    Matteo: E a proposito dell'altro Matteo: mi spiace di dover essere un fidanzato di merda, sinceramente.
+    Matteo: {hardTrueFeelingsStorylet: Soprattutto quella faccenda con Greta|E il peggio deve ancora arrivare}.
+        -> advance_time ->
+            + Ettore: Fa parte del lavoro, non ti preoccupare.
+                Matteo: Beh, non mi piace comportarmi da stronzo, mai.
+            + Ettore: Paola non apprezza Elia?
+                Matteo: Al lupo importa qualcosa della preda che sta per addentare?    
+            -
+    Matteo: Ma che ne dici se dopo tutto questo casino ci beviamo qualcosa?
+    Matteo: Non è un appuntamento, tranqui.
+    Matteo: Ma non so da quanto tempo ho una conversazione che non sia di lavoro.
+    Matteo: O con qualcuno con cui lavoro.
+    Matteo: Che poi ok, stiamo lavorando assieme ora. Ma almeno non mi stai urlando in faccia.
+            + Ettore: Appena stacchiamo viene a prendermi la persona con cui sto.
+                Matteo: Come non detto. Spero ci si ribeccherà di nuovo allora.
+            + Ettore: Volentieri! Birretta e cazzate?
+                Matteo: La serata migliore direi!
+            + Ettore: La risposta è sì. E non mi spiacerebbe fosse un appuntamento.
+                Matteo: Sapevo che avrei dovuto mettere la camicia migliore, cavolo!
+                Ettore: Beh, possiamo risolvere rimanendo nudi.
+            -
+    Matteo: Grazie per questo momento di umanità, Ettore. Lo dico col cuore.
+        -> advance_time ->                       
 -> matteo_talking    
 
 = third_qn
 ~ MatteoTalking++
-    Matteo dice cose
-        +  tu chiedi
-    -> advance_time ->    
-    -    
+    Matteo: Come te la cavi con le bugie?
+        + Ettore: Mi faccio sgamare in tre secondi.
+            Matteo: Ahah allora capirai il mio dramma.
+        + Ettore: Sono un attore, vivo di bugie.
+            Matteo: Naa, hai una faccia troppo simpatica, non ti credo.
+        -
+    Matteo: Metti che ti è stato chiesto di occuparti di una cosa importante.
+    Matteo: Ma non l'hai fatta, e hai chiesto a qualcun altro di fare quella cosa.
+    Matteo: E quella persona quella cosa l'ha fatta, ma non sai se bene o meno.
+    Matteo: E chi ti ha chiesto di fare quella cosa ti ha riempito di complimenti, complimenti che però non andrebbero davvero dati a te.
+    Matteo: Quale sarebbe la cosa giusta da fare?    
+    -> advance_time ->
+        + Ettore: Quando l'altra persona ha deciso di aiutarti di nascosto, ha accettato il rischio.
+            Matteo: Una visione pragmatica.
+        + Ettore: Dì a chi ti ha aiutato che i complimenti son per lei.
+            Matteo: Così li abbiamo entrambi?
+        -
+    Matteo: Se non fosse stata Paola, a chiedermi di fare quella cosa, la sincerità sarebbe una opzione.
+    Matteo: Ma lei si arrabbia se esisti, figuriamoci se non hai fatto le cose come vuole lei.
+    Matteo: Però ha davvero apprezzato la torta.
+    Matteo: Esteticamente, per lo meno, non l'ha ancora mangiata.
+    Matteo: E spero non lo faccia mai.
+    Matteo: Scusa ma devo controllare una cosa, a dopo!            
+        -> advance_time ->
+        ~ move_this_entity_in_a_different_room(Matteo) 
 -> matteo_talking

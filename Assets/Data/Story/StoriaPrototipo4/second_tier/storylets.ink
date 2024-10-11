@@ -2,6 +2,8 @@
 === second_tier_storylets
 
 TODO: Un rifacimento inquietantissimo della scena di recitazione, e poi siamo off, ma con momenti horror lanciati in giro (ok, vorrei direttamente riprendere la struttura di prima, fare quasi solo pausa e poi orrore, ma vediamo). E la frase che ho in mente è "we can't stop we have to run"
+//Qualcosa tipo "lei aspetta", qualcosa che giustifichi il loop
+//Un pezzo sul loop
 
 {
     - are_six_entities_together(Elia, Matteo, Ettore, Greta, Paola, Zeca) && not reStartingDinnerStorylet && peopleTalking == false && new_this_loop(->reStartingDinnerStorylet):

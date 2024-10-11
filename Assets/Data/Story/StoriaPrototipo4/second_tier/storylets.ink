@@ -4,6 +4,8 @@
 TODO: Un rifacimento inquietantissimo della scena di recitazione, e poi siamo off, ma con momenti horror lanciati in giro (ok, vorrei direttamente riprendere la struttura di prima, fare quasi solo pausa e poi orrore, ma vediamo). E la frase che ho in mente è "we can't stop we have to run"
 
 {
+    - are_six_entities_together(Elia, Matteo, Ettore, Greta, Paola, Zeca) && not reStartingDinnerStorylet && peopleTalking == false && new_this_loop(->reStartingDinnerStorylet):
+    -> reStartingDinnerStorylet
 
     - are_entities_together_in(Matteo, Ettore, YellowRoom) && not are_two_entities_together(Matteo, Greta) && not are_two_entities_together(Matteo, Paola) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && new_this_loop(->notABigSecretPartOneStorylet): -> notABigSecretPartOneStorylet
 
@@ -45,6 +47,100 @@ TODO: Un rifacimento inquietantissimo della scena di recitazione, e poi siamo of
 ->->
 
 //STORYLETS
+
+=== reStartingDinnerStorylet
+    {debug: <i>Passo per startingDinnerStorylet</i>}
+        Matteo: No, ma ti giuro Paola, ti giuro! Faceva tutto lo sborone quello.
+            ~ currentTime = currentTime + 15
+        Matteo: Poi ho chiamato nonno e: bang!
+        Matteo: Tutto il consiglio di amministrazione muto.
+        Matteo: E il progetto per la piscina sul tetto del grattacielo è passato.
+        Greta: Un giorno annegherete tutti, e sarà festa nazionale.
+        Paola: Non voglio morire non voglio morire non voglio morire non voglio.
+        Elia: Quindi è permesso augurare la morte a qualcuno? Perché avrei un po' di nomi, nel caso.
+        Zeca: Elia, almeno tu mantieni la tua innocenza o perderei l'unica spinta a sacrificarti.
+            + Ettore: Ehm, ehm. Scusate se vi disturbo.
+            + Ettore: Eccomi! In tutto il mio splendore!
+            + Ettore: Non ho alcuna innocenza: chi devo spingere dal grattacielo?
+            -
+            ~ currentTime = currentTime + 15
+        Matteo: Amore! Non ti avevo sentito proprio arrivare!
+        Matteo: Fratelli, sorella, Greta.
+        Greta: Fottiti.
+        Matteo: Vi presento l'uomo che amo: Ettore. Ettore, loro sono i miei familiari.
+            + Ettore: Finalmente incontro il famoso Elia!
+                Elia: Famoso? Sono finito su Tik Tok?
+                Greta: No, nel Guinness dei Primati come primo essere umano senza cervello.
+            + Ettore: Tu devi essere Paola! Matteo parla un sacco di te!
+                Paola: Non voglio morire non voglio morire non voglio morire non voglio.
+                Matteo: Non ti parlo così tanto di lei. A parte a pranzo, cena, letto e durante le preghiere.
+            + Ettore: Vorrei dire di ricordami un solo dei vostri nomi, ma ho scolato un'intera boccia di antigelo prima di venire qui.
+                Greta: Bene Matteo, finalmente ci presenti qualcuno di interessante!
+                Zeca: E almeno abbiamo qualcosa in comune.
+            -
+            ~ currentTime = currentTime + 15
+        Paola: Non voglio morire non voglio morire non voglio morire non voglio.
+        Elia: Sapete che nemmeno oggi ho aperto la porta dal lato giusto?
+        Elia: Sono tutto un livido, guardate!
+        Greta: Questo è un buon motivo per festeggiare in effetti.
+        Matteo: Nessuno ha detto che dobbiamo festeggiare.
+        Paola: Non voglio morire non voglio morire non voglio morire non voglio.
+        Matteo: Però brindiamo! Perché siamo qui ad affrontare l'alcolismo di Zeca, e farlo smettere di bere.
+            + Ettore: E avete pensato di partire con un brindisi?
+                Zeca: Ettore, giusto? Ecco, Ettore: non farti domande su questa famiglia, o c'è da perdere il senno.
+            + Ettore: Ehm, e io che c'entro?
+                Matteo: Tu sei il testimone speciale, vedrai!
+            + Ettore: Basta che non tocchiate il mio, lol!
+                Paola: Non voglio morire non voglio morire non voglio morire non voglio.
+            -
+            ~ currentTime = currentTime + 15
+            
+        Paola: Non voglio morire non voglio morire non voglio morire non voglio.
+             ~ move_this_entity_in_a_different_room(Paola)
+        Greta: Ho scordato una cosa!
+            ~ move_this_entity_in_a_different_room(Greta)
+        Matteo: A questo punto faccio una chiamata.
+            ~ move_this_entity_in_a_different_room(Matteo)
+        Zeca: E io ne approfitto per scappare.
+            ~ move_this_entity_in_a_different_room(Zeca)
+        Elia: Beh, a questo punto me ne vado anche io!    
+            ~ move_this_entity_in_a_different_room(Matteo)
+            + Ettore: Bella festa, davvero. Grazie.
+            + Ettore: Boh, a questo punto me ne vado anche io.
+            + Ettore: Ma non è che c'è dell'altro vino in giro?
+            -
+            ~ currentTime = currentTime + 15 
+
+            ~ move_entity(Elia,WhiteRoom)
+        Elia entra, muore.
+            ~ move_entity(Zeca,WhiteRoom)
+        Zeca entra, muore.
+            ~ move_entity(Matteo,WhiteRoom)
+        Matteo entra, muore.
+            ~ move_entity(Greta,WhiteRoom)        
+        Greta entra, muore.
+                    ~ move_entity(Paola,WhiteRoom)
+        Paola: Non voglio morire non voglio morire non voglio morire non voglio.
+            ~ currentTime = currentTime + 15
+            + (tuttiMotyi) Ettore: Chiamiamo la polizia!
+            -
+        Paola: Non voglio morire non voglio morire non voglio morire non voglio.
+        
+            ~ currentTime = currentTime + 15
+        Greta: BASTAAAAAAA! Questo script è tremendo!
+        Paola: Non voglio morire non voglio morire non voglio morire non voglio.
+        Greta: Basta, basta, basta. Prendiamoci dieci minuti di riposo.
+        Paola: Non.
+            ~ peopleTalking = true
+            -> advance_time ->
+
+->->
+
+
+
+
+
+
 === liarCallLiarStorylet
     + (Indagini) Zeca ci dice che la polizia ha avuto anche dati personali di Paola.
         Dati a cui solo la segretaria personale avrebbe potuto avere accesso.

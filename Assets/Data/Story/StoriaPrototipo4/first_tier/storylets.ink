@@ -3,7 +3,7 @@
 {debug: <i>Passo per first_tier_storylets</i>}
 
 {
-    - are_six_entities_together(Elia, Matteo, Ettore, Greta, Paola, Zeca) && not startingDinnerStorylet &&  peopleTalking == false && new_this_loop(->startingDinnerStorylet):
+    - are_six_entities_together(Elia, Matteo, Ettore, Greta, Paola, Zeca) && not startingDinnerStorylet && peopleTalking == false && new_this_loop(->startingDinnerStorylet):
     -> startingDinnerStorylet
 
 
@@ -59,7 +59,7 @@
         Greta: Urrà! Una piccola possibilità in più che uno degli stronzi che sta rovinando questa città impari a volare!
         Paola: Greta! Non si dicono le parolacce.
         Elia: Quindi è permesso augurare la morte a qualcuno? Perché avrei un po' di nomi, nel caso.
-        Zeca: Elia, almeno tu mantieni la tua innocenza, ti prego, o il mondo è destinato a bruciare.
+        Zeca: Elia, almeno tu mantieni la tua innocenza o perderei l'unica spinta a sacrificarmi.
             + Ettore: Ehm, ehm. Scusate se vi disturbo.
             + Ettore: Salve a tutti!
             + Ettore: Non ho alcuna innocenza: chi posso spingere dal grattacielo?
@@ -71,7 +71,7 @@
         Matteo: Vi presento l'uomo che amo: Ettore. Ettore, loro sono i miei familiari.
             + Ettore: Finalmente incontro il famoso Elia!
                 Elia: Famoso? Sono finito su Tik Tok?
-                Greta: No, nel Guinnes dei Primati come primo essere umano vivo eppure senza cervello.
+                Greta: No, nel Guinness dei Primati come primo essere umano vivo eppure senza cervello.
             + Ettore: Tu devi essere Paola! Matteo parla un sacco di te!
                 Paola: Oh, sono sicura che esageri su un sacco di cose, sai?
                 Matteo: Non gli parlo così tanto di te. A parte a pranzo, cena, letto e durante le preghiere.
@@ -171,6 +171,7 @@
 
 
 === anEavesdropAboutFriendshipStorylet
+TODO: scena privata
 {debug: <i>Passo per anEavesdropAboutFriendshipStorylet</i>}
         Elia: Quindi, ora vuoi uccidermi?
         Greta: Ucciderti?

@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd7ecee5706a4d10b0a63a2233d5c131, type: 3}
   m_Name: TextAnimator StyleSheet
   m_EditorClassIdentifier: 
-  styles: []
+  styles:
+  - styleTag: happy
+    openingTag: <wiggle a=0.1><rainb>
+    closingTag: </rainb></wiggle>

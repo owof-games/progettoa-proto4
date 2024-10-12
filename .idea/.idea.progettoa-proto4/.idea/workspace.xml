@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe9139a7-064e-4f3c-8cc0-98b1b6da0fc7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Components/RoomTransitionHandler/RoomTransitionHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Components/RoomTransitionHandler/RoomTransitionHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.eflatun.scenereference/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.eflatun.scenereference/Settings.json" afterDir="false" />
+    <list default="true" id="fe9139a7-064e-4f3c-8cc0-98b1b6da0fc7" name="Changes" comment="fix: room reset works">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.progettoa-proto4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.progettoa-proto4/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +27,10 @@
     "accountId": "d12b7af3-467c-41a4-92af-fab7f9a3c763"
   }
 }]]></component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/mbelletti/source/repos/proto4/progettoa-proto4/Assets/Components/RoomTransitionHandler/RoomTransitionHandler.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo"><![CDATA[{
   "customColor": "",
   "associatedIndex": 7
@@ -104,13 +107,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728743457200</updated>
-      <workItem from="1728743459589" duration="588000" />
+      <workItem from="1728743459589" duration="1568000" />
     </task>
+    <task id="LOCAL-00001" summary="fix: room reset works">
+      <option name="closed" value="true" />
+      <created>1728744232217</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1728744232217</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
     <option name="hasUnityReference" value="true" />
@@ -131,5 +144,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="fix: room reset works" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: room reset works" />
   </component>
 </project>

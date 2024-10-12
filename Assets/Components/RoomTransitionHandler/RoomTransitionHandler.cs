@@ -237,6 +237,18 @@ namespace Components.RoomTransitionHandler
             /*
              * CASE: NPC MOVING IN THE CURRENT ROOM
              */
+            // if we move to a room at the same time some character is added, skip the animation
+            var characterAlreadyPresentInScene =
+                FindObjectsByType
+                        <CharacterName>(FindObjectsInactive.Exclude, FindObjectsSortMode.None)
+                    .Any(characterName => characterName.gameObject.scene == _currentSceneRootGameObject.scene &&
+                                          characterName.Character == character);
+            if (characterAlreadyPresentInScene)
+            {
+                // could actually perform the entrance animation
+                return;
+            }
+
             // find direction
             var sourceRoom = _lastRemovedFrom[character];
             if (sourceRoom == e.Room)
@@ -257,6 +269,7 @@ namespace Components.RoomTransitionHandler
                 ? navigationGraph.GetRightmostNodeIndex()
                 : navigationGraph.GetLeftmostNodeIndex();
             var characterPrefab = characterMappings.GetCharacterPrefab(character);
+            // Debug.Log($"Instantiating {character} at position {source} when adding to room");
             var instantiatedCharacter = Instantiate(characterPrefab, _currentSceneRootGameObject.transform);
             var characterNavigation = instantiatedCharacter.GetComponent<CharacterNavigation>();
             characterNavigation.SetUp(source);
@@ -344,6 +357,7 @@ namespace Components.RoomTransitionHandler
                         : newSceneNavigationGraph.GetLeftmostNodeIndex();
                 }
 
+                // Debug.Log($"Instantiating {character} at position {nodeIndex} for load room");
                 characterNavigation.SetUp(nodeIndex);
             }
 

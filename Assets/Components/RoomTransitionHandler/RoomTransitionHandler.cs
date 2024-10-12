@@ -56,14 +56,14 @@ namespace Components.RoomTransitionHandler
         [SerializeField] private RoomContents? roomContents;
         [SerializeField] private CharacterMappings? characterMappings;
 
+        /// <summary>
+        ///     A map between characters and the last room they were removed from (which indicates where they come from
+        ///     at the next Add)
+        /// </summary>
+        private readonly Dictionary<Character.Character, Room> _lastRemovedFrom = new();
+
         private string? _currentlyLoadedRoomName; // jumps directly to the new value at the beginning of transition
         private GameObject? _currentSceneRootGameObject;
-
-        /// <summary>
-        /// A map between characters and the last room they were removed from (which indicates where they come from
-        /// at the next Add)
-        /// </summary>
-        private Dictionary<Character.Character, Room> _lastRemovedFrom = new();
 
         /// <summary>
         ///     Asynchronous operation representing the last time a room was loaded.
@@ -222,10 +222,8 @@ namespace Components.RoomTransitionHandler
                     // different from here on
                     var destination = direction2 == Direction.Left ? RoomDirection.Left : RoomDirection.Right;
                     var characterNavigation2 = GetCharacterNavigation(_currentSceneRootGameObject!.scene, character);
-                    await characterNavigation2.ExitTo(destination).ContinueWith(() =>
-                    {
-                        Destroy(characterNavigation2.gameObject);
-                    });
+                    await characterNavigation2.ExitTo(destination);
+                    Destroy(characterNavigation2.gameObject);
                 }
 
                 // will immediately get to this return if the character neither comes neither arrives in the current room
@@ -248,7 +246,6 @@ namespace Components.RoomTransitionHandler
             }
 
             var connections = _roomConnectionsBySourceName[sourceRoom.ToString()];
-            Debug.Log($"Looking for connection from {sourceRoom} to {e.Room} for {character}");
             // TODO: this could error with .Single during loop reset (characters jump from far away rooms)
             // how to solve this?
             var connection = connections.SingleOrDefault(c => c.destinationRoomName == e.Room.ToString());

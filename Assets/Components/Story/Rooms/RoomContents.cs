@@ -90,7 +90,6 @@ namespace Components.Story.Rooms
 
         private void OnRedRoomContentRemoved(SerializableInkListItem obj)
         {
-            Debug.Log("Red room changed");
             OnRoomContentRemoved(Room.RedRoom, obj);
         }
 

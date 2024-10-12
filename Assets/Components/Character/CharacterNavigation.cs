@@ -115,6 +115,8 @@ namespace Components.Character
         private async UniTask AnimateMovement(int[] path)
         {
             // immediately update the current index to the destination node
+            UnityEngine.Debug.Log(
+                $"Animating {GetComponent<CharacterName>().Character} movement in scene {gameObject.scene.name}, currently {_currentNodeIndex} and already jumping to index {path[^1]}");
             _currentNodeIndex = path[^1];
             var navigationGraph = GetNavigationGraph();
             for (var i = 1; i < path.Length; i++)

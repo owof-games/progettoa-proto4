@@ -1,5 +1,3 @@
-//NOTA: dopo un po' di prove, indicativamente 8 righe sono 15 secondi, per cui proverei a muovermi a blocchi di quindici. 
-
 VAR currentTime = 0
 /**
  * Print the current time.
@@ -52,26 +50,30 @@ VAR currentTime = 0
 {debug: <i>Passo per function advance_time</i>}
 ~ currentTime = currentTime + 15
 
-//~ temp max_time = LIST_MAX(LIST_ALL(currentTime))
-// {
-//     - tierState == FirstTier: -> first_tier_storylets ->
-//     - else: -> second_tier_storylets ->
-// }
-
 
 { currentTime >= 600:
     -> loop_reset
 }
 
+// PER PAUSE DOPO IL TUTORIAL
 { 
 - paolaPausa != -1 && currentTime == paolaPausa + 120:
-    // Paola: "Si ricomincia da capo, su, tutti ai propri posti!"
     -> loop_reset
 }
 
+// PER STORYLET CON AVANZAMENTO A TEMPO
+{
+- are_three_entities_together(Matteo, Elia, Ettore) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Zeca) && peopleTalking == false && new_this_loop(->sheIsTheBestStorylet) && sheIsTheBest == -1:
+        ~ sheIsTheBest = currentTime
+}
+
+
+//UPDATE
 ~ updateEntitiesLocations()
 
 ->->
+
+
 
 /*FUNZIONE CHIAMATA QUANDO PAOLA CHIAMA LA PAUSA*/
 === resting_time
@@ -108,7 +110,12 @@ VAR currentTime = 0
 ~ MatteoTalking = 0
 
 ~ peopleTalking = false
+
+
+//clear storylets variables
 ~ paolaPausa = -1
+~ sheIsTheBest = -1
+
 
 // print something for the user
 {

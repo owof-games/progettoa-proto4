@@ -66,8 +66,8 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 {greta_acting.paolaPerfetta: Greta: Sinceramente, non ho idea di chi possa aver ucciso Paola, lei era perfetta.}
 
 
-{anEavesdropAboutFriendshipStorylet.gretaTriste or zeca_acting.matteoGreta: <i>Informazioni sul personaggio Greta</i>}
-{anEavesdropAboutFriendshipStorylet.gretaTriste: Greta: E così papà ed io abbiamo vissuto per mesi per strada.}
+{anEavesdropAboutFriendshipStorylet.one or zeca_acting.matteoGreta: <i>Informazioni sul personaggio Greta</i>}
+{anEavesdropAboutFriendshipStorylet.one: Greta: E così papà ed io abbiamo vissuto per mesi per strada.}
 {zeca_acting.matteoGreta: Zeca: Sinceramente, non ho mai creduto che a Greta interessi tanto il pub, quanto controllare Elia.}
 {zeca_acting.matteoGreta: Zeca: Non mi stupirebbe se Greta stesse ricattando Matteo in qualche modo.}
 

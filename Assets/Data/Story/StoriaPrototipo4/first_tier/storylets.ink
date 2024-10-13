@@ -1,54 +1,74 @@
-//INDEX
 === first_tier_storylets
 {debug: <i>Passo per first_tier_storylets</i>}
 
 {
+
+//SCENA INIZIALE
     - are_six_entities_together(Elia, Matteo, Ettore, Greta, Paola, Zeca) && not startingDinnerStorylet && peopleTalking == false && new_this_loop(->startingDinnerStorylet):
-    -> startingDinnerStorylet
+            -> startingDinnerStorylet
 
 
+//STORYLET "NORMALI"
     - are_three_entities_together(Elia, Matteo, Ettore) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Greta) && peopleTalking == false && (marryMeStorylet.matteoSiSposa or marryMeStorylet.matteoSiSposa2) && new_this_loop(->weddingAtThePubStorylet):
-    -> weddingAtThePubStorylet
+            -> weddingAtThePubStorylet
 
 
-
-//La morte di Paola deve arrivare solo quando abbbiamo fatto tutti i tutorial e abbiamo compiuto le scelte su Matteo e Zeca
-    -  currentTime >= 600 && objects_tutorial && notebook_tutorial && talking_tutorial && peopleTalking == false && (choiceMatteoVuoleSposareEttore == True or choiceMatteoVuoleSposareEttore == False) && (choiceMenteZeca == True or choiceMenteZeca == False): -> paolaIsDeadStorylet
 
 //CONVERSAZIONI ORIGLIATE
     - are_two_entities_together(Elia, Greta) && elia_acting.missioneGreta && not are_two_entities_together(Elia, Matteo) && not are_two_entities_together(Elia, Zeca) && is_this_entity_near_Ettore(Elia) == true &&  peopleTalking == false && new_this_loop(->anEavesdropAboutFriendshipStorylet):
-    -> anEavesdropAboutFriendshipStorylet
+            -> anEavesdropAboutFriendshipStorylet
+
+
+    - are_three_entities_together(Matteo, Greta, Ettore) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && peopleTalking == false && new_this_loop(->itsOverisntItStorylet):
+            -> itsOverisntItStorylet
+
 
 //CONVERSAZIONI IN ALTRE STANZE, CHE NON ORIGLIAMO, E CHE CONTINUANO QUANDO ENTRIAMO
-    - currentTime >= 240 && are_three_entities_together(Matteo, Elia, Ettore) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Zeca) && peopleTalking == false && new_this_loop(->sheIsTheBestStorylet):
-    -> sheIsTheBestStorylet
+    - sheIsTheBest != -1:
+            -> sheIsTheBestStorylet
 
-    - currentTime >= 240 && are_three_entities_together(Matteo, Greta, Ettore) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && peopleTalking == false && new_this_loop(->itsOverisntItStorylet):
-    -> itsOverisntItStorylet
+
 
 //CONFESSIONI SOLITARIE 
     - are_two_entities_together(Matteo, Ettore) && inventoryContents has AnticoPugnale && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Zeca) && not are_two_entities_together(Ettore, Greta) && peopleTalking == false && new_this_loop(->aStrangeKnifeStorylet):
-    -> aStrangeKnifeStorylet
+            -> aStrangeKnifeStorylet
 
     - are_two_entities_together(Matteo, Ettore) && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Zeca) && not are_two_entities_together(Ettore, Greta) && peopleTalking == false && new_this_loop(->marryMeStorylet):
-    -> marryMeStorylet
+            -> marryMeStorylet
     
     - are_two_entities_together(Zeca, Ettore) && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Matteo) && not are_two_entities_together(Ettore, Greta) && peopleTalking == false && new_this_loop(->worstBestManStorylet):
-    -> worstBestManStorylet    
+            -> worstBestManStorylet    
 
 
-    //MATERIALI PER TUTORIAL
-    - currentTime > 300 && not objects_tutorial: -> objects_tutorial
 
-    - currentTime > 405 && objects_tutorial && new_this_loop(->objects_tutorial) && not notebook_tutorial: -> notebook_tutorial
+//MATERIALI PER TUTORIAL
+    - currentTime > 300 && not objects_tutorial:
+            -> objects_tutorial
 
-    - currentTime > 510 && objects_tutorial && notebook_tutorial && new_this_loop(->notebook_tutorial) && not talking_tutorial: -> talking_tutorial
+    - currentTime > 405 && objects_tutorial && new_this_loop(->objects_tutorial) && not notebook_tutorial:
+            -> notebook_tutorial
+
+    - currentTime > 510 && objects_tutorial && notebook_tutorial && new_this_loop(->notebook_tutorial) && not talking_tutorial:     -> talking_tutorial
+
+
+//La morte di Paola deve arrivare solo quando abbbiamo fatto tutti i tutorial e abbiamo compiuto le scelte su Matteo e Zeca
+    -  currentTime >= 600 && objects_tutorial && notebook_tutorial && talking_tutorial && peopleTalking == false && (choiceMatteoVuoleSposareEttore == True or choiceMatteoVuoleSposareEttore == False) && (choiceMenteZeca == True or choiceMenteZeca == False):
+            -> paolaIsDeadStorylet
+    
 
     -else: ->->
 }
 
 
-//STORYLET CONDIZIONALI
+
+/* ---------------------------------
+
+   Storylets
+
+ ----------------------------------*/
+
+
+//SCENA INIZIALE
 === startingDinnerStorylet
 {debug: <i>Passo per startingDinnerStorylet</i>}
         Matteo: No, ma ti giuro Paola, ti giuro! Faceva tutto lo sborone quello.
@@ -156,6 +176,8 @@
 
 
 
+//STORYLET "NORMALI"
+
 === weddingAtThePubStorylet
 {debug: <i>Passo per weddingAtThePubStorylet</i>}
         Matteo: Te l'ho già detto più volte, Elia: è una scelta pacchiana.
@@ -173,8 +195,10 @@
     -> intro
 
 
+
+//CONVERSAZIONI ORIGLIATE
+
 === anEavesdropAboutFriendshipStorylet
-TODO: scena privata
 {debug: <i>Passo per anEavesdropAboutFriendshipStorylet</i>}
         Elia: Quindi, ora vuoi uccidermi?
         Greta: Ucciderti?
@@ -183,23 +207,160 @@ TODO: scena privata
         Greta: Prima che le nostre madri si fidanzassero, sono stata povera.
         Greta: Papà è stato a lungo un influencer, ma quando le cose sono cambiate per lui, non ha saputo più come affrontare la realtà.
         Greta: E così papà ed io abbiamo vissuto per mesi per strada.
-            + (gretaTriste) Ettore: Merda, non ne sapevo nulla.
-            -
-            -> advance_time ->
+        {
+                - are_two_entities_together(Ettore, Elia) or are_two_entities_together(Elia, Matteo) or are_two_entities_together(Elia, Zeca): -> quickTalk
+                -else: -> one
+        }    
             
-        Greta: Me ne sono sempre vergognata così tanto, sapete?
-        Greta: Mesi e mesi a vedere le persone passarci davanti.
-        Greta: A spiare dentro la nostra roulotte.
-        Greta: A farci commenti spietati sul colore della carrozzeria.
-        Greta: Una volta ho dovuto persino rinunciare a una borsetta Hermes.
-        Elia: Deve essere stato tremendo.
-        Greta: Non ne hai idea. E per questo ora non voglio rivivere quel trauma.
-        Greta: Non posso aver contatto con altri senzatetto puzzolenti, mi capisci Elia, vero?
-        Elia: Io. No, ma sarò sempre dalla tua parte Greta, promesso!
+            
+        = one
+            -> advance_time ->
+            Greta: Me ne sono sempre vergognata così tanto, sapete?
+            Greta: Mesi e mesi a vedere le persone passarci davanti.
+            Greta: A spiare dentro la nostra roulotte.
+            Greta: A farci commenti spietati sul colore della carrozzeria.
+            Greta: Una volta ho dovuto persino rinunciare a una borsetta Hermes.
+            Elia: Deve essere stato tremendo.
+            Greta: Non ne hai idea. E per questo ora non voglio rivivere quel trauma.
+            Greta: Non posso aver contatto con altri senzatetto puzzolenti, mi capisci Elia, vero?
+            Elia: Io. No, ma sarò sempre dalla tua parte Greta, promesso!
             -> advance_time ->
 
-    -> intro
+        -> intro
 
+    
+    = quickTalk
+        -> advance_time ->
+            Greta: Ma ovvio che tu sei lì a raccontare i cazzi tuoi e entra qualcun altro.
+            Greta: Scusa Elia, ne riparliamo in un altro momento.
+        
+        -> intro
+
+
+=== itsOverisntItStorylet
+    Greta: Co-glio-ne.
+    Greta: Matteo, sei un coglione infinito.
+    Matteo: Non è quello che ti piace di me?
+    Greta: No, non mi piace nulla di te, Matteo.
+    Greta: A parte i soldi, ma sappiamo benissimo che non sono tuoi.
+    Matteo: Ma quella scopata, dimmi che non è stata la scopata del secolo.
+    Greta: Al massimo, del secondo.
+           -> advance_time ->
+    {
+        - greta_acting.loVoglio: -> perEttore
+        - not greta_acting.loVoglio: -> poveroEttore
+
+    }
+
+    = perEttore
+        Greta: Ascoltami. Non so come sia possibile, ma quel disgraziato di Ettore ti ama ancora.
+        Greta: E credo sia pronto a perdonarti.
+        Greta: Per cui vedi di fare qualcosa e andare da lui, ora, e facci la pace.
+        Matteo: Quindi posso ritenere il nostro debito saldato?
+        Greta: Oh no, piccolo animaletto da compagnia. Assolutamente no.
+        Matteo: Ma col matrimonio...
+        Greta: Pensi davvero che avrei accettato?
+        Greta: Ora vai a fare qualcosa di buono nella tua vita, su.
+        Greta: Io vado a lavarmi le orecchie da questa conversazione.
+            ~ move_this_entity_in_a_different_room(Greta)
+            -> advance_time ->    
+        
+        -> intro
+    
+    =poveroEttore
+        Greta: Hai spezzato il cuore di un poveretto.
+        Greta: E non dovrei essere io la persona che te lo dice, ma sei un coglione.
+        Greta: Sai quante possibilità ci sono che qualcuno possa mai amare un idiota come te?
+        Matteo: Ma tu mi vuoi!
+        Greta: Cristo, come fai ad essere così coglione?
+        Greta: No che non ti voglio. Voglio solo che chiudiamo il nostro accordo, una volta per tutte.
+        Matteo: Quindi ora sono libero?
+        Greta: Libero di andare a fanculo, sì. Ma non libero dal debito.
+        Greta: Fatti una pugnetta, rilassati, e pensa a come darmi quel che mi spetta, coglione.
+        Greta: E stammi lontano.
+            ~ move_this_entity_in_a_different_room(Greta)
+            -> advance_time ->    
+        
+        -> intro
+
+
+
+//CONVERSAZIONI IN ALTRE STANZE, CHE NON ORIGLIAMO, E CHE CONTINUANO QUANDO ENTRIAMO
+
+=== sheIsTheBestStorylet
+/*
+Due punti di modifica:
+1) impostazione variabile
+creazione variabile impostata a -1
+nella advance_time (o in un qualunque nodo dove passiamo a ogni tick di tempo), controllo se la variabile vale ancora -1 e se la condizione di dialogo è vera: se sì, imposto la variabile a currentTime
+2) verifica variabile
+entro in questa storylet solo se la variabile NON vale -1, e qui dentro confronto currentTime con variabile, variabile+15, variabile+30, ecc ecc...
+PS: ricordarsi di resettare la variabile al reset_loop
+*/
+{debug: <i>Passo per sheIsTheBestStorylet</i>}
+{
+    - currentTime == sheIsTheBest: ->step_one
+    - currentTime == sheIsTheBest +15: ->step_two
+    - currentTime == sheIsTheBest + 30: ->step_three
+    - else: ->->
+    }
+    
+    = step_one    
+        Elia: Mi ha sempre sorpreso il modo in cui hai trattato Paola.
+        Matteo: In che senso?
+        Elia: Beh, sei sempre stato crudele con lei.
+        Elia: Eppure è stata Paola a convincere i nonni a prestarti tutti quei soldi!
+        Elia: E non capisco come è possibile.
+        Elia: Lei è così attenta.
+        Elia: Così perfetta.
+        Matteo: Così noiosa!
+    
+            -> advance_time ->
+    
+        -> step_two
+
+    = step_two
+        Elia: Non provare a ripeterlo, non provarci!
+        Matteo: Così prevedibile.
+        Matteo: Così "So solo io quello che è giusto".
+        Matteo: Sapessi cosa diceva di te alle tue spalle.
+        Elia: Non mi importa saperlo. L'avrai istigata.
+        Matteo: L'ho istigata io a dire che sarai sempre il più piccolo?
+        Elia: Ma è vero.
+        Matteo: E il più empatico?
+            -> advance_time ->
+    
+        -> step_three
+
+    = step_three
+        Elia: Ma mica è una cosa crudele!
+        Matteo: E che non sai gestire gli affari!
+        Elia: Anche questo è vero.
+        Elia: Ma io lo so, e infatti ho chiesto una mano a Greta.
+        Elia: Tu pensi ancora di sapere gestire i soldi, e stai rischiando di finire in bancarotta.
+        Matteo: Non sono in bancarotta!
+        Elia: Certo che no, solo perché i nonni continuano a pararti il culo.
+        Elia: Me ne devo andare da tutta questa negatività.
+            -> advance_time ->
+    
+        -> intro
+
+
+//CONFESSIONI SOLITARIE 
+=== aStrangeKnifeStorylet
+{debug: <i>Passo per aStrangeKnifeStorylet</i>}
+        Matteo: Ehi, ma quello è il mio antico pugnale sacrificale!
+        Matteo: Grazie per avermelo riportato!
+        Ettore: In realtà.
+        Matteo: Ecco, ora è di nuovo mio.
+            ~ inventoryContents -= AnticoPugnale
+            ~ objectStorageContents += AnticoPugnale
+        Matteo: Non sai quali cose terribili potrebbero accadere.
+        Matteo: Ahah scherzo, scherzo.
+        Matteo: Dove trovo del sangue vergine per purificarlo dal tuo tocco impuro, ora?    
+            -> advance_time ->
+    
+    -> intro
 
 
 === marryMeStorylet
@@ -303,131 +464,9 @@ TODO: scena privata
     -> intro
 
 
-=== aStrangeKnifeStorylet
-{debug: <i>Passo per aStrangeKnifeStorylet</i>}
-        Matteo: Ehi, ma quello è il mio antico pugnale sacrificale!
-        Matteo: Grazie per avermelo riportato!
-        Ettore: In realtà.
-        Matteo: Ecco, ora è di nuovo mio.
-            ~ inventoryContents -= AnticoPugnale
-            ~ objectStorageContents += AnticoPugnale
-        Matteo: Non sai quali cose terribili potrebbero accadere.
-        Matteo: Ahah scherzo, scherzo.
-        Matteo: Dove trovo del sangue vergine per purificarlo dal tuo tocco impuro, ora?    
-            -> advance_time ->
-    
-    -> intro
 
 
-//CONVERSAZIONI INDIPENDENTI
-=== sheIsTheBestStorylet
-TODO: questa è una modalità molto scriptata, mi piacerebbe qualcosa di più reattivo ma non saprei come fare.
-/*
-Due punti di modifica:
-1) impostazione variabile
-creazione variabile impostata a -1
-nella advance_time (o in un qualunque nodo dove passiamo a ogni tick di tempo), controllo se la variabile vale ancora -1 e se la condizione di dialogo è vera: se sì, imposto la variabile a currentTime
-2) verifica variabile
-entro in questa storylet solo se la variabile NON vale -1, e qui dentro confronto currentTime con variabile, variabile+15, variabile+30, ecc ecc...
-PS: ricordarsi di resettare la variabile al reset_loop
-*/
-{debug: <i>Passo per sheIsTheBestStorylet</i>}
-{
-    - currentTime == 240: ->step_one
-    - currentTime == 255: ->step_two
-    - currentTime == 270: ->step_three
-    - else: ->->
-    }
-    
-    = step_one    
-        Elia: Mi ha sempre sorpreso il modo in cui hai trattato Paola.
-        Matteo: In che senso?
-        Elia: Beh, sei sempre stato crudele con lei.
-        Elia: Eppure è stata Paola a convincere i nonni a prestarti tutti quei soldi!
-        Elia: E non capisco come è possibile.
-        Elia: Lei è così attenta.
-        Elia: Così perfetta.
-        Matteo: Così noiosa!
-    
-            -> advance_time ->
-    
-        -> step_two
-
-    = step_two
-        Elia: Non provare a ripeterlo, non provarci!
-        Matteo: Così prevedibile.
-        Matteo: Così "So solo io quello che è giusto".
-        Matteo: Sapessi cosa diceva di te alle tue spalle.
-        Elia: Non mi importa saperlo. L'avrai istigata.
-        Matteo: L'ho istigata io a dire che sarai sempre il più piccolo?
-        Elia: Ma è vero.
-        Matteo: E il più empatico?
-            -> advance_time ->
-    
-        -> step_three
-
-    = step_three
-        Elia: Ma mica è una cosa crudele!
-        Matteo: E che non sai gestire gli affari!
-        Elia: Anche questo è vero.
-        Elia: Ma io lo so, e infatti ho chiesto una mano a Greta.
-        Elia: Tu pensi ancora di sapere gestire i soldi, e stai rischiando di finire in bancarotta.
-        Matteo: Non sono in bancarotta!
-        Elia: Certo che no, solo perché i nonni continuano a pararti il culo.
-        Elia: Me ne devo andare da tutta questa negatività.
-            -> advance_time ->
-    
-        -> intro
-
-
-=== itsOverisntItStorylet
-    Greta: Co-glio-ne.
-    Greta: Matteo, sei un coglione infinito.
-    Matteo: Non è quello che ti piace di me?
-    Greta: No, non mi piace nulla di te, Matteo.
-    Greta: A parte i soldi, ma sappiamo benissimo che non sono tuoi.
-    Matteo: Ma quella scopata, dimmi che non è stata la scopata del secolo.
-    Greta: Al massimo, del secondo.
-           -> advance_time ->
-    {
-        - greta_acting.loVoglio: -> perEttore
-        - not greta_acting.loVoglio: -> poveroEttore
-
-    }
-
-    = perEttore
-        Greta: Ascoltami. Non so come sia possibile, ma quel disgraziato di Ettore ti ama ancora.
-        Greta: E credo sia pronto a perdonarti.
-        Greta: Per cui vedi di fare qualcosa e andare da lui, ora, e facci la pace.
-        Matteo: Quindi posso ritenere il nostro debito saldato?
-        Greta: Oh no, piccolo animaletto da compagnia. Assolutamente no.
-        Matteo: Ma col matrimonio...
-        Greta: Pensi davvero che avrei accettato?
-        Greta: Ora vai a fare qualcosa di buono nella tua vita, su.
-        Greta: Io vado a lavarmi le orecchie da questa conversazione.
-            ~ move_this_entity_in_a_different_room(Greta)
-            -> advance_time ->    
-        
-        -> intro
-    
-    =poveroEttore
-        Greta: Hai spezzato il cuore di un poveretto.
-        Greta: E non dovrei essere io la persona che te lo dice, ma sei un coglione.
-        Greta: Sai quante possibilità ci sono che qualcuno possa mai amare un idiota come te?
-        Matteo: Ma tu mi vuoi!
-        Greta: Cristo, come fai ad essere così coglione?
-        Greta: No che non ti voglio. Voglio solo che chiudiamo il nostro accordo, una volta per tutte.
-        Matteo: Quindi ora sono libero?
-        Greta: Libero di andare a fanculo, sì. Ma non libero dal debito.
-        Greta: Fatti una pugnetta, rilassati, e pensa a come darmi quel che mi spetta, coglione.
-        Greta: E stammi lontano.
-            ~ move_this_entity_in_a_different_room(Greta)
-            -> advance_time ->    
-        
-        -> intro
-
-
-//STORYLET DA SCELTE
+//STORYLET A CUI ARRIVIAMO SOLO ATTRAVERSO UNA SCELTA
 === hardTrueFeelingsStorylet
 {debug: <i>Passo per hardTrueFeelingsStorylet</i>}
 Matteo: Anche io.
@@ -481,7 +520,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         -> intro
 
 
-
+//MATERIALI PER TUTORIAL
 
 === objects_tutorial
             ~ move_first_entity_to_second_entity_location(Paola,Ettore)
@@ -515,6 +554,8 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
             -> advance_time ->
             
     -> intro
+
+
 
 === notebook_tutorial
             ~ move_first_entity_to_second_entity_location(Paola,Ettore)
@@ -576,7 +617,12 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
 
 
 
+
+
 //MORTE DI PAOLA
+
+
+//MORTE DI PAOLA (COMUNE A PRIMO E SECONDO TIER)
 === paolaIsDeadStorylet
 {debug: <i>paolaIsDeadStorylet</i>}
         Greta: Paola, ma questa roba non ha senso!

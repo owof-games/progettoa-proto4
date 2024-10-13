@@ -59,6 +59,9 @@ VAR peopleTalking = false
 VAR activeNotebook = false
 VAR activePhone = false
 
-// situazioni complicate
+// eventi specifici nella storia
 VAR gretaHaLaLettera = false
+
+// variabili degli storylet
 VAR paolaPausa = -1
+VAR sheIsTheBest = -1

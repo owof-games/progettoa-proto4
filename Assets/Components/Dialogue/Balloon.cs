@@ -1,24 +1,16 @@
-using System;
-using System.Collections;
+using Components.Balloon;
 using Components.RoomTransitionHandler;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Components.Balloon
+namespace Components.Dialogue
 {
     public class Balloon : MonoBehaviour
     {
         [SerializeField] private BalloonData balloonData;
         [SerializeField] private Image backgroundImage;
         [SerializeField] private TextMeshProUGUI textMeshProUGUI;
-
-        private IEnumerator Start()
-        {
-            yield return new WaitForSeconds(1f);
-            SetUp(Character.Character.Paola, Direction.Left);
-            SetText("Questo è del testo dove sono <happy>felice</happy>!");
-        }
 
         public void SetUp(Character.Character character, Direction direction)
         {
@@ -32,10 +24,10 @@ namespace Components.Balloon
             {
                 // default is left; switch left and right margins
                 var margin = textMeshProUGUI.margin;
-                var leftMargin = margin.x;
-                margin.z = margin.x;
-                margin.z = leftMargin;
+                (margin.x, margin.z) = (margin.z, margin.x);
                 textMeshProUGUI.margin = margin;
+                // also reflect the sprite
+                backgroundImage.transform.localScale = new Vector3(-1, 1, 1);
             }
         }
 

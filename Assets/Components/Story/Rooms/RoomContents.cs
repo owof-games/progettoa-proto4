@@ -31,7 +31,6 @@ namespace Components.Story.Rooms
 
         private void OnEnable()
         {
-            Debug.Log("Registering");
             whiteRoomContents.Added.Register(OnWhiteRoomContentAdded);
             redRoomContents.Added.Register(OnRedRoomContentAdded);
             greenRoomContents.Added.Register(OnGreenRoomContentAdded);

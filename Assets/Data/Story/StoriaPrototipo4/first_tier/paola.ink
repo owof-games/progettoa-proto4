@@ -1,11 +1,12 @@
 === cb_first_tier_paola ===
 {debug: <i>passo per first_tier_paola</i>}
-+ {are_two_entities_together(Paola, Ettore) && peopleTalking==false && !startingDinnerStorylet.paolaMorta} [character:Paola] {debug: <i>Ho scelto di parlare con Paola</i>}
++ {are_two_entities_together(Paola, Ettore) && peopleTalking==false &&  loopableVariables hasnt PaolaDavveroMorta} [character:Paola] {debug: <i>Ho scelto di parlare con Paola</i>}
     -> paola_acting->
 
-+ {are_two_entities_together(Paola, Ettore) && peopleTalking} [character:Paola]
++ {are_two_entities_together(Paola, Ettore) && peopleTalking &&  loopableVariables hasnt PaolaDavveroMorta} [character:Paola]
     -> paola_talking->    
--
+- 
+
 
 -> intro
 
@@ -98,3 +99,6 @@ Opzioni di dialogo con la persona Paola
     -> advance_time ->    
 
 -> paola_talking
+
+
+

@@ -1,7 +1,12 @@
 === cb_second_tier_paola ===
 {debug: <i>passo per second_tier_paola</i>}
 + {are_two_entities_together(Paola, Ettore)} [character:Paola]
-    -> paola_talking_second_tier->    
+    -> paola_talking_second_tier->
+    
+    TODO: far questa cosa per tutti i personaggi, con advancetime per loro ma non per il corpo di paola che looppa direttamente
++ {are_two_entities_together(Paola, Ettore) && loopableVariables has PaolaDavveroMorta} [character:Paola]
+    -> paola_death ->
+-    
 -
 
 -> intro
@@ -88,3 +93,20 @@ Opzioni di dialogo con la persona Paola
     -> advance_time ->    
     -    
 -> paola_talking_second_tier
+
+
+
+=== paola_death
+     Poi ispezione corpo, una sola scelta
+        + Esamino le briciole.
+            -> loop_reset
+        + Ispeziono la sigaretta elettronica
+            -> loop_reset
+        + Ispeziono il boccettino dell'asma
+            -> loop_reset
+        + Ispeziono la boccia di vino
+            -> loop_reset
+        -
+
+
+-> paola_death

@@ -49,9 +49,9 @@ VAR currentTime = 0
  
  
 === advance_time
+{debug: <i>Passo per function advance_time</i>}
 ~ currentTime = currentTime + 15
 
-{debug: <i>Passo per function advance_time</i>}
 //~ temp max_time = LIST_MAX(LIST_ALL(currentTime))
 // {
 //     - tierState == FirstTier: -> first_tier_storylets ->

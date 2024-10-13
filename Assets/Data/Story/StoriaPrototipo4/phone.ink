@@ -7,6 +7,7 @@
 + Chiama per chiedere aiuto -> call
 + Apri internet -> browse
 + Chiudi il telefono -> intro
++ Chiama la pula -> maiali
 -
 ->->
 
@@ -25,3 +26,6 @@ Hai chiamato per chiedere aiuto
         + + (sindacato) E del tentativo di sindacalizzazione da parte di Matteo.
 -> phone  
 
+= maiali
+        Ettore: Arrivano entro venti minuti.
+-> phone

@@ -1,5 +1,5 @@
 // activate debug text
-VAR debug = true
+VAR debug = false
 /////////////////////////////////////////////////////////////
 
 // list of all characters
@@ -9,7 +9,7 @@ LIST characters = Paola, Elia, Zeca, Matteo, Greta, Ettore
 LIST objects = LimettaUnghie, AnticoPugnale, SpiedinoCocktail, Lettera, BottigliaDiVino, FlaconcinoAsma, SigarettaElettronica, Briciole, Torta, Foto
 
 //list of variables to reset on every loop
-LIST loopableVariables = EliaRaggiungeGreta, EliaSpaventatoPerZeca
+LIST loopableVariables = EliaRaggiungeGreta, EliaSpaventatoPerZeca, PaolaDavveroMorta
 
 //list to set the current tier
 LIST tierState = (FirstTier), SecondTier

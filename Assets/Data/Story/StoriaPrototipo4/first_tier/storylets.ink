@@ -342,7 +342,8 @@ PS: ricordarsi di resettare la variabile al reset_loop
     Elia: Così perfetta.
     Matteo: Così noiosa!
 
-    ~ currentTime = currentTime + 15
+    // ~ currentTime = currentTime + 15
+    -> advance_time ->
     -> step_two
 
 = step_two
@@ -354,7 +355,8 @@ PS: ricordarsi di resettare la variabile al reset_loop
     Matteo: L'ho istigata io a dire che sarai sempre il più piccolo?
     Elia: Ma è vero.
     Matteo: E il più empatico?
-            ~ currentTime = currentTime + 15
+    -> advance_time ->
+            // ~ currentTime = currentTime + 15
 
 
 -> step_three
@@ -623,22 +625,9 @@ Matteo: Anzi, me ne vado io.
         Greta: Ettore, tieni, chiama la polizia!
         Greta: Sei l'unico che non la conosce, e che può riuscire a non balbettare.
         
-            ~ currentTime = currentTime + 15
-            
+        ~ currentTime = currentTime + 15
         ~ activePhone = true
-        TODO: Settare in qualche modo la chiamata veloce alla polizia.
-        Ettore: Arrivano entro venti minuti.
-        TODO: Come gestire questa cosa? C'è una versione di Paola morta con queste scelte?
-        Poi ispezione corpo, una sola scelta
-        + Esamino le briciole.
-            -> loop_reset
-        + Ispeziono la sigaretta elettronica
-            -> loop_reset
-        + Ispeziono il boccettino dell'asma
-            -> loop_reset
-        + Ispeziono la boccia di vino
-            -> loop_reset
-        -
-     ~ tierState = SecondTier
-     ~ gretaHaLaLettera = false
-->->
+        ~ tierState = SecondTier
+        ~ gretaHaLaLettera = false
+
+    -> intro

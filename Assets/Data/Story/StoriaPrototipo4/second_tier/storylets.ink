@@ -136,7 +136,7 @@ TODO: Un rifacimento inquietantissimo della scena di recitazione, e poi siamo of
             ~ peopleTalking = true
             -> advance_time ->
 
-->->
+    -> intro
 
 
 
@@ -147,7 +147,7 @@ TODO: Un rifacimento inquietantissimo della scena di recitazione, e poi siamo of
     + (Indagini) Zeca ci dice che la polizia ha avuto anche dati personali di Paola.
         Dati a cui solo la segretaria personale avrebbe potuto avere accesso.
     -
-->->
+    -> intro
 
 
 
@@ -157,7 +157,9 @@ Si capisce che Elia sia convinto che Zeca voglia proteggerlo, fino forse a minac
 Zeca risponde "Figurati. E poi se lei casca come li prendo tutti quei soldi?"
     + XX
     -
-->->
+    -> intro
+
+
 
 === notABigSecretPartOneStorylet
     + (allestimento) Matteo ci dice che Greta ed Elia hanno recuperato il bere
@@ -166,12 +168,14 @@ Zeca risponde "Figurati. E poi se lei casca come li prendo tutti quei soldi?"
     - are_three_entities_together(Matteo, Ettore, Elia) or are_three_entities_together(Matteo, Ettore, Greta) or are_three_entities_together(Matteo, Ettore, Zeca): -> quickTalk
     -else: ->->
 }
-->->
+    ->->
 
-= quickTalk
-Matteo dice cazzate e ci caccia.
+    = quickTalk
+    Matteo dice cazzate e ci caccia.
+    
+        -> intro
 
--> intro
+
 
 === notABigSecretPartTwoStorylet
     + (allestimento) Elia ci dice che Zeca e Matteo hanno recuperato le cibarie
@@ -182,10 +186,11 @@ Matteo dice cazzate e ci caccia.
     -else: ->->
 }
 
-= quickTalk
-Elia dice cazzate e ci caccia.
+    = quickTalk
+    Elia dice cazzate e ci caccia.
+    
+        -> intro
 
--> intro
 
 
 === iTryToBeAGoodFriendStorylet
@@ -193,18 +198,24 @@ Conversazione origliata
 Zeca e Matteo parlano del litigio, e si capisce che Matteo sa qualcosa e non vuole che Zeca ci rimanga male, ma non risponde alle pressioni di Zeca.
     + (allestimento) qui, se sappiamo che i due scopano possiamo intervenire e dirlo, col risultato che poi Zeca affronterà Elia.
         "Son quei due che andavano in giro col veleno per topi, non noi."
-->->
+    -> intro
+
+
 
 === liesAndPromisesStorylet 
 Storylet solo narrativo con Elia che promette a Greta amore etc.
  + {trueLoveStorylet}: possiamo guastare la festa.
-->->
+    -> intro
+
+
 
 === trueLoveStorylet
 Conversazione origliata
 Elia ammette i suoi sentimenti per Zeca, promette che smetterà di cazzeggiare con Greta.
-->->
+    -> intro    
+
+
 
 === iLlKillThatBitchStorylet
 Zeca ci sgama con la foto e andrà ad aggredire Greta, con piccole variazioni a seconda che lei sia già o meno nella stanza.
-->->
+    -> intro    

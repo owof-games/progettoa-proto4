@@ -149,8 +149,8 @@
         Matteo: E io sento il mio avvocato.
         Elia: E io, io, io ho paura!
             -> advance_time ->
-        ->->
-
+        
+        -> intro
 
 
 
@@ -167,9 +167,8 @@
             Matteo: Elia, non festeggerò mai il mio matrimonio nel tuo bar triste con la tua insopportabile collega!
             Matteo: Questa è la cosa peggiore che potrebbe capitarmi, ed è il <b>mio</b> matrimonio, capito?!?
         -> advance_time ->
-// ->->
-TODO: mettere intro in fondo a tutti gli storylet
--> intro
+    
+    -> intro
 
 
 === anEavesdropAboutFriendshipStorylet
@@ -196,7 +195,7 @@ TODO: scena privata
         Elia: Io. No, ma sarò sempre dalla tua parte Greta, promesso!
             -> advance_time ->
 
-->->
+    -> intro
 
 
 
@@ -251,17 +250,20 @@ TODO: scena privata
         Ettore: Chiudi i pantaloni, futuro marito.
             -> advance_time ->
 
- ->->
+        -> intro
  
- = quickTalk   
-    Matteo: Comunque non è il caso di farlo, qui, ora.
-    Ettore: Ma cosa? Ma.
-    Matteo: Inutile che insisti, amore.
-    Matteo: Come sanno le altre persone in questa stanza, non si scopa nel raggio di dieci metri da un cadavere.
-    Ettore: Ma io! Ma tu!
-    Matteo: Me ne vado, così ti lascio ripensare a modo alla tua idea di moralità, Ettore.
-       ~ move_this_entity_in_a_different_room(Matteo)
--> intro
+ 
+     = quickTalk   
+        Matteo: Comunque non è il caso di farlo, qui, ora.
+        Ettore: Ma cosa? Ma.
+        Matteo: Inutile che insisti, amore.
+        Matteo: Come sanno le altre persone in questa stanza, non si scopa nel raggio di dieci metri da un cadavere.
+        Ettore: Ma io! Ma tu!
+        Matteo: Me ne vado, così ti lascio ripensare a modo alla tua idea di moralità, Ettore.
+            ~ move_this_entity_in_a_different_room(Matteo)
+        
+        -> intro
+
 
 === worstBestManStorylet
 {debug: <i>Passo per worstBestMate</i>}
@@ -294,8 +296,9 @@ TODO: scena privata
     Zeca: Non saprai mai quando potrai perderle.
     {are_two_entities_together(Zeca, Elia): Elia: O quando un pazzo psicopatico le ucciderà.}
     Zeca: Lasciami a meditare amico mio, lasciami a meditare.
-    -> advance_time ->
-->->
+        -> advance_time ->
+
+    -> intro
 
 
 === aStrangeKnifeStorylet
@@ -310,7 +313,8 @@ TODO: scena privata
         Matteo: Ahah scherzo, scherzo.
         Matteo: Dove trovo del sangue vergine per purificarlo dal tuo tocco impuro, ora?    
             -> advance_time ->
-->->
+    
+    -> intro
 
 
 //CONVERSAZIONI INDIPENDENTI
@@ -332,47 +336,46 @@ PS: ricordarsi di resettare la variabile al reset_loop
     - currentTime == 270: ->step_three
     - else: ->->
     }
-= step_one    
-    Elia: Mi ha sempre sorpreso il modo in cui hai trattato Paola.
-    Matteo: In che senso?
-    Elia: Beh, sei sempre stato crudele con lei.
-    Elia: Eppure è stata Paola a convincere i nonni a prestarti tutti quei soldi!
-    Elia: E non capisco come è possibile.
-    Elia: Lei è così attenta.
-    Elia: Così perfetta.
-    Matteo: Così noiosa!
+    
+    = step_one    
+        Elia: Mi ha sempre sorpreso il modo in cui hai trattato Paola.
+        Matteo: In che senso?
+        Elia: Beh, sei sempre stato crudele con lei.
+        Elia: Eppure è stata Paola a convincere i nonni a prestarti tutti quei soldi!
+        Elia: E non capisco come è possibile.
+        Elia: Lei è così attenta.
+        Elia: Così perfetta.
+        Matteo: Così noiosa!
+    
+            -> advance_time ->
+    
+        -> step_two
 
-    // ~ currentTime = currentTime + 15
-    -> advance_time ->
-    -> step_two
+    = step_two
+        Elia: Non provare a ripeterlo, non provarci!
+        Matteo: Così prevedibile.
+        Matteo: Così "So solo io quello che è giusto".
+        Matteo: Sapessi cosa diceva di te alle tue spalle.
+        Elia: Non mi importa saperlo. L'avrai istigata.
+        Matteo: L'ho istigata io a dire che sarai sempre il più piccolo?
+        Elia: Ma è vero.
+        Matteo: E il più empatico?
+            -> advance_time ->
+    
+        -> step_three
 
-= step_two
-    Elia: Non provare a ripeterlo, non provarci!
-    Matteo: Così prevedibile.
-    Matteo: Così "So solo io quello che è giusto".
-    Matteo: Sapessi cosa diceva di te alle tue spalle.
-    Elia: Non mi importa saperlo. L'avrai istigata.
-    Matteo: L'ho istigata io a dire che sarai sempre il più piccolo?
-    Elia: Ma è vero.
-    Matteo: E il più empatico?
-    -> advance_time ->
-            // ~ currentTime = currentTime + 15
-
-
--> step_three
-
-= step_three
-    Elia: Ma mica è una cosa crudele!
-    Matteo: E che non sai gestire gli affari!
-    Elia: Anche questo è vero.
-    Elia: Ma io lo so, e infatti ho chiesto una mano a Greta.
-    Elia: Tu pensi ancora di sapere gestire i soldi, e stai rischiando di finire in bancarotta.
-    Matteo: Non sono in bancarotta!
-    Elia: Certo che no, solo perché i nonni continuano a pararti il culo.
-    Elia: Me ne devo andare da tutta questa negatività.
-    -> advance_time ->
-
--> intro
+    = step_three
+        Elia: Ma mica è una cosa crudele!
+        Matteo: E che non sai gestire gli affari!
+        Elia: Anche questo è vero.
+        Elia: Ma io lo so, e infatti ho chiesto una mano a Greta.
+        Elia: Tu pensi ancora di sapere gestire i soldi, e stai rischiando di finire in bancarotta.
+        Matteo: Non sono in bancarotta!
+        Elia: Certo che no, solo perché i nonni continuano a pararti il culo.
+        Elia: Me ne devo andare da tutta questa negatività.
+            -> advance_time ->
+    
+        -> intro
 
 
 === itsOverisntItStorylet
@@ -401,7 +404,8 @@ PS: ricordarsi di resettare la variabile al reset_loop
         Greta: Ora vai a fare qualcosa di buono nella tua vita, su.
         Greta: Io vado a lavarmi le orecchie da questa conversazione.
             ~ move_this_entity_in_a_different_room(Greta)
-        -> advance_time ->    
+            -> advance_time ->    
+        
         -> intro
     
     =poveroEttore
@@ -416,7 +420,8 @@ PS: ricordarsi di resettare la variabile al reset_loop
         Greta: Fatti una pugnetta, rilassati, e pensa a come darmi quel che mi spetta, coglione.
         Greta: E stammi lontano.
             ~ move_this_entity_in_a_different_room(Greta)
-        -> advance_time ->    
+            -> advance_time ->    
+        
         -> intro
 
 
@@ -435,7 +440,7 @@ Ettore: Cos
 }
     + (matteoGreta)Ettore: Matteo, così mi preoccupi.
     -
-->->
+    
 Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelosire.
     + (ah)Ettore: Ah. E da quando lo sai?
         Matteo: Mesi. Forse anni.
@@ -457,19 +462,22 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Matteo: Ma io ho una carretta da tirare avanti.
         Matteo: Dio, non credo di averti mai amato, sei così fastidioso!
         Matteo: Fammi andare via di qui!
+            ~ move_this_entity_in_a_different_room(Matteo)
+            -> advance_time ->
+    
+        -> intro
+
+
+    = quickTalk
+    Matteo: No no, è il caso di parlarne solo quando saremo soli.
+    Ettore: Ma!
+    Matteo: Niente ma, vattene.
+    Matteo: Anzi, me ne vado io.
         ~ move_this_entity_in_a_different_room(Matteo)
-        -> advance_time ->
-    ->->
+            -> advance_time ->
+            
+        -> intro
 
-
-= quickTalk
-Matteo: No no, è il caso di parlarne solo quando saremo soli.
-Ettore: Ma!
-Matteo: Niente ma, vattene.
-Matteo: Anzi, me ne vado io.
-    ~ move_this_entity_in_a_different_room(Matteo)
--> advance_time ->
--> intro
 
 
 
@@ -503,7 +511,8 @@ Matteo: Anzi, me ne vado io.
         
             -> resting_time ->
             -> advance_time ->
-            ->->
+            
+    -> intro
 
 === notebook_tutorial
             ~ move_first_entity_to_second_entity_location(Paola,Ettore)
@@ -529,7 +538,10 @@ Matteo: Anzi, me ne vado io.
         
         -> advance_time ->
         -> resting_time ->
-            ->->
+        
+    -> intro
+
+
 
 === talking_tutorial
             ~ move_first_entity_to_second_entity_location(Paola,Ettore)
@@ -557,7 +569,9 @@ Matteo: Anzi, me ne vado io.
         
         -> advance_time ->
         -> resting_time ->
-            ->->
+        
+    -> intro
+
 
 
 //MORTE DI PAOLA

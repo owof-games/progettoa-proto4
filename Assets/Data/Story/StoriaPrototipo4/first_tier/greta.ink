@@ -32,8 +32,10 @@ Opzioni di dialogo con il personaggio Greta
             Greta: Ma ti propongo un patto: ti dirò chi è l'assassino se tu convinci Elia a venire a parlarmi.
             Greta: Mi sta evitando da quando è venuta a mancare Paola, e non capisco perché.
             -> advance_time ->        
+    
     + {seen_in_this_loop(->missioneGreta) && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta}  Ettore: Non sono ancora riuscito a convincere Elia.
             Greta: Mi stupisce: quel ragazzo {~ha il cervello di un pesce bollito|ha smesso di ragionare nel '96|ha un unico neurone, ed è disperso dall'undici settembre|crede che la noce moscata sia un insetto}, non deve essere difficile!
+    
     + (paolaPerfetta) {loopableVariables has EliaRaggiungeGreta} Ettore: Ho fatto quello che mi hai chiesto, Greta.
             Greta: E Greta te ne è grata, gretino.
             Greta: Scusa, ti ho preso un po' in giro.
@@ -42,6 +44,7 @@ Opzioni di dialogo con il personaggio Greta
             Greta: Fossi religiosa, penserei che l'abbia uccisa un demone.
             Greta: O il fisco. So che aveva aperto partita IVA da poco, ed è cosa peggiore dell'inferno.
         -> advance_time ->
+     
      + (matteoGreta) {hardTrueFeelingsStorylet && new_this_loop(->matteoGreta)} Ettore: Quindi, Matteo ti ama?
             Ettore: Mi ha scaricato, vuole sposare te.
             Greta: Uh, questa mi è nuova.
@@ -72,12 +75,15 @@ Opzioni di dialogo con il personaggio Greta
             ~ objectStorageContents += Lettera
             ~ gretaHaLaLettera = true
         -> advance_time ->
+    
     + {inventoryContents has AnticoPugnale} Ettore: Hai mai visto questo pugnale?
         Greta: Solo in qualche film dell'orrore.
         Greta: O al battesimo di mia zia Selma.
         Greta: Ah, lei sapeva come farci divertire!
+    
     + (spiedino) {inventoryContents has SpiedinoCocktail} Ettore: Sai qualcosa su questo spiedino?
             Greta: <i>FEG</i>? Questa è la sigla del locale mio e di Elia, ma non ricordo di averne mai visto uno.
+    
     + {inventoryContents has LimettaUnghie} Ettore: Riconosci questa limetta per unghie?
         Greta: Yep, è mia.
         Greta: Ho una seconda unghia che mi sta spuntando sull'alluce destro.
@@ -87,6 +93,7 @@ Opzioni di dialogo con il personaggio Greta
         Greta: Ma non voglio levarla, lo schifo che mi genera è liberatorio.
         Greta: Per questo l'ho chiamata Zeca.
             -> advance_time ->
+    
     + {inventoryContents has Torta} Ettore: Conosci questa torta?
         Greta: Naa, non le ho chiesto il nome, nulla.
         Greta: Abbiamo consumato l'atto anonimamente, come piace a me.
@@ -96,6 +103,7 @@ Opzioni di dialogo con il personaggio Greta
         Greta: Però sul sesso è un peccato: sei davvero belloccio.
         Greta: Ma ormai so troppo di te per poterti trovare sexy.
             -> advance_time ->
+    
     + {inventoryContents has BottigliaDiVino} Ettore: Sai da dove viene questa bottiglia di vino?
         Greta: Puglia.
         Ettore: Ok, ma chi l'ha portata?
@@ -105,6 +113,7 @@ Opzioni di dialogo con il personaggio Greta
         Greta: E un segno di acutezza ben maggiore di quella di Elia.
         Greta: O di qualcuno che va in giro a fare domande a caso.
             -> advance_time ->
+    
     + {inventoryContents has FlaconcinoAsma} Ettore: Greta, guarda questo flaconcino per l'asma!
         Greta: Non ho tempo, ho cose più interessanti da fare.
         Greta: Tipo sperare di venire uccisa dal serial killer.
@@ -113,6 +122,7 @@ Opzioni di dialogo con il personaggio Greta
         Greta: Dipenderà molto da quante domande continuerai a fare.
         Greta: Qualcuno mi uccida, ora!
             -> advance_time ->
+    
     + {inventoryContents has SigarettaElettronica} Ettore: Sai chi potrebbe averla persa?
         Greta: No.
         Ettore: Ma..
@@ -122,69 +132,69 @@ Opzioni di dialogo con il personaggio Greta
     + Te ne vai
         -> intro
     -
--> greta_acting
+    -> greta_acting
 
-= esplora_greta_personaggia
-{debug: <i>Passo per esplora_greta_personaggia</i>}
-
-{
-- GretaActing > 1: Greta: Ettore bello, mo basta, vai a giocare da un'altra parte!
-    -> advance_time ->
-    -> intro
-- else:
-    { shuffle:
-    -   -> first_qn
-    -   -> second_qn
-    -   -> third_qn
-    }
-}
-
-
-= first_qn
-~ GretaActing++
-    + Ettore: Com'è essere una sorella acquisita?
-        Greta: Hai presente quando qualcuno della tua famiglia trova un gattino per strada
-        Greta: e quel gattino è adorabile e coccoloso e tutti lo adorano
-        Greta: e magari all'inizio in famiglia dicono che no, non lo voglio un gattino
-        Greta: ma ora fanno a gara a chi lo carezza di più o gli dà da mangiare o lo fa giocare
-        Greta: e quella famiglia che magari prima era un po' infelice, ora ha qualcosa di bello attorno a cui riunirsi
-        Greta: e ogni giorno sembra Natale, una festa di compleanno, un matrimonio?
-        Greta: Ecco, io per loro sono i vermi del micino, e la diarrea che ti caccerà per tutta casa.
-    -> advance_time ->
+    = esplora_greta_personaggia
+    {debug: <i>Passo per esplora_greta_personaggia</i>}
     
-    -
--> greta_acting 
+    {
+    - GretaActing > 1: Greta: Ettore bello, mo basta, vai a giocare da un'altra parte!
+        -> advance_time ->
+        -> intro
+    - else:
+        { shuffle:
+        -   -> first_qn
+        -   -> second_qn
+        -   -> third_qn
+        }
+    }
 
-= second_qn
- ~ GretaActing++
-    +  Ettore: Come mai hai deciso di aprire il pub con Elia?
-        Greta: Perché qualcuno doveva chiudere da qualche parte quella specie di labrador.
-        Greta: E perché è un bel luogo dove insultare le persone.
-        Greta: Tanto i comici che vengono sono solo dei falliti.
-        Greta: E poi ho accesso infinito all'alcool, gratuitamente.
-        Greta: Cosa che ora mi renderebbe tutto questo più sopportabile.
-        Greta: E non intendo la morte di Paola.
-        Greta: Intendo questa conversazione.
-    -> advance_time ->
-   
-    -
--> greta_acting     
 
-= third_qn
-~ GretaActing++
-    Greta: Chissà Matteo come sta.
-        +  Ettore: Non sapevo fossi legata a Matteo.
-        Greta: Vedrai presto che in questa famiglia tutti sono legati, quasi incollati, inchiodati.
-        Greta: Non è una famiglia, è un culto.
-        Greta: E se la divinità è Paola, Matteo è l'eretico che vuole prendere il suo posto, e amo gli eretici.
-        Ettore: Anche Matteo ha stima di te. Racconta spesso di quello che pensi e dici.
-        Greta: E cosa penserei?
-        Ettore: Ehm, io ora non ricordo bene.
-        Greta: Non parla mai di me, vero?
-        Greta: Meglio: adoro essere ignorata dalla mia divinità, è una cosa così cattolica.
-    -> advance_time ->    
-    -    
--> greta_acting
+    = first_qn
+    ~ GretaActing++
+        + Ettore: Com'è essere una sorella acquisita?
+            Greta: Hai presente quando qualcuno della tua famiglia trova un gattino per strada
+            Greta: e quel gattino è adorabile e coccoloso e tutti lo adorano
+            Greta: e magari all'inizio in famiglia dicono che no, non lo voglio un gattino
+            Greta: ma ora fanno a gara a chi lo carezza di più o gli dà da mangiare o lo fa giocare
+            Greta: e quella famiglia che magari prima era un po' infelice, ora ha qualcosa di bello attorno a cui riunirsi
+            Greta: e ogni giorno sembra Natale, una festa di compleanno, un matrimonio?
+            Greta: Ecco, io per loro sono i vermi del micino, e la diarrea che ti caccerà per tutta casa.
+            -> advance_time ->
+        
+        -
+        -> greta_acting 
+
+    = second_qn
+     ~ GretaActing++
+        +  Ettore: Come mai hai deciso di aprire il pub con Elia?
+            Greta: Perché qualcuno doveva chiudere da qualche parte quella specie di labrador.
+            Greta: E perché è un bel luogo dove insultare le persone.
+            Greta: Tanto i comici che vengono sono solo dei falliti.
+            Greta: E poi ho accesso infinito all'alcool, gratuitamente.
+            Greta: Cosa che ora mi renderebbe tutto questo più sopportabile.
+            Greta: E non intendo la morte di Paola.
+            Greta: Intendo questa conversazione.
+            -> advance_time ->
+       
+        -
+        -> greta_acting     
+
+    = third_qn
+    ~ GretaActing++
+        Greta: Chissà Matteo come sta.
+            +  Ettore: Non sapevo fossi legata a Matteo.
+            Greta: Vedrai presto che in questa famiglia tutti sono legati, quasi incollati, inchiodati.
+            Greta: Non è una famiglia, è un culto.
+            Greta: E se la divinità è Paola, Matteo è l'eretico che vuole prendere il suo posto, e amo gli eretici.
+            Ettore: Anche Matteo ha stima di te. Racconta spesso di quello che pensi e dici.
+            Greta: E cosa penserei?
+            Ettore: Ehm, io ora non ricordo bene.
+            Greta: Non parla mai di me, vero?
+            Greta: Meglio: adoro essere ignorata dalla mia divinità, è una cosa così cattolica.
+            -> advance_time ->    
+        -    
+        -> greta_acting
 
 
 
@@ -203,96 +213,100 @@ Opzioni di dialogo con la persona Greta
     -> greta_talking
     
 
-= esplora_greta
-{debug: <i>Passo per esplora_greta</i>}
-
-{
-- GretaTalking > 0: Greta: Non chiedermi altro ora: se Paola mi vede ferma mi uccide!
-    -> advance_time ->
-    -> intro
-- else:
-    { shuffle once:
-    -   -> first_qn
-    -   -> second_qn
-    -   -> third_qn
+    = esplora_greta
+    {debug: <i>Passo per esplora_greta</i>}
     
+    {
+    - GretaTalking > 0: Greta: Non chiedermi altro ora: se Paola mi vede ferma mi uccide!
+        -> advance_time ->
+        -> intro
+    - else:
+        { shuffle once:
+        -   -> first_qn
+        -   -> second_qn
+        -   -> third_qn
+        
+        }
     }
-}
 
 //DOMANDE SUllA PERSONA GRETA
 
-= first_qn
-~ GretaTalking++
-    Greta: Moriremo tutti, tutti.
-    Ettore: Cosa è successo?
-    Greta: COSA E' SUCCESSO?
-    Greta: Ah, mi chiede cosa è successo.
-    Ettore: Forse è il caso che me ne vada.
-    Greta: NO, NON LASCIARMI SOLA!
-    Ettore: Sono confuso in questo momento.
-    Greta: Tu sei un attore professionista. Quindi, dimmi: quanto fa schifo questa roba?
-    -> advance_time ->
-        + Ettore: Su una scala che va da Tommy Wiseau a Manuela Arcuri, noi siamo Alberto Tomba.
-        + Ettore: Le blatte sullo sfondo non se la sono cavata male.
-        -
-    Greta: Pensi di essere divertente?
-    Greta: Paola mi aveva promesso le mie prime ferie da sei anni, se avessi fatto un buon lavoro.
-    Greta: LE MIE PRIME FERIEEEEE!
-    Greta: E ora il massimo del sole che prenderò sarà come sempre la luce del frigorifero.
-    Greta: Forse, se faccio bere Paola a sufficienza, si potrebbe dimenticare di ogni cosa, no?
-    -> advance_time ->
-
--> greta_talking 
-
-= second_qn
- ~ GretaTalking++
-    Greta: Sapevi che questa prima era una fonderia?
-    Greta: Poi hanno deciso di costruirci questo inferno social, dove vieni a farti le foto fighe etc etc.
-    Greta: Paola aveva un amico di un amico che aveva un debito, e l'ha avuta a gratis.
-    Greta: E così si è svegliata e ha detto: "Ma sì, oggi sono una regista!"
-    Greta: Ma non poteva fare che ne so, un film, o "The Lady". No.
-    Greta: Doveva tirare su questa cosa superimprovvisata che poi dovremmo fare dal vivo per una settimana.
-    Greta: Portandoci dentro persone inconsapevoli che devono fare il tuo, di ruolo.
-    Greta: Praticamente, un rapimento.
-    -> advance_time ->
-    Greta: E tu mi chiederai ora: perché mi stai dicendo tutto questo?
-    Greta: Non è un po' troppo diretto, quasi uno spiegone?
-    Greta: E avresti ragion. Ma c'è un grosso <i>ma</i>: queste cose avrei dovuto dirtele all'ingaggio.
-    Greta: E invece ero così presa dai casini della Londar e dai malumori di Paola, che alla fine al tuo agente ho solo dato orario e indirizzo.
-    Greta: E ora mi sento in colpa perché mi chiedo: quando Paola è morta, hai capito che era una recita, o ti sei spaventato?
-        + Ettore: Mi sono cagato addosso.
-            Greta: Come temevo.
-        + Ettore: Naa, era tutto troppo ridicolo.
-            Greta: Bene, ma non dirlo a Paola o mi licenzia.
-        -
-    Greta: Fortuna comunque che il tuo agente ha firmato un accordo superrestrittivo per te.
-    Greta: Per cui non potresti denunciarci neanche in caso di menomazione.
-    Greta: C'è altro?
-    -> advance_time ->
--> greta_talking    
-
-= third_qn
-~ GretaTalking++
-    Greta: Come ti trovi coi gossip?
-        + Ettore: Non vivo senza.
-            Greta: Siamo in due!
-        + Ettore: Basta che non siano su di me.
-            Greta: Tranqui, non sei così interessante.
-        -
-    Greta: Non so se l'hai notato, ma Elia e Zeca sono l'uno l'ombra dell'altro.
-    Greta: E fuori da qui, lavorano assieme H24 su quel loro progetto di merda.
-    Greta: Che è una specie di Onlyfans per sfigati narcisisti.
-    Greta: E sai qual è la cosa più interessante?
-    Greta: Che Elia da un anno dice di avere una fidanzata, ma nessuno quella fidanzata l'ha mai vista.
-    Greta: E a volte sospetto che la fidanzata sia Zeca.
-        -> advance_time ->    
-    Greta: E non ci sarebbe niente di male, figurati.
-    Greta: Solo che non mi piace essere tirata in giro.
-    Greta: Cioè, prova a immaginare ad esempio una situazione in cui tu scopi con Elia.
-    Greta: Non sempre, saltuariamente, proprio quando c'hai un prurito.
-    Greta: E lui si scopa anche altra gente.
-    Greta: Un po' la cosa ti farebbe incazzare, no?
-    Greta: E mi immagino il povero Zeca, come potrebbe sentirsi.
-    Greta: Se tutto sommato questa ragazza immaginaria, non sarebbe poi così tanto immaginaria.
+    = first_qn
+    ~ GretaTalking++
+        Greta: Moriremo tutti, tutti.
+        Ettore: Cosa è successo?
+        Greta: COSA E' SUCCESSO?
+        Greta: Ah, mi chiede cosa è successo.
+        Ettore: Forse è il caso che me ne vada.
+        Greta: NO, NON LASCIARMI SOLA!
+        Ettore: Sono confuso in questo momento.
+        Greta: Tu sei un attore professionista. Quindi, dimmi: quanto fa schifo questa roba?
         -> advance_time ->
--> greta_talking
+            + Ettore: Su una scala che va da Tommy Wiseau a Manuela Arcuri, noi siamo Alberto Tomba.
+            + Ettore: Le blatte sullo sfondo non se la sono cavata male.
+            -
+        Greta: Pensi di essere divertente?
+        Greta: Paola mi aveva promesso le mie prime ferie da sei anni, se avessi fatto un buon lavoro.
+        Greta: LE MIE PRIME FERIEEEEE!
+        Greta: E ora il massimo del sole che prenderò sarà come sempre la luce del frigorifero.
+        Greta: Forse, se faccio bere Paola a sufficienza, si potrebbe dimenticare di ogni cosa, no?
+            -> advance_time ->
+    
+        -> greta_talking 
+
+    
+    = second_qn
+     ~ GretaTalking++
+        Greta: Sapevi che questa prima era una fonderia?
+        Greta: Poi hanno deciso di costruirci questo inferno social, dove vieni a farti le foto fighe etc etc.
+        Greta: Paola aveva un amico di un amico che aveva un debito, e l'ha avuta a gratis.
+        Greta: E così si è svegliata e ha detto: "Ma sì, oggi sono una regista!"
+        Greta: Ma non poteva fare che ne so, un film, o "The Lady". No.
+        Greta: Doveva tirare su questa cosa superimprovvisata che poi dovremmo fare dal vivo per una settimana.
+        Greta: Portandoci dentro persone inconsapevoli che devono fare il tuo, di ruolo.
+        Greta: Praticamente, un rapimento.
+        -> advance_time ->
+        Greta: E tu mi chiederai ora: perché mi stai dicendo tutto questo?
+        Greta: Non è un po' troppo diretto, quasi uno spiegone?
+        Greta: E avresti ragion. Ma c'è un grosso <i>ma</i>: queste cose avrei dovuto dirtele all'ingaggio.
+        Greta: E invece ero così presa dai casini della Londar e dai malumori di Paola, che alla fine al tuo agente ho solo dato orario e indirizzo.
+        Greta: E ora mi sento in colpa perché mi chiedo: quando Paola è morta, hai capito che era una recita, o ti sei spaventato?
+            + Ettore: Mi sono cagato addosso.
+                Greta: Come temevo.
+            + Ettore: Naa, era tutto troppo ridicolo.
+                Greta: Bene, ma non dirlo a Paola o mi licenzia.
+            -
+        Greta: Fortuna comunque che il tuo agente ha firmato un accordo superrestrittivo per te.
+        Greta: Per cui non potresti denunciarci neanche in caso di menomazione.
+        Greta: C'è altro?
+            -> advance_time ->
+        
+        -> greta_talking    
+
+
+    = third_qn
+    ~ GretaTalking++
+        Greta: Come ti trovi coi gossip?
+            + Ettore: Non vivo senza.
+                Greta: Siamo in due!
+            + Ettore: Basta che non siano su di me.
+                Greta: Tranqui, non sei così interessante.
+            -
+        Greta: Non so se l'hai notato, ma Elia e Zeca sono l'uno l'ombra dell'altro.
+        Greta: E fuori da qui, lavorano assieme H24 su quel loro progetto di merda.
+        Greta: Che è una specie di Onlyfans per sfigati narcisisti.
+        Greta: E sai qual è la cosa più interessante?
+        Greta: Che Elia da un anno dice di avere una fidanzata, ma nessuno quella fidanzata l'ha mai vista.
+        Greta: E a volte sospetto che la fidanzata sia Zeca.
+            -> advance_time ->    
+        Greta: E non ci sarebbe niente di male, figurati.
+        Greta: Solo che non mi piace essere tirata in giro.
+        Greta: Cioè, prova a immaginare ad esempio una situazione in cui tu scopi con Elia.
+        Greta: Non sempre, saltuariamente, proprio quando c'hai un prurito.
+        Greta: E lui si scopa anche altra gente.
+        Greta: Un po' la cosa ti farebbe incazzare, no?
+        Greta: E mi immagino il povero Zeca, come potrebbe sentirsi.
+        Greta: Se tutto sommato questa ragazza immaginaria, non sarebbe poi così tanto immaginaria.
+            -> advance_time ->
+        
+        -> greta_talking

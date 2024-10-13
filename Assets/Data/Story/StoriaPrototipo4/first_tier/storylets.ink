@@ -52,11 +52,11 @@
 === startingDinnerStorylet
 {debug: <i>Passo per startingDinnerStorylet</i>}
         Matteo: No, ma ti giuro Paola, ti giuro! Faceva tutto lo sborone quello.
-        ~ currentTime = currentTime + 15
         Matteo: Poi ho chiamato nonno e: tadaaan! Silenzio.
         Matteo: Tutto il consiglio di amministrazione muto.
         Matteo: E il progetto per la piscina sul tetto del grattacielo è passato.
         Greta: Urrà! Una piccola possibilità in più che uno degli stronzi che sta rovinando questa città impari a volare!
+        -> advance_time ->
         Paola: Greta! Non si dicono le parolacce.
         Elia: Quindi è permesso augurare la morte a qualcuno? Perché avrei un po' di nomi, nel caso.
         Zeca: Elia, almeno tu mantieni la tua innocenza o perderei l'unica spinta a sacrificarmi.
@@ -64,10 +64,10 @@
             + Ettore: Salve a tutti!
             + Ettore: Non ho alcuna innocenza: chi posso spingere dal grattacielo?
             -
-            ~ currentTime = currentTime + 15
         Matteo: Amore! Non ti avevo sentito proprio arrivare!
         Matteo: Fratelli, sorella, Greta.
         Greta: Fottiti.
+        -> advance_time ->
         Matteo: Vi presento l'uomo che amo: Ettore. Ettore, loro sono i miei familiari.
             + Ettore: Finalmente incontro il famoso Elia!
                 Elia: Famoso? Sono finito su Tik Tok?
@@ -79,10 +79,10 @@
                 Greta: Bene Matteo, finalmente ci presenti qualcuno di interessante!
                 Zeca: E almeno abbiamo qualcosa in comune.
             -
-            ~ currentTime = currentTime + 15
         Paola: Bene! Ora che ci siamo tutti, possiamo anche brindare al motivo per cui siamo qui!
         Elia: Sapete che oggi ho finalmente aperto la porta dal lato giusto?
         Elia: Nessun livido, guardate!
+        -> advance_time ->
         Greta: Questo è un buon motivo per festeggiare in effetti.
         Matteo: Nessuno ha detto che dobbiamo festeggiare.
         Paola: Anche nel dolore c'è motivo di festa, Matteo, ce lo insegna nostro signore.
@@ -95,7 +95,7 @@
             + Ettore: Basta che non tocchiate il mio, lol!
                 Paola: Non sono cose su cui si scherza!
             -
-            ~ currentTime = currentTime + 15
+            -> advance_time ->
             
         Paola: Capperina, ho dimenticato una cosa di là, arrivo subito.
              ~ move_this_entity_in_a_different_room(Paola)
@@ -111,7 +111,7 @@
             + Ettore: Boh, a questo punto me ne vado anche io.
             + Ettore: Ma non è che c'è dell'altro vino in giro?
             -
-            ~ currentTime = currentTime + 15 
+            -> advance_time ->
         
             ~ move_entity(Paola,WhiteRoom)
         Paola entra. Paola muore.
@@ -124,7 +124,9 @@
             ~ move_entity(Greta,WhiteRoom)        
         Greta: Certo che questo posto è tutto uguale.
         Greta: Raga, ma Paola sta bene?
-            ~ currentTime = currentTime + 15
+        
+            -> advance_time ->
+            
         Zeca: Mmm, è tiepida.
         Elia: E Non respira.
         Greta: Sempre pensato che fosse un vampiro.
@@ -138,7 +140,7 @@
         Zeca: E infatti ci odiamo tutti.
         Elia: Io me ne vado!
         
-            ~ currentTime = currentTime + 15
+            -> advance_time ->
             
         Matteo: Non puoi. Paola ha pagato un buttadentro perché ci chiudesse qui fino alle 23:00.
         Greta: Ma che cazzata è?

@@ -108,4 +108,5 @@ Opzioni di dialogo con la persona Greta
     
     Greta: {~ Merda, merda, merda!|Quindi dovrò trovarmi un nuovo lavoro?|E se fosse solo uno scherzo?}
 
+-> advance_time ->
 ->->

@@ -3,7 +3,6 @@
 + {are_two_entities_together(Paola, Ettore)} [character:Paola]
     -> paola_talking_second_tier->
     
-    TODO: far questa cosa per tutti i personaggi, con advancetime per loro ma non per il corpo di paola che looppa direttamente
 + {are_two_entities_together(Paola, Ettore) && loopableVariables has PaolaDavveroMorta} [character:Paola]
     -> paola_is_dead ->
 -    

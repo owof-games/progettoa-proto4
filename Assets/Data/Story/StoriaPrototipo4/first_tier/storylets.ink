@@ -185,7 +185,8 @@ TODO: scena privata
         Greta: E così papà ed io abbiamo vissuto per mesi per strada.
             + (gretaTriste) Ettore: Merda, non ne sapevo nulla.
             -
-            ~ currentTime = currentTime + 15
+            -> advance_time ->
+            
         Greta: Me ne sono sempre vergognata così tanto, sapete?
         Greta: Mesi e mesi a vedere le persone passarci davanti.
         Greta: A spiare dentro la nostra roulotte.
@@ -211,8 +212,7 @@ TODO: scena privata
         Matteo: Pensavo di metterci qualcosa di importante.
         Ettore: Un altro dei tuoi cavalli?
         Matteo: No, qualcosa di più importante.
-            ~ currentTime = currentTime + 15
-            ~ updateEntitiesLocations()
+            -> advance_time ->
             
             {
                 - are_two_entities_together(Ettore, Elia) or are_two_entities_together(Ettore, Greta) or are_two_entities_together(Ettore, Zeca): -> quickTalk
@@ -228,8 +228,7 @@ TODO: scena privata
         Matteo: Beh, non era esattamente quella la proposta, ma ora che mi ci fai pensare.
         Ettore: Chiudi quei pantaloni, amore. A casa poi ci si fonde per bene.
         Matteo: Non hai capito, cristo. Uffi. Sob.
-            ~ currentTime = currentTime + 15
-            ~ updateEntitiesLocations()
+            -> advance_time ->
             
                      {
                 - are_two_entities_together(Ettore, Elia) or are_two_entities_together(Ettore, Greta) or are_two_entities_together(Ettore, Zeca): -> quickTalk
@@ -250,6 +249,7 @@ TODO: scena privata
         Matteo: Oh, sono così felice Ettore!
         Matteo: Ti va di fare quella fusione, ora?
         Ettore: Chiudi i pantaloni, futuro marito.
+            
             -> advance_time ->
 
         -> intro
@@ -277,7 +277,7 @@ TODO: scena privata
     Ettore: Mai, non mi è mai capitato.
     Zeca: Come sensazione è magnifica. Ma dolorosa, quando si interrompe.
     
-        ~ currentTime = currentTime + 15
+        -> advance_time ->
         
     Zeca: E il nostro legame è stato reciso violentemente.
     Zeca: E non ho ancora capito perché.
@@ -288,7 +288,7 @@ TODO: scena privata
     Zeca: Non vedevo Paola da una vita. Era la mia migliore amica, e ora solo una sconosciuta.
     Zeca: Una sconosciuta morta.
     
-        ~ currentTime = currentTime + 15
+        -> advance_time ->
         
         + (paolaZeca) Ettore: Zeca, non so cosa dire, davvero.
         -
@@ -388,7 +388,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
     Greta: A parte i soldi, ma sappiamo benissimo che non sono tuoi.
     Matteo: Ma quella scopata, dimmi che non è stata la scopata del secolo.
     Greta: Al massimo, del secondo.
-            ~ currentTime = currentTime + 15
+           -> advance_time ->
     {
         - greta_acting.loVoglio: -> perEttore
         - not greta_acting.loVoglio: -> poveroEttore
@@ -434,8 +434,8 @@ Matteo: Anche io.
 Ettore: Uh, dimmi pure.
 Matteo: Non voglio sposarti.
 Ettore: Cos
-~ currentTime = currentTime + 15
-~ updateEntitiesLocations()
+    -> advance_time ->
+
 {
     - are_two_entities_together(Ettore, Elia) or are_two_entities_together(Ettore, Greta) or are_two_entities_together(Ettore, Zeca): -> quickTalk
     -else: ->->
@@ -530,7 +530,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Paola: Ma presta attenzione: molte verità si capiscono solo prestando attenzione anche a cose che sul taccuino non ci sono.
             ~ move_first_entity_to_second_entity_location(Matteo,Ettore)
         Paola: E saranno fondamentali per risolvere le contraddizioni.
-            ~ currentTime = currentTime + 15
+            -> advance_time ->
         Ettore: <i>Contraddizioni</i>?
         Paola: Quando avrai due informazioni contrastanti su un personaggio, ti si aprirà sul taccuino la possibilità di scegliere cosa è vero e cosa no.
         Paola: Sarai tu a decidere quando avrai abbastanza informazioni per dare una risposta, e a quel punto incriminare la persona responsabile.
@@ -559,7 +559,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
             ~ move_first_entity_to_second_entity_location(Matteo,Ettore)
         Paola: Dicevo, Ettore. Se vedi che i personaggi non ti dicono nulla di nuovo, non ti viene il dubbio che...
         Ettore: Che si siano annoiati?
-            ~ currentTime = currentTime + 15
+            -> advance_time ->
         Zeca: Che potrebbero dire cose diverse se sono in stanze diverse, o con persone diverse. O da sole.
         Paola:"Grazie. Leccaculo.
         Paola: Ma stavo pensando anche a un'altra cosa: i personaggi parlano tra loro anche quando tu non ci sei. Hai mai pensato che, con le giuste condizioni, potresti <i>origliare</i> una conversazione?
@@ -627,12 +627,12 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
             Greta: "Di nuovo il tizio delle pizze?"
         } 
         
-            ~ currentTime = currentTime + 15
+            -> advance_time ->
             
-        + Ettore: Scusate, ma la scena della morte non doveva arrivare dopo la cena?
-        + Ettore: Greta ha ragione, non ci sto capendo nulla.
-        + Ettore: Mmm, avete provato a farle il solletico?
-        -
+            + Ettore: Scusate, ma la scena della morte non doveva arrivare dopo la cena?
+            + Ettore: Greta ha ragione, non ci sto capendo nulla.
+            + Ettore: Mmm, avete provato a farle il solletico?
+            -
         Elia: Ettore, non è uno scherzo, non è recitazione! Paola è morta davvero.
         Matteo: Merda, non toccatela.
         Zeca: E perché?
@@ -641,9 +641,9 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Greta: Ettore, tieni, chiama la polizia!
         Greta: Sei l'unico che non la conosce, e che può riuscire a non balbettare.
         
-        ~ currentTime = currentTime + 15
         ~ activePhone = true
         ~ tierState = SecondTier
         ~ gretaHaLaLettera = false
+        -> advance_time ->
 
     -> intro

@@ -3,6 +3,11 @@
 
 + {are_two_entities_together(Zeca, Ettore)} [character:Zeca]
     -> zeca_talking_second_tier ->    
+
++ {are_two_entities_together(Zeca, Ettore) && loopableVariables has PaolaDavveroMorta} [character:Zeca]
+    -> paola_is_dead_zeca ->
+-    
+
 -
 
 -> intro
@@ -87,3 +92,17 @@ Opzioni di dialogo con la persona Zeca
     -> advance_time ->    
     -    
 -> zeca_talking_second_tier
+
+
+
+/* ---------------------------------
+
+   Dialoghi per quando Paola è morta 
+
+ ----------------------------------*/
+ 
+=== paola_is_dead_zeca
+    
+    Zeca: {~ }
+
+->->

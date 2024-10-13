@@ -2,13 +2,20 @@
 {debug: <i>passo per first_tier_greta</i>}
 + {are_two_entities_together(Greta, Ettore)} [character:Greta] 
     -> greta_talking_second_tier->    
+
++ {are_two_entities_together(Greta, Ettore) && loopableVariables has PaolaDavveroMorta} [character:Greta]
+    -> paola_is_dead_greta ->
+-    
+
 -
 
 -> intro
 
 
 /* ---------------------------------
+
 Opzioni di dialogo con la persona Greta
+
  ----------------------------------*/
 
 === greta_talking_second_tier
@@ -88,3 +95,17 @@ Opzioni di dialogo con la persona Greta
     -> advance_time ->    
     -    
 -> greta_talking_second_tier
+
+
+
+/* ---------------------------------
+
+   Dialoghi per quando Paola è morta 
+
+ ----------------------------------*/
+ 
+=== paola_is_dead_greta
+    
+    Greta: {~ Merda, merda, merda!|Quindi dovrò trovarmi un nuovo lavoro?|E se fosse solo uno scherzo?}
+
+->->

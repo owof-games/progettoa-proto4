@@ -2,7 +2,11 @@
 {debug: <i>passo per cb_second_tier_elia</i>}
 + {are_two_entities_together(Elia, Ettore)} [character:Elia]
     -> elia_talking_second_tier -> 
-    
+
+
++ {are_two_entities_together(Elia, Ettore) && loopableVariables has PaolaDavveroMorta} [character:Elia]
+    -> paola_is_dead_elia ->
+
 -
 
 -> intro
@@ -91,3 +95,16 @@ Opzioni di dialogo con la persona Elia
     -> advance_time ->    
     -    
 -> elia_talking_second_tier
+
+
+/* ---------------------------------
+
+   Dialoghi per quando Paola è morta 
+
+ ----------------------------------*/
+
+=== paola_is_dead_elia
+    
+    Elia: {~ }
+
+->->

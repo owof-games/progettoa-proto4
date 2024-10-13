@@ -3,6 +3,11 @@
 
 + {are_two_entities_together(Matteo, Ettore)} [character:Matteo]
     -> matteo_talking_second_tier ->    
+
++ {are_two_entities_together(Matteo, Ettore) && loopableVariables has PaolaDavveroMorta} [character:Matteo]
+    -> paola_is_dead_matteo ->
+-    
+
 -
 
 -> intro
@@ -92,3 +97,17 @@ Opzioni di dialogo con la persona Matteo
     -> advance_time ->    
     -    
 -> matteo_talking_second_tier
+
+
+
+/* ---------------------------------
+
+   Dialoghi per quando Paola è morta 
+
+ ----------------------------------*/
+
+=== paola_is_dead_matteo
+    
+    Matteo: {~ }
+
+->->

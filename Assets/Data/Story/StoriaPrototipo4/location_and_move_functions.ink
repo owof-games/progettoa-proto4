@@ -126,18 +126,20 @@
  //Usiamo questa funzione quando una personaggia1 deve andare dove si trova una seconda personaggia.
  === function move_first_entity_to_second_entity_location(entity1,entity2)
 {debug: <i>Passo per function move_first_entity_to_second_entity_location</i>}
-    {
-    - whiteRoomContents has entity1:
-        ~ move_entity(entity2, WhiteRoom)
-    - greenRoomContents has entity1:
-        ~ move_entity(entity2, GreenRoom)
-    - redRoomContents has entity1:
-        ~ move_entity(entity2, RedRoom)
-    - yellowRoomContents has entity1:
-        ~ move_entity(entity2, YellowRoom)
- }
+    ~ temp entity2_location = entity_location(entity2)
+    ~ move_entity(entity1, entity2_location)
+//     {
+//     - whiteRoomContents has entity2:
+//         ~ move_entity(entity1, WhiteRoom)
+//     - greenRoomContents has entity2:
+//         ~ move_entity(entity1, GreenRoom)
+//     - redRoomContents has entity2:
+//         ~ move_entity(entity1, RedRoom)
+//     - yellowRoomContents has entity2:
+//         ~ move_entity(entity1, YellowRoom)
+//  }
  
- 
+
  //Usiamo questa funzione per capire quando possiamo origliare una conversazione: se la personaggia che sta parlando è in una delle stanze accanto a quella in cui si trova Ettore riusciamo a sentire, altrimenti no.
  === function is_this_entity_near_Ettore(entity)
 {debug: <i>passo per is_this_room_near</i>}

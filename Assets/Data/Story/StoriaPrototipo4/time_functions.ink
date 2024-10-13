@@ -49,6 +49,8 @@ VAR currentTime = 0
  
  
 === advance_time
+~ currentTime = currentTime + 15
+
 {debug: <i>Passo per function advance_time</i>}
 //~ temp max_time = LIST_MAX(LIST_ALL(currentTime))
 {
@@ -59,8 +61,12 @@ VAR currentTime = 0
 
 { currentTime >= 600:
     -> loop_reset
-- else:
-    ~ currentTime = currentTime + 15
+}
+
+{ 
+- paolaPausa != -1 && currentTime == paolaPausa + 120:
+    Paola: "Si ricomincia da capo, su, tutti ai propri posti!"
+    -> loop_reset
 }
 
 ~ updateEntitiesLocations()
@@ -72,10 +78,6 @@ VAR currentTime = 0
 {debug: <i>Passo per function resting_time</i>}
 ~ peopleTalking = true
 ~ paolaPausa = currentTime
-{ 
-- currentTime == paolaPausa + 60: Paola: "Si ricomincia da capo, su, tutti ai propri posti!" -> loop_reset
-- else: ->->
-}
 ->->
 
 

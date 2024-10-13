@@ -465,7 +465,7 @@ Matteo: Anzi, me ne vado io.
         Paola: Stop stop stop maledizione!
             ~ move_first_entity_to_second_entity_location(Greta,Ettore)
         Paola: Sant'iddio Greta, dove hai messo tutti i cazzo di oggetti? Mettili al loro posto, ora!
-        -> advance_time ->
+        // -> advance_time ->
             ~  move_this_entity_in_a_different_room(Greta)
             ~ move_first_entity_to_second_entity_location(Zeca,Ettore)
             ~ move_first_entity_to_second_entity_location(Elia,Ettore)
@@ -486,10 +486,10 @@ Matteo: Anzi, me ne vado io.
             ~ move_entity(Torta, YellowRoom)
             ~ move_entity(Briciole, ObjectStorage)
         Paola: Due minuti e poi si riparte dall'omicidio!
-        ~ peopleTalking = true
+        // ~ peopleTalking = true
         
-            -> advance_time ->
             -> resting_time ->
+            -> advance_time ->
             ->->
 
 === notebook_tutorial

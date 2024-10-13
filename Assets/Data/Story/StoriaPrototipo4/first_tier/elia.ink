@@ -334,7 +334,6 @@ Opzioni di dialogo con la persona Elia
 
 === elia_talking
  {debug: <i>Passo per elia_talking</i>}
-    -> resting_time ->
     //INFO GENERALI//
     + [Conosci meglio Elia] -> esplora_elia
     + [Te ne vai] -> intro
@@ -344,7 +343,6 @@ Opzioni di dialogo con la persona Elia
 
 = esplora_elia
 {debug: <i>Passo per esplora_elia</i>}
--> resting_time ->
 
 {
 - EliaTalking > 0: Elia: Scusa, devo fare un po' di flessioni ora!

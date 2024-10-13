@@ -29,7 +29,6 @@ Opzioni di dialogo con la persona Paola
 
 === paola_talking
  {debug: <i>Passo per paola_talking</i>}
-    -> resting_time ->
     //INFO GENERALI//
     + [Conosci meglio Paola] -> esplora_paola
     + [Te ne vai]
@@ -40,7 +39,6 @@ Opzioni di dialogo con la persona Paola
 
 = esplora_paola
 {debug: <i>Passo per esplora_paola</i>}
--> resting_time ->
 
 {
 - PaolaTalking > 0: Paola: Ti chiedo scusa, ma ho altro da fare ora.

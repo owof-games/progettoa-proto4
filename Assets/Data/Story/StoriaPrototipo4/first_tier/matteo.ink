@@ -164,7 +164,6 @@ Opzioni di dialogo con la persona Matteo
 
 === matteo_talking
  {debug: <i>Passo per matteo_talking</i>}
-    -> resting_time ->
     //INFO GENERALI//
     + [Provi a conoscere Matteo] -> esplora_matteo
     + [Ti guardi attorno]
@@ -175,7 +174,6 @@ Opzioni di dialogo con la persona Matteo
 
 = esplora_matteo
 {debug: <i>Passo per esplora_matteo</i>}
--> resting_time ->
 
 {
 - MatteoTalking > 0: Matteo: Perdonami, ma ho del lavoro arretrato da fare mentre riposate.

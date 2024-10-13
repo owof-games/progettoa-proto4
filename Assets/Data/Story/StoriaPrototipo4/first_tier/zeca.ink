@@ -202,7 +202,6 @@ Opzioni di dialogo con la persona Zeca
 
 === zeca_talking
  {debug: <i>Passo per zeca_talking</i>}
-    -> resting_time ->
     //INFO GENERALI//
     + [Scambia due parole con Zeca] -> esplora_zeca
       
@@ -215,7 +214,6 @@ Opzioni di dialogo con la persona Zeca
 
 = esplora_zeca
 {debug: <i>Passo per esplora_zeca</i>}
--> resting_time ->
 
 {
 - ZecaTalking > 0: Zeca: Ora ho bisogno di riflettere su tutti gli errori che mi hanno portato a questo momento, scusa.

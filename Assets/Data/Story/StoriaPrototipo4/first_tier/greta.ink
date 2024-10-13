@@ -195,7 +195,6 @@ Opzioni di dialogo con la persona Greta
 
 === greta_talking
  {debug: <i>Passo per greta_talking</i>}
-    -> resting_time ->
     //INFO GENERALI//
     + [Fai una chiacchierata con Greta] -> esplora_greta
     + [Te ne vai] -> intro
@@ -206,7 +205,6 @@ Opzioni di dialogo con la persona Greta
 
 = esplora_greta
 {debug: <i>Passo per esplora_greta</i>}
--> resting_time ->
 
 {
 - GretaTalking > 0: Greta: Non chiedermi altro ora: se Paola mi vede ferma mi uccide!

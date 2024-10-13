@@ -53,10 +53,10 @@ VAR currentTime = 0
 
 {debug: <i>Passo per function advance_time</i>}
 //~ temp max_time = LIST_MAX(LIST_ALL(currentTime))
-{
-    - tierState == FirstTier: -> first_tier_storylets ->
-    - else: -> second_tier_storylets ->
-}
+// {
+//     - tierState == FirstTier: -> first_tier_storylets ->
+//     - else: -> second_tier_storylets ->
+// }
 
 
 { currentTime >= 600:
@@ -65,7 +65,7 @@ VAR currentTime = 0
 
 { 
 - paolaPausa != -1 && currentTime == paolaPausa + 120:
-    Paola: "Si ricomincia da capo, su, tutti ai propri posti!"
+    // Paola: "Si ricomincia da capo, su, tutti ai propri posti!"
     -> loop_reset
 }
 

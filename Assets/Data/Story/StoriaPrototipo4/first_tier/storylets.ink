@@ -46,7 +46,7 @@
 
     -else: ->->
 }
-->->
+
 
 //STORYLET CONDIZIONALI
 === startingDinnerStorylet
@@ -167,7 +167,9 @@
             Matteo: Elia, non festeggerò mai il mio matrimonio nel tuo bar triste con la tua insopportabile collega!
             Matteo: Questa è la cosa peggiore che potrebbe capitarmi, ed è il <b>mio</b> matrimonio, capito?!?
         -> advance_time ->
-->->
+// ->->
+TODO: mettere intro in fondo a tutti gli storylet
+-> intro
 
 
 === anEavesdropAboutFriendshipStorylet
@@ -258,7 +260,7 @@ TODO: scena privata
     Matteo: Come sanno le altre persone in questa stanza, non si scopa nel raggio di dieci metri da un cadavere.
     Ettore: Ma io! Ma tu!
     Matteo: Me ne vado, così ti lascio ripensare a modo alla tua idea di moralità, Ettore.
-        ~ move_this_entity_in_a_different_room(Matteo)
+       ~ move_this_entity_in_a_different_room(Matteo)
 -> intro
 
 === worstBestManStorylet
@@ -307,13 +309,22 @@ TODO: scena privata
         Matteo: Non sai quali cose terribili potrebbero accadere.
         Matteo: Ahah scherzo, scherzo.
         Matteo: Dove trovo del sangue vergine per purificarlo dal tuo tocco impuro, ora?    
-        -> advance_time ->
+            -> advance_time ->
 ->->
 
 
 //CONVERSAZIONI INDIPENDENTI
 === sheIsTheBestStorylet
 TODO: questa è una modalità molto scriptata, mi piacerebbe qualcosa di più reattivo ma non saprei come fare.
+/*
+Due punti di modifica:
+1) impostazione variabile
+creazione variabile impostata a -1
+nella advance_time (o in un qualunque nodo dove passiamo a ogni tick di tempo), controllo se la variabile vale ancora -1 e se la condizione di dialogo è vera: se sì, imposto la variabile a currentTime
+2) verifica variabile
+entro in questa storylet solo se la variabile NON vale -1, e qui dentro confronto currentTime con variabile, variabile+15, variabile+30, ecc ecc...
+PS: ricordarsi di resettare la variabile al reset_loop
+*/
 {debug: <i>Passo per sheIsTheBestStorylet</i>}
 {
     - currentTime == 240: ->step_one
@@ -330,9 +341,9 @@ TODO: questa è una modalità molto scriptata, mi piacerebbe qualcosa di più re
     Elia: Lei è così attenta.
     Elia: Così perfetta.
     Matteo: Così noiosa!
-            ~ currentTime = currentTime + 15
-            
--> step_two
+
+    ~ currentTime = currentTime + 15
+    -> step_two
 
 = step_two
     Elia: Non provare a ripeterlo, non provarci!
@@ -414,8 +425,8 @@ Matteo: Anche io.
 Ettore: Uh, dimmi pure.
 Matteo: Non voglio sposarti.
 Ettore: Cos
-        ~ currentTime = currentTime + 15
-            ~ updateEntitiesLocations()
+~ currentTime = currentTime + 15
+~ updateEntitiesLocations()
 {
     - are_two_entities_together(Ettore, Elia) or are_two_entities_together(Ettore, Greta) or are_two_entities_together(Ettore, Zeca): -> quickTalk
     -else: ->->

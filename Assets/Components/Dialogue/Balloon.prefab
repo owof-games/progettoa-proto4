@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6591520120591413906}
   - component: {fileID: 2888338742122149183}
   m_Layer: 5
-  m_Name: Testo
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -299,6 +299,7 @@ GameObject:
   - component: {fileID: 3895864048829503457}
   - component: {fileID: 7757599511915722237}
   - component: {fileID: 7664197735825302756}
+  - component: {fileID: 7169472281793527819}
   m_Layer: 5
   m_Name: Balloon
   m_TagString: Untagged
@@ -350,3 +351,23 @@ MonoBehaviour:
   balloonData: {fileID: 11400000, guid: cfbf4c571f26636488162121e1283d1d, type: 2}
   backgroundImage: {fileID: 4146642191529307697}
   textMeshProUGUI: {fileID: 7253120422696042893}
+--- !u!114 &7169472281793527819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8926257883349489528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: 384
+  m_MinHeight: 230
+  m_PreferredWidth: 384
+  m_PreferredHeight: 230
+  m_FlexibleWidth: 384
+  m_FlexibleHeight: 230
+  m_LayoutPriority: 1

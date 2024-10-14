@@ -185,7 +185,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 {paola_talking_second_tier.money: Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro.}
 {matteo_talking_second_tier.coglione: Matteo è felice per Zeca, e per Greta, ma crede che Elia sia un coglione.}
 {greta_talking_second_tier.indagini2: Greta ci dice che Elia sta usando il discorso sindacato per mostrare al CdA che Paola è troppo debole e inetta.}
-{gret.allestimento3: Greta: Non ho visto la sala gialla per tutta la mattina. Ero con Elia a sistemare i tavoli delle altre sale.}
+{greta_talking_second_tier.allestimento3: Greta: Non ho visto la sala gialla per tutta la mattina. Ero con Elia a sistemare i tavoli delle altre sale.}
 {greta_talking_second_tier.indagini3: Se lo diciamo a Greta, lei si sente usata, e giura che smetterà di coprire i furti di denaro di Elia.}
 {trueLoveStorylet: Elia promette amore a Zeca XXX}
 

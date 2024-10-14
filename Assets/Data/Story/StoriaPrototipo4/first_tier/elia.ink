@@ -20,9 +20,13 @@ Opzioni di dialogo con il personaggio Elia
     {debug: <i>Passo per elia_acting</i>}
     -> first_tier_storylets ->
     //INTERAZIONI GENERALI//
-    + [Prova ad avere una conversazione con Elia] -> esplora_elia_personaggia
-    
-    + Ettore: Sai chi potrebbe avere ucciso Paola?
+
+    + (rapporto) {new_this_loop(->rapporto)} Ettore: Che rapporto avevi con Paola?
+        Elia: cose 
+            + + Ettore: Ti manca?
+            + + [Cambi argomento] -> elia_acting
+
+    + (omicidio) {new_this_loop(->omicidio)} Ettore: Sai chi potrebbe avere ucciso Paola?
         Elia: Nessuno.
         Elia: Paola era perfetta, impeccabile.
         Elia: Quindi direi che è stato un suicidio.
@@ -31,9 +35,13 @@ Opzioni di dialogo con il personaggio Elia
         Elia: E Paola non va contro Dio. E quindi:
         Elia: Paola non è morta.
         Elia: Il caso è chiuso.
-    //SCELTE CONDIZIONALI//
+        -> advance_time ->
+
+    + [Prova ad avere una conversazione con Elia] -> esplora_elia_personaggia    
     
-    + (senzatetto){greta_acting.missioneGreta && new_this_loop(->senzatetto) && not are_two_entities_together(Greta, Elia)} Ettore: Sai Elia, Greta vorrebbe parlare con te.
+    //SCELTE CONDIZIONALI//
+
+    + (senzatetto){greta_acting.omicidio && new_this_loop(->senzatetto) && not are_two_entities_together(Greta, Elia)} Ettore: Sai Elia, Greta vorrebbe parlare con te.
         Elia: Così può uccidere anche me?
         Ettore: In che senso?
         Elia: Chi altri avrebbe potuto uccidere Paola?

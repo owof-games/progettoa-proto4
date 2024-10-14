@@ -21,6 +21,20 @@ Opzioni di dialogo con la persona Greta
 === greta_talking_second_tier
  {debug: <i>Passo per greta_talking_second_tier</i>}
     //INFO GENERALI//
+    + (loop) {new_this_loop(->loop)} Ettore: Non stai notando nulla di strano?
+        Matteo: cose 
+            -> advance_time ->
+            + + [Cambi argomento] -> greta_talking_second_tier
+
+    + (rapporto) {new_this_loop(->rapporto)} Ettore: Che rapporto hai con Paola?
+        Matteo: cose
+            -> advance_time ->
+            + + [Cambi argomento] -> greta_talking_second_tier
+
+    + (omicidio) {new_this_loop(->omicidio)} Ettore: Secondo te qualcuno potrebbe volere del male a Paola?
+        Greta: 
+        -> advance_time ->
+
     + Fai domande sulla persona Greta -> esplora_greta
 
     // OPZIONE PER IL FINALE

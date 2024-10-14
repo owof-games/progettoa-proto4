@@ -20,6 +20,21 @@ Opzioni di dialogo con la persona Matteo
 === matteo_talking_second_tier
  {debug: <i>Passo per matteo_talking_second_tier</i>}
     //INFO GENERALI//
+
+    + (loop) {new_this_loop(->loop)} Ettore: Non stai notando nulla di strano?
+            Matteo: cose 
+            -> advance_time ->
+            + + [Cambi argomento] -> matteo_talking_second_tier
+
+    + (rapporto) {new_this_loop(->rapporto)} Ettore: Che rapporto hai con Paola?
+        Matteo: cose
+            -> advance_time ->
+            + + [Cambi argomento] -> matteo_talking_second_tier
+
+    + (omicidio) {new_this_loop(->omicidio)} Ettore: Secondo te qualcuno potrebbe volere del male a Paola?
+        Matteo: 
+        -> advance_time ->
+
     + Fai domande sulla persona Matteo -> esplora_matteo
     
     // OPZIONE PER IL FINALE

@@ -22,6 +22,20 @@ Opzioni di dialogo con la persona Zeca
 === zeca_talking_second_tier
  {debug: <i>Passo per zeca_talking_second_tier</i>}
     //INFO GENERALI//
+    + (loop) {new_this_loop(->loop)} Ettore: Non stai notando nulla di strano?
+        Zeca: cose 
+            -> advance_time ->
+            + + [Cambi argomento] -> zeca_talking_second_tier
+
+    + (rapporto) {new_this_loop(->rapporto)} Ettore: Che rapporto hai con Paola?
+        Zeca: cose
+            -> advance_time ->
+            + + [Cambi argomento] -> zeca_talking_second_tier
+
+    + (omicidio) {new_this_loop(->omicidio)} Ettore: Secondo te qualcuno potrebbe volere del male a Paola?
+        Zeca: 
+        -> advance_time ->
+
     + Fai domande sulla persona Zeca -> esplora_zeca
 
     // OPZIONE PER IL FINALE

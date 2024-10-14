@@ -21,6 +21,20 @@ Opzioni di dialogo con la persona Paola
 === paola_talking_second_tier
  {debug: <i>Passo per paola_talking</i>}
     //INFO GENERALI//
+    + (loop) {new_this_loop(->loop)} Ettore: Non stai notando nulla di strano?
+        Paola: cose 
+            -> advance_time ->
+            + + [Cambi argomento] -> paola_talking_second_tier
+
+    + (rapporto) {new_this_loop(->rapporto)} Ettore: Che rapporto hai con Paola?
+        Paola: cose
+            -> advance_time ->
+            + + [Cambi argomento] -> paola_talking_second_tier
+
+    + (omicidio) {new_this_loop(->omicidio)} Ettore: Paola, qualcuno ti potrebbe odiare qui?
+        Paola: 
+        -> advance_time ->
+
     + Fai domande sulla persona Paola -> esplora_paola
 
     // OPZIONE PER IL FINALE

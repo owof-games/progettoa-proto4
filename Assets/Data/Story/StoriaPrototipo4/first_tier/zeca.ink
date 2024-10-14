@@ -22,6 +22,16 @@ Opzioni di dialogo con il personaggio Zeca
     {debug: <i>Passo per zeca_acting</i>}
     -> first_tier_storylets ->
     //INFO GENERALI//
+
+    + (rapporto) {new_this_loop(->rapporto)} Ettore: Che rapporto avevi con Paola?
+        Matteo: cose 
+            + + Ettore: Ti manca?
+            + + [Cambi argomento] -> zeca_acting
+
+    + (omicidio) {new_this_loop(->omicidio)} Ettore: Sai chi potrebbe avere ucciso Paola?
+        Zeca: 
+        -> advance_time ->
+
     + [Conosci meglio Zeca] -> esplora_zeca_personaggia
     
     //SCELTE CONDIZIONALI//

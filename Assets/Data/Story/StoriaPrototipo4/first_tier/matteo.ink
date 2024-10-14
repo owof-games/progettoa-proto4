@@ -20,6 +20,16 @@ Opzioni di dialogo con il personaggio Matteo
     {debug: <i>Passo per matteo_acting</i>}
     -> first_tier_storylets ->
     //INFO GENERALI//
+
+    + (rapporto) {new_this_loop(->rapporto)} Ettore: Che rapporto avevi con Paola?
+        Matteo: cose 
+            + + Ettore: Ti manca?
+            + + [Cambi argomento] -> matteo_acting
+
+    + (omicidio) {new_this_loop(->omicidio)} Ettore: Sai chi potrebbe avere ucciso Paola?
+        Matteo: 
+        -> advance_time ->
+        
     + [Chiacchiera un po' con Matteo] -> esplora_matteo_personaggia
     
     //SCELTE CONDIZIONALI//

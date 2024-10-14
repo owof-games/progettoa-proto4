@@ -63,7 +63,7 @@
 === reStartingDinnerStorylet
     {debug: <i>Passo per startingDinnerStorylet</i>}
         Matteo: No, ma ti giuro Paola, ti giuro! Faceva tutto lo sborone quello.
-            ~ currentTime = currentTime + 15
+            -> advance_time ->
         Matteo: Poi ho chiamato nonno e: bang!
         Matteo: Tutto il consiglio di amministrazione muto.
         Matteo: E il progetto per la piscina sul tetto del grattacielo è passato.
@@ -71,11 +71,11 @@
         Paola: Non voglio morire non voglio morire non voglio morire non voglio.
         Elia: Quindi è permesso augurare la morte a qualcuno? Perché avrei un po' di nomi, nel caso.
         Zeca: Elia, almeno tu mantieni la tua innocenza o perderei l'unica spinta a sacrificarti.
-            + Ettore: Ehm, ehm. Scusate se vi disturbo.
             + Ettore: Eccomi! In tutto il mio splendore!
+            + Ettore: Cosa diavolo è successo?!?
             + Ettore: Non ho alcuna innocenza: chi devo spingere dal grattacielo?
             -
-            ~ currentTime = currentTime + 15
+            -> advance_time ->
         Matteo: Amore! Non ti avevo sentito proprio arrivare!
         Matteo: Fratelli, sorella, Greta.
         Greta: Fottiti.
@@ -86,11 +86,11 @@
             + Ettore: Tu devi essere Paola! Matteo parla un sacco di te!
                 Paola: Non voglio morire non voglio morire non voglio morire non voglio.
                 Matteo: Non ti parlo così tanto di lei. A parte a pranzo, cena, letto e durante le preghiere.
-            + Ettore: Vorrei dire di ricordami un solo dei vostri nomi, ma ho scolato un'intera boccia di antigelo prima di venire qui.
+            + Ettore: Perché state facendo finta di nulla?!?.
                 Greta: Bene Matteo, finalmente ci presenti qualcuno di interessante!
                 Zeca: E almeno abbiamo qualcosa in comune.
             -
-            ~ currentTime = currentTime + 15
+            -> advance_time ->
         Paola: Non voglio morire non voglio morire non voglio morire non voglio.
         Elia: Sapete che nemmeno oggi ho aperto la porta dal lato giusto?
         Elia: Sono tutto un livido, guardate!
@@ -102,10 +102,10 @@
                 Zeca: Ettore, giusto? Ecco, Ettore: non farti domande su questa famiglia, o c'è da perdere il senno.
             + Ettore: Ehm, e io che c'entro?
                 Matteo: Tu sei il testimone speciale, vedrai!
-            + Ettore: Basta che non tocchiate il mio, lol!
+            + Ettore: Forse ho bevuto davvero? E non lo ricordo?
                 Paola: Non voglio morire non voglio morire non voglio morire non voglio.
             -
-            ~ currentTime = currentTime + 15
+            -> advance_time ->
             
         Paola: Non voglio morire non voglio morire non voglio morire non voglio.
              ~ move_this_entity_in_a_different_room(Paola)
@@ -121,7 +121,7 @@
             + Ettore: Boh, a questo punto me ne vado anche io.
             + Ettore: Ma non è che c'è dell'altro vino in giro?
             -
-            ~ currentTime = currentTime + 15 
+            -> advance_time ->
 
             ~ move_entity(Elia,WhiteRoom)
         Elia entra, muore.
@@ -131,13 +131,16 @@
         Matteo entra, muore.
             ~ move_entity(Greta,WhiteRoom)        
         Greta entra, muore.
-                    ~ move_entity(Paola,WhiteRoom)
+            ~ move_entity(Paola,WhiteRoom)
         Paola: Non voglio morire non voglio morire non voglio morire non voglio.
-            ~ currentTime = currentTime + 15
-            + (tuttiMorti) Ettore: Chiamiamo la polizia!
+        Paola muore.
+
+            -> advance_time ->
+
+            + (tuttiMorti) Ettore: Perché vi comportate così?!?!
             -
         Paola: Non voglio morire non voglio morire non voglio.
-            ~ currentTime = currentTime + 15
+            -> advance_time ->
         Greta: BASTAAAAAAA! Questo script è tremendo!
         Paola: Non voglio morire non voglio.
         Elia: Basta, basta, basta. Prendiamoci dieci minuti di riposo.

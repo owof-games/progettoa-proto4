@@ -30,7 +30,10 @@
         ~ move_entity(Matteo, YellowRoom)    
         
     - 420:
-        ~ move_entity(Matteo, WhiteRoom)    
+        ~ move_entity(Matteo, WhiteRoom)
+
+    - 480:
+        ~ move_entity(Matteo, GreenRoom)        
               
  
 }
@@ -45,10 +48,20 @@
         ~ move_entity(Paola, WhiteRoom)  
 
     - 180:
-        ~ move_entity(Paola, WhiteRoom)
+        {
+            - tierState has FirstTier:
+            ~ move_entity(Paola, WhiteRoom)
+            - tierState has SecondTier:
+            ~ move_entity(Paola, RedRoom)
+        }
 
     - 240:
-         ~ move_entity(Paola, WhiteRoom)  
+        {
+            - tierState has FirstTier:
+            ~ move_entity(Paola, WhiteRoom)
+            - tierState has SecondTier:
+            ~ move_entity(Paola, GreenRoom)
+        }
 
     - 300:
         ~ move_entity(Paola, WhiteRoom)   
@@ -81,7 +94,10 @@
         ~ move_entity(Elia, GreenRoom)    
         
     - 420:
-        ~ move_entity(Elia, YellowRoom)    
+        ~ move_entity(Elia, YellowRoom)
+
+    - 480:
+        ~ move_entity(Elia, RedRoom)            
               
  
 }
@@ -132,7 +148,10 @@
         ~ move_entity(Zeca, RedRoom)    
         
     - 420:
-        ~ move_entity(Zeca, YellowRoom)    
+        ~ move_entity(Zeca, RedRoom)
+
+    - 480:
+        ~ move_entity(Zeca, YellowRoom)     
               
  
 }
@@ -156,7 +175,7 @@
         
     - 0 && objects_tutorial:
         ~ move_entity(LimettaUnghie, GreenRoom)
-        ~ move_entity(SpiedinoCocktail, RedRoom)
+        ~ move_entity(SpiedinoCocktail, ObjectStorage)
         ~ move_entity(AnticoPugnale, GreenRoom)
         {
         - gretaHaLaLettera == true:
@@ -166,8 +185,8 @@
         }
         
         ~ move_entity(BottigliaDiVino, YellowRoom)
-        ~ move_entity(SigarettaElettronica, RedRoom)
-        ~ move_entity(FlaconcinoAsma, WhiteRoom)
+        ~ move_entity(SigarettaElettronica, WhiteRoom)
+        ~ move_entity(FlaconcinoAsma, RedRoom)
         ~ move_entity(Torta, YellowRoom)
 
         

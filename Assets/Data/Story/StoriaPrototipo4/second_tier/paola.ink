@@ -141,17 +141,20 @@ Con cosa
     + {cb_second_tier_flaconcino_asma.primoCheck or paola_is_dead.asma} Il boccettino dell'asma.
     + {cb_second_tier_sigaretta_elettronica.primoCheck or paola_is_dead.sigaretta} La sigaretta elettronica.
     + {cb_second_tier_cibo.primoCheck or paola_is_dead.briciole} La torta.
-
+    -
+    
 Con l'aiuto di chi
     + Elia
     + Greta
     + Matteo
     + Zeca
     + Hai fatto da sola
-
+    -
+    
 Perché
-    + 
-
+    + xxx
+    -
+    
 Sono sicuro di tutto questo?
     + Sì -> finalStorylet
     + No -> loop_reset

@@ -168,19 +168,10 @@
         ~ move_entity(BottigliaDiVino, YellowRoom)
         ~ move_entity(SigarettaElettronica, RedRoom)
         ~ move_entity(FlaconcinoAsma, WhiteRoom)
-        {
-         - tierState == FirstTier:
-            ~ move_entity(Torta, YellowRoom)
-         - else:
-            ~ move_entity(Torta, ObjectStorage)
-        }
+        ~ move_entity(Torta, YellowRoom)
+
         
-        {
-         - tierState == SecondTier:
-            ~ move_first_entity_to_second_entity_location(Briciole, Paola)
-         - else:
-            ~ move_entity(Briciole, ObjectStorage)
-        }
+
         
         
 }

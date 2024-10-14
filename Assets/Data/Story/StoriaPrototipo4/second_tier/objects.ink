@@ -9,7 +9,7 @@
 = lettera
     + (primoCheck) [Leggi la lettera]
     -> advance_time ->
-        Con una calligrafia nervosa è stato scritto: <i>So cosa hai fatto e la pagherai!</i>. Non c'è firma.
+        La carta è lercia e la calligrafia minacciosa: <i>So cosa hai fatto e la pagherai!</i>. Ha un odore metallico.
         + + [Raccoglila]
         ~ take_object(Lettera)
         + + [Lasciala dov'è]
@@ -31,7 +31,7 @@
 = bottiglia_di_vino
     + (primoCheck) [Ispeziona la bottiglia di vino]
     -> advance_time ->
-    Un negramaro di prestigio. Probabilmente costa più di quanto tu possa guadagnare in metà mese.
+    Il liquido è inquieto e torbido, e si agita nella bottiglia come fosse dotato di vita propria.
         + + [Raccoglila]
         ~ take_object(BottigliaDiVino)
         + + [Lasciala dov'è]
@@ -51,7 +51,7 @@
 = flaconcino_asma
     + (primoCheck) [Osserva il flaconcino per l'asma]
     -> advance_time ->
-        Un comune flaconcino. O, con un po' di fantasia, il periscopio di un sottomarino.
+        Banale pezzo di plastica, leggero e maleabile, a cui è aggrappata l'intera vita di una persona.
         + + [Raccoglilo]
         ~ take_object(FlaconcinoAsma)
         + + [Lascialo dov'è]
@@ -71,7 +71,7 @@
 = sigaretta_elettronica
     + (primoCheck) [Controlla la sigaretta elettronica]
     -> advance_time ->
-    Ha l'odore di un deodorante per il bagno, ma per il resto, niente di particolare.
+    Morte tascabile.
         + + [Raccoglila]
         ~ take_object(SigarettaElettronica)
         + + [Lasciala dov'è]
@@ -82,14 +82,15 @@
 ->->
 
 === cb_second_tier_cibo ===
-+ {are_two_entities_together(Ettore, Briciole)} [object:Briciole]
++ {are_two_entities_together(Ettore, Torta)} [object:Torta]
     -> cibo ->
 
 -> intro
 
 
 = cibo
-    + (primoCheck) [Ci sono rimasugli di un dolce.]
+    + (primoCheck) [Esamina la torta.]
+    Friabile come le proprie sicurezze, come un sacco d'ossa che cade dal sesto piano.
     -> advance_time ->
         + + [Raccoglila]
         ~ take_object(Torta)
@@ -111,7 +112,7 @@
 = foto
     + (primoCheck) [Esamina la foto]
     -> advance_time ->
-        Due persone. In un locale. Due minuti prima di spogliarsi.
+        Due persone. In un locale. Con l'urgenza di divorarsi.
         + + [Raccoglila]
         ~ take_object(Foto)
         + + [Lasciala dov'è]

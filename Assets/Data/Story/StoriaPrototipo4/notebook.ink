@@ -185,6 +185,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 {paola_talking_second_tier.money: Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro.}
 {matteo_talking_second_tier.coglione: Matteo è felice per Zeca, e per Greta, ma crede che Elia sia un coglione.}
 {greta_talking_second_tier.indagini2: Greta ci dice che Elia sta usando il discorso sindacato per mostrare al CdA che Paola è troppo debole e inetta.}
+{gret.allestimento3: Greta: Non ho visto la sala gialla per tutta la mattina. Ero con Elia a sistemare i tavoli delle altre sale.}
 {greta_talking_second_tier.indagini3: Se lo diciamo a Greta, lei si sente usata, e giura che smetterà di coprire i furti di denaro di Elia.}
 {trueLoveStorylet: Elia promette amore a Zeca XXX}
 
@@ -216,10 +217,12 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
     ~ temp info_greta = elia_talking_second_tier.indagini or liarCallLiarStorylet.indagini or liesAndPromisesStorylet or notABigSecretPartOneStorylet.allestimento or zeca_talking_second_tier.allestimento
 
 {zeca_talking_second_tier.allestimento: Zeca ci dice che lui e Matteo hanno lasciato il cibo sui tavoli e poi chiesto a Greta di occuparsene, che loro dovevano sistemare i costumi.}
+{elia_talking_second_tier.allestimento2: Elia: Zeca sente sesso ovunque, giuro! Ma purtroppo ho passato la mattina con Greta a chiamare i fornitori del pub.}
 {elia_talking_second_tier.indagini: Elia ci dice che Greta ha dato a Matteo info per "contrattare" meglio con Paola per la sindacalizzazione e questo avrebbe fatto pissare Paola.}
 {liarCallLiarStorylet.indagini: Zeca ci dice che la polizia ha avuto anche dati personali di Paola. Dati a cui solo la segretaria personale avrebbe potuto avere accesso.}
 {liesAndPromisesStorylet: Elia promette a Greta amore XXX}
 {notABigSecretPartOneStorylet.allestimento: Matteo ci dice che Greta ed Elia hanno recuperato il bere. Si sono occupati anche degli elementi della scenografia}
+
 
 
 {info_zeca: <i>Informazioni su Zeca</i>}
@@ -237,7 +240,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 //Oggetti
 
 {cb_second_tier_lettera.primoCheck: <i>Informazioni sulla lettera</i>}
-{cb_second_tier_lettera.primoCheck: Con una calligrafia nervosa è stato scritto: <i>So cosa hai fatto e la pagherai!</i>. Non c'è firma.}
+{cb_second_tier_lettera.primoCheck: La carta è lercia e la calligrafia minacciosa: <i>So cosa hai fatto e la pagherai!</i>. Ha un odore metallico.}
 {greta_acting.minacce: Greta: Uh, è la calligrafia di Paola. Dove l'hai trovata?}
 {elia_acting.minacce:Elia: Sembra una roba da Matteo. Quando è pissato è capace di dire qualunque cosa.}
 {matteo_talking_second_tier.lettera: Matteo: Mettila via, subito! Se Paola la trova ti mangia vivo!}
@@ -246,7 +249,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 
 {cb_second_tier_bottiglia_di_vino.primoCheck or paola_is_dead.vino: <i>Informazioni sulla bottiglia di vino</i>}
-{cb_second_tier_bottiglia_di_vino.primoCheck: Un negroamaro di prestigio. Probabilmente costa più di quanto tu possa guadagnare in metà mese.}
+{cb_second_tier_bottiglia_di_vino.primoCheck: Il liquido è inquieto e torbido, e si agita nella bottiglia come fosse dotato di vita propria.}
 {paola_is_dead.vino: xxx}
 {paola_talking_second_tier.vino: XXX}
 {zeca_talking_second_tier.allestimento3: Zeca ci dice che l'hanno comprata lui e Matteo.}
@@ -255,14 +258,14 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 
 {cb_second_tier_flaconcino_asma.primoCheck or paola_is_dead.asma: <i>Informazioni sul flaconcino dell'asma</i>}
-{cb_second_tier_flaconcino_asma.primoCheck: Un comune flaconcino. O, con un po' di fantasia, il periscopio di un sottomarino.}
+{cb_second_tier_flaconcino_asma.primoCheck: Banale pezzo di plastica, leggero e maleabile, a cui è aggrappata l'intera vita di una persona.}
 {paola_is_dead.asma: xxx}
 {paola_talking_second_tier.asma: XXX}
 
 
 
 {cb_second_tier_sigaretta_elettronica.primoCheck or paola_is_dead.sigaretta: <i>Informazioni sulla sigaretta elettronica</i>}
-{cb_second_tier_sigaretta_elettronica.primoCheck: Ha l'odore di un deodorante per il bagno, ma per il resto, niente di particolare.}
+{cb_second_tier_sigaretta_elettronica.primoCheck: Morte tascabile.}
 {paola_is_dead.sigaretta: xxx}
 {paola_talking_second_tier.sigaretta: XXX}
 {greta_talking_second_tier.allestimento2: Se chiediamo a Greta, ipoteticamente, chi potrebbe commettere un crimine, la sua risposta sarà "Beh, chi ha comprato il liquido per le sigarette elettroniche" e poi spiega perché.}
@@ -271,12 +274,12 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 
 {cb_second_tier_cibo.primoCheck or paola_is_dead.briciole: <i>Informazioni su torta e briciole</i>}
-{cb_second_tier_cibo.primoCheck: xxx}
+{cb_second_tier_cibo.primoCheck: Friabile come le proprie sicurezze, come un sacco d'ossa che cade dal sesto piano.}
 {paola_is_dead.briciole: xxx}
 {paola_talking_second_tier.torta: XXX}
 
 {paola_talking_second_tier.foto2: <i>Informazioni sulla foto</i>}
-{paola_talking_second_tier.foto2: Due persone. In un locale. Due minuti prima di spogliarsi.}
+{paola_talking_second_tier.foto2: Due persone. In un locale. Con l'urgenza di divorarsi.}
 
 
 //Condizioni

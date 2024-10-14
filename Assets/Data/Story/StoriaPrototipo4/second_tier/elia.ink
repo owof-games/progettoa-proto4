@@ -23,11 +23,19 @@ Opzioni di dialogo con la persona Elia
 
     //SCELTE CONDIZIONALI//
     + {greta_talking_second_tier.indagini && not are_two_entities_together(Elia, Zeca)} Qui è dove Elia mette la musica al massimo per non risponderci.
+
     + (allestimento) {notABigSecretPartOneStorylet.allestimento} Ci dice che lui e Greta hanno lasciato le bottiglie all'ingresso, avvisando Zeca, perché dovevano risolvere un problema coi tavoli
+    
+    + (allestimento2){zeca_talking_second_tier.allestimento2} Dice una cosa che contraddice Greta
+        Elia: Zeca sente sesso ovunque, giuro! Ma purtroppo ho passato la mattina con Greta a chiamare i fornitori del pub.
+        + + Ettore: Del pub inesistente? Quello della recita?
+            Elia: Beh, sì. Mi piace restare nella parte!
+        - -
+
     + (indagini) {iTryToBeAGoodFriendStorylet} Se lo diciamo ad Elia, ci rimane male.
         Dice che si aspettava qualcosa di diverso da Matteo, e che lui sa una cosa ed è stato zitto per difenderlo.
         Elia ci dice che Greta ha dato a Matteo info per "contrattare" meglio con Paola per la sindacalizzazione e questo avrebbe fatto pissare Paola.
-    + {zeca_talking_second_tier.allestimento2} Dice una cosa che contraddice Greta
+   
     + (minacce) {zeca_talking_second_tier.love && phone.browse.indagini && elia_talking_second_tier.minacce} Se chiediamo ad Elia se Zeca potrebbe aver denunciato Paola
         Elia sbotta, dice che non ha senso, che il suo "socio d'affari" che motivo avrebbe di rovinarlo? e si allontana subito, possiamo "pedinarlo"
                 ~ move_first_entity_to_second_entity_location(Elia,Zeca)

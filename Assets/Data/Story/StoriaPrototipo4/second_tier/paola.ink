@@ -26,8 +26,12 @@ Opzioni di dialogo con la persona Paola
     //SCELTE CONDIZIONALI//
     + (allestimento) {zeca_talking_second_tier.allestimento} Ripetiamo quello che ci ha detto Zeca.
         Paola: "Ho sentito Zeca e Matteo litigare nella stanza prima del buffet"
+
     + (money) Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro. 
+
+
     + (foto) {zeca_talking_second_tier.allestimento2} Diciamo la cosa del vibratore. Paola ci dice che se allontaniamo Greta dalla stanza, ci darà qualcosa di interessante.
+
     + (foto2) {greta_talking_second_tier.foto} Se risolviamo: foto Elia e Greta che scopano al pub.
             Vedi tu che farci! (non dobbiamo avere niente in mano)
             {

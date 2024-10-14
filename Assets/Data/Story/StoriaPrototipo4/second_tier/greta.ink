@@ -28,13 +28,15 @@ Opzioni di dialogo con la persona Greta
 
     + (indagini2) {elia_talking_second_tier.indagini} Greta ci dice che Elia sta usando il discorso sindacato per mostrare al CdA che Paola è troppo debole e inetta
 
-    + {zeca_talking_second_tier.allestimento2} Dice una cosa che contraddice Elia
+    + (indagini3) {trueLoveStorylet} Se diciamo della tresca tra Elia e Zeca.
+    Se lo diciamo a Greta, lei si sente usata, e giura che smetterà di coprire i furti di denaro di Elia.
 
+
+    + (allestimento3) {zeca_talking_second_tier.allestimento2} Dice una cosa che contraddice Elia
+                Greta: Non ho visto la sala gialla per tutta la mattina. Ero con Elia a sistemare i tavoli delle altre sale.
     + (allestimento2) {iTryToBeAGoodFriendStorylet} Diciamo del veleno per topi.
         Se chiediamo a Greta, ipoteticamente, chi potrebbe commettere un crimine, la sua risposta sarà "Beh, chi ha comprato il liquido per le sigarette elettroniche" e poi spiega perché.
 
-    + (indagini3) {trueLoveStorylet} Se diciamo della tresca tra Elia e Zeca.
-    Se lo diciamo a Greta, lei si sente usata, e giura che smetterà di coprire i furti di denaro di Elia.
 
     + {paola_talking_second_tier.foto} Possiamo allontanare Greta con una scusa.
         + + (foto) Greta se ne va.

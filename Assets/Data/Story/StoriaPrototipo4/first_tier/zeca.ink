@@ -23,14 +23,33 @@ Opzioni di dialogo con il personaggio Zeca
     -> first_tier_storylets ->
     //INFO GENERALI//
 
-    + (rapporto) {new_this_loop(->rapporto)} Ettore: Che rapporto avevi con Paola?
-        Matteo: cose 
-            + + Ettore: Ti manca?
-            + + [Cambi argomento] -> zeca_acting
+    + (rapporto) {new_this_loop(->rapporto)} Ettore: Tu e Paola eravate molto legati?
+        Zeca: Non mi va di parlarne ora, Ettore.
+        Zeca: Forse più tardi, forse.
+        Zeca: Ma grazie per l'interessamento, davvero.
+        Zeca: Mentre qui cercano già di scannarsi a vicenda, almeno tu hai del buon cuore.
+        Zeca: Sono sicuro che le saresti piaciuto così tanto.
+        Zeca: Povera Paola.
+        Zeca: Povera, povera Paola.
+        -> advance_time ->     
+        -> zeca_acting
 
-    + (omicidio) {new_this_loop(->omicidio)} Ettore: Sai chi potrebbe avere ucciso Paola?
-        Zeca: 
-        -> advance_time ->
+    + (omicidio) {new_this_loop(->omicidio)} Ettore: Non voglio essere indelicato, ma hai idea di chi possa averla uccisa?
+        Zeca: Greta credo la invidiasse.
+        Zeca: Ma le era anche riconoscete, perché è stata Paola ad accoglierla quando è entrata nella famiglia.
+        Zeca: Matteo la ammirava tantissimo.
+        Zeca: E a volte si può uccidere anche la propria divinità.
+        Zeca: Elia ha il cuore di un bambino.
+        Zeca: Ma anche un bambino può essere crudele.
+            -> advance_time ->
+        Zeca: E a me ha tolto tanto, se non tutto.
+        Zeca: Ma l'ha fatto per il mio bene.
+        Zeca: Immagino che tu ci faccia poco con tutto questo.
+        Zeca: Ma togliere una vita è cosa così facile e insieme così grave.
+        Zeca: Chiunque potrebbe averlo fatto.
+        Zeca: Soprattutto se è persona che si fa molte domande.
+            -> advance_time ->
+
 
     + [Conosci meglio Zeca] -> esplora_zeca_personaggia
     

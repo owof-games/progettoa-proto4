@@ -92,9 +92,9 @@
             + Ettore: Finalmente incontro il famoso Elia!
                 Elia: Famoso? Sono finito su Tik Tok?
                 Greta: No, nel Guinness dei Primati come primo essere umano vivo eppure senza cervello.
-            + Ettore: Tu devi essere Paola! Matteo parla un sacco di te!
+            + Ettore: Tu devi essere Paola! Matteo ti ammira molto.
                 Paola: Oh, sono sicura che esageri su un sacco di cose, sai?
-                Matteo: Non gli parlo così tanto di te. A parte a pranzo, cena, letto e durante le preghiere.
+                Matteo: Gli parlo di rado di te. A parte a pranzo, cena, letto e durante le preghiere.
             + Ettore: Vorrei dire di ricordami un solo dei vostri nomi, ma ho scolato un'intera boccia di gin prima di venire qui.
                 Greta: Bene Matteo, finalmente ci presenti qualcuno di interessante!
                 Zeca: E almeno abbiamo qualcosa in comune.
@@ -431,6 +431,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
 === worstBestManStorylet
 {debug: <i>Passo per worstBestMate</i>}
     Zeca: Mio nuovo giovane amico, che bello rivederti.
+    {new_this_loop(->rapporto): Zeca: Forse adesso è un buon momento per rispondere alla tua domanda di prima.}
     Zeca: La vita sa essere crudele, sai?
     Zeca: Continuo a pensare a come eravamo io e Paola, da piccoli.
     Zeca: Hai mai avuto qualcuno che sembrava leggerti nel pensiero?

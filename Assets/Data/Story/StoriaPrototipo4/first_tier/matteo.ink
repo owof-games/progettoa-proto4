@@ -21,15 +21,47 @@ Opzioni di dialogo con il personaggio Matteo
     -> first_tier_storylets ->
     //INFO GENERALI//
 
-    + (rapporto) {new_this_loop(->rapporto)} Ettore: Che rapporto avevi con Paola?
-        Matteo: cose 
-            + + Ettore: Ti manca?
+    + (rapporto) {new_this_loop(->rapporto)} Ettore: Amore, non mi hai mai parlato molto di Paola. Eravate legati?
+        Matteo: Sai come sono: lavoro lavoro lavoro.
+        Matteo: Ogni tanto mi chiamava, ma non avevo mai tempo per rispondere.
+        Matteo: Però le mandavo gli auguri a Natale.
+        Matteo: E dei meme carini.
+        Matteo: Che recuperava la mia segretaria.
+        Matteo: I meme intendo.
+        Matteo: Gli auguri glieli scrivevo io.
+                -> advance_time ->
+            + + Ettore: E come stai ora? Ora che è morta?
+                Matteo: Sai come sono: cerco sempre di andare avanti come un treno.
+                Matteo: Vorrei mettermi subito a lavorare.
+                Matteo: Prima ho provato a chiamare la mia segretaria, ma ha risposto la segreteria telefonica: ironico, vero?
+                Matteo: Allora ho provato a distrarmi masturbandomi.
+                Matteo: Ma non c'è vera privacy in questo posto.
+                Matteo: Però magari potresti darmi una mano.
+                Matteo: Lì, sotto la tovaglia?
+                    -> advance_time ->
+                Ettore: Magari non ora, amore.
+                Matteo: Non mi giudicare: ognuno elabora il lutto come può.
+                    -> matteo_acting    
             + + [Cambi argomento] -> matteo_acting
 
-    + (omicidio) {new_this_loop(->omicidio)} Ettore: Sai chi potrebbe avere ucciso Paola?
-        Matteo: 
-        -> advance_time ->
-        
+    + (omicidio) {new_this_loop(->omicidio)} Ettore: Chi potrebbe aver ucciso Paola?
+        Matteo: La mafia russa.
+        Ettore: La mafia russa?
+        Matteo: Sì. Aveva debiti con mezzo mondo, Paola.
+        Matteo: E un giro di prostituzione da far paura al Vaticano.
+        Matteo: E c'è chi giura che abbia inventato lei, l'ananas sulla pizza.
+        Ettore: Io, ehm. Io. Madonna, sembrava una persona così carina.
+            -> advance_time ->
+        Matteo: Ahah ci sei cascato, vero?
+        Matteo: Lo sapevo!
+        Matteo: Sapevo di essere fatto per fare l'attore!
+        Matteo: Che ne dici, provo con un casting?
+        Ettore: Amore, io...
+        Matteo: Comunque no, nessuno avrebbe potuto odiarla, figurarsi ucciderla.
+        Matteo: Eppure è morta.
+        Matteo: La vita è un mistero.
+             -> advance_time ->
+                -> matteo_acting  
     + [Chiacchiera un po' con Matteo] -> esplora_matteo_personaggia
     
     //SCELTE CONDIZIONALI//

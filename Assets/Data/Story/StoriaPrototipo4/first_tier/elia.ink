@@ -22,8 +22,25 @@ Opzioni di dialogo con il personaggio Elia
     //INTERAZIONI GENERALI//
 
     + (rapporto) {new_this_loop(->rapporto)} Ettore: Che rapporto avevi con Paola?
-        Elia: cose 
-            + + Ettore: Ti manca?
+        Elia: Eravamo fratello e sorella.
+        Ettore: Questo lo so, ma ci andavi d'accordo? Passavi del tempo con lei?
+        Elia: Solo quando eravamo assieme.
+        Ettore: Solo quando eri con lei ci andavi d'accordo?
+        Elia: No, passo del tempo con lei solo quando sono con lei.
+        Elia: Non posso passarlo con lei se non sono con lei, no?
+            -> advance_time ->
+            + + Ettore: E ti manca?
+                Elia: Il tempo?
+                Ettore: No, Paola.
+                Elia: No, lei è qui con noi.
+                Ettore: Non sapevo fossi religioso.
+                Elia: Religioso?
+                Elia: No no, il collarino è alla coreana, non è da prete.
+                Elia: Però una volta ho preso un prete in testa con un pallone.
+                Elia: E ora credo morirò all'inferno.
+                Elia: Ed è un bene perché sono freddoloso.
+                    -> advance_time ->
+                     -> elia_acting
             + + [Cambi argomento] -> elia_acting
 
     + (omicidio) {new_this_loop(->omicidio)} Ettore: Sai chi potrebbe avere ucciso Paola?
@@ -36,6 +53,7 @@ Opzioni di dialogo con il personaggio Elia
         Elia: Paola non è morta.
         Elia: Il caso è chiuso.
         -> advance_time ->
+            -> elia_acting
 
     + [Prova ad avere una conversazione con Elia] -> esplora_elia_personaggia    
     

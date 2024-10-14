@@ -21,8 +21,25 @@ Opzioni di dialogo con il personaggio Greta
     //INFO GENERALI//
 
     + (rapporto) {new_this_loop(->rapporto)} Ettore: Che rapporto avevi con Paola?
-        Greta: cose 
-            + + Ettore: Ti manca?
+        Greta: Che rapporto avevi con Paola?
+        Ettore: Ehi, era solo una domanda innocente!
+        Greta: Ehi, era solo una domanda innocente!
+        Ettore: Vabbè. Tanto i tuoi fratelli parlano un sacco, me lo diranno loro.
+        Greta: Ma sanno solo sparare cazzate.
+        Greta: Le volevo bene, ma eravamo molto diverse e quindi non ci capivamo.
+        Greta: Contento?
+            -> advance_time ->   
+            + + Ettore: E come ti senti ora che è morta?
+                Greta: Come dovrei sentirmi?
+                Greta: C'è un buco da qualche parte, che non riesco a guardare.
+                Greta: E una parte di me nega che tutto questo sia accaduto.
+                Greta: E forse la domanda più grossa anche per questo è: cosa ne sarà di Elia?
+                Greta: Cosa ne sarà di quel tontolotto incapace?
+                Greta: Immagino che quando la polizia arriverà e finalmente potrò tornare a casa, riempirò quel vuoto di lacrime.
+                Greta: E vodka.
+                Greta: E kebab.
+                    -> advance_time ->
+                        -> greta_acting
             + + [Cambi argomento] -> greta_acting
 
         
@@ -36,7 +53,8 @@ Opzioni di dialogo con il personaggio Greta
             Greta: Ma ti propongo un patto: ti dirò chi è l'assassino se tu convinci Elia a venire a parlarmi.
             Greta: Mi sta evitando da quando è venuta a mancare Paola, e non capisco perché.
             -> advance_time ->   
-            
+                -> greta_acting
+
     + [Conosci meglio Greta] -> esplora_greta_personaggia
     
     //SCELTE CONDIZIONALI//

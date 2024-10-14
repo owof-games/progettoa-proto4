@@ -1,3 +1,5 @@
+~ updateEntitiesLocations()
+-> intro
 === intro ===
 {
     - tierState == FirstTier: -> first_tier_storylets ->

@@ -326,6 +326,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Greta
       objectReference: {fileID: 0}
+    - target: {fileID: 4702935770471043999, guid: 390d13bed8b478b46943b722c80f074f, type: 3}
+      propertyPath: interactionKey
+      value: Greta
+      objectReference: {fileID: 0}
     - target: {fileID: 5484212309055895886, guid: 390d13bed8b478b46943b722c80f074f, type: 3}
       propertyPath: m_Color.b
       value: 1

@@ -32,7 +32,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d66b704e310bc664b91b701c40cc7041, type: 2}
   cmdLinePrefix: '@'
   tagProcessors: []
-  inkFileAsset: {fileID: 102900000, guid: 406223946fbf55b4686ee8a64eff7756, type: 3}
+  inkFileAsset: {fileID: 102900000, guid: bdf67750aad027747926f6fb2fc43068, type: 3}
   references:
     version: 2
     RefIds:

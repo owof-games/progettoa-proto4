@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: InteractCoroutineCommand
   m_EditorClassIdentifier: 
   interactExitEvent: {fileID: 11400000, guid: 59f8d391d36778b4fb358810e73f8cb8, type: 2}
+  interactCharacterEvent: {fileID: 11400000, guid: da922ef8f92423e4aa0cb54cafaec129, type: 2}
   advanceTimeEvent: {fileID: 11400000, guid: d4494cb7494169845b881c63ac1d3929, type: 2}

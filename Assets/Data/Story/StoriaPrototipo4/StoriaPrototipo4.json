@@ -11,6 +11,16 @@
       "\n",
       "\n",
       "\n",
+      "ev",
+      {
+        "f()": "updateEntitiesLocations"
+      },
+      "pop",
+      "/ev",
+      "\n",
+      {
+        "->": "intro"
+      },
       "\n",
       "\n",
       "\n",
@@ -23869,17 +23879,6 @@
           "\n",
           "^Matteo: No, ma ti giuro Paola, ti giuro! Faceva tutto lo sborone quello.",
           "\n",
-          "ev",
-          {
-            "VAR?": "currentTime"
-          },
-          15,
-          "+",
-          "/ev",
-          {
-            "VAR=": "currentTime",
-            "re": true
-          },
           "^Matteo: Poi ho chiamato nonno e: tadaaan! Silenzio.",
           "\n",
           "^Matteo: Tutto il consiglio di amministrazione muto.",
@@ -23888,6 +23887,9 @@
           "\n",
           "^Greta: Urrà! Una piccola possibilità in più che uno degli stronzi che sta rovinando questa città impari a volare!",
           "\n",
+          {
+            "->t->": "advance_time"
+          },
           "^Paola: Greta! Non si dicono le parolacce.",
           "\n",
           "^Elia: Quindi è permesso augurare la morte a qualcuno? Perché avrei un po' di nomi, nel caso.",
@@ -23897,7 +23899,7 @@
           [
             "ev",
             {
-              "^->": "startingDinnerStorylet.0.28.$r1"
+              "^->": "startingDinnerStorylet.0.23.$r1"
             },
             {
               "temp=": "$r"
@@ -23931,7 +23933,7 @@
           [
             "ev",
             {
-              "^->": "startingDinnerStorylet.0.29.$r1"
+              "^->": "startingDinnerStorylet.0.24.$r1"
             },
             {
               "temp=": "$r"
@@ -23965,7 +23967,7 @@
           [
             "ev",
             {
-              "^->": "startingDinnerStorylet.0.30.$r1"
+              "^->": "startingDinnerStorylet.0.25.$r1"
             },
             {
               "temp=": "$r"
@@ -24007,7 +24009,7 @@
                 "temp=": "$r"
               },
               {
-                "->": ".^.^.28.s"
+                "->": ".^.^.23.s"
               },
               [
                 {
@@ -24032,7 +24034,7 @@
                 "temp=": "$r"
               },
               {
-                "->": ".^.^.29.s"
+                "->": ".^.^.24.s"
               },
               [
                 {
@@ -24057,7 +24059,7 @@
                 "temp=": "$r"
               },
               {
-                "->": ".^.^.30.s"
+                "->": ".^.^.25.s"
               },
               [
                 {
@@ -24073,29 +24075,21 @@
               }
             ],
             "g-0": [
-              "ev",
-              {
-                "VAR?": "currentTime"
-              },
-              15,
-              "+",
-              "/ev",
-              {
-                "VAR=": "currentTime",
-                "re": true
-              },
               "^Matteo: Amore! Non ti avevo sentito proprio arrivare!",
               "\n",
               "^Matteo: Fratelli, sorella, Greta.",
               "\n",
               "^Greta: Fottiti.",
               "\n",
+              {
+                "->t->": "advance_time"
+              },
               "^Matteo: Vi presento l'uomo che amo: Ettore. Ettore, loro sono i miei familiari.",
               "\n",
               [
                 "ev",
                 {
-                  "^->": "startingDinnerStorylet.0.g-0.14.$r1"
+                  "^->": "startingDinnerStorylet.0.g-0.9.$r1"
                 },
                 {
                   "temp=": "$r"
@@ -24129,7 +24123,7 @@
               [
                 "ev",
                 {
-                  "^->": "startingDinnerStorylet.0.g-0.15.$r1"
+                  "^->": "startingDinnerStorylet.0.g-0.10.$r1"
                 },
                 {
                   "temp=": "$r"
@@ -24163,7 +24157,7 @@
               [
                 "ev",
                 {
-                  "^->": "startingDinnerStorylet.0.g-0.16.$r1"
+                  "^->": "startingDinnerStorylet.0.g-0.11.$r1"
                 },
                 {
                   "temp=": "$r"
@@ -24205,7 +24199,7 @@
                     "temp=": "$r"
                   },
                   {
-                    "->": ".^.^.14.s"
+                    "->": ".^.^.9.s"
                   },
                   [
                     {
@@ -24234,7 +24228,7 @@
                     "temp=": "$r"
                   },
                   {
-                    "->": ".^.^.15.s"
+                    "->": ".^.^.10.s"
                   },
                   [
                     {
@@ -24263,7 +24257,7 @@
                     "temp=": "$r"
                   },
                   {
-                    "->": ".^.^.16.s"
+                    "->": ".^.^.11.s"
                   },
                   [
                     {
@@ -24286,23 +24280,15 @@
               }
             ],
             "g-1": [
-              "ev",
-              {
-                "VAR?": "currentTime"
-              },
-              15,
-              "+",
-              "/ev",
-              {
-                "VAR=": "currentTime",
-                "re": true
-              },
               "^Paola: Bene! Ora che ci siamo tutti, possiamo anche brindare al motivo per cui siamo qui!",
               "\n",
               "^Elia: Sapete che oggi ho finalmente aperto la porta dal lato giusto?",
               "\n",
               "^Elia: Nessun livido, guardate!",
               "\n",
+              {
+                "->t->": "advance_time"
+              },
               "^Greta: Questo è un buon motivo per festeggiare in effetti.",
               "\n",
               "^Matteo: Nessuno ha detto che dobbiamo festeggiare.",
@@ -24316,7 +24302,7 @@
               [
                 "ev",
                 {
-                  "^->": "startingDinnerStorylet.0.g-1.22.$r1"
+                  "^->": "startingDinnerStorylet.0.g-1.17.$r1"
                 },
                 {
                   "temp=": "$r"
@@ -24350,7 +24336,7 @@
               [
                 "ev",
                 {
-                  "^->": "startingDinnerStorylet.0.g-1.23.$r1"
+                  "^->": "startingDinnerStorylet.0.g-1.18.$r1"
                 },
                 {
                   "temp=": "$r"
@@ -24384,7 +24370,7 @@
               [
                 "ev",
                 {
-                  "^->": "startingDinnerStorylet.0.g-1.24.$r1"
+                  "^->": "startingDinnerStorylet.0.g-1.19.$r1"
                 },
                 {
                   "temp=": "$r"
@@ -24426,7 +24412,7 @@
                     "temp=": "$r"
                   },
                   {
-                    "->": ".^.^.22.s"
+                    "->": ".^.^.17.s"
                   },
                   [
                     {
@@ -24453,7 +24439,7 @@
                     "temp=": "$r"
                   },
                   {
-                    "->": ".^.^.23.s"
+                    "->": ".^.^.18.s"
                   },
                   [
                     {
@@ -24480,7 +24466,7 @@
                     "temp=": "$r"
                   },
                   {
-                    "->": ".^.^.24.s"
+                    "->": ".^.^.19.s"
                   },
                   [
                     {
@@ -24501,16 +24487,8 @@
               }
             ],
             "g-2": [
-              "ev",
               {
-                "VAR?": "currentTime"
-              },
-              15,
-              "+",
-              "/ev",
-              {
-                "VAR=": "currentTime",
-                "re": true
+                "->t->": "advance_time"
               },
               "^Paola: Capperina, ho dimenticato una cosa di là, arrivo subito.",
               "\n",
@@ -24575,7 +24553,7 @@
               [
                 "ev",
                 {
-                  "^->": "startingDinnerStorylet.0.g-2.46.$r1"
+                  "^->": "startingDinnerStorylet.0.g-2.41.$r1"
                 },
                 {
                   "temp=": "$r"
@@ -24609,7 +24587,7 @@
               [
                 "ev",
                 {
-                  "^->": "startingDinnerStorylet.0.g-2.47.$r1"
+                  "^->": "startingDinnerStorylet.0.g-2.42.$r1"
                 },
                 {
                   "temp=": "$r"
@@ -24643,7 +24621,7 @@
               [
                 "ev",
                 {
-                  "^->": "startingDinnerStorylet.0.g-2.48.$r1"
+                  "^->": "startingDinnerStorylet.0.g-2.43.$r1"
                 },
                 {
                   "temp=": "$r"
@@ -24685,7 +24663,7 @@
                     "temp=": "$r"
                   },
                   {
-                    "->": ".^.^.46.s"
+                    "->": ".^.^.41.s"
                   },
                   [
                     {
@@ -24710,7 +24688,7 @@
                     "temp=": "$r"
                   },
                   {
-                    "->": ".^.^.47.s"
+                    "->": ".^.^.42.s"
                   },
                   [
                     {
@@ -24735,7 +24713,7 @@
                     "temp=": "$r"
                   },
                   {
-                    "->": ".^.^.48.s"
+                    "->": ".^.^.43.s"
                   },
                   [
                     {
@@ -24754,16 +24732,8 @@
               }
             ],
             "g-3": [
-              "ev",
               {
-                "VAR?": "currentTime"
-              },
-              15,
-              "+",
-              "/ev",
-              {
-                "VAR=": "currentTime",
-                "re": true
+                "->t->": "advance_time"
               },
               "ev",
               {
@@ -24842,16 +24812,8 @@
               "\n",
               "^Greta: Raga, ma Paola sta bene?",
               "\n",
-              "ev",
               {
-                "VAR?": "currentTime"
-              },
-              15,
-              "+",
-              "/ev",
-              {
-                "VAR=": "currentTime",
-                "re": true
+                "->t->": "advance_time"
               },
               "^Zeca: Mmm, è tiepida.",
               "\n",
@@ -24868,7 +24830,7 @@
               [
                 "ev",
                 {
-                  "^->": "startingDinnerStorylet.0.g-3.71.$r1"
+                  "^->": "startingDinnerStorylet.0.g-3.61.$r1"
                 },
                 {
                   "temp=": "$r"
@@ -24910,7 +24872,7 @@
                     "temp=": "$r"
                   },
                   {
-                    "->": ".^.^.71.s"
+                    "->": ".^.^.61.s"
                   },
                   [
                     {
@@ -24937,16 +24899,8 @@
               "\n",
               "^Elia: Io me ne vado!",
               "\n",
-              "ev",
               {
-                "VAR?": "currentTime"
-              },
-              15,
-              "+",
-              "/ev",
-              {
-                "VAR=": "currentTime",
-                "re": true
+                "->t->": "advance_time"
               },
               "^Matteo: Non puoi. Paola ha pagato un buttadentro perché ci chiudesse qui fino alle 23:00.",
               "\n",
@@ -24967,10 +24921,9 @@
               {
                 "->t->": "advance_time"
               },
-              "ev",
-              "void",
-              "/ev",
-              "->->",
+              {
+                "->": "intro"
+              },
               {
                 "#f": 5
               }
@@ -25254,16 +25207,8 @@
               }
             ],
             "g-0": [
-              "ev",
               {
-                "VAR?": "currentTime"
-              },
-              15,
-              "+",
-              "/ev",
-              {
-                "VAR=": "currentTime",
-                "re": true
+                "->t->": "advance_time"
               },
               "^Greta: Me ne sono sempre vergognata così tanto, sapete?",
               "\n",
@@ -25286,10 +25231,9 @@
               {
                 "->t->": "advance_time"
               },
-              "ev",
-              "void",
-              "/ev",
-              "->->",
+              {
+                "->": "intro"
+              },
               {
                 "#f": 5
               }
@@ -25339,24 +25283,9 @@
         "\n",
         "^Matteo: No, qualcosa di più importante.",
         "\n",
-        "ev",
         {
-          "VAR?": "currentTime"
+          "->t->": "advance_time"
         },
-        15,
-        "+",
-        "/ev",
-        {
-          "VAR=": "currentTime",
-          "re": true
-        },
-        "ev",
-        {
-          "f()": "updateEntitiesLocations"
-        },
-        "pop",
-        "/ev",
-        "\n",
         [
           "ev",
           {
@@ -25400,7 +25329,7 @@
                 "->": ".^.^.^.quickTalk"
               },
               {
-                "->": ".^.^.^.35"
+                "->": ".^.^.^.25"
               },
               null
             ]
@@ -25417,7 +25346,7 @@
                 "->": ".^.^.^.one"
               },
               {
-                "->": ".^.^.^.35"
+                "->": ".^.^.^.25"
               },
               null
             ]
@@ -25443,24 +25372,9 @@
             "\n",
             "^Matteo: Non hai capito, cristo. Uffi. Sob.",
             "\n",
-            "ev",
             {
-              "VAR?": "currentTime"
+              "->t->": "advance_time"
             },
-            15,
-            "+",
-            "/ev",
-            {
-              "VAR=": "currentTime",
-              "re": true
-            },
-            "ev",
-            {
-              "f()": "updateEntitiesLocations"
-            },
-            "pop",
-            "/ev",
-            "\n",
             [
               "ev",
               {
@@ -25504,7 +25418,7 @@
                     "->": ".^.^.^.^.quickTalk"
                   },
                   {
-                    "->": ".^.^.^.29"
+                    "->": ".^.^.^.19"
                   },
                   null
                 ]
@@ -25521,7 +25435,7 @@
                     "->": ".^.^.^.^.two"
                   },
                   {
-                    "->": ".^.^.^.29"
+                    "->": ".^.^.^.19"
                   },
                   null
                 ]
@@ -25678,10 +25592,9 @@
                   {
                     "->t->": "advance_time"
                   },
-                  "ev",
-                  "void",
-                  "/ev",
-                  "->->",
+                  {
+                    "->": "intro"
+                  },
                   {
                     "#f": 5
                   }
@@ -25789,16 +25702,8 @@
           "\n",
           "^Zeca: Come sensazione è magnifica. Ma dolorosa, quando si interrompe.",
           "\n",
-          "ev",
           {
-            "VAR?": "currentTime"
-          },
-          15,
-          "+",
-          "/ev",
-          {
-            "VAR=": "currentTime",
-            "re": true
+            "->t->": "advance_time"
           },
           "^Zeca: E il nostro legame è stato reciso violentemente.",
           "\n",
@@ -25824,7 +25729,7 @@
               "b": [
                 "^ Elia: Ho sempre pensato fosse colpa di Matteo. Matteo è bravo a fare cose colpevoli.",
                 {
-                  "->": ".^.^.^.42"
+                  "->": ".^.^.^.37"
                 },
                 null
               ]
@@ -25842,21 +25747,13 @@
           "\n",
           "^Zeca: Una sconosciuta morta.",
           "\n",
-          "ev",
           {
-            "VAR?": "currentTime"
-          },
-          15,
-          "+",
-          "/ev",
-          {
-            "VAR=": "currentTime",
-            "re": true
+            "->t->": "advance_time"
           },
           [
             "ev",
             {
-              "^->": "worstBestManStorylet.0.60.$r1"
+              "^->": "worstBestManStorylet.0.50.$r1"
             },
             {
               "temp=": "$r"
@@ -25898,7 +25795,7 @@
                 "temp=": "$r"
               },
               {
-                "->": ".^.^.60.s"
+                "->": ".^.^.50.s"
               },
               [
                 {
@@ -25955,10 +25852,9 @@
               {
                 "->t->": "advance_time"
               },
-              "ev",
-              "void",
-              "/ev",
-              "->->",
+              {
+                "->": "intro"
+              },
               {
                 "#f": 5
               }
@@ -26035,10 +25931,9 @@
         {
           "->t->": "advance_time"
         },
-        "ev",
-        "void",
-        "/ev",
-        "->->",
+        {
+          "->": "intro"
+        },
         {
           "#f": 3
         }
@@ -26261,16 +26156,8 @@
         "\n",
         "^Greta: Al massimo, del secondo.",
         "\n",
-        "ev",
         {
-          "VAR?": "currentTime"
-        },
-        15,
-        "+",
-        "/ev",
-        {
-          "VAR=": "currentTime",
-          "re": true
+          "->t->": "advance_time"
         },
         [
           "ev",
@@ -26289,7 +26176,7 @@
                 "->": ".^.^.^.perEttore"
               },
               {
-                "->": ".^.^.^.22"
+                "->": ".^.^.^.17"
               },
               null
             ]
@@ -26313,7 +26200,7 @@
                 "->": ".^.^.^.poveroEttore"
               },
               {
-                "->": ".^.^.^.22"
+                "->": ".^.^.^.17"
               },
               null
             ]
@@ -26437,24 +26324,9 @@
           "\n",
           "^Ettore: Cos",
           "\n",
-          "ev",
           {
-            "VAR?": "currentTime"
+            "->t->": "advance_time"
           },
-          15,
-          "+",
-          "/ev",
-          {
-            "VAR=": "currentTime",
-            "re": true
-          },
-          "ev",
-          {
-            "f()": "updateEntitiesLocations"
-          },
-          "pop",
-          "/ev",
-          "\n",
           [
             "ev",
             {
@@ -26498,7 +26370,7 @@
                   "->": ".^.^.^.^.quickTalk"
                 },
                 {
-                  "->": ".^.^.^.27"
+                  "->": ".^.^.^.17"
                 },
                 null
               ]
@@ -26516,7 +26388,7 @@
                 "/ev",
                 "->->",
                 {
-                  "->": ".^.^.^.27"
+                  "->": ".^.^.^.17"
                 },
                 null
               ]
@@ -26527,7 +26399,7 @@
           [
             "ev",
             {
-              "^->": "hardTrueFeelingsStorylet.0.29.$r1"
+              "^->": "hardTrueFeelingsStorylet.0.19.$r1"
             },
             {
               "temp=": "$r"
@@ -26569,7 +26441,7 @@
                 "temp=": "$r"
               },
               {
-                "->": ".^.^.29.s"
+                "->": ".^.^.19.s"
               },
               [
                 {
@@ -26585,16 +26457,12 @@
               }
             ],
             "g-0": [
-              "ev",
-              "void",
-              "/ev",
-              "->->",
               "^Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelosire.",
               "\n",
               [
                 "ev",
                 {
-                  "^->": "hardTrueFeelingsStorylet.0.g-0.6.$r1"
+                  "^->": "hardTrueFeelingsStorylet.0.g-0.2.$r1"
                 },
                 {
                   "temp=": "$r"
@@ -26628,7 +26496,7 @@
               [
                 "ev",
                 {
-                  "^->": "hardTrueFeelingsStorylet.0.g-0.7.$r1"
+                  "^->": "hardTrueFeelingsStorylet.0.g-0.3.$r1"
                 },
                 {
                   "temp=": "$r"
@@ -26670,7 +26538,7 @@
                     "temp=": "$r"
                   },
                   {
-                    "->": ".^.^.6.s"
+                    "->": ".^.^.2.s"
                   },
                   [
                     {
@@ -26721,7 +26589,7 @@
                     "temp=": "$r"
                   },
                   {
-                    "->": ".^.^.7.s"
+                    "->": ".^.^.3.s"
                   },
                   [
                     {
@@ -26760,10 +26628,9 @@
                   {
                     "->t->": "advance_time"
                   },
-                  "ev",
-                  "void",
-                  "/ev",
-                  "->->",
+                  {
+                    "->": "intro"
+                  },
                   {
                     "#f": 5
                   }
@@ -27043,10 +26910,9 @@
         {
           "->t->": "advance_time"
         },
-        "ev",
-        "void",
-        "/ev",
-        "->->",
+        {
+          "->": "intro"
+        },
         {
           "#f": 3
         }
@@ -27138,16 +27004,8 @@
         "\n",
         "^Paola: E saranno fondamentali per risolvere le contraddizioni.",
         "\n",
-        "ev",
         {
-          "VAR?": "currentTime"
-        },
-        15,
-        "+",
-        "/ev",
-        {
-          "VAR=": "currentTime",
-          "re": true
+          "->t->": "advance_time"
         },
         "^Ettore: <i>Contraddizioni</i>?",
         "\n",
@@ -27172,10 +27030,9 @@
         {
           "->t->": "resting_time"
         },
-        "ev",
-        "void",
-        "/ev",
-        "->->",
+        {
+          "->": "intro"
+        },
         {
           "#f": 3
         }
@@ -27262,16 +27119,8 @@
         "\n",
         "^Ettore: Che si siano annoiati?",
         "\n",
-        "ev",
         {
-          "VAR?": "currentTime"
-        },
-        15,
-        "+",
-        "/ev",
-        {
-          "VAR=": "currentTime",
-          "re": true
+          "->t->": "advance_time"
         },
         "^Zeca: Che potrebbero dire cose diverse se sono in stanze diverse, o con persone diverse. O da sole.",
         "\n",
@@ -27300,10 +27149,9 @@
         {
           "->t->": "resting_time"
         },
-        "ev",
-        "void",
-        "/ev",
-        "->->",
+        {
+          "->": "intro"
+        },
         {
           "#f": 1
         }
@@ -27677,21 +27525,13 @@
           ],
           "nop",
           "\n",
-          "ev",
           {
-            "VAR?": "currentTime"
-          },
-          15,
-          "+",
-          "/ev",
-          {
-            "VAR=": "currentTime",
-            "re": true
+            "->t->": "advance_time"
           },
           [
             "ev",
             {
-              "^->": "paolaIsDeadStorylet.0.44.$r1"
+              "^->": "paolaIsDeadStorylet.0.39.$r1"
             },
             {
               "temp=": "$r"
@@ -27725,7 +27565,7 @@
           [
             "ev",
             {
-              "^->": "paolaIsDeadStorylet.0.45.$r1"
+              "^->": "paolaIsDeadStorylet.0.40.$r1"
             },
             {
               "temp=": "$r"
@@ -27759,7 +27599,7 @@
           [
             "ev",
             {
-              "^->": "paolaIsDeadStorylet.0.46.$r1"
+              "^->": "paolaIsDeadStorylet.0.41.$r1"
             },
             {
               "temp=": "$r"
@@ -27801,7 +27641,7 @@
                 "temp=": "$r"
               },
               {
-                "->": ".^.^.44.s"
+                "->": ".^.^.39.s"
               },
               [
                 {
@@ -27826,7 +27666,7 @@
                 "temp=": "$r"
               },
               {
-                "->": ".^.^.45.s"
+                "->": ".^.^.40.s"
               },
               [
                 {
@@ -27851,7 +27691,7 @@
                 "temp=": "$r"
               },
               {
-                "->": ".^.^.46.s"
+                "->": ".^.^.41.s"
               },
               [
                 {
@@ -27882,17 +27722,6 @@
               "^Greta: Sei l'unico che non la conosce, e che può riuscire a non balbettare.",
               "\n",
               "ev",
-              {
-                "VAR?": "currentTime"
-              },
-              15,
-              "+",
-              "/ev",
-              {
-                "VAR=": "currentTime",
-                "re": true
-              },
-              "ev",
               true,
               "/ev",
               {
@@ -27914,6 +27743,9 @@
               {
                 "VAR=": "gretaHaLaLettera",
                 "re": true
+              },
+              {
+                "->t->": "advance_time"
               },
               {
                 "->": "intro"
@@ -28012,7 +27844,7 @@
             "c-1": [
               "\n",
               {
-                "->t->": "paola_death"
+                "->t->": "paola_is_dead"
               },
               {
                 "->": ".^.^.g-0"
@@ -28022,15 +27854,9 @@
               }
             ],
             "g-0": [
-              [
-                {
-                  "->": "intro"
-                },
-                {
-                  "#f": 5,
-                  "#n": "g-1"
-                }
-              ],
+              {
+                "->": "intro"
+              },
               {
                 "#f": 5
               }
@@ -29225,14 +29051,14 @@
           "#f": 1
         }
       ],
-      "paola_death": [
+      "paola_is_dead": [
         [
           "^Poi ispezione corpo, una sola scelta",
           "\n",
           [
             "ev",
             {
-              "^->": "paola_death.0.2.$r1"
+              "^->": "paola_is_dead.0.2.$r1"
             },
             {
               "temp=": "$r"
@@ -29266,7 +29092,7 @@
           [
             "ev",
             {
-              "^->": "paola_death.0.3.$r1"
+              "^->": "paola_is_dead.0.3.$r1"
             },
             {
               "temp=": "$r"
@@ -29300,7 +29126,7 @@
           [
             "ev",
             {
-              "^->": "paola_death.0.4.$r1"
+              "^->": "paola_is_dead.0.4.$r1"
             },
             {
               "temp=": "$r"
@@ -29334,7 +29160,7 @@
           [
             "ev",
             {
-              "^->": "paola_death.0.5.$r1"
+              "^->": "paola_is_dead.0.5.$r1"
             },
             {
               "temp=": "$r"
@@ -29365,11 +29191,45 @@
               ]
             }
           ],
+          [
+            "ev",
+            {
+              "^->": "paola_is_dead.0.6.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            "/ev",
+            {
+              "*": ".^.^.c-4",
+              "flg": 2
+            },
+            {
+              "s": [
+                "^Lascio perdere",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
           {
             "c-0": [
               "ev",
               {
-                "^->": "paola_death.0.c-0.$r2"
+                "^->": "paola_is_dead.0.c-0.$r2"
               },
               "/ev",
               {
@@ -29397,7 +29257,7 @@
             "c-1": [
               "ev",
               {
-                "^->": "paola_death.0.c-1.$r2"
+                "^->": "paola_is_dead.0.c-1.$r2"
               },
               "/ev",
               {
@@ -29425,7 +29285,7 @@
             "c-2": [
               "ev",
               {
-                "^->": "paola_death.0.c-2.$r2"
+                "^->": "paola_is_dead.0.c-2.$r2"
               },
               "/ev",
               {
@@ -29453,7 +29313,7 @@
             "c-3": [
               "ev",
               {
-                "^->": "paola_death.0.c-3.$r2"
+                "^->": "paola_is_dead.0.c-3.$r2"
               },
               "/ev",
               {
@@ -29470,6 +29330,34 @@
               "\n",
               {
                 "->": "loop_reset"
+              },
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-4": [
+              "ev",
+              {
+                "^->": "paola_is_dead.0.c-4.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.6.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              "\n",
+              {
+                "->": "intro"
               },
               {
                 "->": ".^.^.g-0"
@@ -29534,6 +29422,32 @@
             "*": ".^.c-0",
             "flg": 5
           },
+          "ev",
+          "str",
+          "^character:Greta",
+          "/str",
+          {
+            "VAR?": "Greta"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "are_two_entities_together"
+          },
+          {
+            "VAR?": "loopableVariables"
+          },
+          {
+            "VAR?": "PaolaDavveroMorta"
+          },
+          "?",
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 5
+          },
           {
             "c-0": [
               "^ ",
@@ -29548,10 +29462,28 @@
                 "#f": 5
               }
             ],
-            "g-0": [
+            "c-1": [
+              "\n",
               {
-                "->": "intro"
+                "->t->": "paola_is_dead_greta"
               },
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              [
+                {
+                  "->": "intro"
+                },
+                {
+                  "#f": 5,
+                  "#n": "g-1"
+                }
+              ],
               {
                 "#f": 5
               }
@@ -31165,6 +31097,82 @@
           "#f": 1
         }
       ],
+      "paola_is_dead_greta": [
+        "^Greta: ",
+        [
+          "ev",
+          "visit",
+          3,
+          "seq",
+          "/ev",
+          "ev",
+          "du",
+          0,
+          "==",
+          "/ev",
+          {
+            "->": ".^.s0",
+            "c": true
+          },
+          "ev",
+          "du",
+          1,
+          "==",
+          "/ev",
+          {
+            "->": ".^.s1",
+            "c": true
+          },
+          "ev",
+          "du",
+          2,
+          "==",
+          "/ev",
+          {
+            "->": ".^.s2",
+            "c": true
+          },
+          "nop",
+          {
+            "s0": [
+              "pop",
+              "^ Merda, merda, merda!",
+              {
+                "->": ".^.^.23"
+              },
+              null
+            ],
+            "s1": [
+              "pop",
+              "^Quindi dovrò trovarmi un nuovo lavoro?",
+              {
+                "->": ".^.^.23"
+              },
+              null
+            ],
+            "s2": [
+              "pop",
+              "^E se fosse solo uno scherzo?",
+              {
+                "->": ".^.^.23"
+              },
+              null
+            ],
+            "#f": 5
+          }
+        ],
+        "\n",
+        {
+          "->t->": "advance_time"
+        },
+        "ev",
+        "void",
+        "/ev",
+        "->->",
+        {
+          "#f": 1
+        }
+      ],
       "cb_second_tier_matteo": [
         [
           "ev",
@@ -31207,6 +31215,32 @@
             "*": ".^.c-0",
             "flg": 5
           },
+          "ev",
+          "str",
+          "^character:Matteo",
+          "/str",
+          {
+            "VAR?": "Matteo"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "are_two_entities_together"
+          },
+          {
+            "VAR?": "loopableVariables"
+          },
+          {
+            "VAR?": "PaolaDavveroMorta"
+          },
+          "?",
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 5
+          },
           {
             "c-0": [
               "\n",
@@ -31220,10 +31254,28 @@
                 "#f": 5
               }
             ],
-            "g-0": [
+            "c-1": [
+              "\n",
               {
-                "->": "intro"
+                "->t->": "paola_is_dead_matteo"
               },
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              [
+                {
+                  "->": "intro"
+                },
+                {
+                  "#f": 5,
+                  "#n": "g-1"
+                }
+              ],
               {
                 "#f": 5
               }
@@ -32844,6 +32896,48 @@
           "#f": 1
         }
       ],
+      "paola_is_dead_matteo": [
+        "^Matteo: ",
+        [
+          "ev",
+          "visit",
+          1,
+          "seq",
+          "/ev",
+          "ev",
+          "du",
+          0,
+          "==",
+          "/ev",
+          {
+            "->": ".^.s0",
+            "c": true
+          },
+          "nop",
+          {
+            "s0": [
+              "pop",
+              "^ ",
+              {
+                "->": ".^.^.11"
+              },
+              null
+            ],
+            "#f": 5
+          }
+        ],
+        "\n",
+        {
+          "->t->": "advance_time"
+        },
+        "ev",
+        "void",
+        "/ev",
+        "->->",
+        {
+          "#f": 1
+        }
+      ],
       "cb_second_tier_elia": [
         [
           "ev",
@@ -32886,11 +32980,49 @@
             "*": ".^.c-0",
             "flg": 5
           },
+          "ev",
+          "str",
+          "^character:Elia",
+          "/str",
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "are_two_entities_together"
+          },
+          {
+            "VAR?": "loopableVariables"
+          },
+          {
+            "VAR?": "PaolaDavveroMorta"
+          },
+          "?",
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 5
+          },
           {
             "c-0": [
               "\n",
               {
                 "->t->": "elia_talking_second_tier"
+              },
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "\n",
+              {
+                "->t->": "paola_is_dead_elia"
               },
               {
                 "->": ".^.^.g-0"
@@ -34448,6 +34580,48 @@
           "#f": 1
         }
       ],
+      "paola_is_dead_elia": [
+        "^Elia: ",
+        [
+          "ev",
+          "visit",
+          1,
+          "seq",
+          "/ev",
+          "ev",
+          "du",
+          0,
+          "==",
+          "/ev",
+          {
+            "->": ".^.s0",
+            "c": true
+          },
+          "nop",
+          {
+            "s0": [
+              "pop",
+              "^ ",
+              {
+                "->": ".^.^.11"
+              },
+              null
+            ],
+            "#f": 5
+          }
+        ],
+        "\n",
+        {
+          "->t->": "advance_time"
+        },
+        "ev",
+        "void",
+        "/ev",
+        "->->",
+        {
+          "#f": 1
+        }
+      ],
       "cb_second_tier_zeca": [
         [
           "ev",
@@ -34490,6 +34664,32 @@
             "*": ".^.c-0",
             "flg": 5
           },
+          "ev",
+          "str",
+          "^character:Zeca",
+          "/str",
+          {
+            "VAR?": "Zeca"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "are_two_entities_together"
+          },
+          {
+            "VAR?": "loopableVariables"
+          },
+          {
+            "VAR?": "PaolaDavveroMorta"
+          },
+          "?",
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 5
+          },
           {
             "c-0": [
               "\n",
@@ -34503,10 +34703,28 @@
                 "#f": 5
               }
             ],
-            "g-0": [
+            "c-1": [
+              "\n",
               {
-                "->": "intro"
+                "->t->": "paola_is_dead_zeca"
               },
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
+              [
+                {
+                  "->": "intro"
+                },
+                {
+                  "#f": 5,
+                  "#n": "g-1"
+                }
+              ],
               {
                 "#f": 5
               }
@@ -35869,6 +36087,48 @@
               "#f": 1
             }
           ],
+          "#f": 1
+        }
+      ],
+      "paola_is_dead_zeca": [
+        "^Zeca: ",
+        [
+          "ev",
+          "visit",
+          1,
+          "seq",
+          "/ev",
+          "ev",
+          "du",
+          0,
+          "==",
+          "/ev",
+          {
+            "->": ".^.s0",
+            "c": true
+          },
+          "nop",
+          {
+            "s0": [
+              "pop",
+              "^ ",
+              {
+                "->": ".^.^.11"
+              },
+              null
+            ],
+            "#f": 5
+          }
+        ],
+        "\n",
+        {
+          "->t->": "advance_time"
+        },
+        "ev",
+        "void",
+        "/ev",
+        "->->",
+        {
           "#f": 1
         }
       ],
@@ -39319,10 +39579,9 @@
               {
                 "->t->": "advance_time"
               },
-              "ev",
-              "void",
-              "/ev",
-              "->->",
+              {
+                "->": "intro"
+              },
               {
                 "#f": 5
               }
@@ -39398,10 +39657,9 @@
               }
             ],
             "g-0": [
-              "ev",
-              "void",
-              "/ev",
-              "->->",
+              {
+                "->": "intro"
+              },
               {
                 "#f": 5
               }
@@ -39481,10 +39739,9 @@
               }
             ],
             "g-0": [
-              "ev",
-              "void",
-              "/ev",
-              "->->",
+              {
+                "->": "intro"
+              },
               {
                 "#f": 5
               }
@@ -39870,10 +40127,9 @@
               "\n",
               "^\"Son quei due che andavano in giro col veleno per topi, non noi.\"",
               "\n",
-              "ev",
-              "void",
-              "/ev",
-              "->->",
+              {
+                "->": "intro"
+              },
               {
                 "#f": 5
               }
@@ -39944,10 +40200,9 @@
                 }
               ],
               "\n",
-              "ev",
-              "void",
-              "/ev",
-              "->->",
+              {
+                "->": "intro"
+              },
               {
                 "#f": 5
               }
@@ -39963,10 +40218,9 @@
         "\n",
         "^Elia ammette i suoi sentimenti per Zeca, promette che smetterà di cazzeggiare con Greta.",
         "\n",
-        "ev",
-        "void",
-        "/ev",
-        "->->",
+        {
+          "->": "intro"
+        },
         {
           "#f": 3
         }
@@ -39974,10 +40228,9 @@
       "iLlKillThatBitchStorylet": [
         "^Zeca ci sgama con la foto e andrà ad aggredire Greta, con piccole variazioni a seconda che lei sia già o meno nella stanza.",
         "\n",
-        "ev",
-        "void",
-        "/ev",
-        "->->",
+        {
+          "->": "intro"
+        },
         {
           "#f": 1
         }

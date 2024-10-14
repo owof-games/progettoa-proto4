@@ -1,4 +1,3 @@
-using System.Collections;
 using Components.RoomTransitionHandler;
 using NUnit.Framework;
 using UnityEngine;
@@ -16,30 +15,25 @@ namespace Components.Dialogue
             Assert.IsNotNull(balloonPrefab);
         }
 
-        private IEnumerator Start()
-        {
-            yield return new WaitForSeconds(1f);
-            SetUp(Character.Character.Paola, Direction.Left, 3, "Questo è del testo dove sono <happy>felice</happy>!");
-        }
-
         private void OnValidate()
         {
             gridLayoutGroup = GetComponent<GridLayoutGroup>();
         }
 
-        public void SetUp(Character.Character character, Direction direction, int column, string text)
+        public void SetUp(Character.Character character, Direction direction, int column, string text, bool showAdvance)
         {
             InsertEmpty(column);
-            InsertBalloon(character, direction, text);
+            InsertBalloon(character, direction, text, showAdvance);
             InsertEmpty(5 - column - 1);
         }
 
-        private void InsertBalloon(Character.Character character, Direction direction, string text)
+        private void InsertBalloon(Character.Character character, Direction direction, string text, bool showAdvance)
         {
             var balloonGameObject = Instantiate(balloonPrefab, transform);
             var balloon = balloonGameObject.GetComponent<Balloon>();
             balloon.SetUp(character, direction);
             balloon.SetText(text);
+            balloon.ShowAdvanceButton(showAdvance);
             var rectTransform = balloonGameObject.GetComponent<RectTransform>();
             var height = LayoutUtility.GetPreferredHeight(rectTransform);
             gridLayoutGroup.cellSize = new Vector2(gridLayoutGroup.cellSize.x, height);

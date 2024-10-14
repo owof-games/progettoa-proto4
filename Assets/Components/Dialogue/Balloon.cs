@@ -1,6 +1,8 @@
 using Components.Balloon;
 using Components.RoomTransitionHandler;
+using NUnit.Framework;
 using TMPro;
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +13,19 @@ namespace Components.Dialogue
         [SerializeField] private BalloonData balloonData;
         [SerializeField] private Image backgroundImage;
         [SerializeField] private TextMeshProUGUI textMeshProUGUI;
+        [SerializeField] private GameObject advanceButton;
+        [SerializeField] private StringEvent continueEvent;
+
+        private void Awake()
+        {
+            Assert.IsNotNull(advanceButton);
+            Assert.IsNotNull(continueEvent);
+        }
+
+        private void OnValidate()
+        {
+            if (!advanceButton) advanceButton = transform.Find("Advance Button").gameObject;
+        }
 
         public void SetUp(Character.Character character, Direction direction)
         {
@@ -34,6 +49,17 @@ namespace Components.Dialogue
         public void SetText(string text)
         {
             textMeshProUGUI.text = text;
+        }
+
+        public void ShowAdvanceButton(bool show = true)
+        {
+            advanceButton.SetActive(show);
+        }
+
+        public void OnAdvanceButtonClick()
+        {
+            ShowAdvanceButton(false);
+            continueEvent.Raise(null);
         }
     }
 }

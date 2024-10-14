@@ -1,20 +1,23 @@
-using NUnit.Framework;
 using UnityAtoms.BaseAtoms;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Components.InteractionSelector
 {
-    enum Interaction
+    internal enum Interaction
     {
-        Exit
+        Exit,
+        Character
     }
-    
+
     public class InteractionSelector : MonoBehaviour
     {
         [SerializeField] private Animator animator;
         [SerializeField] private Interaction interaction;
         [SerializeField] private string interactionKey;
         [SerializeField] private StringEvent interactionExitEvent;
+        [SerializeField] private StringEvent interactionCharacterEvent;
         private int _hoveredHash = -1;
 
         private void Awake()
@@ -22,6 +25,7 @@ namespace Components.InteractionSelector
             _hoveredHash = Animator.StringToHash("Hovered");
             Assert.IsNotNull(animator);
             Assert.IsNotNull(interactionExitEvent);
+            Assert.IsNotNull(interactionCharacterEvent);
             Assert.IsFalse(string.IsNullOrWhiteSpace(interactionKey));
         }
 
@@ -42,10 +46,26 @@ namespace Components.InteractionSelector
                 case Interaction.Exit:
                     interactionExitEvent.Raise(interactionKey);
                     break;
+                case Interaction.Character:
+                    interactionCharacterEvent.Raise(interactionKey);
+                    break;
                 default:
                     Debug.LogError($"Unknown interaction {interaction}");
                     break;
             }
+        }
+
+        private void OnValidate()
+        {
+            if (!interactionExitEvent)
+                interactionExitEvent =
+                    AssetDatabase.LoadAssetAtPath<StringEvent>(
+                        "Assets/Components/Story/Interact/InteractExitEvent.asset");
+
+            if (!interactionCharacterEvent)
+                interactionCharacterEvent =
+                    AssetDatabase.LoadAssetAtPath<StringEvent>(
+                        "Assets/Components/Story/Interact/InteractCharacterEvent.asset");
         }
     }
 }

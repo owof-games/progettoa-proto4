@@ -9,12 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dff449b200f99341b59effefaf82bdd, type: 3}
-  m_Name: RedRoomContents
+  m_Script: {fileID: 11500000, guid: 72c8ba0321df8594c92f8c1992079c6e, type: 3}
+  m_Name: Ink Atoms Story - Story Step Variable Changed
   m_EditorClassIdentifier: 
   _developerDescription: 
-  Cleared: {fileID: 0}
-  _startCleared: 1
-  Added: {fileID: 11400000, guid: 44fc2413ed0f5ee4fbc6a61cb04da60d, type: 2}
-  Removed: {fileID: 11400000, guid: 38c60fffff25c924aa4e66bd7d0dc189, type: 2}
-  list: []
+  _replayBufferSize: 1
+  _inspectorRaiseValue:
+    Flow: 
+    Text: 
+    Tags: []
+    Choices: []
+    CanContinue: 0
+    LineNumber: 0
+    Counter: 0

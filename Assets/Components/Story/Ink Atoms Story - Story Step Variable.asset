@@ -22,7 +22,7 @@ MonoBehaviour:
     CanContinue: 0
     LineNumber: 0
     Counter: 0
-  _changed: {fileID: 0}
+  _changed: {fileID: 11400000, guid: ed468af811f41494383f77b2f55bbe1e, type: 2}
   _changedWithHistory: {fileID: 0}
   _triggerChangedOnOnEnable: 0
   _triggerChangedWithHistoryOnOnEnable: 0

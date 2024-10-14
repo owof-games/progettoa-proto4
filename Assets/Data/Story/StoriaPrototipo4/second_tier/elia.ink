@@ -21,6 +21,9 @@ Opzioni di dialogo con la persona Elia
     //INFO GENERALI//
     + Fai domande sulla persona Elia -> esplora_elia
 
+    // OPZIONE PER IL FINALE
+    + {(choice_WhoWasInChargeOfTheBuffet== True or choice_WhoWasInChargeOfTheBuffet == False) && (choice_ForWhomTheLetterWas == True or choice_ForWhomTheLetterWas == False)} [È il momento di fermare l’omicida di Paola!] Ettore: Elia: so che vuoi uccidere Paola! -> arringa_finale_Elia
+
     //SCELTE CONDIZIONALI//
     + {greta_talking_second_tier.indagini && not are_two_entities_together(Elia, Zeca)} Qui è dove Elia mette la musica al massimo per non risponderci.
 
@@ -41,7 +44,6 @@ Opzioni di dialogo con la persona Elia
                 ~ move_first_entity_to_second_entity_location(Elia,Zeca)
                 ~ loopableVariables += EliaSpaventatoPerZeca
     
-
     //SCELTE CONDIZIONALI OGGETTI//
     + {inventoryContents has Lettera} Guarda questa lettera!
     + {inventoryContents has Torta} Guarda questo cibo!
@@ -111,3 +113,29 @@ Opzioni di dialogo con la persona Elia
 
 -> advance_time ->
 ->->
+
+/* ---------------------------------
+
+   Arringa finale. 
+
+ ----------------------------------*/
+=== arringa_finale_Elia
+Con cosa
+    + {cb_second_tier_bottiglia_di_vino.primoCheck or paola_is_dead.vino} Usando il vino.
+    + {cb_second_tier_flaconcino_asma.primoCheck or paola_is_dead.asma} Il boccettino dell'asma.
+    + {cb_second_tier_sigaretta_elettronica.primoCheck or paola_is_dead.sigaretta} La sigaretta elettronica.
+    + {cb_second_tier_cibo.primoCheck or paola_is_dead.briciole} La torta.
+
+Con l'aiuto di chi
+    + Paola
+    + Greta
+    + Matteo
+    + Zeca
+    + Hai fatto da solo
+
+Perché
+    + 
+
+Sono sicuro di tutto questo?
+    + Sì -> finalStorylet
+    + No -> loop_reset

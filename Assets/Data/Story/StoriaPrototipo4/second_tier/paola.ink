@@ -23,12 +23,15 @@ Opzioni di dialogo con la persona Paola
     //INFO GENERALI//
     + Fai domande sulla persona Paola -> esplora_paola
 
+    // OPZIONE PER IL FINALE
+    + {(choice_WhoWasInChargeOfTheBuffet== True or choice_WhoWasInChargeOfTheBuffet == False) && (choice_ForWhomTheLetterWas == True or choice_ForWhomTheLetterWas == False)} [È il momento di fermare l’omicida di Paola!] Ettore: Paola: so che vuoi suicidarti! -> arringa_finale_Paola
+
+
     //SCELTE CONDIZIONALI//
     + (allestimento) {zeca_talking_second_tier.allestimento} Ripetiamo quello che ci ha detto Zeca.
         Paola: "Ho sentito Zeca e Matteo litigare nella stanza prima del buffet"
 
     + (money) Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro. 
-
 
     + (foto) {zeca_talking_second_tier.allestimento2} Diciamo la cosa del vibratore. Paola ci dice che se allontaniamo Greta dalla stanza, ci darà qualcosa di interessante.
 
@@ -124,3 +127,31 @@ Opzioni di dialogo con la persona Paola
         -
 
 -> paola_is_dead
+
+
+
+/* ---------------------------------
+
+   Arringa finale. 
+
+ ----------------------------------*/
+=== arringa_finale_Paola
+Con cosa
+    + {cb_second_tier_bottiglia_di_vino.primoCheck or paola_is_dead.vino} Usando il vino.
+    + {cb_second_tier_flaconcino_asma.primoCheck or paola_is_dead.asma} Il boccettino dell'asma.
+    + {cb_second_tier_sigaretta_elettronica.primoCheck or paola_is_dead.sigaretta} La sigaretta elettronica.
+    + {cb_second_tier_cibo.primoCheck or paola_is_dead.briciole} La torta.
+
+Con l'aiuto di chi
+    + Elia
+    + Greta
+    + Matteo
+    + Zeca
+    + Hai fatto da sola
+
+Perché
+    + 
+
+Sono sicuro di tutto questo?
+    + Sì -> finalStorylet
+    + No -> loop_reset

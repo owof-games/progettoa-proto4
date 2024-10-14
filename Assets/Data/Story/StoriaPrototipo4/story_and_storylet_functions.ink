@@ -58,7 +58,6 @@
 ~ return entity_location(entity1) == entity_location(entity2) && entity_location(entity2) == entity_location(entity3) && entity_location(entity3) == entity_location(entity4) && entity_location(entity4) == entity_location(entity5) && entity_location(entity5) == entity_location(entity6)
 
 
-
 // FLOW QUERIES: DA OVERBOARD
 
 === function seen_ever(->x)

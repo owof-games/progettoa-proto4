@@ -22,6 +22,9 @@ Opzioni di dialogo con la persona Matteo
     //INFO GENERALI//
     + Fai domande sulla persona Matteo -> esplora_matteo
     
+    // OPZIONE PER IL FINALE
+    + {(choice_WhoWasInChargeOfTheBuffet== True or choice_WhoWasInChargeOfTheBuffet == False) && (choice_ForWhomTheLetterWas == True or choice_ForWhomTheLetterWas == False)} [È il momento di fermare l’omicida di Paola!] Ettore: Matteo: so che vuoi uccidere Paola! -> arringa_finale_Matteo
+
     //SCELTE CONDIZIONALI//
     + (allestimento) {paola_talking_second_tier.allestimento} Diciamo quello che Greta ha detto su Matteo e il litigio.
         Matteo: Quella strega! Devo subito trovare Zeca!
@@ -110,3 +113,30 @@ Opzioni di dialogo con la persona Matteo
 
 -> advance_time ->
 ->->
+
+
+/* ---------------------------------
+
+   Arringa finale. 
+
+ ----------------------------------*/
+=== arringa_finale_Matteo
+Con cosa
+    + {cb_second_tier_bottiglia_di_vino.primoCheck or paola_is_dead.vino} Usando il vino.
+    + {cb_second_tier_flaconcino_asma.primoCheck or paola_is_dead.asma} Il boccettino dell'asma.
+    + {cb_second_tier_sigaretta_elettronica.primoCheck or paola_is_dead.sigaretta} La sigaretta elettronica.
+    + {cb_second_tier_cibo.primoCheck or paola_is_dead.briciole} La torta.
+
+Con l'aiuto di chi
+    + Elia
+    + Greta
+    + Paola
+    + Zeca
+    + Hai fatto da solo
+
+Perché
+    + 
+
+Sono sicuro di tutto questo?
+    + Sì -> finalStorylet
+    + No -> loop_reset

@@ -230,4 +230,8 @@ Elia ammette i suoi sentimenti per Zeca, promette che smetterà di cazzeggiare c
         -> intro
 
 
-    
+//STORYLET DI CHIUSURA
+=== finalStorylet
+
+
+-> END

@@ -23,6 +23,10 @@ Opzioni di dialogo con la persona Greta
     //INFO GENERALI//
     + Fai domande sulla persona Greta -> esplora_greta
 
+    // OPZIONE PER IL FINALE
+    + {(choice_WhoWasInChargeOfTheBuffet== True or choice_WhoWasInChargeOfTheBuffet == False) && (choice_ForWhomTheLetterWas == True or choice_ForWhomTheLetterWas == False)} [È il momento di fermare l’omicida di Paola!] Ettore: Greta: so che vuoi uccidere Paola! -> arringa_finale_Greta
+
+
     //SCELTE CONDIZIONALI//
     + (indagini) {phone.browse.indagini} Qui Greta ci dice che Paola vuole estromettere Elia dall'azienda.
 
@@ -114,3 +118,32 @@ Opzioni di dialogo con la persona Greta
 
 -> advance_time ->
 ->->
+
+
+
+
+/* ---------------------------------
+
+   Arringa finale. 
+
+ ----------------------------------*/
+=== arringa_finale_Greta
+Con cosa
+    + {cb_second_tier_bottiglia_di_vino.primoCheck or paola_is_dead.vino} Usando il vino.
+    + {cb_second_tier_flaconcino_asma.primoCheck or paola_is_dead.asma} Il boccettino dell'asma.
+    + {cb_second_tier_sigaretta_elettronica.primoCheck or paola_is_dead.sigaretta} La sigaretta elettronica.
+    + {cb_second_tier_cibo.primoCheck or paola_is_dead.briciole} La torta.
+
+Con l'aiuto di chi
+    + Elia
+    + Paola
+    + Matteo
+    + Zeca
+    + Hai fatto da sola
+
+Perché
+    + 
+
+Sono sicuro di tutto questo?
+    + Sì -> finalStorylet
+    + No -> loop_reset

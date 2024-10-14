@@ -33,12 +33,9 @@ Opzioni di dialogo con la persona Zeca
         
 
     //SCELTE CONDIZIONALI OGGETTI//
-    + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
-    + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
     + {inventoryContents has Lettera} Guarda questa lettera!
-    + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    + {inventoryContents has Briciole} Guarda questo cibo!
-    + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
+    + {inventoryContents has Torta} Guarda questo cibo!
+    + (allestimento3) {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
     + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
     + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
     

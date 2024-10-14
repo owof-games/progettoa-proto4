@@ -1,22 +1,29 @@
+// Lista con i possibili stati delle variabili legate alle contraddizioni
 LIST QuestionAnswer = True, False, DontKnow, Unexplored
 
-VAR choiceMatteoVuoleSposareEttore = Unexplored
-VAR choiceMenteZeca = Unexplored
 // tutte le altre variabili che indicano quali scelte abbiamo preso...
+VAR choice_MatteoVuoleSposareEttore = Unexplored
+VAR choice_MenteZeca = Unexplored
+VAR choice_WhoWasInChargeOfTheBuffet = Unexplored
+VAR choice_ForWhomTheLetterWas = Unexplored
 
 
 /*
 Trovo informazioni nei dialoghi/luoghi/con interazione oggetti: sblocco fatti e domande nel taccuino (vedi sotto)
 Se prendo la scelta "DontKnow", rimangono aperte le domande di indagine
-Se faccio le corrette combinazioni True/False, apro il dialogo di risoluzione (e.g.: confronto Matteo sul fatto che è successo qualcosa ieri sera).
+Se imposto tutte le scelte di quel tier su True o False, apro il dialogo di risoluzione.
 */
 
 /*
 Visualizziamo sempre tutte le informazioni che abbiamo, a seconda dei nodi che abbiamo visitato (e che quindi ci hanno dato le relative informazioni)
-I knot o stitch che indicano il fatto che abbiamo ottenuto un'informazione hanno sempre prefisso "taccu_"
 Mostriamo una scelta solo se abbiamo scoperto la contraddizione
 Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 */
+
+/**
+    NOTEBOOK PER IL PRIMO TIER
+**/
+
 
 === notebook
 + {activeNotebook} [notebook]
@@ -32,10 +39,6 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 - startingDinnerStorylet.paolaMorta: <b>Chi ha ucciso Paola?:</b>
 - else: <b>Il taccuino è vuoto</b>
 }
-
-
-
-
 
 
 {elia_acting.senzatetto: <i>Informazioni sul personaggio Elia</i>}
@@ -71,7 +74,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 {zeca_acting.matteoGreta: Zeca: Sinceramente, non ho mai creduto che a Greta interessi tanto il pub, quanto controllare Elia.}
 {zeca_acting.matteoGreta: Zeca: Non mi stupirebbe se Greta stesse ricattando Matteo in qualche modo.}
 
-{matteo_acting.paolaZeca or worstBestManStorylet.paolaZeca: <i>Informazioni su Zeca</i>}
+{matteo_acting.paolaZeca or worstBestManStorylet.paolaZeca: <i>Informazioni sul personaggio Zeca</i>}
 {matteo_acting.paolaZeca: Matteo: Quando sappiamo tutti in famiglia che Zeca odia Paola da sempre!}
 {worstBestManStorylet.paolaZeca: Zeca: Non vedevo Paola da una vita. Era la mia migliore amica, e ora solo una sconosciuta.}
 
@@ -131,12 +134,12 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
             
     }
     
-        ++ {contraddizione_matteo} Vuole sposare me {choiceMatteoVuoleSposareEttore == True: (scelta attuale)}
-            ~ choiceMatteoVuoleSposareEttore = True
-        ++ {contraddizione_matteo} vuole sposare Greta {choiceMatteoVuoleSposareEttore == False: (scelta attuale)}
-            ~ choiceMatteoVuoleSposareEttore = False
-        ++ {contraddizione_matteo} Continuo a investigare {choiceMatteoVuoleSposareEttore == DontKnow: (scelta attuale)}
-            ~ choiceMatteoVuoleSposareEttore = DontKnow
+        ++ {contraddizione_matteo} Vuole sposare me {choice_MatteoVuoleSposareEttore == True: (scelta attuale)}
+            ~ choice_MatteoVuoleSposareEttore = True
+        ++ {contraddizione_matteo} vuole sposare Greta {choice_MatteoVuoleSposareEttore == False: (scelta attuale)}
+            ~ choice_MatteoVuoleSposareEttore = False
+        ++ {contraddizione_matteo} Continuo a investigare {choice_MatteoVuoleSposareEttore == DontKnow: (scelta attuale)}
+            ~ choice_MatteoVuoleSposareEttore = DontKnow
         ++ ->    
         --
 
@@ -153,17 +156,176 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
             
     }
     
-        ++ {contraddizione_zeca} Zeca {choiceMenteZeca == True: (scelta attuale)}
-            ~ choiceMatteoVuoleSposareEttore = True
-        ++ {contraddizione_zeca} Matteo {choiceMenteZeca == False: (scelta attuale)}
-            ~ choiceMatteoVuoleSposareEttore = False
-        ++ {contraddizione_zeca} Continuo a investigare {choiceMenteZeca == DontKnow: (scelta attuale)}
-            ~ choiceMatteoVuoleSposareEttore = DontKnow
+        ++ {contraddizione_zeca} Zeca {choice_MenteZeca == True: (scelta attuale)}
+            ~ choice_MenteZeca = True
+        ++ {contraddizione_zeca} Matteo {choice_MenteZeca == False: (scelta attuale)}
+            ~ choice_MenteZeca = False
+        ++ {contraddizione_zeca} Continuo a investigare {choice_MenteZeca == DontKnow: (scelta attuale)}
+            ~ choice_MenteZeca = DontKnow
         ++ ->    
         --
 -> intro
 
 
-=== tier_two_notebook
+/**
+    NOTEBOOK PER IL SECONDO TIER
+**/
 
+=== tier_two_notebook
+{
+- reStartingDinnerStorylet.tuttiMorti: <b>Chi ha ucciso Paola?:</b>
+- else: <b>Il taccuino è vuoto</b>
+}
+
+
+{info_elia: <i>Informazioni su Elia</i>}
+    
+    ~ temp info_elia = paola_talking_second_tier.money or matteo_talking_second_tier.coglione or greta_talking_second_tier.indagini2 or greta_talking_second_tier.indagini3
+
+{paola_talking_second_tier.money: Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro.}
+{matteo_talking_second_tier.coglione: Matteo è felice per Zeca, e per Greta, ma crede che Elia sia un coglione.}
+{greta_talking_second_tier.indagini2: Greta ci dice che Elia sta usando il discorso sindacato per mostrare al CdA che Paola è troppo debole e inetta.}
+{greta_talking_second_tier.indagini3: Se lo diciamo a Greta, lei si sente usata, e giura che smetterà di coprire i furti di denaro di Elia.}
+{trueLoveStorylet: Elia promette amore a Zeca XXX}
+
+
+
+
+{info_matteo: <i>Informazioni su Matteo</i>}
+
+    ~ temp info_matteo = paola_talking_second_tier.allestimento or zeca_talking_second_tier.money or notABigSecretPartTwoStorylet.allestimento or phone.sindacato
+
+{zeca_talking_second_tier.money: Se lo diciamo a Zeca, ci dice che Paola piuttosto dovrebbe farsi delle domande su Matteo, che è lui a campare sulle spalle dei due fratelli.}
+{paola_talking_second_tier.allestimento: Paola: Ho sentito Zeca e Matteo litigare nella stanza prima del buffet.}
+{notABigSecretPartTwoStorylet.allestimento: Elia ci dice che Zeca e Matteo hanno recuperato le cibarie. Sono anche passati in farmacia, e a prendere le ricariche per le sigarette elettroniche di Paola}
+{phone.sindacato: E del tentativo di sindacalizzazione da parte di Matteo.}
+
+
+
+{info_paola:<i>Informazioni su Paola</i>}
+
+    ~ temp info_paola = zeca_talking_second_tier.allestimento2 or greta_talking_second_tier.indagini or phone.indagini
+
+{zeca_talking_second_tier.allestimento2: Zeca ci dice che qualcuno si è chiuso nella stanza a scopare a una certa, mentre lui e Matteo montavano le luci. Senza convinzione, dice "forse Paola e il suo vibratore. Anche se non ho sentito il solito puzzo da deodorante per il cesso che si porta dietro."}
+{greta_talking_second_tier.indagini: Qui Greta ci dice che Paola vuole estromettere Elia dall'azienda.}
+{phone.indagini: Scopriamo le indagini sull'azienda di Paola, e che sta scaricando la colpa su Elia}
+
+
+{info_greta: <i>Informazioni su Greta</i>}
+
+    ~ temp info_greta = elia_talking_second_tier.indagini or liarCallLiarStorylet.indagini or liesAndPromisesStorylet or notABigSecretPartOneStorylet.allestimento or zeca_talking_second_tier.allestimento
+
+{zeca_talking_second_tier.allestimento: Zeca ci dice che lui e Matteo hanno lasciato il cibo sui tavoli e poi chiesto a Greta di occuparsene, che loro dovevano sistemare i costumi.}
+{elia_talking_second_tier.indagini: Elia ci dice che Greta ha dato a Matteo info per "contrattare" meglio con Paola per la sindacalizzazione e questo avrebbe fatto pissare Paola.}
+{liarCallLiarStorylet.indagini: Zeca ci dice che la polizia ha avuto anche dati personali di Paola. Dati a cui solo la segretaria personale avrebbe potuto avere accesso.}
+{liesAndPromisesStorylet: Elia promette a Greta amore XXX}
+{notABigSecretPartOneStorylet.allestimento: Matteo ci dice che Greta ed Elia hanno recuperato il bere. Si sono occupati anche degli elementi della scenografia}
+
+
+{info_zeca: <i>Informazioni su Zeca</i>}
+
+         ~ temp info_zeca = zeca_talking_second_tier.love or paola_talking_second_tier.money or paola_talking_second_tier.allestimento or elia_talking_second_tier.allestimento or elia_talking_second_tier.minacce
+
+
+{zeca_talking_second_tier.love: Zeca ci dice che farebbe di tutto per proteggere Elia.}
+{paola_talking_second_tier.allestimento: Paola: Ho sentito Zeca e Matteo litigare nella stanza prima del buffet.}
+{paola_talking_second_tier.money: Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro. }
+{elia_talking_second_tier.allestimento: Elia ci dice che lui e Greta hanno lasciato le bottiglie all'ingresso, avvisando Zeca, perché dovevano risolvere un problema coi tavoli}
+{elia_talking_second_tier.minacce: Elia sbotta, dice che non ha senso, che il suo "socio d'affari" che motivo avrebbe di rovinarlo? e si allontana subito, possiamo "pedinarlo"}
+
+
+//Oggetti
+
+{cb_second_tier_lettera.primoCheck: <i>Informazioni sulla lettera</i>}
+{cb_second_tier_lettera.primoCheck: Con una calligrafia nervosa è stato scritto: <i>So cosa hai fatto e la pagherai!</i>. Non c'è firma.}
+{greta_acting.minacce: Greta: Uh, è la calligrafia di Paola. Dove l'hai trovata?}
+{elia_acting.minacce:Elia: Sembra una roba da Matteo. Quando è pissato è capace di dire qualunque cosa.}
+{matteo_talking_second_tier.lettera: Matteo: Mettila via, subito! Se Paola la trova ti mangia vivo!}
+
+
+
+
+{cb_second_tier_bottiglia_di_vino.primoCheck or paola_is_dead.vino: <i>Informazioni sulla bottiglia di vino</i>}
+{cb_second_tier_bottiglia_di_vino.primoCheck: Un negroamaro di prestigio. Probabilmente costa più di quanto tu possa guadagnare in metà mese.}
+{paola_is_dead.vino: xxx}
+{paola_talking_second_tier.vino: XXX}
+{zeca_talking_second_tier.allestimento3: Zeca ci dice che l'hanno comprata lui e Matteo.}
+
+
+
+
+{cb_second_tier_flaconcino_asma.primoCheck or paola_is_dead.asma: <i>Informazioni sul flaconcino dell'asma</i>}
+{cb_second_tier_flaconcino_asma.primoCheck: Un comune flaconcino. O, con un po' di fantasia, il periscopio di un sottomarino.}
+{paola_is_dead.asma: xxx}
+{paola_talking_second_tier.asma: XXX}
+
+
+
+{cb_second_tier_sigaretta_elettronica.primoCheck or paola_is_dead.sigaretta: <i>Informazioni sulla sigaretta elettronica</i>}
+{cb_second_tier_sigaretta_elettronica.primoCheck: Ha l'odore di un deodorante per il bagno, ma per il resto, niente di particolare.}
+{paola_is_dead.sigaretta: xxx}
+{paola_talking_second_tier.sigaretta: XXX}
+{greta_talking_second_tier.allestimento2: Se chiediamo a Greta, ipoteticamente, chi potrebbe commettere un crimine, la sua risposta sarà "Beh, chi ha comprato il liquido per le sigarette elettroniche" e poi spiega perché.}
+{greta_talking_second_tier.sigaretta: Greta ci dice che chi ha comprato la ricarica palesemente non conosce Paola, perché lei è in fissa solo col rabarbaro da mesi.}
+
+
+
+{cb_second_tier_cibo.primoCheck or paola_is_dead.briciole: <i>Informazioni su torta e briciole</i>}
+{cb_second_tier_cibo.primoCheck: xxx}
+{paola_is_dead.briciole: xxx}
+{paola_talking_second_tier.torta: XXX}
+
+{paola_talking_second_tier.foto2: <i>Informazioni sulla foto</i>}
+{paola_talking_second_tier.foto2: Due persone. In un locale. Due minuti prima di spogliarsi.}
+
+
+//Condizioni
+
+
+{contraddizione_buffet: <b>Chi si è occupato del buffet?</b>}
+
+//choice_WhoWasInChargeOfTheBuffet = True: Greta ed Elia. = False: Zeca e Matteo.
+
+{notABigSecretPartOneStorylet.allestimento: Matteo ci dice che Greta ed Elia hanno recuperato il bere. Si sono occupati anche degli elementi della scenografia}
+
+    ~ temp contraddizione_buffet = (zeca_talking_second_tier.allestimento or notABigSecretPartOneStorylet.allestimento) && (elia_talking_second_tier.allestimento or notABigSecretPartTwoStorylet.allestimento)
+    
+    {
+        - contraddizione_buffet: {notABigSecretPartOneStorylet.allestimento: Matteo ci dice che Greta ed Elia hanno recuperato il bere. Si sono occupati anche degli elementi della scenografia} {zeca_talking_second_tier.allestimento: Zeca ci dice che lui e Matteo hanno lasciato il cibo sui tavoli e poi chiesto a Greta di occuparsene, che loro dovevano sistemare i costumi.} {elia_talking_second_tier.allestimento: Elia ci dice che lui e Greta hanno lasciato le bottiglie all'ingresso, avvisando Zeca, perché dovevano risolvere un problema coi tavoli} {notABigSecretPartTwoStorylet.allestimento: Elia ci dice che Zeca e Matteo hanno recuperato le cibarie. Sono anche passati in farmacia, e a prendere le ricariche per le sigarette elettroniche di Paola}
+                Chi ha recuperato le cose del buffet?
+            
+            
+    }
+    
+        ++ {contraddizione_buffet} Greta ed Elia. {WhoWasInChargeOfTheBuffet == True: (scelta attuale)}
+            ~ choice_WhoWasInChargeOfTheBuffet = True
+        ++ {contraddizione_buffet} Zeca e Matteo. {WhoWasInChargeOfTheBuffet == False: (scelta attuale)}
+            ~ WhoWasInChargeOfTheBuffet = False
+        ++ {contraddizione_buffet} Ancora non ho le idee chiare. {WhoWasInChargeOfTheBuffet == DontKnow: (scelta attuale)}
+            ~ WhoWasInChargeOfTheBuffet = DontKnow
+        ++ ->    
+        --
+
+
+//choice_ForWhomTheLetterWas = True -> Elia; = False -> Greta.
+
+{contraddizione_lettera: <b>A chi è indirizzata la lettera di Paola?</b>}
+
+    ~ temp contraddizione_lettera = elia_talking_second_tier.indagini && greta_talking_second_tier.indagini
+    
+    {
+        - ccontraddizione_lettera:
+            {elia_talking_second_tier.indagini: Elia ci dice che Greta ha dato a Matteo info per "contrattare" meglio con Paola per la sindacalizzazione e questo avrebbe fatto pissare Paola.} {greta_talking_second_tier.indagini: Qui Greta ci dice che Paola vuole estromettere Elia dall'azienda.}
+            A chi è destinata la lettera?
+            
+    }
+    
+        ++ {contraddizione_lettera} Elia. {choice_ForWhomTheLetterWas == True: (scelta attuale)}
+            ~ choice_ForWhomTheLetterWas = True
+        ++ {contraddizione_lettera} Greta. {choice_ForWhomTheLetterWas == False: (scelta attuale)}
+            ~ choice_ForWhomTheLetterWas = False
+        ++ {contraddizione_lettera} Voglio continuare ad investigare. {choice_ForWhomTheLetterWas == DontKnow: (scelta attuale)}
+            ~ choice_ForWhomTheLetterWas = DontKnow
+        ++ ->    
+        --
 -> intro

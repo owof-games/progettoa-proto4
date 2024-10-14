@@ -26,23 +26,17 @@ Opzioni di dialogo con la persona Elia
     + (allestimento) {notABigSecretPartOneStorylet.allestimento} Ci dice che lui e Greta hanno lasciato le bottiglie all'ingresso, avvisando Zeca, perché dovevano risolvere un problema coi tavoli
     + (indagini) {iTryToBeAGoodFriendStorylet} Se lo diciamo ad Elia, ci rimane male.
         Dice che si aspettava qualcosa di diverso da Matteo, e che lui sa una cosa ed è stato zitto per difenderlo.
-        Elia ci dice che Greta ha dato a Matteo info per "contrattare" meglio con Paola per la sindacalizzazione.
+        Elia ci dice che Greta ha dato a Matteo info per "contrattare" meglio con Paola per la sindacalizzazione e questo avrebbe fatto pissare Paola.
     + {zeca_talking_second_tier.allestimento2} Dice una cosa che contraddice Greta
-    + (allestimento2) {iTryToBeAGoodFriendStorylet.allestimento} Elia ci rimane malissimo, inizia a piangere, dice che non se lo aspettava.
-        E poi va a cercare Zeca.
-    + {zeca_talking_second_tier.love && phone.browse.indagini && elia_talking_second_tier.minacce} Se chiediamo ad Elia se Zeca potrebbe aver denunciato Paola
+    + (minacce) {zeca_talking_second_tier.love && phone.browse.indagini && elia_talking_second_tier.minacce} Se chiediamo ad Elia se Zeca potrebbe aver denunciato Paola
         Elia sbotta, dice che non ha senso, che il suo "socio d'affari" che motivo avrebbe di rovinarlo? e si allontana subito, possiamo "pedinarlo"
                 ~ move_first_entity_to_second_entity_location(Elia,Zeca)
                 ~ loopableVariables += EliaSpaventatoPerZeca
     
 
     //SCELTE CONDIZIONALI OGGETTI//
-    + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
-    + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
-    + (minacce) {inventoryContents has Lettera} Guarda questa lettera!
-        Elia: "Parlerò solo in presenza del mio avvocato! Via di qui!"
-    + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    + {inventoryContents has Briciole} Guarda questo cibo!
+    + {inventoryContents has Lettera} Guarda questa lettera!
+    + {inventoryContents has Torta} Guarda questo cibo!
     + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
     + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
     + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!

@@ -60,9 +60,6 @@ DEBUG: errore, nessun personaggio con cui interagire
 <- cb_second_tier_greta
 <- cb_second_tier_matteo
 // thread per ogni oggetto
-<- cb_second_tier_limetta_unghie
-<- cb_second_tier_antico_pugnale
-<- cb_second_tier_spiedino_cocktail
 <- cb_second_tier_lettera
 <- cb_second_tier_cibo
 <- cb_second_tier_flaconcino_asma

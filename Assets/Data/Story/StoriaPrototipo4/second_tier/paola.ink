@@ -29,22 +29,23 @@ Opzioni di dialogo con la persona Paola
     + (money) Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro. 
     + (foto) {zeca_talking_second_tier.allestimento2} Diciamo la cosa del vibratore. Paola ci dice che se allontaniamo Greta dalla stanza, ci darà qualcosa di interessante.
     + (foto2) {greta_talking_second_tier.foto} Se risolviamo: foto Elia e Greta che scopano al pub.
-            "Vedi tu che farci!" (non dobbiamo avere niente in mano)
+            Vedi tu che farci! (non dobbiamo avere niente in mano)
             {
             - LIST_COUNT(inventoryContents) > 0:
-            ~ throw_exception("Paola: Peccato tu non possa portarla con te.")
+            ~ throw_exception(Paola: Peccato tu non possa portarla con te.)
             - else:
                 ~ inventoryContents += Foto
                 }
                 
     //SCELTE CONDIZIONALI OGGETTI//
-     + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
-     + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
      + (Minacce) {inventoryContents has Lettera} Guarda questa lettera!
-        Paola: "Uh, guarda un po' chi si dovrebbe fare i cazzi propri!'".
+        Paola: Uh, guarda un po' chi si dovrebbe fare i cazzi propri!.
             ~ inventoryContents -= Lettera
             ~ objectStorageContents += Lettera
-     + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
+    + (torta) {inventoryContents has Torta} Guarda questo cibo!
+    + (vino) {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
+    + (asma) {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
+    + (sigaretta) {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!       
     
       
     + Te ne vai
@@ -106,13 +107,13 @@ Opzioni di dialogo con la persona Paola
 
 === paola_is_dead
      Poi ispezione corpo, una sola scelta
-        + Esamino le briciole.
+        + (briciole) Esamino le briciole.
             -> loop_reset
-        + Ispeziono la sigaretta elettronica
+        + (sigaretta) Ispeziono la sigaretta elettronica
             -> loop_reset
-        + Ispeziono il boccettino dell'asma
+        + (asma) Ispeziono il boccettino dell'asma
             -> loop_reset
-        + Ispeziono la boccia di vino
+        + (vino) Ispeziono la boccia di vino
             -> loop_reset
         + Lascio perdere
             -> intro

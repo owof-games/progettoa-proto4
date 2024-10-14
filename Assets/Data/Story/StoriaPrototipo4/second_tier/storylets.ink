@@ -134,15 +134,14 @@
                     ~ move_entity(Paola,WhiteRoom)
         Paola: Non voglio morire non voglio morire non voglio morire non voglio.
             ~ currentTime = currentTime + 15
-            + (tuttiMotyi) Ettore: Chiamiamo la polizia!
+            + (tuttiMorti) Ettore: Chiamiamo la polizia!
             -
-        Paola: Non voglio morire non voglio morire non voglio morire non voglio.
-        
+        Paola: Non voglio morire non voglio morire non voglio.
             ~ currentTime = currentTime + 15
         Greta: BASTAAAAAAA! Questo script è tremendo!
-        Paola: Non voglio morire non voglio morire non voglio morire non voglio.
-        Greta: Basta, basta, basta. Prendiamoci dieci minuti di riposo.
-        Paola: Non.
+        Paola: Non voglio morire non voglio.
+        Elia: Basta, basta, basta. Prendiamoci dieci minuti di riposo.
+        Paola: Non voglio.
             ~ peopleTalking = true
             -> advance_time ->
 
@@ -153,7 +152,7 @@
 //STORYLET "NORMALI"
 
 === liarCallLiarStorylet
-    + (Indagini) Zeca ci dice che la polizia ha avuto anche dati personali di Paola.
+    + (indagini) Zeca ci dice che la polizia ha avuto anche dati personali di Paola.
         Dati a cui solo la segretaria personale avrebbe potuto avere accesso.
     -
     -> intro
@@ -183,8 +182,6 @@ Zeca risponde "Figurati. E poi se lei casca come li prendo tutti quei soldi?"
 === iTryToBeAGoodFriendStorylet
 Conversazione origliata
 Zeca e Matteo parlano del litigio, e si capisce che Matteo sa qualcosa e non vuole che Zeca ci rimanga male, ma non risponde alle pressioni di Zeca.
-    + (allestimento) qui, se sappiamo che i due scopano possiamo intervenire e dirlo, col risultato che poi Zeca affronterà Elia.
-        "Son quei due che andavano in giro col veleno per topi, non noi."
     -> intro
 
 

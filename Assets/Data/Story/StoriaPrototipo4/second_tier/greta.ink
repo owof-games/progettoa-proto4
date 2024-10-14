@@ -27,24 +27,26 @@ Opzioni di dialogo con la persona Greta
     + (indagini) {phone.browse.indagini} Qui Greta ci dice che Paola vuole estromettere Elia dall'azienda.
 
     + (indagini2) {elia_talking_second_tier.indagini} Greta ci dice che Elia sta usando il discorso sindacato per mostrare al CdA che Paola è troppo debole e inetta
+
     + {zeca_talking_second_tier.allestimento2} Dice una cosa che contraddice Elia
+
     + (allestimento2) {iTryToBeAGoodFriendStorylet.allestimento} Diciamo del veleno per topi.
         Se chiediamo a Greta, ipoteticamente, chi potrebbe commettere un crimine, la sua risposta sarà "Beh, chi ha comprato il liquido per le sigarette elettroniche" e poi spiega perché.
+
     + (indagini3) {trueLoveStorylet} Se diciamo della tresca tra Elia e Zeca.
     Se lo diciamo a Greta, lei si sente usata, e giura che smetterà di coprire i furti di denaro di Elia.
+
     + {paola_talking_second_tier.foto} Possiamo allontanare Greta con una scusa.
         + + (foto) Greta se ne va.
         + +  Abbiamo una sola opzione a tier
 
     //SCELTE CONDIZIONALI OGGETTI//
-    + {inventoryContents has AnticoPugnale} Guarda questo pugnale!
-    + {inventoryContents has SpiedinoCocktail} Guarda questo spiedino!
     + {inventoryContents has Lettera} Guarda questa lettera!
-    + {inventoryContents has LimettaUnghie} Guarda questa limetta da unghie!
-    + {inventoryContents has Briciole} Guarda questo cibo!
+    + {inventoryContents has Torta} Guarda questo cibo!
     + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
     + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
-    + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
+    + (sigaretta) {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
+        Greta ci dice che chi ha comprato la ricarica palesemente non conosce Paola, perché lei è in fissa solo col rabarbaro da mesi.
     
       
     + Te ne vai -> intro

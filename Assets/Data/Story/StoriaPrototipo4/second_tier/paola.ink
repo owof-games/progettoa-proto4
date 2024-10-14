@@ -32,7 +32,7 @@ Opzioni di dialogo con la persona Paola
             Vedi tu che farci! (non dobbiamo avere niente in mano)
             {
             - LIST_COUNT(inventoryContents) > 0:
-            ~ throw_exception(Paola: Peccato tu non possa portarla con te.)
+            ~ throw_exception("Paola: Peccato tu non possa portarla con te.")
             - else:
                 ~ inventoryContents += Foto
                 }

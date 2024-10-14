@@ -297,12 +297,12 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
             
     }
     
-        ++ {contraddizione_buffet} Greta ed Elia. {WhoWasInChargeOfTheBuffet == True: (scelta attuale)}
+        ++ {contraddizione_buffet} Greta ed Elia. {choice_WhoWasInChargeOfTheBuffet == True: (scelta attuale)}
             ~ choice_WhoWasInChargeOfTheBuffet = True
-        ++ {contraddizione_buffet} Zeca e Matteo. {WhoWasInChargeOfTheBuffet == False: (scelta attuale)}
-            ~ WhoWasInChargeOfTheBuffet = False
-        ++ {contraddizione_buffet} Ancora non ho le idee chiare. {WhoWasInChargeOfTheBuffet == DontKnow: (scelta attuale)}
-            ~ WhoWasInChargeOfTheBuffet = DontKnow
+        ++ {contraddizione_buffet} Zeca e Matteo. {choice_WhoWasInChargeOfTheBuffet== False: (scelta attuale)}
+            ~ choice_WhoWasInChargeOfTheBuffet = False
+        ++ {contraddizione_buffet} Ancora non ho le idee chiare. {choice_WhoWasInChargeOfTheBuffet == DontKnow: (scelta attuale)}
+            ~ choice_WhoWasInChargeOfTheBuffet = DontKnow
         ++ ->    
         --
 
@@ -314,7 +314,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
     ~ temp contraddizione_lettera = elia_talking_second_tier.indagini && greta_talking_second_tier.indagini
     
     {
-        - ccontraddizione_lettera:
+        - contraddizione_lettera:
             {elia_talking_second_tier.indagini: Elia ci dice che Greta ha dato a Matteo info per "contrattare" meglio con Paola per la sindacalizzazione e questo avrebbe fatto pissare Paola.} {greta_talking_second_tier.indagini: Qui Greta ci dice che Paola vuole estromettere Elia dall'azienda.}
             A chi è destinata la lettera?
             

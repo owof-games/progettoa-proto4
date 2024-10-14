@@ -30,7 +30,7 @@ Opzioni di dialogo con la persona Greta
 
     + {zeca_talking_second_tier.allestimento2} Dice una cosa che contraddice Elia
 
-    + (allestimento2) {iTryToBeAGoodFriendStorylet.allestimento} Diciamo del veleno per topi.
+    + (allestimento2) {iTryToBeAGoodFriendStorylet} Diciamo del veleno per topi.
         Se chiediamo a Greta, ipoteticamente, chi potrebbe commettere un crimine, la sua risposta sarà "Beh, chi ha comprato il liquido per le sigarette elettroniche" e poi spiega perché.
 
     + (indagini3) {trueLoveStorylet} Se diciamo della tresca tra Elia e Zeca.

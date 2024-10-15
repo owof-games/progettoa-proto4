@@ -1,5 +1,5 @@
 === function updateEntitiesLocations()
-/* NOTA: per com'è strutturato ora, se passiamo per un nodo che modifica la posizione di un soggetto, quel soggetto poi rimarrà in quella stanza anche negli altri loop, per noi è ok?*/
+/* ORDINE STANZE: White, Red, Green, Yellow */
 
 {debug: [applico la timeline per {currentTime}]}
 
@@ -27,10 +27,19 @@
         ~ move_entity(Matteo, YellowRoom)    
         
     - 360:
-        ~ move_entity(Matteo, YellowRoom)    
-        
+        ~ move_entity(Matteo, YellowRoom)
+
+        - 390:
+        ~ move_entity(Matteo, GreenRoom)
+
+        - 405:
+        ~ move_entity(Matteo, RedRoom)
+
     - 420:
         ~ move_entity(Matteo, WhiteRoom)
+
+        - 465:
+        ~ move_entity(Matteo, RedRoom)
 
     - 480:
         ~ move_entity(Matteo, GreenRoom)        
@@ -45,7 +54,7 @@
         ~ move_entity(Paola, WhiteRoom)
     
     - 120:
-        ~ move_entity(Paola, WhiteRoom)  
+        ~ move_entity(Paola, WhiteRoom)
 
     - 180:
         {
@@ -63,6 +72,15 @@
             ~ move_entity(Paola, GreenRoom)
         }
 
+
+          - 285:
+        {
+            - tierState has FirstTier:
+            ~ move_entity(Paola, WhiteRoom)
+            - tierState has SecondTier:
+            ~ move_entity(Paola, RedRoom)
+        }
+    
     - 300:
         ~ move_entity(Paola, WhiteRoom)   
         
@@ -78,8 +96,14 @@
     - 0:
         ~ move_entity(Elia, WhiteRoom)
 
-    - 120:
-        ~ move_entity(Elia, YellowRoom)    
+        - 120:
+        ~ move_entity(Elia, RedRoom)
+
+        - 135:
+        ~ move_entity(Elia, GreenRoom)
+    
+    - 150:
+        ~ move_entity(Elia, YellowRoom)              
 
     - 180:
         ~ move_entity(Elia, YellowRoom) 
@@ -95,6 +119,9 @@
         
     - 420:
         ~ move_entity(Elia, YellowRoom)
+
+        - 465:
+        ~ move_entity(Elia, GreenRoom) 
 
     - 480:
         ~ move_entity(Elia, RedRoom)            
@@ -133,10 +160,18 @@
         ~ move_entity(Zeca, WhiteRoom)
 
     - 120:
+        ~ move_entity(Zeca, RedRoom)
+
+        - 135:
+        ~ move_entity(Zeca, GreenRoom)
+        - 150:
         ~ move_entity(Zeca, YellowRoom)    
 
     - 180:
-        ~ move_entity(Zeca, GreenRoom) 
+        ~ move_entity(Zeca, GreenRoom)
+
+        - 225:
+        ~ move_entity(Zeca, RedRoom)
 
     - 240:
          ~ move_entity(Zeca, WhiteRoom)    
@@ -149,6 +184,9 @@
         
     - 420:
         ~ move_entity(Zeca, RedRoom)
+
+        - 465:
+        ~ move_entity(Zeca, GreenRoom)
 
     - 480:
         ~ move_entity(Zeca, YellowRoom)     

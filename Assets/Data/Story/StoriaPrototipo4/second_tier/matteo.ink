@@ -22,8 +22,42 @@ Opzioni di dialogo con la persona Matteo
     //INFO GENERALI//
 
     + (loop) {new_this_loop(->loop)} Ettore: Non stai notando nulla di strano?
-            Matteo: cose 
-            -> advance_time ->
+            Matteo: Mmm, con Elia in giro è difficile dirlo. Prova ad essere più specifico.
+                + + Ettore: Ho come questo senso di deja-vu...
+                        Ettore: Abbiamo già vissuto tutto questo, anche se in modo diverso.
+                        Ettore: E tende a finire male. So che tende a finire male.
+                        Matteo: Quindi sai dirmi cosa sto per dirti?
+                            -> advance_time ->
+                            + + + Ettore: Ehm, no.
+                                Matteo: Anche a me capita spesso, quando devo ripetere queste dannate scene.
+                                Matteo: Una volta non riuscivo più a ricordare se ero Matteo, o il personaggio Matteo, e ci ho provato con Elia.
+                                Matteo: Ma se vedi che butta male, chiedi una pausa più lunga a Paola.
+                                Matteo: O fai finta di svenire, che forse è efficace.
+                                Matteo: O dille che ha i capelli fuori posto, e ci guadagnamo mezz'ora sicura!
+                                        -> advance_time ->
+                                    -> matteo_talking_second_tier
+                            + + + (loop2){matteo_talking_second_tier.loop && new_this_loop(->loop2)} Ettore: Sì!
+                                Ettore: Che una volta ci hai provato con Elia perché non sapevi più se eri Matteo, o il personaggio.
+                                Matteo: Uh, interessante.
+                                Matteo: Prova a parlarne con Greta. Lei sa un sacco di cose strane.
+                                Matteo: Ma se siamo davvero in un loop, allora vorrei un tuo bacio prima o poi.
+                                Matteo: Almeno una cosa bella continuerà a ripetersi.
+                                    -> advance_time ->
+                                    -> matteo_talking_second_tier
+                            + + + (loop3) {matteo_talking_second_tier.loop2 && new_this_loop(->loop3)} [Baci Matteo]
+                                Ettore: Scusa, ma mi hai detto in un altro loop di farlo.
+                                Ettore: Hai detto che almeno sarebbe capitato di nuovo qualcosa di bello.
+                                Matteo: Ok, questa è una cosa che potrei aver davvero detto. Perché mi piaci da che ti ho visto.
+                                Matteo: E tu stai cercando di fermare tutto questo?
+                                Ettore: Sì, perché qualcuno sta per morire.
+                                Matteo: Quando avrai risolto il crimine, allora, ridammi un altro bacio, e portami via da qui. 
+                                    -> advance_time ->
+                                    -> matteo_talking_second_tier
+
+                            - - -    
+                + + Ettore: Lascia perdere, è solo una inutile preoccupazione. -> matteo_talking_second_tier
+                - -
+                -> advance_time ->
             + + [Cambi argomento] -> matteo_talking_second_tier
 
     + (rapporto) {new_this_loop(->rapporto)} Ettore: Che rapporto hai con Paola?

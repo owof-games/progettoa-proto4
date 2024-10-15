@@ -19,10 +19,16 @@ Opzioni di dialogo con la persona Elia
 === elia_talking_second_tier
  {debug: <i>Passo per elia_talking_second_tier</i>}
     //INFO GENERALI//
-    + (loop) {new_this_loop(->loop)} Ettore: Non stai notando nulla di strano?
-        Matteo: cose 
-            -> advance_time ->
-            + + [Cambi argomento] -> elia_talking_second_tier
+    + (loop) {new_this_loop(->loop)} Ettore: Elia, non stai notando nulla di strano?
+        Elia: In effetti, sì.
+        Ettore: Oh, allora non sto perdendo la testa!
+        Elia: No no, lo sto notando anche io.
+        Elia: Fino a stamani, sollevavo tranquillo quel tavolo.
+        Elia: Ora ci metto circa due secondi in più.
+        Elia: Possibile che stia perdendo la mia forza?
+        Elia: O è colpa dei colori? Queste stanze, è colpa di queste stanze!
+                -> advance_time ->
+            -> elia_talking_second_tier
 
     + (rapporto) {new_this_loop(->rapporto)} Ettore: Che rapporto hai con Paola?
         Matteo: cose

@@ -65,14 +65,39 @@ Opzioni di dialogo con la persona Paola
         Paola: Uh, guarda un po' chi si dovrebbe fare i cazzi propri!.
             ~ inventoryContents -= Lettera
             ~ objectStorageContents += Lettera
-    + (torta) {inventoryContents has Torta} Guarda questo cibo!
-    + (vino) {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
-    + (asma) {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
-    + (sigaretta) {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!       
-    
+    + (torta) {inventoryContents has Torta} Ettore: Hai idea di chi abbia preso questa torta?
+        Paola: Qualcuno che vuole uccidermi?
+        Paola: Scherzo.
+        Paola: Ma pensavo tutti sapessero che sono allergica alle arachidi, mortalmente. E questa è piena di crema d'arachidi.
+        Paola: Fortuna che oramai ne riconosco l'odore.
+        Paola: Pensa che da piccola sono andata in coma per tre giorni.
+        Paola: Per risvegliarmi e trovarmi davanti Elia che mi chiedeva: Ma ora sei Cristo?
+        Paola: Ora sei resuscitata, come Vegeta?
+            -> advance_time ->
+    + (vino) {inventoryContents has BottigliaDiVino} Ettore: Che, uhm, che sai di questa bottiglia?
+        Paola: Amo da morire questo vino.
+        Paola: E che per questo spero ce ne siano almeno altre tre bottiglie da qualche parte.
+    + (asma) {inventoryContents has FlaconcinoAsma} Ettore: Ho trovato questo.
+        Paola: Oh, grazie al cielo!
+        Paola: Non sapevo più dove diavolo fosse finito.
+        Paola: Tra polvere e muffa in questo posto, senza potrei morire.
+            ~ inventoryContents -= FlaconcinoAsma
+            ~ objectStorageContents += FlaconcinoAsma
+    + (sigaretta) {inventoryContents has SigarettaElettronica} Ettore: Sai chi fuma qui tra noi?
+        Paola: Erba? Zeca.
+        Paola: Oppio? Matteo.
+        Paola: Tabatto? Greta.
+        Paola: Vorrei capire di cosa è fatto Elia per essere così cretino, invece.
+        Paola: Io vivo di sigaretta elettronica. Adoro i suoi sapori chimici, la possibilità di fumarla ovunque.
+        Paola: Ed è esattamente quella che hai in mano.
+            ~ inventoryContents -= SigarettaElettronica
+            ~ objectStorageContents += SigarettaElettronica
+        Ettore: Ma non si può fumare ov...
+        Paola: Ah, finalmente! Quanto mi sei mancata!    
+            -> advance_time ->
       
     + Te ne vai
-    -> intro
+        -> intro
     -
     
     -> paola_talking_second_tier

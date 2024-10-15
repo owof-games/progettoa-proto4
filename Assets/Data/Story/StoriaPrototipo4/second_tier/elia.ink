@@ -123,7 +123,7 @@ Opzioni di dialogo con la persona Elia
 
 === paola_is_dead_elia
     
-    Elia: {~ }
+    Elia: {~ Secondo te è già in Paradiso? O con tutti questi morti in guerra sta trovando traffico?|Non credo molto nella morte, sai? Deve esserci la possibilità di fare restart, per forza.|Spero che Zeca non si stia preoccupando troppo per me.|Ricordo che Paola pianse un sacco alla morte di Fufi. Ora starà piangendo per la sua, di morte?}
 
 -> advance_time ->
 ->->

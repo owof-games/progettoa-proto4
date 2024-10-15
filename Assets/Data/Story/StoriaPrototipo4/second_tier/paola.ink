@@ -26,7 +26,7 @@ Opzioni di dialogo con la persona Paola
             -> advance_time ->
             + + [Cambi argomento] -> paola_talking_second_tier
 
-    + (rapporto) {new_this_loop(->rapporto)} Ettore: Che rapporto hai con Paola?
+    + (rapporto) {new_this_loop(->rapporto)} Ettore: Non, ehm. Ti fa male da qualche parte? In modo quasi mortale?
         Paola: cose
             -> advance_time ->
             + + [Cambi argomento] -> paola_talking_second_tier
@@ -129,14 +129,18 @@ Opzioni di dialogo con la persona Paola
  ----------------------------------*/
 
 === paola_is_dead
-     Poi ispezione corpo, una sola scelta
-        + (briciole) Esamino le briciole.
+     Ettore: {~ Non c'è dubbio, è morta|Il corpo è ancora caldo|Cosa è giusto fare, adesso?}
+        + (briciole) [Ci sono tracce di briciole]
+            Sono rimasugli all'angolo della bocca. Forse qualcosa di dolce.
             -> loop_reset
-        + (sigaretta) Ispeziono la sigaretta elettronica
+        + (sigaretta) [Controlli la sigaretta elettronica]
+            Il dispenser del liquido è completamnte svuotato.
             -> loop_reset
-        + (asma) Ispeziono il boccettino dell'asma
+        + (asma) [Ispezioni il boccettino dell'asma]
+            Paola lo stringe ancora forte in pugno, come fosse un'arma. O un'ancora di salvezza.
             -> loop_reset
-        + (vino) Ispeziono la boccia di vino
+        + (vino) [Esamini la boccia di vino]
+            Rimane solo un goccio sul fondo. Le labbra di Paola hanno lo stesso colore.
             -> loop_reset
         + Lascio perdere
             -> intro

@@ -102,6 +102,8 @@ Opzioni di dialogo con la persona Greta
 
 = first_qn
 ~ GretaTalking++
+    Qualcosa sulla famiglia, non esplicita come cosa, ma si capisce la morte suicida dei genitori, i debiti etc.
+    Si può collegare al discorso lavoro di Matteo con una parola chiave, unica. Una metafora?
     + Prima domanda
     -> advance_time ->
     
@@ -134,7 +136,7 @@ Opzioni di dialogo con la persona Greta
  
 === paola_is_dead_greta
     
-    Greta: {~ Merda, merda, merda!|Quindi dovrò trovarmi un nuovo lavoro?|E se fosse solo uno scherzo?}
+    Greta: {~ Merda, merda, merda!|Quindi dovrò trovarmi un nuovo lavoro?|E se fosse solo uno scherzo?|Certo, ha una faccia da stronza pure da morta.}
 
 -> advance_time ->
 ->->

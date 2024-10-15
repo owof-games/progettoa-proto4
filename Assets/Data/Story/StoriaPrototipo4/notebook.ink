@@ -250,7 +250,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 {cb_second_tier_bottiglia_di_vino.primoCheck or paola_is_dead.vino: <i>Informazioni sulla bottiglia di vino</i>}
 {cb_second_tier_bottiglia_di_vino.primoCheck: Il liquido è inquieto e torbido, e si agita nella bottiglia come fosse dotato di vita propria.}
-{paola_is_dead.vino: xxx}
+{paola_is_dead.vino: Rimane solo un goccio sul fondo. Le labbra di Paola hanno lo stesso colore.}
 {paola_talking_second_tier.vino: XXX}
 {zeca_talking_second_tier.allestimento3: Zeca ci dice che l'hanno comprata lui e Matteo.}
 
@@ -259,14 +259,14 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 {cb_second_tier_flaconcino_asma.primoCheck or paola_is_dead.asma: <i>Informazioni sul flaconcino dell'asma</i>}
 {cb_second_tier_flaconcino_asma.primoCheck: Banale pezzo di plastica, leggero e maleabile, a cui è aggrappata l'intera vita di una persona.}
-{paola_is_dead.asma: xxx}
+{paola_is_dead.asma: Paola lo stringe ancora forte in pugno, come fosse un'arma. O un'ancora di salvezza.}
 {paola_talking_second_tier.asma: XXX}
 
 
 
 {cb_second_tier_sigaretta_elettronica.primoCheck or paola_is_dead.sigaretta: <i>Informazioni sulla sigaretta elettronica</i>}
 {cb_second_tier_sigaretta_elettronica.primoCheck: Morte tascabile.}
-{paola_is_dead.sigaretta: xxx}
+{paola_is_dead.sigaretta: Il dispenser del liquido è completamnte svuotato.}
 {paola_talking_second_tier.sigaretta: XXX}
 {greta_talking_second_tier.allestimento2: Se chiediamo a Greta, ipoteticamente, chi potrebbe commettere un crimine, la sua risposta sarà "Beh, chi ha comprato il liquido per le sigarette elettroniche" e poi spiega perché.}
 {greta_talking_second_tier.sigaretta: Greta ci dice che chi ha comprato la ricarica palesemente non conosce Paola, perché lei è in fissa solo col rabarbaro da mesi.}
@@ -275,7 +275,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 {cb_second_tier_cibo.primoCheck or paola_is_dead.briciole: <i>Informazioni su torta e briciole</i>}
 {cb_second_tier_cibo.primoCheck: Friabile come le proprie sicurezze, come un sacco d'ossa che cade dal sesto piano.}
-{paola_is_dead.briciole: xxx}
+{paola_is_dead.briciole: Sono rimasugli all'angolo della bocca. Forse qualcosa di dolce.}
 {paola_talking_second_tier.torta: XXX}
 
 {paola_talking_second_tier.foto2: <i>Informazioni sulla foto</i>}

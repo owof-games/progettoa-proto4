@@ -126,7 +126,7 @@ Opzioni di dialogo con la persona Zeca
  
 === paola_is_dead_zeca
     
-    Zeca: {~ }
+    Zeca: {~ Devo tirare su di morale Elia.|Non il momento migliore. Non. Il. Momento. Migliore.|Sinceramente: mi ha stupito ci sia voluto così tanto tempo perché qualcuno la uccidesse.|Era così odiosa che pensavo fosse immortale, come un'erbaccia o un demone.}
 
 -> advance_time ->
 ->->

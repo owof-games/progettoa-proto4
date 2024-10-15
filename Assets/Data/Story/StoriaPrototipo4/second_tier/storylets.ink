@@ -167,8 +167,6 @@ Zeca ci sgama con la foto e andrà ad aggredire Greta, con piccole variazioni a 
 
 
 
-//CONVERSAZIONI ORIGLIATE
-
 
 
 //CONVERSAZIONI ORIGLIATE
@@ -231,6 +229,15 @@ Elia ammette i suoi sentimenti per Zeca, promette che smetterà di cazzeggiare c
     Elia dice cazzate e ci caccia.
     
         -> intro
+
+
+//STORYLET A CUI ARRIVIAMO SOLO ATTRAVERSO UNA SCELTA
+=== evilJobStorylet
+Matteo ci fa capire quanto sia doloroso il lavoro che fa per Paola.
+    + {phone.sindacato} Gli diciamo che sappiamo della sindacalizzazione.
+            Matteo: Sì. Ho pensato che, forse, se siamo meno ricattabili come lavoratori, allora possiamo anche dire "no" davanti alle cose più ingiuste.
+    -> intro
+
 
 
 //STORYLET DI CHIUSURA

@@ -45,7 +45,9 @@ Opzioni di dialogo con la persona Paola
     + (allestimento) {zeca_talking_second_tier.allestimento} Ripetiamo quello che ci ha detto Zeca.
         Paola: "Ho sentito Zeca e Matteo litigare nella stanza prima del buffet"
 
-    + (money) Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro. 
+    + (money) Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro.
+
+    + {liarCallLiarStorylet.indagini}: Zeca ci dice che la polizia ha avuto anche dati personali di Paola. Dati a cui solo la segretaria personale avrebbe potuto avere accesso. Se chiediamo a Paola, cosa ci dirà?
 
     + (foto) {zeca_talking_second_tier.allestimento2} Diciamo la cosa del vibratore. Paola ci dice che se allontaniamo Greta dalla stanza, ci darà qualcosa di interessante.
 

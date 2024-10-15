@@ -41,7 +41,7 @@ Opzioni di dialogo con la persona Matteo
     + {(choice_WhoWasInChargeOfTheBuffet== True or choice_WhoWasInChargeOfTheBuffet == False) && (choice_ForWhomTheLetterWas == True or choice_ForWhomTheLetterWas == False)} [È il momento di fermare l’omicida di Paola!] Ettore: Matteo: so che vuoi uccidere Paola! -> arringa_finale_Matteo
 
     //SCELTE CONDIZIONALI//
-    + (allestimento) {paola_talking_second_tier.allestimento} Diciamo quello che Greta ha detto su Matteo e il litigio.
+    + (allestimento) {paola_talking_second_tier.allestimento} Diciamo quello che Paola ha detto su Matteo e il litigio.
         Matteo: Quella strega! Devo subito trovare Zeca!
          + + {whiteRoomContents hasnt Ettore} Ettore: Credo sia nella stanza bianca.
                 ~ move_entity(Elia, WhiteRoom)
@@ -55,7 +55,14 @@ Opzioni di dialogo con la persona Matteo
    
     + (coglione) {trueLoveStorylet} Matteo è felice per Zeca, e per Greta, ma crede che Elia sia un coglione.
     
+    + (lavoro) {zeca_talking_second_tier.money}: Se lo diciamo a Zeca, ci dice che Paola piuttosto dovrebbe farsi delle domande su Matteo, che è lui a campare sulle spalle dei due fratelli.
+        Matteo: I dubbi di Zeca sono sensati.
+        Matteo: Ma proprio per questo, perché dovrei distruggere le uniche cose che mi tengono vagamente a galla economicamente?
+        Matteo: Sono due lavori che odio? Sì. Ma a chi può seriamente piacere il proprio lavoro in questo sistema?
 
+    + {matteo_talking_second_tier.lavoro} Ettore: Sai che ancora non ho capito cosa fai, Matteo?
+        -> evilJobStorylet
+    
     //SCELTE CONDIZIONALI OGGETTI//
     + (lettera) {inventoryContents has Lettera} Guarda questa lettera!
         Matteo: Mettila via, subito! Se Paola la trova ti mangia vivo!

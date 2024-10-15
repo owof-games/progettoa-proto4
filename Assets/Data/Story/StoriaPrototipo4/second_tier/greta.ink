@@ -48,6 +48,12 @@ Opzioni di dialogo con la persona Greta
 
     + (indagini3) {trueLoveStorylet} Se diciamo della tresca tra Elia e Zeca.
     Se lo diciamo a Greta, lei si sente usata, e giura che smetterà di coprire i furti di denaro di Elia.
+        + + Ettore: Quindi, lui ti piace davvero?
+            Greta: Non mi giudicare.
+            Greta: Sono consapevole che sia un idiota.
+            Greta: Ma in un mondo che fa sempre più schifo, la sua leggerezza fa bene al cuore.
+
+    + {liarCallLiarStorylet.indagini} Zeca ci dice che la polizia ha avuto anche dati personali di Paola. Dati a cui solo la segretaria personale avrebbe potuto avere accesso. Che ci dice Greta?
 
 
     + (allestimento3) {zeca_talking_second_tier.allestimento2} Dice una cosa che contraddice Elia

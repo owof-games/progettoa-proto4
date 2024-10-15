@@ -41,6 +41,7 @@ Opzioni di dialogo con la persona Zeca
     // OPZIONE PER IL FINALE
     + {(choice_WhoWasInChargeOfTheBuffet== True or choice_WhoWasInChargeOfTheBuffet == False) && (choice_ForWhomTheLetterWas == True or choice_ForWhomTheLetterWas == False)} [È il momento di fermare l’omicida di Paola!] Ettore: Zeca: so che vuoi uccidere Paola! -> arringa_finale_Zeca
 
+    TODO: scelta da compiere -> rischiare di avere mille scelte a disposizione, o nestare alcune scelte sotto altre?
 
     //SCELTE CONDIZIONALI//
     + (allestimento) {notABigSecretPartTwoStorylet.allestimento} Ci dice che lui e Matteo hanno lasciato il cibo sui tavoli e poi chiesto a Greta di occuparsene, che loro dovevano sistemare i costumi.
@@ -48,10 +49,14 @@ Opzioni di dialogo con la persona Zeca
     + (allestimento2) {elia_talking_second_tier.allestimento} Zeca ci dice che qualcuno si è chiuso nella stanza a scopare a una certa, mentre lui e Matteo montavano le luci
         Senza convinzione, dice "forse Paola e il suo vibratore. Anche se non ho sentito il solito puzzo da deodorante per il cesso che si porta dietro."
 
+    + {paola_talking_second_tier.allestimento}: Paola: Ho sentito Zeca e Matteo litigare nella stanza prima del buffet. Come reagisce Zeca?
+
     + (money) {paola_talking_second_tier.money} Se lo diciamo a Zeca, ci dice che Paola piuttosto dovrebbe farsi delle domande su Matteo, che è lui a campare sulle spalle dei due fratelli.
 
     + (love) Zeca ci dice che farebbe di tutto per proteggere Elia.
-        
+        + + {paola_talking_second_tier.money} Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro.
+        + + {TrueLoveStorylet} Ettore: Quindi, insomma, tu ed Elia, non è solo stima lavorativa.
+
 
     //SCELTE CONDIZIONALI OGGETTI//
     + {inventoryContents has Lettera} Guarda questa lettera!

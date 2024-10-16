@@ -39,7 +39,7 @@ Opzioni di dialogo con la persona Matteo
                                         -> advance_time ->
                                     -> matteo_talking_second_tier
 
-                            + + + (loop2){matteo_talking_second_tier.loop && new_this_loop(->loop2)} Ettore: Sì!
+                            + + + (loop2){matteo_talking_second_tier.loop && new_this_loop(->loop)} Ettore: Sì!
                                 Ettore: Che una volta ci hai provato con Elia perché non sapevi più se eri Matteo, o il personaggio.
                                 Matteo: Uh, interessante.
                                 Matteo: Prova a parlarne con Greta. Lei sa un sacco di cose strane.
@@ -64,7 +64,7 @@ Opzioni di dialogo con la persona Matteo
                 -> advance_time ->
 
     + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Teo, tu e Paola che rapporto avete?
-        Matteo: Che cosa carina che mi chiami <i>Teo>/i>.
+        Matteo: Che cosa carina che mi chiami <i>Teo</i>.
         Matteo: La conosco poco nulla.
         Matteo: So che è ricca, so che è stronza, e so che è sorella di Elia.
         Matteo: Che tratta costantemente di merda.

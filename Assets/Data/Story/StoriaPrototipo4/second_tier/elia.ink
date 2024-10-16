@@ -31,9 +31,8 @@ Opzioni di dialogo con la persona Elia
             -> elia_talking_second_tier
 
     + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Che rapporto hai con Paola?
-        Matteo: cose
-            -> advance_time ->
-            + + [Cambi argomento] -> elia_talking_second_tier
+        -> rapporto_Elia_Paola
+
 
     + (omicidio) {new_this_loop(->omicidio)} Ettore: Secondo te qualcuno potrebbe volere del male a Paola?
         Elia: 
@@ -120,6 +119,70 @@ Opzioni di dialogo con la persona Elia
     -    
 -> elia_talking_second_tier
 
+
+
+=== rapporto_Elia_Paola
+    { shuffle:
+    -   -> first_paola
+    -   -> second_paola
+    -   -> third_paola
+    
+    }
+
+= first_paola
+ Elia: Eravamo fratello e sorella.
+        Ettore: Questo lo so, ma ci andavi d'accordo? Passavi del tempo con lei?
+        Elia: Solo quando eravamo assieme.
+        Ettore: Solo quando eri con lei ci andavi d'accordo?
+        Elia: No, passo del tempo con lei solo quando sono con lei.
+        Elia: Non posso passarlo con lei se non sono con lei, no?
+            -> advance_time ->
+            + + Ettore: E ti manca?
+                Elia: Il tempo?
+                Ettore: No, Paola.
+                Elia: No, lei è qui con noi.
+                Ettore: Non sapevo fossi religioso.
+                Elia: Religioso?
+                Elia: No no, il collarino è alla coreana, non è da prete.
+                Elia: Però una volta ho preso un prete in testa con un pallone.
+                Elia: E ora credo morirò all'inferno.
+                Elia: Ed è un bene perché sono freddoloso.
+                    -> advance_time ->
+                     -> elia_talking_second_tier
+            + + [Cambi argomento] -> elia_talking_second_tier
+
+= second_paola
+    Elia: Eravamo fratello e sorella.
+        Ettore: Questo lo so, ma ci andavi d'accordo? Passavi del tempo con lei?
+        Elia: Spesso.
+        Ettore: <i>Spesso</i> d'accordo o <i>spesso</i> assieme?
+        Elia: Non bastavano i centimetri?
+        Ettore: Per cosa?
+        Elia: Per lo spessore.
+        Elia: Ma sono un tipo musicale, per cui direi "spesso d'accordo".
+        Elia: Tengo "spesso assieme" per Zeca.
+            -> advance_time ->
+        Elia: Quante fette di bresaola ci tiro fuori con un chilo di spesso assieme?
+            + + Ettore: Ti manca Paola?
+                Elia: No, non so quanto mi manca di bresaola.
+                Elia: Perché se le fette <i>spesso assieme</i>sono più sottili di quelle <i>spesso d'accordo</i> allora mi hai fregato, perché sono due chili che pesano diversamente.
+                Elia: Mi fa vedere il pacchetto?
+                Ettore: Di bresaola?
+                Elia: No ho cambiato idea, mi faccia due etti di festa di tacchino, è più leggera.
+                Elia: Ma ha visto Paola?
+                Elia: Che vorrei farle una festa ma non col tacchino, con la bresaola.
+                Elia: Lei preferisce i sapori forti.
+                Elia: Ma devo capire ancora cosa ne pensa il tacchino, della bresaola.
+                Elia: Ma mi aveva chiesto qualcosa, vero? A volte mi perdo.
+                    -> advance_time ->
+                     -> elia_talking_second_tier
+            + + [Cambi argomento] -> elia_talking_second_tier
+
+
+    = third_paola   
+
+    -> advance_time ->
+        -> elia_talking_second_tier
 
 /* ---------------------------------
 

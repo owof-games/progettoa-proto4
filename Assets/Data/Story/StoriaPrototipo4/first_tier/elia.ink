@@ -23,22 +23,12 @@ Opzioni di dialogo con il personaggio Elia
 
     + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Che rapporto avevi con Paola?
         Elia: Eravamo fratello e sorella.
-        Ettore: Questo lo so, ma ci andavi d'accordo? Passavi del tempo con lei?
-        Elia: Solo quando eravamo assieme.
-        Ettore: Solo quando eri con lei ci andavi d'accordo?
-        Elia: No, passo del tempo con lei solo quando sono con lei.
-        Elia: Non posso passarlo con lei se non sono con lei, no?
-            -> advance_time ->
-            + + Ettore: E ti manca?
-                Elia: Il tempo?
-                Ettore: No, Paola.
+        Elia: Eravamo tutto.
+        Elia: <i>Siamo</i> tutto: una relazione così non finirà mai.
+            + + Ettore: Ti manca?
                 Elia: No, lei è qui con noi.
                 Ettore: Non sapevo fossi religioso.
-                Elia: Religioso?
-                Elia: No no, il collarino è alla coreana, non è da prete.
-                Elia: Però una volta ho preso un prete in testa con un pallone.
-                Elia: E ora credo morirò all'inferno.
-                Elia: Ed è un bene perché sono freddoloso.
+                Elia: Solo per lei. Paola era la mia religione.
                     -> advance_time ->
                      -> elia_acting
             + + [Cambi argomento] -> elia_acting
@@ -410,7 +400,7 @@ Opzioni di dialogo con la persona Elia
             + Ettore: Elia, i pronomi non funzionano così, sai?
                 Elia: Non dirmi che sei una persona coi pronomi, per favore.
                 Elia: Che già la vita è difficile, non posso imparare anche quelli!
-                Elia: Zeca mi sta insegnando i grammi, per le proteine.
+                Elia: Zeca mi sta insegnando i grammi per le proteine.
                 Elia: Ma ci sono troppi numeri.
             -
         Elia: Niente, vado a cercare il mio amico. A dopo!
@@ -439,7 +429,7 @@ Opzioni di dialogo con la persona Elia
         Elia: Poi da quando collaboro con Zeca, è tutto molto più divertente.
         Ettore: Ma in cosa consiste BRO?
         Elia: Non è che consiste, perché non lo tocchi.
-        Elia: Anche se ci sono le foto, quelle le tocchi, quindi sì, BRO consiste.
+        Elia: Anche se ci sono le foto, quelle le tocchi, quindi forse BRO consiste?
         Elia: BRO sono? è? BRO può essere vivo? Sì, perché parlo di BRO.
         Elia: BRO è fare foto a chi fa palestra, così vedi i tuoi cambiamenti.
         Elia: Entriamo negli spogliatoi, ti facciamo un po' di foto e le appendiamo in giro.
@@ -476,7 +466,7 @@ Opzioni di dialogo con la persona Elia
         Elia: E come lo sai?
         Ettore: Me l'hai detto poco fa.
         Elia: Sei uno di quelli? Un telepratico?
-        Elia: Greta dice che una volta un telepratico le ha sistemato un dolore alla spalla che si portava da anni.
+        Elia: Zeca dice che una volta un telepratico le ha sistemato un dolore alla spalla che si portava da anni.
             -> advance_time ->
         Elia: Non è che puoi sistemarmi questo dolorino qui al trapezio?
         Ettore: Elia: come sei arrivato vivo a, quanto, trent'anni?

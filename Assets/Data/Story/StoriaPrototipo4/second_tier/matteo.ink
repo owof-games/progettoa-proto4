@@ -139,7 +139,7 @@ Opzioni di dialogo con la persona Matteo
             Matteo: Un bel po' di gente.  
                 -> matteo_talking_second_tier
 
-    + Fai domande sulla persona Matteo -> esplora_matteo
+    + [Chiacchiera con Matteo] -> esplora_matteo
     
     // OPZIONE PER IL FINALE
     + {(choice_WhoWasInChargeOfTheBuffet== True or choice_WhoWasInChargeOfTheBuffet == False) && (choice_ForWhomTheLetterWas == True or choice_ForWhomTheLetterWas == False)} [È il momento di fermare l’omicida di Paola!] Ettore: Matteo: so che vuoi uccidere Paola! -> arringa_finale_Matteo
@@ -171,14 +171,18 @@ Opzioni di dialogo con la persona Matteo
     //SCELTE CONDIZIONALI OGGETTI//
     + (lettera) {inventoryContents has Lettera && new_this_loop(->lettera)} Ettore: Hai mai visto questa lettera?
         Matteo: Mettila via, subito! Se Paola la trova ti mangia vivo!
+    
     + (torta) {inventoryContents has Torta} Ettore: Questa torta l'avete portata tu e Zeca?
         Matteo: Strano: Zeca e io abbiamo preso la roba al supermercato, ma non ricordo questa torta!
+    
     + {inventoryContents has BottigliaDiVino} Ettore: Riconosci questa bottiglia di vino?
         Matteo: Sì, è tra quelle che abbiamo comprato al supermercato.
         Matteo: Ma non dirlo a Paola: abbiamo preso la roba che costava meno e con l'etichetta più spocchiosa.
         Matteo: E da come ha sorriso, credo abbia funzionato!
+    
     + {inventoryContents has FlaconcinoAsma} Ettore: Sai di chi sia questo flaconcino per l'asma?
         Matteo: Zero totale.
+    
     + {inventoryContents has SigarettaElettronica} Ettore: Hai idea di chi abbia perso questa sigaretta elettronica?
         Matteo: Di Paola. Con Zeca siamo passati a recuperarle le ricariche.
         Matteo: E le abbiamo preso un sapore schifoso, così, pe il piacere di darle fastidio.
@@ -195,7 +199,7 @@ Opzioni di dialogo con la persona Matteo
 
 
 {
-- MatteoTalking > 1: Matteo: "Non mi va di rispondere ad altre domande personali".
+- MatteoTalking > 1: Matteo: Ho bisogno di un po' di privacy ora, Ettore.
     -> advance_time ->
     -> intro
 - else:
@@ -210,28 +214,73 @@ Opzioni di dialogo con la persona Matteo
 //DOMANDE SUllA PERSONA MATTEO
 
 = first_qn
-~ MatteoTalking++
-    + Prima domanda
-    -> advance_time ->
-    
-    -
--> matteo_talking_second_tier 
+    ~ MatteoTalking++
+        Matteo: Vivi solo, Ettore?
+            + Ettore: Vivo con la persona che amo.
+                Matteo: Immagino sia bello, svegliarsi accanto a chi ami.
+            + Ettore: Vivo con la mia famiglia.
+                Matteo: Spero andiate d'accordo.
+            + Ettore: Vivo solo.
+                Matteo: Non so perché ma ti immagino con tre gatti e una postazione per i videogiochi!
+            + Ettore: Vivo con una coinquilina.
+                Matteo: Allora siamo sulla stessa barca!
+            -
+        Matteo: Io vivo con Greta, sai?
+        Matteo: Sono quattro anni a breve, e la adoro.
+        Matteo: Per me, lei è famiglia.
+        Matteo: Non sempre ci capiamo, ma ormai sappiamo anche come volerci bene.
+        -> advance_time ->
+        Matteo: Ad esempio lei sembra sempre negativa e diretta, ma è perché ha avuto una vita di merda.
+        Matteo: Di contro passo per quello paziente dei due, ma in realtà sono un ansioso del cazzo.
+        Matteo: E così sono io quello che porta rancore, mentre lei perdona tante cose.
+        Matteo: Ora siamo un po' preoccupati: il contratto d'affitto sta scadendo.
+        Matteo: Il padrone di casa vuole aumentare l'affitto a sproposito.
+        Matteo: E le uniche case che stiamo trovando sono a un'ora di bus dal centro.
+        Matteo: E per me vuol dire non aver più del tutto una vita.
+    -> matteo_talking_second_tier 
 
 = second_qn
  ~ MatteoTalking++
-    +  altra domanda
+    Matteo: Che pensi di tutta questa situazione, Ettore?
+        + Ettore: La recita è tremenda.
+            Matteo: Hai ragione, qualcuno dovrebbe fermare Paola.
+        + Ettore: Sono confuso, molto confuso.
+            Matteo: Se pensi di essere confuso, ricordati che c'è Elia.
+        + Ettore: Non hai voglia di uscire da qui?
+            Matteo: Il prima possibile. Ma se lo faccio ora, non mi pagano.
+        -
+    Matteo: Mi chiedevo: se potessi essere da qualche parte, da qualsiasi parte, dove saresti ora?
+        + Ettore: Con gli amici a fare balotta.
+        + Ettore: Probabilmente ad alternare videogiochi e pisolini.
+        + Ettore: Tra gatti e libri dell'orrore.
+        -
+    Matteo: {~ Mi piace il tuo modo di ragionare!|C'è posto anche per me?|Posso portare del vino e aggiungermi?}
+    Matteo: Per me questa situazione, ora, è utile solo per godersi il dopo, l'essere altrove.
+    Matteo: A volte servono momenti come questo, noiosi e vuoti, per ricordarti che esiste ancora qualcosa da chiamare "vita".           
     -> advance_time ->
-   
-    -
--> matteo_talking_second_tier    
+    Matteo: E forse nell'ultimo tempo ho pensato così tanto alle cose da fare, da cambiare, da dimenticarmi di vivere.
+        -> matteo_talking_second_tier    
 
 = third_qn
 ~ MatteoTalking++
-    Matteo dice cose
-        +  tu chiedi
-    -> advance_time ->    
-    -    
--> matteo_talking_second_tier
+    Matteo: Credo... Posso chiederti un favore?
+    Matteo: Resteresti qui con me, in silenzio, per qualche secondo?
+    Matteo: C'è qualcosa che mi spaventa, e non riesco a calmarmi.
+        + Ettore: Ho da fare, scusa.
+            Matteo: Non ti preoccupare.
+                -> advance_time ->
+                -> intro
+        + Ettore: Certo. Posso fare altro?
+            Matteo: No, resta così, vicino.
+    Matteo: ...
+    Matteo: ...
+    Matteo: ...
+        -> advance_time ->
+    Matteo: Credo di aver capito cosa mi inquieta.
+    Matteo: E credo di aver deciso cosa fare.
+    Matteo: Hai un bel cuore Ettore, un gran bel cuore.
+    Matteo: Spero di incontrarti di nuovo, fuori da qui.    
+        -> matteo_talking_second_tier
 
 TODO: remind. Il focus investigativo "facile" è sulla lettera, non su una morte che per gli altri non è avvenuta.
 

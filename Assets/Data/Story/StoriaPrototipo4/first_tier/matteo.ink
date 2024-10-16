@@ -242,7 +242,7 @@ Opzioni di dialogo con la persona Matteo
     = first_qn
     ~ MatteoTalking++
         Matteo: Mi sa ma tra una cosa e l'altra non ci siamo presentati, vero?
-        Matteo: Mi chiamo Matteo, e sono intrappolato contro la mia volontà in questa recita.
+        Matteo: Mi chiamo Matteo, e sono intrappolato quasi contro la mia volontà in questa recita.
         Matteo: Ma ci sono cose peggiori, direi.
         Matteo: E tu invece?
             + Ettore: Mi chiamo Ettore, piacere.

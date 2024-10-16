@@ -284,10 +284,14 @@ Opzioni di dialogo con la persona Matteo
         Matteo: Ma che ne dici se dopo tutto questo casino ci beviamo qualcosa?
         Matteo: Non è un appuntamento, tranqui.
         Matteo: Ma non so da quanto tempo ho una conversazione che non sia di lavoro.
-        Matteo: O con qualcuno con cui lavoro.
+        Matteo: O con qualcuno con cui non lavoro.
         Matteo: Che poi ok, stiamo lavorando assieme ora. Ma almeno non mi stai urlando in faccia.
                 + Ettore: Appena stacchiamo viene a prendermi la persona con cui sto.
                     Matteo: Come non detto. Spero ci si ribeccherà di nuovo allora.
+                        + + Ettore: Ma non è un problema, per noi. Insomma, non è una relazione esclusiva.
+                            Matteo: Allora birrettona a tre?
+                        + + Ettore: Volentieri!
+                        - -    
                 + Ettore: Volentieri! Birretta e cazzate?
                     Matteo: La serata migliore direi!
                 + Ettore: La risposta è sì. E non mi spiacerebbe fosse un appuntamento.

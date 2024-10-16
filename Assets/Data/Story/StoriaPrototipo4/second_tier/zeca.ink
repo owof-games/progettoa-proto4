@@ -27,7 +27,7 @@ Opzioni di dialogo con la persona Zeca
             -> advance_time ->
             + + [Cambi argomento] -> zeca_talking_second_tier
 
-    + (rapporto) {new_this_loop(->rapporto)} Ettore: Che rapporto hai con Paola?
+    + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Che rapporto hai con Paola?
         Zeca: cose
             -> advance_time ->
             + + [Cambi argomento] -> zeca_talking_second_tier

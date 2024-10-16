@@ -30,7 +30,7 @@ Opzioni di dialogo con la persona Elia
                 -> advance_time ->
             -> elia_talking_second_tier
 
-    + (rapporto) {new_this_loop(->rapporto)} Ettore: Che rapporto hai con Paola?
+    + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Che rapporto hai con Paola?
         Matteo: cose
             -> advance_time ->
             + + [Cambi argomento] -> elia_talking_second_tier

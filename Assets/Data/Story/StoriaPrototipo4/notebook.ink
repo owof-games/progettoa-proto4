@@ -244,6 +244,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 {greta_acting.minacce: Greta: Uh, è la calligrafia di Paola. Dove l'hai trovata?}
 {elia_acting.minacce:Elia: Sembra una roba da Matteo. Quando è pissato è capace di dire qualunque cosa.}
 {matteo_talking_second_tier.lettera: Matteo: Mettila via, subito! Se Paola la trova ti mangia vivo!}
+{matteo_talking_second_tier.lettera2: Matteo: Solo due persone in questo posto mossono minacciare qualcuno: Paola e Zeca.}
 
 
 
@@ -277,6 +278,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 {cb_second_tier_cibo.primoCheck: Friabile come le proprie sicurezze, come un sacco d'ossa che cade dal sesto piano.}
 {paola_is_dead.torta: Sono rimasugli all'angolo della bocca. Forse qualcosa di dolce.}
 {paola_talking_second_tier.torta: Paola: Ma pensavo tutti sapessero che sono allergica alle arachidi, mortalmente. E questa è piena di crema d'arachidi.}
+{matteo_talking_second_tier.torta: Matteo: Strano: Zeca e io abbiamo preso la roba al supermercato, ma non ricordo questa torta!}
 
 {paola_talking_second_tier.foto2: <i>Informazioni sulla foto</i>}
 {paola_talking_second_tier.foto2: Due persone. In un locale. Con l'urgenza di divorarsi.}

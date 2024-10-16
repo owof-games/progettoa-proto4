@@ -26,7 +26,7 @@ Opzioni di dialogo con la persona Greta
             -> advance_time ->
             + + [Cambi argomento] -> greta_talking_second_tier
 
-    + (rapporto) {new_this_loop(->rapporto)} Ettore: Che rapporto hai con Paola?
+    + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Che rapporto hai con Paola?
         Matteo: cose
             -> advance_time ->
             + + [Cambi argomento] -> greta_talking_second_tier

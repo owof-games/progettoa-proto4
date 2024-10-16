@@ -26,7 +26,7 @@ Opzioni di dialogo con la persona Paola
             -> advance_time ->
             + + [Cambi argomento] -> paola_talking_second_tier
 
-    + (rapporto) {new_this_loop(->rapporto)} Ettore: Non, ehm. Ti fa male da qualche parte? In modo quasi mortale?
+    + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Non, ehm. Ti fa male da qualche parte? In modo quasi mortale?
         Paola: cose
             -> advance_time ->
             + + [Cambi argomento] -> paola_talking_second_tier
@@ -43,7 +43,8 @@ Opzioni di dialogo con la persona Paola
 
     //SCELTE CONDIZIONALI//
     + (allestimento) {zeca_talking_second_tier.allestimento} Ripetiamo quello che ci ha detto Zeca.
-        Paola: "Ho sentito Zeca e Matteo litigare nella stanza prima del buffet"
+        Paola: Ho sentito Zeca e Matteo litigare nella stanza gialla prima del buffet.
+        Paola: Quasi quasi vado a chiedere a Zeca il perché.
 
     + (money) Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro.
 

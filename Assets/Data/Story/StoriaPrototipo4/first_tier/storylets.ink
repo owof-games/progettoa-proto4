@@ -629,7 +629,8 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Greta: Paola, ma questa roba non ha senso!
         Greta: Come dovrebbe capire Ettore chi è l'assassino e perché?
         Greta: Ma poi qui ci sono motivi a sufficienza per tutti!
-        Greta: Paola, mi senti?!?
+        Greta: Quindi nel tuo piano tutti hanno ucciso Paola?
+        Greta: Paola, mi rispondi?!?
 //Grida di chi è in scena
         {
         - are_two_entities_together(Elia, Paola):

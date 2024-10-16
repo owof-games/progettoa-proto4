@@ -14,6 +14,8 @@
     
     - inventoryContents(Foto) && are_two_entities_together (Zeca, Ettore): -> iLlKillThatBitchStorylet    
 
+    - are_two_entities_together(Matteo, Ettore) && not are_two_entities_together(Matteo,Greta) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && not new_this_loop(->trueLoveStorylet):
+        -> forMeHeIsStupidAFStorylet
 
 //CONVERSAZIONI ORIGLIATE
 
@@ -166,7 +168,29 @@ Zeca ci sgama con la foto e andrà ad aggredire Greta, con piccole variazioni a 
     -> intro  
 
 
-
+=== forMeHeIsStupidAFStorylet
+    Matteo: Non me lo sarei mai aspettato.
+    Ettore: Cosa?
+    Matteo: Che Elia confessasse i suoi sentimenti a Zeca.
+    Ettore: {trueLoveStorylet: Mi sembra una cosa tenera|Non ne sapevo nulla}.
+    Matteo: Detto fra me e te: adoro Elia, ma è un coglione.
+    Matteo: E sono sicuro che farà del male a Zeca.
+    Matteo: Ma si dice che si impara al meglio dai nostri errori, no?
+    Matteo: Mi chiedo chi altri soffrirà per tutto questo.
+        + {greta_talking_second_tier.indagini3}Ettore: Greta. Greta è innamorata di Elia.
+            -> advance_time ->
+            Matteo: Quindi lo sapevi anche tu?
+            Ettore: {iTryToBeAGoodFriendStorylet: Prima stavi cercando di farlo capire a Zeca, vero?|Greta è stata molto diretta.}
+            Matteo: {iTryToBeAGoodFriendStorylet: Sì. Ma poi ho tentennato, e mi vergogno.|Interessante. So che lei è forte, ma magari vedo di tirarle su il morale.}
+        + Ettore: Voglio rimanere ottimista. L'amore è amore.
+            Matteo: E la cicuta è cicuta, e per questo ti uccide.
+            Ettore: Non credi nell'amore?
+            Matteo: Sì, ma non credo in Elia. Quel ragazzo è così confuso da scambiare il suo naso per una pinna.
+            Matteo: E la sua amicizia per amore. Ma magari mi sbaglio.
+        -
+    Matteo: Se non è un problema, vorrei rimanere un poco da solo, Ettore.
+        -> advance_time ->        
+    -> intro
 
 
 //CONVERSAZIONI ORIGLIATE
@@ -233,11 +257,75 @@ Elia ammette i suoi sentimenti per Zeca, promette che smetterà di cazzeggiare c
 
 //STORYLET A CUI ARRIVIAMO SOLO ATTRAVERSO UNA SCELTA
 === evilJobStorylet
-Matteo ci fa capire quanto sia doloroso il lavoro che fa per Paola.
-    + {phone.sindacato} Gli diciamo che sappiamo della sindacalizzazione.
-            Matteo: Sì. Ho pensato che, forse, se siamo meno ricattabili come lavoratori, allora possiamo anche dire "no" davanti alle cose più ingiuste.
-    -> intro
+TODO: essendo uno storylet lungo, provare a fare un check su morte paola ogni tot?
+    Matteo: Vuoi davvero ascoltare una storia lunga e noiosa?
+        + Ettore: Se è lunga, forse non ho tutto questo tempo, scusa.
+            -> intro
+        + Ettore: Ho tutto il tempo del mondo.
+            -> uno
 
+    = uno
+        Matteo: Sono entrato in Londar tre anni fa, e ci sono entrato grazie ad Elia.
+        Matteo: Per i primi mesi ho fatto il responsabili in un call centre, per la parte di recupero crediti.
+        Matteo: E ammetto che mi piaceva: buono stipendio, e le pressioni per lo più erano su chi rispondeva.
+        Matteo: Poi Elia e Paola hanno iniziato a litigare, e molto.
+        Matteo: E una mattina mi viene detto che per questioni di ristrutturazione, verrò demansionato.
+            + Ettore: Merda, mi spiace un sacco!
+            + Ettore: Quindi non eri più nelle grazie di Paola?
+            -
+            -> advance_time ->
+        Matteo: Diciamo che è stata una doccia fredda.
+        Matteo: All'inizio il problema principale era trovarmi allo stesso posto di gente che fino al giorno prima avevo, detta come va detta, trattato di merda.
+        Matteo: E dato che il capoccia nuovo era lì per volere di Paola, e io ero il pupillo di Elia, beh: ha lasciato che accadesse di tutto.
+        Matteo: Ma il peggio è venuto dopo, perché fintanto che ero in quel ruolo, non avevo realizzato cosa <i>davvero</i> stessimo facendo.
+        Matteo: Dovevo chiamare decine di persone al giorno e sostanzialmente minacciarle in burocratese di pagare cose che avevano preso con soldi che non avevano.
+        Matteo: E se quando ero il capetto ero convinto che fossero tutti dei coglioni sprovveduti, quando ho iniziato a parlare con loro ho realizzato che erano per lo più poveracci.
+        Matteo: Persone anziane o migranti a cui hanno fatto firmare contratti che non potevano capire.
+            -> advance_time ->
+        Matteo: Lavoratori pieni di certezze che si son visti chiudere fabbrica o ufficio dall'oggi al domani.
+        Matteo: Ma, sempre più spesso, persone cacciate in un modo o nell'altro dalla loro casa.
+            + Ettore: E tu ti sentivi impotente.
+                Matteo: Sì. Totalmente impotente.
+                Matteo: E pieno di vergogna per come li ho giudicati prima, e per come avevo trattato i miei colleghi in passato.
+            + Ettore: Davvero non se lo meritavano?
+                Matteo: Chi se lo meriterebbe, Ettore?
+                Matteo: Metti anche che hanno preso cose inutili e costose per sentirsi fighe, non è il mondo in cui viviamo che ci spinge a farlo?
+                Matteo: Se ci sentiamo invisibili, non è umano fare di tutto per farci notare, almeno un po'?
+            -
+        Matteo: Pian piano inizio però a mettere assieme i pezzi.
+        Matteo: E mi rendo conto che molti dei debiti vengono da aree che i comuni stanno gentrificando attraverso la Londar.
+            -> advance_time ->
+        Matteo: Il pattern è lo stesso: Londar inizia ad acquisire quanti più uffici dismessi e case in svendita in aree periferiche.
+        Matteo: Poi informa i comuni che sono disponibili a fare qualcosa di vistoso come un nuovo spazio di coworking o un giardinetto, se il comune rende lo spazio più sicuro.
+        Matteo: Partono sgomberi, retate, la polizia compare dove non si è mai vista.
+        Matteo: E nel mentre la voce che il quartiere sta per fare il salto di qualità gira, e i proprietari di casa aumentano gli affitti o cacciano chi è in nero.
+        Matteo: E queste persone si ritrovano in città che non sono pensate per loro, costose a dismisura, ingestibili per chi fa due se non tre lavori.
+        Matteo: E io ero lì a pensare che fossero sfigati per i debiti per la macchina, quando la macchina per loro era vita, perché dovevano andare a lavoro non più dall'interno della città, ma da un paese sfigato a sessanta chilometri di distanza.
+            -> advance_time ->
+        Matteo: Ho provato a cercare contatti col comune, ma nulla. Nulla di nulla.
+        Matteo: E poi un giorno parlando con una collega, mi dice "Se non fossi così appesa a un filo con questo lavoro, mi rifiuterei di spremere alcuni di questi poveracci."
+        Matteo: E lì mi son detto: se riesco a migliorare la condizione dei miei colleghi, allora forse possiamo più facilmente dire di "no" alle richieste dei capi, e magari chiudere un occhio su alcune situazioni.
+        Matteo: Niente di rivoluzionario, ma un piccolo inizio.
+            + Ettore: Credo sia davvero ammirevole!
+            + Ettore: E i tuoi colleghi come hanno reagito?
+            -
+        Matteo: I miei colleghi si sono mostrati entusiasti. Avevano bisogno di credere in qualcosa di nuovo.
+        Matteo: Ne hanno tutt'ora.
+            -> advance_time ->
+        Matteo: Alla prima riunione, molti di loro hanno detto che è solo questione di tempo, prima di ritrovarsi dall'altra parte del telefono.
+        Matteo: Ora siamo solo all'inizio, abbiamo avuto un contatto da Risorse Umane che è stato totalmente disumano, hanno praticamente cercato di farci il lavaggio del cervello.
+        Matteo: E Paola, qui, non ha ancora messo assieme i pezzi, credo.
+        Matteo: Ma quando mi affronterà, si troverà davanti un osso duro.
+        Matteo: Sono stanco di questo sistema, e farò di tutto perché almeno qualcosa di piccolo possa cambiare.
+        Matteo: Pensi sia un illuso?
+            + Ettore: No. E ti ammiro tantissimo, Matteo.
+                Matteo: Na, niente ammirazione. Ma se servirà, aiutaci.
+            + Ettore: Credo non cambierà nulla, ma è bello vederti provare.
+                Matteo: Non cambierà nulla se non facciamo nulla, mai. no?
+                Matteo: Ma sono sicuro che stavolta sarà diverso.
+            -
+          -> advance_time ->                  
+            -> intro
 
 
 //STORYLET DI CHIUSURA

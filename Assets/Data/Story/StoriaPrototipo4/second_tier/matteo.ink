@@ -20,15 +20,16 @@ Opzioni di dialogo con la persona Matteo
 === matteo_talking_second_tier
  {debug: <i>Passo per matteo_talking_second_tier</i>}
     //INFO GENERALI//
-
+{loopableVariables has pausaRapportoMatteo: Matteo: Non ho niente da dirti -> intro.}
     + (loop) {new_this_loop(->loop)} Ettore: Non stai notando nulla di strano?
-            Matteo: Mmm, con Elia in giro è difficile dirlo. Prova ad essere più specifico.
-                + + Ettore: Ho come questo senso di deja-vu...
+            Matteo: Intendi il provare da ore una storia senza senso? Prova ad essere più specifico.
+                + + (opzioneScarica3) {new_this_loop(->opzioneScarica3)}Ettore: Ho come questo senso di deja-vu...
                         Ettore: Abbiamo già vissuto tutto questo, anche se in modo diverso.
                         Ettore: E tende a finire male. So che tende a finire male.
                         Matteo: Quindi sai dirmi cosa sto per dirti?
                             -> advance_time ->
-                            + + + Ettore: Ehm, no.
+
+                            + + + (opzioneScarica) {new_this_loop(->opzioneScarica)} Ettore: Ehm, no.
                                 Matteo: Anche a me capita spesso, quando devo ripetere queste dannate scene.
                                 Matteo: Una volta non riuscivo più a ricordare se ero Matteo, o il personaggio Matteo, e ci ho provato con Elia.
                                 Matteo: Ma se vedi che butta male, chiedi una pausa più lunga a Paola.
@@ -36,6 +37,7 @@ Opzioni di dialogo con la persona Matteo
                                 Matteo: O dille che ha i capelli fuori posto, e ci guadagnamo mezz'ora sicura!
                                         -> advance_time ->
                                     -> matteo_talking_second_tier
+
                             + + + (loop2){matteo_talking_second_tier.loop && new_this_loop(->loop2)} Ettore: Sì!
                                 Ettore: Che una volta ci hai provato con Elia perché non sapevi più se eri Matteo, o il personaggio.
                                 Matteo: Uh, interessante.
@@ -44,30 +46,97 @@ Opzioni di dialogo con la persona Matteo
                                 Matteo: Almeno una cosa bella continuerà a ripetersi.
                                     -> advance_time ->
                                     -> matteo_talking_second_tier
-                            + + + (loop3) {matteo_talking_second_tier.loop2 && new_this_loop(->loop3)} [Baci Matteo]
+
+                            + + + (loop3) {matteo_talking_second_tier.loop2 && new_this_loop(->loop3) && new_this_loop(->loop2)} [Baci Matteo]
                                 Ettore: Scusa, ma mi hai detto in un altro loop di farlo.
                                 Ettore: Hai detto che almeno sarebbe capitato di nuovo qualcosa di bello.
                                 Matteo: Ok, questa è una cosa che potrei aver davvero detto. Perché mi piaci da che ti ho visto.
                                 Matteo: E tu stai cercando di fermare tutto questo?
                                 Ettore: Sì, perché qualcuno sta per morire.
-                                Matteo: Quando avrai risolto il crimine, allora, ridammi un altro bacio, e portami via da qui. 
+                                Matteo: Quando avrai risolto il crimine, allora, ridammi un altro bacio, e portami via da qui.
                                     -> advance_time ->
                                     -> matteo_talking_second_tier
 
                             - - -    
-                + + Ettore: Lascia perdere, è solo una inutile preoccupazione. -> matteo_talking_second_tier
+                + + Ettore: Lascia perdere, è solo un'inutile preoccupazione. -> matteo_talking_second_tier
                 - -
                 -> advance_time ->
-            + + [Cambi argomento] -> matteo_talking_second_tier
 
-    + (rapporto) {new_this_loop(->rapporto)} Ettore: Che rapporto hai con Paola?
-        Matteo: cose
+    + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Teo, tu e Paola che rapporto avete?
+        Matteo: Che cosa carina che mi chiami <i>Teo>/i>.
+        Matteo: La conosco poco nulla.
+        Matteo: So che è ricca, so che è stronza, e so che è sorella di Elia.
+        Matteo: Che tratta costantemente di merda.
+        Matteo: Sono qui sostanzialmente per lui.
+        Matteo: E un po' perché da sempre vorrei fare l'attore, ma non è di sicuro questo il posto dove venire scoperto.
             -> advance_time ->
+            
+            + + (lavoro) {zeca_talking_second_tier.money && new_this_loop(->lavoro)}: Ettore: Da quel che dice Zeca, però, tu Paola la conosci.
+                Ettore: Dice che campi alle spalle sue e di Elia.
+                Matteo: Lavoro per la sua azienda, che è diverso. Ma non ci ho mai avuto a che fare direttamente.
+                Matteo: Però le insinuazioni di Zeca hanno senso: le mie entrate dipendono dal lavoro per lei, e dalle pulizie a casa di Elia.
+                Matteo: Ma mi chiedo: perché tutto questo dovrebbe importarti?
+
+                    + + + (opzioneScarica2) {new_this_loop(->opzioneScarica2)} Ettore: Sto cercando di conoscervi meglio, visto che siamo qui.
+                            Matteo: Allora la prossima volta chiedimi dove mi piace cenare.
+                            Matteo: O il colore del mio intimo.
+                                -> advance_time ->
+                            -> matteo_talking_second_tier
+                    
+                    + + + (lettera2) {cb_second_tier_lettera.primoCheck && new_this_loop(->lettera2) && new_this_loop(->lettera)} Ettore: C'è una lettera, una lettera di minacce.
+                            Ettore: Sto cercando di capire chi l'ha scritta, e contro chi.
+                            Matteo: Solo due persone in questo posto mossono minacciare qualcuno: Paola e Zeca.
+                            Matteo: Ma sono così inutile qui, che dubito qualcuno voglia minacciarmi per qualcosa.
+                                -> advance_time ->
+                            -> matteo_talking_second_tier
+
+                    + + + (lettera3) {&& new_this_loop(->lettera3) && not new_this_loop(->lettera)} Ettore: Per la lettera che ti ho mostrato prima.
+                            Ettore: Quella che mi hai fatto mettere via, impaurito da Paola.
+                            Matteo: Non ero impaurito da Paola, ma impaurito per te.
+                            Matteo: Quella è la sua calligrafia.
+                                -> advance_time ->
+                            Ettore: Vorrei capire a chi è indirizzata.
+                            Matteo: E perché? Tu sei uno sconosciuto in questo gruppo tossico.
+                            Ettore: Perché credo potrebbe succedere qualcosa di brutto.
+                            Matteo: E allora, lascia che accada.
+                            Matteo: Ci sono cose tra Elia e Paola, tra Paola e Greta, tra Zeca ed Elia che vanno avanti da anni.
+                            Matteo: Non sarai tu a risolverle stasera.
+                            Matteo: Beviti un goccio di vino, recita quello che devi recitare, e fuggi da qui.
+                                -> advance_time ->
+                            -> matteo_talking_second_tier
+
+                    + + + (lavoro2) {phone.sindacato && new_this_loop(->lavoro2)}Ettore: credo che Paola ti stia minacciando, per via del sindacato.
+                          {new_this_loop(->lettera): Ettore: C'è una lettera minatoria, e credo sia scritta da lei.}
+                          {not new_this_loop(->lettera): Matteo: Per quella lettera di prima?}
+                          Matteo: Sei preoccupato per me?
+                            -> advance_time ->
+                
+                            + + + + (lavoro3) Ettore: Sì, credo che lei possa farti del male.
+                                    Matteo: Questa è una cosa tenera, Ettore.
+                                    Matteo: Facciamo così: la prossima volta che c'è una pausa e siamo soli, chiedimi di raccontarti tutto, e lo farò.
+                                    Matteo: Ora però lascia che mi rilassi un poco.
+                                        -> matteo_talking_second_tier
+                            
+                            + + + + Ettore: Sì, credo che tu possa farle del male.
+                                    Matteo: Beh, se hai già deciso che sono una cattiva persona, che senso ha parlarci ancora?
+                                        ~ loopableVariables += pausaRapportoMatteo
+                                        -> matteo_talking_second_tier
+                              
+                    + + + ->            
+
             + + [Cambi argomento] -> matteo_talking_second_tier
 
-    + (omicidio) {new_this_loop(->omicidio)} Ettore: Secondo te qualcuno potrebbe volere del male a Paola?
-        Matteo: 
-        -> advance_time ->
+    + (omicidio) {new_this_loop(->omicidio)} Ettore: Matteo, secondo te chi vorrebbe fare del male a Paola?
+            Matteo: Credo un bel po' di gente.
+            Matteo: Dal cassiere del supermercato alla autista privata.
+            Matteo: Dalla postina al tizio che le cura i cani.
+            Matteo: Passando poi per il consiglio di amministrazione.
+            Matteo: E le famiglie che distrugge con le sua attività.
+            Matteo: E i comuni che hanno debiti con lei.
+                -> advance_time ->
+            Ettore: E tra le persone qui presenti?
+            Matteo: Un bel po' di gente.  
+                -> matteo_talking_second_tier
 
     + Fai domande sulla persona Matteo -> esplora_matteo
     
@@ -75,35 +144,43 @@ Opzioni di dialogo con la persona Matteo
     + {(choice_WhoWasInChargeOfTheBuffet== True or choice_WhoWasInChargeOfTheBuffet == False) && (choice_ForWhomTheLetterWas == True or choice_ForWhomTheLetterWas == False)} [È il momento di fermare l’omicida di Paola!] Ettore: Matteo: so che vuoi uccidere Paola! -> arringa_finale_Matteo
 
     //SCELTE CONDIZIONALI//
-    + (allestimento) {paola_talking_second_tier.allestimento} Diciamo quello che Paola ha detto su Matteo e il litigio.
-        Matteo: Quella strega! Devo subito trovare Zeca!
-         + + {whiteRoomContents hasnt Ettore} Ettore: Credo sia nella stanza bianca.
-                ~ move_entity(Elia, WhiteRoom)
-        + + {greenRoomContents hasnt Ettore} Ettore: Credo sia nella stanza verde.
-                ~ move_entity(Elia, GreenRoom)
-        + + {yellowRoomContents hasnt Ettore} Ettore: Credo sia nella stanza gialla.                
-                ~ move_entity(Elia, YellowRoom)
-        + + {redRoomContents hasnt Ettore} Ettore: Credo sia nella stanza rossa.               
-                ~ move_entity(Elia, RedRoom)
-        + + Ettore: "Non ho idea di dove sia, scusa."
-   
-    + (coglione) {trueLoveStorylet} Matteo è felice per Zeca, e per Greta, ma crede che Elia sia un coglione.
-    
-    + (lavoro) {zeca_talking_second_tier.money}: Se lo diciamo a Zeca, ci dice che Paola piuttosto dovrebbe farsi delle domande su Matteo, che è lui a campare sulle spalle dei due fratelli.
-        Matteo: I dubbi di Zeca sono sensati.
-        Matteo: Ma proprio per questo, perché dovrei distruggere le uniche cose che mi tengono vagamente a galla economicamente?
-        Matteo: Sono due lavori che odio? Sì. Ma a chi può seriamente piacere il proprio lavoro in questo sistema?
+    + {matteo_talking_second_tier.sindacato2 && not new_this_loop(->sindacato2)} Ettore: Posso chiederti perché stai tirando su un sindacato alla Londar?
+        {
+            - are_two_entities_together (Matteo, Paola) or are_two_entities_together (Matteo,Elia) or are_two_entities_together: Matteo: Forse non è il momento adatto ora. Chiedimelo quando siamo soli. -> matteo_talking_second_tier
+            - else: -> evilJobStorylet
+        }
 
-    + {matteo_talking_second_tier.lavoro} Ettore: Sai che ancora non ho capito cosa fai, Matteo?
-        -> evilJobStorylet
+    + (allestimento) {paola_talking_second_tier.allestimento && new_this_loop(->allestimento)} Ettore: Matteo, Paola dice che tu e Zeca stavate litigando nella stanza gialla prima delle prove.
+        Ettore: E voleva chiedere a Zeca il perché.
+        Matteo: Quella strega! Devo subito trovare Zeca, sai dove possa essere?
+        + + {whiteRoomContents hasnt Ettore} Ettore: Credo sia nella stanza bianca.
+                ~ move_entity(Matteo, WhiteRoom)
+        + + {greenRoomContents hasnt Ettore} Ettore: Forse nella stanza verde?
+                ~ move_entity(Matteo, GreenRoom)
+        + + {yellowRoomContents hasnt Ettore} Ettore: Dovresti trovarlo nella camera gialla.                
+                ~ move_entity(Matteo, YellowRoom)
+        + + {redRoomContents hasnt Ettore} Ettore: Quasi certamente nella stanza rossa.               
+                ~ move_entity(Matteo, RedRoom)
+        + + Ettore:"Non ho idea di dove sia, mi spiace.
+            Matteo: Provo a cercarlo, grazie Ettore!
+                ~ move_this_entity_in_a_different_room(Matteo)
+            -> intro
+   
     
     //SCELTE CONDIZIONALI OGGETTI//
-    + (lettera) {inventoryContents has Lettera} Guarda questa lettera!
+    + (lettera) {inventoryContents has Lettera && new_this_loop(->lettera)} Ettore: Hai mai visto questa lettera?
         Matteo: Mettila via, subito! Se Paola la trova ti mangia vivo!
-    + {inventoryContents has Torta} Guarda questo cibo!
-    + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
-    + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
-    + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
+    + (torta) {inventoryContents has Torta} Ettore: Questa torta l'avete portata tu e Zeca?
+        Matteo: Strano: Zeca e io abbiamo preso la roba al supermercato, ma non ricordo questa torta!
+    + {inventoryContents has BottigliaDiVino} Ettore: Riconosci questa bottiglia di vino?
+        Matteo: Sì, è tra quelle che abbiamo comprato al supermercato.
+        Matteo: Ma non dirlo a Paola: abbiamo preso la roba che costava meno e con l'etichetta più spocchiosa.
+        Matteo: E da come ha sorriso, credo abbia funzionato!
+    + {inventoryContents has FlaconcinoAsma} Ettore: Sai di chi sia questo flaconcino per l'asma?
+        Matteo: Zero totale.
+    + {inventoryContents has SigarettaElettronica} Ettore: Hai idea di chi abbia perso questa sigaretta elettronica?
+        Matteo: Di Paola. Con Zeca siamo passati a recuperarle le ricariche.
+        Matteo: E le abbiamo preso un sapore schifoso, così, pe il piacere di darle fastidio.
     
       
     + Te ne vai

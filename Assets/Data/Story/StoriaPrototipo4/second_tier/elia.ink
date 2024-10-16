@@ -34,8 +34,9 @@ Opzioni di dialogo con la persona Elia
             -> rapporto_Elia_Paola
 
 
-    + (omicidio) {new_this_loop(->omicidio)} Ettore: Secondo te qualcuno potrebbe volere del male a Paola?
-        Elia: 
+    + (omicidio) {new_this_loop(->omicidio)} Ettore: Conosci qualcuno che vorrebbe far male a Paola?
+ 
+
         -> advance_time ->
 
     + Fai domande sulla persona Elia -> esplora_elia

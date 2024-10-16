@@ -21,39 +21,148 @@ Opzioni di dialogo con la persona Zeca
 === zeca_talking_second_tier
  {debug: <i>Passo per zeca_talking_second_tier</i>}
     //INFO GENERALI//
-    + (loop) {new_this_loop(->loop)} Ettore: Non stai notando nulla di strano?
-        Zeca: cose 
+    + (loop) {new_this_loop(->loop)} Ettore: Zeca, non hai notato cose strane negli ultimi minuti?
+        Zeca: Tipo?
+        Ettore: Che sembra che state dimenticando le cose, e fate cose strane.
+        Zeca: Tipo?
+        Ettore: Tipo: durante la recita prima Paola è morta, morta davvero, e ora fate finta di niente.
+        Zeca: Tipo?
+        Ettore: Tipo ora tu, che mi chiedi "Tipo?" invece di essere preoccupato.
+        Ettore: Ecco: come prima, quando abbiamo ripetuto la scena della cena.
+        Ettore: E Paola gridava cose strane e voi ridevate.
+        Zeca: Embè?
+        Zeca: Scusa ciccio, ma non c'ho testa ora.
             -> advance_time ->
-            + + [Cambi argomento] -> zeca_talking_second_tier
+                 -> zeca_talking_second_tier
 
-    + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Che rapporto hai con Paola?
-        Zeca: cose
+    + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Tu e Paola andate d'accordo?
+        Zeca: Non mi dispiace, ma non ci pigliamo.
+        Zeca: Lei è un po' troppo bossy, non so se ci capiamo.
+        Zeca: Cosa che adoro in una donna, ma fa troppo elder millenial.
+        Zeca: La nostra generazione preferisce qualcosa di più diretto e meno sofisticato.
+        Zeca: Demure.
+        Zeca: Tipo Jennifer Coolidge.
+        Ettore: Quindi, hai stima di Paola?
             -> advance_time ->
+        Zeca: Mmm. No. Ora che ci penso, no.
+        Zeca: PERO'. PERO'.
+        Zeca: Ci uscirei a fare serata e sparlare di Elia, quello sì.
             + + [Cambi argomento] -> zeca_talking_second_tier
 
     + (omicidio) {new_this_loop(->omicidio)} Ettore: Secondo te qualcuno potrebbe volere del male a Paola?
-        Zeca: 
+        Zeca: Tesoro.
+        Zeca: CHI non vorrebbe farle del male?
+        Zeca: O almeno dirle due paroline a modo.
+        Ettore: E tu, le vuoi male?
+        Zeca: Naa, ci saremo parlate tre volte in due anni.
+        Zeca: PERO'. PERO'.
+        Zeca: Se continua a trattare così di merda Elia, potrei farci un pensierino.
+        Zeca: Solo io posso insultarlo.
+        Zeca: Per il resto: farei di tutto per proteggerlo.
         -> advance_time ->
+            -> zeca_talking_second_tier
 
     + Fai domande sulla persona Zeca -> esplora_zeca
 
     // OPZIONE PER IL FINALE
     + {(choice_WhoWasInChargeOfTheBuffet== True or choice_WhoWasInChargeOfTheBuffet == False) && (choice_ForWhomTheLetterWas == True or choice_ForWhomTheLetterWas == False)} [È il momento di fermare l’omicida di Paola!] Ettore: Zeca: so che vuoi uccidere Paola! -> arringa_finale_Zeca
 
+    TODO: Molto velocemente tutti dicono di non essere mai stati nella stanza gialla prima delle riprese
 
     //SCELTE CONDIZIONALI//
-    + (allestimento) {notABigSecretPartTwoStorylet.allestimento} Ci dice che lui e Matteo hanno lasciato il cibo sui tavoli e poi chiesto a Greta di occuparsene, che loro dovevano sistemare i costumi.
+    + (allestimento) {notABigSecretPartTwoStorylet.allestimento && new_this_loop(->allestimento)} Ettore: Zeca, ho una domanda sul buffet e su chi se ne è occupato.
+        Zeca: Ecco che torna a fare domande.
+        Ettore: Ok, niente domande allora.
+        Ettore: Elia prima mi ha detto che tu e Matteo vi siete occupati del cibo e delle sigarette di Paola.
+        Zeca: Sai che anche se non ci metti un punto interrogativo, questa è una domanda?
+        Zeca: PERO'. PERO'.
+        Zeca: Continuo a non capire questa fissa per il buffet.
+        Ettore: Mi annoio, può andare?
+        Zeca: Povera stellina, povera.
+            -> advance_time ->
+        Zeca: Comunque sì, ci siamo occupati di quella roba, ma non abbiamo preparato noi il buffet.
+        Zeca: Né io né Matteo abbiamo messo piede nella stanza gialla prima delle prove.
+        Zeca: Abbiamo invece lasciato le cose fuori dalla porta e chiesto a Greta di occuparsene, perché c'erano dei problemi coi costumi.
+        Zeca: O per dirla diversamente: Greta si deve essere scofanata un cavallo dalle ultime prove, perché ora non ci entra più in quel vestito.
+        Zeca: Hai altre domande, Sherlock?
+                + (allestimento2) {elia_talking_second_tier.allestimento}Ettore: Sì; mi sembra buffo quel che dici, perché Elia giura di averti lasciato il vino, perché lui e Greta avevano un problema coi tavoli.
+                    Zeca: <i>Buffo>/i> che tu non sappia farti un giro di cazzi tuoi, Ettore.
+                    Zeca: Vero, Elia mi ha chiesto di farlo, ma io non gli ho mai detto di sì.
+                        -> advance_time ->
+                    Zeca: Ma visto che sono una signora ci ho pure provato qualche minuto dopo a portare un paio di bottiglie.
+                    Zeca: E magari ad aprirmene una.
+                    Zeca: PERO'. PERO'.
+                    Zeca: La sala gialla, dove dovevamo fare il buffet, era serrata.
+                    Zeca: E qualcuno dentro ansimava come se avesse fatto le scale di corsa, molto di corsa.
+                    Zeca: E per scale, intendo tutta una squadra di calcio.
+                    Zeca: Forse era Paola col suo vibratore. Una elder millenial sicuro che ne ha sempre uno con sé.
+                    Zeca: Anche se non ho sentito il solito puzzo di cesso delle sue sigarette elettroniche.
+                     -> advance_time ->
+                        -> zeca_talking_second_tier
+                
+                + {paola_talking_second_tier.allestimento} Ettore: Paola dice di aver sentito litigare te e Matteo nella stanza gialla.
+                    Ettore: Ma prima hai detto di non essere mai entrato nella stanza gialla prima delle prove.
+                    Zeca: Oh va bene, mi hai colto in flagrante.
+                    Zeca: Tira fuori le manette e sculacciami perché sono un bimbo cattivo.
+                    Zeca: Ho mentito.
+                    Zeca: PERO'. PERO'.
+                    Zeca: Non ti sei chiesto il perché, Sherlock?
+                    Zeca: È perché non sono cazzi tuoi.
+                        -> advance_time ->
+                    Zeca: Gli amici litigano.
+                    Zeca: Gli amici fanno la pace.
+                    Zeca: Gli sconosciuti litigano.
+                    Zeca: Gli sconosciuti NON fanno la pace.
+                    Zeca: Non so se ci siamo capiti.
+                       + + {matteo_talking_second_tier.allestimento} Ettore: Quando ho detto la stessa cosa a Matteo, è corso a cercarti.
+                            Zeca: E ci siamo trovati, e ora va tutto bene.
+                       + + Ettore: Forte e chiaro.
+                       - -
+                    Zeca: Bene. Ora lasciami nel mio silenzio a odiare te e il resto del mondo, grazie.
+                        -> advance_time ->       
+                            -> zeca_talking_second_tier
+                + Ettore: Ehm, no, niente di utile, no.
+                    Zeca: Come sempre, insomma.
+                    -> advance_time ->
+                        -> zeca_talking_second_tier
     
-    + (allestimento2) {elia_talking_second_tier.allestimento} Zeca ci dice che qualcuno si è chiuso nella stanza a scopare a una certa, mentre lui e Matteo montavano le luci
-        Senza convinzione, dice "forse Paola e il suo vibratore. Anche se non ho sentito il solito puzzo da deodorante per il cesso che si porta dietro."
 
-    + {paola_talking_second_tier.allestimento} Paola: Ho sentito Zeca e Matteo litigare nella stanza prima del buffet. Come reagisce Zeca?
-
-    + (money) {paola_talking_second_tier.money} Se lo diciamo a Zeca, ci dice che Paola piuttosto dovrebbe farsi delle domande su Matteo, che è lui a campare sulle spalle dei due fratelli.
-
-    + (love) Zeca ci dice che farebbe di tutto per proteggere Elia.
-        + + {paola_talking_second_tier.money} Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro.
-        + + {trueLoveStorylet} Ettore: Quindi, insomma, tu ed Elia, non è solo stima lavorativa.
+    + (love){zeca_talking_second_tier.omicidio && new_this_loop(->love)} Ettore: Zeca, prima hai detto che faresti di tutto per Elia.
+        
+        + + (love2){paola_talking_second_tier.money && new_this_loop(->love2)} Ettore: Secondo Paola, è perché i tuoi soldi provengono da Elia.
+            Zeca: Al massimo è il contrario.
+            Zeca: Prima della nostra collab Elia proponeva foto a sciampiste su Grindr.
+            Zeca: Ora c'ha questo ammasso di fustacchiotti fissati con la barra e le proteine, che vanno in burnout se in vacanza non hanno la palestra vicino.
+            Zeca: Le fotine giuste, e loro si sentiranno sempre brutti e verranno alla mia palestra, e continueranno a farsi fare foto da Elia.
+            Ettore: Non è poco etico?
+            Zeca: E cosa c'è di etico ormai a questo mondo?
+                -> advance_time ->
+            Zeca: Sei qui pagato da soldi che Paola guadagna sfrattando poveracci e chiudendo piccoli negozi a gestione familiare.
+            Zeca: Il cibo del buffet viene dalla grande distribuzione, ovvero: ti sei mangiato un po' di sfruttamento.
+            Zeca: E la storia scritta da Paola è un crimine contro la decenza.
+            Zeca: Io alla fine spingo gente senza vita e senza obiettivi ad averne uno.
+            Zeca: Dovrebbero farmi santa.
+            Zeca: E piuttosto: invece di rompere le balle a me, c'è qualcun altro a cui Paola dovrebbe fare le pulci.
+            Zeca: Matteo è l'unico qui dentro che campa sulle spalle dei due fratelli.
+                -> advance_time ->    
+                    -> zeca_talking_second_tier
+        + + (love3){trueLoveStorylet && new_this_loop(->love3)} Ettore: Come ti senti, ora che Elia ti ha dichiarato il suo amore?
+            Zeca: E come lo sai?
+            Zeca: Merda, quanto siete pettegole!
+            Zeca: Ci scometto che è stato Matteo, quello sa ingoiare solo a letto, il maledetto.
+            Zeca: PERO'. PERO'.
+            Zeca: Sto bene.
+            Zeca: Spaventato, ma bene.
+            Ettore: Spaventato?
+                -> advance_time ->
+            Zeca: Beh: a tutti fa piacere l'idea di avere un bellissimo labrador in casa.
+            Zeca: Ma sei dello stesso avviso quando ti ha rotto il vaso di zia?
+            Zeca: Quando ti ha cagato sulle coperte appena lavate?
+            Zeca: Quando ha ringhiato contro il tuo date e ti tocca una notte senza cazzo?
+            Zeca: Non ho mai avuto manco un criceto, e ho il timore di annoiarmi entro un paio di settimane.
+            Zeca: Nel caso lo passo a quella disperata di Greta.
+                -> advance_time ->
+                    -> zeca_talking_second_tier
 
 
     //SCELTE CONDIZIONALI OGGETTI//

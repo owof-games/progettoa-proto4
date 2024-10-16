@@ -198,7 +198,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 
 
-{zeca_talking_second_tier.money: Se lo diciamo a Zeca, ci dice che Paola piuttosto dovrebbe farsi delle domande su Matteo, che è lui a campare sulle spalle dei due fratelli.}
+{zeca_talking_second_tier.love2: Se lo diciamo a Zeca, ci dice che Paola piuttosto dovrebbe farsi delle domande su Matteo, che è lui a campare sulle spalle dei due fratelli.}
 {paola_talking_second_tier.allestimento: Paola: Ho sentito Zeca e Matteo litigare nella stanza prima del buffet.}
 {notABigSecretPartTwoStorylet.allestimento: Elia ci dice che Zeca e Matteo hanno recuperato le cibarie. Sono anche passati in farmacia, e a prendere le ricariche per le sigarette elettroniche di Paola}
 {phone.sindacato: E del tentativo di sindacalizzazione da parte di Matteo.}

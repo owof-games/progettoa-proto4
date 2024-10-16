@@ -39,7 +39,7 @@ Opzioni di dialogo con la persona Matteo
                                         -> advance_time ->
                                     -> matteo_talking_second_tier
 
-                            + + + (loop2){matteo_talking_second_tier.loop && new_this_loop(->loop)} Ettore: Sì!
+                            + + + (loop2){matteo_talking_second_tier.opzioneScarica} Ettore: Sì!
                                 Ettore: Che una volta ci hai provato con Elia perché non sapevi più se eri Matteo, o il personaggio.
                                 Matteo: Uh, interessante.
                                 Matteo: Prova a parlarne con Greta. Lei sa un sacco di cose strane.
@@ -48,7 +48,7 @@ Opzioni di dialogo con la persona Matteo
                                     -> advance_time ->
                                     -> matteo_talking_second_tier
 
-                            + + + (loop3) {matteo_talking_second_tier.loop2 && new_this_loop(->loop3) && new_this_loop(->loop2)} [Baci Matteo]
+                            + + + (loop3) {matteo_talking_second_tier.loop2} [Baci Matteo]
                                 Ettore: Scusa, ma mi hai detto in un altro loop di farlo.
                                 Ettore: Hai detto che almeno sarebbe capitato di nuovo qualcosa di bello.
                                 Matteo: Ok, questa è una cosa che potrei aver davvero detto. Perché mi piaci da che ti ho visto.

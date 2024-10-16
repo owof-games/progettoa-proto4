@@ -178,9 +178,11 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 }
 
 
+~ temp info_elia = paola_talking_second_tier.money or greta_talking_second_tier.indagini2 or greta_talking_second_tier.indagini3
+
 {info_elia: <i>Informazioni su Elia</i>}
     
-    ~ temp info_elia = paola_talking_second_tier.money or greta_talking_second_tier.indagini2 or greta_talking_second_tier.indagini3
+
 
 {paola_talking_second_tier.money: Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro.}
 {greta_talking_second_tier.indagini2: Greta ci dice che Elia sta usando il discorso sindacato per mostrare al CdA che Paola è troppo debole e inetta.}
@@ -190,10 +192,11 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 
 
+~ temp info_matteo = paola_talking_second_tier.allestimento or zeca_talking_second_tier.money or notABigSecretPartTwoStorylet.allestimento or phone.sindacato
 
 {info_matteo: <i>Informazioni su Matteo</i>}
 
-    ~ temp info_matteo = paola_talking_second_tier.allestimento or zeca_talking_second_tier.money or notABigSecretPartTwoStorylet.allestimento or phone.sindacato
+
 
 {zeca_talking_second_tier.money: Se lo diciamo a Zeca, ci dice che Paola piuttosto dovrebbe farsi delle domande su Matteo, che è lui a campare sulle spalle dei due fratelli.}
 {paola_talking_second_tier.allestimento: Paola: Ho sentito Zeca e Matteo litigare nella stanza prima del buffet.}
@@ -202,18 +205,22 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 
 
+~ temp info_paola = zeca_talking_second_tier.allestimento2 or greta_talking_second_tier.indagini or phone.indagini
+
 {info_paola:<i>Informazioni su Paola</i>}
 
-    ~ temp info_paola = zeca_talking_second_tier.allestimento2 or greta_talking_second_tier.indagini or phone.indagini
+
 
 {zeca_talking_second_tier.allestimento2: Zeca ci dice che qualcuno si è chiuso nella stanza a scopare a una certa, mentre lui e Matteo montavano le luci. Senza convinzione, dice "forse Paola e il suo vibratore. Anche se non ho sentito il solito puzzo da deodorante per il cesso che si porta dietro."}
 {greta_talking_second_tier.indagini: Qui Greta ci dice che Paola vuole estromettere Elia dall'azienda.}
 {phone.indagini: Scopriamo le indagini sull'azienda di Paola, e che sta scaricando la colpa su Elia}
 
 
+
+~ temp info_greta = elia_talking_second_tier.indagini or liarCallLiarStorylet.indagini or liesAndPromisesStorylet or notABigSecretPartOneStorylet.allestimento or zeca_talking_second_tier.allestimento
+
 {info_greta: <i>Informazioni su Greta</i>}
 
-    ~ temp info_greta = elia_talking_second_tier.indagini or liarCallLiarStorylet.indagini or liesAndPromisesStorylet or notABigSecretPartOneStorylet.allestimento or zeca_talking_second_tier.allestimento
 
 {zeca_talking_second_tier.allestimento: Zeca ci dice che lui e Matteo hanno lasciato il cibo sui tavoli e poi chiesto a Greta di occuparsene, che loro dovevano sistemare i costumi.}
 {elia_talking_second_tier.allestimento2: Elia: Zeca sente sesso ovunque, giuro! Ma purtroppo ho passato la mattina con Greta a chiamare i fornitori del pub.}
@@ -224,9 +231,10 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 
 
+~ temp info_zeca = zeca_talking_second_tier.love or paola_talking_second_tier.money or paola_talking_second_tier.allestimento or elia_talking_second_tier.allestimento or elia_talking_second_tier.minacce
+
 {info_zeca: <i>Informazioni su Zeca</i>}
 
-         ~ temp info_zeca = zeca_talking_second_tier.love or paola_talking_second_tier.money or paola_talking_second_tier.allestimento or elia_talking_second_tier.allestimento or elia_talking_second_tier.minacce
 
 
 {zeca_talking_second_tier.love: Zeca ci dice che farebbe di tutto per proteggere Elia.}

@@ -47,7 +47,7 @@ Opzioni di dialogo con la persona Zeca
     + (allestimento2) {elia_talking_second_tier.allestimento} Zeca ci dice che qualcuno si è chiuso nella stanza a scopare a una certa, mentre lui e Matteo montavano le luci
         Senza convinzione, dice "forse Paola e il suo vibratore. Anche se non ho sentito il solito puzzo da deodorante per il cesso che si porta dietro."
 
-    + {paola_talking_second_tier.allestimento}: Paola: Ho sentito Zeca e Matteo litigare nella stanza prima del buffet. Come reagisce Zeca?
+    + {paola_talking_second_tier.allestimento} Paola: Ho sentito Zeca e Matteo litigare nella stanza prima del buffet. Come reagisce Zeca?
 
     + (money) {paola_talking_second_tier.money} Se lo diciamo a Zeca, ci dice che Paola piuttosto dovrebbe farsi delle domande su Matteo, che è lui a campare sulle spalle dei due fratelli.
 
@@ -58,6 +58,9 @@ Opzioni di dialogo con la persona Zeca
 
     //SCELTE CONDIZIONALI OGGETTI//
     + {inventoryContents has Lettera} Guarda questa lettera!
+        + + {matteo_talking_second_tier.lettera2} Ettore: Matteo crede l'abbia scritta tu.
+        + + ->
+        - -
     + {inventoryContents has Torta} Guarda questo cibo!
     + (allestimento3) {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
     + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!

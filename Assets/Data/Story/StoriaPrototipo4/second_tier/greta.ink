@@ -24,6 +24,7 @@ Opzioni di dialogo con la persona Greta
     + (loop) {new_this_loop(->loop)} Ettore: Non stai notando nulla di strano?
         Matteo: cose 
             -> advance_time ->
+            + + {matteo_talking_second_tier.loop2} Ettore: Matteo pensa tu sia la persona giusta per parlarne.
             + + [Cambi argomento] -> greta_talking_second_tier
 
     + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Che rapporto hai con Paola?

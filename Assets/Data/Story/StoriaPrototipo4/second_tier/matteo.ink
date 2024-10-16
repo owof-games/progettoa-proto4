@@ -106,7 +106,7 @@ Opzioni di dialogo con la persona Matteo
                                 -> advance_time ->
                             -> matteo_talking_second_tier
 
-                    + + + (lavoro2) {phone.sindacato}Ettore: credo che Paola ti stia minacciando, per via del sindacato.
+                    + + + (lavoro2) {phone.sindacato} Ettore: Credo che Paola ti stia minacciando, per via del sindacato.
                           {new_this_loop(->lettera): Ettore: C'è una lettera minatoria, e credo sia scritta da lei.}
                           {not new_this_loop(->lettera): Matteo: Per quella lettera di prima?}
                           Matteo: Sei preoccupato per me?
@@ -119,7 +119,7 @@ Opzioni di dialogo con la persona Matteo
                                         -> matteo_talking_second_tier
                             
                             + + + + Ettore: Sì, credo che tu possa farle del male.
-                                    Matteo: Beh, se hai già deciso che sono una cattiva persona, che senso ha parlarci ancora?
+                                    Matteo: Beh, se hai già deciso che sono una cattiva persona, che senso ha parlarmi ancora?
                                         ~ loopableVariables += pausaRapportoMatteo
                                         -> matteo_talking_second_tier
                               

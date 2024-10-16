@@ -3,7 +3,7 @@
 {
 
 //SCENA INIZIALE
-    - are_six_entities_together(Elia, Matteo, Ettore, Greta, Paola, Zeca) && not reStartingDinnerStorylet && peopleTalking == false && new_this_loop(->reStartingDinnerStorylet):
+    - are_six_entities_together(Elia, Matteo, Ettore, Greta, Paola, Zeca) && peopleTalking == false && new_this_loop(->reStartingDinnerStorylet):
     -> reStartingDinnerStorylet
     
 
@@ -14,7 +14,7 @@
     
     - inventoryContents has Foto && are_two_entities_together(Zeca, Ettore): -> iLlKillThatBitchStorylet    
 
-    - are_two_entities_together(Matteo, Ettore) && not are_two_entities_together(Matteo,Greta) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && new_this_loop(->forMeHeIsStupidAFStorylet):
+    - are_two_entities_together(Matteo, Ettore) && not are_two_entities_together(Matteo,Greta) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && not new_this_loop (->trueLoveStorylet) && new_this_loop(->forMeHeIsStupidAFStorylet):
         -> forMeHeIsStupidAFStorylet
 
 //CONVERSAZIONI ORIGLIATE

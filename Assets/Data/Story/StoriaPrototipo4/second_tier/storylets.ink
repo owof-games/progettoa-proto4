@@ -14,7 +14,7 @@
     
     - inventoryContents has Foto && are_two_entities_together(Zeca, Ettore): -> iLlKillThatBitchStorylet    
 
-    - are_two_entities_together(Matteo, Ettore) && not are_two_entities_together(Matteo,Greta) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && not new_this_loop(->trueLoveStorylet):
+    - are_two_entities_together(Matteo, Ettore) && not are_two_entities_together(Matteo,Greta) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && new_this_loop(->forMeHeIsStupidAFStorylet):
         -> forMeHeIsStupidAFStorylet
 
 //CONVERSAZIONI ORIGLIATE

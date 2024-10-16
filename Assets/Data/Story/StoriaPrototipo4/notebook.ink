@@ -292,15 +292,13 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 
 //Condizioni
-
-
+~ temp contraddizione_buffet = (zeca_talking_second_tier.allestimento or notABigSecretPartOneStorylet.allestimento) && (elia_talking_second_tier.allestimento or notABigSecretPartTwoStorylet.allestimento)
+    
 {contraddizione_buffet: <b>Chi si è occupato del buffet?</b>}
 
 //choice_WhoWasInChargeOfTheBuffet = True: Greta ed Elia. = False: Zeca e Matteo.
 
-{notABigSecretPartOneStorylet.allestimento: Matteo ci dice che Greta ed Elia hanno recuperato il bere. Si sono occupati anche degli elementi della scenografia}
 
-    ~ temp contraddizione_buffet = (zeca_talking_second_tier.allestimento or notABigSecretPartOneStorylet.allestimento) && (elia_talking_second_tier.allestimento or notABigSecretPartTwoStorylet.allestimento)
     
     {
         - contraddizione_buffet: {notABigSecretPartOneStorylet.allestimento: Matteo ci dice che Greta ed Elia hanno recuperato il bere. Si sono occupati anche degli elementi della scenografia} {zeca_talking_second_tier.allestimento: Zeca ci dice che lui e Matteo hanno lasciato il cibo sui tavoli e poi chiesto a Greta di occuparsene, che loro dovevano sistemare i costumi.} {elia_talking_second_tier.allestimento: Elia ci dice che lui e Greta hanno lasciato le bottiglie all'ingresso, avvisando Zeca, perché dovevano risolvere un problema coi tavoli} {notABigSecretPartTwoStorylet.allestimento: Elia ci dice che Zeca e Matteo hanno recuperato le cibarie. Sono anche passati in farmacia, e a prendere le ricariche per le sigarette elettroniche di Paola}
@@ -321,10 +319,12 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 //choice_ForWhomTheLetterWas = True -> Elia; = False -> Greta.
 
+~ temp contraddizione_lettera = elia_talking_second_tier.indagini && greta_talking_second_tier.indagini
+    
+
 {contraddizione_lettera: <b>A chi è indirizzata la lettera di Paola?</b>}
 
-    ~ temp contraddizione_lettera = elia_talking_second_tier.indagini && greta_talking_second_tier.indagini
-    
+
     {
         - contraddizione_lettera:
             {elia_talking_second_tier.indagini: Elia ci dice che Greta ha dato a Matteo info per "contrattare" meglio con Paola per la sindacalizzazione e questo avrebbe fatto pissare Paola.} {greta_talking_second_tier.indagini: Qui Greta ci dice che Paola vuole estromettere Elia dall'azienda.}

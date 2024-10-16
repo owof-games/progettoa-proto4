@@ -72,26 +72,26 @@ Opzioni di dialogo con la persona Matteo
         Matteo: E un po' perché da sempre vorrei fare l'attore, ma non è di sicuro questo il posto dove venire scoperto.
             -> advance_time ->
             
-            + + (lavoro) {zeca_talking_second_tier.money && new_this_loop(->lavoro)}: Ettore: Da quel che dice Zeca, però, tu Paola la conosci.
+            + + (lavoro) {zeca_talking_second_tier.money}Ettore: Da quel che dice Zeca, però, tu Paola la conosci.
                 Ettore: Dice che campi alle spalle sue e di Elia.
                 Matteo: Lavoro per la sua azienda, che è diverso. Ma non ci ho mai avuto a che fare direttamente.
                 Matteo: Però le insinuazioni di Zeca hanno senso: le mie entrate dipendono dal lavoro per lei, e dalle pulizie a casa di Elia.
                 Matteo: Ma mi chiedo: perché tutto questo dovrebbe importarti?
 
-                    + + + (opzioneScarica2) {new_this_loop(->opzioneScarica2)} Ettore: Sto cercando di conoscervi meglio, visto che siamo qui.
+                    + + + (opzioneScarica2) Ettore: Sto cercando di conoscervi meglio, visto che siamo qui.
                             Matteo: Allora la prossima volta chiedimi dove mi piace cenare.
                             Matteo: O il colore del mio intimo.
                                 -> advance_time ->
                             -> matteo_talking_second_tier
                     
-                    + + + (lettera2) {cb_second_tier_lettera.primoCheck && new_this_loop(->lettera2) && new_this_loop(->lettera)} Ettore: C'è una lettera, una lettera di minacce.
+                    + + + (lettera2) {cb_second_tier_lettera.primoCheck} Ettore: C'è una lettera, una lettera di minacce.
                             Ettore: Sto cercando di capire chi l'ha scritta, e contro chi.
                             Matteo: Solo due persone in questo posto mossono minacciare qualcuno: Paola e Zeca.
                             Matteo: Ma sono così inutile qui, che dubito qualcuno voglia minacciarmi per qualcosa.
                                 -> advance_time ->
                             -> matteo_talking_second_tier
 
-                    + + + (lettera3) {new_this_loop(->lettera3) && not new_this_loop(->lettera)} Ettore: Per la lettera che ti ho mostrato prima.
+                    + + + (lettera3) {not new_this_loop(->lettera)} Ettore: Per la lettera che ti ho mostrato prima.
                             Ettore: Quella che mi hai fatto mettere via, impaurito da Paola.
                             Matteo: Non ero impaurito da Paola, ma impaurito per te.
                             Matteo: Quella è la sua calligrafia.
@@ -106,7 +106,7 @@ Opzioni di dialogo con la persona Matteo
                                 -> advance_time ->
                             -> matteo_talking_second_tier
 
-                    + + + (lavoro2) {phone.sindacato && new_this_loop(->lavoro2)}Ettore: credo che Paola ti stia minacciando, per via del sindacato.
+                    + + + (lavoro2) {phone.sindacato}Ettore: credo che Paola ti stia minacciando, per via del sindacato.
                           {new_this_loop(->lettera): Ettore: C'è una lettera minatoria, e credo sia scritta da lei.}
                           {not new_this_loop(->lettera): Matteo: Per quella lettera di prima?}
                           Matteo: Sei preoccupato per me?

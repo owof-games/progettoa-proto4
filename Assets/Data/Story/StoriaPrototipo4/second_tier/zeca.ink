@@ -8,7 +8,6 @@
     -> paola_is_dead_zeca ->
 -    
 
--
 
 -> intro
 
@@ -41,7 +40,6 @@ Opzioni di dialogo con la persona Zeca
     // OPZIONE PER IL FINALE
     + {(choice_WhoWasInChargeOfTheBuffet== True or choice_WhoWasInChargeOfTheBuffet == False) && (choice_ForWhomTheLetterWas == True or choice_ForWhomTheLetterWas == False)} [È il momento di fermare l’omicida di Paola!] Ettore: Zeca: so che vuoi uccidere Paola! -> arringa_finale_Zeca
 
-    TODO: scelta da compiere -> rischiare di avere mille scelte a disposizione, o nestare alcune scelte sotto altre?
 
     //SCELTE CONDIZIONALI//
     + (allestimento) {notABigSecretPartTwoStorylet.allestimento} Ci dice che lui e Matteo hanno lasciato il cibo sui tavoli e poi chiesto a Greta di occuparsene, che loro dovevano sistemare i costumi.

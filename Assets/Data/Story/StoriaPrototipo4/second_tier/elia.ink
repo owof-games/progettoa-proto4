@@ -31,7 +31,7 @@ Opzioni di dialogo con la persona Elia
             -> elia_talking_second_tier
 
     + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Che rapporto hai con Paola?
-        -> rapporto_Elia_Paola
+            -> rapporto_Elia_Paola
 
 
     + (omicidio) {new_this_loop(->omicidio)} Ettore: Secondo te qualcuno potrebbe volere del male a Paola?

@@ -21,7 +21,7 @@ Opzioni di dialogo con il personaggio Elia
     -> first_tier_storylets ->
     //INTERAZIONI GENERALI//
 
-    + (rapporto) {new_this_loop(->rapporto)} Ettore: Che rapporto avevi con Paola?
+    + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Che rapporto avevi con Paola?
         Elia: Eravamo fratello e sorella.
         Ettore: Questo lo so, ma ci andavi d'accordo? Passavi del tempo con lei?
         Elia: Solo quando eravamo assieme.

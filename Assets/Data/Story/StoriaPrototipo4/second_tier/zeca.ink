@@ -55,7 +55,7 @@ Opzioni di dialogo con la persona Zeca
 
     + (love) Zeca ci dice che farebbe di tutto per proteggere Elia.
         + + {paola_talking_second_tier.money} Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro.
-        + + {TrueLoveStorylet} Ettore: Quindi, insomma, tu ed Elia, non è solo stima lavorativa.
+        + + {trueLoveStorylet} Ettore: Quindi, insomma, tu ed Elia, non è solo stima lavorativa.
 
 
     //SCELTE CONDIZIONALI OGGETTI//

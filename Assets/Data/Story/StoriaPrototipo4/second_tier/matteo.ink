@@ -20,7 +20,8 @@ Opzioni di dialogo con la persona Matteo
 === matteo_talking_second_tier
  {debug: <i>Passo per matteo_talking_second_tier</i>}
     //INFO GENERALI//
-{loopableVariables has pausaRapportoMatteo: Matteo: Non ho niente da dirti -> intro.}
+{loopableVariables has pausaRapportoMatteo: Matteo: Non ho niente da dirti. -> intro.}
+
     + (loop) {new_this_loop(->loop)} Ettore: Non stai notando nulla di strano?
             Matteo: Intendi il provare da ore una storia senza senso? Prova ad essere più specifico.
                 + + (opzioneScarica3) {new_this_loop(->opzioneScarica3)}Ettore: Ho come questo senso di deja-vu...
@@ -90,7 +91,7 @@ Opzioni di dialogo con la persona Matteo
                                 -> advance_time ->
                             -> matteo_talking_second_tier
 
-                    + + + (lettera3) {&& new_this_loop(->lettera3) && not new_this_loop(->lettera)} Ettore: Per la lettera che ti ho mostrato prima.
+                    + + + (lettera3) {new_this_loop(->lettera3) && not new_this_loop(->lettera)} Ettore: Per la lettera che ti ho mostrato prima.
                             Ettore: Quella che mi hai fatto mettere via, impaurito da Paola.
                             Matteo: Non ero impaurito da Paola, ma impaurito per te.
                             Matteo: Quella è la sua calligrafia.
@@ -144,7 +145,7 @@ Opzioni di dialogo con la persona Matteo
     + {(choice_WhoWasInChargeOfTheBuffet== True or choice_WhoWasInChargeOfTheBuffet == False) && (choice_ForWhomTheLetterWas == True or choice_ForWhomTheLetterWas == False)} [È il momento di fermare l’omicida di Paola!] Ettore: Matteo: so che vuoi uccidere Paola! -> arringa_finale_Matteo
 
     //SCELTE CONDIZIONALI//
-    + {matteo_talking_second_tier.sindacato2 && not new_this_loop(->sindacato2)} Ettore: Posso chiederti perché stai tirando su un sindacato alla Londar?
+    + {matteo_talking_second_tier.lavoro2 && not new_this_loop(->lavoro2)} Ettore: Posso chiederti perché stai tirando su un sindacato alla Londar?
         {
             - are_two_entities_together (Matteo, Paola) or are_two_entities_together (Matteo,Elia) or are_two_entities_together: Matteo: Forse non è il momento adatto ora. Chiedimelo quando siamo soli. -> matteo_talking_second_tier
             - else: -> evilJobStorylet

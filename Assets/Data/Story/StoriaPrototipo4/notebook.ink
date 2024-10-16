@@ -180,10 +180,9 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 {info_elia: <i>Informazioni su Elia</i>}
     
-    ~ temp info_elia = paola_talking_second_tier.money or matteo_talking_second_tier.coglione or greta_talking_second_tier.indagini2 or greta_talking_second_tier.indagini3
+    ~ temp info_elia = paola_talking_second_tier.money or greta_talking_second_tier.indagini2 or greta_talking_second_tier.indagini3
 
 {paola_talking_second_tier.money: Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro.}
-{matteo_talking_second_tier.coglione: Matteo è felice per Zeca, e per Greta, ma crede che Elia sia un coglione.}
 {greta_talking_second_tier.indagini2: Greta ci dice che Elia sta usando il discorso sindacato per mostrare al CdA che Paola è troppo debole e inetta.}
 {greta_talking_second_tier.allestimento3: Greta: Non ho visto la sala gialla per tutta la mattina. Ero con Elia a sistemare i tavoli delle altre sale.}
 {greta_talking_second_tier.indagini3: Se lo diciamo a Greta, lei si sente usata, e giura che smetterà di coprire i furti di denaro di Elia.}
@@ -276,7 +275,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 {cb_second_tier_cibo.primoCheck or paola_is_dead.briciole: <i>Informazioni su torta e briciole</i>}
 {cb_second_tier_cibo.primoCheck: Friabile come le proprie sicurezze, come un sacco d'ossa che cade dal sesto piano.}
-{paola_is_dead.torta: Sono rimasugli all'angolo della bocca. Forse qualcosa di dolce.}
+{paola_is_dead.briciole: Sono rimasugli all'angolo della bocca. Forse qualcosa di dolce.}
 {paola_talking_second_tier.torta: Paola: Ma pensavo tutti sapessero che sono allergica alle arachidi, mortalmente. E questa è piena di crema d'arachidi.}
 {matteo_talking_second_tier.torta: Matteo: Strano: Zeca e io abbiamo preso la roba al supermercato, ma non ricordo questa torta!}
 

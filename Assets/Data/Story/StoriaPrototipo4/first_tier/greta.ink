@@ -20,7 +20,7 @@ Opzioni di dialogo con il personaggio Greta
     -> first_tier_storylets ->
     //INFO GENERALI//
 
-    + (rapporto) {new_this_loop(->rapporto)} Ettore: Che rapporto avevi con Paola?
+    + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Che rapporto avevi con Paola?
         Greta: Che rapporto avevi con Paola?
         Ettore: Ehi, era solo una domanda innocente!
         Greta: Ehi, era solo una domanda innocente!

@@ -21,7 +21,7 @@ Opzioni di dialogo con il personaggio Matteo
     -> first_tier_storylets ->
     //INFO GENERALI//
 
-    + (rapporto) {new_this_loop(->rapporto)} Ettore: Amore, non mi hai mai parlato molto di Paola. Eravate legati?
+    + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Amore, non mi hai mai parlato molto di Paola. Eravate legati?
         Matteo: Sai come sono: lavoro lavoro lavoro.
         Matteo: Ogni tanto mi chiamava, ma non avevo mai tempo per rispondere.
         Matteo: Però le mandavo gli auguri a Natale.

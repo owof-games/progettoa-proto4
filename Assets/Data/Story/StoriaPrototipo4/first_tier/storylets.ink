@@ -431,7 +431,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
 === worstBestManStorylet
 {debug: <i>Passo per worstBestMate</i>}
     Zeca: Mio nuovo giovane amico, che bello rivederti.
-    {new_this_loop(->rapporto): Zeca: Forse adesso è un buon momento per rispondere alla tua domanda di prima.}
+    {new_this_loop(->zeca_acting.rapportoPaola): Zeca: Forse adesso è un buon momento per rispondere alla tua domanda di prima.}
     Zeca: La vita sa essere crudele, sai?
     Zeca: Continuo a pensare a come eravamo io e Paola, da piccoli.
     Zeca: Hai mai avuto qualcuno che sembrava leggerti nel pensiero?

@@ -23,7 +23,7 @@ Opzioni di dialogo con il personaggio Zeca
     -> first_tier_storylets ->
     //INFO GENERALI//
 
-    + (rapporto) {new_this_loop(->rapporto)} Ettore: Tu e Paola eravate molto legati?
+    + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Tu e Paola eravate molto legati?
         Zeca: Non mi va di parlarne ora, Ettore.
         Zeca: Forse più tardi, forse.
         Zeca: Ma grazie per l'interessamento, davvero.

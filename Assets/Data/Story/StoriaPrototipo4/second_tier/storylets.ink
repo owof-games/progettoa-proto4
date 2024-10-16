@@ -12,7 +12,7 @@
     - are_three_entities_together(Elia, Ettore, Zeca) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Paola) && not are_two_entities_together(Elia, Matteo) && greta_talking_second_tier.indagini && new_this_loop(-> liarCallLiarStorylet):
             -> liarCallLiarStorylet
     
-    - inventoryContents(Foto) && are_two_entities_together (Zeca, Ettore): -> iLlKillThatBitchStorylet    
+    - inventoryContents has Foto && are_two_entities_together(Zeca, Ettore): -> iLlKillThatBitchStorylet    
 
     - are_two_entities_together(Matteo, Ettore) && not are_two_entities_together(Matteo,Greta) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && not new_this_loop(->trueLoveStorylet):
         -> forMeHeIsStupidAFStorylet

@@ -20,6 +20,7 @@ Opzioni di dialogo con la persona Zeca
 
 === zeca_talking_second_tier
  {debug: <i>Passo per zeca_talking_second_tier</i>}
+ {loopableVariables has pausaRapportoZeca: Zeca: Ma stammi lontano, cafone! -> intro.}
     //INFO GENERALI//
     + (loop) {new_this_loop(->loop)} Ettore: Zeca, non hai notato cose strane negli ultimi minuti?
         Zeca: Tipo?
@@ -166,14 +167,52 @@ Opzioni di dialogo con la persona Zeca
 
 
     //SCELTE CONDIZIONALI OGGETTI//
-    + {inventoryContents has Lettera} Guarda questa lettera!
-        + + {matteo_talking_second_tier.lettera2} Ettore: Matteo crede l'abbia scritta tu.
+    + {inventoryContents has Lettera} Ettore: Hai idea di chi sia questa lettera?
+        Zeca: No, mai vista.
+        + + {matteo_talking_second_tier.lettera2} Ettore: Eppure Matteo crede l'abbia scritta tu.
+            Zeca: Se per questo Matteo crede pure di poter piacere a qualcuno.
+            Zeca: E non è mai successo.
         + + ->
         - -
-    + {inventoryContents has Torta} Guarda questo cibo!
-    + (allestimento3) {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
-    + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
-    + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
+        Zeca: Comunque so chi potrebbe ricevere una lettera, presto a tardi.
+        Ettore: E chi?
+        Zeca: Tu, da parte di uno degli avvocati dei fratellini.
+        Zeca: Se c'è una cosa che Paola odia, sono le domande indiscrete.
+            -> advance_time ->
+                    -> zeca_talking_second_tier
+    + {inventoryContents has Torta} Ettore: Hai mai...
+        Zeca: Visto questa torta?
+        Zeca: Mangiato questa torta?
+        Zeca: Leccato questa torta?
+        Zeca: Desiderato carnalmente questa torta?
+        Zeca: Desiderato di schiacchiarti la torta in faccia perché fai un sacco di domande?
+        Zeca: E poi buttarti in un formicaio e farti divorare vivo?
+        Zeca: Forse.
+        Zeca: PERO'. PERO'.
+        Zeca: No, non è vero.
+        Zeca: QUALCUNO HA VISTO DELLE FORMICHE?!?!?
+        -> advance_time ->
+                    -> zeca_talking_second_tier
+    + (allestimento3) {inventoryContents has BottigliaDiVino} Ettore: Hai comprato tu questa bottiglia di vino?
+        Zeca: Mmm, non esattamente.
+        Ettore: In che senso?
+        Zeca: Ufficialmente l'ha comprata Matteo, per quanto fossimo assieme.
+        Zeca: PERO'. PERO'.
+        Zeca: Anticipava i soldi di Elia, per cui in teoria l'ha comprata Elia.
+        Zeca. PERO'. PERO'.
+        Zeca: I soldi di Elia sono della Londar e quindi di fatto di Paola, per cui la risposta è:
+        Zeca: Non l'ho comprata io. Sorry.
+            -> advance_time ->
+                    -> zeca_talking_second_tier
+    + {inventoryContents has FlaconcinoAsma} Ettore: Hai mai visto questo flaconcino per l'asma?
+        Zeca: Dio.
+        Zeca: Se mai la vita dovesse portarmi a un tale entusiasmo per un flaconcino, uccidetemi.
+                    -> zeca_talking_second_tier
+    + {inventoryContents has SigarettaElettronica} Ettore: Sai di chi sia questa sigaretta elettronica?
+        Zeca: Di Paola, è lei la tossica del gruppo.
+        Zeca: No, quello sono io.
+        Zeca: Ma è lei che fuma,
+                    -> zeca_talking_second_tier
     
       
     + Te ne vai
@@ -188,7 +227,7 @@ Opzioni di dialogo con la persona Zeca
 
 
 {
-- ZecaTalking > 1: Zeca: "Non mi va di rispondere ad altre domande personali".
+- ZecaTalking > 1: Zeca: Ettore, che non c'hai di meglio da fare? Via, sciò, smamma!
     -> advance_time ->
     -> intro
 - else:
@@ -204,26 +243,154 @@ Opzioni di dialogo con la persona Zeca
 
 = first_qn
 ~ ZecaTalking++
-    + Prima domanda
-    -> advance_time ->
-    
-    -
--> zeca_talking_second_tier 
+    Zeca: Vuoi sapere una cosa buffa?
+    Zeca: Certo che vuoi sapere una cosa buffa, sei un impiccione impagabile.
+    Zeca: E ci scometto che ti piaccono pure le cose tristi.
+    Zeca: E questa è buffa <b>e</b> triste.
+    Zeca: Ho aperto una palestra perché non mi piaccio fisicamente.
+    Zeca: Ma proprio perché non riesco a guardarmi allo specchio senza sentire disagio, se non rabbia.
+    Zeca: Quando qualcuno a letto mi dice che gli piaccio, mi smonto, sono sicuro che stia mentendo.
+    Zeca: Ho questa sensazione spaventosa.
+        -> advance_time ->
+    Zeca: Di non essere davvero <i>questa</i> cosa, di non assomigliarmi per nulla.
+    Zeca: E a volte mi ci avvicino quasi perfettamente al capire cosa non mi torna.
+    Zeca: Ma un terrore indicibile mi scaglia all'indietro, lontano da ogni risposta.
+    Zeca: Con la sola voglia di fare ancora più palestra.
+    Zeca: Dire ancora più cattiverie.
+    Zeca: E non sapere altro.
+    Zeca: Perché ho questa amara certezza che se dovessi davvero vedere quella cosa, quella verità, perderei tutto.
+    Zeca: E insieme, non potrei più far finta di essere me, ora, davvero me.
+            -> advance_time ->   
+            -> zeca_talking_second_tier 
 
 = second_qn
  ~ ZecaTalking++
-    +  altra domanda
-    -> advance_time ->
-   
-    -
--> zeca_talking_second_tier    
+    Zeca: Qual è la cosa che detesti in una persona?
+        + Ettore: L'ipocrisia.
+            Zeca: Banale.
+        + Ettore: La mancanza di coraggio.
+            Zeca: Da motivational quote.
+        + Ettore: "Ma allora il sette ottobre?!?!?"
+            Zeca: Quella è red flag sicura
+        -
+    Zeca: A me c'è una cosa sola che uccide: la fiducia.
+    Zeca: Non è per essere cinico, ma questo mondo non ti dà fiducia e non ne merita.
+    Zeca: Ok, forse è da cinici.
+    Zeca: Ma quando vedo uno che dice "Facciamo questo e le cose andranno meglio".
+    Zeca: O: "Lo so, ha fatto un errore, ma dobbiamo dargli un'altra chance", a me viene l'orticaria.   
+        -> advance_time ->
+    Zeca: E con l'orticaria la voglia di tirargli due sberle.
+    Zeca: Di dirgli "Svegliati! Così non ci arrivi ai quaranta!"
+    Zeca: E lo sai la cosa peggiore?
+    Zeca: Che questi sopravvivono.
+    Zeca: Saltellano inconsapevoli mentre tutto il mondo attorno esplode e non si rendono conto di niente.
+    Zeca: "Non ti preoccupare, ora ci sono io". Ciccio, è quello che mi preoccupa!
+    Zeca: Ora ci sei tu, ma se mi affido a te, come posso sopravvivere quando te ne andrai?
+    Zeca: Per questo odio Matteo. E gli voglio bene. Ma lo odio tanto tanto tanto.
+        -> advance_time ->
+        -> zeca_talking_second_tier    
 
 = third_qn
 ~ ZecaTalking++
-    Zeca dice cose
-        +  tu chiedi
-    -> advance_time ->    
-    -    
+    Zeca: Conosciamoci meglio.
+    Zeca: Dio, perché mai vorrei farlo?!?
+    Zeca: Conoscimi meglio!
+    Zeca: Cosa vuoi sapere di me?
+    Zeca: No dai, che poi ti innamori.
+    Zeca: Ma invece, che ne pensi di Elia?
+         -> advance_time ->
+        + Ettore: Mi sembra un idiota.
+            Zeca: Eh sì, fa quella prima impressione.
+            Zeca: E la seconda. E la terza.
+        + Ettore: Mi sembra un ragazzo semplice.
+            Zeca: L'eufemismo del secolo.
+            Zeca: Un sasso è una cosa semplice. Elia è vuoto.
+            Zeca: Se urli in un orecchio, ci senti l'eco che grida aiuto.
+        + Ettore: Mi sembra impossibile che nessuno l'abbia ancora strozzato.
+            Zeca: Oh, ma è già successo due volte.
+            Zeca: Questa settimana.
+            Zeca: Ed era il prete di famiglia.
+        + Ettore: No no scusa non c'ho tempo per questa conversazione.
+            Zeca: Cafone! Col cazzo che mi chiedi ancora qualcosa!
+                ~ loopableVariables += pausaRapportoZeca
+                -> zeca_talking_second_tier
+        -
+    Zeca: E di Greta, che idea ti sei fatto?
+        + Ettore: Una ragazza curiosa.
+            Zeca: Curiosa?
+            Zeca: Curiosa è la gazza che viene a rovistare nella spazzatura.
+            Zeca: Curiosa è Alfonso Signorini.
+            Zeca: Quella donna è una idrovora di informazioni.
+            Zeca: Sa le cose prima ancora che ti accadano.
+        + Ettore: Un concentrato di ansia.
+            Zeca: PERO'. PERO'.
+            Zeca: Secondo me fa un po' finta. Lo fa per sentirsi importante.
+            Zeca: Perché chi se la incula a quella, detto tra noi?
+            Zeca: Così invece prima o poi uno sfigato glielo chiede "tutto bene?".
+            Zeca: E a quel punto quella si azzecca per i prossimi tre anni.
+        + Ettore: Una specie di emblema millenial.
+            Zeca: TOTALE!
+            Zeca: Si lamenta sempre, si sente sempre al centro dell'attenzione, ed è sempre su Instagram.
+            Zeca: Sfigata.
+        -
+            -> advance_time ->    
+        Zeca: E di Matteo, quanto lo detesti?
+            + Ettore: In realtà mi piace molto.
+                Zeca: COOOOOOOOOOOOOSA?
+                Zeca: A quella?
+                Zeca: A quella ti piace?!?
+                Zeca: Ma se è così noisa?
+                Zeca: Ma se parla solo che lavora troppo e che non c'ha un compagno.
+                Zeca: E io vorrei dirgli: ma ti sei vista, sorella? Con quelle occhiaie ti ci fai la controfigura di Michael Myers, altro che il maritino.
+                Zeca: Ma senti un po', ti piace.
+                Zeca: Povera sfigata.
+            + Ettore: No dai, è un tipo mediocre.
+                Zeca: Uh, mi stupisci.
+                Zeca: Pensavo l'avresti difeso o che.
+                Zeca: Pensavo avresti detto che è una persona gentile e affettuosa.
+                Zeca: Son contento che tu non abbia il paraocchi.
+                Zeca: PERO'. PERO'. 
+                Zeca: Gli voglio bene, sia chiaro!
+                Zeca: Ma è così pesante.
+                Zeca: Così pesante!
+            + Ettore: Se ci prova ancora, urlo.
+                Zeca: Anche con te?!?
+                Zeca: Dio, quella è disperata!
+                Zeca: Pensa che sta sempre in casa di Elia.
+                Zeca: Per le pulizie, dice.
+                Zeca: Certo, per pulirgli con la linga la banana.
+                Zeca: Non so se mi sono spiegata.
+                Zeca: Aspetta che ti faccio il gesto.
+            -    
+              -> advance_time ->
+        Zeca: E Paola? che ne pensi di Paola?
+            + Ettore: Non capisco perché tutti la detestino qui dentro.
+                Zeca: Datti ancora un paio di prove e vedrai.
+            + Ettore: Antipatica, ma non così tanto da ucciderla.
+                Zeca: Mh, vedremo.
+            + Ettore: Se cadesse dalle scale, insomma, non la fermerei.
+                Zeca: E probabilmente l'avrei spinta io.
+            -
+        Zeca: E infine, cosa ne pensi di me? Sincero, zero complimenti.
+            + Ettore: Sei acidello, ma divertente.
+                Zeca: Ho sentito di peggio, dai.
+                Zeca: Mia madre a sedici anni mi ha portato dall'esorcista.
+                Zeca: La meglio scopata della mia vita, ma è un altro capitolo.
+            + Ettore: Fai il duro, ma nascondi un cuore tenero.
+                Zeca: Così mi fai sciogliere!
+                Zeca: Nel senso che mi fai sciogliere i maroni proprio.
+                Zeca: Le palle colate sul pavimento!
+            + Ettore: Che meno ti devo parlare meglio è.
+                Zeca: Ah, è facile: non ti parlo più, così stai bene, stronzetta.
+                ~ loopableVariables += pausaRapportoZeca
+                -> advance_time ->
+                -> zeca_talking_second_tier
+            -
+        -> advance_time ->
+    Zeca: Bene, ora posso dirti cosa penso di te.
+    Zeca: Non molto, a dire il vero, a parte che sei molto curioso.
+    Zeca: Ma visto che non sei bruciato come noi, ti do un consiglio: stai lontano dai casini di questa famiglia.
+    Zeca: Incluso me, incluso Matteo.
 -> zeca_talking_second_tier
 
 

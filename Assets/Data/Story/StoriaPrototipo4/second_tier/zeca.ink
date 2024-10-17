@@ -63,7 +63,7 @@ Opzioni di dialogo con la persona Zeca
         -> advance_time ->
             -> zeca_talking_second_tier
 
-    + Fai domande sulla persona Zeca -> esplora_zeca
+    + [FChiacchiera con Zeca] -> esplora_zeca
 
     // OPZIONE PER IL FINALE
     + {(choice_WhoWasInChargeOfTheBuffet== True or choice_WhoWasInChargeOfTheBuffet == False) && (choice_ForWhomTheLetterWas == True or choice_ForWhomTheLetterWas == False)} [È il momento di fermare l’omicida di Paola!] Ettore: Zeca: so che vuoi uccidere Paola! -> arringa_finale_Zeca
@@ -167,7 +167,7 @@ Opzioni di dialogo con la persona Zeca
 
 
     //SCELTE CONDIZIONALI OGGETTI//
-    + {inventoryContents has Lettera} Ettore: Hai idea di chi sia questa lettera?
+    + (lettera) {inventoryContents has Lettera && new_this_loop(->lettera)} Ettore: Hai idea di chi sia questa lettera?
         Zeca: No, mai vista.
         + + {matteo_talking_second_tier.lettera2} Ettore: Eppure Matteo crede l'abbia scritta tu.
             Zeca: Se per questo Matteo crede pure di poter piacere a qualcuno.
@@ -180,7 +180,7 @@ Opzioni di dialogo con la persona Zeca
         Zeca: Se c'è una cosa che Paola odia, sono le domande indiscrete.
             -> advance_time ->
                     -> zeca_talking_second_tier
-    + {inventoryContents has Torta} Ettore: Hai mai...
+    + (torta) {inventoryContents has Torta && new_this_loop(->torta)} Ettore: Hai mai...
         Zeca: Visto questa torta?
         Zeca: Mangiato questa torta?
         Zeca: Leccato questa torta?
@@ -193,7 +193,7 @@ Opzioni di dialogo con la persona Zeca
         Zeca: QUALCUNO HA VISTO DELLE FORMICHE?!?!?
         -> advance_time ->
                     -> zeca_talking_second_tier
-    + (allestimento3) {inventoryContents has BottigliaDiVino} Ettore: Hai comprato tu questa bottiglia di vino?
+    + (allestimento3) {inventoryContents has BottigliaDiVino && new_this_loop(->allestimento)} Ettore: Hai comprato tu questa bottiglia di vino?
         Zeca: Mmm, non esattamente.
         Ettore: In che senso?
         Zeca: Ufficialmente l'ha comprata Matteo, per quanto fossimo assieme.
@@ -204,18 +204,18 @@ Opzioni di dialogo con la persona Zeca
         Zeca: Non l'ho comprata io. Sorry.
             -> advance_time ->
                     -> zeca_talking_second_tier
-    + {inventoryContents has FlaconcinoAsma} Ettore: Hai mai visto questo flaconcino per l'asma?
+    + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Hai mai visto questo flaconcino per l'asma?
         Zeca: Dio.
         Zeca: Se mai la vita dovesse portarmi a un tale entusiasmo per un flaconcino, uccidetemi.
                     -> zeca_talking_second_tier
-    + {inventoryContents has SigarettaElettronica} Ettore: Sai di chi sia questa sigaretta elettronica?
+    + (sigaretta) {inventoryContents has SigarettaElettronica new_this_loop(->sigaretta)} Ettore: Sai di chi sia questa sigaretta elettronica?
         Zeca: Di Paola, è lei la tossica del gruppo.
         Zeca: No, quello sono io.
         Zeca: Ma è lei che fuma,
                     -> zeca_talking_second_tier
     
       
-    + Te ne vai
+    + [Ti allontani]
     -> intro
     -
     

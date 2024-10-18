@@ -11,26 +11,24 @@
 //MESSAGGI
 = call
 Chi chiami?
-        + (padre) Ettore: Ciao papà!
-                {    
-                - new_this_loop(->papà) && tierState has SecondTier: -> papà
-                - else: Papà: Ettore, ti rispondo appena trovo gli occhiali. 
-                }
-        + (agentino) Ettore: Ehi agente dei miei stivali!
-                {
-                - new_this_loop(->agentino) && tierState has SecondTier: -> agente
-                - else: Agente: Ciccio, ora non posso, a dopo!
-                }
-        + (amichetta) Ettore: Ehi, stronzetta, hai un minuto?
-                {
-                - new_this_loop(->amichetta) && tierState has SecondTier: -> amica
-                - else: Amica: Asp, finisco Temptation Island e ci sono!
-                }
+        + (padre){new_this_loop(->padre) && tierState has SecondTier} Ettore: Ciao papà! -> papa
+        + {not new_this_loop(->padre) && tierState has SecondTier}
+            Ettore: Ciao papà!
+            Papà: Ettore, ti rispondo appena trovo gli occhiali.  -> contents
+
+        + (agentino) {new_this_loop(->agentino) && tierState has SecondTier} Ettore: Ehi agente dei miei stivali! -> agente
+         + {not new_this_loop(->agentino) && tierState has SecondTier} Ettore: Ehi agente dei miei stivali!
+            Agente: Non ora, lavora e non rompermi!  -> contents
+
+        + (amichetta) {new_this_loop(->amichetta) && tierState has SecondTier} Ettore: Ehi, stronzetta, hai un minuto? -> amica
+        + {not new_this_loop(->amichetta) && tierState has SecondTier} Ettore: Ehi, stronzetta, hai un minuto? 
+            Amica: Asp, finisco Temptation Island e ci sono! -> contents
+    
         + (pula) Ettore: Pronto, polizia? -> maiali        
         + [Torna al menù principale] -> contents
 -> contents
 
-= papà
+= papa
         Ettore: Papà, ti ricordi quel tuo telefilm preferito, "Il giorno della smarmotta"?
         Papà: Cioè: non mi scrivi per tre giorni e mi fai questa domanda?
         Ettore: Diciamo che è una situazione complicata.
@@ -40,7 +38,7 @@ Chi chiami?
         Papà: Vai, dimmi pure.
         -> advance_time ->
                 - (question)
-                + Ettore: Qual era l'obiettivo del tizio del telefilm?
+                + (obiettivo) {new_this_loop(->obiettivo)} Ettore: Qual era l'obiettivo del tizio del telefilm?
                         Papà: Sconfiggere le marmotte mutanti.
                         Ettore: Sì, ma come?
                         Papà: Una delle persone chiusa nell'albergo con lui le aveva create.
@@ -51,7 +49,7 @@ Chi chiami?
                         Papà: Beh, perché lui a differenza tua l'era sveglio!
                                 -> advance_time ->
                                 -> question
-                + Ettore: Come faceva ad avere informazioni?
+                + (info) {new_this_loop(->info)} Ettore: Come faceva ad avere informazioni?
                         Papà: Mmm, fammi ricordare.
                         Papà: Metteva alcune persone vicino.
                         Papà: O isolava altre.
@@ -62,7 +60,7 @@ Chi chiami?
                         Papà: Mica come te, che ti ho mandato a studiare e non sai scrivere!
                                 -> advance_time ->
                                 -> question
-                + Ettore: Cosa succedeva se sbagliava?
+                + (sbaglio) {new_this_loop(->sbaglio)} Ettore: Cosa succedeva se sbagliava?
                         Papà: La cosa bella dei loop è che se sbagliava doveva solo aspettare mezzanotte, e ricominciare.
                         Papà: Certo, non era bello morire così, esplodendo ogni notte assieme alle marmotte mutanti zombie.
                         Papà: Ma ci sono cose peggiori.

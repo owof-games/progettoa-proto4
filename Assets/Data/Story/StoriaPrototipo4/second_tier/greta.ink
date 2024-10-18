@@ -236,7 +236,10 @@ Opzioni di dialogo con la persona Greta
             + + Ettore: Mmm, vedremo.
                 -> greta_talking_second_tier
 
-    + Fai domande sulla persona Greta -> esplora_greta
+    + [Conosci meglio Greta]-> esplora_greta
+    
+    + [Lasci la conversazione]-> intro
+    
 
     // OPZIONE PER IL FINALE
     + {(choice_WhoWasInChargeOfTheBuffet== True or choice_WhoWasInChargeOfTheBuffet == False) && (choice_ForWhomTheLetterWas == True or choice_ForWhomTheLetterWas == False)} [È il momento di fermare l’omicida di Paola!] Ettore: Greta: so che vuoi uccidere Paola! -> arringa_finale_Greta
@@ -283,7 +286,7 @@ Opzioni di dialogo con la persona Greta
                                 ~ loopableVariables += pausaRapportoGreta
                                     -> advance_time ->
                                 -> intro
-                        - - -
+                        
     
 
     + (allestimento3) {zeca_talking_second_tier.allestimento2 && new_this_loop(->allestimento3)} Ettore: Mi aiuti a capire una cosa?
@@ -321,7 +324,7 @@ Opzioni di dialogo con la persona Greta
                 Greta: Grazie, Ettore!
                    ~ move_this_entity_in_a_different_room(Greta)
                    -> intro 
-            - -
+
 
     //SCELTE CONDIZIONALI OGGETTI//
     + {inventoryContents has Lettera} Ettore: Hai visto questa lettera?
@@ -359,11 +362,7 @@ Opzioni di dialogo con la persona Greta
             -> greta_talking_second_tier
     
       
-    + [Lasci la conversazione]-> intro
-    -
-    
-    -> greta_talking_second_tier
-    
+
 
 = esplora_greta
 {debug: <i>Passo per esplora_greta</i>}

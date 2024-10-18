@@ -63,7 +63,7 @@ Opzioni di dialogo con la persona Zeca
         -> advance_time ->
             -> zeca_talking_second_tier
 
-    + [FChiacchiera con Zeca] -> esplora_zeca
+    + [Chiacchiera con Zeca] -> esplora_zeca
 
     // OPZIONE PER IL FINALE
     + {(choice_WhoWasInChargeOfTheBuffet== True or choice_WhoWasInChargeOfTheBuffet == False) && (choice_ForWhomTheLetterWas == True or choice_ForWhomTheLetterWas == False)} [È il momento di fermare l’omicida di Paola!] Ettore: Zeca: so che vuoi uccidere Paola! -> arringa_finale_Zeca
@@ -86,7 +86,7 @@ Opzioni di dialogo con la persona Zeca
         Zeca: Abbiamo invece lasciato le cose fuori dalla porta e chiesto a Greta di occuparsene, perché c'erano dei problemi coi costumi.
         Zeca: O per dirla diversamente: Greta si deve essere scofanata un cavallo dalle ultime prove, perché ora non ci entra più in quel vestito.
         Zeca: Hai altre domande, Sherlock?
-                + (allestimento2) {elia_talking_second_tier.allestimento}Ettore: Sì; mi sembra buffo quel che dici, perché Elia giura di averti lasciato il vino, perché lui e Greta avevano un problema coi tavoli.
+                + + (allestimento2) {elia_talking_second_tier.allestimento}Ettore: Sì; mi sembra buffo quel che dici, perché Elia giura di averti lasciato il vino, perché lui e Greta avevano un problema coi tavoli.
                     Zeca: <i>Buffo>/i> che tu non sappia farti un giro di cazzi tuoi, Ettore.
                     Zeca: Vero, Elia mi ha chiesto di farlo, ma io non gli ho mai detto di sì.
                         -> advance_time ->
@@ -101,7 +101,7 @@ Opzioni di dialogo con la persona Zeca
                      -> advance_time ->
                         -> zeca_talking_second_tier
                 
-                + {paola_talking_second_tier.allestimento} Ettore: Paola dice di aver sentito litigare te e Matteo nella stanza gialla.
+                + + {paola_talking_second_tier.allestimento} Ettore: Paola dice di aver sentito litigare te e Matteo nella stanza gialla.
                     Ettore: Ma prima hai detto di non essere mai entrato nella stanza gialla prima delle prove.
                     Zeca: Oh va bene, mi hai colto in flagrante.
                     Zeca: Tira fuori le manette e sculacciami perché sono un bimbo cattivo.
@@ -115,14 +115,14 @@ Opzioni di dialogo con la persona Zeca
                     Zeca: Gli sconosciuti litigano.
                     Zeca: Gli sconosciuti NON fanno la pace.
                     Zeca: Non so se ci siamo capiti.
-                       + + {matteo_talking_second_tier.allestimento} Ettore: Quando ho detto la stessa cosa a Matteo, è corso a cercarti.
+                       + + + {matteo_talking_second_tier.allestimento} Ettore: Quando ho detto la stessa cosa a Matteo, è corso a cercarti.
                             Zeca: E ci siamo trovati, e ora va tutto bene.
-                       + + Ettore: Forte e chiaro.
-                       - -
+                       + + +Ettore: Forte e chiaro.
+                      
                     Zeca: Bene. Ora lasciami nel mio silenzio a odiare te e il resto del mondo, grazie.
                         -> advance_time ->       
                             -> zeca_talking_second_tier
-                + Ettore: Ehm, no, niente di utile, no.
+                + + Ettore: Ehm, no, niente di utile, no.
                     Zeca: Come sempre, insomma.
                     -> advance_time ->
                         -> zeca_talking_second_tier
@@ -144,7 +144,7 @@ Opzioni di dialogo con la persona Zeca
             Zeca: Io alla fine spingo gente senza vita e senza obiettivi ad averne uno.
             Zeca: Dovrebbero farmi santa.
             Zeca: E piuttosto: invece di rompere le balle a me, c'è qualcun altro a cui Paola dovrebbe fare le pulci.
-                + (money) Ettore: E chi? Greta?
+                + + + (money) Ettore: E chi? Greta?
             Zeca: No: Matteo è l'unico qui dentro che campa sulle spalle dei due fratelli.
                 -> advance_time ->    
                     -> zeca_talking_second_tier

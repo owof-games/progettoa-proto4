@@ -31,15 +31,59 @@ Opzioni di dialogo con la persona Elia
             -> elia_talking_second_tier
 
     + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Che rapporto hai con Paola?
-            -> rapporto_Elia_Paola
+        Elia: Un po' complicato, per colpa delle piramidi.
+        Ettore: Aiuto.
+        Elia: Eh sì, mi serve aiuto.
+        Elia: Praticamente sono entrato in questa piramide di fotografi.
+        Elia: E la cosa è che dovevo comprare delle macchine fotografiche.
+        Elia: E poi rivenderle a altre piramidi per fare una piramide più grande.
+        Elia: E a quel punto avrei guadagnato un sacco.
+        Elia: Un sacco di soldi, non di piramidi.
+            -> advance_time ->
+        Elia: Ma devo aver fatto confusione a manetta perché ho iniziato a comprare macchine, autonomobili.
+        Elia: E a venderle alle fotografie.
+        Elia: Che però hanno le idee poco chiare su cosa sia il denaro.
+        Elia: E quindi mi sentivo in colpa a insistere e gliele ho regalate, le macchine.
+        Elia: E per recuperare un po' di dignità ho iniziato a fare una piramide di fotografie.
+        Elia: Ma quelli dell'altra piramide erano arrabbiati.
+        Elia: E poi è arrivata la polizia a dirmi che ho fatto reato di occupazione di suolo pubblico.
+        Elia: Ma io ho occupato solo una statua, per cui non tocca il suolo.
+            -> advance_time ->
+        Elia: Ma mentre che discutevamo di questa cosa è arrivato questo gruppo di lontre giganti.
+        Elia: Ero un po' perplesso ma sono state molto carine.
+        Elia: E hanno iniziato a montare luci, telecamere, e a fare, a fare cose.
+        Elia: Non ho ben capito, ma si stavano divertendo e gli ho lasciati lontrellare.
+        Elia: E altre persone hanno iniziato a portare altre foto, foto con un sacco di animali giganti.
+        Elia: E allora ho chiamato i tipi delle piramidi per dire che stavo facendo finalmente bene il mio lavoro.
+        Elia: Ma loro ripetevano che mancava uno schema, uno schema e che non mi avrebbero mai pagato.
+        Elia: E poi mi son ricordato che Paola è brava coi cruciverba a schema libero.
+            -> advance_time ->
+        Elia: E ho dato ai tizi delle piramidi il suo numero, ma lei non era contenta.
+        Elia: E ora quelli delle piramidi mi dicono che mi lasceranno in mutande.
+        Elia: Paola mi dice che mi mi lascerà in mutande.
+        Elia: Le lontre giganti mi dicono che mi lasceranno in mutande.
+        Elia: Tranne quella con la frusta. Quella dice che me le toglierà.
+        Elia: E io non so cosa fare.
+        Elia: Zeca dice che può mettermi in contatto con la mafia gay.
+        Elia: Forse sanno dove parcheggiare le sei Maserati che ho preso per le fotografie.
+        Elia: Sono molto confuso, Ettore, molto confuso.
+            -> advance_time ->
+            -> elia_talking_second_tier
+
 
 
     + (omicidio) {new_this_loop(->omicidio)} Ettore: Conosci qualcuno che vorrebbe far male a Paola?
- 
+        Elia: Uh, spero non i tizi delle piramidi, vero?
+        Elia: O le lontre giganti.
+        Elia: Naa, loro sono molto tenere.
+        Elia: Paola vorrebbe fare del male a me, ogni tanto.
+        Elia: Ma quello succede spesso.
+        Elia: Tu però sei gentile con me.
+        Elia: Mi fai due grattini?
+                -> advance_time ->
+            -> elia_talking_second_tier
 
-        -> advance_time ->
-
-    + Fai domande sulla persona Elia -> esplora_elia
+    + [Conosci meglio Elia]-> esplora_elia
 
     // OPZIONE PER IL FINALE
     + {(choice_WhoWasInChargeOfTheBuffet== True or choice_WhoWasInChargeOfTheBuffet == False) && (choice_ForWhomTheLetterWas == True or choice_ForWhomTheLetterWas == False)} [È il momento di fermare l’omicida di Paola!] Ettore: Elia: so che vuoi uccidere Paola! -> arringa_finale_Elia

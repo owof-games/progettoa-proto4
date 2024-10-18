@@ -35,7 +35,7 @@ Opzioni di dialogo con la persona Zeca
         Zeca: Scusa ciccio, ma non c'ho testa ora.
             -> advance_time ->
         Zeca: C'ho la mafia gay.
-        Zeca: Non era la lobby gay?
+        Ettore: Non era la lobby gay?
         Zeca: No, quella è quella che ha creato M¥SS KETA.
         Zeca: La mafia gay è quella che ti fa i quality check prima di entrare nelle disco.
         Zeca: O prima di entrare in uno spazio nerd.
@@ -50,12 +50,12 @@ Opzioni di dialogo con la persona Zeca
         Zeca: E ora i debiti sono alti. Incolmabili.
         Ettore: E cosa vogliono da te?
         Zeca: Quote della Londar Cosmetics.
-        Zeca: E un incremento della produzione di costumi furry.
+        Zeca: E un incremento della produzione di costumi furry da lontra.
             -> advance_time ->
         Zeca: E SE NON LA SMETTI DI RIDERE TI MENO!
         Zeca: Perché ne va della mia pelle. Hai visto cosa hanno fatto a Chiara Iezzi?
-        Zeca: Prima l'hanno cancellata, poi l'hanno riportata in auge contro la sua volontà.
-        Zeca: Giusto per fare vedere chi comanda.
+        Zeca: Prima l'hanno cancellata per omofobia, poi l'hanno riportata in auge contro la sua volontà.
+        Zeca: Giusto per farle vedere chi comanda.
         Zeca: Ma cosa ti dico queste cose a te?
         Zeca: Sei così vestito male che sei o etero o woke.
         Zeca: Devo chiedere aiuto a Paola, è l'unica opzione che mi rimane.

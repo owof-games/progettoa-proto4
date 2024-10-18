@@ -3,17 +3,17 @@
 -> contents
 
 = contents
-+ [Chiama qualcuno]
++ [Chiama qualcuno] -> call
 + [Chiudi il telefono] -> intro
--
-->->
++ ->->
+
 
 //MESSAGGI
 = call
 Chi chiami?
         + (padre) Ettore: Ciao papà!
                 {    
-                - new_this_loop(->papà) && tierState has SecondTier: -> padre
+                - new_this_loop(->papà) && tierState has SecondTier: -> papà
                 - else: Papà: Ettore, ti rispondo appena trovo gli occhiali. 
                 }
         + (agentino) Ettore: Ehi agente dei miei stivali!

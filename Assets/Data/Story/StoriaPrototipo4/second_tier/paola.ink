@@ -46,13 +46,13 @@ Opzioni di dialogo con la persona Paola
         Paola: Ho sentito Zeca e Matteo litigare nella stanza gialla prima del buffet.
         Paola: Quasi quasi vado a chiedere a Zeca il perché.
 
-    + (money) Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro.
+    + (money) Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro. Ci dice che ha questo raffreddore insopportabile (per l'aspirina)
 
     + {liarCallLiarStorylet.indagini}: Zeca ci dice che la polizia ha avuto anche dati personali di Paola. Dati a cui solo la segretaria personale avrebbe potuto avere accesso. Se chiediamo a Paola, cosa ci dirà?
 
     + (foto) {zeca_talking_second_tier.allestimento2} Diciamo la cosa del vibratore. Paola ci dice che se allontaniamo Greta dalla stanza, ci darà qualcosa di interessante.
 
-    + (foto2) {greta_talking_second_tier.foto} Se risolviamo: foto Elia e Greta che scopano al pub.
+    + (foto2) {greta_talking_second_tier.foto2 && not are_two_entities_together(Paola, Greta)} Se risolviamo: foto Elia e Greta che scopano al pub.
             Vedi tu che farci! (non dobbiamo avere niente in mano)
             {
             - LIST_COUNT(inventoryContents) > 0:

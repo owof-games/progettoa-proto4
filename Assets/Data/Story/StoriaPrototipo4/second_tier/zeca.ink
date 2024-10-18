@@ -314,7 +314,7 @@ Opzioni di dialogo con la persona Zeca
         + Ettore: No no scusa non c'ho tempo per questa conversazione.
             Zeca: Cafone! Col cazzo che mi chiedi ancora qualcosa!
                 ~ loopableVariables += pausaRapportoZeca
-                -> zeca_talking_second_tier
+                -> intro
         -
     Zeca: E di Greta, che idea ti sei fatto?
         + Ettore: Una ragazza curiosa.
@@ -373,6 +373,11 @@ Opzioni di dialogo con la persona Zeca
                 Zeca: E probabilmente l'avrei spinta io.
             -
         Zeca: E infine, cosa ne pensi di me? Sincero, zero complimenti.
+             + Ettore: Che meno ti devo parlare meglio è.
+                Zeca: Ah, è facile: non ti parlo più, così stai bene, stronzetta.
+                    ~ loopableVariables += pausaRapportoZeca
+                -> advance_time ->
+                -> intro
             + Ettore: Sei acidello, ma divertente.
                 Zeca: Ho sentito di peggio, dai.
                 Zeca: Mia madre a sedici anni mi ha portato dall'esorcista.
@@ -381,11 +386,6 @@ Opzioni di dialogo con la persona Zeca
                 Zeca: Così mi fai sciogliere!
                 Zeca: Nel senso che mi fai sciogliere i maroni proprio.
                 Zeca: Le palle colate sul pavimento!
-            + Ettore: Che meno ti devo parlare meglio è.
-                Zeca: Ah, è facile: non ti parlo più, così stai bene, stronzetta.
-                ~ loopableVariables += pausaRapportoZeca
-                -> advance_time ->
-                -> zeca_talking_second_tier
             -
         -> advance_time ->
     Zeca: Bene, ora posso dirti cosa penso di te.

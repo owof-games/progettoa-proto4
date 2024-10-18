@@ -121,7 +121,7 @@ Opzioni di dialogo con la persona Matteo
                             + + + + Ettore: Sì, credo che tu possa farle del male.
                                     Matteo: Beh, se hai già deciso che sono una cattiva persona, che senso ha parlarmi ancora?
                                         ~ loopableVariables += pausaRapportoMatteo
-                                        -> matteo_talking_second_tier
+                                        -> intro
                               
                     + + + ->            
 
@@ -176,9 +176,7 @@ Opzioni di dialogo con la persona Matteo
         Matteo: Strano: Zeca e io abbiamo preso la roba al supermercato, ma non ricordo questa torta!
     
     + {inventoryContents has BottigliaDiVino} Ettore: Riconosci questa bottiglia di vino?
-        Matteo: Sì, è tra quelle che abbiamo comprato al supermercato.
-        Matteo: Ma non dirlo a Paola: abbiamo preso la roba che costava meno e con l'etichetta più spocchiosa.
-        Matteo: E da come ha sorriso, credo abbia funzionato!
+        Matteo: Mi spiace Ettore, bevo solo roba sotto i tre euro.
     
     + {inventoryContents has FlaconcinoAsma} Ettore: Sai di chi sia questo flaconcino per l'asma?
         Matteo: Zero totale.

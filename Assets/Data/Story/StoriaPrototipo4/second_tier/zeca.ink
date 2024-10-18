@@ -34,6 +34,32 @@ Opzioni di dialogo con la persona Zeca
         Zeca: Embè?
         Zeca: Scusa ciccio, ma non c'ho testa ora.
             -> advance_time ->
+        Zeca: C'ho la mafia gay.
+        Zeca: Non era la lobby gay?
+        Zeca: No, quella è quella che ha creato M¥SS KETA.
+        Zeca: La mafia gay è quella che ti fa i quality check prima di entrare nelle disco.
+        Zeca: O prima di entrare in uno spazio nerd.
+        Zeca: Quella che decide se sei bono abbastanza o se ti deve buttare in un bidone di acido ialuronico.
+        Ettore: Ahah divertente.
+        Zeca: DIVERTENTE?!?!
+            -> advance_time ->
+        Zeca: Non sto scherzando.
+        Zeca: Ho chiesto loro un prestito di quindici palestronze all'avvio della palestra.
+        Zeca: Per fare un po' di hype insomma, per attirare i morti di cazzo.
+        Zeca: Ma preso dalle cose da fare ho perso il senso del tempo e saltato due, ehm, tre pagamenti.
+        Zeca: E ora i debiti sono alti. Incolmabili.
+        Ettore: E cosa vogliono da te?
+        Zeca: Quote della Londar Cosmetics.
+        Zeca: E un incremento della produzione di costumi furry.
+            -> advance_time ->
+        Zeca: E SE NON LA SMETTI DI RIDERE TI MENO!
+        Zeca: Perché ne va della mia pelle. Hai visto cosa hanno fatto a Chiara Iezzi?
+        Zeca: Prima l'hanno cancellata, poi l'hanno riportata in auge contro la sua volontà.
+        Zeca: Giusto per fare vedere chi comanda.
+        Zeca: Ma cosa ti dico queste cose a te?
+        Zeca: Sei così vestito male che sei o etero o woke.
+        Zeca: Devo chiedere aiuto a Paola, è l'unica opzione che mi rimane.
+            -> advance_time ->      
                  -> zeca_talking_second_tier
 
     + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Tu e Paola andate d'accordo?

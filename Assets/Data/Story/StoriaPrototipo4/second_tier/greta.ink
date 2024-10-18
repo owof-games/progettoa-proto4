@@ -43,7 +43,7 @@ Opzioni di dialogo con la persona Greta
 
 
     //SCELTE CONDIZIONALI//
-    + (indagini) {phone.browse.indagini} Qui Greta ci dice che Paola vuole estromettere Elia dall'azienda.
+    + (indagini) {phone.indagini} Qui Greta ci dice che Paola vuole estromettere Elia dall'azienda.
 
     + (indagini2) {elia_talking_second_tier.indagini} Greta ci dice che Elia sta usando il discorso sindacato per mostrare al CdA che Paola è troppo debole e inetta
 

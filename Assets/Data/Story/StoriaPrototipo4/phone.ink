@@ -11,22 +11,22 @@
 //MESSAGGI
 = call
 Chi chiami?
-        + (papà) Ettore: Ciao papà!
+        + (padre) Ettore: Ciao papà!
                 {    
-                - new_this_loop(->papà) && tierState has SecondTier: -> papà
+                - new_this_loop(->papà) && tierState has SecondTier: -> padre
                 - else: Papà: Ettore, ti rispondo appena trovo gli occhiali. 
                 }
-        + (agente) Ettore: Ehi agente dei miei stivali!
+        + (agentino) Ettore: Ehi agente dei miei stivali!
                 {
-                - new_this_loop(->agente) && tierState has SecondTier: -> agente
+                - new_this_loop(->agentino) && tierState has SecondTier: -> agente
                 - else: Agente: Ciccio, ora non posso, a dopo!
                 }
-        + (amica) Ettore: Ehi, stronzetta, hai un minuto?
+        + (amichetta) Ettore: Ehi, stronzetta, hai un minuto?
                 {
-                - new_this_loop(->amica) && tierState has SecondTier: -> amica
+                - new_this_loop(->amichetta) && tierState has SecondTier: -> amica
                 - else: Amica: Asp, finisco Temptation Island e ci sono!
                 }
-        + (maiali) Ettore: Pronto, polizia? -> maiali        
+        + (pula) Ettore: Pronto, polizia? -> maiali        
         + [Torna al menù principale] -> contents
 -> contents
 
@@ -79,7 +79,7 @@ Chi chiami?
                         Papà: Fortuna che è solo un telefilm vero?
                                 -> advance_time ->
                                 -> question
-                + Ettore: Apposto così, grazie papà!
+                + Ettore: A posto così, grazie papà!
                         Papà: E non mi chiedi manco come sto?
                         Ettore: Come stai, papà?
                         Papà: A parte gli acchiachi, bene dai!
@@ -89,7 +89,7 @@ Chi chiami?
                         Papà: Ti scrivo dopo.
                                 -> advance_time ->
                         -> contents
-                -
+        -> contents
 
 
 

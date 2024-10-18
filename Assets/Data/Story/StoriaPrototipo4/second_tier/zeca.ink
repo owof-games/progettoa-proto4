@@ -144,7 +144,8 @@ Opzioni di dialogo con la persona Zeca
             Zeca: Io alla fine spingo gente senza vita e senza obiettivi ad averne uno.
             Zeca: Dovrebbero farmi santa.
             Zeca: E piuttosto: invece di rompere le balle a me, c'è qualcun altro a cui Paola dovrebbe fare le pulci.
-            Zeca: Matteo è l'unico qui dentro che campa sulle spalle dei due fratelli.
+                + (money) Ettore: E chi? Greta?
+            Zeca: No: Matteo è l'unico qui dentro che campa sulle spalle dei due fratelli.
                 -> advance_time ->    
                     -> zeca_talking_second_tier
         + + (love3){trueLoveStorylet && new_this_loop(->love3)} Ettore: Come ti senti, ora che Elia ti ha dichiarato il suo amore?
@@ -208,7 +209,7 @@ Opzioni di dialogo con la persona Zeca
         Zeca: Dio.
         Zeca: Se mai la vita dovesse portarmi a un tale entusiasmo per un flaconcino, uccidetemi.
                     -> zeca_talking_second_tier
-    + (sigaretta) {inventoryContents has SigarettaElettronica new_this_loop(->sigaretta)} Ettore: Sai di chi sia questa sigaretta elettronica?
+    + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} Ettore: Sai di chi sia questa sigaretta elettronica?
         Zeca: Di Paola, è lei la tossica del gruppo.
         Zeca: No, quello sono io.
         Zeca: Ma è lei che fuma,

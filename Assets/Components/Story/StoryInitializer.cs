@@ -1,7 +1,9 @@
+using System;
 using LemuRivolta.InkAtoms;
 using NUnit.Framework;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Components.Story
 {
@@ -10,6 +12,8 @@ namespace Components.Story
         [SerializeField] private InkAtomsStory inkAtomsStory;
         [SerializeField] private TextAsset inkAtomsTextAsset;
         [SerializeField] private StringEvent continueEvent;
+        [SerializeField] private bool startStoryImmediately;
+        [SerializeField] private Button startStoryButton;
 
         private void Awake()
         {
@@ -20,6 +24,22 @@ namespace Components.Story
 
         private void Start()
         {
+            if (!startStoryImmediately)
+            {
+                Debug.Log("Not starting story immediately");
+                startStoryButton.onClick.AddListener(DoStart);
+            }
+            else
+            {
+                Debug.Log("Starting story immediately");
+                startStoryButton.gameObject.SetActive(false);
+                DoStart();
+            }
+        }
+
+        private void DoStart()
+        {
+            startStoryButton.gameObject.SetActive(false);
             inkAtomsStory.StartStory(inkAtomsTextAsset, exception => Debug.LogError(exception.ToString()));
             continueEvent.Raise(null);
         }

@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Components.RoomTransitionHandler;
 using Components.Story.Lines;
+using JetBrains.Annotations;
 using LitMotion;
 using NUnit.Framework;
 using UnityEditor;
@@ -64,31 +66,6 @@ namespace Components.Dialogue
                     AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Components/Dialogue/DialogueRow.prefab");
         }
 
-        /*
-        public void OnStoryStep(StoryStep storyStep)
-        {
-            foreach (Character.Character character in Enum.GetValues(typeof(Character.Character)))
-            {
-                var prefix = $"{character}:";
-                if (!storyStep.Text.StartsWith(prefix)) continue;
-                int column;
-                for (column = 0; column < _characterColumns.Length; column++)
-                    if (_characterColumns[column].Contains(character))
-                        break;
-
-                if (column >= _characterColumns.Length)
-                {
-                    var selectedColumn = _characterColumns.MinBy(cc => cc.Count);
-                    selectedColumn.Add(character);
-                    column = Array.IndexOf(_characterColumns, selectedColumn);
-                }
-
-                OnText(character, storyStep.Text[prefix.Length..].Trim(), storyStep.CanContinue, column);
-                break;
-            }
-        }
-        */
-
         public void OnDialogueLine(DialogueLine dialogueLine)
         {
             var character = dialogueLine.character;
@@ -105,14 +82,22 @@ namespace Components.Dialogue
                 column = Array.IndexOf(_characterColumns, selectedColumn);
             }
 
-            OnText(character, dialogueLine.text, dialogueLine.canContinue, column);
+            OnText(character, dialogueLine.text, dialogueLine.canContinue, column,
+                dialogueLine.choices.Select(c =>
+                {
+                    var text = c.text;
+                    if (text.StartsWith("Ettore:")) text = text["Ettore:".Length..].Trim();
+
+                    return text;
+                }).ToArray());
         }
 
-        private void OnText(Character.Character character, string text, bool showAdvance, int column)
+        private void OnText(Character.Character character, string text, bool showAdvance, int column,
+            [CanBeNull] string[] choices = null)
         {
             var dialogueRowGameObject = Instantiate(dialogueRowPrefab, dialogueSlidingContainer);
             var dialogueRow = dialogueRowGameObject.GetComponent<DialogueRow>();
-            dialogueRow.SetUp(character, Direction.Right, _columnRemapper[column], text, showAdvance);
+            dialogueRow.SetUp(character, Direction.Right, _columnRemapper[column], text, showAdvance, choices);
         }
     }
 }

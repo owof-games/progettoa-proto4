@@ -1,4 +1,5 @@
 using Components.RoomTransitionHandler;
+using JetBrains.Annotations;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,18 +21,20 @@ namespace Components.Dialogue
             gridLayoutGroup = GetComponent<GridLayoutGroup>();
         }
 
-        public void SetUp(Character.Character character, Direction direction, int column, string text, bool showAdvance)
+        public void SetUp(Character.Character character, Direction direction, int column, string text, bool showAdvance,
+            [CanBeNull] string[] choices = null)
         {
             InsertEmpty(column);
-            InsertBalloon(character, direction, text, showAdvance);
+            InsertBalloon(character, direction, text, showAdvance, choices);
             InsertEmpty(5 - column - 1);
         }
 
-        private void InsertBalloon(Character.Character character, Direction direction, string text, bool showAdvance)
+        private void InsertBalloon(Character.Character character, Direction direction, string text, bool showAdvance,
+            [CanBeNull] string[] choices = null)
         {
             var balloonGameObject = Instantiate(balloonPrefab, transform);
             var balloon = balloonGameObject.GetComponent<Balloon>();
-            balloon.SetUp(character, direction);
+            balloon.SetUp(character, direction, choices);
             balloon.SetText(text);
             balloon.ShowAdvanceButton(showAdvance);
             var rectTransform = balloonGameObject.GetComponent<RectTransform>();

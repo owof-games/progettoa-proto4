@@ -67,7 +67,12 @@ namespace Components.Story.Lines
                 {
                     character = character,
                     text = dialogueText,
-                    canContinue = step.CanContinue
+                    canContinue = step.CanContinue,
+                    choices = step.Choices.Select(c => new Choice
+                    {
+                        text = c.Text,
+                        index = c.Index
+                    }).ToArray()
                 });
             }
         }

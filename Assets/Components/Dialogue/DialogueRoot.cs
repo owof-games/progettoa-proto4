@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Components.RoomTransitionHandler;
-using LemuRivolta.InkAtoms;
+using Components.Story.Lines;
 using LitMotion;
 using NUnit.Framework;
 using UnityEditor;
@@ -16,6 +16,8 @@ namespace Components.Dialogue
         [SerializeField] private GameObject dialogueRowPrefab;
         [SerializeField] private float slideDuration = 0.1f;
 
+        private readonly List<Character.Character>[] _characterColumns = { new(), new(), new() };
+
         private readonly Dictionary<int, int> _columnRemapper = new()
         {
             {
@@ -28,8 +30,6 @@ namespace Components.Dialogue
                 2, 2
             }
         };
-
-        private readonly List<Character.Character>[] _characterColumns = { new(), new(), new() };
 
         private void Awake()
         {
@@ -64,6 +64,7 @@ namespace Components.Dialogue
                     AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Components/Dialogue/DialogueRow.prefab");
         }
 
+        /*
         public void OnStoryStep(StoryStep storyStep)
         {
             foreach (Character.Character character in Enum.GetValues(typeof(Character.Character)))
@@ -85,6 +86,26 @@ namespace Components.Dialogue
                 OnText(character, storyStep.Text[prefix.Length..].Trim(), storyStep.CanContinue, column);
                 break;
             }
+        }
+        */
+
+        public void OnDialogueLine(DialogueLine dialogueLine)
+        {
+            var character = dialogueLine.character;
+
+            int column;
+            for (column = 0; column < _characterColumns.Length; column++)
+                if (_characterColumns[column].Contains(character))
+                    break;
+
+            if (column >= _characterColumns.Length)
+            {
+                var selectedColumn = _characterColumns.MinBy(cc => cc.Count);
+                selectedColumn.Add(character);
+                column = Array.IndexOf(_characterColumns, selectedColumn);
+            }
+
+            OnText(character, dialogueLine.text, dialogueLine.canContinue, column);
         }
 
         private void OnText(Character.Character character, string text, bool showAdvance, int column)

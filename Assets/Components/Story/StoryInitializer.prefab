@@ -47,3 +47,7 @@ MonoBehaviour:
   inkAtomsStory: {fileID: 11400000, guid: f10acf045d160c24da6697229f63fc88, type: 2}
   inkAtomsTextAsset: {fileID: 4900000, guid: c470d9e9a88b8484c9be840e2404eab0, type: 3}
   continueEvent: {fileID: 11400000, guid: f1836d32c09bf4f4ca4b1bc5567fda79, type: 2}
+  startStoryImmediately: 0
+  startStoryButton: {fileID: 0}
+  storyStepEvent: {fileID: 11400000, guid: ed468af811f41494383f77b2f55bbe1e, type: 2}
+  linesParser: {fileID: 11400000, guid: 333762d381153a1428fb631b061cda1e, type: 2}

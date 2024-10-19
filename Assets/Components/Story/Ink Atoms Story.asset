@@ -18,11 +18,11 @@ MonoBehaviour:
   inkAtomsStoryInitializedVariable: {fileID: 11400000, guid: c64d263f342401a43aaad9c76887e99f, type: 2}
   debugCurrentState: 1
   variableObservers:
-  - rid: 7305916763889991764
-  - rid: 7305916764181758035
-  - rid: 7305916764181758036
-  - rid: 7305916764181758037
   - rid: 7305916783598239897
+  - rid: 4382058951643758682
+  - rid: 4382058951643758683
+  - rid: 4382058951643758684
+  - rid: 4382058951643758685
   externalFunctions:
   - {fileID: 11400000, guid: 8cbb6008e1940ed4eac5047ad0050b74, type: 2}
   - {fileID: 11400000, guid: 06bcf72ffa424404ead936e80f675f28, type: 2}
@@ -36,26 +36,26 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 7305916763889991764
+    - rid: 4382058951643758682
       type: {class: ListVariableObserver, ns: LemuRivolta.InkAtoms.VariableObserver, asm: LemuRivolta.InkAtoms}
       data:
-        inkVariableName: white_room_contents
+        inkVariableName: whiteRoomContents
         variable: {fileID: 11400000, guid: 921a8e543c1ef08419c36800a14fabf6, type: 2}
-    - rid: 7305916764181758035
+    - rid: 4382058951643758683
       type: {class: ListVariableObserver, ns: LemuRivolta.InkAtoms.VariableObserver, asm: LemuRivolta.InkAtoms}
       data:
-        inkVariableName: green_room_contents
+        inkVariableName: greenRoomContents
         variable: {fileID: 11400000, guid: ada24e44ebed4ae43af7517085159b37, type: 2}
-    - rid: 7305916764181758036
+    - rid: 4382058951643758684
       type: {class: ListVariableObserver, ns: LemuRivolta.InkAtoms.VariableObserver, asm: LemuRivolta.InkAtoms}
       data:
-        inkVariableName: red_room_contents
-        variable: {fileID: 11400000, guid: 39fb7627434374a438f565dc9509fdfd, type: 2}
-    - rid: 7305916764181758037
-      type: {class: ListVariableObserver, ns: LemuRivolta.InkAtoms.VariableObserver, asm: LemuRivolta.InkAtoms}
-      data:
-        inkVariableName: yellow_room_contents
+        inkVariableName: yellowRoomContents
         variable: {fileID: 11400000, guid: 698b04a1e3ed22d4db3f3b5f98e93c2f, type: 2}
+    - rid: 4382058951643758685
+      type: {class: ListVariableObserver, ns: LemuRivolta.InkAtoms.VariableObserver, asm: LemuRivolta.InkAtoms}
+      data:
+        inkVariableName: redRoomContents
+        variable: {fileID: 11400000, guid: 39fb7627434374a438f565dc9509fdfd, type: 2}
     - rid: 7305916783598239897
       type: {class: IntVariableObserver, ns: LemuRivolta.InkAtoms.VariableObserver, asm: LemuRivolta.InkAtoms}
       data:

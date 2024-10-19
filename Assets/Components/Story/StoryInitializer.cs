@@ -1,4 +1,4 @@
-using System;
+using Components.Story.Lines;
 using LemuRivolta.InkAtoms;
 using NUnit.Framework;
 using UnityAtoms.BaseAtoms;
@@ -14,12 +14,15 @@ namespace Components.Story
         [SerializeField] private StringEvent continueEvent;
         [SerializeField] private bool startStoryImmediately;
         [SerializeField] private Button startStoryButton;
+        [SerializeField] private StoryStepEvent storyStepEvent;
+        [SerializeField] private LinesParser linesParser;
 
         private void Awake()
         {
             Assert.IsNotNull(inkAtomsStory);
             Assert.IsNotNull(inkAtomsTextAsset);
             Assert.IsNotNull(continueEvent);
+            Assert.IsNotNull(storyStepEvent);
         }
 
         private void Start()
@@ -40,6 +43,7 @@ namespace Components.Story
         private void DoStart()
         {
             startStoryButton.gameObject.SetActive(false);
+            linesParser.Initialize(storyStepEvent);
             inkAtomsStory.StartStory(inkAtomsTextAsset, exception => Debug.LogError(exception.ToString()));
             continueEvent.Raise(null);
         }

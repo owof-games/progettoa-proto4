@@ -11,7 +11,7 @@
 
 -> intro
 
-
+TODO: PER LE VOCI DEL NOTEBOOK PROVA A METTERE I LABEL () IN GATHER AD HOC INVECE CHE NEL TESTO E BONA
 /* ---------------------------------
 
 Opzioni di dialogo con la persona Greta

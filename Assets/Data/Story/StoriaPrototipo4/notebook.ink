@@ -223,8 +223,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 
 {zeca_talking_second_tier.allestimento: Zeca ci dice che lui e Matteo hanno lasciato il cibo sui tavoli e poi chiesto a Greta di occuparsene, che loro dovevano sistemare i costumi.}
-{elia_talking_second_tier.allestimento2: Elia: Zeca sente sesso ovunque, giuro! Ma purtroppo ho passato la mattina con Greta a chiamare i fornitori del pub.}
-{elia_talking_second_tier.indagini: Elia ci dice che Greta ha dato a Matteo info per "contrattare" meglio con Paola per la sindacalizzazione e questo avrebbe fatto pissare Paola.}
+{elia_talking_second_tier.indagini: Elia: Ma la cosa sicura è che abbiamo lasciato le bottiglie all'ingresso e non siamo entrati nella sala gialla delle pappe. Greta e io dovevamo chiamare i fornitori.}
 {liarCallLiarStorylet.indagini: Zeca ci dice che la polizia ha avuto anche dati personali di Paola. Dati a cui solo la segretaria personale avrebbe potuto avere accesso.}
 {liesAndPromisesStorylet: Elia promette a Greta amore XXX}
 {notABigSecretPartOneStorylet.allestimento: Matteo ci dice che Greta ed Elia hanno recuperato il bere. Si sono occupati anche degli elementi della scenografia}
@@ -240,7 +239,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 {zeca_talking_second_tier.love: Zeca ci dice che farebbe di tutto per proteggere Elia.}
 {paola_talking_second_tier.allestimento: Paola: Ho sentito Zeca e Matteo litigare nella stanza prima del buffet.}
 {paola_talking_second_tier.money: Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro. }
-{elia_talking_second_tier.allestimento: Elia ci dice che lui e Greta hanno lasciato le bottiglie all'ingresso, avvisando Zeca, perché dovevano risolvere un problema coi tavoli}
+{elia_talking_second_tier.indagini: Elia: Ma la cosa sicura è che abbiamo lasciato le bottiglie all'ingresso e non siamo entrati nella sala gialla delle pappe. Greta e io dovevamo chiamare i fornitori.}
 {elia_talking_second_tier.minacce: Elia sbotta, dice che non ha senso, che il suo "socio d'affari" che motivo avrebbe di rovinarlo? e si allontana subito, possiamo "pedinarlo"}
 
 
@@ -301,7 +300,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
     
     {
-        - contraddizione_buffet: {notABigSecretPartOneStorylet.allestimento: Matteo ci dice che Greta ed Elia hanno recuperato il bere. Si sono occupati anche degli elementi della scenografia} {zeca_talking_second_tier.allestimento: Zeca ci dice che lui e Matteo hanno lasciato il cibo sui tavoli e poi chiesto a Greta di occuparsene, che loro dovevano sistemare i costumi.} {elia_talking_second_tier.allestimento: Elia ci dice che lui e Greta hanno lasciato le bottiglie all'ingresso, avvisando Zeca, perché dovevano risolvere un problema coi tavoli} {notABigSecretPartTwoStorylet.allestimento: Elia ci dice che Zeca e Matteo hanno recuperato le cibarie. Sono anche passati in farmacia, e a prendere le ricariche per le sigarette elettroniche di Paola}
+        - contraddizione_buffet: {notABigSecretPartOneStorylet.allestimento: Matteo ci dice che Greta ed Elia hanno recuperato il bere. Si sono occupati anche degli elementi della scenografia} {zeca_talking_second_tier.allestimento: Zeca ci dice che lui e Matteo hanno lasciato il cibo sui tavoli e poi chiesto a Greta di occuparsene, che loro dovevano sistemare i costumi.} {elia_talking_second_tier.allestimento: Elia ci dice che lui e Greta hanno lasciato le bottiglie all'ingresso, perché doveva chiamare con Grta i fornitori.} {notABigSecretPartTwoStorylet.allestimento: Elia ci dice che Zeca e Matteo hanno recuperato le cibarie. Sono anche passati in farmacia, e a prendere le ricariche per le sigarette elettroniche di Paola}
                 Chi ha recuperato le cose del buffet?
             
             

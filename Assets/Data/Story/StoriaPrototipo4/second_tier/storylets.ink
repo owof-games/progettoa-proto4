@@ -239,6 +239,7 @@ Elia ammette i suoi sentimenti per Zeca, promette che smetterà di cazzeggiare c
     
         -> intro
 
+TODO: fare entrare queste due informazioni in modo casuale, come Matteo che si lamenta di quei due (parte uno) ed Elia che è confuso (parte due). Ma nessuno dei due ci dice che cosa ha fatto lui e il partner.
 
 === notABigSecretPartTwoStorylet
     + (allestimento) Elia ci dice che Zeca e Matteo hanno recuperato le cibarie

@@ -21,18 +21,34 @@ Opzioni di dialogo con la persona Paola
 === paola_talking_second_tier
  {debug: <i>Passo per paola_talking</i>}
     //INFO GENERALI//
-    + (loop) {new_this_loop(->loop)} Ettore: Non stai notando nulla di strano?
-        Paola: cose 
+    + (loop) {new_this_loop(->loop)} Ettore: Paola, ehm, hai notato nulla di problematico?
+        Paola: Oggetti personali lasciati in giro come se fossero oggetti di scena?
+        Paola: Gente che tira parole a caso perché non ricorda uno script basilare?
+        Paola: Il mio reflusso che spacca più del solito e mi sento mancare l'aria?
+        Paola: Ah no, queste son cose normali quando lavori con dei deficienti.
+        Paola: Dei mentecatti.
+        Paola: Gente a cui dovrebbero strappare ovaie e testicoli perché non si riproducano.
+        Paola: L'unica cosa strana qui è che non abbia ancora voglia di vivere.
             -> advance_time ->
-            + + [Cambi argomento] -> paola_talking_second_tier
+                -> paola_talking_second_tier
 
-    + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Non, ehm. Ti fa male da qualche parte? In modo quasi mortale?
-        Paola: cose
+    + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Non, ti, forse. Ok. Ti fa male da qualche parte? In modo quasi mortale?
+        Paola: Che carino a preoccuparti per me, Ettore.
+        Paola: Nulla di particolare, giusto quel mix di raffreddore soffocante
+        Paola: Asma
+        Paola: Emicrania
+        Paola: Reflusso cronico
+        Paola: Nausea
+        Paola: Voglia di bere il mondo per dimenticarmi che Elia è mio fratello
+        Paola: E la non insolita speranza che qualcuno mi uccida.
             -> advance_time ->
-            + + [Cambi argomento] -> paola_talking_second_tier
 
-    + (omicidio) {new_this_loop(->omicidio)} Ettore: Paola, qualcuno ti potrebbe odiare qui?
-        Paola: 
+    + (omicidio) {new_this_loop(->omicidio)} Ettore: C'è, c'è. C'è qualcuno qui che vorrebbe ucciderti?
+        Paola: Dipende.
+        Paola: Per il patrimonio, molti.
+        Paola: Anche se l'unico che può sperare di accederci è Elia, e solo fino a domattina.
+        Paola: Per il resto, sono tutti liberi di andarsene.
+        Paola: Prima che li uccida io.
         -> advance_time ->
 
     + Fai domande sulla persona Paola -> esplora_paola
@@ -46,7 +62,7 @@ Opzioni di dialogo con la persona Paola
         Paola: Ho sentito Zeca e Matteo litigare nella stanza gialla prima del buffet.
         Paola: Quasi quasi vado a chiedere a Zeca il perché.
 
-    + (money) Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro. Ci dice che ha questo raffreddore insopportabile (per l'aspirina)
+    + (money) Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro.
 
     + {liarCallLiarStorylet.indagini}: Zeca ci dice che la polizia ha avuto anche dati personali di Paola. Dati a cui solo la segretaria personale avrebbe potuto avere accesso. Se chiediamo a Paola, cosa ci dirà?
 

@@ -192,6 +192,16 @@ Opzioni di dialogo con la persona Zeca
                 -> advance_time ->
                     -> zeca_talking_second_tier
 
+        + + (love4){elia_talking_second_tier.indagini2 && greta_talking_second_tier.indagini && not are_two_entities_together(Elia, Zeca)} Ettore: Sapevi che Paola vuole estromettere Elia dalla Londar?
+            Zeca: Quindi lo sta per fare davvero? La stronza!
+            Ettore: Ed Elia non l'ha presa bene. Se provo a parlargli della cosa, mette la musica a manetta e non mi ascolta.
+            Zeca: Ok, ci penso io.
+            Zeca: Povero stupido bimbo.
+            Zeca: Povero.
+            Zeca: Stupido.
+            Zeca: Bimbo.       
+                -> advance_time ->
+                    -> zeca_talking_second_tier
 
     //SCELTE CONDIZIONALI OGGETTI//
     + (lettera) {inventoryContents has Lettera && new_this_loop(->lettera)} Ettore: Hai idea di chi sia questa lettera?

@@ -17,8 +17,10 @@ Opzioni di dialogo con la persona Elia
  ----------------------------------*/
 
 === elia_talking_second_tier
- {debug: <i>Passo per elia_talking_second_tier</i>}
+{debug: <i>Passo per elia_talking_second_tier</i>}
+{loopableVariables has pausaRapportoElia: Elia: Sei cattivo, vai via! -> intro.}
     //INFO GENERALI//
+
     + (loop) {new_this_loop(->loop)} Ettore: Elia, non stai notando nulla di strano?
         Elia: In effetti, sì.
         Ettore: Oh, allora non sto perdendo la testa!
@@ -30,46 +32,9 @@ Opzioni di dialogo con la persona Elia
                 -> advance_time ->
             -> elia_talking_second_tier
 
-    + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Che rapporto hai con Paola?
-        Elia: Un po' complicato, per colpa delle piramidi.
-        Ettore: Aiuto.
-        Elia: Eh sì, mi serve aiuto.
-        Elia: Praticamente sono entrato in questa piramide di fotografi.
-        Elia: E la cosa è che dovevo comprare delle macchine fotografiche.
-        Elia: E poi rivenderle a altre piramidi per fare una piramide più grande.
-        Elia: E a quel punto avrei guadagnato un sacco.
-        Elia: Un sacco di soldi, non di piramidi.
-            -> advance_time ->
-        Elia: Ma devo aver fatto confusione a manetta perché ho iniziato a comprare macchine, autonomobili.
-        Elia: E a venderle alle fotografie.
-        Elia: Che però hanno le idee poco chiare su cosa sia il denaro.
-        Elia: E quindi mi sentivo in colpa a insistere e gliele ho regalate, le macchine.
-        Elia: E per recuperare un po' di dignità ho iniziato a fare una piramide di fotografie.
-        Elia: Ma quelli dell'altra piramide erano arrabbiati.
-        Elia: E poi è arrivata la polizia a dirmi che ho fatto reato di occupazione di suolo pubblico.
-        Elia: Ma io ho occupato solo una statua, per cui non tocca il suolo.
-            -> advance_time ->
-        Elia: Ma mentre che discutevamo di questa cosa è arrivato questo gruppo di lontre giganti.
-        Elia: Ero un po' perplesso ma sono state molto carine.
-        Elia: E hanno iniziato a montare luci, telecamere, e a fare, a fare cose.
-        Elia: Non ho ben capito, ma si stavano divertendo e gli ho lasciati lontrellare.
-        Elia: E altre persone hanno iniziato a portare altre foto, foto con un sacco di animali giganti.
-        Elia: E allora ho chiamato i tipi delle piramidi per dire che stavo facendo finalmente bene il mio lavoro.
-        Elia: Ma loro ripetevano che mancava uno schema, uno schema e che non mi avrebbero mai pagato.
-        Elia: E poi mi son ricordato che Paola è brava coi cruciverba a schema libero.
-            -> advance_time ->
-        Elia: E ho dato ai tizi delle piramidi il suo numero, ma lei non era contenta.
-        Elia: E ora quelli delle piramidi mi dicono che mi lasceranno in mutande.
-        Elia: Paola mi dice che mi mi lascerà in mutande.
-        Elia: Le lontre giganti mi dicono che mi lasceranno in mutande.
-        Elia: Tranne quella con la frusta. Quella dice che me le toglierà.
-        Elia: E io non so cosa fare.
-        Elia: Zeca dice che può mettermi in contatto con la mafia gay.
-        Elia: Forse sanno dove parcheggiare le sei Maserati che ho preso per le fotografie.
-        Elia: Sono molto confuso, Ettore, molto confuso.
-            -> advance_time ->
-            -> elia_talking_second_tier
 
+    + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Che rapporto hai con Paola?
+            -> rapporto_Elia_Paola
 
 
     + (omicidio) {new_this_loop(->omicidio)} Ettore: Conosci qualcuno che vorrebbe far male a Paola?
@@ -80,8 +45,25 @@ Opzioni di dialogo con la persona Elia
         Elia: Ma quello succede spesso.
         Elia: Tu però sei gentile con me.
         Elia: Mi fai due grattini?
+            -> advance_time ->
+           
+            + + (minacce) {zeca_talking_second_tier.love && phone.indagini && elia_talking_second_tier.indagini2} Ettore: E Zeca, potrebbe voler far del male a Paola?
+                Ettore: Sapeva delle indagini, e ha detto che farebbe di tutto per proteggerti.
+                Elia: No.
+                Ettore: Tiene molto a te, no?
+                Elia: No. No. No.
+                Elia: Lui è il mio socio d'affari, e gli affari si puliscono sempre in famiglia assieme all'acqua del bambino e la ciotola del cane.
+                Elia: Lo dice sempre Paola.
+                Elia: Oh. Ma forse sono io il cane?
+                Elia: O la ciotola?
+                Elia: Devo trovare Zeca!
+                Elia: E tu stammi lontano!
+                ~ move_first_entity_to_second_entity_location(Elia,Zeca)
+                ~ loopableVariables += EliaSpaventatoPerZeca
+                ~ loopableVariables += pausaRapportoElia
                 -> advance_time ->
             -> elia_talking_second_tier
+            + + -> elia_talking_second_tier
 
     + [Conosci meglio Elia]-> esplora_elia
 
@@ -89,34 +71,167 @@ Opzioni di dialogo con la persona Elia
     + {(choice_WhoWasInChargeOfTheBuffet== True or choice_WhoWasInChargeOfTheBuffet == False) && (choice_ForWhomTheLetterWas == True or choice_ForWhomTheLetterWas == False)} [È il momento di fermare l’omicida di Paola!] Ettore: Elia: so che vuoi uccidere Paola! -> arringa_finale_Elia
 
     //SCELTE CONDIZIONALI//
-    + {greta_talking_second_tier.indagini && not are_two_entities_together(Elia, Zeca)} Qui è dove Elia mette la musica al massimo per non risponderci.
-
-    + (allestimento) {notABigSecretPartOneStorylet.allestimento} Ci dice che lui e Greta hanno lasciato le bottiglie all'ingresso, avvisando Zeca, perché dovevano risolvere un problema coi tavoli
-    
-    + (allestimento2){zeca_talking_second_tier.allestimento2} Dice una cosa che contraddice Greta
-        Elia: Zeca sente sesso ovunque, giuro! Ma purtroppo ho passato la mattina con Greta a chiamare i fornitori del pub.
-        + + Ettore: Del pub inesistente? Quello della recita?
-            Elia: Beh, sì. Mi piace restare nella parte!
-        - -
-
-    + (indagini) {iTryToBeAGoodFriendStorylet} Se lo diciamo ad Elia, ci rimane male.
-        Dice che si aspettava qualcosa di diverso da Matteo, e che lui sa una cosa ed è stato zitto per difenderlo.
-        Elia ci dice che Greta ha dato a Matteo info per "contrattare" meglio con Paola per la sindacalizzazione e questo avrebbe fatto pissare Paola.
-   
-    + (minacce) {zeca_talking_second_tier.love && phone.indagini && elia_talking_second_tier.minacce} Se chiediamo ad Elia se Zeca potrebbe aver denunciato Paola
-        Elia sbotta, dice che non ha senso, che il suo "socio d'affari" che motivo avrebbe di rovinarlo? e si allontana subito, possiamo "pedinarlo"
+    + (indagini2) {greta_talking_second_tier.indagini && not are_two_entities_together(Elia, Zeca)} Ettore: Elia, sapevi che Paola vuole estrometterti dalla Londar?
+        Elia: Estrocosa?
+        Ettore: Cacciarti.
+        Ettore: Rimanere l'unica responsabile.
+        Elia: Non ti credo.
+        Elia: E quindi ascolterò musica a manetta.
+        Elia: E NON MI PARLARE!
+            ~ loopableVariables += pausaRapportoElia
+            -> advance_time ->
+           
+            + + {zeca_talking_second_tier.love4} Ettore: ZECAAAAAAA!
                 ~ move_first_entity_to_second_entity_location(Elia,Zeca)
-                ~ loopableVariables += EliaSpaventatoPerZeca
+                Zeca: Elia, abbassa la musica, va tutto bene.
+                Elia abbassa la musica.
+                Elia: Paola, Paola mi vuole cacciare dall'azienda.
+                Elia: Come se fossi un cerbiatto.
+                Elia: Come se fossi Bambi.
+                Ettore: A dire il vero è la mamm...
+                Zeca: Ora ci penso io a te. Vieni, andiamo a fare un paio di flessioni.
+                Elia: Ma quelle boom clap, va bene?
+                Zeca: Va bene bimbo. Ora andiamo.
+                    -> advance_time ->
+                   ~ move_this_entity_in_a_different_room(Zeca)
+                   ~ move_this_entity_in_a_different_room(Elia)
+                    -> intro
+        
+            + + -> zeca_talking_second_tier
+
+
+    + (allestimento) {notABigSecretPartOneStorylet.allestimento} Ettore: Elia, è vero che tu e Greta avete comprato il vino?
+        Elia: Esatto.
+        Ettore: Questa è stata facile!
+        Elia: Però.
+        Ettore: No! Lascia che questa conversazione sia facile!
+        Elia: Sì, però non le abbiamo consegnate.
+        Ettore: In che senso?
+        Elia: Nel senso di Greta, non nel mio perché non aveva senso nel mio.
+            -> advance_time ->
+        Elia: Shot story long...
+        Ettore: Long story short?
+        Elia: No no. Shot perché Greta voleva sparare una supercazzola a Zeca.
+        Elia: Long perché ci sono volute due ore a spiegarmi il perché.
+        Elia: E l'ho dimenticato.
+        Elia: Ma la cosa sicura è che abbiamo lasciato le bottiglie all'ingresso e non siamo entrati nella sala gialla delle pappe.
+        Elia: Greta e io dovevamo chiamare i fornitori.
+        Ettore: I fornitori?
+            -> advance_time ->    
+        Elia: Quelli del pub, del <b>Funny Elia & Greta</b>
+        Ettore: Ma non esiste solo nella recita?
+        Elia: Sì.
+        Ettore: E avete chiamato i fornitori?
+        Elia: Sì, sennò poi i comici cosa bevono?
+        Elia: Ora che ci penso: non abbiamo chiamato nessun comico.
+        Elia: Devo subito comunicarlo a Greta prima che mi mangi vivo!
+            -> advance_time -> 
+            + + (allestimento2){zeca_talking_second_tier.allestimento2} Ettore: Zeca dice però che qualcuno nella stanza gialla c'è stato.
+                Ettore: E a suo dire stava scopando.
+                Elia: Naa, Zeca sente sesso ovunque.
+                Elia: Pensa che dorme sentendo le balene scopare.
+                Elia: E io non ho fatto sesso, no.
+                Elia: Mai fatto sesso.
+                Ettore: Mai.
+                Elia: Mai ora.
+                Elia: Mai adesso.
+                Elia: Ero a chiamare con Greta.
+                    -> advance_time -> 
+                        -> elia_talking_second_tier
+            + + -> elia_talking_second_tier
+            - -
+
+    + (indagini) {iTryToBeAGoodFriendStorylet} Ettore: Prima ho ascoltato una conversazione tra Zeca e Matteo...
+        Ettore: Ed ero convinto che Matteo fosse tuo amico.
+        Elia: Non al passato. Non fosse, ma è.
+        Elia: Zeca invece è un collega, abbiamo la BRO assieme.
+        Elia: Parlavano di quanto è figa la BRO, vero?!?
+        Ettore: No, ehm.
+        Ettore: Matteo ha detto a Zeca che deve lasciarti perdere.
+        Elia: Quindi è vero che mi fa vincere a carta sasso forbice!
+            -> advance_time ->
+        Ettore: Credo più, di lasciarti perdere come persona.
+        Elia: Essere una persona è un gioco?
+        Elia: Vuol dire che potrei essere un'altra persona?
+        Ettore: Beh, credo tu sia ricco abbastanza per farlo ma...
+        Elia: Voglio essere Jhonny Deep.
+        Elia: Anzi: Ronaldo.
+        Elia: Anzi: BoJack!
+        Elia: Così posso fare il cavallo con Zeca!
+             -> advance_time ->
+        Ettore: Non è quello che intendevano, Elia!
+        Ettore: Matteo ha detto a Zeca di non parlarti più, di lasciare il progetto.
+        Ettore: Dice che farai solo stare male Zeca.
+        Elia: Ah. Uh. Ih.
+        Elia: Ah.
+        Elia: Sto facendo del male a Zeca secondo te?
+            + Ettore: Forse lui spera che tu possa amarlo?
+                Elia: Ma io lo amo.
+                Ettore: Forse non come vuole lui.
+            + Ettore: Al massimo può intontirlo.
+                Elia: Quello lo dice anche lui.
+                Elia: Poi mi gratta la testa sorridendo e mi dice che sono un bravo ragazzo.
+            -
+            -> advance_time ->       
+        Elia: Questa cosa da Matteo non me la credevo comunque.
+        Elia: Io sono stato un sacco zitto per Matteo.
+        Elia: Non con Matteo, perché parlo molto, ma per Matteo, sì.
+        Elia: Allora ti dico un segreto: Greta ha dato a Matteo molte informazioni sui conti dell'azienda.
+        Elia: Vuole aiutarlo con questa cosa del sindicato, così che Matteo possa sindicare meglio sindicando Paola e venendo sindicato dai colleghi del sindicato.
+        Elia: E io l'ho detto a Greta che fa bene, perché nessuno deve indicare i miei amici.
+        Elia: Ma possono sindicarli, perché non è scritto diversamente da nessuna parte, no?
+            -> advance_time ->   
+                -> elia_talking_second_tier
+ 
+   
+
     
     //SCELTE CONDIZIONALI OGGETTI//
-    + {inventoryContents has Lettera} Guarda questa lettera!
-    + {inventoryContents has Torta} Guarda questo cibo!
-    + {inventoryContents has BottigliaDiVino} Guarda questa bottiglia di vino!
-    + {inventoryContents has FlaconcinoAsma} Guarda questo flaconcino per l'asma!
-    + {inventoryContents has SigarettaElettronica} Guarda questa sigaretta elettronica!
+    + {inventoryContents has Lettera} Ettore: Hai mai visto questa lettera?
+            Elia: Ce ne sono tante qui, di lettere.
+            Elia: Quale in particolare?
+            Ettore: Lo prendo come un "no".
+    + {inventoryContents has Torta} Ettore: Sai per chi è questa torta?
+            Elia: Per il festeggiato?
+            Ettore: Qualcuno è festeggiato?
+            Elia: Tu! Sei tu che hai portato la torta!
+            Elia: E solo il festeggiato porta la torta.
+            Elia: E la mamma del festeggiato.
+            Elia: Sei la mamma del festeggiato?
+            Elia: Perché avrei bisogno di una mano coi compiti di matematica.
+                -> advance_time -> 
+    + {inventoryContents has BottigliaDiVino} Ettore: Questo è il vino che avete comprato?
+            Elia: Gli somiglia molto, ma non ne sono sicuro.
+            Elia: Questa cosa che tutte le bottiglie sono uguali mi confonde.
+            Elia: E accade con tutti i prodotti.
+            Elia: Se vado al supermercato e prendo dello yogurt proteico ad esempio.
+            Elia: E poi devo pagare il mio.
+            Elia: Come faccio a sapere se sto pagando il mio se al banco frigo sono tutti uguali?
+            Elia: Ho lo stesso problema con gli armadietti in palestra.
+                -> advance_time -> 
+            Elia: E le ombre.
+            Elia: E i riflessi.
+            Elia: E i giorni della settimana.
+            Elia: E le unghie sul pavimento.
+            Elia: E l'idea di concetto.
+            Elia: E di concerto.
+            Elia: E..
+            Ettore: Vado, vado, vado!
+                -> advance_time -> 
+    + {inventoryContents has FlaconcinoAsma} Ettore: Sai di chi sia questo flaconcino?
+            Elia: Mia sorella!
+            Elia: Nel senso che è di mia sorella, non che è mia sorella.
+    + {inventoryContents has SigarettaElettronica} Ettore: Sai qualcosa su questa sigaretta elettronica?
+            Elia: Che puzza.
+            Elia: Che fa male ai testimoli.
+            Elia: Che non fa crescere i bambini.
+            Elia: Che se Paola me la tira sul naso mi diventa tutto rosso.
+            Elia: Una volta l'ha fatto tutto un pomeriggio.
+            Elia: Faceva male, ma rideva e non volevo andare via e renderla triste.
+                -> advance_time -> 
     
       
-    + Te ne vai -> intro
+    + [Ti allontani]-> intro
     -
     
     -> elia_talking_second_tier
@@ -126,7 +241,7 @@ Opzioni di dialogo con la persona Elia
 
 
 {
-- EliaTalking > 1: Elia: "Non mi va di rispondere ad altre domande personali".
+- EliaTalking > 1: Elia: Scusa ma ho finito le parole della settimana.
     -> advance_time ->
     -> intro
 - else:
@@ -142,26 +257,60 @@ Opzioni di dialogo con la persona Elia
 
 = first_qn
 ~ EliaTalking++
-    + Prima domanda
-    -> advance_time ->
-    
-    -
+    Elia: Sai che ho una cosa che mi lega a ogni persona qui dentro?
+    Elia: Paola è mia sorella, e questa è facile.
+    Elia: Ma Paola anche se è alta meno di me, dentro di lei c'è un pallone che si gonfia.
+    Elia: Me l'ha detto Greta.
+    Elia: E io una volta ho ingoiato un intero pallone e poi l'ho gonfiato.
+    Elia: Ricordo poco perché poi sono andato all'ospedale e mi hanno sediato.
+    Elia: Non ricordo neanche la sedia.
+    Elia: Peccato.
+        -> advance_time ->
+    Elia: E poi sono legato a Zeca, un po' per BRO, perché quel notaio ci ha annotati assieme.
+    Elia: E un po' perché per tutti e due la cosa preferita è passare le sere assieme.
+    Elia: Io gioco a Mario Kart mentre lui mi massaggia.
+    Elia: E me piacciono i massaggi, per cui siamo legatissimi così.
+    Elia: E Matteo è legato a me perché mi fa le pulizie a casa.
+    Elia: E quindi vede un sacco di cose che gli altri non vedono.
+    Elia: Come la mia collezione di barrette energetiche e i campioncini di funghi della palestra.
+    Elia: Però non so molto di Matteo a dire il vero.
+        -> advance_time ->
+    Elia: Ma quella di cui so meno è Greta.
+    Elia: Però siamo legati da una cosa grossa grossa.
+    Elia: Siamo tutti e due organi.
+    Elia: Io ho perso i miei genitori al supermercato, e non li ho più trovati.
+    Elia: Lei invece in un incidente: sono caduti da un balcone, legati.
+    Elia: E pensa che è accaduto nella Londar! Quindi siamo ancora più legati.
+    Elia: Ma non capisco come possano averli persi dopo essere caduti e legati da così in alto.
+    Elia: E sono sicuro che entro fine serata saremo anche noi legati!!!
+        -> advance_time ->     
 -> elia_talking_second_tier 
 
 = second_qn
  ~ EliaTalking++
-    +  altra domanda
-    -> advance_time ->
-   
-    -
--> elia_talking_second_tier    
+    Elia: Me triste.
+    Elia: Questa serata non sta andando come volevo, sai?
+    Ettore: Cosa speravi accadesse?
+    Elia: Volevo fare sorridere Paola.
+    Elia: Lavora così tanto, tanto.
+    Elia: Vorrei solo farla sorridere, ma lei è sempre arrabbiata.
+    Elia: Pensi sia arrabbiata con me?
+    Elia: Sono un cattivo fratello?
+        -> advance_time ->
+            -> elia_talking_second_tier    
 
 = third_qn
 ~ EliaTalking++
-    Elia dice cose
-        +  tu chiedi
-    -> advance_time ->    
-    -    
+    Elia: Centoooooo!
+    Elia: Ormai è un record personale!
+    Ettore: Di cosa?
+    Elia: Di fiato trattenuto.
+    Elia: Zeca mi dice che devo parlare prima di pensare.
+    Elia: E che per sicurezza devo contare fino a cento.
+    Elia: Ed è difficile parlare senza respirare per contare fino a cento.
+    Elia: Però mi aiuta a non pensare, aveva ragione!
+    Elia: Lui è sempre molto intelligente!
+    -> advance_time ->     
 -> elia_talking_second_tier
 
 
@@ -225,9 +374,44 @@ Opzioni di dialogo con la persona Elia
 
 
     = third_paola   
-
-    -> advance_time ->
-        -> elia_talking_second_tier
+        Elia: Un po' complicato, per colpa delle piramidi.
+        Ettore: Aiuto.
+        Elia: Eh sì, mi serve aiuto.
+        Elia: Praticamente sono entrato in questa piramide di fotografi.
+        Elia: E la cosa è che dovevo comprare delle macchine fotografiche.
+        Elia: E poi rivenderle a altre piramidi per fare una piramide più grande.
+        Elia: E a quel punto avrei guadagnato un sacco.
+        Elia: Un sacco di soldi, non di piramidi.
+            -> advance_time ->
+        Elia: Ma devo aver fatto confusione perché ho iniziato a comprare macchine, autonomobili.
+        Elia: E a venderle alle fotografie.
+        Elia: Che però hanno le idee poco chiare su cosa sia il denaro.
+        Elia: E quindi mi sentivo in colpa a insistere e gliele ho regalate, le macchine.
+        Elia: E per recuperare un po' di dignità ho iniziato a fare una piramide di fotografie.
+        Elia: Ma quelli dell'altra piramide erano arrabbiati.
+        Elia: E poi è arrivata la polizia a dirmi che ho fatto reato di occupazione di suolo pubblico.
+        Elia: Ma io ho occupato una statua, per cui non tocca il suolo.
+            -> advance_time ->
+        Elia: Ma mentre che discutevamo di questa cosa è arrivato un gruppo di lontre giganti.
+        Elia: Ero un po' perplesso ma sono state molto carine.
+        Elia: E hanno iniziato a montare luci, telecamere, e a fare, a fare cose.
+        Elia: Non ho ben capito, ma si stavano divertendo e gli ho lasciati lontrellare.
+        Elia: E altre persone hanno iniziato a portare altre foto, foto con un sacco di animali giganti.
+        Elia: E allora ho chiamato i tipi delle piramidi per dire che stavo facendo finalmente bene il mio lavoro.
+        Elia: Ma loro ripetevano che mancava uno schema, uno schema e che non mi avrebbero mai pagato.
+        Elia: E poi mi son ricordato che Paola è brava coi cruciverba a schema libero.
+            -> advance_time ->
+        Elia: E ho dato ai tizi delle piramidi il suo numero, ma lei non era contenta.
+        Elia: E ora quelli delle piramidi mi dicono che mi lasceranno in mutande.
+        Elia: Paola mi dice che mi mi lascerà in mutande.
+        Elia: Le lontre giganti mi dicono che mi lasceranno in mutande.
+        Elia: Tranne quella con la frusta. Quella dice che me le toglierà.
+        Elia: E io non so cosa fare.
+        Elia: Zeca dice che può mettermi in contatto con la mafia gay.
+        Elia: Forse sanno dove parcheggiare le sei Maserati che ho preso per le fotografie.
+        Elia: Sono molto confuso, Ettore, molto confuso.
+            -> advance_time ->
+                -> elia_talking_second_tier
 
 /* ---------------------------------
 

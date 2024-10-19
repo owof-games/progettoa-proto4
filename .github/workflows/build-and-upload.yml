@@ -1,0 +1,122 @@
+name: (build-and-upload)
+
+on:
+  workflow_call:
+    inputs:
+      version:
+        required: false
+        type: string
+      project_name:
+        required: true
+        type: string
+      include_windows:
+        required: false
+        type: boolean
+        default: true
+      include_linux:
+        required: false
+        type: boolean
+        default: true
+      include_macos:
+        required: false
+        type: boolean
+        default: true
+      include_webgl:
+        required: false
+        type: boolean
+        default: true
+      development:
+        required: false
+        type: boolean
+        default: false
+    secrets:
+      BUTLER_CREDENTIALS:
+        required: true
+      UNITY_LICENSE:
+        required: true
+      UNITY_EMAIL:
+        required: true
+      UNITY_PASSWORD:
+        required: true
+  
+jobs:
+  windows:
+    if: ${{ inputs.include_windows }}
+    uses: ./.github/workflows/single-build-and-upload.yml
+    with:
+      project_name: ${{ inputs.project_name }}
+      version: ${{ inputs.version }}
+      name: Windows 🪟
+      targetPlatform: StandaloneWindows
+      channel: win
+      # HALF-BROKEN IL2CPP CASE: windows builds, but standard image cannot handle video files
+      timeout: 360
+      # buildContinueOnError: true
+      # tags: '["self-hosted", "Windows"]'
+      # WORKING MONO: we can compile on linux, have a mono build,
+      # but it won't hang
+      # timeout: 360
+      tags: '["self-hosted", "Linux"]'
+      fix_permissions: true
+      development: ${{ inputs.development }}
+    secrets:
+      BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+      UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+      UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+  linux:
+    if: ${{ inputs.include_linux }}
+    uses: ./.github/workflows/single-build-and-upload.yml
+    with:
+      project_name: ${{ inputs.project_name }}
+      version: ${{ inputs.version }}
+      tags: '["self-hosted", "Linux"]'
+      name: Linux 🐧
+      targetPlatform: StandaloneLinux64
+      timeout: 360
+      channel: linux
+      fix_permissions: true
+      development: ${{ inputs.development }}
+    secrets:
+      BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+      UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+      UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+  webgl:
+    if: ${{ inputs.include_webgl }}
+    uses: ./.github/workflows/single-build-and-upload.yml
+    with:
+      # todo: self-hosted;Linux + fix_permissions is ok, but we should just have self-hosted and fix_permissions according to the platform
+      project_name: ${{ inputs.project_name }}
+      version: ${{ inputs.version }}
+      tags: '["self-hosted", "Linux"]'
+      name: WebGL 🌐
+      targetPlatform: WebGL
+      timeout: 360
+      channel: webgl
+      fix_permissions: true
+      development: ${{ inputs.development }}
+    secrets:
+      BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+      UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+      UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+  macos:
+    if: ${{ inputs.include_macos }}
+    uses: ./.github/workflows/single-build-and-upload.yml
+    with:
+      project_name: ${{ inputs.project_name }}
+      version: ${{ inputs.version }}
+      # tags: '["macos-latest"]'
+      tags: '["self-hosted", "Linux"]'
+      fix_permissions: true
+      name: MacOS 🍏
+      targetPlatform: StandaloneOSX
+      timeout: 360
+      channel: mac
+      development: ${{ inputs.development }}
+    secrets:
+      BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+      UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+      UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}

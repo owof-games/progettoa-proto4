@@ -15,3 +15,6 @@ MonoBehaviour:
   interactExitEvent: {fileID: 11400000, guid: 59f8d391d36778b4fb358810e73f8cb8, type: 2}
   interactCharacterEvent: {fileID: 11400000, guid: da922ef8f92423e4aa0cb54cafaec129, type: 2}
   advanceTimeEvent: {fileID: 11400000, guid: d4494cb7494169845b881c63ac1d3929, type: 2}
+  storyStateInteracting: {fileID: 11400000, guid: 731d7e1e22932c34faf3cb978feee760, type: 2}
+  storyStateTalking: {fileID: 11400000, guid: 731d7e1e22932c34faf3cb978feee760, type: 2}
+  currentStoryState: {fileID: 11400000, guid: 15f13ae7eb0e5574f8f1abd68f45d19b, type: 2}

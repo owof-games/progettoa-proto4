@@ -27,7 +27,7 @@ namespace Components.Dialogue
                 1, 1
             },
             {
-                2, 2
+                2, 3
             }
         };
 

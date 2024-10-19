@@ -1503,8 +1503,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 80.275}
-  m_SizeDelta: {x: 0, y: -229.31}
+  m_AnchoredPosition: {x: 0, y: 205.54565}
+  m_SizeDelta: {x: 0, y: -479.8513}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1744676013
 MonoBehaviour:
@@ -1619,6 +1619,10 @@ PrefabInstance:
       propertyPath: inkAtomsTextAsset
       value: 
       objectReference: {fileID: 4900000, guid: 8b77daced6ff825479efb0345b926a0b, type: 3}
+    - target: {fileID: 9058526275424758986, guid: 6f463ec5eb2e1b7459a15b1c53268c85, type: 3}
+      propertyPath: startStoryImmediately
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

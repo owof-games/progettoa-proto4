@@ -16,6 +16,10 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
 
     [SerializeField] private VoidEvent advanceTimeEvent;
 
+    [SerializeField] private StoryStateConstant storyStateInteracting;
+    [SerializeField] private StoryStateConstant storyStateTalking;
+    [SerializeField] private StoryStateVariable currentStoryState;
+
     public InteractCoroutineCommand() : base("interact")
     {
     }
@@ -25,10 +29,15 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
         Assert.IsNotNull(interactExitEvent);
         Assert.IsNotNull(interactCharacterEvent);
         Assert.IsNotNull(advanceTimeEvent);
+        Assert.IsNotNull(storyStateInteracting);
+        Assert.IsNotNull(storyStateTalking);
+        Assert.IsNotNull(currentStoryState);
     }
 
     protected override IEnumerator Process(CommandLineProcessorContext context)
     {
+        currentStoryState.Value = storyStateInteracting.Value;
+
         yield return AtomAwaiter.Await(
             interactExitEvent,
             onEvent1: moveToRoomName =>
@@ -62,5 +71,7 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
                 context.TakeChoice(choice.Index);
             }
         );
+
+        currentStoryState.Value = storyStateTalking.Value;
     }
 }

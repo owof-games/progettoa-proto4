@@ -17,6 +17,9 @@ GameObject:
   - component: {fileID: 1052105297296789608}
   - component: {fileID: 4702935770471043999}
   - component: {fileID: 6800788012703173347}
+  - component: {fileID: 2899287227152679227}
+  - component: {fileID: 6530349808523920787}
+  - component: {fileID: 8305641504122164660}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -189,6 +192,8 @@ MonoBehaviour:
   interactionKey: 
   interactionExitEvent: {fileID: 11400000, guid: 59f8d391d36778b4fb358810e73f8cb8, type: 2}
   interactionCharacterEvent: {fileID: 11400000, guid: da922ef8f92423e4aa0cb54cafaec129, type: 2}
+  currentStoryState: {fileID: 11400000, guid: 15f13ae7eb0e5574f8f1abd68f45d19b, type: 2}
+  storyStateInteracting: {fileID: 11400000, guid: 731d7e1e22932c34faf3cb978feee760, type: 2}
 --- !u!60 &6800788012703173347
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -546,3 +551,94 @@ PolygonCollider2D:
       - {x: -1.1413324, y: 0.0026519776}
       - {x: -0.9413324, y: 0.022651978}
   m_UseDelaunayMesh: 1
+--- !u!114 &2899287227152679227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2521948719751299702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f0f54d9a657fd84ca70a7792f28f251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterName: {fileID: 7293583975340934086}
+  animator: {fileID: 1052105297296789608}
+  storyStateTalking: {fileID: 11400000, guid: 731d7e1e22932c34faf3cb978feee760, type: 2}
+--- !u!114 &6530349808523920787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2521948719751299702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4fbdd5889ac1b469fc8d7e5ab5edf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _developerDescription: 
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2899287227152679227}
+        m_TargetAssemblyTypeName: Components.Character.CharacterTalkingOutline, Assembly-CSharp
+        m_MethodName: OnDialogueLine
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _actionResponses: []
+  _conditions: []
+  _operator: 0
+  _replayEventBufferOnRegister: 1
+  _eventReference:
+    _usage: 0
+    _event: {fileID: 11400000, guid: 68ed896d797a6b54b8afdc62f058fd51, type: 2}
+    _eventInstancer: {fileID: 0}
+    _variable: {fileID: 0}
+    _variableInstancer: {fileID: 0}
+--- !u!114 &8305641504122164660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2521948719751299702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86824e9da96ec9e42862a65c67bdae03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _developerDescription: 
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2899287227152679227}
+        m_TargetAssemblyTypeName: Components.Character.CharacterTalkingOutline, Assembly-CSharp
+        m_MethodName: OnStoryState
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _actionResponses: []
+  _conditions: []
+  _operator: 0
+  _replayEventBufferOnRegister: 1
+  _eventReference:
+    _usage: 0
+    _event: {fileID: 11400000, guid: 95a752f587e3f744d88cf84dddc41c91, type: 2}
+    _eventInstancer: {fileID: 0}
+    _variable: {fileID: 0}
+    _variableInstancer: {fileID: 0}

@@ -14,27 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FullQualifiedName: Components.Story.Lines.StoryState, Assembly-CSharp, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
-  GenerationOptions: 2293816
+  GenerationOptions: 3097785
   Scripts:
+  - {fileID: 11500000, guid: 69395b3dabdddea48844e86c895e565a, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11500000, guid: 6ca5202f7ca8bc04e80444f39bd88c7f, type: 3}
+  - {fileID: 11500000, guid: b56b6351b5222ab45b8415b208ec2ab2, type: 3}
+  - {fileID: 11500000, guid: 282f885136cbe614188c2c84bd731f96, type: 3}
+  - {fileID: 0}
+  - {fileID: 11500000, guid: 86824e9da96ec9e42862a65c67bdae03, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11500000, guid: 0abf503b2e91e8049a51c470757223c6, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 11500000, guid: a832b5baf3e3865439dff32afd198581, type: 3}
   - {fileID: 0}
+  - {fileID: 11500000, guid: bc0578cbe42cb9943baa2acfd2c85378, type: 3}
+  - {fileID: 11500000, guid: 3b7f84841d4b154438361d6298fdbbff, type: 3}
   - {fileID: 0}
+  - {fileID: 11500000, guid: 6727c416176d2ec41828fd7fad75e51b, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11500000, guid: 520afb36f0993014a908598587ab28ca, type: 3}

@@ -18,6 +18,8 @@ namespace Components.InteractionSelector
         [SerializeField] private string interactionKey;
         [SerializeField] private StringEvent interactionExitEvent;
         [SerializeField] private StringEvent interactionCharacterEvent;
+        [SerializeField] private StoryStateVariable currentStoryState;
+        [SerializeField] private StoryStateConstant storyStateInteracting;
         private int _hoveredHash = -1;
 
         private void Awake()
@@ -26,17 +28,19 @@ namespace Components.InteractionSelector
             Assert.IsNotNull(animator);
             Assert.IsNotNull(interactionExitEvent);
             Assert.IsNotNull(interactionCharacterEvent);
+            Assert.IsNotNull(currentStoryState);
+            Assert.IsNotNull(storyStateInteracting);
             Assert.IsFalse(string.IsNullOrWhiteSpace(interactionKey));
         }
 
         private void OnMouseEnter()
         {
-            animator.SetBool(_hoveredHash, true);
+            if (currentStoryState.Value.Equals(storyStateInteracting.Value)) animator.SetBool(_hoveredHash, true);
         }
 
         private void OnMouseExit()
         {
-            animator.SetBool(_hoveredHash, false);
+            if (currentStoryState.Value.Equals(storyStateInteracting.Value)) animator.SetBool(_hoveredHash, false);
         }
 
         private void OnMouseUp()
@@ -66,6 +70,16 @@ namespace Components.InteractionSelector
                 interactionCharacterEvent =
                     AssetDatabase.LoadAssetAtPath<StringEvent>(
                         "Assets/Components/Story/Interact/InteractCharacterEvent.asset");
+
+            if (!currentStoryState)
+                currentStoryState =
+                    AssetDatabase.LoadAssetAtPath<StoryStateVariable>(
+                        "Assets/Components/Story/Lines/Current Story State.asset");
+
+            if (!storyStateInteracting)
+                storyStateInteracting =
+                    AssetDatabase.LoadAssetAtPath<StoryStateConstant>(
+                        "Assets/Components/Story/Lines/Story State Interacting.asset");
         }
     }
 }

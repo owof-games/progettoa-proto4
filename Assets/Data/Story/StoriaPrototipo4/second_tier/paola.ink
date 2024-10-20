@@ -198,6 +198,7 @@ Opzioni di dialogo con la persona Paola
 
  ----------------------------------*/
 === arringa_finale_Paola
+TODO: mettere a inizio arringa in modo dialogativo le scelte definitive sulle contraddizioni
 Con cosa
     + {cb_second_tier_bottiglia_di_vino.primoCheck or paola_is_dead.vino} Usando il vino.
     + {cb_second_tier_flaconcino_asma.primoCheck or paola_is_dead.asma} Il boccettino dell'asma.

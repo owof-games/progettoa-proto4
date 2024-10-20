@@ -565,7 +565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: {fileID: 7293583975340934086}
   animator: {fileID: 1052105297296789608}
-  storyStateTalking: {fileID: 11400000, guid: 731d7e1e22932c34faf3cb978feee760, type: 2}
+  storyStateTalking: {fileID: 11400000, guid: f983d5e69a958d447a8117867e2a69e4, type: 2}
 --- !u!114 &6530349808523920787
 MonoBehaviour:
   m_ObjectHideFlags: 0

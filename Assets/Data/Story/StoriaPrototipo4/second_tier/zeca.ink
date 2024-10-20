@@ -112,7 +112,6 @@ Opzioni di dialogo con la persona Zeca
     // OPZIONE PER IL FINALE
     + {primaContraddizione && secondaContraddizione} [È il momento di fermare l’omicida di Paola!] Ettore: Venite tutti, ho bisogno di parlarvi! -> arringa_finale
 
-    TODO: Molto velocemente tutti dicono di non essere mai stati nella stanza gialla prima delle riprese
 
     //SCELTE CONDIZIONALI//
     + (allestimento4) {notABigSecretPartTwoStorylet.allestimento && new_this_loop(->allestimento4)} Ettore: Zeca, ho una domanda sul buffet e su chi se ne è occupato.

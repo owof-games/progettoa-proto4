@@ -127,7 +127,7 @@ Opzioni di dialogo con la persona Paola
             Paola: Fai il tuo dovere, mio cagnolino.
                 -> advance_time ->
 
-    + (foto2) {greta_talking_second_tier.foto2 && not are_two_entities_together(Paola, Greta) && not new_this_loop(->foto):Ettore: Ok, Greta non è qui.|Ettore: Siamo soli, hai qualcosa per me?}
+    + (foto2) {greta_talking_second_tier.foto2 && not are_two_entities_together(Paola, Greta)} Ettore: Siamo soli, hai qualcosa per me?
             Paola: Bene Ettore, è arrivato Babbo Natale per te.
             Paola: Poi dicono che sono cattiva.
             Paola: Non è bello far del male agli altri.

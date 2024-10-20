@@ -167,6 +167,7 @@ Opzioni di dialogo con la persona Matteo
 
     + (allestimento) {paola_talking_second_tier.allestimento && new_this_loop(->allestimento)} Ettore: Matteo, Paola dice che tu e Zeca stavate litigando nella stanza gialla prima delle prove.
         Ettore: E che vuole andare a stuzzicare Zeca per capire il perché.
+        Matteo: E chi l'ha vista quella fottuta stanza gialla?!?!
         Matteo: Quella strega! Devo subito trovare Zeca, sai dove possa essere?
         + + {whiteRoomContents hasnt Ettore} Ettore: Credo sia nella stanza bianca.
                 ~ move_entity(Matteo, WhiteRoom)
@@ -307,8 +308,6 @@ Opzioni di dialogo con la persona Matteo
     Matteo: Hai un bel cuore Ettore, un gran bel cuore.
     Matteo: Spero di incontrarti di nuovo, fuori da qui.    
         -> matteo_talking_second_tier
-
-TODO: remind. Il focus investigativo "facile" è sulla lettera, non su una morte che per gli altri non è avvenuta.
 
 /* ---------------------------------
 

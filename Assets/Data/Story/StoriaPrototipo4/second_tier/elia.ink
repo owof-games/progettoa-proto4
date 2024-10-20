@@ -46,6 +46,12 @@ Opzioni di dialogo con la persona Elia
         Elia: Tu però sei gentile con me.
         Elia: Mi fai due grattini?
             -> advance_time ->
+                        {
+            - currentTime >= 600:
+            -> paolaIsDeadStorylet    
+        
+            - else: ->->
+            }
            
             + + (minacce) {zeca_talking_second_tier.love && phone.indagini && elia_talking_second_tier.indagini2} Ettore: E Zeca, potrebbe voler far del male a Paola?
                 Ettore: Sapeva delle indagini, e ha detto che farebbe di tutto per proteggerti.
@@ -77,9 +83,13 @@ Opzioni di dialogo con la persona Elia
         Ettore: Rimanere l'unica responsabile.
         Elia: Non ti credo.
         Elia: E quindi ascolterò musica a manetta.
-        Elia: E NON MI PARLARE!
-            ~ loopableVariables += pausaRapportoElia
             -> advance_time ->
+                        {
+            - currentTime >= 600:
+            -> paolaIsDeadStorylet    
+        
+            - else: ->->
+            }
            
             + + {zeca_talking_second_tier.love4} Ettore: ZECAAAAAAA!
                 ~ move_first_entity_to_second_entity_location(Elia,Zeca)
@@ -97,8 +107,13 @@ Opzioni di dialogo con la persona Elia
                    ~ move_this_entity_in_a_different_room(Elia)
                     -> intro
         
-            + + -> zeca_talking_second_tier
-
+            + + -> 
+            - -
+            Elia: E NON MI PARLARE!
+            ~ loopableVariables += pausaRapportoElia
+            -> zeca_talking_second_tier
+            
+            
 
     + (allestimento) {notABigSecretPartOneStorylet.allestimento} Ettore: Elia, è vero che tu e Greta avete comprato il vino?
         Elia: Esatto.
@@ -109,6 +124,12 @@ Opzioni di dialogo con la persona Elia
         Ettore: In che senso?
         Elia: Nel senso di Greta, non nel mio perché non aveva senso nel mio.
             -> advance_time ->
+                                    {
+            - currentTime >= 600:
+            -> paolaIsDeadStorylet    
+        
+            - else: ->->
+            }
         Elia: Shot story long...
         Ettore: Long story short?
         Elia: No no. Shot perché Greta voleva sparare una supercazzola a Zeca.
@@ -117,7 +138,13 @@ Opzioni di dialogo con la persona Elia
         Elia: Ma la cosa sicura è che abbiamo lasciato le bottiglie all'ingresso e non siamo entrati nella sala gialla delle pappe.
         Elia: Greta e io dovevamo chiamare i fornitori.
         Ettore: I fornitori?
-            -> advance_time ->    
+            -> advance_time -> 
+                                    {
+            - currentTime >= 600:
+            -> paolaIsDeadStorylet    
+        
+            - else: ->->
+            }
         Elia: Quelli del pub, del <b>Funny Elia & Greta</b>
         Ettore: Ma non esiste solo nella recita?
         Elia: Sì.
@@ -126,6 +153,12 @@ Opzioni di dialogo con la persona Elia
         Elia: Ora che ci penso: non abbiamo chiamato nessun comico.
         Elia: Devo subito comunicarlo a Greta prima che mi mangi vivo!
             -> advance_time -> 
+                                    {
+            - currentTime >= 600:
+            -> paolaIsDeadStorylet    
+        
+            - else: ->->
+            }
             + + (allestimento2){zeca_talking_second_tier.allestimento2} Ettore: Zeca dice però che qualcuno nella stanza gialla c'è stato.
                 Ettore: E a suo dire stava scopando.
                 Elia: Naa, Zeca sente sesso ovunque.
@@ -150,6 +183,12 @@ Opzioni di dialogo con la persona Elia
         Ettore: Matteo ha detto a Zeca che deve lasciarti perdere.
         Elia: Quindi è vero che mi fa vincere a carta sasso forbice!
             -> advance_time ->
+                                    {
+            - currentTime >= 600:
+            -> paolaIsDeadStorylet    
+        
+            - else: ->->
+            }
         Ettore: Credo più, di lasciarti perdere come persona.
         Elia: Essere una persona è un gioco?
         Elia: Vuol dire che potrei essere un'altra persona?
@@ -159,6 +198,12 @@ Opzioni di dialogo con la persona Elia
         Elia: Anzi: BoJack!
         Elia: Così posso fare il cavallo con Zeca!
              -> advance_time ->
+                                     {
+            - currentTime >= 600:
+            -> paolaIsDeadStorylet    
+        
+            - else: ->->
+            }
         Ettore: Non è quello che intendevano, Elia!
         Ettore: Matteo ha detto a Zeca di non parlarti più, di lasciare il progetto.
         Ettore: Dice che farai solo stare male Zeca.
@@ -172,7 +217,13 @@ Opzioni di dialogo con la persona Elia
                 Elia: Quello lo dice anche lui.
                 Elia: Poi mi gratta la testa sorridendo e mi dice che sono un bravo ragazzo.
             -
-            -> advance_time ->       
+            -> advance_time ->     
+                                    {
+            - currentTime >= 600:
+            -> paolaIsDeadStorylet    
+        
+            - else: ->->
+            }
         Elia: Questa cosa da Matteo non me la credevo comunque.
         Elia: Io sono stato un sacco zitto per Matteo.
         Elia: Non con Matteo, perché parlo molto, ma per Matteo, sì.
@@ -209,6 +260,12 @@ Opzioni di dialogo con la persona Elia
             Elia: Come faccio a sapere se sto pagando il mio se al banco frigo sono tutti uguali?
             Elia: Ho lo stesso problema con gli armadietti in palestra.
                 -> advance_time -> 
+                                        {
+            - currentTime >= 600:
+            -> paolaIsDeadStorylet    
+        
+            - else: ->->
+            }
             Elia: E le ombre.
             Elia: E i riflessi.
             Elia: E i giorni della settimana.
@@ -266,6 +323,12 @@ Opzioni di dialogo con la persona Elia
     Elia: Non ricordo neanche la sedia.
     Elia: Peccato.
         -> advance_time ->
+                                {
+            - currentTime >= 600:
+            -> paolaIsDeadStorylet    
+        
+            - else: ->->
+            }
     Elia: E poi sono legato a Zeca, un po' per BRO, perché quel notaio ci ha annotati assieme.
     Elia: E un po' perché per tutti e due la cosa preferita è passare le sere assieme.
     Elia: Io gioco a Mario Kart mentre lui mi massaggia.
@@ -275,6 +338,12 @@ Opzioni di dialogo con la persona Elia
     Elia: Come la mia collezione di barrette energetiche e i campioncini di funghi della palestra.
     Elia: Però non so molto di Matteo a dire il vero.
         -> advance_time ->
+                                {
+            - currentTime >= 600:
+            -> paolaIsDeadStorylet    
+        
+            - else: ->->
+            }
     Elia: Ma quella di cui so meno è Greta.
     Elia: Però siamo legati da una cosa grossa grossa.
     Elia: Siamo tutti e due organi.
@@ -331,6 +400,12 @@ Opzioni di dialogo con la persona Elia
         Elia: No, passo del tempo con lei solo quando sono con lei.
         Elia: Non posso passarlo con lei se non sono con lei, no?
             -> advance_time ->
+                                    {
+            - currentTime >= 600:
+            -> paolaIsDeadStorylet    
+        
+            - else: ->->
+            }
             + + Ettore: E ti manca?
                 Elia: Il tempo?
                 Ettore: No, Paola.
@@ -356,6 +431,12 @@ Opzioni di dialogo con la persona Elia
         Elia: Ma sono un tipo musicale, per cui direi "spesso d'accordo".
         Elia: Tengo "spesso assieme" per Zeca.
             -> advance_time ->
+                                    {
+            - currentTime >= 600:
+            -> paolaIsDeadStorylet    
+        
+            - else: ->->
+            }
         Elia: Quante fette di bresaola ci tiro fuori con un chilo di spesso assieme?
             + + Ettore: Ti manca Paola?
                 Elia: No, non so quanto mi manca di bresaola.
@@ -383,6 +464,12 @@ Opzioni di dialogo con la persona Elia
         Elia: E a quel punto avrei guadagnato un sacco.
         Elia: Un sacco di soldi, non di piramidi.
             -> advance_time ->
+                                    {
+            - currentTime >= 600:
+            -> paolaIsDeadStorylet    
+        
+            - else: ->->
+            }
         Elia: Ma devo aver fatto confusione perché ho iniziato a comprare macchine, autonomobili.
         Elia: E a venderle alle fotografie.
         Elia: Che però hanno le idee poco chiare su cosa sia il denaro.
@@ -392,6 +479,12 @@ Opzioni di dialogo con la persona Elia
         Elia: E poi è arrivata la polizia a dirmi che ho fatto reato di occupazione di suolo pubblico.
         Elia: Ma io ho occupato una statua, per cui non tocca il suolo.
             -> advance_time ->
+                                    {
+            - currentTime >= 600:
+            -> paolaIsDeadStorylet    
+        
+            - else: ->->
+            }
         Elia: Ma mentre che discutevamo di questa cosa è arrivato un gruppo di lontre giganti.
         Elia: Ero un po' perplesso ma sono state molto carine.
         Elia: E hanno iniziato a montare luci, telecamere, e a fare, a fare cose.
@@ -401,6 +494,12 @@ Opzioni di dialogo con la persona Elia
         Elia: Ma loro ripetevano che mancava uno schema, uno schema e che non mi avrebbero mai pagato.
         Elia: E poi mi son ricordato che Paola è brava coi cruciverba a schema libero.
             -> advance_time ->
+                                    {
+            - currentTime >= 600:
+            -> paolaIsDeadStorylet    
+        
+            - else: ->->
+            }
         Elia: E ho dato ai tizi delle piramidi il suo numero, ma lei non era contenta.
         Elia: E ora quelli delle piramidi mi dicono che mi lasceranno in mutande.
         Elia: Paola mi dice che mi mi lascerà in mutande.

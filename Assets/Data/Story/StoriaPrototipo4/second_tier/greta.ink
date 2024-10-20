@@ -43,6 +43,13 @@ Opzioni di dialogo con la persona Greta
                     Greta: Ma potrebbe anche darsi che tu sia bloccato nel loop di qualcun altro.
                     Greta: Qualcuno con un senso di colpa o un dolore così grande da bloccare spazio e tempo.
                         -> advance_time ->
+                        {
+                            - currentTime >= 600:
+                            -> paolaIsDeadStorylet    
+                        
+                            - else: ->->
+                        }
+
                     Ettore: E c'è un modo per romperlo?
                     Greta: Credo sia un po' come coi fantasmi.
                     Greta: Permetti alla persona di espiare le sue colpe.
@@ -63,6 +70,13 @@ Opzioni di dialogo con la persona Greta
                     Greta: E ora è tempo di riscuotere.
                     Greta: E allora gli proponi uno scambio, un'altra anima. E lui accetta.
                         -> advance_time ->
+                        {
+                            - currentTime >= 600:
+                            -> paolaIsDeadStorylet    
+                        
+                            - else: ->->
+                        }
+
                     Greta: Ma scusa, mi sono persa un attimo.
                     Greta: Bella maglietta, comunque.
                         -> greta_talking_second_tier
@@ -85,6 +99,12 @@ Opzioni di dialogo con la persona Greta
             Ettore: In che senso?
             Greta: Beh: Paola sta cercando far estromettere Elia dalla Londar.
                 -> advance_time ->
+                {
+                    - currentTime >= 600:
+                    -> paolaIsDeadStorylet    
+                
+                    - else: ->->
+                }
             Greta: Sostiene di avere delle prove che la condotta illegale sia sua responsabilità.
             Greta: Domattina ci sarà un incontro straordinario con il consiglio di amministrazione.
             Greta: E se i conti sono stati fatti per bene, Elia ricerverà la convocazione domani, via lettera, esattamente con venti minuti di ritardo.
@@ -105,6 +125,13 @@ Opzioni di dialogo con la persona Greta
                 + + + Ettore: Il resto dell'umanità?
                 - - -
                 -> advance_time ->
+                {
+                    - currentTime >= 600:
+                    -> paolaIsDeadStorylet    
+                
+                    - else: ->->
+                }
+
             Greta: Elia.
             Greta: Almeno fino a domattina, Elia è ancora a metà proprietario dell'azienda.
             Greta: E se Paola capitola, lui finisce diritto in consiglio di amministrazione.
@@ -135,6 +162,12 @@ Opzioni di dialogo con la persona Greta
                 Greta: Qualcuno ha tutto, tu non hai niente, e ti si apre lo spiraglio per un cambiamento, per un vantaggio.
                 Greta: Al posto mio cosa avresti fatto?
                     -> advance_time ->
+                    {
+                        - currentTime >= 600:
+                        -> paolaIsDeadStorylet    
+                    
+                        - else: ->->
+                    }
                     + + + Ettore: La fiducia non si tradisce, mai.
                         Greta: Deve essere bello vivere nella tua torre del privilegio.
                         Greta: Ma il mondo reale non funziona così.
@@ -157,6 +190,13 @@ Opzioni di dialogo con la persona Greta
                         Greta: Ha un enorme senso della giustizia.
                         Greta: E sa anche che viviamo in un mondo profondamente ingiusto.
                             -> advance_time ->
+                            {
+                                - currentTime >= 600:
+                                -> paolaIsDeadStorylet    
+                            
+                                - else: ->->
+                            }
+
                         Greta: E che per questo a volte vanno fatte cose, anche crudeli, per un bene più grande.
                         Greta: Paola ha già avuto tutto dalla vita.
                         Greta: A parte un cuore.
@@ -180,6 +220,13 @@ Opzioni di dialogo con la persona Greta
                 Greta: Mmm, fammi pensare.
                 Greta: Morte violenta o qualcosa di più subdolo?
                     -> advance_time ->
+                    {
+                        - currentTime >= 600:
+                        -> paolaIsDeadStorylet    
+                    
+                        - else: ->->
+                    }
+
                     + + +  Ettore: Violenza, dolore, terrore.
                                 Greta: Beh, allora hai il mondo qui dentro.
                                 Greta: Vetri, come quelli della finestra, o la bottiglia del vino.
@@ -188,6 +235,13 @@ Opzioni di dialogo con la persona Greta
                                 Greta: O un classico strangolamento.
                                 Greta: Oppure affondandole nel collo limette da unghie, pugnali, spiedini.
                                     -> advance_time ->
+                                    {
+                                        - currentTime >= 600:
+                                        -> paolaIsDeadStorylet    
+                                    
+                                            - else: ->->
+                                    }
+
                                 Greta: A proposito: nella recita il colpevole dovrebbe essere Zeca, geloso perché la ama e lei si sposa, e l'ha uccisa con il pugnale di Matteo per incolparlo.
                                 Greta: Un po' di sano e tradizionale incesto tra ricchi.
                                 Greta: Che mi dovrebbe far fare delle domande sul rapporto tra Paola ed Elia.
@@ -207,6 +261,13 @@ Opzioni di dialogo con la persona Greta
                             Greta: Oppure c'è qualcosa di ancora più interessante.
                             Greta: Sapevi che la nicotina è un veleno terribile?
                                 -> advance_time ->
+                                {
+                                    - currentTime >= 600:
+                                    -> paolaIsDeadStorylet    
+                                
+                                    - else: ->->
+                                }
+
                             Greta: E grazie alle sigarette elettroniche ora è accessibile a tutti a poco?
                             Greta: Di media bastano 60 mg di nicotina per uccidere una persona.
                             Greta: Le ricariche della pod mod di Paola arriva a 18 mg.
@@ -216,6 +277,13 @@ Opzioni di dialogo con la persona Greta
                             Greta: Grazie, evoluzione tecnologica!
                             Greta: Ma poi per me c'è il colpo di genio vero e proprio.
                                 -> advance_time ->
+                                {
+                                    - currentTime >= 600:
+                                    -> paolaIsDeadStorylet    
+                                
+                                    - else: ->->
+                                }
+
                             Greta: Un omicidio su misura.
                             Greta: Paola è allergica all'acido acetilsalicilico.
                             Greta: Le dà delle botte d'asma micidiali.
@@ -225,6 +293,13 @@ Opzioni di dialogo con la persona Greta
                             Greta: E lei manco riesce a urlare perché non respira.
                             Greta: E adios!
                                 -> advance_time ->
+                                {
+                                    - currentTime >= 600:
+                                    -> paolaIsDeadStorylet    
+                                
+                                    - else: ->->
+                                }
+
                             Greta: Che ne pensi?
                                 + + + + Ettore: Che non devo farti arrabbiare, mai.
                                     Greta: Bravo ragazzo!
@@ -264,6 +339,13 @@ Opzioni di dialogo con la persona Greta
                     Greta: Me sfigata che credo ancora agli uomini.
                     Greta: Sarà pure un bambinone, ma anche Elia alla fine fa parte di quella maledetta specie.
                         -> advance_time ->
+                        {
+                                - currentTime >= 600:
+                                -> paolaIsDeadStorylet    
+                            
+                                - else: ->->
+                            }
+
                         + + + (indagini3) Ettore: E come ti senti ora?
                                 Greta: Tradita.
                                 Greta: Usata.
@@ -298,6 +380,13 @@ Opzioni di dialogo con la persona Greta
             Greta: Cavoli tuoi.
             Greta: Comunque io non ho mai visto la sala gialla e il cavolo di buffet prima delle prove.
                     -> advance_time ->
+                    {
+                        - currentTime >= 600:
+                        -> paolaIsDeadStorylet    
+                    
+                        - else: ->->
+                    }
+
             Greta: Ero in giro con Elia a sistemare i tavoli della altre sale.
             Greta: Gambe traballanti e quelle cose lì.
             Greta: Roba da maschi, che le altre due signorine non sanno come affrontare.
@@ -398,6 +487,13 @@ Opzioni di dialogo con la persona Greta
     Greta: Non esisterebbe senza il sacrificio costante di un sacco di persone marginalizzate.
     Greta: E stavo pensando che la Londar, il comune, la politica, i ricchi di questa città stanno facendo forse il più grande sacrificio umano della storia.
         -> advance_time ->
+        {
+                - currentTime >= 600:
+                -> paolaIsDeadStorylet    
+            
+                - else: ->->
+            }
+
     Greta: Mietono cadaveri su cadaveri, vittime su vittime per assicurarsi benessere e potere.
     Greta: Sono dei tritacarne esoterici privi di scrupoli.
     Greta: E io sto lì nella mia cameretta a provare a sconfiggerli.
@@ -420,6 +516,13 @@ Opzioni di dialogo con la persona Greta
     Greta: Tuo padre ha buon gusto.
     Greta: Era l'unica cosa che dava senso alla mia vita!
     -> advance_time ->
+                {
+                - currentTime >= 600:
+                -> paolaIsDeadStorylet    
+            
+                - else: ->->
+            }
+
     Greta: Tornare a casa e vedermi e rivedermi quelle scene violente.
     Greta: E i crimini senza senso.
     Greta: E le marmottine cute e assassine.
@@ -442,6 +545,14 @@ Opzioni di dialogo con la persona Greta
     Greta: Perché la tua vita non ha senso, e fermarti significa realizzarlo.
     Greta: E realizzarlo significa rischiare di impazzire.
         -> advance_time ->
+        
+        {
+            - currentTime >= 600:
+            -> paolaIsDeadStorylet    
+        
+            - else: ->->
+        }
+
     Greta: Ma stasera il problema è un altro.
     Greta: Ettore, non si sente un rumore a parte il nostro parlare.
     Greta: Ma è un venerdì sera.
@@ -450,7 +561,14 @@ Opzioni di dialogo con la persona Greta
     Greta: Dovrebbero passare macchine.
     Greta: Dovrebbero passare persone ubriache.
     Greta: Dovrebbero passare signore al telefono mentre portano fuori il cane.
-        -> advance_time ->
+            -> advance_time ->
+        {
+            - currentTime >= 600:
+            -> paolaIsDeadStorylet    
+        
+            - else: ->->
+        }
+
     Greta: E invece.
     Greta: IL NULLA.
     Greta: Solo noi sei.

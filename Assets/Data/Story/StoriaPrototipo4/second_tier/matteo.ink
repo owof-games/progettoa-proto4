@@ -71,6 +71,12 @@ Opzioni di dialogo con la persona Matteo
         Matteo: Sono qui sostanzialmente per lui.
         Matteo: E un po' perché da sempre vorrei fare l'attore, ma non è di sicuro questo il posto dove venire scoperto.
             -> advance_time ->
+            {
+            - currentTime >= 600:
+            -> paolaIsDeadStorylet    
+        
+            - else: ->->
+            }
             
             + + (lavoro) {zeca_talking_second_tier.money}Ettore: Da quel che dice Zeca, però, tu Paola la conosci.
                 Ettore: Dice che campi alle spalle sue e di Elia.
@@ -96,6 +102,12 @@ Opzioni di dialogo con la persona Matteo
                             Matteo: Non ero impaurito da Paola, ma impaurito per te.
                             Matteo: Quella è la sua calligrafia.
                                 -> advance_time ->
+                                            {
+                            - currentTime >= 600:
+                            -> paolaIsDeadStorylet    
+                        
+                            - else: ->->
+                            }
                             Ettore: Vorrei capire a chi è indirizzata.
                             Matteo: E perché? Tu sei uno sconosciuto in questo gruppo tossico.
                             Ettore: Perché credo potrebbe succedere qualcosa di brutto.
@@ -135,6 +147,12 @@ Opzioni di dialogo con la persona Matteo
             Matteo: E le famiglie che distrugge con le sua attività.
             Matteo: E i comuni che hanno debiti con lei.
                 -> advance_time ->
+                        {
+            - currentTime >= 600:
+            -> paolaIsDeadStorylet    
+        
+            - else: ->->
+            }
             Ettore: E tra le persone qui presenti?
             Matteo: Un bel po' di gente.  
                 -> matteo_talking_second_tier
@@ -228,6 +246,12 @@ Opzioni di dialogo con la persona Matteo
         Matteo: Per me, lei è famiglia.
         Matteo: Non sempre ci capiamo, ma ormai sappiamo anche come volerci bene.
         -> advance_time ->
+                    {
+            - currentTime >= 600:
+            -> paolaIsDeadStorylet    
+        
+            - else: ->->
+            }
         Matteo: Ad esempio lei sembra sempre negativa e diretta, ma è perché ha avuto una vita di merda.
         Matteo: Di contro passo per quello paziente dei due, ma in realtà sono un ansioso del cazzo.
         Matteo: E così sono io quello che porta rancore, mentre lei perdona tante cose.
@@ -256,6 +280,12 @@ Opzioni di dialogo con la persona Matteo
     Matteo: Per me questa situazione, ora, è utile solo per godersi il dopo, l'essere altrove.
     Matteo: A volte servono momenti come questo, noiosi e vuoti, per ricordarti che esiste ancora qualcosa da chiamare "vita".           
     -> advance_time ->
+                {
+            - currentTime >= 600:
+            -> paolaIsDeadStorylet    
+        
+            - else: ->->
+            }
     Matteo: E forse nell'ultimo tempo ho pensato così tanto alle cose da fare, da cambiare, da dimenticarmi di vivere.
         -> matteo_talking_second_tier    
 
@@ -274,6 +304,12 @@ Opzioni di dialogo con la persona Matteo
     Matteo: ...
     Matteo: ...
         -> advance_time ->
+                    {
+            - currentTime >= 600:
+            -> paolaIsDeadStorylet    
+        
+            - else: ->->
+            }
     Matteo: Credo di aver capito cosa mi inquieta.
     Matteo: E credo di aver deciso cosa fare.
     Matteo: Hai un bel cuore Ettore, un gran bel cuore.

@@ -1479,6 +1479,7 @@ GameObject:
   - component: {fileID: 1744676011}
   - component: {fileID: 1744676013}
   - component: {fileID: 1744676014}
+  - component: {fileID: 1744676015}
   m_Layer: 5
   m_Name: DialogueRoot
   m_TagString: Untagged
@@ -1522,6 +1523,7 @@ MonoBehaviour:
   dialogueRowPrefab: {fileID: 4848299891961417999, guid: da00f7da002b62443b95580fec3f1033, type: 3}
   slideDuration: 0.1
   chosenChoiceEvent: {fileID: 11400000, guid: bbb734abb5780294fb5a335d48beee17, type: 2}
+  storyStateTalking: {fileID: 11400000, guid: f983d5e69a958d447a8117867e2a69e4, type: 2}
 --- !u!114 &1744676014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1557,6 +1559,44 @@ MonoBehaviour:
   _eventReference:
     _usage: 0
     _event: {fileID: 11400000, guid: 68ed896d797a6b54b8afdc62f058fd51, type: 2}
+    _eventInstancer: {fileID: 0}
+    _variable: {fileID: 0}
+    _variableInstancer: {fileID: 0}
+--- !u!114 &1744676015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744676010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86824e9da96ec9e42862a65c67bdae03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _developerDescription: 
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1744676013}
+        m_TargetAssemblyTypeName: Components.Dialogue.DialogueRoot, Assembly-CSharp
+        m_MethodName: StoryStateChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _actionResponses: []
+  _conditions: []
+  _operator: 0
+  _replayEventBufferOnRegister: 1
+  _eventReference:
+    _usage: 0
+    _event: {fileID: 11400000, guid: 95a752f587e3f744d88cf84dddc41c91, type: 2}
     _eventInstancer: {fileID: 0}
     _variable: {fileID: 0}
     _variableInstancer: {fileID: 0}

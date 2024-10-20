@@ -20,6 +20,8 @@ namespace Components.Dialogue
         [SerializeField] private float slideDuration = 0.1f;
         [SerializeField] private ChosenChoiceEvent chosenChoiceEvent;
 
+        [SerializeField] private StoryStateConstant storyStateTalking;
+
         private readonly List<Character.Character>[] _characterColumns =
             { new() { Character.Character.Ettore }, new(), new() };
 
@@ -125,6 +127,12 @@ namespace Components.Dialogue
             var dialogueRowGameObject = Instantiate(dialogueRowPrefab, dialogueSlidingContainer);
             var dialogueRow = dialogueRowGameObject.GetComponent<DialogueRow>();
             return dialogueRow;
+        }
+
+        public void StoryStateChanged(StoryState newStoryState)
+        {
+            if (newStoryState.Equals(storyStateTalking.Value)) return;
+            foreach (RectTransform row in dialogueSlidingContainer) Destroy(row.gameObject);
         }
     }
 }

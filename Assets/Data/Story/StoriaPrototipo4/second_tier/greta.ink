@@ -45,9 +45,7 @@ Opzioni di dialogo con la persona Greta
                         -> advance_time ->
                         {
                             - currentTime >= 600:
-                            -> paolaIsDeadStorylet    
-                        
-                            - else: ->->
+                            -> paolaIsDeadStorylet
                         }
 
                     Ettore: E c'è un modo per romperlo?
@@ -73,8 +71,6 @@ Opzioni di dialogo con la persona Greta
                         {
                             - currentTime >= 600:
                             -> paolaIsDeadStorylet    
-                        
-                            - else: ->->
                         }
 
                     Greta: Ma scusa, mi sono persa un attimo.
@@ -90,20 +86,18 @@ Opzioni di dialogo con la persona Greta
             Greta: Prima o poi mi venderà qualche organo senza che me ne renda conto.
             -> advance_time ->
             
-        + + (indagini) {phone.indagini} Ettore: Non ti preoccupano le indagini?
+        + + {phone.indagini} Ettore: Non ti preoccupano le indagini?
             Greta: Le indagini sulla Londar?
             Greta: Non particolarmente.
             Greta: Paola è una che cade in piedi sempre.
             Greta: E la caduta è attutita da qualche decina di cadaveri.
             Greta: E a questo giro, il corpo sarà quello di Elia.
             Ettore: In che senso?
-            Greta: Beh: Paola sta cercando far estromettere Elia dalla Londar.
+            - (indagini) Greta: Beh: Paola sta cercando far estromettere Elia dalla Londar.
                 -> advance_time ->
                 {
                     - currentTime >= 600:
-                    -> paolaIsDeadStorylet    
-                
-                    - else: ->->
+                    -> paolaIsDeadStorylet
                 }
             Greta: Sostiene di avere delle prove che la condotta illegale sia sua responsabilità.
             Greta: Domattina ci sarà un incontro straordinario con il consiglio di amministrazione.
@@ -113,7 +107,7 @@ Opzioni di dialogo con la persona Greta
                 -> advance_time ->
                  -> greta_talking_second_tier
     
-        + + (indagini2) {elia_talking_second_tier.indagini} Ettore: E che ne pensa Paola delle informazioni che hai passato a Matteo?
+        + + {elia_talking_second_tier.indagini} Ettore: E che ne pensa Paola delle informazioni che hai passato a Matteo?
             Greta: Quali informazioni?
             Ettore: Piccoli segreti utili a rafforzare il suo lavoro di contrattazione col sindacato.
             Greta: Dimmi: è stato lui a dirtelo?
@@ -128,15 +122,13 @@ Opzioni di dialogo con la persona Greta
                 {
                     - currentTime >= 600:
                     -> paolaIsDeadStorylet    
-                
-                    - else: ->->
                 }
 
             Greta: Elia.
             Greta: Almeno fino a domattina, Elia è ancora a metà proprietario dell'azienda.
             Greta: E se Paola capitola, lui finisce diritto in consiglio di amministrazione.
             Ettore: Quindi cosa mi stai dicendo?
-            Greta: Che Elia sta usando l'amicizia con Matteo per usare il sindacato contro Paola.
+            - (indagini2) Greta: Che Elia sta usando l'amicizia con Matteo per usare il sindacato contro Paola.
                 
                 + + + Ettore: Perdonami, ma Elia non mi sembra così macchiavellico.
                         Greta: Vedo che sei sveglio, Ettore.
@@ -165,8 +157,6 @@ Opzioni di dialogo con la persona Greta
                     {
                         - currentTime >= 600:
                         -> paolaIsDeadStorylet    
-                    
-                        - else: ->->
                     }
                     + + + Ettore: La fiducia non si tradisce, mai.
                         Greta: Deve essere bello vivere nella tua torre del privilegio.
@@ -193,8 +183,6 @@ Opzioni di dialogo con la persona Greta
                             {
                                 - currentTime >= 600:
                                 -> paolaIsDeadStorylet    
-                            
-                                - else: ->->
                             }
 
                         Greta: E che per questo a volte vanno fatte cose, anche crudeli, per un bene più grande.
@@ -215,7 +203,7 @@ Opzioni di dialogo con la persona Greta
             Greta: Passa cinque minuti con lei e avrai la tua risposta.
             Ettore: Potrei odiarla così tanto da volerla uccidere?
             Greta: No dai, per quello bastano cinque minuti.
-            + + (allestimento2) Ettore: E qui con cosa la si potrebbe uccidere?
+            + + Ettore: E qui con cosa la si potrebbe uccidere?
                 Greta: Girl, stai chiedendo ad una appassionata di true crime come commettere un omicidio, in questo posto?
                 Greta: Mmm, fammi pensare.
                 Greta: Morte violenta o qualcosa di più subdolo?
@@ -223,8 +211,7 @@ Opzioni di dialogo con la persona Greta
                     {
                         - currentTime >= 600:
                         -> paolaIsDeadStorylet    
-                    
-                        - else: ->->
+
                     }
 
                     + + +  Ettore: Violenza, dolore, terrore.
@@ -238,8 +225,6 @@ Opzioni di dialogo con la persona Greta
                                     {
                                         - currentTime >= 600:
                                         -> paolaIsDeadStorylet    
-                                    
-                                            - else: ->->
                                     }
 
                                 Greta: A proposito: nella recita il colpevole dovrebbe essere Zeca, geloso perché la ama e lei si sposa, e l'ha uccisa con il pugnale di Matteo per incolparlo.
@@ -264,8 +249,7 @@ Opzioni di dialogo con la persona Greta
                                 {
                                     - currentTime >= 600:
                                     -> paolaIsDeadStorylet    
-                                
-                                    - else: ->->
+
                                 }
 
                             Greta: E grazie alle sigarette elettroniche ora è accessibile a tutti a poco?
@@ -273,15 +257,14 @@ Opzioni di dialogo con la persona Greta
                             Greta: Le ricariche della pod mod di Paola arriva a 18 mg.
                             Greta: Bastano tre ricariche per ucciderla.
                             Greta: E tu dirai: "Ma chi fuma così tanto?"
-                            Greta: Ed ecco la cosa divertente: che grazie alle sigarette elettroniche ora basta versare il veleno sulla pelle e bang, è fatta!
+                            - (allestimento2) Greta: Ed ecco la cosa divertente: che grazie alle sigarette elettroniche ora basta versare il veleno sulla pelle e bang, è fatta!
                             Greta: Grazie, evoluzione tecnologica!
                             Greta: Ma poi per me c'è il colpo di genio vero e proprio.
                                 -> advance_time ->
                                 {
                                     - currentTime >= 600:
                                     -> paolaIsDeadStorylet    
-                                
-                                    - else: ->->
+
                                 }
 
                             Greta: Un omicidio su misura.
@@ -296,8 +279,7 @@ Opzioni di dialogo con la persona Greta
                                 {
                                     - currentTime >= 600:
                                     -> paolaIsDeadStorylet    
-                                
-                                    - else: ->->
+
                                 }
 
                             Greta: Che ne pensi?
@@ -342,16 +324,15 @@ Opzioni di dialogo con la persona Greta
                         {
                                 - currentTime >= 600:
                                 -> paolaIsDeadStorylet    
-                            
-                                - else: ->->
+
                             }
 
-                        + + + (indagini3) Ettore: E come ti senti ora?
+                        + + + Ettore: E come ti senti ora?
                                 Greta: Tradita.
                                 Greta: Usata.
                                 Greta: Mi ha promesso amore.
                                 Greta: Mi ha regalato le piattole.
-                                Greta: E io che, stupida, coprivo i suoi furti di denaro in azienda.
+                                - (indagini3) Greta: E io che, stupida, coprivo i suoi furti di denaro in azienda.
                                 Greta: Convinta che ci avremmo costruito una casa assieme, con quei soldi.
                                  Greta: Ho bisogno di un poco di privacy Ettore, scusami.
                                 ~ loopableVariables += pausaRapportoGreta
@@ -371,7 +352,7 @@ Opzioni di dialogo con la persona Greta
                         
     
 
-    + (allestimento3) {zeca_talking_second_tier.allestimento2 && new_this_loop(->allestimento3)} Ettore: Mi aiuti a capire una cosa?
+    + {zeca_talking_second_tier.allestimento2 && new_this_loop(->allestimento3)} Ettore: Mi aiuti a capire una cosa?
             Ettore: Sembra che nessuno si sia occupato del buffet prima delle prove.
             Ettore: Da quel che ho capito, tu ed Elia vi dovevate occupare del vino, Matteo e Zeca dei dolci.
             Ettore: Ma poi tutti stavate facendo altro: chi diavolo l'ha allestita quella sala?
@@ -383,11 +364,10 @@ Opzioni di dialogo con la persona Greta
                     {
                         - currentTime >= 600:
                         -> paolaIsDeadStorylet    
-                    
-                        - else: ->->
+
                     }
 
-            Greta: Ero in giro con Elia a sistemare i tavoli della altre sale.
+            - (allestimento3) Greta: Ero in giro con Elia a sistemare i tavoli della altre sale.
             Greta: Gambe traballanti e quelle cose lì.
             Greta: Roba da maschi, che le altre due signorine non sanno come affrontare.
             Greta: Mio dio, Elia ci ha quasi lasciato un dito.
@@ -490,8 +470,7 @@ Opzioni di dialogo con la persona Greta
         {
                 - currentTime >= 600:
                 -> paolaIsDeadStorylet    
-            
-                - else: ->->
+
             }
 
     Greta: Mietono cadaveri su cadaveri, vittime su vittime per assicurarsi benessere e potere.
@@ -519,8 +498,7 @@ Opzioni di dialogo con la persona Greta
                 {
                 - currentTime >= 600:
                 -> paolaIsDeadStorylet    
-            
-                - else: ->->
+
             }
 
     Greta: Tornare a casa e vedermi e rivedermi quelle scene violente.
@@ -549,8 +527,7 @@ Opzioni di dialogo con la persona Greta
         {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+
         }
 
     Greta: Ma stasera il problema è un altro.
@@ -565,8 +542,7 @@ Opzioni di dialogo con la persona Greta
         {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+
         }
 
     Greta: E invece.

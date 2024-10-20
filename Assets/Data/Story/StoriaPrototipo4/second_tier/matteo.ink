@@ -74,8 +74,7 @@ Opzioni di dialogo con la persona Matteo
             {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+ 
             }
             
             + + (lavoro) {zeca_talking_second_tier.money}Ettore: Da quel che dice Zeca, però, tu Paola la conosci.
@@ -90,9 +89,9 @@ Opzioni di dialogo con la persona Matteo
                                 -> advance_time ->
                             -> matteo_talking_second_tier
                     
-                    + + + (lettera2) {cb_second_tier_lettera.primoCheck} Ettore: C'è una lettera, una lettera di minacce.
+                    + + + {cb_second_tier_lettera.primoCheck} Ettore: C'è una lettera, una lettera di minacce.
                             Ettore: Sto cercando di capire chi l'ha scritta, e contro chi.
-                            Matteo: Solo due persone in questo posto mossono minacciare qualcuno: Paola e Zeca.
+                            - (lettera2) Matteo: Solo due persone in questo posto mossono minacciare qualcuno: Paola e Zeca.
                             Matteo: Ma sono così inutile qui, che dubito qualcuno voglia minacciarmi per qualcosa.
                                 -> advance_time ->
                             -> matteo_talking_second_tier
@@ -105,8 +104,7 @@ Opzioni di dialogo con la persona Matteo
                                             {
                             - currentTime >= 600:
                             -> paolaIsDeadStorylet    
-                        
-                            - else: ->->
+                   
                             }
                             Ettore: Vorrei capire a chi è indirizzata.
                             Matteo: E perché? Tu sei uno sconosciuto in questo gruppo tossico.
@@ -150,8 +148,6 @@ Opzioni di dialogo con la persona Matteo
                         {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
             }
             Ettore: E tra le persone qui presenti?
             Matteo: Un bel po' di gente.  
@@ -249,8 +245,7 @@ Opzioni di dialogo con la persona Matteo
                     {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+
             }
         Matteo: Ad esempio lei sembra sempre negativa e diretta, ma è perché ha avuto una vita di merda.
         Matteo: Di contro passo per quello paziente dei due, ma in realtà sono un ansioso del cazzo.
@@ -283,8 +278,7 @@ Opzioni di dialogo con la persona Matteo
                 {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+
             }
     Matteo: E forse nell'ultimo tempo ho pensato così tanto alle cose da fare, da cambiare, da dimenticarmi di vivere.
         -> matteo_talking_second_tier    
@@ -307,8 +301,6 @@ Opzioni di dialogo con la persona Matteo
                     {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
             }
     Matteo: Credo di aver capito cosa mi inquieta.
     Matteo: E credo di aver deciso cosa fare.

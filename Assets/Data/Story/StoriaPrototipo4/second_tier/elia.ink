@@ -49,8 +49,6 @@ Opzioni di dialogo con la persona Elia
                         {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
             }
            
             + + (minacce) {zeca_talking_second_tier.love && phone.indagini && elia_talking_second_tier.indagini2} Ettore: E Zeca, potrebbe voler far del male a Paola?
@@ -87,8 +85,6 @@ Opzioni di dialogo con la persona Elia
                         {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
             }
            
             + + {zeca_talking_second_tier.love4} Ettore: ZECAAAAAAA!
@@ -127,8 +123,6 @@ Opzioni di dialogo con la persona Elia
                                     {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
             }
         Elia: Shot story long...
         Ettore: Long story short?
@@ -142,8 +136,7 @@ Opzioni di dialogo con la persona Elia
                                     {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+
             }
         Elia: Quelli del pub, del <b>Funny Elia & Greta</b>
         Ettore: Ma non esiste solo nella recita?
@@ -156,12 +149,11 @@ Opzioni di dialogo con la persona Elia
                                     {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+
             }
-            + + (allestimento2){zeca_talking_second_tier.allestimento2} Ettore: Zeca dice però che qualcuno nella stanza gialla c'è stato.
+            + + {zeca_talking_second_tier.allestimento2} Ettore: Zeca dice però che qualcuno nella stanza gialla c'è stato.
                 Ettore: E a suo dire stava scopando.
-                Elia: Naa, Zeca sente sesso ovunque.
+                - (allestimento2) Elia: Naa, Zeca sente sesso ovunque.
                 Elia: Pensa che dorme sentendo le balene scopare.
                 Elia: E io non ho fatto sesso, no.
                 Elia: Mai fatto sesso.
@@ -174,7 +166,7 @@ Opzioni di dialogo con la persona Elia
             + + -> elia_talking_second_tier
             - -
 
-    + (indagini) {iTryToBeAGoodFriendStorylet} Ettore: Prima ho ascoltato una conversazione tra Zeca e Matteo...
+    + {iTryToBeAGoodFriendStorylet} Ettore: Prima ho ascoltato una conversazione tra Zeca e Matteo...
         Ettore: Ed ero convinto che Matteo fosse tuo amico.
         Elia: Non al passato. Non fosse, ma è.
         Elia: Zeca invece è un collega, abbiamo la BRO assieme.
@@ -186,8 +178,6 @@ Opzioni di dialogo con la persona Elia
                                     {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
             }
         Ettore: Credo più, di lasciarti perdere come persona.
         Elia: Essere una persona è un gioco?
@@ -201,8 +191,7 @@ Opzioni di dialogo con la persona Elia
                                      {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+    
             }
         Ettore: Non è quello che intendevano, Elia!
         Ettore: Matteo ha detto a Zeca di non parlarti più, di lasciare il progetto.
@@ -221,13 +210,12 @@ Opzioni di dialogo con la persona Elia
                                     {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+
             }
         Elia: Questa cosa da Matteo non me la credevo comunque.
         Elia: Io sono stato un sacco zitto per Matteo.
         Elia: Non con Matteo, perché parlo molto, ma per Matteo, sì.
-        Elia: Allora ti dico un segreto: Greta ha dato a Matteo molte informazioni sui conti dell'azienda.
+        - (indagini) Elia: Allora ti dico un segreto: Greta ha dato a Matteo molte informazioni sui conti dell'azienda.
         Elia: Vuole aiutarlo con questa cosa del sindicato, così che Matteo possa sindicare meglio sindicando Paola e venendo sindicato dai colleghi del sindicato.
         Elia: E io l'ho detto a Greta che fa bene, perché nessuno deve indicare i miei amici.
         Elia: Ma possono sindicarli, perché non è scritto diversamente da nessuna parte, no?
@@ -326,8 +314,7 @@ Opzioni di dialogo con la persona Elia
                                 {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+
             }
     Elia: E poi sono legato a Zeca, un po' per BRO, perché quel notaio ci ha annotati assieme.
     Elia: E un po' perché per tutti e due la cosa preferita è passare le sere assieme.
@@ -341,8 +328,7 @@ Opzioni di dialogo con la persona Elia
                                 {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+
             }
     Elia: Ma quella di cui so meno è Greta.
     Elia: Però siamo legati da una cosa grossa grossa.
@@ -403,8 +389,7 @@ Opzioni di dialogo con la persona Elia
                                     {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+ 
             }
             + + Ettore: E ti manca?
                 Elia: Il tempo?
@@ -418,6 +403,7 @@ Opzioni di dialogo con la persona Elia
                 Elia: Ed è un bene perché sono freddoloso.
                     -> advance_time ->
                      -> elia_talking_second_tier
+            
             + + [Cambi argomento] -> elia_talking_second_tier
 
 = second_paola
@@ -434,10 +420,10 @@ Opzioni di dialogo con la persona Elia
                                     {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+
             }
         Elia: Quante fette di bresaola ci tiro fuori con un chilo di spesso assieme?
+            
             + + Ettore: Ti manca Paola?
                 Elia: No, non so quanto mi manca di bresaola.
                 Elia: Perché se le fette <i>spesso assieme</i>sono più sottili di quelle <i>spesso d'accordo</i> allora mi hai fregato, perché sono due chili che pesano diversamente.
@@ -451,6 +437,7 @@ Opzioni di dialogo con la persona Elia
                 Elia: Ma mi aveva chiesto qualcosa, vero? A volte mi perdo.
                     -> advance_time ->
                      -> elia_talking_second_tier
+            
             + + [Cambi argomento] -> elia_talking_second_tier
 
 
@@ -467,12 +454,11 @@ Opzioni di dialogo con la persona Elia
                                     {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+    
             }
         Elia: Ma devo aver fatto confusione perché ho iniziato a comprare macchine, autonomobili.
         Elia: E a venderle alle fotografie.
-        Elia: Che però hanno le idee poco chiare su cosa sia il denaro.
+        Elia: Che però hanno le idee poco chiare su cosa siano i soldi.
         Elia: E quindi mi sentivo in colpa a insistere e gliele ho regalate, le macchine.
         Elia: E per recuperare un po' di dignità ho iniziato a fare una piramide di fotografie.
         Elia: Ma quelli dell'altra piramide erano arrabbiati.
@@ -482,12 +468,11 @@ Opzioni di dialogo con la persona Elia
                                     {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+
             }
         Elia: Ma mentre che discutevamo di questa cosa è arrivato un gruppo di lontre giganti.
         Elia: Ero un po' perplesso ma sono state molto carine.
-        Elia: E hanno iniziato a montare luci, telecamere, e a fare, a fare cose.
+        Elia: E hanno iniziato a montare luci, telecamere, e a fare cose.
         Elia: Non ho ben capito, ma si stavano divertendo e gli ho lasciati lontrellare.
         Elia: E altre persone hanno iniziato a portare altre foto, foto con un sacco di animali giganti.
         Elia: E allora ho chiamato i tipi delle piramidi per dire che stavo facendo finalmente bene il mio lavoro.
@@ -497,8 +482,7 @@ Opzioni di dialogo con la persona Elia
                                     {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+
             }
         Elia: E ho dato ai tizi delle piramidi il suo numero, ma lei non era contenta.
         Elia: E ora quelli delle piramidi mi dicono che mi lasceranno in mutande.

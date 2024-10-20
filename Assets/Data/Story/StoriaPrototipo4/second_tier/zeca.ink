@@ -37,8 +37,6 @@ Opzioni di dialogo con la persona Zeca
                                     {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
             }
         Zeca: C'ho la mafia gay.
         Ettore: Non era la lobby gay?
@@ -52,8 +50,6 @@ Opzioni di dialogo con la persona Zeca
                                     {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
             }
         Zeca: Non sto scherzando.
         Zeca: Ho chiesto loro un prestito di quindici palestronze all'avvio della palestra.
@@ -67,8 +63,7 @@ Opzioni di dialogo con la persona Zeca
                                     {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+
             }
         Zeca: E SE NON LA SMETTI DI RIDERE TI MENO!
         Zeca: Perché ne va della mia pelle. Hai visto cosa hanno fatto a Chiara Iezzi?
@@ -92,8 +87,7 @@ Opzioni di dialogo con la persona Zeca
                                     {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+
             }
         Zeca: Mmm. No. Ora che ci penso, no.
         Zeca: PERO'. PERO'.
@@ -121,7 +115,7 @@ Opzioni di dialogo con la persona Zeca
     TODO: Molto velocemente tutti dicono di non essere mai stati nella stanza gialla prima delle riprese
 
     //SCELTE CONDIZIONALI//
-    + (allestimento) {notABigSecretPartTwoStorylet.allestimento && new_this_loop(->allestimento)} Ettore: Zeca, ho una domanda sul buffet e su chi se ne è occupato.
+    + (allestimento4) {notABigSecretPartTwoStorylet.allestimento && new_this_loop(->allestimento4)} Ettore: Zeca, ho una domanda sul buffet e su chi se ne è occupato.
         Zeca: Ecco che torna a fare domande.
         Ettore: Ok, niente domande allora.
         Ettore: Elia prima mi ha detto che tu e Matteo vi siete occupati del cibo e delle sigarette di Paola.
@@ -134,23 +128,20 @@ Opzioni di dialogo con la persona Zeca
                                     {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
             }
-        Zeca: Comunque sì, ci siamo occupati di quella roba, ma non abbiamo preparato noi il buffet.
+        - (allestimento) Zeca: Comunque sì, ci siamo occupati di quella roba, ma non abbiamo preparato noi il buffet.
         Zeca: Né io né Matteo abbiamo messo piede nella stanza gialla prima delle prove.
         Zeca: Abbiamo invece lasciato le cose fuori dalla porta e chiesto a Greta di occuparsene, perché c'erano dei problemi coi costumi.
         Zeca: O per dirla diversamente: Greta si deve essere scofanata un cavallo dalle ultime prove, perché ora non ci entra più in quel vestito.
         Zeca: Hai altre domande, Sherlock?
-                + + (allestimento2) {elia_talking_second_tier.allestimento}Ettore: Sì; mi sembra buffo quel che dici, perché Elia giura di averti lasciato il vino, perché lui e Greta avevano un problema coi tavoli.
+                + + {elia_talking_second_tier.allestimento}Ettore: Sì; mi sembra buffo quel che dici, perché Elia giura di averti lasciato il vino, perché lui e Greta avevano un problema coi tavoli.
                     Zeca: <i>Buffo>/i> che tu non sappia farti un giro di cazzi tuoi, Ettore.
                     Zeca: Vero, Elia mi ha chiesto di farlo, ma io non gli ho mai detto di sì.
                         -> advance_time ->
                                                 {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+
             }
                     Zeca: Ma visto che sono una signora ci ho pure provato qualche minuto dopo a portare un paio di bottiglie.
                     Zeca: E magari ad aprirmene una.
@@ -158,7 +149,7 @@ Opzioni di dialogo con la persona Zeca
                     Zeca: La sala gialla, dove dovevamo fare il buffet, era serrata.
                     Zeca: E qualcuno dentro ansimava come se avesse fatto le scale di corsa, molto di corsa.
                     Zeca: E per scale, intendo tutta una squadra di calcio.
-                    Zeca: Forse era Paola col suo vibratore. Una elder millenial sicuro che ne ha sempre uno con sé.
+                    - (allestimento2) Zeca: Forse era Paola col suo vibratore. Una elder millenial sicuro che ne ha sempre uno con sé.
                     Zeca: Anche se non ho sentito il solito puzzo di cesso delle sue sigarette elettroniche.
                      -> advance_time ->
                         -> zeca_talking_second_tier
@@ -175,8 +166,7 @@ Opzioni di dialogo con la persona Zeca
                                                 {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+ 
             }
                     Zeca: Gli amici litigano.
                     Zeca: Gli amici fanno la pace.
@@ -209,8 +199,6 @@ Opzioni di dialogo con la persona Zeca
                                         {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
             }
             Zeca: Sei qui pagato da soldi che Paola guadagna sfrattando poveracci e chiudendo piccoli negozi a gestione familiare.
             Zeca: Il cibo del buffet viene dalla grande distribuzione, ovvero: ti sei mangiato un po' di sfruttamento.
@@ -218,8 +206,8 @@ Opzioni di dialogo con la persona Zeca
             Zeca: Io alla fine spingo gente senza vita e senza obiettivi ad averne uno.
             Zeca: Dovrebbero farmi santa.
             Zeca: E piuttosto: invece di rompere le balle a me, c'è qualcun altro a cui Paola dovrebbe fare le pulci.
-                + + + (money) Ettore: E chi? Greta?
-            Zeca: No: Matteo è l'unico qui dentro che campa sulle spalle dei due fratelli.
+            Ettore: E chi? Greta?
+            - (money) Zeca: No: Matteo è l'unico qui dentro che campa sulle spalle dei due fratelli.
                 -> advance_time ->    
                     -> zeca_talking_second_tier
         + + (love3){trueLoveStorylet && new_this_loop(->love3)} Ettore: Come ti senti, ora che Elia ti ha dichiarato il suo amore?
@@ -234,8 +222,7 @@ Opzioni di dialogo con la persona Zeca
                                         {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+    
             }
             Zeca: Beh: a tutti fa piacere l'idea di avere un bellissimo labrador in casa.
             Zeca: Ma sei dello stesso avviso quando ti ha rotto il vaso di zia?
@@ -346,8 +333,6 @@ Opzioni di dialogo con la persona Zeca
                                 {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
             }
     Zeca: Di non essere davvero <i>questa</i> cosa, di non assomigliarmi per nulla.
     Zeca: E a volte mi ci avvicino quasi perfettamente al capire cosa non mi torna.
@@ -379,8 +364,7 @@ Opzioni di dialogo con la persona Zeca
                                 {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+
             }
     Zeca: E con l'orticaria la voglia di tirargli due sberle.
     Zeca: Di dirgli "Svegliati! Così non ci arrivi ai quaranta!"
@@ -405,8 +389,7 @@ Opzioni di dialogo con la persona Zeca
                                  {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+
             }
         + Ettore: Mi sembra un idiota.
             Zeca: Eh sì, fa quella prima impressione.
@@ -446,8 +429,7 @@ Opzioni di dialogo con la persona Zeca
                                     {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+ 
             }
         Zeca: E di Matteo, quanto lo detesti?
             + Ettore: In realtà mi piace molto.
@@ -481,8 +463,7 @@ Opzioni di dialogo con la persona Zeca
                                       {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+
             }
         Zeca: E Paola? che ne pensi di Paola?
             + Ettore: Non capisco perché tutti la detestino qui dentro.
@@ -511,8 +492,7 @@ Opzioni di dialogo con la persona Zeca
                                 {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
-        
-            - else: ->->
+  
             }
     Zeca: Bene, ora posso dirti cosa penso di te.
     Zeca: Non molto, a dire il vero, a parte che sei molto curioso.

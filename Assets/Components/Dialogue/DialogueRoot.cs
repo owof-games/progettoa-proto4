@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Components.RoomTransitionHandler;
+using Components.Character;
 using Components.Story.Lines;
 using LemuRivolta.InkAtoms;
 using LitMotion;
@@ -83,7 +83,35 @@ namespace Components.Dialogue
 
             if (column >= _characterColumns.Length)
             {
-                var selectedColumn = _characterColumns.MinBy(cc => cc.Count);
+                // skip column with the nearest x as this character, otherwise the balloon looks weird when it's directly
+                // over a character's head
+                var characterGameObject =
+                    FindObjectsByType<CharacterName>(FindObjectsInactive.Exclude, FindObjectsSortMode.None)
+                        .FirstOrDefault(characterName => characterName.Character == character)
+                        ?.gameObject;
+                var skippedColumn = -1;
+                var skippedColumnDistanceFromCharacter = float.MaxValue;
+                if (characterGameObject)
+                {
+                    var thisCharacterGameObjectXCenter =
+                        Camera.main!.WorldToScreenPoint(characterGameObject.transform.position).x;
+                    for (var tentativeColumn = 0; tentativeColumn < 3; tentativeColumn++)
+                    {
+                        var thisBalloonXCenter =
+                            Screen.width * _columnRemapper[tentativeColumn] / 5 + Screen.width / 10;
+                        var distance = Mathf.Abs(thisCharacterGameObjectXCenter - thisBalloonXCenter);
+                        if (distance < skippedColumnDistanceFromCharacter)
+                        {
+                            skippedColumn = tentativeColumn;
+                            skippedColumnDistanceFromCharacter = distance;
+                        }
+                    }
+                }
+
+                // find a free column
+                var selectedColumn = _characterColumns
+                    .Where((_, index) => index != skippedColumn)
+                    .MinBy(cc => cc.Count);
                 selectedColumn.Add(character);
                 column = Array.IndexOf(_characterColumns, selectedColumn);
             }
@@ -97,13 +125,13 @@ namespace Components.Dialogue
             if (!string.IsNullOrEmpty(text))
             {
                 var dialogueRow = CreateAndGetDialogueRow();
-                dialogueRow.SetUp(character, Direction.Right, _columnRemapper[column], text, showAdvance);
+                dialogueRow.SetUp(character, _columnRemapper[column], text, showAdvance);
             }
 
             if (choices is { Length: > 0 })
             {
                 var dialogueRow = CreateAndGetDialogueRow();
-                dialogueRow.SetUp(character, Direction.Right, 2, null, false,
+                dialogueRow.SetUp(character, 2, null, false,
                     (from choice in choices
                         let choiceText = choice.text
                         let finalText = (choiceText.ToLower().StartsWith("ettore:")

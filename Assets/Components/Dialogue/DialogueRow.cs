@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using Components.Character;
 using Components.RoomTransitionHandler;
 using JetBrains.Annotations;
 using NUnit.Framework;
@@ -22,20 +24,39 @@ namespace Components.Dialogue
             gridLayoutGroup = GetComponent<GridLayoutGroup>();
         }
 
-        public void SetUp(Character.Character character, Direction direction, int column, string text, bool showAdvance,
+        public void SetUp(Character.Character character, int column, string text, bool showAdvance,
             [CanBeNull] string[] choices = null)
         {
             InsertEmpty(column);
-            InsertBalloon(character, direction, text, showAdvance, choices);
+            InsertBalloon(character, column, text, showAdvance, choices);
             InsertEmpty(5 - column - 1);
         }
 
         public event Action<int> ChoiceTaken;
 
-        private void InsertBalloon(Character.Character character, Direction direction, [CanBeNull] string text,
+        private void InsertBalloon(Character.Character character, int column, [CanBeNull] string text,
             bool showAdvance,
             [CanBeNull] string[] choices = null)
         {
+            var characterGameObject =
+                FindObjectsByType<CharacterName>(FindObjectsInactive.Exclude, FindObjectsSortMode.None)
+                    .FirstOrDefault(characterName => characterName.Character == character)
+                    ?.gameObject;
+            var direction = Direction.Left;
+            if (characterGameObject)
+            {
+                var thisCharacterGameObjectXCenter =
+                    Camera.main!.WorldToScreenPoint(characterGameObject.transform.position).x;
+                var thisBalloonXCenter = Screen.width * column / 5 + Screen.width / 10;
+                Debug.Log(
+                    $"comparing game object X center = {thisCharacterGameObjectXCenter} vs balloon x center = {thisBalloonXCenter}");
+                direction = thisCharacterGameObjectXCenter < thisBalloonXCenter ? Direction.Left : Direction.Right;
+            }
+            else
+            {
+                Debug.LogError("Probably a whispered line, not implemented yet");
+            }
+
             var balloonGameObject = Instantiate(balloonPrefab, transform);
             var balloon = balloonGameObject.GetComponent<Balloon>();
             balloon.SetUp(character, direction, choices);

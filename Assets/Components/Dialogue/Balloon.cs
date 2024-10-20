@@ -87,7 +87,10 @@ namespace Components.Dialogue
 
         public void SetText(string text)
         {
-            textMeshProUGUI.text = text;
+            if (!string.IsNullOrEmpty(text))
+                textMeshProUGUI.text = text;
+            else
+                textMeshProUGUI.gameObject.SetActive(false);
         }
 
         public void ShowAdvanceButton(bool show = true)

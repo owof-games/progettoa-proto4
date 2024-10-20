@@ -29,7 +29,8 @@ namespace Components.Dialogue
             InsertEmpty(5 - column - 1);
         }
 
-        private void InsertBalloon(Character.Character character, Direction direction, string text, bool showAdvance,
+        private void InsertBalloon(Character.Character character, Direction direction, [CanBeNull] string text,
+            bool showAdvance,
             [CanBeNull] string[] choices = null)
         {
             var balloonGameObject = Instantiate(balloonPrefab, transform);

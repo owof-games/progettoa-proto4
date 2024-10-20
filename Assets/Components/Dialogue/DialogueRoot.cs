@@ -95,9 +95,24 @@ namespace Components.Dialogue
         private void OnText(Character.Character character, string text, bool showAdvance, int column,
             [CanBeNull] string[] choices = null)
         {
+            if (!string.IsNullOrEmpty(text))
+            {
+                var dialogueRow = CreateAndGetDialogueRow();
+                dialogueRow.SetUp(character, Direction.Right, _columnRemapper[column], text, showAdvance);
+            }
+
+            if (choices is { Length: > 0 })
+            {
+                var dialogueRow = CreateAndGetDialogueRow();
+                dialogueRow.SetUp(character, Direction.Right, _columnRemapper[column], null, false, choices);
+            }
+        }
+
+        private DialogueRow CreateAndGetDialogueRow()
+        {
             var dialogueRowGameObject = Instantiate(dialogueRowPrefab, dialogueSlidingContainer);
             var dialogueRow = dialogueRowGameObject.GetComponent<DialogueRow>();
-            dialogueRow.SetUp(character, Direction.Right, _columnRemapper[column], text, showAdvance, choices);
+            return dialogueRow;
         }
     }
 }

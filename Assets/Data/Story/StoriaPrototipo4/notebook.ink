@@ -7,6 +7,10 @@ VAR choice_MenteZeca = Unexplored
 VAR choice_WhoWasInChargeOfTheBuffet = Unexplored
 VAR choice_ForWhomTheLetterWas = Unexplored
 
+//Contraddizioni per il finale, secondo tier
+VAR primaContraddizione = false
+VAR secondaContraddizione = false
+
 
 /*
 Trovo informazioni nei dialoghi/luoghi/con interazione oggetti: sblocco fatti e domande nel taccuino (vedi sotto)
@@ -293,6 +297,11 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 //Condizioni
 ~ temp contraddizione_buffet = (zeca_talking_second_tier.allestimento or notABigSecretPartOneStorylet.allestimento) && (elia_talking_second_tier.allestimento or notABigSecretPartTwoStorylet.allestimento)
     
+    {
+        - contraddizione_buffet:
+            ~ primaContraddizione = true
+    }
+    
 {contraddizione_buffet: <b>Chi si è occupato del buffet?</b>}
 
 //choice_WhoWasInChargeOfTheBuffet = True: Greta ed Elia. = False: Zeca e Matteo.
@@ -320,6 +329,10 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 ~ temp contraddizione_lettera = elia_talking_second_tier.indagini && greta_talking_second_tier.indagini
     
+    {
+        - contraddizione_lettera:
+            ~ secondaContraddizione = true
+    }
 
 {contraddizione_lettera: <b>A chi è indirizzata la lettera di Paola?</b>}
 

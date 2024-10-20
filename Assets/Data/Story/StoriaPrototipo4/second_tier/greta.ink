@@ -11,7 +11,6 @@
 
 -> intro
 
-TODO: PER LE VOCI DEL NOTEBOOK PROVA A METTERE I LABEL () IN GATHER AD HOC INVECE CHE NEL TESTO E BONA
 /* ---------------------------------
 
 Opzioni di dialogo con la persona Greta
@@ -299,7 +298,7 @@ Opzioni di dialogo con la persona Greta
     
 
     // OPZIONE PER IL FINALE
-    + {(choice_WhoWasInChargeOfTheBuffet== True or choice_WhoWasInChargeOfTheBuffet == False) && (choice_ForWhomTheLetterWas == True or choice_ForWhomTheLetterWas == False)} [È il momento di fermare l’omicida di Paola!] Ettore: Greta: so che vuoi uccidere Paola! -> arringa_finale_Greta
+    + {primaContraddizione && secondaContraddizione} [È il momento di fermare l’omicida di Paola!] Ettore: Venite tutti, ho bisogno di parlarvi! -> arringa_finale
 
 
     //SCELTE CONDIZIONALI//
@@ -571,36 +570,3 @@ Opzioni di dialogo con la persona Greta
 -> advance_time ->
 ->->
 
-
-
-
-/* ---------------------------------
-
-   Arringa finale. 
-
- ----------------------------------*/
-=== arringa_finale_Greta
-Con cosa
-    + {cb_second_tier_bottiglia_di_vino.primoCheck or paola_is_dead.vino} Usando il vino.
-    + {cb_second_tier_flaconcino_asma.primoCheck or paola_is_dead.asma} Il boccettino dell'asma.
-    + {cb_second_tier_sigaretta_elettronica.primoCheck or paola_is_dead.sigaretta} La sigaretta elettronica.
-    + {cb_second_tier_cibo.primoCheck or paola_is_dead.briciole} La torta.
-    -
-    
-Con l'aiuto di chi
-TODO: mettere scelte coerenti con la opzione scelta nella contraddizione
-    + Elia
-    + Paola
-    + Matteo
-    + Zeca
-    + Hai fatto da sola
-    -
-    
-Perché
-TODO: mettere scelte coerenti con la opzione scelta nella contraddizione
-    + xxx
-    -
-    
-Sono sicuro di tutto questo?
-    + Sì -> finalStorylet
-    + No -> loop_reset

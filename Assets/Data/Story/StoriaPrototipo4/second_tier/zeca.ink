@@ -110,7 +110,7 @@ Opzioni di dialogo con la persona Zeca
     + [Chiacchiera con Zeca] -> esplora_zeca
 
     // OPZIONE PER IL FINALE
-    + {(choice_WhoWasInChargeOfTheBuffet== True or choice_WhoWasInChargeOfTheBuffet == False) && (choice_ForWhomTheLetterWas == True or choice_ForWhomTheLetterWas == False)} [È il momento di fermare l’omicida di Paola!] Ettore: Zeca: so che vuoi uccidere Paola! -> arringa_finale_Zeca
+    + {primaContraddizione && secondaContraddizione} [È il momento di fermare l’omicida di Paola!] Ettore: Venite tutti, ho bisogno di parlarvi! -> arringa_finale
 
     TODO: Molto velocemente tutti dicono di non essere mai stati nella stanza gialla prima delle riprese
 
@@ -515,31 +515,3 @@ Opzioni di dialogo con la persona Zeca
 -> advance_time ->
 ->->
 
-
-/* ---------------------------------
-
-   Arringa finale. 
-
- ----------------------------------*/
-=== arringa_finale_Zeca
-Con cosa
-    + {cb_second_tier_bottiglia_di_vino.primoCheck or paola_is_dead.vino} Usando il vino.
-    + {cb_second_tier_flaconcino_asma.primoCheck or paola_is_dead.asma} Il boccettino dell'asma.
-    + {cb_second_tier_sigaretta_elettronica.primoCheck or paola_is_dead.sigaretta} La sigaretta elettronica.
-    + {cb_second_tier_cibo.primoCheck or paola_is_dead.briciole} La torta.
-    -
-    
-Con l'aiuto di chi
-    + Elia
-    + Greta
-    + Matteo
-    + Paola
-    + Hai fatto da solo
-    -
-    
-Perché
-    + xxx
-    -
-Sono sicuro di tutto questo?
-    + Sì -> finalStorylet
-    + No -> loop_reset

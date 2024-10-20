@@ -54,7 +54,7 @@ Opzioni di dialogo con la persona Paola
     + Fai domande sulla persona Paola -> esplora_paola
 
     // OPZIONE PER IL FINALE
-    + {(choice_WhoWasInChargeOfTheBuffet== True or choice_WhoWasInChargeOfTheBuffet == False) && (choice_ForWhomTheLetterWas == True or choice_ForWhomTheLetterWas == False)} [È il momento di fermare l’omicida di Paola!] Ettore: Paola: so che vuoi suicidarti! -> arringa_finale_Paola
+    + {primaContraddizione && secondaContraddizione} [È il momento di fermare l’omicida di Paola!] Ettore: Venite tutti, ho bisogno di parlarvi! -> arringa_finale
 
 
     //SCELTE CONDIZIONALI//
@@ -79,7 +79,7 @@ Opzioni di dialogo con la persona Paola
                 
     //SCELTE CONDIZIONALI OGGETTI//
      + (Minacce) {inventoryContents has Lettera} Guarda questa lettera!
-        Paola: Uh, guarda un po' chi si dovrebbe fare i cazzi propri!.
+        Paola: Non c'ho cazzi Ettore, dammi qui e ci do un'occhiata ora.
             ~ inventoryContents -= Lettera
             ~ objectStorageContents += Lettera
     + (torta) {inventoryContents has Torta} Ettore: Hai idea di chi abbia preso questa torta?
@@ -190,34 +190,3 @@ Opzioni di dialogo con la persona Paola
 
 -> paola_is_dead
 
-
-
-/* ---------------------------------
-
-   Arringa finale. 
-
- ----------------------------------*/
-=== arringa_finale_Paola
-TODO: mettere a inizio arringa in modo dialogativo le scelte definitive sulle contraddizioni
-Con cosa
-    + {cb_second_tier_bottiglia_di_vino.primoCheck or paola_is_dead.vino} Usando il vino.
-    + {cb_second_tier_flaconcino_asma.primoCheck or paola_is_dead.asma} Il boccettino dell'asma.
-    + {cb_second_tier_sigaretta_elettronica.primoCheck or paola_is_dead.sigaretta} La sigaretta elettronica.
-    + {cb_second_tier_cibo.primoCheck or paola_is_dead.briciole} La torta.
-    -
-    
-Con l'aiuto di chi
-    + Elia
-    + Greta
-    + Matteo
-    + Zeca
-    + Hai fatto da sola
-    -
-    
-Perché
-    + xxx
-    -
-    
-Sono sicuro di tutto questo?
-    + Sì -> finalStorylet
-    + No -> loop_reset

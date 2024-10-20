@@ -179,6 +179,10 @@ Zeca ci sgama con la foto e andrà ad aggredire Greta, con piccole variazioni a 
     Matteo: Mi chiedo chi altri soffrirà per tutto questo.
         + {greta_talking_second_tier.indagini3}Ettore: Greta. Greta è innamorata di Elia.
             -> advance_time ->
+            {
+                            - currentTime >= 600:
+                            -> paolaIsDeadStorylet
+                        }
             Matteo: Quindi lo sapevi anche tu?
             Ettore: {iTryToBeAGoodFriendStorylet: Prima stavi cercando di farlo capire a Zeca, vero?|Greta è stata molto diretta.}
             Matteo: {iTryToBeAGoodFriendStorylet: Sì. Ma poi ho tentennato, e mi vergogno.|Interessante. So che lei è forte, ma magari vedo di tirarle su il morale.}
@@ -258,7 +262,6 @@ TODO: fare entrare queste due informazioni in modo casuale, come Matteo che si l
 
 //STORYLET A CUI ARRIVIAMO SOLO ATTRAVERSO UNA SCELTA
 === evilJobStorylet
-TODO: essendo uno storylet lungo, provare a fare un check su morte paola ogni tot?
     Matteo: Vuoi davvero ascoltare una storia lunga e noiosa?
         + Ettore: Se è lunga, forse non ho tutto questo tempo, scusa.
             -> intro
@@ -275,6 +278,10 @@ TODO: essendo uno storylet lungo, provare a fare un check su morte paola ogni to
             + Ettore: Quindi non eri più nelle grazie di Paola?
             -
             -> advance_time ->
+                {
+                            - currentTime >= 600:
+                            -> paolaIsDeadStorylet
+                        }
         Matteo: Diciamo che è stata una doccia fredda.
         Matteo: All'inizio il problema principale era trovarmi allo stesso posto di gente che fino al giorno prima avevo, detta come va detta, trattato di merda.
         Matteo: E dato che il capoccia nuovo era lì per volere di Paola, e io ero il pupillo di Elia, beh: ha lasciato che accadesse di tutto.
@@ -283,6 +290,10 @@ TODO: essendo uno storylet lungo, provare a fare un check su morte paola ogni to
         Matteo: E se quando ero il capetto ero convinto che fossero tutti dei coglioni sprovveduti, quando ho iniziato a parlare con loro ho realizzato che erano per lo più poveracci.
         Matteo: Persone anziane o migranti a cui hanno fatto firmare contratti che non potevano capire.
             -> advance_time ->
+            {
+                            - currentTime >= 600:
+                            -> paolaIsDeadStorylet
+                        }
         Matteo: Lavoratori pieni di certezze che si son visti chiudere fabbrica o ufficio dall'oggi al domani.
         Matteo: Ma, sempre più spesso, persone cacciate in un modo o nell'altro dalla loro casa.
             + Ettore: E tu ti sentivi impotente.
@@ -296,6 +307,10 @@ TODO: essendo uno storylet lungo, provare a fare un check su morte paola ogni to
         Matteo: Pian piano inizio però a mettere assieme i pezzi.
         Matteo: E mi rendo conto che molti dei debiti vengono da aree che i comuni stanno gentrificando attraverso la Londar.
             -> advance_time ->
+            {
+                            - currentTime >= 600:
+                            -> paolaIsDeadStorylet
+                        }
         Matteo: Il pattern è lo stesso: Londar inizia ad acquisire quanti più uffici dismessi e case in svendita in aree periferiche.
         Matteo: Poi informa i comuni che sono disponibili a fare qualcosa di vistoso come un nuovo spazio di coworking o un giardinetto, se il comune rende lo spazio più sicuro.
         Matteo: Partono sgomberi, retate, la polizia compare dove non si è mai vista.
@@ -303,6 +318,10 @@ TODO: essendo uno storylet lungo, provare a fare un check su morte paola ogni to
         Matteo: E queste persone si ritrovano in città che non sono pensate per loro, costose a dismisura, ingestibili per chi fa due se non tre lavori.
         Matteo: E io ero lì a pensare che fossero sfigati per i debiti per la macchina, quando la macchina per loro era vita, perché dovevano andare a lavoro non più dall'interno della città, ma da un paese sfigato a sessanta chilometri di distanza.
             -> advance_time ->
+            {
+                            - currentTime >= 600:
+                            -> paolaIsDeadStorylet
+                        }
         Matteo: Ho provato a cercare contatti col comune, ma nulla. Nulla di nulla.
         Matteo: E poi un giorno parlando con una collega, mi dice "Se non fossi così appesa a un filo con questo lavoro, mi rifiuterei di spremere alcuni di questi poveracci."
         Matteo: E lì mi son detto: se riesco a migliorare la condizione dei miei colleghi, allora forse possiamo più facilmente dire di "no" alle richieste dei capi, e magari chiudere un occhio su alcune situazioni.
@@ -313,6 +332,10 @@ TODO: essendo uno storylet lungo, provare a fare un check su morte paola ogni to
         Matteo: I miei colleghi si sono mostrati entusiasti. Avevano bisogno di credere in qualcosa di nuovo.
         Matteo: Ne hanno tutt'ora.
             -> advance_time ->
+            {
+                            - currentTime >= 600:
+                            -> paolaIsDeadStorylet
+                        }
         Matteo: Alla prima riunione, molti di loro hanno detto che è solo questione di tempo, prima di ritrovarsi dall'altra parte del telefono.
         Matteo: Ora siamo solo all'inizio, abbiamo avuto un contatto da Risorse Umane che è stato totalmente disumano, hanno praticamente cercato di farci il lavaggio del cervello.
         Matteo: E Paola, qui, non ha ancora messo assieme i pezzi, credo.
@@ -328,9 +351,87 @@ TODO: essendo uno storylet lungo, provare a fare un check su morte paola ogni to
           -> advance_time ->                  
             -> intro
 
+//SCENA ARRINGA
+=== arringa_finale
+TODO: trasforma l'arringa in un unico bloccone alla Poirot, tutte assieme.
+    ~ move_first_entity_to_second_entity_location(Paola, Ettore)
+    ~ move_first_entity_to_second_entity_location(Greta, Ettore)
+    ~ move_first_entity_to_second_entity_location(Elia, Ettore)
+    ~ move_first_entity_to_second_entity_location(Matteo, Ettore)
+    ~ move_first_entity_to_second_entity_location(Zeca, Ettore)
+    
+Ettore: Vi ho chiamati tutti perché sta per essere commesso un crimine.
+Scena alla Nella mia famiglia tutti hanno ucciso qualcuno.
+Ettore: Una delle prime cose che mi ha colpito, è che nessuno ammetteva di essere stato nella sala gialla.
+Ma sono sicuro che se ne sono occupati
+    + Ettore: Greta e Elia!
+        + + Perché uno
+    + Ettore: Matteo e Zeca!
+        + + Perché due
+    + Ettore: Non riesco a prendere una decisione.    
+Ettore: Poi, c'è la lettera.
+Ettore: C'era la generale convinzione che fosse stata scritta da Paola.
+Paola: Non l'ho mai vista!
+Ettore: Ed è la stessa cosa che ho pensato, perché quando ne abbiamo parlato blah blah blah.
+Ettore: Ma qualcuno voleva fare paura a qualcun altro.
+Ettore: E la lettera palesemente era per:
+    + Ettore: Elia.
+        + + Perché e Zeca
+        + + Perché
+    + Ettore:
+        + + Perché e Matteo.
+        + + Perché
+    + Ettore: Non riesco a prendere una decisione.     
+Ettore: Ma non capivo chi potesse averla scritta, e poi mi son detto: l'assassino.
+Zeca: Assassino?
+Greta: Gasp!
+Paola: E vi lamentate delle mie sceneggiature?
+Paola: Nessuno è morto.
+Ettore: Per ora, perché in realtà a breve qualcuno cerchera di ucciderti.
+Ettore: E io devo fermarlo.
+Zeca: Farnetichi!
+Elia: Questa sceneggiatura mi piace!
+Greta: Chi ha portato i funghetti e non li ha condivisi?
+Matteo: Ettore, tutto bene?
+Paola: LASCIATELO PARLARE!
+Paola: Sentiamo che cazzata ha da dire.
+Ettore: Grazie per la fiducia, davvero!
+Ettore: Comunque: vi chiedo di tenere sott'occhio
+    + Ettore: Zeca
+    + Ettore: Greta
+    + Ettore: Elia
+    + (matteo) Ettore: Matteo
+    -
+Ettore: Tu sei il nostro futuro assassino.
+Ettore: E hai usato: 
+    + {cb_second_tier_bottiglia_di_vino.primoCheck or paola_is_dead.vino} Usando il vino.
+    + {cb_second_tier_flaconcino_asma.primoCheck or paola_is_dead.asma} Il boccettino dell'asma.
+    + {cb_second_tier_sigaretta_elettronica.primoCheck or paola_is_dead.sigaretta} La sigaretta elettronica.
+    + {cb_second_tier_cibo.primoCheck or paola_is_dead.briciole} La torta.
+    -
+    
+E l'unico perché solido è:
+    + (perche) xxx
+    + yyy
+    + zzz
+    -
+
+    
+Sono sicuro di tutto questo?
+    + {matteo && perche} Non importa: Paola è un personaggio terribile e deve morire -> specialEndingStorylet
+    + Sì -> finalStorylet
+    + No -> loop_reset
+
+
 
 //STORYLET DI CHIUSURA
 === finalStorylet
+
+
+-> END
+
+
+=== specialEndingStorylet
 
 
 -> END

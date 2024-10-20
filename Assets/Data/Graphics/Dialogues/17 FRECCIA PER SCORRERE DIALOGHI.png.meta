@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      17 FRECCIA PER SCORRERE DIALOGHI_0: 6062256795832645925
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

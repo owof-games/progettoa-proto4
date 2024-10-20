@@ -432,6 +432,7 @@ Opzioni di dialogo con la persona Elia
 
  ----------------------------------*/
 === arringa_finale_Elia
+TODO: trasforma l'arringa in un unico bloccone alla Poirot, tutte assieme.
 Con cosa
     + {cb_second_tier_bottiglia_di_vino.primoCheck or paola_is_dead.vino} Usando il vino.
     + {cb_second_tier_flaconcino_asma.primoCheck or paola_is_dead.asma} Il boccettino dell'asma.

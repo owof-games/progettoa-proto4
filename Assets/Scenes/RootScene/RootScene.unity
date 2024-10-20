@@ -1521,6 +1521,7 @@ MonoBehaviour:
   dialogueSlidingContainer: {fileID: 495026289}
   dialogueRowPrefab: {fileID: 4848299891961417999, guid: da00f7da002b62443b95580fec3f1033, type: 3}
   slideDuration: 0.1
+  chosenChoiceEvent: {fileID: 11400000, guid: bbb734abb5780294fb5a335d48beee17, type: 2}
 --- !u!114 &1744676014
 MonoBehaviour:
   m_ObjectHideFlags: 0

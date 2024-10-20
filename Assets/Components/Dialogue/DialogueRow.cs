@@ -1,3 +1,4 @@
+using System;
 using Components.RoomTransitionHandler;
 using JetBrains.Annotations;
 using NUnit.Framework;
@@ -29,6 +30,8 @@ namespace Components.Dialogue
             InsertEmpty(5 - column - 1);
         }
 
+        public event Action<int> ChoiceTaken;
+
         private void InsertBalloon(Character.Character character, Direction direction, [CanBeNull] string text,
             bool showAdvance,
             [CanBeNull] string[] choices = null)
@@ -38,6 +41,11 @@ namespace Components.Dialogue
             balloon.SetUp(character, direction, choices);
             balloon.SetText(text);
             balloon.ShowAdvanceButton(showAdvance);
+            balloon.ChoiceTaken += choiceIndex =>
+            {
+                ChoiceTaken?.Invoke(choiceIndex);
+                Destroy(gameObject);
+            };
             var rectTransform = balloonGameObject.GetComponent<RectTransform>();
             var height = LayoutUtility.GetPreferredHeight(rectTransform);
             gridLayoutGroup.cellSize = new Vector2(gridLayoutGroup.cellSize.x, height);

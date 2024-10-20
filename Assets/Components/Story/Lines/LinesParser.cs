@@ -82,13 +82,22 @@ namespace Components.Story.Lines
             var error = $"parse error: {reason} => {step.Text}";
             Debug.LogWarning(error);
             if (step.CanContinue)
-            {
                 continueEvent.Raise(null);
-            }
+            else if (step.Choices.Length > 0)
+                // "fake" choice
+                dialogueLineEvent.Raise(new DialogueLine
+                {
+                    character = Character.Character.Ettore,
+                    text = "",
+                    canContinue = step.CanContinue,
+                    choices = step.Choices.Select(c => new Choice
+                    {
+                        text = c.Text,
+                        index = c.Index
+                    }).ToArray()
+                });
             else
-            {
                 Debug.LogWarning("Cannot skip unparsable line because story can't continue");
-            }
 
             if (!unparsableLineEvent) return;
             unparsableLineEvent.Raise(error);

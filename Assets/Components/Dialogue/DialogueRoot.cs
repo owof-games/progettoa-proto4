@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Components.RoomTransitionHandler;
 using Components.Story.Lines;
-using JetBrains.Annotations;
+using LemuRivolta.InkAtoms;
 using LitMotion;
 using NUnit.Framework;
+using UnityAtoms.BaseAtoms;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,8 +18,10 @@ namespace Components.Dialogue
         [SerializeField] private RectTransform dialogueSlidingContainer;
         [SerializeField] private GameObject dialogueRowPrefab;
         [SerializeField] private float slideDuration = 0.1f;
+        [SerializeField] private ChosenChoiceEvent chosenChoiceEvent;
 
-        private readonly List<Character.Character>[] _characterColumns = { new(), new(), new() };
+        private readonly List<Character.Character>[] _characterColumns =
+            { new() { Character.Character.Ettore }, new(), new() };
 
         private readonly Dictionary<int, int> _columnRemapper = new()
         {
@@ -37,6 +40,7 @@ namespace Components.Dialogue
         {
             Assert.IsNotNull(dialogueSlidingContainer);
             Assert.IsNotNull(dialogueRowPrefab);
+            Assert.IsNotNull(chosenChoiceEvent);
         }
 
         private void Update()
@@ -82,18 +86,11 @@ namespace Components.Dialogue
                 column = Array.IndexOf(_characterColumns, selectedColumn);
             }
 
-            OnText(character, dialogueLine.text, dialogueLine.canContinue, column,
-                dialogueLine.choices.Select(c =>
-                {
-                    var text = c.text;
-                    if (text.StartsWith("Ettore:")) text = text["Ettore:".Length..].Trim();
-
-                    return text;
-                }).ToArray());
+            OnText(character, dialogueLine.text, dialogueLine.canContinue, column, dialogueLine.choices);
         }
 
         private void OnText(Character.Character character, string text, bool showAdvance, int column,
-            [CanBeNull] string[] choices = null)
+            Choice[] choices = null)
         {
             if (!string.IsNullOrEmpty(text))
             {
@@ -104,7 +101,22 @@ namespace Components.Dialogue
             if (choices is { Length: > 0 })
             {
                 var dialogueRow = CreateAndGetDialogueRow();
-                dialogueRow.SetUp(character, Direction.Right, _columnRemapper[column], null, false, choices);
+                dialogueRow.SetUp(character, Direction.Right, 2, null, false,
+                    (from choice in choices
+                        let choiceText = choice.text
+                        let finalText = (choiceText.ToLower().StartsWith("ettore:")
+                            ? choiceText["ettore:".Length..]
+                            : choiceText).Trim()
+                        select finalText).ToArray());
+                dialogueRow.ChoiceTaken += choiceIndex =>
+                {
+                    var choice = choices[choiceIndex];
+                    chosenChoiceEvent.Raise(new ChosenChoice
+                    {
+                        ChoiceIndex = choice.index,
+                        FlowName = null
+                    });
+                };
             }
         }
 

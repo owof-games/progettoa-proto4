@@ -1,3 +1,4 @@
+using System;
 using Components.Balloon;
 using Components.RoomTransitionHandler;
 using JetBrains.Annotations;
@@ -105,9 +106,12 @@ namespace Components.Dialogue
             continueEvent.Raise(null);
         }
 
-        public void TakeChoice(int choiceIndex)
+        public event Action<int> ChoiceTaken;
+
+        private void TakeChoice(int choiceIndex)
         {
-            Debug.Log($"Choice taken: {choiceIndex}");
+            // Debug.Log($"Choice taken: {choiceIndex}");
+            ChoiceTaken?.Invoke(choiceIndex);
         }
     }
 }

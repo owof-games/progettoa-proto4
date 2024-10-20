@@ -494,6 +494,7 @@ Con cosa
     -
     
 Con l'aiuto di chi
+TODO: mettere scelte coerenti con la opzione scelta nella contraddizione
     + Elia
     + Paola
     + Matteo
@@ -502,6 +503,7 @@ Con l'aiuto di chi
     -
     
 Perché
+TODO: mettere scelte coerenti con la opzione scelta nella contraddizione
     + xxx
     -
     

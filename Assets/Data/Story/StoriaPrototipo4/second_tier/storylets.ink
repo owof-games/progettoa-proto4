@@ -44,6 +44,7 @@
 
 
 // MORTE DI PAOLA
+    TODO: trasportare questo check nelle scene più lunghe per evitare che la morte di Paola arrivi in ritardo.
     - currentTime >= 600:
     -> paolaIsDeadStorylet    
 

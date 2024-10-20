@@ -127,7 +127,7 @@ Opzioni di dialogo con la persona Greta
             Greta: Almeno fino a domattina, Elia è ancora a metà proprietario dell'azienda.
             Greta: E se Paola capitola, lui finisce diritto in consiglio di amministrazione.
             Ettore: Quindi cosa mi stai dicendo?
-            - (indagini2) Greta: Che Elia sta usando l'amicizia con Matteo per usare il sindacato contro Paola.
+            - (indagini2) Greta: Elia sta usando l'amicizia con Matteo per usare il sindacato contro Paola.
                 
                 + + + Ettore: Perdonami, ma Elia non mi sembra così macchiavellico.
                         Greta: Vedo che sei sveglio, Ettore.
@@ -256,7 +256,7 @@ Opzioni di dialogo con la persona Greta
                             Greta: Le ricariche della pod mod di Paola arriva a 18 mg.
                             Greta: Bastano tre ricariche per ucciderla.
                             Greta: E tu dirai: "Ma chi fuma così tanto?"
-                            - (allestimento2) Greta: Ed ecco la cosa divertente: che grazie alle sigarette elettroniche ora basta versare il veleno sulla pelle e bang, è fatta!
+                            - (allestimento2) Greta: Ed ecco la cosa divertente: che grazie alle sigarette elettroniche ora basta versare il veleno sulla pelle e bang, è fatta! Puoi uccidere qualcuno.
                             Greta: Grazie, evoluzione tecnologica!
                             Greta: Ma poi per me c'è il colpo di genio vero e proprio.
                                 -> advance_time ->
@@ -331,7 +331,7 @@ Opzioni di dialogo con la persona Greta
                                 Greta: Usata.
                                 Greta: Mi ha promesso amore.
                                 Greta: Mi ha regalato le piattole.
-                                - (indagini3) Greta: E io che, stupida, coprivo i suoi furti di denaro in azienda.
+                                - (indagini3) Greta: E io che, stupida, coprivo i furti di denaro di Elia in azienda.
                                 Greta: Convinta che ci avremmo costruito una casa assieme, con quei soldi.
                                  Greta: Ho bisogno di un poco di privacy Ettore, scusami.
                                 ~ loopableVariables += pausaRapportoGreta

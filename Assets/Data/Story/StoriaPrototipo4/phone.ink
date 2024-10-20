@@ -104,11 +104,10 @@ Chi chiami?
         Agente: Anche se forse ora le cose stanno peggiorando.
         Ettore: In che senso?
         Agente: Ascolta, io non ti ho detto nulla, ma...
-                + (indagini) Ettore: Ma?
-                -
+        Ettore: Ma?
                 -> advance_time ->
         Agente: L'azienda di Paola è sotto indagine, sono arrivati documenti compromettenti.
-        Agente: E insomma, sembra che lei stia scaricando la colpa sul fratello.
+        - (indagini) Agente: E insomma, sembra che lei stia scaricando la colpa sul fratello.
         Agente: Un idiota totale.
         Agente: MA COMUNQUE: fammi fare bella figura.
         Agente: Questa è gente ricca, cade sempre in piedi.
@@ -131,12 +130,11 @@ Chi chiami?
                 Amica: Conti truccati, mazzette, gente morta.
                         -> advance_time ->
                 Amica: E fresca fresca di oggi, il migliore amico di Elia che sta tirando su un sindacato contro la sorella.
-                 + (sindacato) Ettore: Intendi Zeca?
-                 -
+                Ettore: Intendi Zeca.
                 Amica: See, quello non è il migliore amico! Quello è.
                 Amica: Merda, sta per ripartire Temptation Island.
                 Amica: No, quell'altro, non ricordo come si chiama.
-                Amica: Michele, Mirco, Marco.
+                - (sindacato) Amica: Michele, Mirco, Marco.
                 Amica: Il casino sembra sia partito proprio per le resistenze di Mistress Londar.
                 Amica: A quel punto quel tipo con la M ha dato il tutto per tutto, secondo me.
                 Amica: Ma sono solo speculazioni. Ora scappo, ma tienimi aggiornata!

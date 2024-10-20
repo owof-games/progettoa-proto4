@@ -70,9 +70,9 @@ Opzioni di dialogo con la persona Paola
         Paola: Cosa che mi stupisce, sinceramente.
             -> advance_time ->
         Ettore: Come mai?
-        - (allestimento) Paola: Beh, nella stanza gialla Matteo e Zeca si sono urlati contro come se ne andasse dell'intero universo.
+        Paola: Beh, nella stanza gialla Matteo e Zeca si sono urlati contro come se ne andasse dell'intero universo.
         Paola: O come due gatte in calore.
-        Paola: E Matteo è uscito piangendo.
+        - (allestimento) Paola: E Matteo è uscito piangendo.
         Paola: Sinceramente? Mi masturberò sull'immagine di quella faccina disperata stasera.
         Paola: L'unica cosa decente di questa serata.
         Paola: Già che ci sono potrei andare da Zeca e stuzzicarlo un po' per capire perché hanno litigato.

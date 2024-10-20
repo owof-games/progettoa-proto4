@@ -125,7 +125,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 {cb_first_tier_cibo.primoCheck: Il paradiso di un dodicenne: cioccolata, crema di arachidi, fragole, biscottini sbriciolati. La adori.}
 
 
-
+TODO: sistemare come in secondo tier
 {marryMeStorylet.matteoSiSposa && hardTrueFeelingsStorylet.matteoGreta: <b>Quali sono le intenzioni di Matteo sul matrimonio?</b>}
 
 
@@ -188,11 +188,11 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
     
 
 
-{paola_talking_second_tier.money: Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro.}
-{greta_talking_second_tier.indagini2: Greta ci dice che Elia sta usando il discorso sindacato per mostrare al CdA che Paola è troppo debole e inetta.}
-{greta_talking_second_tier.allestimento3: Greta: Non ho visto la sala gialla per tutta la mattina. Ero con Elia a sistemare i tavoli delle altre sale.}
-{greta_talking_second_tier.indagini3: Se lo diciamo a Greta, lei si sente usata, e giura che smetterà di coprire i furti di denaro di Elia.}
-{trueLoveStorylet: Elia promette amore a Zeca XXX}
+{paola_talking_second_tier.money: Elia per Zeca è la gallina delle uova d'oro, ma di galline non se ne trovano due in questa vita.}
+{greta_talking_second_tier.indagini2: Greta: Elia sta usando l'amicizia con Matteo per usare il sindacato contro Paola.}
+{greta_talking_second_tier.allestimento3: Greta: Ero in giro con Elia a sistemare i tavoli della altre sale.}
+{greta_talking_second_tier.indagini3: Greta: E io che, stupida, coprivo i furti di denaro di Elia in azienda.}
+        {trueLoveStorylet: Elia promette amore a Zeca XXX}
 
 
 
@@ -202,10 +202,10 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 
 
-{zeca_talking_second_tier.love2: Se lo diciamo a Zeca, ci dice che Paola piuttosto dovrebbe farsi delle domande su Matteo, che è lui a campare sulle spalle dei due fratelli.}
-{paola_talking_second_tier.allestimento: Paola: Ho sentito Zeca e Matteo litigare nella stanza prima del buffet.}
-{notABigSecretPartTwoStorylet.allestimento: Elia ci dice che Zeca e Matteo hanno recuperato le cibarie. Sono anche passati in farmacia, e a prendere le ricariche per le sigarette elettroniche di Paola}
-{phone.sindacato: E del tentativo di sindacalizzazione da parte di Matteo.}
+{zeca_talking_second_tier.money: Zeca: No: Matteo è l'unico qui dentro che campa sulle spalle dei due fratelli.}
+{paola_talking_second_tier.allestimento: Paola: Beh, nella stanza gialla Matteo e Zeca si sono urlati contro come se ne andasse dell'intero universo. E Matteo è uscito piangendo.}
+        {notABigSecretPartTwoStorylet.allestimento: Elia ci dice che Zeca e Matteo hanno recuperato le cibarie. Sono anche passati in farmacia, e a prendere le ricariche per le sigarette elettroniche di Paola}
+{phone.sindacato: Amica: E fresca fresca di oggi, il migliore amico di Elia che sta tirando su un sindacato contro la sorella. Michele, Mirco, Marco.}
 
 
 
@@ -215,9 +215,9 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 
 
-{zeca_talking_second_tier.allestimento2: Zeca ci dice che qualcuno si è chiuso nella stanza a scopare a una certa, mentre lui e Matteo montavano le luci. Senza convinzione, dice "forse Paola e il suo vibratore. Anche se non ho sentito il solito puzzo da deodorante per il cesso che si porta dietro."}
-{greta_talking_second_tier.indagini: Qui Greta ci dice che Paola vuole estromettere Elia dall'azienda.}
-{phone.indagini: Scopriamo le indagini sull'azienda di Paola, e che sta scaricando la colpa su Elia}
+{zeca_talking_second_tier.allestimento2: Zeca: Forse era Paola col suo vibratore a saltellare sul tavolo del buffet. Una elder millenial sicuro che ne ha sempre uno con sé.}
+{greta_talking_second_tier.indagini: Greta: Beh: Paola sta cercando far estromettere Elia dalla Londar.}
+{phone.indagini: E insomma, sembra che lei stia scaricando la colpa sul fratello.Agente: L'azienda di Paola è sotto indagine, sono arrivati documenti compromettenti.}
 
 
 
@@ -226,23 +226,23 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 {info_greta: <i>Informazioni su Greta</i>}
 
 
-{zeca_talking_second_tier.allestimento: Zeca ci dice che lui e Matteo hanno lasciato il cibo sui tavoli e poi chiesto a Greta di occuparsene, che loro dovevano sistemare i costumi.}
+{zeca_talking_second_tier.allestimento: Zeca: Comunque sì, Matteo ed io ci siamo occupati di tabacco e cibo, ma non abbiamo preparato noi il buffet. Abbiamo lasciato le cose fuori dalla porta e chiesto a Greta di occuparsene, perché c'erano dei problemi coi costumi.}
 {elia_talking_second_tier.indagini: Elia: Ma la cosa sicura è che abbiamo lasciato le bottiglie all'ingresso e non siamo entrati nella sala gialla delle pappe. Greta e io dovevamo chiamare i fornitori.}
-{liarCallLiarStorylet.indagini: Zeca ci dice che la polizia ha avuto anche dati personali di Paola. Dati a cui solo la segretaria personale avrebbe potuto avere accesso.}
-{liesAndPromisesStorylet: Elia promette a Greta amore XXX}
-{notABigSecretPartOneStorylet.allestimento: Matteo ci dice che Greta ed Elia hanno recuperato il bere. Si sono occupati anche degli elementi della scenografia}
+        {liarCallLiarStorylet.indagini: Zeca ci dice che la polizia ha avuto anche dati personali di Paola. Dati a cui solo la segretaria personale avrebbe potuto avere accesso.}
+        {liesAndPromisesStorylet: Elia promette a Greta amore XXX}
+        {notABigSecretPartOneStorylet.allestimento: Matteo ci dice che Greta ed Elia hanno recuperato il bere. Si sono occupati anche degli elementi della scenografia}
 
 
 
-~ temp info_zeca = zeca_talking_second_tier.love or paola_talking_second_tier.money or paola_talking_second_tier.allestimento or elia_talking_second_tier.allestimento or elia_talking_second_tier.minacce
+~ temp info_zeca = zeca_talking_second_tier.omicidio2 or paola_talking_second_tier.money or paola_talking_second_tier.allestimento or elia_talking_second_tier.allestimento or elia_talking_second_tier.minacce
 
 {info_zeca: <i>Informazioni su Zeca</i>}
 
 
 
-{zeca_talking_second_tier.love: Zeca ci dice che farebbe di tutto per proteggere Elia.}
+{zeca_talking_second_tier.omicidio2: Zeca: Per il resto: farei qualsiasi cosa per proteggere Elia.}
 {paola_talking_second_tier.allestimento: Paola: Ho sentito Zeca e Matteo litigare nella stanza prima del buffet.}
-{paola_talking_second_tier.money: Paola ci dice che per Zeca, Elia è la sua gallina dalle uova d'oro. }
+{paola_talking_second_tier.money: Paola: Beh, nella stanza gialla Matteo e Zeca si sono urlati contro come se ne andasse dell'intero universo. E Matteo è uscito piangendo.}
 {elia_talking_second_tier.indagini: Elia: Ma la cosa sicura è che abbiamo lasciato le bottiglie all'ingresso e non siamo entrati nella sala gialla delle pappe. Greta e io dovevamo chiamare i fornitori.}
 {elia_talking_second_tier.minacce: Elia sbotta, dice che non ha senso, che il suo "socio d'affari" che motivo avrebbe di rovinarlo? e si allontana subito, possiamo "pedinarlo"}
 
@@ -263,7 +263,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 {cb_second_tier_bottiglia_di_vino.primoCheck: Il liquido è inquieto e torbido, e si agita nella bottiglia come fosse dotato di vita propria.}
 {paola_is_dead.vino: Rimane solo un goccio sul fondo. Le labbra di Paola hanno lo stesso colore.}
 {paola_talking_second_tier.vino: Paola: Amo da morire questo vino.}
-{zeca_talking_second_tier.allestimento3: Zeca ci dice che l'hanno comprata lui e Matteo.}
+{zeca_talking_second_tier.allestimento3: Zeca: Sì, la boccia l'abbiamo presa Matteo ed io.}
 
 
 
@@ -279,8 +279,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 {cb_second_tier_sigaretta_elettronica.primoCheck: Morte tascabile.}
 {paola_is_dead.sigaretta: Il dispenser del liquido è completamnte svuotato.}
 {paola_talking_second_tier.sigaretta: Paola: Io vivo di sigaretta elettronica. Adoro i suoi sapori chimici, la possibilità di fumarla ovunque.}
-{greta_talking_second_tier.allestimento2: Se chiediamo a Greta, ipoteticamente, chi potrebbe commettere un crimine, la sua risposta sarà "Beh, chi ha comprato il liquido per le sigarette elettroniche" e poi spiega perché.}
-{greta_talking_second_tier.sigaretta: Greta ci dice che chi ha comprato la ricarica palesemente non conosce Paola, perché lei è in fissa solo col rabarbaro da mesi.}
+{greta_talking_second_tier.allestimento2: Greta: Ed ecco la cosa divertente: che grazie alle sigarette elettroniche ora basta versare il veleno sulla pelle e bang, è fatta! Puoi uccidere qualcuno.}
 
 
 
@@ -315,7 +314,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
             
     }
     
-        ++ {contraddizione_buffet} Greta ed Elia. {choice_WhoWasInChargeOfTheBuffet == True: (scelta attuale)}
+    /**    ++ {contraddizione_buffet} Greta ed Elia. {choice_WhoWasInChargeOfTheBuffet == True: (scelta attuale)}
             ~ choice_WhoWasInChargeOfTheBuffet = True
         ++ {contraddizione_buffet} Zeca e Matteo. {choice_WhoWasInChargeOfTheBuffet== False: (scelta attuale)}
             ~ choice_WhoWasInChargeOfTheBuffet = False
@@ -323,7 +322,7 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
             ~ choice_WhoWasInChargeOfTheBuffet = DontKnow
         ++ ->    
         --
-
+    **/
 
 //choice_ForWhomTheLetterWas = True -> Elia; = False -> Greta.
 
@@ -339,11 +338,12 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
     {
         - contraddizione_lettera:
-            {elia_talking_second_tier.indagini: Elia ci dice che Greta ha dato a Matteo info per "contrattare" meglio con Paola per la sindacalizzazione e questo avrebbe fatto pissare Paola.} {greta_talking_second_tier.indagini: Qui Greta ci dice che Paola vuole estromettere Elia dall'azienda.}
+            {elia_talking_second_tier.indagini: Elia ci dice che Greta ha dato a Matteo info per "contrattare" meglio con Paola per la sindacalizzazione e questo avrebbe fatto pissare Paola.} {greta_talking_second_tier.indagini: Greta: Beh: Paola sta cercando far estromettere Elia dalla Londar.}
             A chi è destinata la lettera?
             
     }
     
+    /**
         ++ {contraddizione_lettera} Elia. {choice_ForWhomTheLetterWas == True: (scelta attuale)}
             ~ choice_ForWhomTheLetterWas = True
         ++ {contraddizione_lettera} Greta. {choice_ForWhomTheLetterWas == False: (scelta attuale)}
@@ -352,4 +352,6 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
             ~ choice_ForWhomTheLetterWas = DontKnow
         ++ ->    
         --
+
+    **/    
 -> intro

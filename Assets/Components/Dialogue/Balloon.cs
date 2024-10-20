@@ -19,12 +19,14 @@ namespace Components.Dialogue
         [SerializeField] private StringEvent continueEvent;
         [SerializeField] private GameObject singleChoicePrefab;
         [SerializeField] private RectTransform choicesContainer;
+        [SerializeField] private RectTransform container;
         private bool _showAdvance;
 
         private void Awake()
         {
             Assert.IsNotNull(advanceButton);
             Assert.IsNotNull(continueEvent);
+            Assert.IsNotNull(container);
         }
 
         private void OnValidate()
@@ -53,10 +55,10 @@ namespace Components.Dialogue
 
             if (direction == Direction.Left)
             {
-                // default is left; switch left and right margins
-                var margin = textMeshProUGUI.margin;
-                (margin.x, margin.z) = (margin.z, margin.x);
-                textMeshProUGUI.margin = margin;
+                // default is left; switch left and right margins (it's enough to reflect anchored position)
+                var anchoredPosition = container.anchoredPosition;
+                anchoredPosition.x = -container.anchoredPosition.x;
+                container.anchoredPosition = anchoredPosition;
                 // also reflect the sprite
                 backgroundImage.transform.localScale = new Vector3(-1, 1, 1);
             }

@@ -23,7 +23,7 @@ namespace Components.Dialogue
         [SerializeField] private StoryStateConstant storyStateTalking;
 
         private readonly List<Character.Character>[] _characterColumns =
-            { new() { Character.Character.Ettore }, new(), new() };
+            { new(), new(), new() };
 
         private readonly Dictionary<int, int> _columnRemapper = new()
         {
@@ -53,13 +53,7 @@ namespace Components.Dialogue
             if (dialoguesHeight > myHeight)
             {
                 var delta = dialoguesHeight - myHeight;
-                var currY = dialogueSlidingContainer.anchoredPosition.y;
-                LMotion.Create(currY, delta, slideDuration)
-                    .WithEase(Ease.Linear)
-                    .Bind(value => dialogueSlidingContainer.anchoredPosition = new Vector2(
-                        dialogueSlidingContainer.anchoredPosition.x,
-                        value))
-                    .AddTo(dialogueSlidingContainer.gameObject);
+                SlideDialogueContainer(delta);
             }
         }
 
@@ -70,6 +64,17 @@ namespace Components.Dialogue
             if (!dialogueRowPrefab)
                 dialogueRowPrefab =
                     AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Components/Dialogue/DialogueRow.prefab");
+        }
+
+        private void SlideDialogueContainer(float delta)
+        {
+            var currY = dialogueSlidingContainer.anchoredPosition.y;
+            LMotion.Create(currY, delta, slideDuration)
+                .WithEase(Ease.Linear)
+                .Bind(value => dialogueSlidingContainer.anchoredPosition = new Vector2(
+                    dialogueSlidingContainer.anchoredPosition.x,
+                    value))
+                .AddTo(dialogueSlidingContainer.gameObject);
         }
 
         public void OnDialogueLine(DialogueLine dialogueLine)
@@ -160,7 +165,10 @@ namespace Components.Dialogue
         public void StoryStateChanged(StoryState newStoryState)
         {
             if (newStoryState.Equals(storyStateTalking.Value)) return;
+
             foreach (RectTransform row in dialogueSlidingContainer) Destroy(row.gameObject);
+
+            SlideDialogueContainer(0);
         }
     }
 }

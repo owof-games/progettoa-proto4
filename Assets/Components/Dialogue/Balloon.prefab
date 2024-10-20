@@ -323,7 +323,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5.5489, y: 19.2362}
+  m_AnchoredPosition: {x: -8.6, y: 19.2362}
   m_SizeDelta: {x: -40.692, y: -53.2694}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8882563350882945800
@@ -690,6 +690,7 @@ MonoBehaviour:
   continueEvent: {fileID: 11400000, guid: f1836d32c09bf4f4ca4b1bc5567fda79, type: 2}
   singleChoicePrefab: {fileID: 6626954479111026206, guid: f264fb7b22b2ec942834eab77ac740ba, type: 3}
   choicesContainer: {fileID: 2064204461409268787}
+  container: {fileID: 138030533244277261}
 --- !u!114 &7169472281793527819
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -62,6 +62,7 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
             atom3: interactCharacterEvent,
             onEvent3: characterName =>
             {
+                currentStoryState.Value = storyStateTalking.Value;
                 // asked to interact with character: take the given choice
                 var choice = context.Choices.FirstOrDefault(choice => choice.Text == $"character:{characterName}");
                 if (choice.Text == null)
@@ -71,7 +72,5 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
                 context.TakeChoice(choice.Index);
             }
         );
-
-        currentStoryState.Value = storyStateTalking.Value;
     }
 }

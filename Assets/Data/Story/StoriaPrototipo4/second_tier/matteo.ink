@@ -166,7 +166,7 @@ Opzioni di dialogo con la persona Matteo
         }
 
     + (allestimento) {paola_talking_second_tier.allestimento && new_this_loop(->allestimento)} Ettore: Matteo, Paola dice che tu e Zeca stavate litigando nella stanza gialla prima delle prove.
-        Ettore: E voleva chiedere a Zeca il perché.
+        Ettore: E che vuole andare a stuzzicare Zeca per capire il perché.
         Matteo: Quella strega! Devo subito trovare Zeca, sai dove possa essere?
         + + {whiteRoomContents hasnt Ettore} Ettore: Credo sia nella stanza bianca.
                 ~ move_entity(Matteo, WhiteRoom)

@@ -353,7 +353,6 @@ TODO: fare entrare queste due informazioni in modo casuale, come Matteo che si l
 
 //SCENA ARRINGA
 === arringa_finale
-TODO: trasforma l'arringa in un unico bloccone alla Poirot, tutte assieme.
     ~ move_first_entity_to_second_entity_location(Paola, Ettore)
     ~ move_first_entity_to_second_entity_location(Greta, Ettore)
     ~ move_first_entity_to_second_entity_location(Elia, Ettore)

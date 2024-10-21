@@ -54,39 +54,40 @@ Opzioni di dialogo con il personaggio Elia
 
     + (senzatetto){greta_acting.omicidio && new_this_loop(->senzatetto) && not are_two_entities_together(Greta, Elia)} Ettore: Sai Elia, Greta vorrebbe parlare con te.
         Elia: Così può uccidere anche me?
-        Ettore: In che senso?
-        Elia: Chi altri avrebbe potuto uccidere Paola?
-        Elia: Paola voleva rilevare il pub per trasformarlo in un rifugio per senzatetto.
-        - -(senzatetto2) Elia: E Greta ha detto cose terribili e ripetuto che avrebbe fatto di tutto per fermarla.
-        Elia: Di tutto.
-        Elia: Per cui se sei un suo semplice, vattene!
-        Ettore: Semplice?
-        Elia: Hai capito. Via!
-        -> advance_time ->
-        // route "lo mandi nella stanza di Greta con una trappola"
-        
-        // route "lo mandi da Greta proponendo uno scambio"
-    +  (uniti){weddingAtThePubStorylet && new_this_loop(->senzatetto) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia)} Ettore: Ho una proposta da farti: io faccio una cosa per te, e tu vai da Greta. Che ne dici?
-        Elia: Qualcosa a che fare con la mia micia?
-        Elia: Perché ormai non credo più a nessuno che vuole toccare la mia micia.
-        {!elia_acting.third_qn: Ettore: Ehm, no. Manco sapevo avessi una micia.}
-        {elia_acting.third_qn: Ettore: No, non c'entra Sonia.}
-        Ettore: So che tu e Matteo avete litigato, per via del matrimonio.
-        Ettore: Tu vuoi che festeggiamo al pub, lui non ne vuole sapere. Se lo convinco, andrai da Greta?
-        Elia: Quindi vuoi davvero che io muoia? Va bene.
-        Elia: Se ci riesci, parlerò con quella arpia.
-        Elia: Ma magari aiutami a proteggermi!
-        -> advance_time ->   
-    
-    + {not new_this_loop(->senzatetto) && !hardTrueFeelingsStorylet && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && (loopableVariables hasnt EliaRaggiungeGreta)} Ettore: Sto ancora cercando il modo di convincere Matteo, ma ce la farò!
-        Elia: Non ho fretta di morire, tranquillo!
+         + + Ettore: In che senso?
+            Elia: Chi altri avrebbe potuto uccidere Paola?
+            Elia: Paola voleva rilevare il pub per trasformarlo in un rifugio per senzatetto.
+            - - - (senzatetto2) Elia: E Greta ha detto cose terribili e ripetuto che avrebbe fatto di tutto per fermarla.
+            Elia: Di tutto.
+            Elia: Per cui se sei un suo semplice, vattene!
+            Ettore: Semplice?
+            Elia: Hai capito. Via!
+                -> advance_time ->
 
-    + (missioneGreta){hardTrueFeelingsStorylet && not are_two_entities_together(Greta, Elia) && seen_in_this_loop(->senzatetto) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Ho convinto Matteo!
-        Ettore: Faremo la cerimonia da voi, al pub.
-        Ettore: In fondo cosa c'è di più romantico di un esercito di comici ubriachi e incapaci?
-        Ettore: Quindi, ora parlerai con Greta?
-        Elia: Mi dai qualcosa per difendermi da lei?
-        {
+        + + (uniti){weddingAtThePubStorylet && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && new_this_loop(->uniti)} Ettore: Ho una proposta da farti
+            Ettore: Io faccio una cosa per te, e tu vai da Greta. Che ne dici?
+            Elia: Qualcosa a che fare con la mia micia?
+            Elia: Perché ormai non credo più a nessuno che vuole toccare la mia micia.
+            {!elia_acting.third_qn: Ettore: Ehm, no. Manco sapevo avessi una micia.}
+            {elia_acting.third_qn: Ettore: No, non c'entra Sonia.}
+            Ettore: So che tu e Matteo avete litigato, per via del matrimonio.
+            Ettore: Tu vuoi che festeggiamo al pub, lui non ne vuole sapere. Se lo convinco, andrai da Greta?
+            Elia: Quindi vuoi davvero che io muoia? Va bene.
+            Elia: Se ci riesci, parlerò con quella arpia.
+            Elia: Ma magari aiutami a proteggermi!
+            -> advance_time ->   
+    
+        + + {not new_this_loop(->uniti) && hardTrueFeelingsStorylet && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Sto ancora cercando il modo di convincere Matteo, ma ce la farò!
+            Elia: Non ho fretta di morire, tranquillo!
+
+        + + (missioneGreta){hardTrueFeelingsStorylet && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Ho convinto Matteo!
+            Ettore: Faremo la cerimonia da voi, al pub.
+            Ettore: In fondo cosa c'è di più romantico di un esercito di comici ubriachi e incapaci?
+            Ettore: Quindi, ora parlerai con Greta?
+            {new_this_loop(->uniti): Elia: Come sapevi che era il mio desiderio?}
+            {new_this_loop(->uniti): Ettore: Intuito da futuro cognato!}
+            Elia: Mi dai qualcosa per difendermi da lei?
+            {
             - inventoryContents has Lettera: Ettore: Puoi provare a minacciarla?
                 ~ inventoryContents -= Lettera
                 ~ objectStorageContents += Lettera
@@ -109,34 +110,34 @@ Opzioni di dialogo con il personaggio Elia
                 ~ inventoryContents -= SigarettaElettronica
                 ~ objectStorageContents += SigarettaElettronica
             - else: Ettore: Ehm, il tuo smagliante sorriso?    
-        }
-        Elia: Grazie. In qualche modo me la caverò.
-        Elia: Bene, vado, dove la trovo?
-            ~ move_entity_from_object_storage_to_Ettore_location(SpiedinoCocktail)
-        + + {whiteRoomContents hasnt Ettore} Ettore: Ti aspetta nella stanza bianca.
-                ~ move_entity(Elia, WhiteRoom)
-                {
-                - whiteRoomContents has Greta:
-                ~ loopableVariables += EliaRaggiungeGreta
-                }
-        + + {greenRoomContents hasnt Ettore} Ettore: La trovi nella stanza verde.
-                ~ move_entity(Elia, GreenRoom)
-                {
-                - greenRoomContents has Greta:
-                ~ loopableVariables += EliaRaggiungeGreta
-                }
-        + + {yellowRoomContents hasnt Ettore} Ettore: Sta cazzeggiando nella stanza gialla.              
-                ~ move_entity(Elia, YellowRoom)
-                {
-                - yellowRoomContents has Greta:
-                ~ loopableVariables += EliaRaggiungeGreta
-                }
-        + + {redRoomContents hasnt Ettore} Ettore: Nella stanza rossa.             
-                ~ move_entity(Elia, RedRoom)
-                {
-                - redRoomContents has Greta:
-                ~ loopableVariables += EliaRaggiungeGreta
-                }      
+            }
+            Elia: Grazie. In qualche modo me la caverò.
+            Elia: Bene, vado, dove la trovo?
+                ~ move_entity_from_object_storage_to_Ettore_location(SpiedinoCocktail)
+                + + + {whiteRoomContents hasnt Ettore} Ettore: Ti aspetta nella stanza bianca.
+                        ~ move_entity(Elia, WhiteRoom)
+                        {
+                        - whiteRoomContents has Greta:
+                        ~ loopableVariables += EliaRaggiungeGreta
+                        }
+                + + + {greenRoomContents hasnt Ettore} Ettore: La trovi nella stanza verde.
+                        ~ move_entity(Elia, GreenRoom)
+                        {
+                        - greenRoomContents has Greta:
+                        ~ loopableVariables += EliaRaggiungeGreta
+                        }
+                + + +  {yellowRoomContents hasnt Ettore} Ettore: Sta cazzeggiando nella stanza gialla.              
+                        ~ move_entity(Elia, YellowRoom)
+                        {
+                        - yellowRoomContents has Greta:
+                        ~ loopableVariables += EliaRaggiungeGreta
+                        }
+                + + + {redRoomContents hasnt Ettore} Ettore: Nella stanza rossa.             
+                        ~ move_entity(Elia, RedRoom)
+                        {
+                        - redRoomContents has Greta:
+                        ~ loopableVariables += EliaRaggiungeGreta
+                        }      
                 
    
     + (sincero) {hardTrueFeelingsStorylet  && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Matteo mi ha detto di lui e di Greta.

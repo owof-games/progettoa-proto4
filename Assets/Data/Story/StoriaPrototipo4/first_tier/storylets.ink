@@ -9,10 +9,10 @@
 
 
 //STORYLET "NORMALI"
-    - are_three_entities_together(Elia, Matteo, Ettore) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Greta) && peopleTalking == false && (marryMeStorylet.matteoSiSposa or marryMeStorylet.matteoSiSposa2) && new_this_loop(->weddingAtThePubStorylet):
+    - are_three_entities_together(Elia, Matteo, Ettore) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Greta) && peopleTalking == false && new_this_loop(->weddingAtThePubStorylet):
             -> weddingAtThePubStorylet
 
-
+    //&& (marryMeStorylet.matteoSiSposa or marryMeStorylet.matteoSiSposa2)
 
 //CONVERSAZIONI ORIGLIATE
     - are_two_entities_together(Elia, Greta) && elia_acting.missioneGreta && not are_two_entities_together(Elia, Matteo) && not are_two_entities_together(Elia, Zeca) && is_this_entity_near_Ettore(Elia) == true &&  peopleTalking == false && new_this_loop(->anEavesdropAboutFriendshipStorylet):
@@ -42,13 +42,13 @@
 
 
 //MATERIALI PER TUTORIAL
-    - currentTime > 300 && not objects_tutorial:
+    - currentTime >= 300 && not activeObjects:
             -> objects_tutorial
 
-    - currentTime > 405 && objects_tutorial && new_this_loop(->objects_tutorial) && not notebook_tutorial:
+    - currentTime >= 405 && activeObjects && not activeNotebook:
             -> notebook_tutorial
 
-    - currentTime > 510 && objects_tutorial && notebook_tutorial && new_this_loop(->notebook_tutorial) && not talking_tutorial:     -> talking_tutorial
+    - currentTime >= 510 && activeObjects && not activeNotebook && not talking_tutorial: -> talking_tutorial
 
 
 //La morte di Paola deve arrivare solo quando abbbiamo fatto tutti i tutorial e abbiamo compiuto le scelte su Matteo e Zeca

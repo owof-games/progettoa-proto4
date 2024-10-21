@@ -54,7 +54,7 @@ Opzioni di dialogo con il personaggio Elia
         Ettore: In che senso?
         Elia: Chi altri avrebbe potuto uccidere Paola?
         Elia: Paola voleva rilevare il pub per trasformarlo in un rifugio per senzatetto.
-        Elia: E Greta ha detto cose terribili e ripetuto che avrebbe fatto di tutto per fermarla.
+        - (senzatetto2) Elia: E Greta ha detto cose terribili e ripetuto che avrebbe fatto di tutto per fermarla.
         Elia: Di tutto.
         Elia: Per cui se sei un suo semplice, vattene!
         Ettore: Semplice?
@@ -99,7 +99,7 @@ Opzioni di dialogo con il personaggio Elia
             - inventoryContents has BottigliaDiVino: Ettore: Che ne dici di farla ubriacare?
                 ~ inventoryContents -= BottigliaDiVino
                 ~ objectStorageContents += BottigliaDiVino
-            - inventoryContents has FlaconcinoAsma: Ettore: Ehm, puoi fare qualcosa con un flaconcino?
+            - inventoryContents has FlaconcinoAsma: Ettore: Ehm, puoi soffocarla con un flaconcino?
                 ~ inventoryContents -= FlaconcinoAsma
                 ~ objectStorageContents += FlaconcinoAsma
             - inventoryContents has SigarettaElettronica: Ettore: Puoi sempre infastidirla col puzzo di questo coso?
@@ -107,9 +107,8 @@ Opzioni di dialogo con il personaggio Elia
                 ~ objectStorageContents += SigarettaElettronica
             - else: Ettore: Ehm, il tuo smagliante sorriso?    
         }
-        Elia: "Grazie. In qualche modo me la caverò."
-        Elia: "Bene, vado, dove la trovo?"
-            -> advance_time ->
+        Elia: Grazie. In qualche modo me la caverò.
+        Elia: Bene, vado, dove la trovo?
             ~ move_entity_from_object_storage_to_Ettore_location(SpiedinoCocktail)
         + + {whiteRoomContents hasnt Ettore} Ettore: Ti aspetta nella stanza bianca.
                 ~ move_entity(Elia, WhiteRoom)
@@ -197,15 +196,15 @@ Opzioni di dialogo con il personaggio Elia
         Elia: Non ho mai visto questa roba, mai.
         {elia_acting.first_qn: Ettore: Ma ci sono le iniziali del tuo locale, vedi?}
         Elia: Lasciami in pace!
-        + + (paolaSiSposa) Ettore: Sarebbe perfetto per uccidere qualcuno!
+        + +  Ettore: Sarebbe perfetto per uccidere qualcuno!
             Elia: No, una cosa perfetta per uccidere qualcuno è la morte!
             Elia: L'ho portato a Paola per vedere se va bene per il matrimonio.
             {!hardTrueFeelingsStorylet.matteoGreta: Ettore: Il matrimonio mio e di Matteo?}
             {hardTrueFeelingsStorylet.matteoGreta: Ettore: Il non più matrimonio mio e di Matteo?}
             Elia: No, il suo. Paola si sposa.
-            Elia: Ha organizzato un matrimonio in fretta e furia, manco sappiamo con chi.
-            -> advance_time ->
-        - -
+            - (paolaSiSposa) Elia: Ha organizzato un matrimonio in fretta e furia, manco sappiamo con chi.
+                        -> advance_time ->
+            - -
     + (minacce){inventoryContents has Lettera} Ettore: Elia, tu sai chi possa aver scritto questa lettera?
             Elia: Ehm, cosa, ehm.
             Elia: Cosa c'è scritto?
@@ -217,8 +216,8 @@ Opzioni di dialogo con il personaggio Elia
             Elia: E solo perché era convinto che fossero avvelenate.
             -> advance_time ->
     + {inventoryContents has LimettaUnghie} Ettore: Sai di chi è questa limetta per le unghie?
-            Elia: Zeca?
-            è plausibile che in realtà limetta non sarà mai in lista
+            Elia: Di Zeca?
+           
     + {inventoryContents has Torta} Ettore: Sai chi potrebbe aver portato la torta?
             Elia: Il fornaio?
             Ettore: Intendi il catering?
@@ -228,17 +227,19 @@ Opzioni di dialogo con il personaggio Elia
             Elia: E i dolci son del fornaio, no?
             Elia: E Paola che dice che non capisco nulla.
             -> advance_time ->
-    + {inventoryContents has BottigliaDiVino} Ettore: Hai mai visto questa bottiglia di.
+            
+    + {inventoryContents has BottigliaDiVino} Ettore: Hai mai visto questa bottiglia di...
             Elia: No non bevo grazie.
-            Ettore: No, ti chiedevo se avessi mai
+            Ettore: No, ti chiedevo se avessi mai...
             Elia: Non insistere, no.
             Elia: Non voglio fare la fine di Zeca.
-            Ettore: Elia: vorrei solo sapere chi
-            Elia: Guarda che è maleducato insistere quando
+            Ettore: Elia: vorrei solo sapere chi...
+            Elia: Guarda che è maleducato insistere quando...
             Ettore: CHI HA PORTATO QUESTA BOTTIGLIA?!?
             Elia: Paola. Credo sia della collezione di Paola.
             Elia: E guarda che non serve urlare!
             -> advance_time ->
+            
     + {inventoryContents has FlaconcinoAsma} Ettore: Sei tu a soffrire d'asma?
             Elia: È quella cosa che ti viene quando hai paura di tutto?
             Ettore: Intedi l'ansia? Che non è proprio così comunque.
@@ -249,6 +250,7 @@ Opzioni di dialogo con il personaggio Elia
             Elia: No, di quelle per saltare.
             Ettore: Quella è, oh, lascia fare.
             -> advance_time ->
+            
     + {inventoryContents has SigarettaElettronica} Ettore: Sai di chi sia questa sigaretta elettronica?
             Elia: Non dovrebbe essere "a liquidi?"
             Elia: Che poi Greta mi dice sempre di tenere lontane le cose elettroniche dall'acqua.
@@ -283,27 +285,28 @@ Opzioni di dialogo con il personaggio Elia
 
     = first_qn
     ~ EliaActing++
-        + Ettore: Come sta andando con il pub?
+        Ettore: Come sta andando con il pub?
         Elia: Il <i>Funny Elia & Greta</i>? Benissimo! L'altro sabato abbiamo avuto addirittura tre comici di fila.
         Elia: Anche se uno era così ubriaco che si è addormentato durante il suo sketch.
         Elia: Ma è stato anche il momento in cui il pubblico ha riso di più.
         Elia: E ora sto cercando di convincere Greta a portare dei cani sul palco.
         Elia: Ma lei dice che ne abbiamo già abbasta sufficienza.
         Elia: Cosa che non ha senso perché l'unico cane che può entrare è Grisù, il labrador della signora cieca del terzo piano.
+            -> advance_time ->
         Elia: Ma Greta dice che non importa che io capisca, fintanto che faccio buoni cocktail.
         Elia: E stia lontano dalla cassa.
         Elia: E dalla lista degli ospiti.
         Elia: E dalle decisioni per il locale.
         Elia: E dalla commercialista.
-            -> advance_time ->
-        
-        -
-        -> elia_acting 
+        Elia: Però posso rimanere a torso nudo.
+        Elia: Dice che fa bene ai guadagni.
+                -> advance_time ->
+            -> elia_acting 
 
     = second_qn
      ~ EliaActing++
         Elia: Posso farti una domanda, Ettore?
-        Elia: Cosa ci trovi in mio fratello?
+        Elia: Cosa ci trovi in mio fratello Matteo?
             + Ettore: Mi fa sentire al sicuro.
             + Ettore: Mi fa sentire desiderato.
             + Ettore: A volte me lo chiedo anche io.
@@ -316,10 +319,8 @@ Opzioni di dialogo con il personaggio Elia
         Elia: Anni fa, quando nonno ha insistito, mi ha messo a distribuire pacchi e comunicazioni.
         Elia: Ma mi ha licenziato quando, vestito da Babbo Natale, gli ho portato in ufficio i carabinieri con un avviso di garanzia.
         Elia: Quando ho cantato "Merry Xmas" i carabinieri hanno dovuto staccarmelo di forza.
-            -> advance_time ->
-       
-        -
-        -> elia_acting     
+                    -> advance_time ->
+                -> elia_acting     
 
     = third_qn
     ~ EliaActing++
@@ -331,7 +332,7 @@ Opzioni di dialogo con il personaggio Elia
         Ettore: Ma non era molto più grande di te?
         Elia: Nell'anima di sicuro. Ma non ti preoccupare: so per certo che la raggiungerò presto.
         Ettore: Elia: se hai bisogno di sfogarti sono qui, ma non fare gesti dati dalla disperazione.
-        -> advance_time -> 
+                -> advance_time -> 
         Elia: No, non sono così disperato, alla fine starà via un paio d'ore.
         Ettore: Elia, guarda che è morta.
         Elia: Come, morta?
@@ -343,7 +344,6 @@ Opzioni di dialogo con il personaggio Elia
         Elia: Di Sonia, la mia certosina, la mia povera piccola angioletta.
         Ettore: Io, io. Niente. Lascia fare.
             -> advance_time ->    
-        -    
         -> elia_acting
 
 /* ---------------------------------
@@ -389,7 +389,7 @@ Opzioni di dialogo con la persona Elia
                 Elia: No, al bagno.
                 Elia: Ma non ne sto trovando uno in questo posto.
             -
-        -> advance_time ->
+            -> advance_time ->
         Elia: Comunque complimenti per la recita.
         Elia: Quando Paola è schiattata, tu è stato molto credibile!
             + Ettore: Perché nessuno mi aveva detto che sarebbe morta!
@@ -404,10 +404,9 @@ Opzioni di dialogo con la persona Elia
                 Elia: Ma ci sono troppi numeri.
             -
         Elia: Niente, vado a cercare il mio amico. A dopo!
-            -> advance_time ->
+                -> advance_time ->
             ~ move_this_entity_in_a_different_room(Elia)
-
-    -> elia_talking 
+            -> elia_talking 
 
     = second_qn
      ~ EliaTalking++
@@ -425,7 +424,7 @@ Opzioni di dialogo con la persona Elia
                 Elia: Beh, sennò cosa fai di tutte quelle ore della giornata?
                 Elia: A parte fare sonnellini di bellezza?
             -    
-            -> advance_time ->
+                -> advance_time ->
         Elia: Poi da quando collaboro con Zeca, è tutto molto più divertente.
         Ettore: Ma in cosa consiste BRO?
         Elia: Non è che consiste, perché non lo tocchi.
@@ -435,7 +434,7 @@ Opzioni di dialogo con la persona Elia
         Elia: Entriamo negli spogliatoi, ti facciamo un po' di foto e le appendiamo in giro.
         Elia: Così tutti vedono i tuoi difetti, e sei spinto a migliorarti.
         Elia: O ci paghi per levarle.
-            -> advance_time ->
+                -> advance_time ->
         Elia: E Zeca le tiene a casa sua per sicurezza.
         Elia: Così i pirati non le rubano.
         Elia: Chissà come entrano con la nave a casa tua. Qui non c'è il mare.
@@ -445,9 +444,8 @@ Opzioni di dialogo con la persona Elia
         Elia: Vuole che le facciamo una foto?
         Ettore: Ehm, facciamo un altro giorno, tipo mai?
         Elia: Forse dovrei farle a Matteo. Palese che è fuori forma.
-            -> advance_time ->
-        -
-        -> elia_talking    
+                -> advance_time ->
+            -> elia_talking    
 
     = third_qn
     ~ EliaTalking++
@@ -462,7 +460,7 @@ Opzioni di dialogo con la persona Elia
         Elia: Non dovrei essere orgoglioso?
         Ettore: No no, è un'altra domanda!
         Elia: Uh, scusa. A volte è tutto così confuso.
-        Ettore: Ricominciamo. Sei orgoglioso di tua sorella Paola.
+        Ettore: Ricominciamo. Sei orgoglioso di tua sorella, e tua sorella è Paola.
         Elia: E come lo sai?
         Ettore: Me l'hai detto poco fa.
         Elia: Sei uno di quelli? Un telepratico?

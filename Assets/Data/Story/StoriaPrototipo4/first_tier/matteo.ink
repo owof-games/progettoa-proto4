@@ -157,7 +157,7 @@ Opzioni di dialogo con il personaggio Matteo
 
     = first_qn
     ~ MatteoActing++
-        + Ettore: Come posso tirarti su il morale, Matteo?
+            Ettore: Come posso tirarti su il morale, Matteo?
             Matteo: Un pompino in bagno?
             Ettore: Non credo sia il caso.
             Matteo: Ma sei così bello.
@@ -167,26 +167,22 @@ Opzioni di dialogo con il personaggio Matteo
             Matteo: Diffondere l'amore, saziarci nei nostri corpi fino a raggiungere le stelle.
             Ettore: Ti va una merendina?
             Matteo: Ecco, sì, una merendina sarebbe perfetta.
-            -> advance_time ->
-        
-        -
-        -> matteo_acting 
+                    -> advance_time ->
+                -> matteo_acting 
 
     = second_qn
      ~ MatteoActing++
-        +  Ettore: Non mi parli mai molto della tua famiglia, come mai?
+            Ettore: Non mi parli mai molto della tua famiglia, come mai?
             Matteo: Ovvio: sono tutti invidiosi.
             Matteo: Zeca è un fallito e pensa solo a chiedermi prestiti.
-            Matteo: Elia ha il cervello di un labrador nel corpo di un trent'enne disgraziato.
+            Matteo: Elia ha il cervello di un labrador nel corpo di un trentenne disgraziato.
             Matteo: Paola giudica chiunque non rinunci a ogni piacere possibile.
             Matteo: Greta pensa che essere acide sia un tratto distintivo.
             Matteo: E i nonni sono i nonni. Insomma, son vecchi e quindi noiosi.
             Matteo: Ma almeno mi hanno dato una mano con l'azienda.
             Matteo: Ma solo una mano, giuro, il resto ho fatto da solo!
-            -> advance_time ->
-       
-        -
-        -> matteo_acting     
+                    -> advance_time ->
+                -> matteo_acting     
 
     = third_qn
     ~ MatteoActing++
@@ -196,13 +192,12 @@ Opzioni di dialogo con il personaggio Matteo
         Matteo: <i>Bel culo. Questo tizio ha davvero un gran bel culo.</i>
         Ettore: Me lo dicesti pure. Mi imbarazzai un sacco.
         Matteo: Eh, son sempre stato una persona diretta, vero?
-        Matteo: Anche se mi son dovuto dare una calmata, dopo quelle denuncie.
+        Matteo: Anche se mi son dovuto dare una calmata, dopo quelle denunce.
         Matteo: Certi ragazzi non sanno stare più allo scherzo.
         Ettore: E cosa pensi di me, ora?
         Matteo: Che ti porterei in bagno e te lo mangerei, quel gran bel culo.
-            -> advance_time ->    
-        -    
-        -> matteo_acting
+                    -> advance_time ->    
+                -> matteo_acting
 
 
 
@@ -254,16 +249,15 @@ Opzioni di dialogo con la persona Matteo
         Matteo: Oh, lo siamo un po' tutti, direi.
             -> advance_time ->
         Matteo: Greta è la segretaria di Paola.
-        Matteo: Io faccio le pulizie a casa di Elia, e lavoro in un call centre dell'azienda di Paola.
+        Matteo: Io faccio le pulizie a casa di Elia, e lavoro in un call center dell'azienda di Paola.
         Matteo: Se da qualche parte c'è Elia, Zeca è sempre dietro di lui.
         Matteo: Ed Elia è qui perché non sa mai dire di no a Paola.
-        Matteo: Anche se, e rimanga tra noi, sono settimane che litigano, e di brutto, davvero di brutto.       
+        Matteo: Anche se, e rimanga tra noi, sono settimane che litigano, e di brutto, davvero di brutto.      
         Ettore: Hai idea del perché?
         Matteo: Diciamo che non sono cose che si dicono a chi non fa parte dell'inner circle.
-        Matteo: Ma se ti capitasse un cellulare sotto mano, beh: cerca Londar INC e avrai le idee un po' più chiare.
-            -> advance_time ->
-        -
-        -> matteo_talking 
+        Matteo: Ma se ti capitasse un cellulare sotto mano, beh: cerca Londar INC tra le notizie e avrai le idee un po' più chiare.
+                -> advance_time ->
+            -> matteo_talking 
 
     = second_qn
      ~ MatteoTalking++
@@ -275,7 +269,7 @@ Opzioni di dialogo con la persona Matteo
         Matteo: Una manco velata rappresentazione di come lei vede Elia, sinceramente.
         Matteo: E a proposito dell'altro Matteo: mi spiace di dover essere un fidanzato di merda, sinceramente.
         Matteo: {hardTrueFeelingsStorylet: Soprattutto quella faccenda con Greta|E il peggio deve ancora arrivare}.
-            -> advance_time ->
+                -> advance_time ->
                 + Ettore: Fa parte del lavoro, non ti preoccupare.
                     Matteo: Beh, non mi piace comportarmi da stronzo, mai.
                 + Ettore: Paola non apprezza Elia?
@@ -283,7 +277,7 @@ Opzioni di dialogo con la persona Matteo
                 -
         Matteo: Ma che ne dici se dopo tutto questo casino ci beviamo qualcosa?
         Matteo: Non è un appuntamento, tranqui.
-        Matteo: Ma non so da quanto tempo ho una conversazione che non sia di lavoro.
+        Matteo: Ma non so da quanto tempo non ho una conversazione che non sia di lavoro.
         Matteo: O con qualcuno con cui non lavoro.
         Matteo: Che poi ok, stiamo lavorando assieme ora. Ma almeno non mi stai urlando in faccia.
                 + Ettore: Appena stacchiamo viene a prendermi la persona con cui sto.
@@ -291,7 +285,6 @@ Opzioni di dialogo con la persona Matteo
                         + + Ettore: Ma non è un problema, per noi. Insomma, non è una relazione esclusiva.
                             Matteo: Allora birrettona a tre?
                         + + Ettore: Volentieri!
-                        - -    
                 + Ettore: Volentieri! Birretta e cazzate?
                     Matteo: La serata migliore direi!
                 + Ettore: La risposta è sì. E non mi spiacerebbe fosse un appuntamento.
@@ -299,8 +292,8 @@ Opzioni di dialogo con la persona Matteo
                     Ettore: Beh, possiamo risolvere rimanendo nudi.
                 -
         Matteo: Grazie per questo momento di umanità, Ettore. Lo dico col cuore.
-            -> advance_time ->                       
-        -> matteo_talking    
+                -> advance_time ->                       
+            -> matteo_talking    
 
     = third_qn
     ~ MatteoTalking++
@@ -315,10 +308,10 @@ Opzioni di dialogo con la persona Matteo
         Matteo: E quella persona quella cosa l'ha fatta, ma non sai se bene o meno.
         Matteo: E chi ti ha chiesto di fare quella cosa ti ha riempito di complimenti, complimenti che però non andrebbero davvero dati a te.
         Matteo: Quale sarebbe la cosa giusta da fare?    
-        -> advance_time ->
+            -> advance_time ->
             + Ettore: Quando l'altra persona ha deciso di aiutarti di nascosto, ha accettato il rischio.
                 Matteo: Una visione pragmatica.
-            + Ettore: Dì a chi ti ha aiutato che i complimenti son per lei.
+            + Ettore: Dì a chi ti ha aiutato che i complimenti sono per lei.
                 Matteo: Così li abbiamo entrambi?
             -
         Matteo: Se non fosse stata Paola, a chiedermi di fare quella cosa, la sincerità sarebbe una opzione.

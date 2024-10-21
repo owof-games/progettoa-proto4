@@ -45,8 +45,8 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 }
 
 
-{elia_acting.senzatetto: <i>Informazioni sul personaggio Elia</i>}
-{elia_acting.senzatetto: Elia: Paola voleva rilevare il pub per trasformarlo in un rifugio per senzatetto. E Greta ha detto cose terribili e ripetuto che avrebbe fatto di tutto per fermarla.}
+{elia_acting.senzatetto2: <i>Informazioni sul personaggio Elia</i>}
+{elia_acting.senzatetto2: Elia: Paola voleva rilevare il pub per trasformarlo in un rifugio per senzatetto. E Greta ha detto cose terribili e ripetuto che avrebbe fatto di tutto per fermarla.}
 
 
 

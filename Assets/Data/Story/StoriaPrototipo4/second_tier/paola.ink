@@ -22,6 +22,7 @@ Opzioni di dialogo con la persona Paola
  {debug: <i>Passo per paola_talking</i>}
     //INFO GENERALI//
     + (loop) {new_this_loop(->loop)} Ettore: Paola, ehm, hai notato nulla di problematico?
+        Paola: Io che cerco una biro dopo che non scrivo dal duemila e quattro?
         Paola: Oggetti personali lasciati in giro come se fossero oggetti di scena?
         Paola: Gente che tira parole a caso perché non ricorda uno script basilare?
         Paola: Il mio reflusso che spacca più del solito e mi sento mancare l'aria?
@@ -41,6 +42,7 @@ Opzioni di dialogo con la persona Paola
         Paola: Nausea.
         Paola: Voglia di bere il mondo per dimenticarmi che quella specie di australopiteco di Elia è mio fratello.
         Paola: E la non insolita speranza che qualcuno mi uccida.
+        Paola: Hai visto il mio boccettino per l'asma? L'ho comprato giusto stamani, cazzo.
             -> advance_time ->
 
     + (omicidio) {new_this_loop(->omicidio)} Ettore: C'è, c'è. C'è qualcuno qui che vorrebbe ucciderti?
@@ -145,7 +147,7 @@ Opzioni di dialogo con la persona Paola
                 
     //SCELTE CONDIZIONALI OGGETTI//
      + (Minacce) {inventoryContents has Lettera} Ettore: Hai mai visto questa lettera?
-        Paola: Non c'ho cazzi Ettore, dammi qui e ci do un'occhiata ora.
+        Paola: Non c'ho cazzi Ettore, dammi qui e dopo ci butto un occhio.
             ~ inventoryContents -= Lettera
             ~ objectStorageContents += Lettera
     
@@ -169,6 +171,7 @@ Opzioni di dialogo con la persona Paola
         Paola: Tra polvere e muffa in questo posto, senza potrei morire.
             ~ inventoryContents -= FlaconcinoAsma
             ~ objectStorageContents += FlaconcinoAsma
+        Paola: Ma è vuoto! Come cazzo è possibile che sia vuoto, che era nuovo?
     
     + (sigaretta) {inventoryContents has SigarettaElettronica} Ettore: Sai chi fuma qui tra noi?
         Paola: Erba? Zeca.

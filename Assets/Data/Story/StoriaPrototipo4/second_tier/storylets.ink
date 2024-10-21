@@ -517,78 +517,211 @@
     ~ move_first_entity_to_second_entity_location(Matteo, Ettore)
     ~ move_first_entity_to_second_entity_location(Zeca, Ettore)
     
-Ettore: Vi ho chiamati tutti perché sta per essere commesso un crimine.
-Scena alla Nella mia famiglia tutti hanno ucciso qualcuno.
-Ettore: Una delle prime cose che mi ha colpito, è che nessuno ammetteva di essere stato nella sala gialla.
-Ma sono sicuro che se ne sono occupati
-    + Ettore: Greta e Elia!
-        + + Perché uno
-    + Ettore: Matteo e Zeca!
-        + + Perché due
-    + Ettore: Non riesco a prendere una decisione.    
-Ettore: Poi, c'è la lettera.
+    ~ currentTime = 585
+
+Paola: Quindi, cos'è tutta questa urgenza? Abbiamo delle prove da riprendere.
+Elia: Hai trovato le mie barrette proteiche?
+Ettore: Silenzio!
+Ettore: Siamo nel bel mezzo di un crimine.
+Zeca: Un crimine peggiore della sceneggiatura di Paola?
+Ettore: Silenzio!
+Ettore: Durante la serata ho parlato con tutti voi, molte molte molte volte.
+Elia: Ma io non ricordo che-
+Greta: Silenzio!
+Ettore: Grazie, Greta.
+Ettore: Parlando con voi ho notato un sacco di discrepanze, di bugie, di informazioni non chiare.
+Ettore: E la prima cosa piccola piccola e strane, è che sembra che nessuno di voi si sia occupato di allestire il buffet nella sala gialla.
+Zeca: Greta e-
+Elia: Matteo e-
+Ettore: Silenzio!!!
+Ettore: Ognuno di voi aveva un motivo per mentire.
+    + Ettore: Per nascondere un litigio.
+        Elia: Chi ha litigato?
+    + Ettore: Per coprire una scopata.
+        Greta: Evviva la privacy.
+    -
+Ettore: Ma la stanza gialla è importante, perché é lì che ho trovato la lettera.
+Ettore: Ed è la lettera che ci porta al colpevole.
+Paola: Del crimine non avvenuto?
+Elia: Delle barrette?
+Ettore: Quindi, partiamo dall'allestimento.
+Ettore: Avete lavorato a coppie, ma solo due persone si sono effettivamente occupate di sistemare tutto.
+    + (GE) Ettore: Greta e Elia!
+            Ettore: Tutte le strade portano a voi.
+            Elia: Non a Roma?
+    + (MZ) Ettore: Matteo e Zeca!
+            Zeca: Mannaggia il c-
+            Matteo: Lascialo parlare.
+    + (indeciso) Ettore: Ma ancora non riesco a prendere una decisione. 
+    -
+Ettore: Ora, passiamo alla lettera.
 Ettore: C'era la generale convinzione che fosse stata scritta da Paola.
-Paola: Non l'ho mai vista!
-Ettore: Ed è la stessa cosa che ho pensato, perché quando ne abbiamo parlato blah blah blah.
-Ettore: Ma qualcuno voleva fare paura a qualcun altro.
-Ettore: E la lettera palesemente era per:
-    + Ettore: Elia.
-        + + Perché e Zeca
-        + + Perché
-    + Ettore:
-        + + Perché e Matteo.
-        + + Perché
-    + Ettore: Non riesco a prendere una decisione.     
-Ettore: Ma non capivo chi potesse averla scritta, e poi mi son detto: l'assassino.
-Zeca: Assassino?
-Greta: Gasp!
-Paola: E vi lamentate delle mie sceneggiature?
-Paola: Nessuno è morto.
-Ettore: Per ora, perché in realtà a breve qualcuno cerchera di ucciderti.
-Ettore: E io devo fermarlo.
-Zeca: Farnetichi!
-Elia: Questa sceneggiatura mi piace!
-Greta: Chi ha portato i funghetti e non li ha condivisi?
-Matteo: Ettore, tutto bene?
-Paola: LASCIATELO PARLARE!
-Paola: Sentiamo che cazzata ha da dire.
-Ettore: Grazie per la fiducia, davvero!
-Ettore: Comunque: vi chiedo di tenere sott'occhio
-    + Ettore: Zeca
-    + Ettore: Greta
-    + Ettore: Elia
-    + (matteo) Ettore: Matteo
+Paola: Io non scrivo lettere, solo mail e messaggi.
+Ettore: Ci ho messo un po' a capirlo, e a quel punto mi son detto: perché lasciare in giro una finta lettera di Paola?
+Ettore: Forse per fare paura a qualcuno?
+Ettore: Ed è qui che si complicano le cose.
+    + {second_tier_matteo.lettera2 or liarCallLiarStorylet.indagini} Ettore: Ma la cosa importante, è chi l'ha scritta. -> scritto
+    + {phone.sindacato or greta_talking_second_tier.indagini2 or greta_talking_second_tier.indagini or greta_talking_second_tier.indagini3} Ettore: Ma la cosa importante, è a chi era indirizzata. -> indirizzo
+    + Ettore: E ancora non ho le idee chiare. -> oggetto
+
+= scritto
+    + (ZC) {second_tier_matteo.lettera2} Ettore: Ed è stato Zeca.
+        Ettore: Matteo mi ha dato l'indizio risolutivo.
+            Ettore: Quando mi ha detto che una cosa del genere potevano averla scritta solo o Paola, o Zeca.
+            Zeca: Andate a fanculo.  -> oggetto
+
+    + (GR) {liarCallLiarStorylet.indagini} Ettore: Ed è stata Greta.
+            Ettore: Zeca mi ha messo sulla buona strada, quando mi ha raccontato che la segretaria di Paola aveva accesso alle sue informazioni personali.
+            Greta: Sai che notizia, è il mio lavoro.  -> oggetto
+
+
+= indirizzo
+    + (MT) {phone.sindacato or greta_talking_second_tier.indagini2} Ettore: La lettera è per Matteo.
+        Ettore: Organizzare il sindacato nella Londar è un buon modo per farsi nemici, no?
+        Matteo: Di certo il mio obiettivo non era di tirare su il gruppo della briscola.  -> oggetto
+
+    + (EL) {greta_talking_second_tier.indagini or greta_talking_second_tier.indagini3} Ettore: Il destinatario è Elia.
+        Ettore: Per essere tonto, ti sei ritrovato in un sacco di casini, vero?
+        Elia: Niente barrette quindi?  -> oggetto
+
+
+
+= oggetto
+    Ettore: Non abbiamo ancora l'assassino, ma-
+    Greta: Gasp!
+    Paola: E vi lamentate delle mie sceneggiature?
+    Paola: Nessuno è morto.
+    Ettore: Paola: tu stai per morire.
+    Zeca: Farnetichi!
+    Elia: Questa sceneggiatura mi piace!
+    Greta: Chi ha portato i funghetti e non li ha condivisi?
+    Matteo: Ettore, tutto bene?
+    Paola: LASCIATELO PARLARE!
+    Paola: Sentiamo che cazzata ha da dire.
+    Ettore: Grazie per la fiducia, davvero!
+    Ettore: Dicevo: non abbiamo ancora l'assassino, ma c'è un ultimo elemento su cui riflettere.
+    Ettore: Quale sarà lo strumento utilizzato?
+
+        + (VN) {cb_second_tier_bottiglia_di_vino.primoCheck or paola_is_dead.vino} Ettore: Il vino: è stato avvelenato.
+                Ettore: C'è il veleno per topi.
+                Ettore: E c'è la nicotina nelle sigarette elettroniche. 
+        + (AS) {cb_second_tier_flaconcino_asma.primoCheck or paola_is_dead.asma} Ettore: Il boccettino per l'asma, è stato svuotato.
+                Ettore: Questo posto è una cloaca, e Paola si lamenta del raffreddore da ore.
+                Ettore: Evitarle la possibilità di salvarsi, è un modo per ucciderla.
+        + (NI) {cb_second_tier_sigaretta_elettronica.primoCheck or paola_is_dead.sigaretta} Ettore: Sigaretta e nicotina.
+            {greta_talking_second_tier.(allestimento2): Greta mi ha dato un'ottima dritta.}
+            Ettore: La nicotina è un veleno potentissimo.
+            Ettore: Può essere stato fatto ingerire, o lasciato a contatto con la pelle di Paola.
+            Paola: Che schifo!
+        + (TR) {cb_second_tier_cibo.primoCheck or paola_is_dead.briciole} Ettore: La torta e un classico shock anafilattico.
+            Ettore: Quella torta è un concetrato di arachidi, e Paola è allergica alle arachidi.
     -
-Ettore: Tu sei il nostro futuro assassino.
-Ettore: E hai usato: 
-    + {cb_second_tier_bottiglia_di_vino.primoCheck or paola_is_dead.vino} Usando il vino.
-    + {cb_second_tier_flaconcino_asma.primoCheck or paola_is_dead.asma} Il boccettino dell'asma.
-    + {cb_second_tier_sigaretta_elettronica.primoCheck or paola_is_dead.sigaretta} La sigaretta elettronica.
-    + {cb_second_tier_cibo.primoCheck or paola_is_dead.briciole} La torta.
-    -
+    Paola: Rimane il perché, però.
+    Paola: Perché qualcuno dovrebbe uccidermi?
+    Ettore: Proviamo a mettere assieme i pezzi.
+    {GE: Ettore: Greta ed Elia si sono occupati di settare la stanza. La stanza dove è passato il cibo, dove c'era la lettera.}
+    {MZ: Ettore: Zeca e Matteo si sono occupati di settare la stanza. La stanza dove è passato il cibo, dove c'era la lettera.}
+    {indeciso: Ettore: Qualcuno tra voi si è occupato di settare la stanza. La stanza dove è passato il cibo, dove c'era la lettera.}
+    {ZC: Ettore: La lettera scritta da Zeca.}
+    {GR: Ettore: La lettera scritta da Greta.}
+    {MT: Ettore: La lettera indirizzata a Matteo.}
+    {EL: Ettore: La lettera indirizzata ad Elia.}
+    {VN: Ettore: La stanza dove si trovava il vino avvelenato.}
+    {TR: Ettore: La stanza dove si trovava la torta piena di arachidi.}
+    {AS: Ettore: Qualcuno ha svuotato il boccettino dell'asma di Paola.}
+    {NI: Ettore: E un veleno potentissimo come la nicotina è stato accessibile per tutte le prove.}
+
+    Ettore: Ora vorrei sentire da te il perché, però. Perché vuoi uccidere Paola...
+        + (EC) Ettore: Elia? -> eliaConfessa
+        + (GC) Ettore: Greta? -> gretaConfessa
+        + (ZC) Ettore: Zeca? -> zecaConfessa
+        + (MC) Ettore: Matteo? -> matteoConfessa
+        + Ettore: No. Non ho abbastanza informazioni! [NOTA: Farai ripartire il loop] -> loop_reset
     
-E l'unico perché solido è:
-    + (perche) xxx
-    + yyy
-    + zzz
-    -
+    = zecaConfessa
+        Zeca: Perché? Lo sai già perché.
+        Zeca: L'ho detto dall'inizio: farei di tutto per proteggere Elia.
+        Zeca: E questa stronza sta per distruggere Elia.
+        Paola: E casualmente, te.
+        Paola: Non parlare di protezione: lo fai solo perché saresti nulla senza Elia.
+        Paola: Lo estrometto dall'azienda per salvarlo da te!
+        Zeca: Non dire cazzate.
+        Paola: BRO è un colabrodo. Avete più debiti di un insulso paese del terzo mondo.
+        Elia: Zeca, è vero?
+        Zeca: Non è nulla di irrecuperabile, Elia, davvero.
+        Paola: Tutto è irrecuperabile in quello che avete fatto.
+        Paola: L'unica cosa sensata che potresti fare della tua vita, è sparire.
+        Paola: E smetterla di importunare mio fratello.
+             -> choice
 
-    
-Sono sicuro di tutto questo?
-    + {matteo && perche} Non importa: Paola è un personaggio terribile e deve morire -> specialEndingStorylet
-    + Sì -> finalStorylet
-    + No -> loop_reset
+    = gretaConfessa
+        Greta: Vendetta.
+        Greta: Lunga, lenta, coltivata vendetta.
+        Paola: Cazzo stai a dire?!?
+        Greta: Per i miei genitori.
+        Greta: Sono morti per colpa tua, Paola.
+        Greta: La tua azienda di merda prima li ha fatti sfrattare.
+        Greta: Poi li ha riempiti di debiti facendo comprare loro cose inutili.
+        Greta: E obbligandoli a spostarsi a decine di chilometri da dove lavoravano.
+        Greta: Hanno perso tutto.
+        Greta: Hanno perso il lavoro.
+        Greta: E poi come dei mafiosi, come degli strozzini, siete arrivati per chiedergli soldi che non avevano più, che non avevano mai avuto.
+        Greta: Si sono suicidati per colpa tua, Paola.
+        Greta: Li hai uccisi tu.
+        Paola: Mi deludi, Greta.
+        Paola: Pensavo avessi imparato ormai a capire la realtà.
+        Paola: A capire che i deboli per questo mondo sono una malattia.
+        Paola: Ho solo aiutato ad accelerare la cura.
+            -> choice
+
+    = matteoConfessa
+        Matteo: Sta distruggendo il mondo.
+        Matteo: Con la Londar, sta distruggendo il mondo.
+        Matteo: Sono stanco di rispondere tutti i giorni a gente disperata perché quell'azienda gli ha portato via tutto.
+        Matteo: Punto.
+        Matteo: Niente grandi elaborazioni.
+        Matteo: Questo mondo fa schifo, fa schifo per gente come Paola.
+        Matteo: E se è impossibile risolvere le cose scioperando.
+        Matteo: Manifestando.
+        Matteo: Votando.
+        Matteo: Beh, allora resta solo la violenza.
+            -> choice
+
+
+    = eliaConfessa
+        Elia: Non lo so. Davvero, non lo so.
+        Elia: Ero solo stanco.
+        Elia: Sono stanco.
+        Elia: Stanco di essere una ciotola.
+        Elia: Stanco di essere trattato da stupido.
+        Elia: Stanco.
+            -> choice
+
+
+= choice
+    Paola: Bene.
+    Paola: Quindi abbiamo sentito inutili parole, una storia patetica.
+    Paola: Ora sono salva però e possiamo tornare a lavorare.
+    Paola: Muovete il culo.
+    Ettore: In realtà non è così facile.
+    Paola: Lavorare? Per voi non lo è mai.
+    Ettore: Il veleno è già stato usato.
+    Ettore: Usato durante il buffet.
+    Ettore: Stai già morendo.
+    Ettore: Sei sempre morta alle 22:10 in punto.
+    Ettore: Buffo, l'ora è ferma da un bel po' oramai.
+    Paola: COSA CAZZO STAI FARNETICANDO?!?!?
+    Ettore: Sto viaggiando avanti e indietro nel tempo da non so quanto.
+    Ettore: Cercando di capire cosa è successo.
+    Ettore: Ma tutto si ripete, si ripete, si ripete.
+    Matteo: E quindi, cosa rimane fare?
+        + Ettore: Finire tutto questo.
+            Ettore: Addio -> END
+        + Ettore: Provare ancora una volta.
+            -> loop_reset
+        + {matteo_talking_second_tier.loop3 or matteo_talking_second_tier.loop2} Ettore: Darti un ultimo bacio, prima di ricominciare.
+            Matteo: Non aspettavo altro.
+            -> loop_reset  
 
 
 
-//STORYLET DI CHIUSURA
-=== finalStorylet
-
-
--> END
-
-
-=== specialEndingStorylet
-
-
--> END

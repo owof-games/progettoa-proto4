@@ -51,7 +51,7 @@
 = flaconcino_asma
     + (primoCheck) [Osserva il flaconcino per l'asma]
     -> advance_time ->
-        Banale pezzo di plastica, leggero e maleabile, a cui è aggrappata l'intera vita di una persona.
+        Banale pezzo di plastica, leggero e maleabile, a cui è aggrappata l'intera vita di una persona. Ed è vuoto.
         + + [Raccoglilo]
         ~ take_object(FlaconcinoAsma)
         + + [Lascialo dov'è]

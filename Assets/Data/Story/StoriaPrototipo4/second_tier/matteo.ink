@@ -189,6 +189,7 @@ Opzioni di dialogo con la persona Matteo
     
     + (torta) {inventoryContents has Torta} Ettore: Questa torta l'avete portata tu e Zeca?
         Matteo: Strano: Zeca e io abbiamo preso la roba al supermercato, ma non ricordo questa torta!
+        Matteo: Anche perché tutte queste arachidi ucciderebbero Paola.
     
     + {inventoryContents has BottigliaDiVino} Ettore: Riconosci questa bottiglia di vino?
         Matteo: Mi spiace Ettore, bevo solo roba sotto i tre euro.
@@ -272,7 +273,7 @@ Opzioni di dialogo con la persona Matteo
             Matteo: Il prima possibile. Ma se lo faccio ora, non mi pagano.
         -
     Matteo: Mi chiedevo: se potessi essere da qualche parte, da qualsiasi parte, dove saresti ora?
-        + Ettore: Con gli amici a fare balotta.
+        + Ettore: A leggere i miei adorati gialli.
         + Ettore: Probabilmente ad alternare videogiochi e pisolini.
         + Ettore: Tra gatti e libri dell'orrore.
         -

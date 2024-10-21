@@ -398,7 +398,7 @@ Opzioni di dialogo con la persona Greta
     + {inventoryContents has Lettera} Ettore: Hai visto questa lettera?
         {greta_acting.minacce: Greta: La stessa che ti ho levato prima?|Greta: Ho altro per la testa.}
         {greta_acting.minacce: Greta: Vabbè, scegli pure la tua morte.|Greta: Tipo come non far pissare Paola con una lettera.}
-        -> greta_talking_second_tier
+        
         
     + {inventoryContents has Torta} Ettore: Hai mai assaggiato questa Torta?
         Greta: Cos'è? Uno di quei kink dove si riempie qualcuno di cibo?
@@ -409,16 +409,16 @@ Opzioni di dialogo con la persona Greta
         Ettore: TROPPE INFORMAZIONI!!!
         Greta: Allora sta attento a quel che chiedi, idiota.
                 -> advance_time ->
-            -> greta_talking_second_tier
+            
     
     + {inventoryContents has BottigliaDiVino} Ettore: Hai mai visto questa bottiglia di vino?
         Greta: Sì, è tra quelle che abbiamo comprato al supermercato.
         Greta: Ma non dirlo a Paola: abbiamo preso la roba che costava meno e con l'etichetta più spocchiosa.
         Greta: E da come ha sorriso, credo abbia funzionato!
-            -> greta_talking_second_tier
+            
     + {inventoryContents has FlaconcinoAsma} Ettore: Sai di chi sia questo flaconcino per l'asma?
         Greta: Paola, punto.
-            -> greta_talking_second_tier
+            
     + (sigaretta) {inventoryContents has SigarettaElettronica} Ettore: Ho trovato questa sigaretta elettronica!
             Greta: Ah sì.
             Greta: Sant'iddio, tra l'altro ho chiesto Zeca di comprarle la ricarica.
@@ -427,9 +427,17 @@ Opzioni di dialogo con la persona Greta
             Greta: Ora quella è pissata con me, maledizione.
             Greta: Mai far fare le cose agli altri, mai.
              -> advance_time ->
-            -> greta_talking_second_tier
-    
-      
+            
+    + {inventoryContents has Foto} Ettore: Guarda questa foto.
+            Greta: Chi te l'ha data?
+            Greta: Anzi, sai che c'è? Non mi importa.
+            Greta: Qui nessuno si fa i cazzi propri ormai, è una causa persa.
+            Greta: Fotocopiala.
+            Greta: Appendila nei cessi pubblici.
+            Greta: Usala per una maledizione.
+            Greta: Ma non osare più parlarmi.
+                ~ loopableVariables += pausaRapportoGreta
+                -> advance_time ->
 
 
 = esplora_greta

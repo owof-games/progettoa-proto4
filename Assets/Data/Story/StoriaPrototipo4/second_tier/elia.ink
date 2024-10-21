@@ -230,6 +230,7 @@ Opzioni di dialogo con la persona Elia
             Elia: Ce ne sono tante qui, di lettere.
             Elia: Quale in particolare?
             Ettore: Lo prendo come un "no".
+    
     + {inventoryContents has Torta} Ettore: Sai per chi è questa torta?
             Elia: Per il festeggiato?
             Ettore: Qualcuno è festeggiato?
@@ -239,6 +240,7 @@ Opzioni di dialogo con la persona Elia
             Elia: Sei la mamma del festeggiato?
             Elia: Perché avrei bisogno di una mano coi compiti di matematica.
                 -> advance_time -> 
+    
     + {inventoryContents has BottigliaDiVino} Ettore: Questo è il vino che avete comprato?
             Elia: Gli somiglia molto, ma non ne sono sicuro.
             Elia: Questa cosa che tutte le bottiglie sono uguali mi confonde.
@@ -263,9 +265,11 @@ Opzioni di dialogo con la persona Elia
             Elia: E..
             Ettore: Vado, vado, vado!
                 -> advance_time -> 
+    
     + {inventoryContents has FlaconcinoAsma} Ettore: Sai di chi sia questo flaconcino?
             Elia: Mia sorella!
             Elia: Nel senso che è di mia sorella, non che è mia sorella.
+    
     + {inventoryContents has SigarettaElettronica} Ettore: Sai qualcosa su questa sigaretta elettronica?
             Elia: Che puzza.
             Elia: Che fa male ai testimoli.
@@ -275,7 +279,16 @@ Opzioni di dialogo con la persona Elia
             Elia: Faceva male, ma rideva e non volevo andare via e renderla triste.
                 -> advance_time -> 
     
-      
+     + {inventoryContents has Foto} Ettore: Guarda questa foto.
+            Elia: Mmm.
+            Elia: Sembro grasso.
+            Ettore: Cosa dici?!?
+            Elia: Qui, vedi? Dove la camicia tira.
+            Elia: Dovrebbe esserci un deltoide molto carico.
+            Elia: Ma invece sembro morbido.
+            Elia: Devo assolutamente allenarmi, ora!
+                -> advance_time -> 
+    
     + [Ti allontani]-> intro
     -
     

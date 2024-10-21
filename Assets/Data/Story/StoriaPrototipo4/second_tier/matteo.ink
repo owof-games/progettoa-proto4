@@ -200,8 +200,12 @@ Opzioni di dialogo con la persona Matteo
         Matteo: Di Paola. Con Zeca siamo passati a recuperarle le ricariche.
         Matteo: E le abbiamo preso un sapore schifoso, così, pe il piacere di darle fastidio.
     
-      
-    + Te ne vai
+     + {inventoryContents has Foto} Ettore: Hai già visto questa foto?
+        Matteo: No.
+        Matteo: Ma ti prego, non farla vedere a Zeca.
+        Matteo: Gli spezzeresti il cuore.
+
+    + [Te ne vai]
     -> intro
     -
     

@@ -292,7 +292,6 @@ Opzioni di dialogo con la persona Zeca
         Zeca: Ma è lei che fuma,
                     -> zeca_talking_second_tier
     
-      
     + [Ti allontani]
     -> intro
     -

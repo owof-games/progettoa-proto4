@@ -148,6 +148,7 @@ Opzioni di dialogo con la persona Paola
         Paola: Non c'ho cazzi Ettore, dammi qui e ci do un'occhiata ora.
             ~ inventoryContents -= Lettera
             ~ objectStorageContents += Lettera
+    
     + (torta) {inventoryContents has Torta} Ettore: Hai idea di chi abbia preso questa torta?
         Paola: Qualcuno che vuole uccidermi?
         Paola: Scherzo.
@@ -157,15 +158,18 @@ Opzioni di dialogo con la persona Paola
         Paola: Per risvegliarmi e trovarmi davanti Elia che mi chiedeva: Ma ora sei Cristo?
         Paola: Ora sei resuscitata, come Vegeta?
             -> advance_time ->
+    
     + (vino) {inventoryContents has BottigliaDiVino} Ettore: Che, uhm, che sai di questa bottiglia?
         Paola: Amo da morire questo vino.
         Paola: E che per questo spero ce ne siano almeno altre tre bottiglie da qualche parte.
+    
     + (asma) {inventoryContents has FlaconcinoAsma} Ettore: Ho trovato questo.
         Paola: Oh, grazie al cielo!
         Paola: Non sapevo più dove diavolo fosse finito.
         Paola: Tra polvere e muffa in questo posto, senza potrei morire.
             ~ inventoryContents -= FlaconcinoAsma
             ~ objectStorageContents += FlaconcinoAsma
+    
     + (sigaretta) {inventoryContents has SigarettaElettronica} Ettore: Sai chi fuma qui tra noi?
         Paola: Erba? Zeca.
         Paola: Oppio? Matteo.
@@ -178,8 +182,11 @@ Opzioni di dialogo con la persona Paola
         Ettore: Ma non si può fumare ov...
         Paola: Ah, finalmente! Quanto mi sei mancata!    
             -> advance_time ->
-      
-    + Te ne vai
+    
+    + {inventoryContents has Foto} Ettore: Guarda questa foto.
+        Paola: Ettore, ho di meglio da fare, sloggia.
+
+    + [Te ne vai]
         -> intro
     -
     

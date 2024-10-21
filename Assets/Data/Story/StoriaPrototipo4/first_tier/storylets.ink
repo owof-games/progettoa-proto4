@@ -259,10 +259,9 @@
         Greta: Pensi davvero che avrei accettato?
         Greta: Ora vai a fare qualcosa di buono nella tua vita, su.
         Greta: Io vado a lavarmi le orecchie da questa conversazione.
-            ~ move_this_entity_in_a_different_room(Greta)
-            -> advance_time ->    
-        
-        -> intro
+                ~ move_this_entity_in_a_different_room(Greta)
+                -> advance_time ->    
+            -> intro
     
     =poveroEttore
         Greta: Hai spezzato il cuore di un poveretto.
@@ -313,7 +312,6 @@ PS: ricordarsi di resettare la variabile al reset_loop
         Matteo: Così noiosa!
     
             -> advance_time ->
-    
         -> step_two
 
     = step_two
@@ -326,7 +324,6 @@ PS: ricordarsi di resettare la variabile al reset_loop
         Elia: Ma è vero.
         Matteo: E il più empatico?
             -> advance_time ->
-    
         -> step_three
 
     = step_three
@@ -339,7 +336,6 @@ PS: ricordarsi di resettare la variabile al reset_loop
         Elia: Certo che no, solo perché i nonni continuano a pararti il culo.
         Elia: Me ne devo andare da tutta questa negatività.
             -> advance_time ->
-    
         -> intro
 
 
@@ -355,9 +351,8 @@ PS: ricordarsi di resettare la variabile al reset_loop
         Matteo: Non sai quali cose terribili potrebbero accadere.
         Matteo: Ahah scherzo, scherzo.
         Matteo: Dove trovo del sangue vergine per purificarlo dal tuo tocco impuro, ora?    
-            -> advance_time ->
-    
-    -> intro
+                -> advance_time ->
+            -> intro
 
 
 === marryMeStorylet
@@ -378,40 +373,39 @@ PS: ricordarsi di resettare la variabile al reset_loop
             }
         
         = one
-        Matteo: Ah, son così un disastro con queste cose, amore.
-        Matteo: Posso provare a dirtelo in imprenditorese?
-        Ettore: Ma certo, tesoro.
-        Matteo: Stavo pensando a una fusione tra le nostre società.
-        Ettore: Qui, ora? Con tua sorella morta?
-        Matteo: Beh, non era esattamente quella la proposta, ma ora che mi ci fai pensare.
-        Ettore: Chiudi quei pantaloni, amore. A casa poi ci si fonde per bene.
-        Matteo: Non hai capito, cristo. Uffi. Sob.
-            -> advance_time ->
-            
-                     {
-                - are_two_entities_together(Ettore, Elia) or are_two_entities_together(Ettore, Greta) or are_two_entities_together(Ettore, Zeca): -> quickTalk
-                -else: -> two
-            }
+            Matteo: Ah, son così un disastro con queste cose, amore.
+            Matteo: Posso provare a dirtelo in imprenditorese?
+            Ettore: Ma certo, tesoro.
+            Matteo: Stavo pensando a una fusione tra le nostre società.
+            Ettore: Qui, ora? Con tua sorella morta?
+            Matteo: Beh, non era esattamente quella la proposta, ma ora che mi ci fai pensare.
+            Ettore: Chiudi quei pantaloni, amore. A casa poi ci si fonde per bene.
+            Matteo: Non hai capito, cristo. Uffi. Sob.
+                -> advance_time ->
+                
+                         {
+                    - are_two_entities_together(Ettore, Elia) or are_two_entities_together(Ettore, Greta) or are_two_entities_together(Ettore, Zeca): -> quickTalk
+                    -else: -> two
+                }
         
         = two
-            + (matteoSiSposa) Ettore: Va tutto bene amore, davvero!
-            + (matteoSiSposa2) Ettore: Siamo in due
-            -
-        Matteo: Sii il mio direttore commerciale.
-        Matteo: Sii la mia subholding.
-        Matteo: Sii la firma sul mio accordo prematrimoniale.
-        Matteo: La mia exit strategy.
-        Matteo: Vieni a vivere con me.
-        Matteo: Ettore, sei il miglior pacchetto azionario della mia vita, sposami!
-        Ettore: Oh sì, sì, sì! Accetto!
-        Matteo: Oh, sono così felice Ettore!
-        Matteo: Ti va di fare quella fusione, ora?
-        Ettore: Chiudi i pantaloni, futuro marito.
-            
-            -> advance_time ->
-
-        -> intro
- 
+                + (matteoSiSposa) Ettore: Va tutto bene amore, davvero!
+                + (matteoSiSposa2) Ettore: Siamo in due
+                -
+            Matteo: Sii il mio direttore commerciale.
+            Matteo: Sii la mia subholding.
+            Matteo: Sii la firma sul mio accordo prematrimoniale.
+            Matteo: La mia exit strategy.
+            Matteo: Vieni a vivere con me.
+            Matteo: Ettore, sei il miglior pacchetto azionario della mia vita, sposami!
+            Ettore: Oh sì, sì, sì! Accetto!
+            Matteo: Oh, sono così felice Ettore!
+            Matteo: Ti va di fare quella fusione, ora?
+            Ettore: Chiudi i pantaloni, futuro marito.
+        
+                     -> advance_time ->
+                -> intro
+     
  
      = quickTalk   
         Matteo: Comunque non è il caso di farlo, qui, ora.
@@ -421,7 +415,6 @@ PS: ricordarsi di resettare la variabile al reset_loop
         Ettore: Ma io! Ma tu!
         Matteo: Me ne vado, così ti lascio ripensare a modo alla tua idea di moralità, Ettore.
             ~ move_this_entity_in_a_different_room(Matteo)
-        
         -> intro
 
 
@@ -571,16 +564,16 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Paola: E saranno fondamentali per risolvere le contraddizioni.
             -> advance_time ->
         Ettore: <i>Contraddizioni</i>?
-        Paola: Quando avrai due informazioni contrastanti su un personaggio, ti si aprirà sul taccuino la possibilità di scegliere cosa è vero e cosa no.
-        Paola: Sarai tu a decidere quando avrai abbastanza informazioni per dare una risposta, e a quel punto incriminare la persona responsabile.
+        Paola: Ci sono un sacco di cose che non tornano in quel che dicono gli altri personaggi.
+        Paola: Starù a te decidere quando avrai abbastanza informazioni per dare una risposta, e a quel punto incriminare la persona responsabile.
         Paola: Due minuti per schiarirvi le idee, ammasso di coglioni.
         Paola: Poi ripartiamo dalla scena in cui muoio!
         ~ peopleTalking = true
-        
-        -> advance_time ->
-        -> resting_time ->
-        
-    -> intro
+                    
+                    -> advance_time ->
+                    -> resting_time ->
+                    
+                -> intro
 
 
 
@@ -607,11 +600,9 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Paola: Poi ripartiamo da dopo la mia morte.
         Paola: Peccato sia solo recitazione.
         ~ peopleTalking = true
-        
-        -> advance_time ->
-        -> resting_time ->
-        
-    -> intro
+                    -> advance_time ->
+                -> resting_time ->
+            -> intro
 
 
 
@@ -631,22 +622,22 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
 //Grida di chi è in scena
         {
         - are_two_entities_together(Elia, Paola):
-            Elia: "Oh merda merda merda non respira!"
+            Elia: Oh merda merda merda non respira!
         }
         {
         - are_two_entities_together(Zeca, Paola):
             ~ move_first_entity_to_second_entity_location(Zeca,Paola)
-            Zeca: "Un ambulanza, qualcuno chiami un ambulanza!"
+            Zeca: Un ambulanza, qualcuno chiami un ambulanza!
         }
         {
         - not are_two_entities_together(Matteo, Paola):
             ~ move_first_entity_to_second_entity_location(Matteo,Paola)
-            Matteo: "AAAAAAAAAAAAAAAAAAAAAAAAAA!"
+            Matteo: AAAAAAAAAAAAAAAAAAAAAAAAAA!
         }
         {
         - not are_two_entities_together(Greta, Paola):
             ~ move_first_entity_to_second_entity_location(Greta,Paola)
-            Greta: "Ehi, smettila!"
+            Greta: Ehi, smettila!
         } 
 
 
@@ -654,25 +645,25 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         {
         - not are_two_entities_together(Elia, Paola):
             ~ move_first_entity_to_second_entity_location(Elia,Paola)
-            Elia: "Che succede?!"
+            Elia: Che succede?!
         }
         {
         - not are_two_entities_together(Zeca, Paola):
             ~ move_first_entity_to_second_entity_location(Zeca,Paola)
-            Zeca: "Qualcuno si è fatto male?!!"
+            Zeca: Qualcuno si è fatto male?!!
         }
         {
         - not are_two_entities_together(Matteo, Paola):
             ~ move_first_entity_to_second_entity_location(Matteo,Paola)
-            Matteo: "Hanno schiacciato la coda a un gatto?"
+            Matteo: Hanno schiacciato la coda a un gatto?
         }
         {
         - not are_two_entities_together(Greta, Paola):
             ~ move_first_entity_to_second_entity_location(Greta,Paola)
-            Greta: "Di nuovo il tizio delle pizze?"
+            Greta: Di nuovo il tizio delle pizze?
         } 
         
-            -> advance_time ->
+                    -> advance_time ->
             
             + Ettore: Scusate, ma la scena della morte non doveva arrivare dopo la cena?
             + Ettore: Greta ha ragione, non ci sto capendo nulla.
@@ -682,13 +673,13 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Matteo: Merda, non toccatela.
         Zeca: E perché?
         Greta: Perché potrebbero rimanere le impronte.
-        Elia: State parlando di mia sorella, ve ne rendete conto?!?
+        Elia: C'è un gatto?
         Greta: Ettore, tieni, chiama la polizia!
         Greta: Sei l'unico che non la conosce, e che può riuscire a non balbettare.
         
-        ~ activePhone = true
-        ~ tierState = SecondTier
-        ~ gretaHaLaLettera = false
-        -> advance_time ->
+            ~ activePhone = true
+            ~ tierState = SecondTier
+            ~ gretaHaLaLettera = false
+                -> advance_time ->
 
     -> intro

@@ -233,8 +233,8 @@ Opzioni di dialogo con la persona Paola
     Paola: Ne ho incontrate molte, Ettore. Pecore nel corpo di manager pseudodominanti.
     Paola: Ma io non sono come loro.
     Paola: Io vivo del vostro sangue.
-    -> advance_time ->
--> paola_talking_second_tier
+            -> advance_time ->
+        -> paola_talking_second_tier
 
 = second_qn
  ~ PaolaTalking++
@@ -246,7 +246,7 @@ Opzioni di dialogo con la persona Paola
         Paola: L'aria manca, presto saremo cenere.
         Paola: Lei attende silente nell'ombra.
         Paola: AAAAAAAAAAAAAAAAAAAA!
-                        -> advance_time ->
+                -> advance_time ->
         Paola: Mi urla nelle orecchie.
         Paola: Mi dice che merito di soffrire in eterno.
         Paola: Per le armi che ho finanziato.
@@ -263,10 +263,8 @@ Opzioni di dialogo con la persona Paola
         Ettore: Paola?
         Paola: ...
         Paola: Già. Vai a condividere il tuo giornalino comunista su Instagram, vai bimbo.
-    -> advance_time ->
-   
-    -
--> paola_talking_second_tier    
+                -> advance_time ->
+        -> paola_talking_second_tier    
 
 = third_qn
 ~ PaolaTalking++

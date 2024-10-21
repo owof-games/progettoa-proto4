@@ -9,10 +9,10 @@
 
 //STORYLET "NORMALI"    
 
-    - are_three_entities_together(Elia, Ettore, Zeca) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Paola) && not are_two_entities_together(Elia, Matteo) && greta_talking_second_tier.indagini && new_this_loop(-> liarCallLiarStorylet):
+    - are_three_entities_together(Elia, Ettore, Zeca) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Paola) && not are_two_entities_together(Elia, Matteo) && elia_talking_second_tier.indagini3 && new_this_loop(-> liarCallLiarStorylet):
             -> liarCallLiarStorylet
     
-    - inventoryContents has Foto && are_two_entities_together(Zeca, Ettore): -> iLlKillThatBitchStorylet    
+    - inventoryContents has Foto && are_two_entities_together(Zeca, Ettore) && not are_six_entities_together(Zeca, Elia) && not are_two_entities_together(Zeca,Greta) && not are_two_entities_together(Zeca, Paola): -> iLlKillThatBitchStorylet    
 
     - are_two_entities_together(Matteo, Ettore) && not are_two_entities_together(Matteo,Greta) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && not new_this_loop (->trueLoveStorylet) && new_this_loop(->forMeHeIsStupidAFStorylet):
         -> forMeHeIsStupidAFStorylet
@@ -21,7 +21,7 @@
 
     - are_two_entities_together(Elia, Zeca) && is_this_entity_near_Ettore(Elia) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Paola) && not are_two_entities_together(Elia, Matteo) && greta_talking_second_tier.indagini && loopableVariables == (EliaSpaventatoPerZeca) && new_this_loop(-> whisperingSecretsStorylet): -> whisperingSecretsStorylet
     
-    - are_two_entities_together(Elia, Zeca) && is_this_entity_near_Ettore(Elia) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Paola) && not are_two_entities_together(Elia, Matteo) && paola_talking_second_tier.foto2 && new_this_loop(-> trueLoveStorylet):
+    - are_two_entities_together(Elia, Zeca) && is_this_entity_near_Ettore(Elia) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Paola) && not are_two_entities_together(Elia, Matteo) && iLlKillThatBitchStorylet && new_this_loop(-> trueLoveStorylet):
         -> trueLoveStorylet
     
     - are_two_entities_together(Matteo, Zeca) && is_this_entity_near_Ettore(Matteo) && not are_two_entities_together(Matteo, Greta) && not are_two_entities_together(Matteo, Paola) && not are_two_entities_together(Matteo, Elia) && matteo_talking_second_tier.allestimento && new_this_loop(-> iTryToBeAGoodFriendStorylet):
@@ -157,14 +157,51 @@
 //STORYLET "NORMALI"
 
 === liarCallLiarStorylet
-    + (indagini) Zeca ci dice che la polizia ha avuto anche dati personali di Paola.
-        Dati a cui solo la segretaria personale avrebbe potuto avere accesso.
-    -
-    -> intro
+        Zeca: Devi smetterla di fidarti di lei, Elia.
+        Zeca: Lo dico per il tuo bene.
+        Elia: Ma è mia sorella.
+        Elia: Sono sicuro che ci sia una spiegazione.
+        Elia: Greta può aiutarmi.
+        Zeca: Quella, certo.
+        Zeca: Elia, li hai letti i giornali?
+        Elia: I cosa?
+            -> advance_time ->
+            {
+                            - currentTime >= 600:
+                            -> paolaIsDeadStorylet
+                        }
+        - (indagini) Zeca: La polizia ha avuto accesso a dati personali di Paola. Dati che solo la sua segretaria potrebbe avere.
+        Zeca: PERO'. PERO'.
+        Zeca: A te non ha detto nulla la tua amica, vero?
+        Zeca: E non ha fatto un passo che uno per aiutarti quando Paola ha iniziato a mettere in giro voci per incolparti.
+        Elia: Cosa sono i giornali?
+        Zeca: Elia: tu hai solo me.
+        Zeca: Gli altri se ne approfitteranno sempre della tua innocenza.
+        Zeca: Sono l'unica cosa che ti rimane.
+            + Ettore: Cringe.
+                Zeca: Fottiti. E non osare più parlarmi.
+                ~ loopableVariables += pausaRapportoZeca
+            + Ettore: Romantico.
+                Zeca: Si tratta di lavoro, solo di lavoro.
+            -> advance_time ->            
+        -> intro
 
 
 === iLlKillThatBitchStorylet
-Zeca ci sgama con la foto e andrà ad aggredire Greta, con piccole variazioni a seconda che lei sia già o meno nella stanza.
+        Zeca: DAMMI SUBITO QUELLA FOTO!
+            ~ inventoryContents -= Foto
+            ~ objectStorageContents += Foto
+        Zeca: QUELLA GRANDISSIMA STRONZA!
+        Zeca: La uccido, io la uccido!
+        Zeca: E lui. Lui. Lui.
+        Zeca: Io. Io.
+        Zeca: Solo.
+        Zeca: Sono solo.
+        Zeca: VATTENE TU AMEBA, ORA!
+        Zeca: Anzi no, me ne andrò io.
+            -> advance_time -> 
+            ~ move_this_entity_in_a_different_room(Zeca)
+                 
     -> intro  
 
 
@@ -200,29 +237,110 @@ Zeca ci sgama con la foto e andrà ad aggredire Greta, con piccole variazioni a 
 //CONVERSAZIONI ORIGLIATE
 
 === whisperingSecretsStorylet
-Qui Elia e Zeca bisbigliano, e se facciamo domande si zittiscono.
-Si capisce che Elia sia convinto che Zeca voglia proteggerlo, fino forse a minacciare Paola.
-Zeca risponde "Figurati. E poi se lei casca come li prendo tutti quei soldi?"
-    + XX
-    -
+        Elia: Sono la ciotola, o sono il cane?
+        Zeca: Che stai dicendo?
+        Elia: Paola, vuoi fare del male a Paola?
+        Zeca: Tutti i giorni, Elia.
+        Elia: E sono la ciotola o il cane?
+        Elia: Mi bevi, o mi petti?
+        Elia: Le fai del male per me?
+        Zeca: Perché dovrei farle del male per te?
+            -> advance_time ->   
+        Elia: Dici sempre che fai di tutto per proteggermi.
+        Elia: Paola forse mi vuole fare male.
+        Elia: E tu che fai?
+        Zeca: Sei preoccupato? O speri che ti protegga?
+        Elia: Voglio essere il tuo cane.
+        Elia: Ma ho paura di essere solo la cotola.
+        Elia: Non bermi.
+            -> advance_time ->   
     -> intro
 
 
 === iTryToBeAGoodFriendStorylet
-Conversazione origliata
-Zeca e Matteo parlano del litigio, e si capisce che Matteo sa qualcosa e non vuole che Zeca ci rimanga male, ma non risponde alle pressioni di Zeca.
+        Zeca: Te lo ripeto: non voglio parlare con te.
+        Matteo: Zeca, Paola vuole mettere zizzania tra noi, e per ques-
+        Zeca: Per quello basti tu.
+        Matteo: Ma perché non vuoi ascoltarmi?
+        Zeca: PERO'. PERO'.
+        Zeca: Come se fosse possibile farti stare zitto.
+        Matteo: Sto cercando solo di essere un buon amico.
+        Matteo: E di evitare che tu stia male.
+        Zeca: No, tu sei solo geloso, e per questo vuoi sabotare la mia relazione.
+            -> advance_time ->   
+        Zeca: So che ti è sempre piaciuto Elia, non serve un genio per vedere come lo guardi.
+        Matteo: Zeca, lo guardo come un bambino guarderebbe un gorilla allo zoo: incuriosito e spaventato.
+        Matteo: Ma no, non mi piace Elia.
+        Matteo: Ma soprattutto, è inaffidabile. Ti farà del male.
+        Zeca: Ma non hai le prove, è solo una sensazione, no? Una comoda sensazione.
+        Matteo: Io, insomma, ho visto ma non posso perché, no.
+        Matteo: Zeca, ti prego, fidati di me.
+        Zeca: Matteo: io mi fido di te.
+            -> advance_time ->   
+        Zeca: Ma sono innamorato di quel coglione.
+        Zeca: E su questo, non posso farci niente.
+        Matteo: Ha una tipa. Si scopa una tipa.
+        Zeca: Gli farò dimenticare qualsiasi cretinetta.
+        Matteo: Non è qualsiasi cretinetta, Zeca.
+        Zeca: E io non sono qualsiasi Zeca.
+        Zeca: Dammi il nome della stronza.
+        Matteo: Non posso. Mi spiace, non posso.
+        Zeca: Allora lasciami in pace. Ora.
+            -> advance_time ->   
     -> intro
 
 
-=== liesAndPromisesStorylet 
-Storylet solo narrativo con Elia che promette a Greta amore etc.
- + {trueLoveStorylet}: possiamo guastare la festa.
+
+
+=== liesAndPromisesStorylet
+    Greta: Dimmelo di nuovo, ti prego.
+    Elia: Era una cosa sbagliata?
+    Elia: Sbaglio tutto io, scusa.
+    Greta: No no no, ridimmela perché è un cosa bella.
+    - (promise)Elia: Ti amo, Greta.
+    Greta: Ti amo anche io, Elia.
+    Elia: Ora mi fai i grattini?
+    Greta: Alza quella maglietta e ti faccio tutti i grattini del mondo.
+        -> advance_time ->  
     -> intro
 
 
 === trueLoveStorylet
-Conversazione origliata
-Elia ammette i suoi sentimenti per Zeca, promette che smetterà di cazzeggiare con Greta.
+        Zeca: No, non ti dico come lo so.
+        Zeca: Quindi, ti scopi quella?
+        Zeca: La ami?
+        Elia: No. Ma sai come faccio.
+        Elia: Mi fanno i grattini, vado su di giri e poi accadono cose.
+        Zeca: Con me non è mai successo.
+        Elia: Perché con te é diverso.
+        Elia: Tu sei un mio fratello.
+            -> advance_time ->
+                            {
+                            - currentTime >= 600:
+                            -> paolaIsDeadStorylet
+                        }
+        Zeca: Proprio quello che sognavo.
+        Elia: Vuol dire che mi sogni? Perché io ti sogno.
+        Elia: Sogno che ti proteggo.
+        Elia: Sogno che ti schiaccio forte a me.
+        Elia: Sogno che mi fai i grattini e poi mi eccito.
+        Elia: Ma tu non mi fai mai i grattini.
+        Zeca: E se volessi essere l'unica persona che ti fa i grattini, Elia?
+            -> advance_time ->
+                            {
+                            - currentTime >= 600:
+                            -> paolaIsDeadStorylet
+                        }
+        Zeca: Se volessi che nessun altro, e nessuna stronza orfanella in particolare, ti facesse i grattini, per te sarebbe ok?
+        Elia: Me ne fai due qui?
+        Elia: Mi dici che sono un bravo ragazzo?
+        Elia: E non mi prendi in giro quando ti dico che ti amo?
+        Zeca: Elia, perché dovrei prenderti in giro?
+        Elia: Perché tutti pensano che sono stupido.
+        Elia: E quindi lo sono anche i miei sentimenti.
+        Elia: Ma io so cosa provo quando sono con te.
+        - (promise) Elia: Abbracciami. Te lo prometto Zeca: basta grattini con Greta o qualsiasi altra persona.
+            -> advance_time ->  
     -> intro    
 
 
@@ -230,34 +348,71 @@ Elia ammette i suoi sentimenti per Zeca, promette che smetterà di cazzeggiare c
 
 //CONFESSIONI SOLITARIE 
 === notABigSecretPartOneStorylet
-    + (allestimento) Matteo ci dice che Greta ed Elia hanno recuperato il bere
-        Si sono occupati anche degli elementi della scenografia
-{
-    - are_three_entities_together(Matteo, Ettore, Elia) or are_three_entities_together(Matteo, Ettore, Greta) or are_three_entities_together(Matteo, Ettore, Zeca): -> quickTalk
-    -else: ->->
-}
-    ->->
+        Matteo: Uh, ehi, ciao Ettore.
+        Matteo: Mi hai colto di sorpresa.
+        Ettore: Tutto ok?
+        Matteo: Sì, sì. Stavo solo sistemando due cose.
+        Matteo: Rimasugli del buffet di prima.
+            -> advance_time -> 
+                    ~ updateEntitiesLocations()
+            {
+                - are_three_entities_together(Matteo, Ettore, Elia) or are_three_entities_together(Matteo, Ettore, Greta) or are_three_entities_together(Matteo, Ettore, Zeca): -> quickTalk
+            }
+        - (allestimento) Matteo: Certo: Greta ed Elia potevano recuperare pure del vino decente. E hanno lasciato in tutta la stanza il puzzo delle loro cose da scenografi.
+        Matteo: Due cose dovevano fare: riparare le seggiole, allestire il buffet.
+        Matteo: E hanno fatto un disastro in tutte e due le occasioni.
+                
+            -> intro
+
+
 
     = quickTalk
-    Matteo dice cazzate e ci caccia.
-    
+        Matteo: Ma ecco che arriva qualcuno a rompere le scatole, e la nostra conversazione finisce qui.
         -> intro
 
 TODO: fare entrare queste due informazioni in modo casuale, come Matteo che si lamenta di quei due (parte uno) ed Elia che è confuso (parte due). Ma nessuno dei due ci dice che cosa ha fatto lui e il partner.
 
 === notABigSecretPartTwoStorylet
-    + (allestimento) Elia ci dice che Zeca e Matteo hanno recuperato le cibarie
-        Sono anche passati in farmacia, e a prendere le ricariche per le sigarette elettroniche di Paola
-
-{
-    - are_three_entities_together(Matteo, Ettore, Elia) or are_three_entities_together(Elia, Ettore, Greta) or are_three_entities_together(Elia, Ettore, Zeca): -> quickTalk
-    -else: ->->
-}
+        Elia: Non le trovo!
+        Ettore: Cosa?
+        Elia: Eh, se lo trovassi saprei cosa.
+        Ettore: Ma stai cercando qualcosa, giusto?
+        Elia: Esatto, ma non le trovo.
+        Ettore: E cosa vorresti trovare?
+        Elia: Se posso scegliere tutto, un pallone.
+        Elia: Vorrei fare due tiri.
+                    -> advance_time -> 
+             ~ updateEntitiesLocations()
+                    {
+                        - are_three_entities_together(Matteo, Ettore, Elia) or are_three_entities_together(Elia, Ettore, Greta) or are_three_entities_together(Elia, Ettore, Zeca): -> quickTalk
+                    }
+        Ettore: Quindi ora non stai trovando un pallone?
+        Elia: No, quello l'ho in garage.
+        Elia: Sono le barrette che non trovo.
+        Elia: Le mie proteine.
+        Elia: Senza mi spariscono i muscoli.
+        Ettore: Non credo che funzionino così.
+        Elia: No no giuro me l'ha detto il tizio del negozio.
+        Elia: Se non le mangio ogni tre ore perderò tutti i muscoli.
+                    -> advance_time -> 
+            ~ updateEntitiesLocations()
+                    {
+                        - are_three_entities_together(Matteo, Ettore, Elia) or are_three_entities_together(Elia, Ettore, Greta) or are_three_entities_together(Elia, Ettore, Zeca): -> quickTalk
+                    }
+        Elia: Maledizione.
+        - (allestimento)  Elia: Zeca e Matteo sono andati a prendere il cibo, e non le hanno prese. Sono passati anche in farmacia e dal tabacchi per la sigaretta di Paola, e anche lì ci sono le mie barrette. Ma non le hanno prese!
+        Elia: Ora perderò tutti i miei muscoli e sarò una persona normale, come te!
+        Elia: Povero me!
+        
+            -> intro
 
     = quickTalk
-    Elia dice cazzate e ci caccia.
+        Elia: Ma non siamo da soli e non posso lamentarmi, no no.
+        Elia: Lamentarsi è brutto.
+        Elia: Gli uomini non si lamentano.
+        Elia: Gli uomini soffrono.
     
-        -> intro
+            -> intro
 
 
 //STORYLET A CUI ARRIVIAMO SOLO ATTRAVERSO UNA SCELTA
@@ -350,6 +505,7 @@ TODO: fare entrare queste due informazioni in modo casuale, come Matteo che si l
             -
           -> advance_time ->                  
             -> intro
+
 
 //SCENA ARRINGA
 === arringa_finale

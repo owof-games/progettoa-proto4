@@ -76,7 +76,7 @@ Opzioni di dialogo con la persona Elia
 
     //SCELTE CONDIZIONALI//
     + (indagini2) {greta_talking_second_tier.indagini && not are_two_entities_together(Elia, Zeca)} Ettore: Elia, sapevi che Paola vuole estrometterti dalla Londar?
-        Elia: Estrocosa?
+        Elia: Estroflettermi?
         Ettore: Cacciarti.
         Ettore: Rimanere l'unica responsabile.
         Elia: Non ti credo.
@@ -97,7 +97,7 @@ Opzioni di dialogo con la persona Elia
                 Ettore: A dire il vero è la mamm...
                 Zeca: Ora ci penso io a te. Vieni, andiamo a fare un paio di flessioni.
                 Elia: Ma quelle boom clap, va bene?
-                Zeca: Va bene bimbo. Ora andiamo.
+                - (indagini3) Zeca: Va bene bimbo. Ora andiamo.
                     -> advance_time ->
                    ~ move_this_entity_in_a_different_room(Zeca)
                    ~ move_this_entity_in_a_different_room(Elia)
@@ -112,7 +112,7 @@ Opzioni di dialogo con la persona Elia
             
 
     + (allestimento) {notABigSecretPartOneStorylet.allestimento} Ettore: Elia, è vero che tu e Greta avete comprato il vino?
-        Elia: Esatto.
+        Elia: Esatto. Greta e io abbiamo comprato il vino.
         Ettore: Questa è stata facile!
         Elia: Però.
         Ettore: No! Lascia che questa conversazione sia facile!

@@ -192,7 +192,7 @@ TODO: sistemare come in secondo tier
 {greta_talking_second_tier.indagini2: Greta: Elia sta usando l'amicizia con Matteo per usare il sindacato contro Paola.}
 {greta_talking_second_tier.allestimento3: Greta: Ero in giro con Elia a sistemare i tavoli della altre sale.}
 {greta_talking_second_tier.indagini3: Greta: E io che, stupida, coprivo i furti di denaro di Elia in azienda.}
-        {trueLoveStorylet: Elia promette amore a Zeca XXX}
+{trueLoveStorylet.promise: Elia: Abbracciami. Te lo prometto Zeca: basta grattini con Greta o qualsiasi altra persona.}
 
 
 
@@ -204,7 +204,7 @@ TODO: sistemare come in secondo tier
 
 {zeca_talking_second_tier.money: Zeca: No: Matteo è l'unico qui dentro che campa sulle spalle dei due fratelli.}
 {paola_talking_second_tier.allestimento: Paola: Beh, nella stanza gialla Matteo e Zeca si sono urlati contro come se ne andasse dell'intero universo. E Matteo è uscito piangendo.}
-        {notABigSecretPartTwoStorylet.allestimento: Elia ci dice che Zeca e Matteo hanno recuperato le cibarie. Sono anche passati in farmacia, e a prendere le ricariche per le sigarette elettroniche di Paola}
+{notABigSecretPartTwoStorylet.allestimento: Elia: Zeca e Matteo sono andati a prendere il cibo, e non le hanno prese. Sono passati anche in farmacia e dal tabacchi per la sigaretta di Paola, e anche lì ci sono le mie barrette. Ma non le hanno prese!}
 {phone.sindacato: Amica: E fresca fresca di oggi, il migliore amico di Elia che sta tirando su un sindacato contro la sorella. Michele, Mirco, Marco.}
 
 
@@ -228,9 +228,9 @@ TODO: sistemare come in secondo tier
 
 {zeca_talking_second_tier.allestimento: Zeca: Comunque sì, Matteo ed io ci siamo occupati di tabacco e cibo, ma non abbiamo preparato noi il buffet. Abbiamo lasciato le cose fuori dalla porta e chiesto a Greta di occuparsene, perché c'erano dei problemi coi costumi.}
 {elia_talking_second_tier.indagini: Elia: Ma la cosa sicura è che abbiamo lasciato le bottiglie all'ingresso e non siamo entrati nella sala gialla delle pappe. Greta e io dovevamo chiamare i fornitori.}
-        {liarCallLiarStorylet.indagini: Zeca ci dice che la polizia ha avuto anche dati personali di Paola. Dati a cui solo la segretaria personale avrebbe potuto avere accesso.}
-        {liesAndPromisesStorylet: Elia promette a Greta amore XXX}
-        {notABigSecretPartOneStorylet.allestimento: Matteo ci dice che Greta ed Elia hanno recuperato il bere. Si sono occupati anche degli elementi della scenografia}
+{liarCallLiarStorylet.indagini: Zeca: La polizia ha avuto accesso a dati personali di Paola. Dati che solo la sua segretaria potrebbe avere.}
+{liesAndPromisesStorylet.promise: Elia: Ti amo, Greta.}
+{notABigSecretPartOneStorylet.allestimento: Matteo: Certo: Greta ed Elia potevano recuperare pure del vino decente. E hanno lasciato in tutta la stanza il puzzo delle loro cose da scenografi. Due cose dovevano fare: riparare le seggiole, allestire il buffet. E hanno fatto un disastro in tutte e due le occasioni.}
 
 
 
@@ -308,7 +308,7 @@ TODO: sistemare come in secondo tier
 
     
     {
-        - contraddizione_buffet: {notABigSecretPartOneStorylet.allestimento: Matteo ci dice che Greta ed Elia hanno recuperato il bere. Si sono occupati anche degli elementi della scenografia} {zeca_talking_second_tier.allestimento: Zeca ci dice che lui e Matteo hanno lasciato il cibo sui tavoli e poi chiesto a Greta di occuparsene, che loro dovevano sistemare i costumi.} {elia_talking_second_tier.allestimento: Elia ci dice che lui e Greta hanno lasciato le bottiglie all'ingresso, perché doveva chiamare con Greta i fornitori.} {notABigSecretPartTwoStorylet.allestimento: Elia ci dice che Zeca e Matteo hanno recuperato le cibarie. Sono anche passati in farmacia, e a prendere le ricariche per le sigarette elettroniche di Paola}
+        - contraddizione_buffet: {notABigSecretPartOneStorylet.allestimento: Matteo: Certo: Greta ed Elia potevano recuperare pure del vino decente. E hanno lasciato in tutta la stanza il puzzo delle loro cose da scenografi. Due cose dovevano fare: riparare le seggiole, allestire il buffet. E hanno fatto un disastro in tutte e due le occasioni.} {zeca_talking_second_tier.allestimento:  Zeca: Comunque sì, Matteo ed io ci siamo occupati di tabacco e cibo, ma non abbiamo preparato noi il buffet. Abbiamo lasciato le cose fuori dalla porta e chiesto a Greta di occuparsene, perché c'erano dei problemi coi costumi.} {elia_talking_second_tier.allestimento: Elia: Esatto. Greta e io abbiamo comprato il vino.} {notABigSecretPartTwoStorylet.allestimento: Elia: Zeca e Matteo sono andati a prendere il cibo, e non le hanno prese. Sono passati anche in farmacia e dal tabacchi per la sigaretta di Paola, e anche lì ci sono le mie barrette. Ma non le hanno prese!}
                 Chi ha recuperato le cose del buffet?
             
             

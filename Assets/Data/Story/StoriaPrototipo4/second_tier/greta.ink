@@ -315,7 +315,7 @@ Opzioni di dialogo con la persona Greta
                     Greta: Ah.
                     Greta: Questa cosa mi è nuova.
                     Greta: Ne sei certo?
-                    Ettore: Sì, li ho sentiti giurarsi amore eterno.
+                    Ettore: Sì, ho sentito Elia dire a Zeca che lo ama.
                     Greta: LOL.
                     Greta: Me sfigata che credo ancora agli uomini.
                     Greta: Sarà pure un bambinone, ma anche Elia alla fine fa parte di quella maledetta specie.

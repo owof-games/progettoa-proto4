@@ -518,7 +518,6 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Paola: Stop stop stop maledizione!
             ~ move_first_entity_to_second_entity_location(Greta,Ettore)
         Paola: Sant'iddio Greta, dove hai messo tutti i cazzo di oggetti? Mettili al loro posto, ora!
-        // -> advance_time ->
             ~  move_this_entity_in_a_different_room(Greta)
             ~ move_first_entity_to_second_entity_location(Zeca,Ettore)
             ~ move_first_entity_to_second_entity_location(Elia,Ettore)
@@ -539,8 +538,8 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
             ~ move_entity(Torta, YellowRoom)
             ~ move_entity(Briciole, ObjectStorage)
         Paola: Due minuti e poi si riparte dall'omicidio!
-        // ~ peopleTalking = true
-        
+            ~ peopleTalking = true
+            ~ activeObjects = true
             -> resting_time ->
             -> advance_time ->
             
@@ -568,7 +567,8 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Paola: Starù a te decidere quando avrai abbastanza informazioni per dare una risposta, e a quel punto incriminare la persona responsabile.
         Paola: Due minuti per schiarirvi le idee, ammasso di coglioni.
         Paola: Poi ripartiamo dalla scena in cui muoio!
-        ~ peopleTalking = true
+            ~ peopleTalking = true
+            ~ activeNotebook = true
                     
                     -> advance_time ->
                     -> resting_time ->
@@ -600,6 +600,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Paola: Poi ripartiamo da dopo la mia morte.
         Paola: Peccato sia solo recitazione.
         ~ peopleTalking = true
+        
                     -> advance_time ->
                 -> resting_time ->
             -> intro

@@ -1,5 +1,5 @@
 === cb_first_tier_limetta_unghie ===
-+ {are_two_entities_together(Ettore, LimettaUnghie)} [object:LimettaUnghie]
++ {are_two_entities_together(Ettore, LimettaUnghie) && activeObjects} [object:LimettaUnghie]
     -> limetta_unghie ->
 
 
@@ -21,7 +21,7 @@
 
 === cb_first_tier_antico_pugnale ===
 
-+ {are_two_entities_together(Ettore, AnticoPugnale)} [object:AnticoPugnale]
++ {are_two_entities_together(Ettore, AnticoPugnale) && activeObjects} [object:AnticoPugnale]
     -> antico_pugnale ->
 
 
@@ -45,7 +45,7 @@
 
 === cb_first_tier_spiedino_cocktail ===
 
-+ {are_two_entities_together(Ettore, SpiedinoCocktail)} [object:SpiedinoCocktail]
++ {are_two_entities_together(Ettore, SpiedinoCocktail) && activeObjects} [object:SpiedinoCocktail]
     -> spiedino_cocktail ->
 
 
@@ -68,7 +68,7 @@
 
 === cb_first_tier_lettera ===
 
-+ {are_two_entities_together(Ettore, Lettera)} [object:Lettera]
++ {are_two_entities_together(Ettore, Lettera) && activeObjects} [object:Lettera]
     -> lettera ->
 
 -> intro
@@ -91,7 +91,7 @@
 
 === cb_first_tier_bottiglia_di_vino ===
 
-+ {are_two_entities_together(Ettore, BottigliaDiVino)} [object:Bottiglia di Vino]
++ {are_two_entities_together(Ettore, BottigliaDiVino) && activeObjects} [object:Bottiglia di Vino]
     -> bottiglia_di_vino ->
 
 -> intro
@@ -112,7 +112,7 @@
 ->->
 
 === cb_first_tier_flaconcino_asma ===
-+ {are_two_entities_together(Ettore, FlaconcinoAsma)} [object:Flaconcino Asma]
++ {are_two_entities_together(Ettore, FlaconcinoAsma) && activeObjects} [object:Flaconcino Asma]
     -> flaconcino_asma->
 
 -> intro
@@ -133,7 +133,7 @@
 ->->
 
 === cb_first_tier_sigaretta_elettronica ===
-+ {are_two_entities_together(Ettore, SigarettaElettronica)} [object:Sigaretta Elettronica]
++ {are_two_entities_together(Ettore, SigarettaElettronica) && activeObjects} [object:Sigaretta Elettronica]
     -> sigaretta_elettronica->
 
 -> intro
@@ -154,7 +154,7 @@
 ->->
 
 === cb_first_tier_cibo ===
-+ {are_two_entities_together(Ettore, Torta)} [object:Torta]
++ {are_two_entities_together(Ettore, Torta) && activeObjects} [object:Torta]
     -> cibo ->
 
 -> intro

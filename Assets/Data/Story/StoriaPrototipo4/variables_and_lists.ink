@@ -58,6 +58,7 @@ VAR MatteoTalking = 0
 VAR peopleTalking = false
 VAR activeNotebook = false
 VAR activePhone = false
+VAR activeObjects = false
 
 // eventi specifici nella storia
 VAR gretaHaLaLettera = false

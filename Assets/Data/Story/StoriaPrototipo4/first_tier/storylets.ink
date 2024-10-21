@@ -126,7 +126,7 @@
         Zeca: E io ne approfitto per scappare.
             ~ move_this_entity_in_a_different_room(Zeca)
         Elia: Beh, a questo punto me ne vado anche io!    
-            ~ move_this_entity_in_a_different_room(Matteo)
+            ~ move_this_entity_in_a_different_room(Elia)
             + Ettore: Bella festa, davvero. Grazie.
             + Ettore: Boh, a questo punto me ne vado anche io.
             + Ettore: Ma non è che c'è dell'altro vino in giro?

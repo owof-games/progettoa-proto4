@@ -76,7 +76,7 @@
         Matteo: Tutto il consiglio di amministrazione muto.
         Matteo: E il progetto per la piscina sul tetto del grattacielo è passato.
         Greta: Urrà! Una piccola possibilità in più che uno degli stronzi che sta rovinando questa città impari a volare!
-        -> advance_time ->
+            -> advance_time ->
         Paola: Greta! Non si dicono le parolacce.
         Elia: Quindi è permesso augurare la morte a qualcuno? Perché avrei un po' di nomi, nel caso.
         Zeca: Elia, almeno tu mantieni la tua innocenza o perderei l'unica spinta a sacrificarmi.
@@ -87,7 +87,7 @@
         Matteo: Amore! Non ti avevo sentito proprio arrivare!
         Matteo: Fratelli, sorella, Greta.
         Greta: Fottiti.
-        -> advance_time ->
+            -> advance_time ->
         Matteo: Vi presento l'uomo che amo: Ettore. Ettore, loro sono i miei familiari.
             + Ettore: Finalmente incontro il famoso Elia!
                 Elia: Famoso? Sono finito su Tik Tok?
@@ -102,7 +102,7 @@
         Paola: Bene! Ora che ci siamo tutti, possiamo anche brindare al motivo per cui siamo qui!
         Elia: Sapete che oggi ho finalmente aperto la porta dal lato giusto?
         Elia: Nessun livido, guardate!
-        -> advance_time ->
+            -> advance_time ->
         Greta: Questo è un buon motivo per festeggiare in effetti.
         Matteo: Nessuno ha detto che dobbiamo festeggiare.
         Paola: Anche nel dolore c'è motivo di festa, Matteo, ce lo insegna nostro signore.
@@ -186,13 +186,12 @@
         Matteo: No. Ho già prenotato al Superbo Castello dei Conti de Viscontinis.
         Elia: Ma non facciamo mai nulla in famiglia, mai!
         + (matteoSiSposa) Ettore: Amore, Elia ha ragione. Non è meglio restare in famiglia?
-        + (matteoSiSposa2) Ettore: Elia, ehm, perdonami, ma avete letteralmente una famiglia stabile di blatte nel pub.
+        + (matteoSiSposa2) Ettore: Elia, ehm, perdonami, ma Matteo mi ha raccontato che avete letteralmente una famiglia stabile di blatte nel pub.
         -
             Matteo: Elia, non festeggerò mai il mio matrimonio nel tuo bar triste con la tua insopportabile collega!
             Matteo: Questa è la cosa peggiore che potrebbe capitarmi, ed è il <b>mio</b> matrimonio, capito?!?
-        -> advance_time ->
-    
-    -> intro
+                -> advance_time ->
+            -> intro
 
 
 
@@ -214,7 +213,7 @@
             
             
         = one
-            -> advance_time ->
+                -> advance_time ->
             Greta: Me ne sono sempre vergognata così tanto, sapete?
             Greta: Mesi e mesi a vedere le persone passarci davanti.
             Greta: A spiare dentro la nostra roulotte.
@@ -224,16 +223,14 @@
             Greta: Non ne hai idea. E per questo ora non voglio rivivere quel trauma.
             Greta: Non posso aver contatto con altri senzatetto puzzolenti, mi capisci Elia, vero?
             Elia: Io. No, ma sarò sempre dalla tua parte Greta, promesso!
-            -> advance_time ->
-
-        -> intro
+                    -> advance_time ->
+                -> intro
 
     
     = quickTalk
         -> advance_time ->
             Greta: Ma ovvio che tu sei lì a raccontare i cazzi tuoi e entra qualcun altro.
             Greta: Scusa Elia, ne riparliamo in un altro momento.
-        
         -> intro
 
 

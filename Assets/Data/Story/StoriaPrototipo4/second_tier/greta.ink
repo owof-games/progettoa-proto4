@@ -167,8 +167,8 @@ Opzioni di dialogo con la persona Greta
                         Greta: E stanca di te.
                         Greta: Non mi parlare più, fighetto del cazzo.
                             ~ loopableVariables += pausaRapportoGreta
-                        -> advance_time ->
-                            -> intro
+                            -> advance_time ->
+                                -> intro
                     
                     + + + Ettore: Avrei cercato di ottenere ogni minimo vantaggio.
                         Greta: Esatto.
@@ -192,8 +192,8 @@ Opzioni di dialogo con la persona Greta
                         Greta: Ci sono famiglie che muoiono di fame per colpa sua.
                         Greta: A questo mondo non c'è giustizia.
                         Greta: E quando non c'è giustizia, l'unica cosa che rimane per sopravvivere è la violenza.
-                        -> advance_time ->
-                            -> greta_talking_second_tier
+                            -> advance_time ->
+                                -> greta_talking_second_tier
                         
         + + Ettore: Ripensandoci, non ho altro da chiederti. -> greta_talking_second_tier
 
@@ -294,7 +294,7 @@ Opzioni di dialogo con la persona Greta
 
     + [Conosci meglio Greta]-> esplora_greta
     
-    + [Lasci la conversazione]-> intro
+    + [Lascia la conversazione]-> intro
     
 
     // OPZIONE PER IL FINALE
@@ -491,8 +491,8 @@ Opzioni di dialogo con la persona Greta
     Greta: La cosa che mi consola è che divoreranno anche loro stessi.
     Greta: E quando ci sarà silenzio, finalmente ci sarà spazio per ricominciare tutto da capo.
     Greta: Spero non con gli stessi errori.
-    -> advance_time ->
-        -> greta_talking_second_tier 
+        -> advance_time ->
+            -> greta_talking_second_tier 
 
 = second_qn
  ~ GretaTalking++
@@ -504,13 +504,12 @@ Opzioni di dialogo con la persona Greta
     Ettore: Mio padre lo adora.
     Greta: Tuo padre ha buon gusto.
     Greta: Era l'unica cosa che dava senso alla mia vita!
-    -> advance_time ->
-                {
-                - currentTime >= 600:
-                -> paolaIsDeadStorylet    
-
-            }
-
+        -> advance_time ->
+                    {
+                    - currentTime >= 600:
+                    -> paolaIsDeadStorylet    
+    
+                }
     Greta: Tornare a casa e vedermi e rivedermi quelle scene violente.
     Greta: E i crimini senza senso.
     Greta: E le marmottine cute e assassine.

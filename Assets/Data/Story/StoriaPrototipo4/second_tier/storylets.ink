@@ -560,12 +560,12 @@ Paola: Io non scrivo lettere, solo mail e messaggi.
 Ettore: Ci ho messo un po' a capirlo, e a quel punto mi son detto: perché lasciare in giro una finta lettera di Paola?
 Ettore: Forse per fare paura a qualcuno?
 Ettore: Ed è qui che si complicano le cose.
-    + {second_tier_matteo.lettera2 or liarCallLiarStorylet.indagini} Ettore: Ma la cosa importante, è chi l'ha scritta. -> scritto
+    + {matteo_talking_second_tier.lettera2 or liarCallLiarStorylet.indagini} Ettore: Ma la cosa importante, è chi l'ha scritta. -> scritto
     + {phone.sindacato or greta_talking_second_tier.indagini2 or greta_talking_second_tier.indagini or greta_talking_second_tier.indagini3} Ettore: Ma la cosa importante, è a chi era indirizzata. -> indirizzo
     + Ettore: E ancora non ho le idee chiare. -> oggetto
 
 = scritto
-    + (ZC) {second_tier_matteo.lettera2} Ettore: Ed è stato Zeca.
+    + (ZC) {matteo_talking_second_tier.lettera2} Ettore: Ed è stato Zeca.
         Ettore: Matteo mi ha dato l'indizio risolutivo.
             Ettore: Quando mi ha detto che una cosa del genere potevano averla scritta solo o Paola, o Zeca.
             Zeca: Andate a fanculo.  -> oggetto
@@ -609,7 +609,7 @@ Ettore: Ed è qui che si complicano le cose.
                 Ettore: Questo posto è una cloaca, e Paola si lamenta del raffreddore da ore.
                 Ettore: Evitarle la possibilità di salvarsi, è un modo per ucciderla.
         + (NI) {cb_second_tier_sigaretta_elettronica.primoCheck or paola_is_dead.sigaretta} Ettore: Sigaretta e nicotina.
-            {greta_talking_second_tier.(allestimento2): Greta mi ha dato un'ottima dritta.}
+            {greta_talking_second_tier.allestimento2: Greta mi ha dato un'ottima dritta.}
             Ettore: La nicotina è un veleno potentissimo.
             Ettore: Può essere stato fatto ingerire, o lasciato a contatto con la pelle di Paola.
             Paola: Che schifo!

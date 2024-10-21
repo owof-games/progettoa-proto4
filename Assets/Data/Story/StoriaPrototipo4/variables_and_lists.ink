@@ -12,7 +12,7 @@ LIST objects = LimettaUnghie, AnticoPugnale, SpiedinoCocktail, Lettera, Bottigli
 LIST loopableVariables = EliaRaggiungeGreta, EliaSpaventatoPerZeca, PaolaDavveroMorta, pausaRapportoMatteo, pausaRapportoZeca, pausaRapportoElia, pausaRapportoGreta
 
 //list to set the current tier
-LIST tierState = FirstTier, (SecondTier)
+LIST tierState = (FirstTier), SecondTier
 ////////////////////////////////////////////////////////////
 
 

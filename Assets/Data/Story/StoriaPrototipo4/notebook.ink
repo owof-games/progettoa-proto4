@@ -92,8 +92,8 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 {cb_first_tier_antico_pugnale.primoCheck:<i>Informazioni sull'antico pugnale rituale</i>}
 {cb_first_tier_antico_pugnale.primoCheck: Un pugnale dall'aria antica, con simboli che non hai mai visto.}
-{elia_acting.pugnaleMatteo:Elia: Matteo era disperato, l'aveva perso da settimane!}
-{zeca_acting.pugnaleMatteo: Zeca: Matteo lo usa in modo <b>ossessivo</b> per pulirsi la soletta delle scarpe!}
+{elia_acting.pugnale:Elia: Matteo era disperato, l'aveva perso da settimane!}
+{zeca_acting.pugnale: Zeca: Matteo lo usa in modo <b>ossessivo</b> per pulirsi la soletta delle scarpe!}
 
 {cb_first_tier_lettera.primoCheck: <i>Informazioni sulla lettera</i>}
 {cb_first_tier_lettera.primoCheck: Con una calligrafia nervosa è stato scritto: <i>So cosa hai fatto e la pagherai!</i>. Non c'è firma.}

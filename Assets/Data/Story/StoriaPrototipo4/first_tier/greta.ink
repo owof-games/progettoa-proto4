@@ -56,6 +56,9 @@ Opzioni di dialogo con il personaggio Greta
                 -> greta_acting
 
     + [Conosci meglio Greta] -> esplora_greta_personaggia
+    + [Te ne vai]
+        -> intro
+    
     
     //SCELTE CONDIZIONALI//
 
@@ -94,7 +97,7 @@ Opzioni di dialogo con il personaggio Greta
                     -> advance_time ->
 
     //SCELTE CONDIZIONALI OGGETTI//
-    + (minacce) {inventoryContents has Lettera} Ettore: Sai da dove viene questa lettera?
+    + (minacce) {inventoryContents has Lettera && new_this_loop(->minacce)} Ettore: Sai da dove viene questa lettera?
         Greta: Uh, è la calligrafia di Paola. Dove l'hai trovata?
         Greta: Non importa, comunque. Questa rimane con me per un po'.
             ~ inventoryContents -= Lettera
@@ -102,15 +105,15 @@ Opzioni di dialogo con il personaggio Greta
             ~ gretaHaLaLettera = true
                 -> advance_time ->
     
-    + {inventoryContents has AnticoPugnale} Ettore: Hai mai visto questo pugnale?
+    + (pugnale) {inventoryContents has AnticoPugnale && new_this_loop(->pugnale)} Ettore: Hai mai visto questo pugnale?
         Greta: Solo in qualche film dell'orrore.
         Greta: O al battesimo di mia zia Selma.
         Greta: Oh sì che sapeva come farci divertire, la vecchia sagoma!
     
-    + (spiedino) {inventoryContents has SpiedinoCocktail} Ettore: Sai qualcosa su questo spiedino?
+    + (spiedino) {inventoryContents has SpiedinoCocktail && new_this_loop(->spiedino)} Ettore: Sai qualcosa su questo spiedino?
             Greta: <i>FEG</i>? Questa è la sigla del locale mio e di Elia, ma non ricordo di averne mai visto uno prima d'ora.
     
-    + {inventoryContents has LimettaUnghie} Ettore: Riconosci questa limetta per unghie?
+    + (limetta) {inventoryContents has LimettaUnghie && new_this_loop(->limetta)} Ettore: Riconosci questa limetta per unghie?
         Greta: Yep, è mia.
         Greta: Ho una seconda unghia che mi sta spuntando sull'alluce destro.
         Greta: Una cosa mostruosa, sinceramente.
@@ -120,7 +123,7 @@ Opzioni di dialogo con il personaggio Greta
         Greta: Per questo l'ho chiamata <i>Zeca</i>.
                 -> advance_time ->
     
-    + {inventoryContents has Torta} Ettore: Conosci questa torta?
+    + (torta) {inventoryContents has Torta && new_this_loop(->torta)} Ettore: Conosci questa torta?
         Greta: Naa, non le ho chiesto il nome, nulla.
         Greta: Abbiamo consumato l'atto anonimamente, come piace a me.
         Greta: E poi addio.
@@ -130,7 +133,7 @@ Opzioni di dialogo con il personaggio Greta
         Greta: Ma ormai so troppo di te per poterti trovare sexy.
                 -> advance_time ->
     
-    + {inventoryContents has BottigliaDiVino} Ettore: Sai da dove viene questa bottiglia di vino?
+    + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Sai da dove viene questa bottiglia di vino?
         Greta: Puglia.
         Ettore: Ok, ma chi l'ha portata?
         Greta: Immagino una persona.
@@ -140,7 +143,7 @@ Opzioni di dialogo con il personaggio Greta
         Greta: O di qualcuno che va in giro a fare domande a caso.
             -> advance_time ->
     
-    + {inventoryContents has FlaconcinoAsma} Ettore: Greta, guarda questo flaconcino per l'asma!
+    + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Greta, guarda questo flaconcino per l'asma!
         Greta: Non ho tempo, ho cose più interessanti da fare.
         Greta: Tipo sperare di venire uccisa dal serial killer.
         Ettore: Ma non c'è alcun serial killer, no?
@@ -149,14 +152,13 @@ Opzioni di dialogo con il personaggio Greta
         Greta: Qualcuno mi uccida, ora!
             -> advance_time ->
     
-    + {inventoryContents has SigarettaElettronica} Ettore: Sai chi potrebbe averla persa?
+    + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} Ettore: Sai chi potrebbe averla persa?
         Greta: No.
         Ettore: Ma..
         Greta: No.
 
       
-    + Te ne vai
-        -> intro
+
     -
     -> greta_acting
 

@@ -92,7 +92,7 @@ Opzioni di dialogo con la persona Greta
             Greta: E la caduta è attutita da qualche decina di cadaveri.
             Greta: E a questo giro, il corpo sarà quello di Elia.
             Ettore: In che senso?
-            - (indagini) Greta: Beh: Paola sta cercando far estromettere Elia dalla Londar.
+            - -(indagini) Greta: Beh: Paola sta cercando far estromettere Elia dalla Londar.
                 -> advance_time ->
                 {
                     - currentTime >= 600:
@@ -127,7 +127,7 @@ Opzioni di dialogo con la persona Greta
             Greta: Almeno fino a domattina, Elia è ancora a metà proprietario dell'azienda.
             Greta: E se Paola capitola, lui finisce diritto in consiglio di amministrazione.
             Ettore: Quindi cosa mi stai dicendo?
-            - (indagini2) Greta: Elia sta usando l'amicizia con Matteo per usare il sindacato contro Paola.
+            - -(indagini2) Greta: Elia sta usando l'amicizia con Matteo per usare il sindacato contro Paola.
                 
                 + + + Ettore: Perdonami, ma Elia non mi sembra così macchiavellico.
                         Greta: Vedo che sei sveglio, Ettore.
@@ -256,7 +256,7 @@ Opzioni di dialogo con la persona Greta
                             Greta: Le ricariche della pod mod di Paola arriva a 18 mg.
                             Greta: Bastano tre ricariche per ucciderla.
                             Greta: E tu dirai: "Ma chi fuma così tanto?"
-                            - (allestimento2) Greta: Ed ecco la cosa divertente: che grazie alle sigarette elettroniche ora basta versare il veleno sulla pelle e bang, è fatta! Puoi uccidere qualcuno.
+                            - -(allestimento2) Greta: Ed ecco la cosa divertente: che grazie alle sigarette elettroniche ora basta versare il veleno sulla pelle e bang, è fatta! Puoi uccidere qualcuno.
                             Greta: Grazie, evoluzione tecnologica!
                             Greta: Ma poi per me c'è il colpo di genio vero e proprio.
                                 -> advance_time ->
@@ -331,7 +331,7 @@ Opzioni di dialogo con la persona Greta
                                 Greta: Usata.
                                 Greta: Mi ha promesso amore.
                                 Greta: Mi ha regalato le piattole.
-                                - (indagini3) Greta: E io che, stupida, coprivo i furti di denaro di Elia in azienda.
+                                - -(indagini3) Greta: E io che, stupida, coprivo i furti di denaro di Elia in azienda.
                                 Greta: Convinta che ci avremmo costruito una casa assieme, con quei soldi.
                                  Greta: Ho bisogno di un poco di privacy Ettore, scusami.
                                 ~ loopableVariables += pausaRapportoGreta
@@ -366,7 +366,7 @@ Opzioni di dialogo con la persona Greta
 
                     }
 
-            - (allestimento3) Greta: Ero in giro con Elia a sistemare i tavoli della altre sale.
+            - -(allestimento3) Greta: Ero in giro con Elia a sistemare i tavoli della altre sale.
             Greta: Gambe traballanti e quelle cose lì.
             Greta: Roba da maschi, che le altre due signorine non sanno come affrontare.
             Greta: Mio dio, Elia ci ha quasi lasciato un dito.
@@ -395,12 +395,12 @@ Opzioni di dialogo con la persona Greta
 
 
     //SCELTE CONDIZIONALI OGGETTI//
-    + {inventoryContents has Lettera} Ettore: Hai visto questa lettera?
+    + (minacce) {inventoryContents has Lettera && new_this_loop(->minacce)} Ettore: Hai visto questa lettera?
         {greta_acting.minacce: Greta: La stessa che ti ho levato prima?|Greta: Ho altro per la testa.}
         {greta_acting.minacce: Greta: Vabbè, scegli pure la tua morte.|Greta: Tipo come non far pissare Paola con una lettera.}
                 -> greta_talking_second_tier
         
-    + {inventoryContents has Torta} Ettore: Hai mai assaggiato questa Torta?
+    + (torta) {inventoryContents has Torta && new_this_loop(->torta)} Ettore: Hai mai assaggiato questa Torta?
         Greta: Cos'è? Uno di quei kink dove si riempie qualcuno di cibo?
         Greta: Perché non sono in queste cose.
         Greta: L'unica cosa che mi interessa è il sesso alieno.
@@ -411,17 +411,17 @@ Opzioni di dialogo con la persona Greta
                 -> advance_time ->
             -> greta_talking_second_tier
     
-    + {inventoryContents has BottigliaDiVino} Ettore: Hai mai visto questa bottiglia di vino?
+    + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Hai mai visto questa bottiglia di vino?
         Greta: Sì, è tra quelle che abbiamo comprato al supermercato.
         Greta: Ma non dirlo a Paola: abbiamo preso la roba che costava meno e con l'etichetta più spocchiosa.
         Greta: E da come ha sorriso, credo abbia funzionato!
             -> greta_talking_second_tier
             
-    + {inventoryContents has FlaconcinoAsma} Ettore: Sai di chi sia questo flaconcino per l'asma?
+    + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Sai di chi sia questo flaconcino per l'asma?
         Greta: Paola, punto.
             -> greta_talking_second_tier
             
-    + (sigaretta) {inventoryContents has SigarettaElettronica} Ettore: Ho trovato questa sigaretta elettronica!
+    + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} Ettore: Ho trovato questa sigaretta elettronica!
             Greta: Ah sì.
             Greta: Sant'iddio, tra l'altro ho chiesto Zeca di comprarle la ricarica.
             Greta: E invece di prendere il solito aroma al rabarbaro, mica le prende della roba mentolata?
@@ -431,7 +431,7 @@ Opzioni di dialogo con la persona Greta
                     -> advance_time ->
             -> greta_talking_second_tier
             
-    + {inventoryContents has Foto} Ettore: Guarda questa foto.
+    + (fotografia) {inventoryContents has Foto && new_this_loop(->fotografia)} Ettore: Guarda questa foto.
             Greta: Chi te l'ha data?
             Greta: Anzi, sai che c'è? Non mi importa.
             Greta: Qui nessuno si fa i cazzi propri ormai, è una causa persa.

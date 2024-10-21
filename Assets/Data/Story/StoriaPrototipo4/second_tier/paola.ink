@@ -74,7 +74,7 @@ Opzioni di dialogo con la persona Paola
         Ettore: Come mai?
         Paola: Beh, nella stanza gialla Matteo e Zeca si sono urlati contro come se ne andasse dell'intero universo.
         Paola: O come due gatte in calore.
-        - (allestimento) Paola: E Matteo è uscito piangendo.
+        - -(allestimento) Paola: E Matteo è uscito piangendo.
         Paola: Sinceramente? Mi masturberò sull'immagine di quella faccina disperata stasera.
         Paola: L'unica cosa decente di questa serata.
         Paola: Già che ci sono potrei andare da Zeca e stuzzicarlo un po' per capire perché hanno litigato.
@@ -102,7 +102,7 @@ Opzioni di dialogo con la persona Paola
             Paola: Il coglione palestrato da spremere fino al midollo per un progetto inutile.
             Paola: E a quel punto cosa gli resta se non tornare a farsi pagare per le pompe all'Autogrill?
                 -> advance_time ->
-            - (money)  Paola: Elia per Zeca è la gallina delle uova d'oro, ma di galline non se ne trovano due in questa vita.
+            - -(money)  Paola: Elia per Zeca è la gallina delle uova d'oro, ma di galline non se ne trovano due in questa vita.
             Paola: E a me è toccato essere la gallina di me stessa.
             Paola: Certo, la morte dei miei genitori mi ha dato una grossa mano.
             Paola: Ma sapevi che Zeca si è fatto sbiancare il buco del culo?
@@ -124,7 +124,7 @@ Opzioni di dialogo con la persona Paola
             Ettore: Zeca.
             Paola: Bravo bimbo.
             Paola: E i bravi bimbi meritano un premio.
-            - (foto) Paola: Se allontani Greta da questa stanza o se passi quando non c'è, ti darò il tuo premio.
+            - -(foto) Paola: Se allontani Greta da questa stanza o se passi quando non c'è, ti darò il tuo premio.
             Paola: Un premio che farà felice anche quella merdaccina di Zeca.
             Paola: Fai il tuo dovere, mio cagnolino.
                 -> advance_time ->
@@ -146,12 +146,12 @@ Opzioni di dialogo con la persona Paola
                 }
                 
     //SCELTE CONDIZIONALI OGGETTI//
-     + (Minacce) {inventoryContents has Lettera} Ettore: Hai mai visto questa lettera?
+     + (minacce) {inventoryContents has Lettera && new_this_loop(->minacce)} Ettore: Hai mai visto questa lettera?
         Paola: Non c'ho cazzi Ettore, dammi qui e dopo ci butto un occhio.
             ~ inventoryContents -= Lettera
             ~ objectStorageContents += Lettera
     
-    + (torta) {inventoryContents has Torta} Ettore: Hai idea di chi abbia preso questa torta?
+    + (torta) {inventoryContents has Torta && new_this_loop(->torta)} Ettore: Hai idea di chi abbia preso questa torta?
         Paola: Qualcuno che vuole uccidermi?
         Paola: Scherzo.
         Paola: Ma pensavo tutti sapessero che sono allergica alle arachidi, mortalmente. E questa è piena di crema d'arachidi.
@@ -161,11 +161,11 @@ Opzioni di dialogo con la persona Paola
         Paola: Ora sei resuscitata, come Vegeta?
             -> advance_time ->
     
-    + (vino) {inventoryContents has BottigliaDiVino} Ettore: Che, uhm, che sai di questa bottiglia?
+    + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)}Ettore: Che, uhm, che sai di questa bottiglia?
         Paola: Amo da morire questo vino.
         Paola: E che per questo spero ce ne siano almeno altre tre bottiglie da qualche parte.
     
-    + (asma) {inventoryContents has FlaconcinoAsma} Ettore: Ho trovato questo.
+    + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Ho trovato questo.
         Paola: Oh, grazie al cielo!
         Paola: Non sapevo più dove diavolo fosse finito.
         Paola: Tra polvere e muffa in questo posto, senza potrei morire.
@@ -173,7 +173,7 @@ Opzioni di dialogo con la persona Paola
             ~ objectStorageContents += FlaconcinoAsma
         Paola: Ma è vuoto! Come cazzo è possibile che sia vuoto, che era nuovo?
     
-    + (sigaretta) {inventoryContents has SigarettaElettronica} Ettore: Sai chi fuma qui tra noi?
+    + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} Ettore: Sai chi fuma qui tra noi?
         Paola: Erba? Zeca.
         Paola: Oppio? Matteo.
         Paola: Tabacco? Greta.
@@ -186,7 +186,7 @@ Opzioni di dialogo con la persona Paola
         Paola: Ah, finalmente! Quanto mi sei mancata!    
             -> advance_time ->
     
-    + {inventoryContents has Foto} Ettore: Guarda questa foto.
+    + (fotografia) {inventoryContents has Foto && new_this_loop(->fotografia)} Ettore: Guarda questa foto.
         Paola: Ettore, ho di meglio da fare, sloggia.
 
     + [Te ne vai]

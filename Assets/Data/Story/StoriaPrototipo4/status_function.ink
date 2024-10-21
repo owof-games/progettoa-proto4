@@ -1,5 +1,4 @@
 // variables containing the state of various objects
-
 LIST paolaState = (Live), Unalived
 
 

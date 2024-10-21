@@ -97,7 +97,7 @@ Opzioni di dialogo con la persona Elia
                 Ettore: A dire il vero è la mamm...
                 Zeca: Ora ci penso io a te. Vieni, andiamo a fare un paio di flessioni.
                 Elia: Ma quelle boom clap, va bene?
-                - (indagini3) Zeca: Va bene bimbo. Ora andiamo.
+                - - -(indagini3) Zeca: Va bene bimbo. Ora andiamo.
                     -> advance_time ->
                    ~ move_this_entity_in_a_different_room(Zeca)
                    ~ move_this_entity_in_a_different_room(Elia)
@@ -226,12 +226,12 @@ Opzioni di dialogo con la persona Elia
 
     
     //SCELTE CONDIZIONALI OGGETTI//
-    + {inventoryContents has Lettera} Ettore: Hai mai visto questa lettera?
+    + (lettera) {inventoryContents has Lettera && new_this_loop(->lettera)} Ettore: Hai mai visto questa lettera?
             Elia: Ce ne sono tante qui, di lettere.
             Elia: Quale in particolare?
             Ettore: Lo prendo come un "no".
     
-    + {inventoryContents has Torta} Ettore: Sai per chi è questa torta?
+    + (torta) {inventoryContents has Torta && new_this_loop(->torta)}Ettore: Sai per chi è questa torta?
             Elia: Per il festeggiato?
             Ettore: Qualcuno è festeggiato?
             Elia: Tu! Sei tu che hai portato la torta!
@@ -241,7 +241,7 @@ Opzioni di dialogo con la persona Elia
             Elia: Perché avrei bisogno di una mano coi compiti di matematica.
                 -> advance_time -> 
     
-    + {inventoryContents has BottigliaDiVino} Ettore: Questo è il vino che avete comprato?
+    + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Questo è il vino che avete comprato?
             Elia: Gli somiglia molto, ma non ne sono sicuro.
             Elia: Questa cosa che tutte le bottiglie sono uguali mi confonde.
             Elia: E accade con tutti i prodotti.
@@ -266,11 +266,11 @@ Opzioni di dialogo con la persona Elia
             Ettore: Vado, vado, vado!
                 -> advance_time -> 
     
-    + {inventoryContents has FlaconcinoAsma} Ettore: Sai di chi sia questo flaconcino?
+    + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Sai di chi sia questo flaconcino?
             Elia: Mia sorella!
             Elia: Nel senso che è di mia sorella, non che è mia sorella.
     
-    + {inventoryContents has SigarettaElettronica} Ettore: Sai qualcosa su questa sigaretta elettronica?
+    + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} Ettore: Sai qualcosa su questa sigaretta elettronica?
             Elia: Che puzza.
             Elia: Che fa male ai testimoli.
             Elia: Che non fa crescere i bambini.
@@ -279,7 +279,7 @@ Opzioni di dialogo con la persona Elia
             Elia: Faceva male, ma rideva e non volevo andare via e renderla triste.
                 -> advance_time -> 
     
-     + {inventoryContents has Foto} Ettore: Guarda questa foto.
+     + (fotografia) {inventoryContents has Foto && new_this_loop(->fotografia)} Ettore: Guarda questa foto.
             Elia: Mmm.
             Elia: Sembro grasso.
             Ettore: Cosa dici?!?

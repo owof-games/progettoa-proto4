@@ -56,8 +56,8 @@ VAR MatteoTalking = 0
 
 //non resettare al loop
 VAR peopleTalking = false
-VAR activeNotebook = true
-VAR activePhone = true
+VAR activeNotebook = false
+VAR activePhone = false
 
 // eventi specifici nella storia
 VAR gretaHaLaLettera = false

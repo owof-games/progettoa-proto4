@@ -53,8 +53,10 @@ Opzioni di dialogo con il personaggio Zeca
 
     + [Conosci meglio Zeca] -> esplora_zeca_personaggia
     
+    + [Te ne vai]
+        -> intro
     //SCELTE CONDIZIONALI//
-    + {marryMeStorylet && not hardTrueFeelingsStorylet.ah or hardTrueFeelingsStorylet.mono} Ettore: Matteo ed io ci sposeremo!
+    + (sposo) {marryMeStorylet && not hardTrueFeelingsStorylet.ah or hardTrueFeelingsStorylet.mono && new_this_loop(->sposo)} Ettore: Matteo ed io ci sposeremo!
             Zeca: E immagino sia una cosa buona?
             Ettore: Non è il modo più nobile di stare assieme?
             Zeca: Nobile, è un parolone: Non è forse più nobile decidere giorno per giorno se stare assieme, senza vincoli esterni?
@@ -68,7 +70,7 @@ Opzioni di dialogo con il personaggio Zeca
             Ettore: Ma a me ha fatto la proposta solo pochi minuti fa!
             Zeca: Matteo è una persona lungimirante, che si organizza in anticipo.
             Zeca: Non sono persona da gossip, ma una cosa però te la devo dire.
-            - (matrimonio) Zeca: Matteo e Paola hanno litigato per il matrimonio, perché Paola pensa che lui ti stia usando solo per candidarsi come sindaco.
+            - -(matrimonio) Zeca: Matteo e Paola hanno litigato per il matrimonio, perché Paola pensa che lui ti stia usando solo per candidarsi come sindaco.
             Zeca: Sposare un povero lo renderebbe molto popolare.
                 -> advance_time ->
             Ettore: Ma non sono povero! Vivo in un bilocale e riesco persino a pagarmelo!
@@ -78,6 +80,7 @@ Opzioni di dialogo con il personaggio Zeca
             Zeca: Spero sia cambiato con gli anni, ma il Matteo che conoscevo amava solo una cosa: Matteo.
             Zeca: E tu mi sembri un bravo ragazzo. Vedi di badare a te stesso.
                 -> advance_time ->
+                    -> zeca_acting
 
     + {hardTrueFeelingsStorylet && not are_two_entities_together(Zeca, Matteo) && not are_two_entities_together(Zeca, Greta)} Ettore: Matteo mi ha mollato.
             {zeca_acting.matrimonio: Zeca: Sai già che per me questa è una buona cosa per te.}
@@ -93,14 +96,15 @@ Opzioni di dialogo con il personaggio Zeca
             Zeca: O forse la nostra sorellastra ha in mente qualcosa.
             Zeca: Sinceramente, non ho mai creduto che a Greta interessi tanto il pub, quanto controllare Elia.
             Zeca: E non ho mai creduto molto nell'amicizia tra lei e Paola.
-            - (matteoGreta) Zeca: Non mi stupirebbe se Greta stesse ricattando Matteo in qualche modo.
+            - -(matteoGreta) Zeca: Non mi stupirebbe se Greta stesse ricattando Matteo in qualche modo.
             Ettore: Ricattando? E per cosa?
             Zeca: Per l'unica cosa che conta in questa famiglia: i soldi.
             Zeca: No, non è vero: <i> l'affetto dei nonni </i> e i soldi.
                 -> advance_time ->
+            -> zeca_acting    
     
     //SCELTE CONDIZIONALI OGGETTI//
-    + (pugnaleMatteo){inventoryContents has AnticoPugnale} Ettore: Ehi Zeca, riconosci questo pugnale!
+    + (pugnale) {inventoryContents has AnticoPugnale && new_this_loop(->pugnale)} Ettore: Ehi Zeca, riconosci questo pugnale!
         Zeca: Matteo lo usa in modo <b>ossessivo</b> per pulirsi la soletta delle scarpe!
         {
         - are_two_entities_together(Ettore, Matteo): Matteo: Non sono ossessivo!
@@ -108,9 +112,10 @@ Opzioni di dialogo con il personaggio Zeca
             ~ inventoryContents -= AnticoPugnale
             ~ objectStorageContents += AnticoPugnale
             }
-        -> advance_time ->    
+        -> advance_time ->
+            -> zeca_acting
     
-    + {inventoryContents has SpiedinoCocktail} Ettore: Questo spiedino da cocktail ti dice qualcosa?
+    + (spiedino) {inventoryContents has SpiedinoCocktail && new_this_loop(->spiedino)} Ettore: Questo spiedino da cocktail ti dice qualcosa?
             Zeca: Che mi manca uno spritz a modo, e una manciata di noccioline.
             Zeca: Sai cosa stavo pensando, Ettore?
             Zeca: Che sei una benedizione per la famiglia.
@@ -119,16 +124,17 @@ Opzioni di dialogo con il personaggio Zeca
             Zeca: E sei un po' come questo spiedino, che sa tenere assieme cose di norma destinate a restare separate.
             Zeca: O forse, forse è la morte di Paola, lo spiedino?
             Zeca: Ci devo pensare.
-            -> advance_time ->   
+            -> advance_time -> 
+                -> zeca_acting
     
-    + {inventoryContents has Lettera} Ettore: Hai mai visto questa lettera?
+    + (minacce) {inventoryContents has Lettera && new_this_loop(->minacce)} Ettore: Hai mai visto questa lettera?
             Zeca: No, mi spiace, mio giovane amico.
     
-    + {inventoryContents has LimettaUnghie} Ettore: Sai chi potrebbe aver perso questa limetta?
+    + (limetta) {inventoryContents has LimettaUnghie && new_this_loop(->limetta)} Ettore: Sai chi potrebbe aver perso questa limetta?
             Zeca: Una persona che non bada troppo agli orpelli, direi.
             Zeca: Potrebbe starmi persino simpatica.
     
-    + {inventoryContents has Torta} Ettore: Hai portato tu questa torta, Zeca?
+    + (torta) {inventoryContents has Torta && new_this_loop(->torta)} Ettore: Hai portato tu questa torta, Zeca?
             Zeca: No. Anche perché probabilmente l'avrei mangiata tutta per strada.
             Zeca: Pensi c'entri con l'omicidio?
                 + + Ettore: Lo trovo improbabile.
@@ -139,9 +145,10 @@ Opzioni di dialogo con il personaggio Zeca
             Zeca: Con tale costanza potrebbe salvare il mondo, altro che uccidere una sola persona.
             Zeca: O forse ha pensato di salvarlo, il mondo, uccidendola?
             Zeca: Quasi quasi anche io mi metto a indagare.
-                -> advance_time ->     
+                -> advance_time ->
+                    -> zeca_acting
             
-    + {inventoryContents has BottigliaDiVino} Ettore: Hai idea di chi può aver portato questa bottiglia?
+    + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Hai idea di chi può aver portato questa bottiglia?
             Zeca: Assolutamente no, ma ora è mia.
                 ~ inventoryContents -= BottigliaDiVino
                 ~ objectStorageContents += BottigliaDiVino
@@ -150,21 +157,22 @@ Opzioni di dialogo con il personaggio Zeca
             Zeca: Scherzi a parte, non la berrò, promesso.
             Zeca: Ma è gentile da parte tua preoccuparti per me.
                 -> advance_time ->
+                    -> zeca_acting
                 
-    + {inventoryContents has FlaconcinoAsma} Ettore: Non riesco a capire a chi appartenga questo flaconcino.
+    + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Non riesco a capire a chi appartenga questo flaconcino.
             Zeca: Mai visto, mi dispiace. Però ha una forma molto carina.
             
-    + {inventoryContents has SigarettaElettronica} Ettore: Sei tu che fumi le sigarette elettroniche?
+    + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} Ettore: Sei tu che fumi le sigarette elettroniche?
             Zeca: No, giovane amico.
             Zeca: La mia unica droga è l'alcool.
             Zeca: E Schopenhauer.
             Zeca: E non ho ancora capito chi dei due mi ucciderà per primo.
             Zeca: Ma nessuno dei due ha questo odore terribile.
-                -> advance_time ->  
+                -> advance_time ->
+                    -> zeca_acting
     
       
-    + [Te ne vai]
-        -> intro
+
     -
 ->->
 
@@ -351,4 +359,4 @@ Opzioni di dialogo con la persona Zeca
         Zeca: ELIAAAAAAAAA! ETTORE MI FA LAVORARE CON TIMI! ELIAAAAA!
                 -> advance_time ->
                 ~ move_this_entity_in_a_different_room(Zeca)
-            -> zeca_talking
+            -> intro

@@ -46,7 +46,10 @@ Opzioni di dialogo con il personaggio Elia
             -> elia_acting
 
     + [Prova ad avere una conversazione con Elia] -> esplora_elia_personaggia    
-    
+        
+    + [Ti allontani]
+        -> intro
+   
     //SCELTE CONDIZIONALI//
 
     + (senzatetto){greta_acting.omicidio && new_this_loop(->senzatetto) && not are_two_entities_together(Greta, Elia)} Ettore: Sai Elia, Greta vorrebbe parlare con te.
@@ -54,7 +57,7 @@ Opzioni di dialogo con il personaggio Elia
         Ettore: In che senso?
         Elia: Chi altri avrebbe potuto uccidere Paola?
         Elia: Paola voleva rilevare il pub per trasformarlo in un rifugio per senzatetto.
-        - (senzatetto2) Elia: E Greta ha detto cose terribili e ripetuto che avrebbe fatto di tutto per fermarla.
+        - -(senzatetto2) Elia: E Greta ha detto cose terribili e ripetuto che avrebbe fatto di tutto per fermarla.
         Elia: Di tutto.
         Elia: Per cui se sei un suo semplice, vattene!
         Ettore: Semplice?
@@ -171,10 +174,10 @@ Opzioni di dialogo con il personaggio Elia
                 
                 
     
-        -          
+          
         
     //SCELTE CONDIZIONALI OGGETTI//
-     + (pugnaleMatteo){inventoryContents has AnticoPugnale} Ettore: Ehi Elia, hai mai visto questo pugnale?
+     + (pugnale) {inventoryContents has AnticoPugnale && new_this_loop(->pugnale)} Ettore: Ehi Elia, hai mai visto questo pugnale?
             Elia: Sì!
             Elia: Matteo era disperato, l'aveva perso da settimane!
             {
@@ -192,7 +195,7 @@ Opzioni di dialogo con il personaggio Elia
             {are_two_entities_together(Matteo, Elia): Matteo: All'inferno ci finirò ascoltando queste cazzate.}
             -> advance_time ->
     
-    + {inventoryContents has SpiedinoCocktail} Ettore: Elia, ti è caduta quest'arma dalla tasca!
+    + (spiedino) {inventoryContents has SpiedinoCocktail && new_this_loop(->spiedino)} Ettore: Elia, ti è caduta quest'arma dalla tasca!
         Elia: Non ho mai visto questa roba, mai.
         {elia_acting.first_qn: Ettore: Ma ci sono le iniziali del tuo locale, vedi?}
         Elia: Lasciami in pace!
@@ -202,10 +205,10 @@ Opzioni di dialogo con il personaggio Elia
             {!hardTrueFeelingsStorylet.matteoGreta: Ettore: Il matrimonio mio e di Matteo?}
             {hardTrueFeelingsStorylet.matteoGreta: Ettore: Il non più matrimonio mio e di Matteo?}
             Elia: No, il suo. Paola si sposa.
-            - (paolaSiSposa) Elia: Ha organizzato un matrimonio in fretta e furia, manco sappiamo con chi.
+            - -(paolaSiSposa) Elia: Ha organizzato un matrimonio in fretta e furia, manco sappiamo con chi.
                         -> advance_time ->
-            - -
-    + (minacce){inventoryContents has Lettera} Ettore: Elia, tu sai chi possa aver scritto questa lettera?
+
+    + (minacce) {inventoryContents has Lettera && new_this_loop(->minacce)} Ettore: Elia, tu sai chi possa aver scritto questa lettera?
             Elia: Ehm, cosa, ehm.
             Elia: Cosa c'è scritto?
             Ettore: Hai dimenticato gli occhiali?
@@ -215,10 +218,10 @@ Opzioni di dialogo con il personaggio Elia
             Elia: Una volta da piccoli mi ha fatto mangiare le crocchette del gatto.
             Elia: E solo perché era convinto che fossero avvelenate.
             -> advance_time ->
-    + {inventoryContents has LimettaUnghie} Ettore: Sai di chi è questa limetta per le unghie?
+    + (limetta) {inventoryContents has LimettaUnghie && new_this_loop(->limetta)} Ettore: Sai di chi è questa limetta per le unghie?
             Elia: Di Zeca?
            
-    + {inventoryContents has Torta} Ettore: Sai chi potrebbe aver portato la torta?
+    + (torta) {inventoryContents has Torta && new_this_loop(->torta)} Ettore: Sai chi potrebbe aver portato la torta?
             Elia: Il fornaio?
             Ettore: Intendi il catering?
             Elia: No no, il fornaio.
@@ -228,7 +231,7 @@ Opzioni di dialogo con il personaggio Elia
             Elia: E Paola che dice che non capisco nulla.
             -> advance_time ->
             
-    + {inventoryContents has BottigliaDiVino} Ettore: Hai mai visto questa bottiglia di...
+    + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Hai mai visto questa bottiglia di...
             Elia: No non bevo grazie.
             Ettore: No, ti chiedevo se avessi mai...
             Elia: Non insistere, no.
@@ -240,7 +243,7 @@ Opzioni di dialogo con il personaggio Elia
             Elia: E guarda che non serve urlare!
             -> advance_time ->
             
-    + {inventoryContents has FlaconcinoAsma} Ettore: Sei tu a soffrire d'asma?
+    + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Sei tu a soffrire d'asma?
             Elia: È quella cosa che ti viene quando hai paura di tutto?
             Ettore: Intedi l'ansia? Che non è proprio così comunque.
             Elia: È quella cosa che hanno le camicie?
@@ -251,7 +254,7 @@ Opzioni di dialogo con il personaggio Elia
             Ettore: Quella è, oh, lascia fare.
             -> advance_time ->
             
-    + {inventoryContents has SigarettaElettronica} Ettore: Sai di chi sia questa sigaretta elettronica?
+    + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} Ettore: Sai di chi sia questa sigaretta elettronica?
             Elia: Non dovrebbe essere "a liquidi?"
             Elia: Che poi Greta mi dice sempre di tenere lontane le cose elettroniche dall'acqua.
             Elia: Quindi perché qualcuno dovrebbe mettere assieme le due cose, e persino in bocca?
@@ -262,10 +265,8 @@ Opzioni di dialogo con il personaggio Elia
             Ettore: No Elia, non ti capisco.
             Elia: Nessuno mi capisce, è sempre stato così.
             -> advance_time ->
-    
-    + [Ti allontani]
-        -> intro
     -
+    
 ->->
 
     = esplora_elia_personaggia

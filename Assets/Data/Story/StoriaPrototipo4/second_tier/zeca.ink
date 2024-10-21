@@ -130,7 +130,7 @@ Opzioni di dialogo con la persona Zeca
             }
         Zeca: Comunque sì, Matteo ed io ci siamo occupati di tabacco e cibo, ma non abbiamo preparato noi il buffet.
         Zeca: Né io né Matteo abbiamo messo piede nella stanza gialla prima delle prove.
-        - (allestimento) Zeca: Abbiamo lasciato le cose fuori dalla porta e chiesto a Greta di occuparsene, perché c'erano dei problemi coi costumi.
+        - -(allestimento) Zeca: Abbiamo lasciato le cose fuori dalla porta e chiesto a Greta di occuparsene, perché c'erano dei problemi coi costumi.
         Zeca: O per dirla diversamente: Greta si deve essere scofanata un cavallo dalle ultime prove, perché ora non ci entra più in quel vestito.
         Zeca: Hai altre domande, Sherlock?
                 + + {elia_talking_second_tier.allestimento}Ettore: Sì; mi sembra buffo quel che dici, perché Elia giura di averti lasciato il vino, perché lui e Greta avevano un problema coi tavoli.
@@ -148,7 +148,7 @@ Opzioni di dialogo con la persona Zeca
                     Zeca: La sala gialla, dove dovevamo fare il buffet, era serrata.
                     Zeca: E qualcuno dentro ansimava come se avesse fatto le scale di corsa, molto di corsa.
                     Zeca: E per scale, intendo tutta una squadra di calcio.
-                    - (allestimento2) Zeca: Forse era Paola col suo vibratore a saltellare sul tavolo del buffet. Una elder millenial sicuro che ne ha sempre uno con sé.
+                    - -(allestimento2) Zeca: Forse era Paola col suo vibratore a saltellare sul tavolo del buffet. Una elder millenial sicuro che ne ha sempre uno con sé.
                     Zeca: Anche se non ho sentito il solito puzzo di cesso delle sue sigarette elettroniche.
                      -> advance_time ->
                         -> zeca_talking_second_tier
@@ -206,7 +206,7 @@ Opzioni di dialogo con la persona Zeca
             Zeca: Dovrebbero farmi santa.
             Zeca: E piuttosto: invece di rompere le balle a me, c'è qualcun altro a cui Paola dovrebbe fare le pulci.
             Ettore: E chi? Greta?
-            - (money) Zeca: No: Matteo è l'unico qui dentro che campa sulle spalle dei due fratelli.
+            - -(money) Zeca: No: Matteo è l'unico qui dentro che campa sulle spalle dei due fratelli.
                 -> advance_time ->    
                     -> zeca_talking_second_tier
         + + (love3){trueLoveStorylet && new_this_loop(->love3)} Ettore: Come ti senti, ora che Elia ti ha dichiarato il suo amore?
@@ -270,7 +270,7 @@ Opzioni di dialogo con la persona Zeca
         Zeca: QUALCUNO HA VISTO DELLE FORMICHE?!?!?
         -> advance_time ->
                     -> zeca_talking_second_tier
-    + {inventoryContents has BottigliaDiVino && new_this_loop(->allestimento)} Ettore: Hai comprato tu questa bottiglia di vino?
+    + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Hai comprato tu questa bottiglia di vino?
        - (allestimento3) Zeca: Sì, la boccia l'abbiamo presa Matteo ed io.
         Zeca: Mmm, ora che ci penso, non esattamente.
         Ettore: In che senso?

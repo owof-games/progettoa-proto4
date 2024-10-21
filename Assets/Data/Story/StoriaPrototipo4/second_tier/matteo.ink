@@ -187,21 +187,21 @@ Opzioni di dialogo con la persona Matteo
     + (lettera) {inventoryContents has Lettera && new_this_loop(->lettera)} Ettore: Hai mai visto questa lettera?
         Matteo: Mettila via, subito! Se Paola la trova ti mangia vivo!
     
-    + (torta) {inventoryContents has Torta} Ettore: Questa torta l'avete portata tu e Zeca?
+    + (torta) {inventoryContents has Torta && new_this_loop(->torta)} Ettore: Questa torta l'avete portata tu e Zeca?
         Matteo: Strano: Zeca e io abbiamo preso la roba al supermercato, ma non ricordo questa torta!
         Matteo: Anche perché tutte queste arachidi ucciderebbero Paola.
     
-    + {inventoryContents has BottigliaDiVino} Ettore: Riconosci questa bottiglia di vino?
+    + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Riconosci questa bottiglia di vino?
         Matteo: Mi spiace Ettore, bevo solo roba sotto i tre euro.
     
-    + {inventoryContents has FlaconcinoAsma} Ettore: Sai di chi sia questo flaconcino per l'asma?
+    + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Sai di chi sia questo flaconcino per l'asma?
         Matteo: Zero totale.
     
-    + {inventoryContents has SigarettaElettronica} Ettore: Hai idea di chi abbia perso questa sigaretta elettronica?
+    + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} Ettore: Hai idea di chi abbia perso questa sigaretta elettronica?
         Matteo: Di Paola. Con Zeca siamo passati a recuperarle le ricariche.
         Matteo: E le abbiamo preso un sapore schifoso, così, pe il piacere di darle fastidio.
     
-     + {inventoryContents has Foto} Ettore: Hai già visto questa foto?
+     + (fotografia) {inventoryContents has Foto && new_this_loop(->fotografia)} Ettore: Hai già visto questa foto?
         Matteo: No.
         Matteo: Ma ti prego, non farla vedere a Zeca.
         Matteo: Gli spezzeresti il cuore.

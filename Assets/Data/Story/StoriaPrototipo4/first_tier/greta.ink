@@ -28,7 +28,7 @@ Opzioni di dialogo con il personaggio Greta
         Greta: Ma sanno solo sparare cazzate.
         Greta: Le volevo bene, ma eravamo molto diverse e quindi non ci capivamo.
         Greta: Contento?
-            -> advance_time ->   
+                -> advance_time ->   
             + + Ettore: E come ti senti ora che è morta?
                 Greta: Come dovrei sentirmi?
                 Greta: C'è un buco da qualche parte, che non riesco a guardare.
@@ -38,8 +38,8 @@ Opzioni di dialogo con il personaggio Greta
                 Greta: Immagino che quando la polizia arriverà e finalmente potrò tornare a casa, riempirò quel vuoto di lacrime.
                 Greta: E vodka.
                 Greta: E kebab.
-                    -> advance_time ->
-                        -> greta_acting
+                        -> advance_time ->
+                    -> greta_acting
             + + [Cambi argomento] -> greta_acting
 
         
@@ -52,7 +52,7 @@ Opzioni di dialogo con il personaggio Greta
             Greta: Non stasera, per lo meno.
             Greta: Ma ti propongo un patto: ti dirò chi è l'assassino se tu convinci Elia a venire a parlarmi.
             Greta: Mi sta evitando da quando è venuta a mancare Paola, e non capisco perché.
-            -> advance_time ->   
+                    -> advance_time ->   
                 -> greta_acting
 
     + [Conosci meglio Greta] -> esplora_greta_personaggia
@@ -60,26 +60,26 @@ Opzioni di dialogo con il personaggio Greta
     //SCELTE CONDIZIONALI//
 
     + {seen_in_this_loop(->omicidio) && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta}  Ettore: Non sono ancora riuscito a convincere Elia.
-            Greta: Mi stupisce: quel ragazzo {~ha il cervello di un pesce bollito|ha smesso di ragionare nel '96|ha un unico neurone, ed è disperso dall'undici settembre|crede che la noce moscata sia un insetto}, non deve essere difficile!
+            Greta: Mi stupisce: quel ragazzo {~ha il cervello di un pesce bollito|ha smesso di ragionare nel novantasei|ha un unico neurone, ed è disperso dall'undici settembre|crede che la noce moscata sia un insetto}, non deve essere difficile!
     
     + (paolaPerfetta) {loopableVariables has EliaRaggiungeGreta} Ettore: Ho fatto quello che mi hai chiesto, Greta.
             Greta: E Greta te ne è grata, gretino.
             Greta: Scusa, ti ho preso un po' in giro.
-            Greta: Sinceramente, non ho idea di chi possa aver ucciso Paola, lei era perfetta.
+            Greta: Ma sinceramente, non ho idea di chi possa aver ucciso Paola, lei era perfetta.
             Greta: È l'unica persona che non posso davvero insultare, perché sarebbe come insultare un'icona.
             Greta: Fossi religiosa, penserei che l'abbia uccisa un demone.
             Greta: O il fisco. So che aveva aperto partita IVA da poco, ed è cosa peggiore dell'inferno.
-        -> advance_time ->
+                    -> advance_time ->
      
      + (matteoGreta) {hardTrueFeelingsStorylet && new_this_loop(->matteoGreta)} Ettore: Quindi, Matteo ti ama?
             Ettore: Mi ha scaricato, vuole sposare te.
             Greta: Uh, questa mi è nuova.
-            Ettore: Quindi non è vero che avete scopato?
+            Ettore: Quindi non è vero che avete fatto sesso?
             Greta: Non ho detto questo.
             Greta: Abbiamo scopato solo una volta, ed ero molto molto molto ubriaca, e Matteo ha perso la testa.
             Greta: A un certo punto pensavo fosse mio padre.
             Greta: Scusa, un po' di daddy issues li abbiamo tutti, no?
-            -> advance_time ->
+                    -> advance_time ->
             Greta: Cioè, anche tu a uscire con quel tizio che ha ottant'anni da quando andava all'asilo.
             Greta: Ma no, niente amore, mai.
             Greta: Greta ama solo due cose: psilocibina e Kesha.
@@ -89,46 +89,46 @@ Opzioni di dialogo con il personaggio Greta
                 + + Ettore: No, te lo puoi tenere.
                 - -
             Greta: Te la butto lì: fatti dare un indennizzo, tanto i nonni sono pieni di soldi.
-            Greta: E facciamoci tre settimane in Messico a farci un po' di allucinogeni.
-            Greta: Nel dubbio, due chiacchiere con lui le faccio appena capita.    
-            -> advance_time ->
+            Greta: E facciamoci tre settimane in Messico a sperimentare un po' di allucinogeni.
+            Greta: Comunque, nel dubbio, due chiacchiere con lui le faccio appena capita.    
+                    -> advance_time ->
 
     //SCELTE CONDIZIONALI OGGETTI//
     + (minacce) {inventoryContents has Lettera} Ettore: Sai da dove viene questa lettera?
         Greta: Uh, è la calligrafia di Paola. Dove l'hai trovata?
-        Greta: Non importa, comunque. Questa rimane a me per un po'.
+        Greta: Non importa, comunque. Questa rimane con me per un po'.
             ~ inventoryContents -= Lettera
             ~ objectStorageContents += Lettera
             ~ gretaHaLaLettera = true
-        -> advance_time ->
+                -> advance_time ->
     
     + {inventoryContents has AnticoPugnale} Ettore: Hai mai visto questo pugnale?
         Greta: Solo in qualche film dell'orrore.
         Greta: O al battesimo di mia zia Selma.
-        Greta: Ah, lei sapeva come farci divertire!
+        Greta: Oh sì che sapeva come farci divertire, la vecchia sagoma!
     
     + (spiedino) {inventoryContents has SpiedinoCocktail} Ettore: Sai qualcosa su questo spiedino?
-            Greta: <i>FEG</i>? Questa è la sigla del locale mio e di Elia, ma non ricordo di averne mai visto uno.
+            Greta: <i>FEG</i>? Questa è la sigla del locale mio e di Elia, ma non ricordo di averne mai visto uno prima d'ora.
     
     + {inventoryContents has LimettaUnghie} Ettore: Riconosci questa limetta per unghie?
         Greta: Yep, è mia.
         Greta: Ho una seconda unghia che mi sta spuntando sull'alluce destro.
         Greta: Una cosa mostruosa, sinceramente.
         Greta: Elia ha anche proposto di vendere le sue foto su internet, e non è una cattiva idea.
-        Greta: E devo limarla spesso o fa male.
+        Greta: Devo limarla spesso o fa male.
         Greta: Ma non voglio levarla, lo schifo che mi genera è liberatorio.
-        Greta: Per questo l'ho chiamata Zeca.
-            -> advance_time ->
+        Greta: Per questo l'ho chiamata <i>Zeca</i>.
+                -> advance_time ->
     
     + {inventoryContents has Torta} Ettore: Conosci questa torta?
         Greta: Naa, non le ho chiesto il nome, nulla.
         Greta: Abbiamo consumato l'atto anonimamente, come piace a me.
         Greta: E poi addio.
-        Ettore: Quindi è un no?
+        Ettore: Quindi è un <i>no</i>?
         Greta: Quindi è un "Fintanto che farai domande stupide, avrai risposte stupide".
         Greta: Però sul sesso è un peccato: sei davvero belloccio.
         Greta: Ma ormai so troppo di te per poterti trovare sexy.
-            -> advance_time ->
+                -> advance_time ->
     
     + {inventoryContents has BottigliaDiVino} Ettore: Sai da dove viene questa bottiglia di vino?
         Greta: Puglia.
@@ -178,22 +178,20 @@ Opzioni di dialogo con il personaggio Greta
 
     = first_qn
     ~ GretaActing++
-        + Ettore: Com'è essere una sorella acquisita?
-            Greta: Hai presente quando qualcuno della tua famiglia trova un gattino per strada
-            Greta: e quel gattino è adorabile e coccoloso e tutti lo adorano
-            Greta: e magari all'inizio in famiglia dicono che no, non lo voglio un gattino
-            Greta: ma ora fanno a gara a chi lo carezza di più o gli dà da mangiare o lo fa giocare
-            Greta: e quella famiglia che magari prima era un po' infelice, ora ha qualcosa di bello attorno a cui riunirsi
+            Ettore: Com'è essere una sorella acquisita?
+            Greta: Hai presente quando qualcuno della tua famiglia trova un gattino per strada,
+            Greta: e quel gattino è adorabile e coccoloso e tutti lo coccolano,
+            Greta: e magari all'inizio in famiglia dicono che no, non lo voglio un gattino,
+            Greta: ma ora fanno a gara a chi lo carezza di più o gli dà da mangiare o lo fa giocare,
+            Greta: e quella famiglia che magari prima era un po' infelice, ora ha qualcosa di bello attorno a cui riunirsi,
             Greta: e ogni giorno sembra Natale, una festa di compleanno, un matrimonio?
             Greta: Ecco, io per loro sono i vermi del micino, e la diarrea che ti caccerà per tutta casa.
-            -> advance_time ->
-        
-        -
-        -> greta_acting 
+                    -> advance_time ->
+                -> greta_acting 
 
     = second_qn
      ~ GretaActing++
-        +  Ettore: Come mai hai deciso di aprire il pub con Elia?
+            Ettore: Come mai hai deciso di aprire il pub con Elia?
             Greta: Perché qualcuno doveva chiudere da qualche parte quella specie di labrador.
             Greta: E perché è un bel luogo dove insultare le persone.
             Greta: Tanto i comici che vengono sono solo dei falliti.
@@ -201,15 +199,13 @@ Opzioni di dialogo con il personaggio Greta
             Greta: Cosa che ora mi renderebbe tutto questo più sopportabile.
             Greta: E non intendo la morte di Paola.
             Greta: Intendo questa conversazione.
-            -> advance_time ->
-       
-        -
-        -> greta_acting     
+                    -> advance_time ->
+                -> greta_acting     
 
     = third_qn
     ~ GretaActing++
-        Greta: Chissà Matteo come sta.
-            +  Ettore: Non sapevo fossi legata a Matteo.
+            Greta: Chissà Matteo come sta.
+            Ettore: Non sapevo fossi legata a Matteo.
             Greta: Vedrai presto che in questa famiglia tutti sono legati, quasi incollati, inchiodati.
             Greta: Non è una famiglia, è un culto.
             Greta: E se la divinità è Paola, Matteo è l'eretico che vuole prendere il suo posto, e amo gli eretici.
@@ -218,9 +214,8 @@ Opzioni di dialogo con il personaggio Greta
             Ettore: Ehm, io ora non ricordo bene.
             Greta: Non parla mai di me, vero?
             Greta: Meglio: adoro essere ignorata dalla mia divinità, è una cosa così cattolica.
-            -> advance_time ->    
-        -    
-        -> greta_acting
+                    -> advance_time ->    
+                -> greta_acting
 
 
 
@@ -267,7 +262,7 @@ Opzioni di dialogo con la persona Greta
         Greta: NO, NON LASCIARMI SOLA!
         Ettore: Sono confuso in questo momento.
         Greta: Tu sei un attore professionista. Quindi, dimmi: quanto fa schifo questa roba?
-        -> advance_time ->
+                -> advance_time ->
             + Ettore: Su una scala che va da Tommy Wiseau a Manuela Arcuri, noi siamo Alberto Tomba.
             + Ettore: Le blatte sullo sfondo non se la sono cavata male.
             -
@@ -276,9 +271,8 @@ Opzioni di dialogo con la persona Greta
         Greta: LE MIE PRIME FERIEEEEE!
         Greta: E ora il massimo del sole che prenderò sarà come sempre la luce del frigorifero.
         Greta: Forse, se faccio bere Paola a sufficienza, si potrebbe dimenticare di ogni cosa, no?
-            -> advance_time ->
-    
-        -> greta_talking 
+                -> advance_time ->
+            -> greta_talking 
 
     
     = second_qn
@@ -288,15 +282,16 @@ Opzioni di dialogo con la persona Greta
         Greta: Paola aveva un amico di un amico che aveva un debito, e l'ha avuta a gratis.
         Greta: E così si è svegliata e ha detto: "Ma sì, oggi sono una regista!"
         Greta: Ma non poteva fare che ne so, un film, o "The Lady". No.
-        Greta: Doveva tirare su questa cosa superimprovvisata che poi dovremmo fare dal vivo per una settimana.
+        Greta: Doveva tirare su questa cosa superimprovvisata che poi dovremmo ripetere dal vivo per una settimana.
         Greta: Portandoci dentro persone inconsapevoli che devono fare il tuo, di ruolo.
         Greta: Praticamente, un rapimento.
-        -> advance_time ->
+                -> advance_time ->
         Greta: E tu mi chiederai ora: perché mi stai dicendo tutto questo?
         Greta: Non è un po' troppo diretto, quasi uno spiegone?
-        Greta: E avresti ragion. Ma c'è un grosso <i>ma</i>: queste cose avrei dovuto dirtele all'ingaggio.
-        Greta: E invece ero così presa dai casini della Londar e dai malumori di Paola, che alla fine al tuo agente ho solo dato orario e indirizzo.
+        Greta: E avresti ragione. Ma c'è un grosso <i>ma</i>: queste cose avrei dovuto dirtele all'ingaggio.
+        Greta: E invece ero così presa dai casini della Londar e dai malumori di Paola che alla fine al tuo agente ho solo dato orario e indirizzo.
         Greta: E ora mi sento in colpa perché mi chiedo: quando Paola è morta, hai capito che era una recita, o ti sei spaventato?
+                -> advance_time ->
             + Ettore: Mi sono cagato addosso.
                 Greta: Come temevo.
             + Ettore: Naa, era tutto troppo ridicolo.
@@ -304,10 +299,10 @@ Opzioni di dialogo con la persona Greta
             -
         Greta: Fortuna comunque che il tuo agente ha firmato un accordo superrestrittivo per te.
         Greta: Per cui non potresti denunciarci neanche in caso di menomazione.
+        Greta: A differenza della tizia dell'anno scorso.
         Greta: C'è altro?
-            -> advance_time ->
-        
-        -> greta_talking    
+                -> advance_time ->
+            -> greta_talking    
 
 
     = third_qn
@@ -319,12 +314,12 @@ Opzioni di dialogo con la persona Greta
                 Greta: Tranqui, non sei così interessante.
             -
         Greta: Non so se l'hai notato, ma Elia e Zeca sono l'uno l'ombra dell'altro.
-        Greta: E fuori da qui, lavorano assieme H24 su quel loro progetto di merda.
+        Greta: E fuori da qui, lavorano assieme accaventiquattro su quel loro progetto di merda.
         Greta: Che è una specie di Onlyfans per sfigati narcisisti.
         Greta: E sai qual è la cosa più interessante?
-        Greta: Che Elia da un anno dice di avere una fidanzata, ma nessuno quella fidanzata l'ha mai vista.
-        Greta: E a volte sospetto che la fidanzata sia Zeca.
-            -> advance_time ->    
+        Greta: Che nessuno dei due è fidanzato.
+        Greta: Anche se a volte sospetto che la fidanzata di Elia sia Zeca.
+                -> advance_time ->    
         Greta: E non ci sarebbe niente di male, figurati.
         Greta: Solo che non mi piace essere tirata in giro.
         Greta: Cioè, prova a immaginare ad esempio una situazione in cui tu scopi con Elia.
@@ -332,7 +327,6 @@ Opzioni di dialogo con la persona Greta
         Greta: E lui si scopa anche altra gente.
         Greta: Un po' la cosa ti farebbe incazzare, no?
         Greta: E mi immagino il povero Zeca, come potrebbe sentirsi.
-        Greta: Se tutto sommato questa ragazza immaginaria, non sarebbe poi così tanto immaginaria.
-            -> advance_time ->
-        
-        -> greta_talking
+        Greta: Soprattutto se questa ragazza immaginaria non fosse poi così tanto immaginaria.
+                -> advance_time ->
+            -> greta_talking

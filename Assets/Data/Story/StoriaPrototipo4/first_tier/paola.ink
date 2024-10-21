@@ -19,7 +19,7 @@ Opzioni di dialogo con il personaggio Paola: assenti perché more
     {debug: <i>Passo per paola_acting</i>}
     -> first_tier_storylets ->
     + {objects_tutorial} Paola: Non mi parlare, sono morta.
-    + {!objects_tutorial} Ettore: Sembra proprio morta.
+    + {!objects_tutorial} Ettore: Sembra proprio morta
     -
     ->->
 
@@ -65,7 +65,7 @@ Opzioni di dialogo con la persona Paola
         Ettore: Fino a pochi minuti fa, sì.
         Paola: Allora no, non va nulla bene.
         Paola: Sa che voglio solo ricariche al rabarbaro per la mia sigaretta elettronica.
-        Paola: E invece, di nuovo, me l'ha presa al mentolo.
+        Paola: E invece me l'ha presa al mentolo.
         Paola: Ora la uccido.
             -> advance_time ->
         
@@ -81,23 +81,21 @@ Opzioni di dialogo con la persona Paola
         Paola: COMPAGNIA? MA LI HAI VISTI?
         Paola: Sono parenti e dipendenti e conoscenti.
         Paola: E odio parenti, dipendenti e conoscenti.
-        Paola: Ma dato che ancora non sei una di queste tre cose, è bene che me ne vada.
+        Paola: E se vuoi sopravvivere stasera, vedi di non diventare nessuna delle tre cose.
             -> advance_time ->
-        ~ move_this_entity_in_a_different_room(Paola)
-        
-        -> intro  
+        -> paola_talking  
+
 
     = third_qn
     ~ PaolaTalking++
         Ettore: Quindi sei una regista?
         Paola: Anche. In realtà il lavoro principale è gestire l'azienda di famiglia.
-        Paola: Lavoro che dovrebbe toccare anche ad Elia.
+        Paola: Lavoro che dovrebbe toccare anche a Elia.
         Ettore: Ma non vuole farlo?
         Paola: No, il problema è che vuole farlo. Ma non so se ci hai parlato.
         Paola: Non si lava l'ombelico da quando ha sei anni: è convinto che facendolo gli si aprirà la pancia, le viscere usciranno tutte, e morirà.
-        Paola: A volte spero davvero che accada.
-            -> advance_time ->    
-    
+        Paola: Non dovrebbe pulirsi il culo da solo, figurati gestire un colosso come la Londar.
+            -> advance_time ->
         -> paola_talking
 
 

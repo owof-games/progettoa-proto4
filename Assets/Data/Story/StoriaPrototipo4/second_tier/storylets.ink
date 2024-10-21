@@ -12,7 +12,7 @@
     - are_three_entities_together(Elia, Ettore, Zeca) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Paola) && not are_two_entities_together(Elia, Matteo) && elia_talking_second_tier.indagini3 && new_this_loop(-> liarCallLiarStorylet):
             -> liarCallLiarStorylet
     
-    - inventoryContents has Foto && are_two_entities_together(Zeca, Ettore) && not are_six_entities_together(Zeca, Elia) && not are_two_entities_together(Zeca,Greta) && not are_two_entities_together(Zeca, Paola): -> iLlKillThatBitchStorylet    
+    - inventoryContents has Foto && are_two_entities_together(Zeca, Ettore) && not are_two_entities_together(Zeca, Elia) && not are_two_entities_together(Zeca,Greta) && not are_two_entities_together(Zeca, Paola): -> iLlKillThatBitchStorylet    
 
     - are_two_entities_together(Matteo, Ettore) && not are_two_entities_together(Matteo,Greta) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && not new_this_loop (->trueLoveStorylet) && new_this_loop(->forMeHeIsStupidAFStorylet):
         -> forMeHeIsStupidAFStorylet
@@ -181,6 +181,9 @@
             + Ettore: Cringe.
                 Zeca: Fottiti. E non osare più parlarmi.
                 ~ loopableVariables += pausaRapportoZeca
+                -> advance_time ->            
+        -> intro
+        
             + Ettore: Romantico.
                 Zeca: Si tratta di lavoro, solo di lavoro.
             -> advance_time ->            
@@ -370,7 +373,6 @@
         Matteo: Ma ecco che arriva qualcuno a rompere le scatole, e la nostra conversazione finisce qui.
         -> intro
 
-TODO: fare entrare queste due informazioni in modo casuale, come Matteo che si lamenta di quei due (parte uno) ed Elia che è confuso (parte due). Ma nessuno dei due ci dice che cosa ha fatto lui e il partner.
 
 === notABigSecretPartTwoStorylet
         Elia: Non le trovo!

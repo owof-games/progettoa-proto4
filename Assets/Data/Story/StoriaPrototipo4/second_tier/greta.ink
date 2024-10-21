@@ -398,7 +398,7 @@ Opzioni di dialogo con la persona Greta
     + {inventoryContents has Lettera} Ettore: Hai visto questa lettera?
         {greta_acting.minacce: Greta: La stessa che ti ho levato prima?|Greta: Ho altro per la testa.}
         {greta_acting.minacce: Greta: Vabbè, scegli pure la tua morte.|Greta: Tipo come non far pissare Paola con una lettera.}
-        
+                -> greta_talking_second_tier
         
     + {inventoryContents has Torta} Ettore: Hai mai assaggiato questa Torta?
         Greta: Cos'è? Uno di quei kink dove si riempie qualcuno di cibo?
@@ -409,15 +409,17 @@ Opzioni di dialogo con la persona Greta
         Ettore: TROPPE INFORMAZIONI!!!
         Greta: Allora sta attento a quel che chiedi, idiota.
                 -> advance_time ->
-            
+            -> greta_talking_second_tier
     
     + {inventoryContents has BottigliaDiVino} Ettore: Hai mai visto questa bottiglia di vino?
         Greta: Sì, è tra quelle che abbiamo comprato al supermercato.
         Greta: Ma non dirlo a Paola: abbiamo preso la roba che costava meno e con l'etichetta più spocchiosa.
         Greta: E da come ha sorriso, credo abbia funzionato!
+            -> greta_talking_second_tier
             
     + {inventoryContents has FlaconcinoAsma} Ettore: Sai di chi sia questo flaconcino per l'asma?
         Greta: Paola, punto.
+            -> greta_talking_second_tier
             
     + (sigaretta) {inventoryContents has SigarettaElettronica} Ettore: Ho trovato questa sigaretta elettronica!
             Greta: Ah sì.
@@ -426,7 +428,8 @@ Opzioni di dialogo con la persona Greta
             Greta: Che pensa, che Paola abbia novant'anni?!?
             Greta: Ora quella è pissata con me, maledizione.
             Greta: Mai far fare le cose agli altri, mai.
-             -> advance_time ->
+                    -> advance_time ->
+            -> greta_talking_second_tier
             
     + {inventoryContents has Foto} Ettore: Guarda questa foto.
             Greta: Chi te l'ha data?
@@ -438,7 +441,7 @@ Opzioni di dialogo con la persona Greta
             Greta: Ma non osare più parlarmi.
                 ~ loopableVariables += pausaRapportoGreta
                 -> advance_time ->
-
+            -> greta_talking_second_tier
 
 = esplora_greta
 {debug: <i>Passo per esplora_greta</i>}

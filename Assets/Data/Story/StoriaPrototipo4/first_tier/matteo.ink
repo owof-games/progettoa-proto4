@@ -29,7 +29,7 @@ Opzioni di dialogo con il personaggio Matteo
         Matteo: Che recuperava la mia segretaria.
         Matteo: I meme intendo.
         Matteo: Gli auguri glieli scrivevo io.
-                -> advance_time ->
+                    -> advance_time ->
             + + Ettore: E come stai ora? Ora che è morta?
                 Matteo: Sai come sono: cerco sempre di andare avanti come un treno.
                 Matteo: Vorrei mettermi subito a lavorare.
@@ -69,9 +69,9 @@ Opzioni di dialogo con il personaggio Matteo
     + (paolaSiSposa) {elia_acting.paolaSiSposa} Ettore: Matteo, ma tu sapevi che Paola si stava per sposare?
         {not marryMeStorylet: Matteo: Era un po' un segreto di pulcinella.}
         {marryMeStorylet: Matteo: Paola ha organizzato il matrimonio appena le ho confidato che avrei voluto sposarti, la stronza.}
-        + + (paolaZeca){marryMeStorylet && not are_two_entities_together(Zeca, Matteo)} Ettore: E come l'hai presa?
+        + + {marryMeStorylet && not are_two_entities_together(Zeca, Matteo)} Ettore: E come l'hai presa?
             Matteo: Mi sono incazzato. Ma non così tanto da volerla uccidere, se è quello il tuo dubbio.
-            Matteo: Ma la cosa più ridicola è che abbia chiesto a Zeca di fare da testimone.
+            - (paolaZeca) Matteo: Ma la cosa più ridicola è che abbia chiesto a Zeca di fare da testimone.
             Matteo: Quando sappiamo tutti in famiglia che Zeca odia Paola da sempre!
             Matteo: E non a me, il fratello fedele che le dava un sacco di soldi per le sue opere di carità.
             Matteo: No, al fallito, a quello che fa vergognare tutta la famiglia.
@@ -130,11 +130,11 @@ Opzioni di dialogo con il personaggio Matteo
             Matteo: Anche mentre dorme.
             Matteo: Anche mentre scopa.
             Ettore: Uh, questo è poco lusinghiero.
-            Matteo: Con le lusinghe non si manda avanti l'economia.
+            Matteo: Con le lusinghe non si manda avanti l'economia, non si salva il Paese!!!
             Matteo: Ora via, che c'ho da pensare!      
             -> advance_time ->
       
-    + Te ne vai
+    + [Te ne vai]
         -> intro
     -
 ->->

@@ -125,7 +125,6 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 {cb_first_tier_cibo.primoCheck: Il paradiso di un dodicenne: cioccolata, crema di arachidi, fragole, biscottini sbriciolati. La adori.}
 
 
-TODO: sistemare come in secondo tier
 {marryMeStorylet.matteoSiSposa && hardTrueFeelingsStorylet.matteoGreta: <b>Quali sono le intenzioni di Matteo sul matrimonio?</b>}
 
 
@@ -138,6 +137,7 @@ TODO: sistemare come in secondo tier
             
     }
     
+    /**
         ++ {contraddizione_matteo} Vuole sposare me {choice_MatteoVuoleSposareEttore == True: (scelta attuale)}
             ~ choice_MatteoVuoleSposareEttore = True
         ++ {contraddizione_matteo} vuole sposare Greta {choice_MatteoVuoleSposareEttore == False: (scelta attuale)}
@@ -146,7 +146,7 @@ TODO: sistemare come in secondo tier
             ~ choice_MatteoVuoleSposareEttore = DontKnow
         ++ ->    
         --
-
+        **/
 
 {matteo_acting.paolaZeca && worstBestManStorylet.paolaZeca: <b>La relazione tra Paola e Zeca</b>}
 
@@ -159,6 +159,8 @@ TODO: sistemare come in secondo tier
             Chi mente?
             
     }
+
+    /**
     
         ++ {contraddizione_zeca} Zeca {choice_MenteZeca == True: (scelta attuale)}
             ~ choice_MenteZeca = True
@@ -168,6 +170,8 @@ TODO: sistemare come in secondo tier
             ~ choice_MenteZeca = DontKnow
         ++ ->    
         --
+        **/
+
 -> intro
 
 
@@ -338,7 +342,7 @@ TODO: sistemare come in secondo tier
 
     {
         - contraddizione_lettera:
-            {elia_talking_second_tier.indagini: Elia ci dice che Greta ha dato a Matteo info per "contrattare" meglio con Paola per la sindacalizzazione e questo avrebbe fatto pissare Paola.} {greta_talking_second_tier.indagini: Greta: Beh: Paola sta cercando far estromettere Elia dalla Londar.}
+            {elia_talking_second_tier.indagini: Elia: Allora ti dico un segreto: Greta ha dato a Matteo molte informazioni sui conti dell'azienda. Vuole aiutarlo con questa cosa del sindicato, così che Matteo possa sindicare meglio sindicando Paola e venendo sindicato dai colleghi del sindicato.} {greta_talking_second_tier.indagini: Greta: Beh: Paola sta cercando far estromettere Elia dalla Londar.}
             A chi è destinata la lettera?
             
     }

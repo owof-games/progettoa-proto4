@@ -52,7 +52,7 @@
 
 
 //La morte di Paola deve arrivare solo quando abbbiamo fatto tutti i tutorial e abbiamo compiuto le scelte su Matteo e Zeca
-    -  currentTime >= 600 && objects_tutorial && notebook_tutorial && talking_tutorial && peopleTalking == false && (choice_MatteoVuoleSposareEttore == True or choice_MatteoVuoleSposareEttore == False) && (choice_MenteZeca == True or choice_MenteZeca == False):
+    -  currentTime >= 600 && objects_tutorial && notebook_tutorial && talking_tutorial && peopleTalking == false:
             -> paolaIsDeadStorylet
     
 

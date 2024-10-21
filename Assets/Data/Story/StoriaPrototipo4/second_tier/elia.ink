@@ -215,8 +215,8 @@ Opzioni di dialogo con la persona Elia
         Elia: Questa cosa da Matteo non me la credevo comunque.
         Elia: Io sono stato un sacco zitto per Matteo.
         Elia: Non con Matteo, perché parlo molto, ma per Matteo, sì.
-        - (indagini) Elia: Allora ti dico un segreto: Greta ha dato a Matteo molte informazioni sui conti dell'azienda.
-        Elia: Vuole aiutarlo con questa cosa del sindicato, così che Matteo possa sindicare meglio sindicando Paola e venendo sindicato dai colleghi del sindicato.
+        Elia: Allora ti dico un segreto: Greta ha dato a Matteo molte informazioni sui conti dell'azienda.
+        - (indagini) Elia: Vuole aiutarlo con questa cosa del sindicato, così che Matteo possa sindicare meglio sindicando Paola e venendo sindicato dai colleghi del sindicato.
         Elia: E io l'ho detto a Greta che fa bene, perché nessuno deve indicare i miei amici.
         Elia: Ma possono sindicarli, perché non è scritto diversamente da nessuna parte, no?
             -> advance_time ->   

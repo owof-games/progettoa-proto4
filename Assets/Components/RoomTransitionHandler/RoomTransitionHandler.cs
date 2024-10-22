@@ -1,4 +1,5 @@
 #nullable enable
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ using Cysharp.Threading.Tasks;
 using Eflatun.SceneReference;
 using LitMotion;
 using LitMotion.Extensions;
-using NUnit.Framework;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 using InvalidOperationException = System.InvalidOperationException;
 using Random = UnityEngine.Random;

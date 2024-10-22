@@ -1,9 +1,9 @@
 using System.Collections;
 using Cysharp.Threading.Tasks;
 using LemuRivolta.InkAtoms.CommandLineProcessors;
-using NUnit.Framework;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Components.Story
 {

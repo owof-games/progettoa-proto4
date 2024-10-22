@@ -2,10 +2,10 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace Components.NavigationNetwork
+namespace Components.NavigationNetwork.Editor
 {
     [CustomEditor(typeof(NavigationGraph))]
-    public class NavigationGraphEditor : Editor
+    public class NavigationGraphEditor : UnityEditor.Editor
     {
         private void OnSceneGUI()
         {

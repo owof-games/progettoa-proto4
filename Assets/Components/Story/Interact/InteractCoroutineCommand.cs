@@ -1,12 +1,13 @@
 #nullable enable
+
 using System;
 using System.Collections;
 using System.Linq;
 using LemuRivolta.InkAtoms;
 using LemuRivolta.InkAtoms.CommandLineProcessors;
-using NUnit.Framework;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class InteractCoroutineCommand : CoroutineCommandLineProcessor
 {

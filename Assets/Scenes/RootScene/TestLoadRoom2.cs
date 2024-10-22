@@ -1,7 +1,8 @@
 #nullable enable
-using NUnit.Framework;
+
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Scenes.RootScene
 {

@@ -3,8 +3,8 @@ using System.Linq;
 using Components.Character;
 using Components.RoomTransitionHandler;
 using JetBrains.Annotations;
-using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 namespace Components.Dialogue

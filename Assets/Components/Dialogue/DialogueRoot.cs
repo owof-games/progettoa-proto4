@@ -5,10 +5,10 @@ using Components.Character;
 using Components.Story.Lines;
 using LemuRivolta.InkAtoms;
 using LitMotion;
-using NUnit.Framework;
 using UnityAtoms.BaseAtoms;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 namespace Components.Dialogue
@@ -57,6 +57,7 @@ namespace Components.Dialogue
             }
         }
 
+#if UNITY_EDITOR
         private void OnValidate()
         {
             if (!dialogueSlidingContainer) dialogueSlidingContainer = transform.GetChild(0) as RectTransform;
@@ -65,6 +66,7 @@ namespace Components.Dialogue
                 dialogueRowPrefab =
                     AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Components/Dialogue/DialogueRow.prefab");
         }
+#endif
 
         private void SlideDialogueContainer(float delta)
         {

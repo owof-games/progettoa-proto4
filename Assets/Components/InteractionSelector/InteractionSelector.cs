@@ -59,6 +59,7 @@ namespace Components.InteractionSelector
             }
         }
 
+#if UNITY_EDITOR
         private void OnValidate()
         {
             if (!interactionExitEvent)
@@ -81,5 +82,6 @@ namespace Components.InteractionSelector
                     AssetDatabase.LoadAssetAtPath<StoryStateConstant>(
                         "Assets/Components/Story/Lines/Story State Interacting.asset");
         }
+#endif
     }
 }

@@ -1,7 +1,7 @@
 using Components.Story.Lines;
-using NUnit.Framework;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Components.Character
 {

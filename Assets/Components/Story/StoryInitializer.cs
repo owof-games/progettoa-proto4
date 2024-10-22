@@ -1,8 +1,8 @@
 using Components.Story.Lines;
 using LemuRivolta.InkAtoms;
-using NUnit.Framework;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 namespace Components.Story

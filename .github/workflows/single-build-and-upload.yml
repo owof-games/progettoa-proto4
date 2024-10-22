@@ -56,10 +56,10 @@ jobs:
       # https://github.com/actions/checkout/issues/211#issuecomment-1463921672
       # This also contains info about running self-hosted docker as non-root:
       # https://github.com/actions/runner/issues/434
-      # - name: Fix permissions
-      #   if: ${{ inputs.fix_permissions }}
-      #   shell: sh
-      #   run: echo "user is $USER and workspace is $GITHUB_WORKSPACE and curr dir is $(pwd)" && sudo chown -R $USER:$USER $GITHUB_WORKSPACE/../..
+      - name: Fix permissions
+        if: ${{ inputs.fix_permissions }}
+        shell: sh
+        run: echo "user is $USER and workspace is $GITHUB_WORKSPACE and curr dir is $(pwd)" && sudo chown -R $USER:$USER $GITHUB_WORKSPACE/../..
 
       # Checkout (without LFS)
       - name: Checkout repository
@@ -118,10 +118,10 @@ jobs:
           name: ${{ inputs.targetPlatform }}
           path: ${{ inputs.targetPlatform == 'WebGL' && 'build/WebGL/WebGL' || 'build' }}
 
-      # - name: Fix permissions (again)
-      #   if: ${{ inputs.fix_permissions }}
-      #   shell: sh
-      #   run: echo "user is $USER and workspace is $GITHUB_WORKSPACE and curr dir is $(pwd)" && sudo chown -R $USER:$USER $GITHUB_WORKSPACE/../..
+      - name: Fix permissions (again)
+        if: ${{ inputs.fix_permissions }}
+        shell: sh
+        run: echo "user is $USER and workspace is $GITHUB_WORKSPACE and curr dir is $(pwd)" && sudo chown -R $USER:$USER $GITHUB_WORKSPACE/../..
   upload:
     runs-on: ['self-hosted', 'Linux']
     name: Upload for ${{ inputs.name }}

@@ -46,6 +46,12 @@ namespace Components.Story.Lines
 
         public void OnStoryStep(StoryStep step)
         {
+            if (step.CanContinue && string.IsNullOrWhiteSpace(step.Text))
+            {
+                Unparsable(step, "empty line");
+                return;
+            }
+
             if (currentStoryState.Value.Equals(storyStateTalking.Value))
             {
                 var text = step.Text;

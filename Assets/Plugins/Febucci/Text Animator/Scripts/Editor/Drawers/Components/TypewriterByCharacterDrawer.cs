@@ -1,21 +1,20 @@
 using UnityEditor;
-using UnityEngine;
 
 namespace Febucci.UI.Core.Editors
 {
     [CustomEditor(typeof(TypewriterByCharacter), true)]
     class TypewriterByCharacterDrawer : TypewriterCoreDrawer
     {
+        private SerializedProperty avoidMultiplePunctuationWait;
+        private PropertyWithDifferentLabel disappearanceSpeedMultiplier;
+        private PropertyWithDifferentLabel disappearanceWaitTime;
+
+        private PropertyWithDifferentLabel useTypewriterWaitForDisappearances;
+        private SerializedProperty waitForLastCharacter;
+        private SerializedProperty waitForNewLines;
         SerializedProperty waitForNormalChars;
         SerializedProperty waitLong;
         SerializedProperty waitMiddle;
-        SerializedProperty avoidMultiplePunctuactionWait;
-        SerializedProperty waitForNewLines;
-        SerializedProperty waitForLastCharacter;
-
-        PropertyWithDifferentLabel useTypewriterWaitForDisappearances;
-        PropertyWithDifferentLabel disappearanceWaitTime;
-        PropertyWithDifferentLabel disappearanceSpeedMultiplier;
 
         protected override void OnEnable()
         {
@@ -24,17 +23,21 @@ namespace Febucci.UI.Core.Editors
             waitForNormalChars = serializedObject.FindProperty("waitForNormalChars");
             waitLong = serializedObject.FindProperty("waitLong");
             waitMiddle = serializedObject.FindProperty("waitMiddle");
-            avoidMultiplePunctuactionWait = serializedObject.FindProperty("avoidMultiplePunctuactionWait");
+            avoidMultiplePunctuationWait = serializedObject.FindProperty("avoidMultiplePunctuationWait");
             waitForNewLines = serializedObject.FindProperty("waitForNewLines");
             waitForLastCharacter = serializedObject.FindProperty("waitForLastCharacter");
-            useTypewriterWaitForDisappearances = new PropertyWithDifferentLabel(serializedObject, "useTypewriterWaitForDisappearances", "Use Typewriter Wait Times");
-            disappearanceSpeedMultiplier = new PropertyWithDifferentLabel(serializedObject, "disappearanceSpeedMultiplier", "Typewriter Speed Multiplier");
-            disappearanceWaitTime = new PropertyWithDifferentLabel(serializedObject, "disappearanceWaitTime", "Disappearances Wait");
+            useTypewriterWaitForDisappearances = new PropertyWithDifferentLabel(serializedObject,
+                "useTypewriterWaitForDisappearances", "Use Typewriter Wait Times");
+            disappearanceSpeedMultiplier = new PropertyWithDifferentLabel(serializedObject,
+                "disappearanceSpeedMultiplier", "Typewriter Speed Multiplier");
+            disappearanceWaitTime =
+                new PropertyWithDifferentLabel(serializedObject, "disappearanceWaitTime", "Disappearances Wait");
         }
 
         protected override string[] GetPropertiesToExclude()
         {
-            string[] newProperties = new string[] {
+            string[] newProperties =
+            {
                 "script",
                 "waitForNormalChars",
                 "waitLong",
@@ -70,7 +73,7 @@ namespace Febucci.UI.Core.Editors
             EditorGUILayout.PropertyField(waitLong);
             EditorGUILayout.PropertyField(waitMiddle);
 
-            EditorGUILayout.PropertyField(avoidMultiplePunctuactionWait);
+            EditorGUILayout.PropertyField(avoidMultiplePunctuationWait);
             EditorGUILayout.PropertyField(waitForNewLines);
             EditorGUILayout.PropertyField(waitForLastCharacter);
         }
@@ -83,7 +86,6 @@ namespace Febucci.UI.Core.Editors
                 disappearanceSpeedMultiplier.PropertyField();
             else
                 disappearanceWaitTime.PropertyField();
-
         }
     }
 }

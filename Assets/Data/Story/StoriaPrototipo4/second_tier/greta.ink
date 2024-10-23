@@ -18,6 +18,7 @@ Opzioni di dialogo con la persona Greta
  ----------------------------------*/
 
 === greta_talking_second_tier
+-> second_tier_storylets ->
  {debug: <i>Passo per greta_talking_second_tier</i>}
  {loopableVariables has pausaRapportoGreta: Greta: ...}
     
@@ -292,10 +293,7 @@ Opzioni di dialogo con la persona Greta
             + + Ettore: Mmm, vedremo.
                 -> greta_talking_second_tier
 
-    + [Conosci meglio Greta]-> esplora_greta
-    
-    + [Lascia la conversazione]-> intro
-    
+
 
     // OPZIONE PER IL FINALE
     + {primaContraddizione && secondaContraddizione} [È il momento di fermare l’omicida di Paola!] Ettore: Venite tutti, ho bisogno di parlarvi! -> arringa_finale
@@ -442,7 +440,13 @@ Opzioni di dialogo con la persona Greta
                 ~ loopableVariables += pausaRapportoGreta
                 -> advance_time ->
             -> greta_talking_second_tier
+    
+    + [Conosci meglio Greta]-> esplora_greta
 
+    + [Lascia la conversazione]-> intro
+    
+
+    
 = esplora_greta
 {debug: <i>Passo per esplora_greta</i>}
 

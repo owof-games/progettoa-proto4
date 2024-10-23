@@ -9,10 +9,9 @@
 
 
 //STORYLET "NORMALI"
-    - are_three_entities_together(Elia, Matteo, Ettore) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Greta) && peopleTalking == false && new_this_loop(->weddingAtThePubStorylet):
+    - are_three_entities_together(Elia, Matteo, Ettore) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Greta) && (marryMeStorylet.matteoSiSposa or marryMeStorylet.matteoSiSposa2)&& peopleTalking == false && new_this_loop(->weddingAtThePubStorylet):
             -> weddingAtThePubStorylet
 
-    //&& (marryMeStorylet.matteoSiSposa or marryMeStorylet.matteoSiSposa2)
 
 //CONVERSAZIONI ORIGLIATE
     - are_two_entities_together(Elia, Greta) && elia_acting.missioneGreta && not are_two_entities_together(Elia, Matteo) && not are_two_entities_together(Elia, Zeca) && is_this_entity_near_Ettore(Elia) == true &&  peopleTalking == false && new_this_loop(->anEavesdropAboutFriendshipStorylet):
@@ -33,6 +32,7 @@
     - are_two_entities_together(Matteo, Ettore) && inventoryContents has AnticoPugnale && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Zeca) && not are_two_entities_together(Ettore, Greta) && peopleTalking == false && new_this_loop(->aStrangeKnifeStorylet):
             -> aStrangeKnifeStorylet
 
+        TODO: Non so come mai, ma non sta partendo
     - are_two_entities_together(Matteo, Ettore) && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Zeca) && not are_two_entities_together(Ettore, Greta) && peopleTalking == false && new_this_loop(->marryMeStorylet):
             -> marryMeStorylet
     
@@ -42,13 +42,14 @@
 
 
 //MATERIALI PER TUTORIAL
-    - currentTime >= 300 && not activeObjects:
+TODO: parte dal secondo loop, perché?
+    - currentTime > 300 && not activeObjects:
             -> objects_tutorial
 
-    - currentTime >= 405 && activeObjects && not activeNotebook:
+    - currentTime > 405 && activeObjects && not activeNotebook:
             -> notebook_tutorial
 
-    - currentTime >= 510 && activeObjects && not activeNotebook && not talking_tutorial: -> talking_tutorial
+    - currentTime > 510 && activeObjects && not activeNotebook && not talking_tutorial: -> talking_tutorial
 
 
 //La morte di Paola deve arrivare solo quando abbbiamo fatto tutti i tutorial e abbiamo compiuto le scelte su Matteo e Zeca
@@ -190,7 +191,9 @@
         -
             Matteo: Elia, non festeggerò mai il mio matrimonio nel tuo bar triste con la tua insopportabile collega!
             Matteo: Questa è la cosa peggiore che potrebbe capitarmi, ed è il <b>mio</b> matrimonio, capito?!?
+            Elia: Sei uno stronzo.
                 -> advance_time ->
+                    ~ move_this_entity_in_a_different_room(Elia)
             -> intro
 
 
@@ -518,7 +521,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Paola: Stop stop stop maledizione!
             ~ move_first_entity_to_second_entity_location(Greta,Ettore)
         Paola: Sant'iddio Greta, dove hai messo tutti i cazzo di oggetti? Mettili al loro posto, ora!
-            ~  move_this_entity_in_a_different_room(Greta)
+            ~ move_this_entity_in_a_different_room(Greta)
             ~ move_first_entity_to_second_entity_location(Zeca,Ettore)
             ~ move_first_entity_to_second_entity_location(Elia,Ettore)
         Paola: Ettore, ricordati che se hai un oggetto in mano puoi mostrarlo e ottenere nuove informazioni.
@@ -540,6 +543,10 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Paola: Due minuti e poi si riparte dall'omicidio!
             ~ peopleTalking = true
             ~ activeObjects = true
+            ~ move_this_entity_in_a_different_room(Greta)
+            ~ move_this_entity_in_a_different_room(Elia)
+            ~ move_this_entity_in_a_different_room(Matteo)
+            ~ move_this_entity_in_a_different_room(Zeca)
             -> resting_time ->
             -> advance_time ->
             
@@ -569,7 +576,10 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Paola: Poi ripartiamo dalla scena in cui muoio!
             ~ peopleTalking = true
             ~ activeNotebook = true
-                    
+            ~ move_this_entity_in_a_different_room(Greta)
+            ~ move_this_entity_in_a_different_room(Elia)
+            ~ move_this_entity_in_a_different_room(Matteo)
+            ~ move_this_entity_in_a_different_room(Zeca)        
                     -> advance_time ->
                     -> resting_time ->
                     
@@ -600,7 +610,10 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Paola: Poi ripartiamo da dopo la mia morte.
         Paola: Peccato sia solo recitazione.
         ~ peopleTalking = true
-        
+            ~ move_this_entity_in_a_different_room(Greta)
+            ~ move_this_entity_in_a_different_room(Elia)
+            ~ move_this_entity_in_a_different_room(Matteo)
+            ~ move_this_entity_in_a_different_room(Zeca)
                     -> advance_time ->
                 -> resting_time ->
             -> intro

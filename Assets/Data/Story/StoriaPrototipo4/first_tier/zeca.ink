@@ -51,10 +51,7 @@ Opzioni di dialogo con il personaggio Zeca
             -> advance_time ->
 
 
-    + [Conosci meglio Zeca] -> esplora_zeca_personaggia
-    
-    + [Te ne vai]
-        -> intro
+
     //SCELTE CONDIZIONALI//
     + (sposo) {marryMeStorylet && not hardTrueFeelingsStorylet.ah or hardTrueFeelingsStorylet.mono && new_this_loop(->sposo)} Ettore: Matteo ed io ci sposeremo!
             Zeca: E immagino sia una cosa buona?
@@ -171,8 +168,10 @@ Opzioni di dialogo con il personaggio Zeca
                 -> advance_time ->
                     -> zeca_acting
     
-      
-
+    
+    + [Conosci meglio Zeca] -> esplora_zeca_personaggia
+    + [Te ne vai]
+    -> intro
     -
 ->->
 

@@ -39,7 +39,7 @@
 <- phone
 // only present because ink doesn't allow to produce a choice list made ONLY of threads: at least one choice must be in this list (using a default choice that will never appear)
 + avanza tempo
-  ~ currentTime += 15
+  -> advance_time ->
 + ->
 -
 
@@ -76,7 +76,7 @@ DEBUG: errore, nessun personaggio con cui interagire
 <- phone
 // only present because ink doesn't allow to produce a choice list made ONLY of threads: at least one choice must be in this list (using a default choice that will never appear)
 + avanza tempo
-  ~ currentTime += 15
+  -> advance_time ->
 + ->
 -
 

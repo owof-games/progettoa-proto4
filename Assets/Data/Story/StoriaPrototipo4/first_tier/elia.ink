@@ -15,7 +15,7 @@
 Opzioni di dialogo con il personaggio Elia
  ----------------------------------*/
 
-
+TODO: sembra non funzionare più "new this loop"
 === elia_acting
     {debug: <i>Passo per elia_acting</i>}
     -> first_tier_storylets ->
@@ -45,10 +45,8 @@ Opzioni di dialogo con il personaggio Elia
         -> advance_time ->
             -> elia_acting
 
-    + [Prova ad avere una conversazione con Elia] -> esplora_elia_personaggia    
-        
-    + [Ti allontani]
-        -> intro
+     
+
    
     //SCELTE CONDIZIONALI//
 
@@ -266,6 +264,12 @@ Opzioni di dialogo con il personaggio Elia
             Ettore: No Elia, non ti capisco.
             Elia: Nessuno mi capisce, è sempre stato così.
             -> advance_time ->
+    
+    + [Prova ad avere una conversazione con Elia] -> esplora_elia_personaggia   
+           
+    + [Ti allontani]
+        -> intro
+    
     -
     
 ->->

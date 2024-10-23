@@ -62,9 +62,7 @@ Opzioni di dialogo con il personaggio Matteo
         Matteo: La vita è un mistero.
              -> advance_time ->
                 -> matteo_acting  
-    + [Chiacchiera un po' con Matteo] -> esplora_matteo_personaggia
-    + [Te ne vai]
-        -> intro
+    
     //SCELTE CONDIZIONALI//
     
     + (paolaSiSposa) {elia_acting.paolaSiSposa} Ettore: Matteo, ma tu sapevi che Paola si stava per sposare?
@@ -143,7 +141,9 @@ Opzioni di dialogo con il personaggio Matteo
             -> advance_time ->
                 -> matteo_acting 
       
-
+    + [Chiacchiera un po' con Matteo] -> esplora_matteo_personaggia
+    + [Te ne vai]
+        -> intro
     -
 ->->
 

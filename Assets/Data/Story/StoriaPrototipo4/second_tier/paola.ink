@@ -19,6 +19,7 @@ Opzioni di dialogo con la persona Paola
  ----------------------------------*/
 
 === paola_talking_second_tier
+    -> second_tier_storylets ->
  {debug: <i>Passo per paola_talking</i>}
     //INFO GENERALI//
     + (loop) {new_this_loop(->loop)} Ettore: Paola, ehm, hai notato nulla di problematico?
@@ -55,7 +56,7 @@ Opzioni di dialogo con la persona Paola
         Paola: Sei qui per entrare nella lista dei morti?
         -> advance_time ->
 
-    + Fai domande sulla persona Paola -> esplora_paola
+    
 
     // OPZIONE PER IL FINALE
     + {primaContraddizione && secondaContraddizione} [È il momento di fermare l’omicida di Paola!] Ettore: Venite tutti, ho bisogno di parlarvi! -> arringa_finale
@@ -189,6 +190,8 @@ Opzioni di dialogo con la persona Paola
     + (fotografia) {inventoryContents has Foto && new_this_loop(->fotografia)} Ettore: Guarda questa foto.
         Paola: Ettore, ho di meglio da fare, sloggia.
 
+
+    + [Fai domande sulla persona Paola] -> esplora_paola
     + [Te ne vai]
         -> intro
     -

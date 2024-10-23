@@ -19,6 +19,7 @@ Opzioni di dialogo con la persona Zeca
  ----------------------------------*/
 
 === zeca_talking_second_tier
+-> second_tier_storylets ->
  {debug: <i>Passo per zeca_talking_second_tier</i>}
  {loopableVariables has pausaRapportoZeca: Zeca: Ma stammi lontano, cafone! -> intro.}
     //INFO GENERALI//
@@ -107,7 +108,7 @@ Opzioni di dialogo con la persona Zeca
         -> advance_time ->
             -> zeca_talking_second_tier
 
-    + [Chiacchiera con Zeca] -> esplora_zeca
+    
 
     // OPZIONE PER IL FINALE
     + {primaContraddizione && secondaContraddizione} [È il momento di fermare l’omicida di Paola!] Ettore: Venite tutti, ho bisogno di parlarvi! -> arringa_finale
@@ -292,6 +293,7 @@ Opzioni di dialogo con la persona Zeca
         Zeca: Ma è lei che fuma,
                     -> zeca_talking_second_tier
     
+    + [Chiacchiera con Zeca] -> esplora_zeca
     + [Ti allontani]
     -> intro
     -

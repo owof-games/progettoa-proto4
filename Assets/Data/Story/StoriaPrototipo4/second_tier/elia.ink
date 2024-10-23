@@ -17,6 +17,7 @@ Opzioni di dialogo con la persona Elia
  ----------------------------------*/
 
 === elia_talking_second_tier
+-> second_tier_storylets ->
 {debug: <i>Passo per elia_talking_second_tier</i>}
 {loopableVariables has pausaRapportoElia: Elia: Sei cattivo, vai via! -> intro.}
     //INFO GENERALI//
@@ -69,7 +70,7 @@ Opzioni di dialogo con la persona Elia
             -> elia_talking_second_tier
             + + -> elia_talking_second_tier
 
-    + [Conosci meglio Elia]-> esplora_elia
+    
 
     // OPZIONE PER IL FINALE
     + {primaContraddizione && secondaContraddizione} [È il momento di fermare l’omicida di Paola!] Ettore: Venite tutti, ho bisogno di parlarvi! -> arringa_finale
@@ -289,6 +290,7 @@ Opzioni di dialogo con la persona Elia
             Elia: Devo assolutamente allenarmi, ora!
                 -> advance_time -> 
     
+    + [Conosci meglio Elia]-> esplora_elia
     + [Ti allontani]-> intro
     -
     

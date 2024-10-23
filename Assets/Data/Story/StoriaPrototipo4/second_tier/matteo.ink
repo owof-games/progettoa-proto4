@@ -18,6 +18,7 @@ Opzioni di dialogo con la persona Matteo
  ----------------------------------*/
 
 === matteo_talking_second_tier
+-> second_tier_storylets ->
  {debug: <i>Passo per matteo_talking_second_tier</i>}
     //INFO GENERALI//
 {loopableVariables has pausaRapportoMatteo: Matteo: Non ho niente da dirti. -> intro.}
@@ -153,7 +154,7 @@ Opzioni di dialogo con la persona Matteo
             Matteo: Un bel po' di gente.  
                 -> matteo_talking_second_tier
 
-    + [Chiacchiera con Matteo] -> esplora_matteo
+    
     
     // OPZIONE PER IL FINALE
     + {primaContraddizione && secondaContraddizione} [È il momento di fermare l’omicida di Paola!] Ettore: Venite tutti, ho bisogno di parlarvi! -> arringa_finale
@@ -206,6 +207,7 @@ Opzioni di dialogo con la persona Matteo
         Matteo: Ma ti prego, non farla vedere a Zeca.
         Matteo: Gli spezzeresti il cuore.
 
+    + [Chiacchiera con Matteo] -> esplora_matteo
     + [Te ne vai]
     -> intro
     -

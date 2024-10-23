@@ -50,15 +50,12 @@ Opzioni di dialogo con il personaggio Greta
             Greta: Ma c'è solo una persona che può corrispondere a questa descrizione: io!
             Greta: E sono abbastanza sicura di non aver ucciso nessuno.
             Greta: Non stasera, per lo meno.
-            Greta: Ma ti propongo un patto: ti dirò chi è l'assassino se tu convinci Elia a venire a parlarmi.
+            Greta: Ma ti propongo un patto: ti dirò chi è l'unico plausibile assassino se tu convinci Elia a venire a parlarmi.
             Greta: Mi sta evitando da quando è venuta a mancare Paola, e non capisco perché.
                     -> advance_time ->   
                 -> greta_acting
 
-    + [Conosci meglio Greta] -> esplora_greta_personaggia
-    + [Te ne vai]
-        -> intro
-    
+   
     
     //SCELTE CONDIZIONALI//
 
@@ -157,6 +154,9 @@ Opzioni di dialogo con il personaggio Greta
         Ettore: Ma..
         Greta: No.
 
+    + [Conosci meglio Greta] -> esplora_greta_personaggia
+    + [Te ne vai]
+        -> intro
       
 
     -

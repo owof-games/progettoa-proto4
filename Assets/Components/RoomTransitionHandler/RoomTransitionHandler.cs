@@ -465,5 +465,32 @@ namespace Components.RoomTransitionHandler
                 characterNavigation.SetUp(nodeIndex);
             }
         }
+
+        /// <summary>
+        ///     Get in which direction is a character from current room.
+        /// </summary>
+        /// <param name="character">The character to look for.</param>
+        /// <returns>The direction this character is relative to the current room.</returns>
+        public Direction GetDirection(Character.Character character)
+        {
+            // get character's current room
+            var destinationRoom = roomContents!.GetCharacterRoom(character);
+            var destinationRoomName = destinationRoom.ToString();
+            // try both directions
+            for (var direction = Direction.Left; direction <= Direction.Right; direction++)
+            {
+                var currentRoom = _currentlyLoadedRoomName;
+                for (;;)
+                {
+                    var roomConnection = roomConnections.FirstOrDefault(rc =>
+                        rc.direction == direction && rc.sourceRoomName == currentRoom);
+                    if (roomConnection == null) break;
+
+                    if (roomConnection.destinationRoomName == destinationRoomName) return direction;
+                }
+            }
+
+            throw new Exception("Cannot find character in any room");
+        }
     }
 }

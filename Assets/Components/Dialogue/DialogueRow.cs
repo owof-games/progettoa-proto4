@@ -54,7 +54,7 @@ namespace Components.Dialogue
             }
             else
             {
-                Debug.LogError("Probably a whispered line, not implemented yet");
+                Debug.Log("Whispered line");
             }
 
             var balloonGameObject = Instantiate(balloonPrefab, transform);

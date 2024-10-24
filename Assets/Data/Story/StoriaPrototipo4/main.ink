@@ -38,6 +38,25 @@
 // thread per gestire il notebook
 <- phone
 // only present because ink doesn't allow to produce a choice list made ONLY of threads: at least one choice must be in this list (using a default choice that will never appear)
+
+//Rimozione oggetti
++ {inventoryContents has FlaconcinoAsma} [Lascia il flaconcino per l'asma nella stanza]
+        ~ remove_entity(FlaconcinoAsma)
++ {inventoryContents has LimettaUnghie} [Lascia la limetta nella stanza]
+        ~ remove_entity(LimettaUnghie)
++ {inventoryContents has AnticoPugnale} [Lascia il pugnale nella stanza]
+        ~ remove_entity(AnticoPugnale)
++ {inventoryContents has SpiedinoCocktail}  [Lascia lo spiedino nella stanza]
+        ~ remove_entity(SpiedinoCocktail)
++ {inventoryContents has Lettera} [Lascia la lettera nella stanza]
+        ~ remove_entity(Lettera)
++ {inventoryContents has BottigliaDiVino} [Lascia la bottiglia di vino nella stanza]
+        ~ remove_entity(BottigliaDiVino)
++ {inventoryContents has SigarettaElettronica} [Lascia la sigaretta elettronica nella stanza]
+        ~ remove_entity(SigarettaElettronica)
++ {inventoryContents has Torta} [Lascia la torta nella stanza]
+        ~ remove_entity(Torta)    
+    -        
 + avanza tempo
   -> advance_time ->
 + ->

@@ -943,7 +943,7 @@ namespace FMODUnity
         }
 
 #if UNITY_ANDROID || UNITY_WEBGL
-        private IEnumerator loadFromWeb(string bankPath, string bankName, bool loadSamples)
+        private System.Collections.IEnumerator loadFromWeb(string bankPath, string bankName, bool loadSamples)
         {
             byte[] loadWebResult;
             FMOD.RESULT loadResult;

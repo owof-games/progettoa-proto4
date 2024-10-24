@@ -1,5 +1,6 @@
 // activate debug text
 VAR debug = false
+VAR debugTime = true //giusto per avere printato il tempo effettivo
 /////////////////////////////////////////////////////////////
 
 // list of all characters
@@ -58,7 +59,7 @@ VAR MatteoTalking = 0
 VAR peopleTalking = false
 VAR activeNotebook = false
 VAR activePhone = false
-VAR activeObjects = false
+VAR activeObjects = true
 
 // eventi specifici nella storia
 VAR gretaHaLaLettera = false

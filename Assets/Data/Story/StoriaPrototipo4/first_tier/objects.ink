@@ -13,6 +13,7 @@
         ~ take_object(LimettaUnghie)
         + + [Lasciala dov'è]
     // + {inventoryContents has LimettaUnghie} Mostra limetta unghie
+    TODO: questa soluzione non funziona, perché ovviamente l'oggetto così non è interagibile :D abbiamo delle idee? :D 
     + {inventoryContents has LimettaUnghie} [Lascia la limetta nella stanza]
         ~ remove_entity(LimettaUnghie)
     -

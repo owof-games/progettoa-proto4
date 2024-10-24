@@ -100,7 +100,7 @@ VAR currentTime = 0
     - 600:
         22:10:00     
     - else:
-        UNKNOWN TIME /INTERMEDIATE TIME {currentTime}
+        UNKNOWN TIME {currentTime}
 }
 
 /**
@@ -113,7 +113,7 @@ VAR currentTime = 0
 === advance_time
 {debug: <i>Passo per function advance_time</i>}
 ~ currentTime = currentTime + 15
-
+{debugTime: <b>Sono le {print_time()}, ovvero {currentTime} secondi</b>}
 //UPDATE
 ~ updateEntitiesLocations()
 

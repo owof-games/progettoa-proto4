@@ -44,13 +44,15 @@
 
 //MATERIALI PER TUTORIAL
 TODO: parte dal secondo loop, perché?
-    - currentTime >= 300 && not activeObjects && peopleTalking == false:
-            -> objects_tutorial
-
+    - currentTime >= 510 && activeObjects && not activeNotebook && not talking_tutorial && peopleTalking == false: -> talking_tutorial
+    
+    
     - currentTime >= 405 && activeObjects && not activeNotebook && peopleTalking == false:
             -> notebook_tutorial
 
-    - currentTime >= 510 && activeObjects && not activeNotebook && not talking_tutorial && peopleTalking == false: -> talking_tutorial
+    - currentTime >= 300 && not activeObjects:
+            -> objects_tutorial
+
 
 
 //La morte di Paola deve arrivare solo quando abbbiamo fatto tutti i tutorial e abbiamo compiuto le scelte su Matteo e Zeca
@@ -572,7 +574,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
             -> advance_time ->
         Ettore: <i>Contraddizioni</i>?
         Paola: Ci sono un sacco di cose che non tornano in quel che dicono gli altri personaggi.
-        Paola: Starù a te decidere quando avrai abbastanza informazioni per dare una risposta, e a quel punto incriminare la persona responsabile.
+        Paola: Starà a te decidere quando avrai abbastanza informazioni per dare una risposta, e a quel punto incriminare la persona responsabile.
         Paola: Due minuti per schiarirvi le idee, ammasso di coglioni.
         Paola: Poi ripartiamo dalla scena in cui muoio!
             ~ peopleTalking = true

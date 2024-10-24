@@ -62,7 +62,7 @@ TODO: sembra non funzionare più "new this loop"
             Elia: Hai capito. Via!
                 -> advance_time ->
 
-        + + (uniti){weddingAtThePubStorylet && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && new_this_loop(->uniti)} Ettore: Ho una proposta da farti
+        + + (uniti){weddingAtThePubStorylet && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && new_this_loop(->uniti)} Ettore: Ho una proposta da farti.
             Ettore: Io faccio una cosa per te, e tu vai da Greta. Che ne dici?
             Elia: Qualcosa a che fare con la mia micia?
             Elia: Perché ormai non credo più a nessuno che vuole toccare la mia micia.
@@ -75,70 +75,11 @@ TODO: sembra non funzionare più "new this loop"
             Elia: Ma magari aiutami a proteggermi!
             -> advance_time ->   
     
-        + + {not new_this_loop(->uniti) && hardTrueFeelingsStorylet && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Sto ancora cercando il modo di convincere Matteo, ma ce la farò!
+        + + {not new_this_loop(->uniti) && elia_acting.uniti && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Sto ancora cercando il modo di convincere Matteo, ma ce la farò!
             Elia: Non ho fretta di morire, tranquillo!
 
-        + + (missioneGreta){hardTrueFeelingsStorylet && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Ho convinto Matteo!
-            Ettore: Faremo la cerimonia da voi, al pub.
-            Ettore: In fondo cosa c'è di più romantico di un esercito di comici ubriachi e incapaci?
-            Ettore: Quindi, ora parlerai con Greta?
-            {new_this_loop(->uniti): Elia: Come sapevi che era il mio desiderio?}
-            {new_this_loop(->uniti): Ettore: Intuito da futuro cognato!}
-            Elia: Mi dai qualcosa per difendermi da lei?
-            {
-            - inventoryContents has Lettera: Ettore: Puoi provare a minacciarla?
-                ~ inventoryContents -= Lettera
-                ~ objectStorageContents += Lettera
-            - inventoryContents has AnticoPugnale: Ettore: Con questo puoi richiamare i Grandi Antichi!
-                ~ inventoryContents -= AnticoPugnale
-                ~ objectStorageContents += AnticoPugnale
-            - inventoryContents has LimettaUnghie: Ettore: Puoi grattarle i calli?
-                ~ inventoryContents -= LimettaUnghie
-                ~ objectStorageContents += LimettaUnghie
-            - inventoryContents has Torta: Ettore: Puoi provarla a farle venire il diabete?
-                ~ inventoryContents -= Torta
-                ~ objectStorageContents += Torta
-            - inventoryContents has BottigliaDiVino: Ettore: Che ne dici di farla ubriacare?
-                ~ inventoryContents -= BottigliaDiVino
-                ~ objectStorageContents += BottigliaDiVino
-            - inventoryContents has FlaconcinoAsma: Ettore: Ehm, puoi soffocarla con un flaconcino?
-                ~ inventoryContents -= FlaconcinoAsma
-                ~ objectStorageContents += FlaconcinoAsma
-            - inventoryContents has SigarettaElettronica: Ettore: Puoi sempre infastidirla col puzzo di questo coso?
-                ~ inventoryContents -= SigarettaElettronica
-                ~ objectStorageContents += SigarettaElettronica
-            - else: Ettore: Ehm, il tuo smagliante sorriso?    
-            }
-            Elia: Grazie. In qualche modo me la caverò.
-            Elia: Bene, vado, dove la trovo?
-                ~ move_entity_from_object_storage_to_Ettore_location(SpiedinoCocktail)
-                + + + {whiteRoomContents hasnt Ettore} Ettore: Ti aspetta nella stanza bianca.
-                        ~ move_entity(Elia, WhiteRoom)
-                        {
-                        - whiteRoomContents has Greta:
-                        ~ loopableVariables += EliaRaggiungeGreta
-                        }
-                + + + {greenRoomContents hasnt Ettore} Ettore: La trovi nella stanza verde.
-                        ~ move_entity(Elia, GreenRoom)
-                        {
-                        - greenRoomContents has Greta:
-                        ~ loopableVariables += EliaRaggiungeGreta
-                        }
-                + + +  {yellowRoomContents hasnt Ettore} Ettore: Sta cazzeggiando nella stanza gialla.              
-                        ~ move_entity(Elia, YellowRoom)
-                        {
-                        - yellowRoomContents has Greta:
-                        ~ loopableVariables += EliaRaggiungeGreta
-                        }
-                + + + {redRoomContents hasnt Ettore} Ettore: Nella stanza rossa.             
-                        ~ move_entity(Elia, RedRoom)
-                        {
-                        - redRoomContents has Greta:
-                        ~ loopableVariables += EliaRaggiungeGreta
-                        }      
-                
-   
-    + (sincero) {hardTrueFeelingsStorylet  && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Matteo mi ha detto di lui e di Greta.
+  
+    + (sincero) {hardTrueFeelingsStorylet && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Matteo mi ha detto di lui e di Greta.
             Elia: Merda, mi spiace. Per questo volevo fare il matrimonio al pub.
             Elia: Sapevo da tempo che Matteo provava qualcosa per Greta, ma non sapevo come dirtelo!
             Elia: Andrò da Greta, te lo devo.

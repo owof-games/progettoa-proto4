@@ -4,21 +4,33 @@
 {
 
 //SCENA INIZIALE
-    - are_six_entities_together(Elia, Matteo, Ettore, Greta, Paola, Zeca) && not startingDinnerStorylet && peopleTalking == false && new_this_loop(->startingDinnerStorylet):
+    - are_six_entities_together(Elia, Matteo, Ettore, Greta, Paola, Zeca) && not startingDinnerStorylet && peopleTalking == false && new_this_loop(->startingDinnerStorylet) :
             -> startingDinnerStorylet
 
 
 //STORYLET "NORMALI"
-    - are_three_entities_together(Elia, Matteo, Ettore) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Greta) && (marryMeStorylet.matteoSiSposa or marryMeStorylet.matteoSiSposa2)&& peopleTalking == false && new_this_loop(->weddingAtThePubStorylet):
+    - are_two_entities_together(Matteo, Ettore) && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Zeca) && not are_two_entities_together(Ettore, Greta) && peopleTalking == false && new_this_loop(->marryMeStorylet):
+            -> marryMeStorylet
+
+
+    - are_three_entities_together(Elia, Matteo, Ettore) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Greta) && (marryMeStorylet.matteoSiSposa or marryMeStorylet.matteoSiSposa2) && peopleTalking == false && new_this_loop(->weddingAtThePubStorylet):
             -> weddingAtThePubStorylet
+    
+    
+    - are_two_entities_together(Matteo, Ettore) && inventoryContents has AnticoPugnale && peopleTalking == false && new_this_loop(->aStrangeKnifeStorylet):
+            -> aStrangeKnifeStorylet
+
+
+    - are_two_entities_together(Zeca, Ettore) && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Matteo) && not are_two_entities_together(Ettore, Greta) && peopleTalking == false && new_this_loop(->worstBestManStorylet):
+            -> worstBestManStorylet
 
 
 //CONVERSAZIONI ORIGLIATE
-    - are_two_entities_together(Elia, Greta) && elia_acting.missioneGreta && not are_two_entities_together(Elia, Matteo) && not are_two_entities_together(Elia, Zeca) && is_this_entity_near_Ettore(Elia) == true &&  peopleTalking == false && new_this_loop(->anEavesdropAboutFriendshipStorylet):
+    - are_two_entities_together(Elia, Greta)  && not are_two_entities_together(Elia, Matteo) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Ettore) && elia_acting.sincero && is_this_entity_near_Ettore(Elia) == true && peopleTalking == false && new_this_loop(->anEavesdropAboutFriendshipStorylet):
             -> anEavesdropAboutFriendshipStorylet
 
 
-    - are_three_entities_together(Matteo, Greta, Ettore) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && peopleTalking == false && new_this_loop(->itsOverisntItStorylet):
+    - are_three_entities_together(Matteo, Greta, Ettore) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && hardTrueFeelingsStorylet && peopleTalking == false && new_this_loop(->itsOverisntItStorylet):
             -> itsOverisntItStorylet
 
 
@@ -28,32 +40,21 @@
 
 
 
-//CONFESSIONI SOLITARIE 
-    - are_two_entities_together(Matteo, Ettore) && inventoryContents has AnticoPugnale && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Zeca) && not are_two_entities_together(Ettore, Greta) && peopleTalking == false && new_this_loop(->aStrangeKnifeStorylet):
-            -> aStrangeKnifeStorylet
-
-        TODO: Non so come mai, ma non sta partendo
-    - are_two_entities_together(Matteo, Ettore) && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Zeca) && not are_two_entities_together(Ettore, Greta) && peopleTalking == false && new_this_loop(->marryMeStorylet):
-            -> marryMeStorylet
-    
-    - are_two_entities_together(Zeca, Ettore) && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Matteo) && not are_two_entities_together(Ettore, Greta) && peopleTalking == false && new_this_loop(->worstBestManStorylet):
-            -> worstBestManStorylet    
-
 
 
 //MATERIALI PER TUTORIAL
 TODO: parte dal secondo loop, perché?
-    - currentTime > 300 && not activeObjects:
+    - currentTime >= 300 && not activeObjects && peopleTalking == false:
             -> objects_tutorial
 
-    - currentTime > 405 && activeObjects && not activeNotebook:
+    - currentTime >= 405 && activeObjects && not activeNotebook && peopleTalking == false:
             -> notebook_tutorial
 
-    - currentTime > 510 && activeObjects && not activeNotebook && not talking_tutorial: -> talking_tutorial
+    - currentTime >= 510 && activeObjects && not activeNotebook && not talking_tutorial && peopleTalking == false: -> talking_tutorial
 
 
 //La morte di Paola deve arrivare solo quando abbbiamo fatto tutti i tutorial e abbiamo compiuto le scelte su Matteo e Zeca
-    -  currentTime >= 600 && objects_tutorial && notebook_tutorial && talking_tutorial && peopleTalking == false:
+    -  currentTime >= 600 && activeObjects && activeNotebook && talking_tutorial && peopleTalking == false:
             -> paolaIsDeadStorylet
     
 
@@ -191,9 +192,9 @@ TODO: parte dal secondo loop, perché?
         -
             Matteo: Elia, non festeggerò mai il mio matrimonio nel tuo bar triste con la tua insopportabile collega!
             Matteo: Questa è la cosa peggiore che potrebbe capitarmi, ed è il <b>mio</b> matrimonio, capito?!?
-            Elia: Sei uno stronzo.
-                -> advance_time ->
+            Elia: Sei uno stronzo, me ne vado.
                     ~ move_this_entity_in_a_different_room(Elia)
+                    -> advance_time ->
             -> intro
 
 

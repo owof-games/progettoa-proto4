@@ -24,11 +24,11 @@ TODO: Settare luoghi diversi dopo la prima scena?
     - 240:
          ~ move_entity(Matteo, YellowRoom)    
 
-    - 300:
-        ~ move_entity(Matteo, YellowRoom)    
+    //- 300:
+         //~ move_entity(Matteo, YellowRoom)    
         
-    - 360:
-        ~ move_entity(Matteo, YellowRoom)
+     //- 360:
+         //~ move_entity(Matteo, YellowRoom)
 
         - 390:
         ~ move_entity(Matteo, GreenRoom)
@@ -54,8 +54,8 @@ TODO: Settare luoghi diversi dopo la prima scena?
     - 0:
         ~ move_entity(Paola, WhiteRoom)
     
-    - 120:
-        ~ move_entity(Paola, WhiteRoom)
+     //- 120:
+         //~ move_entity(Paola, WhiteRoom)
 
     - 180:
         {
@@ -85,11 +85,11 @@ TODO: Settare luoghi diversi dopo la prima scena?
     - 300:
         ~ move_entity(Paola, WhiteRoom)   
         
-    - 360:
-        ~ move_entity(Paola, WhiteRoom)    
+     //- 360:
+         //~ move_entity(Paola, WhiteRoom)    
         
-    - 420:
-        ~ move_entity(Paola, WhiteRoom)    
+     //- 420:
+         //~ move_entity(Paola, WhiteRoom)    
 }
 
 // Elia
@@ -106,17 +106,17 @@ TODO: Settare luoghi diversi dopo la prima scena?
     - 150:
         ~ move_entity(Elia, YellowRoom)              
 
-    - 180:
+     //- 180:
         ~ move_entity(Elia, YellowRoom) 
 
-    - 240:
-         ~ move_entity(Elia, YellowRoom)    
+     //- 240:
+          //~ move_entity(Elia, YellowRoom)    
 
     - 300:
         ~ move_entity(Elia, GreenRoom)    
         
-    - 360:
-        ~ move_entity(Elia, GreenRoom)    
+     //- 360:
+         //~ move_entity(Elia, GreenRoom)    
         
     - 420:
         ~ move_entity(Elia, YellowRoom)
@@ -135,23 +135,23 @@ TODO: Settare luoghi diversi dopo la prima scena?
     - 0:
         ~ move_entity(Greta, WhiteRoom)
 
-    - 120:
-        ~ move_entity(Greta, WhiteRoom)
+     //- 120:
+         //~ move_entity(Greta, WhiteRoom)
 
-    - 180:
-        ~ move_entity(Greta, WhiteRoom)
+     //- 180:
+         //~ move_entity(Greta, WhiteRoom)
 
-    - 240:
-        ~ move_entity(Greta, WhiteRoom)
+     //- 240:
+         //~ move_entity(Greta, WhiteRoom)
 
-    - 300:
-        ~ move_entity(Greta, WhiteRoom)
+     //- 300:
+         //~ move_entity(Greta, WhiteRoom)
 
-    - 360:
-        ~ move_entity(Greta, WhiteRoom)
+     //- 360:
+         //~ move_entity(Greta, WhiteRoom)
 
-    - 420:
-        ~ move_entity(Greta, WhiteRoom)             
+     //- 420:
+         //~ move_entity(Greta, WhiteRoom)             
 }
 
 
@@ -180,11 +180,11 @@ TODO: Settare luoghi diversi dopo la prima scena?
     - 300:
         ~ move_entity(Zeca, RedRoom)    
         
-    - 360:
-        ~ move_entity(Zeca, RedRoom)    
+     //- 360:
+         //~ move_entity(Zeca, RedRoom)    
         
-    - 420:
-        ~ move_entity(Zeca, RedRoom)
+     //- 420:
+         //~ move_entity(Zeca, RedRoom)
 
         - 465:
         ~ move_entity(Zeca, GreenRoom)

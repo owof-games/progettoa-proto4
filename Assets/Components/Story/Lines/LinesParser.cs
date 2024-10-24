@@ -65,7 +65,8 @@ namespace Components.Story.Lines
                 var lowercaseCharacterName = text[..colonIndex].Trim().ToLower();
                 if (!_charactersByLowercaseName.TryGetValue(lowercaseCharacterName, out var character))
                 {
-                    Unparsable(step, $"cannot find character {lowercaseCharacterName}");
+                    Unparsable(step, $"cannot find character '{lowercaseCharacterName}'");
+                    return;
                 }
 
                 var dialogueText = text[(colonIndex + 1)..].Trim();

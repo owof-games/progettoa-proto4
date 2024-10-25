@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Components.Character;
+using Components.RoomTransitionHandler;
 using Components.Story.Lines;
 using LemuRivolta.InkAtoms;
 using LitMotion;
@@ -19,6 +20,7 @@ namespace Components.Dialogue
         [SerializeField] private GameObject dialogueRowPrefab;
         [SerializeField] private float slideDuration = 0.1f;
         [SerializeField] private ChosenChoiceEvent chosenChoiceEvent;
+        [SerializeField] private RoomTransitionHandler.RoomTransitionHandler roomTransitionHandler;
 
         [SerializeField] private StoryStateConstant storyStateTalking;
 
@@ -35,6 +37,12 @@ namespace Components.Dialogue
             },
             {
                 2, 3
+            },
+            {
+                -1, 0
+            },
+            {
+                3, 4
             }
         };
 
@@ -43,6 +51,7 @@ namespace Components.Dialogue
             Assert.IsNotNull(dialogueSlidingContainer);
             Assert.IsNotNull(dialogueRowPrefab);
             Assert.IsNotNull(chosenChoiceEvent);
+            Assert.IsNotNull(roomTransitionHandler);
         }
 
         private void Update()
@@ -65,6 +74,11 @@ namespace Components.Dialogue
             if (!dialogueRowPrefab)
                 dialogueRowPrefab =
                     AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Components/Dialogue/DialogueRow.prefab");
+
+            if (!roomTransitionHandler)
+                roomTransitionHandler =
+                    FindObjectsByType<RoomTransitionHandler.RoomTransitionHandler>(FindObjectsInactive.Exclude,
+                        FindObjectsSortMode.None)[0];
         }
 #endif
 
@@ -113,14 +127,20 @@ namespace Components.Dialogue
                             skippedColumnDistanceFromCharacter = distance;
                         }
                     }
-                }
 
-                // find a free column
-                var selectedColumn = _characterColumns
-                    .Where((_, index) => index != skippedColumn)
-                    .MinBy(cc => cc.Count);
-                selectedColumn.Add(character);
-                column = Array.IndexOf(_characterColumns, selectedColumn);
+                    // find a free column
+                    var selectedColumn = _characterColumns
+                        .Where((_, index) => index != skippedColumn)
+                        .MinBy(cc => cc.Count);
+                    selectedColumn.Add(character);
+                    column = Array.IndexOf(_characterColumns, selectedColumn);
+                }
+                else
+                {
+                    Debug.Log("Character not in scene");
+                    var direction = roomTransitionHandler.GetDirection(character);
+                    column = direction == Direction.Left ? -1 : 3;
+                }
             }
 
             OnText(character, dialogueLine.text, dialogueLine.canContinue, column, dialogueLine.choices);

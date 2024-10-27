@@ -1,6 +1,6 @@
 // activate debug text
 VAR debug = false
-VAR debugTime = true //giusto per avere printato il tempo effettivo
+VAR debugTime = false //giusto per avere printato il tempo effettivo
 /////////////////////////////////////////////////////////////
 
 // list of all characters

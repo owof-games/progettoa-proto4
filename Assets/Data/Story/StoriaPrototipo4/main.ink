@@ -40,6 +40,7 @@
 // only present because ink doesn't allow to produce a choice list made ONLY of threads: at least one choice must be in this list (using a default choice that will never appear)
 
 //Rimozione oggetti
+//Quando avremo l'oggetto in mano ci sarà qualcosa tipo leaveObject in modo tale che Unity lo sappia
 + {inventoryContents has FlaconcinoAsma} [Lascia il flaconcino per l'asma nella stanza]
         ~ remove_entity(FlaconcinoAsma)
 + {inventoryContents has LimettaUnghie} [Lascia la limetta nella stanza]

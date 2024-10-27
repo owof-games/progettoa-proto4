@@ -20,6 +20,7 @@ namespace Components.Dialogue
         [SerializeField] private GameObject singleChoicePrefab;
         [SerializeField] private RectTransform choicesContainer;
         [SerializeField] private RectTransform container;
+        [SerializeField] private LayoutElement layoutElement;
         private bool _showAdvance;
 
         private void Awake()
@@ -27,31 +28,30 @@ namespace Components.Dialogue
             Assert.IsNotNull(advanceButton);
             Assert.IsNotNull(continueEvent);
             Assert.IsNotNull(container);
+            Assert.IsNotNull(layoutElement);
         }
 
         private void OnValidate()
         {
             if (!advanceButton) advanceButton = transform.Find("Advance Button").gameObject;
+            if (!layoutElement) layoutElement = GetComponent<LayoutElement>();
         }
 
-        // private IEnumerator Start()
-        // {
-        //     yield return new WaitForSeconds(1);
-        //     SetUp(Character.Character.Ettore, Direction.Left, new[]
-        //     {
-        //         "Prima scelta",
-        //         "Seconda scelta, dove c'è davvero molto testo e quindi va su una seconda riga",
-        //         "Terza scelta"
-        //     });
-        // }
-
-        public void SetUp(Character.Character character, Direction direction, [CanBeNull] string[] choices = null)
+        public void SetUp(Character.Character character, Direction direction, [CanBeNull] string[] choices = null,
+            bool smallChoices = true)
         {
             var characterInfo = balloonData.GetCharacterInfo(character);
-            backgroundImage.sprite = characterInfo.backgroundSprite;
+            var hasChoices = choices is { Length: > 0 };
+            backgroundImage.sprite = hasChoices && smallChoices ? balloonData.SmallChoiceBackgroundSprite :
+                hasChoices /* && !smallChoices */ ? balloonData.BigChoiceBackgroundSprite :
+                characterInfo.backgroundSprite;
             textMeshProUGUI.color = characterInfo.hasLightBackground
                 ? balloonData.TextColorForLightBackground
                 : balloonData.TextColorForDarkBackground;
+            var height = hasChoices && !smallChoices ? balloonData.BigHeight : balloonData.SmallHeight;
+            layoutElement.minHeight = height;
+            layoutElement.preferredHeight = height;
+            layoutElement.flexibleHeight = height;
 
             if (direction == Direction.Left)
             {

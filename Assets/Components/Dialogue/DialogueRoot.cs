@@ -23,6 +23,7 @@ namespace Components.Dialogue
         [SerializeField] private RoomTransitionHandler.RoomTransitionHandler roomTransitionHandler;
 
         [SerializeField] private StoryStateConstant storyStateTalking;
+        [SerializeField] private int choicesTotalLengthBreakpoint = 180;
 
         private readonly List<Character.Character>[] _characterColumns =
             { new(), new(), new() };
@@ -158,13 +159,15 @@ namespace Components.Dialogue
             if (choices is { Length: > 0 })
             {
                 var dialogueRow = CreateAndGetDialogueRow();
-                dialogueRow.SetUp(character, 2, null, false,
-                    (from choice in choices
-                        let choiceText = choice.text
-                        let finalText = (choiceText.ToLower().StartsWith("ettore:")
-                            ? choiceText["ettore:".Length..]
-                            : choiceText).Trim()
-                        select finalText).ToArray());
+                var choicesArray = (from choice in choices
+                    let choiceText = choice.text
+                    let finalText = (choiceText.ToLower().StartsWith("ettore:")
+                        ? choiceText["ettore:".Length..]
+                        : choiceText).Trim()
+                    select finalText).ToArray();
+                dialogueRow.SetUp(Character.Character.Ettore, 2, null, false,
+                    choicesArray,
+                    choicesArray.Select(c => c.Length).Sum() < choicesTotalLengthBreakpoint);
                 dialogueRow.ChoiceTaken += choiceIndex =>
                 {
                     var choice = choices[choiceIndex];

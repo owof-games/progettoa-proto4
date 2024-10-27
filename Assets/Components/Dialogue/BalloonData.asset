@@ -15,21 +15,24 @@ MonoBehaviour:
   allCharacterInfo:
   - character: 0
     hasLightBackground: 0
-    backgroundSprite: {fileID: -624498251700279017, guid: aa3770e556115824bb53f12068e145d4, type: 3}
+    backgroundSprite: {fileID: -3783489170899301656, guid: 8ff024cb0527fa94bb3ec9a935e48edd, type: 3}
   - character: 1
     hasLightBackground: 1
-    backgroundSprite: {fileID: 4148933866827390069, guid: aa3770e556115824bb53f12068e145d4, type: 3}
+    backgroundSprite: {fileID: 5453623740729125571, guid: 8ff024cb0527fa94bb3ec9a935e48edd, type: 3}
   - character: 2
     hasLightBackground: 1
-    backgroundSprite: {fileID: 954973136815863051, guid: aa3770e556115824bb53f12068e145d4, type: 3}
+    backgroundSprite: {fileID: 1365996065781341935, guid: 8ff024cb0527fa94bb3ec9a935e48edd, type: 3}
   - character: 3
     hasLightBackground: 1
-    backgroundSprite: {fileID: 6130233461385385150, guid: aa3770e556115824bb53f12068e145d4, type: 3}
+    backgroundSprite: {fileID: -1854190310185955486, guid: 8ff024cb0527fa94bb3ec9a935e48edd, type: 3}
   - character: 4
     hasLightBackground: 1
-    backgroundSprite: {fileID: -2739269553451242748, guid: aa3770e556115824bb53f12068e145d4, type: 3}
+    backgroundSprite: {fileID: 7239107976661686744, guid: 8ff024cb0527fa94bb3ec9a935e48edd, type: 3}
   - character: 5
     hasLightBackground: 1
-    backgroundSprite: {fileID: -6049581489367439828, guid: aa3770e556115824bb53f12068e145d4, type: 3}
+    backgroundSprite: {fileID: -2109274474580734070, guid: 8ff024cb0527fa94bb3ec9a935e48edd, type: 3}
   textColorForLightBackground: {r: 0, g: 0, b: 0, a: 1}
   textColorForDarkBackground: {r: 1, g: 1, b: 1, a: 1}
+  smallChoiceBackgroundSprite: {fileID: -3237029375106172173, guid: 2ca9d216ea3ed424d8a980e45876dd28, type: 3}
+  bigChoiceBackgroundSprite: {fileID: 4504128605856404939, guid: 2ca9d216ea3ed424d8a980e45876dd28, type: 3}
+  smallHeight: 260

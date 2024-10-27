@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ace8ced0e81c847968cdca0aeda757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultTagsMode: 0
   typewriterStartsAutomatically: 1
   animationLoop: 0
   timeScale: 0
@@ -169,7 +170,6 @@ MonoBehaviour:
   defaultDisappearancesTags:
   - fade
   defaultBehaviorsTags: []
-  defaultTagsMode: 0
 --- !u!114 &2888338742122149183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
   waitForNormalChars: 0.02
   waitLong: 0.6
   waitMiddle: 0.2
-  avoidMultiplePunctuactionWait: 0
+  avoidMultiplePunctuationWait: 0
   waitForNewLines: 1
   waitForLastCharacter: 1
   useTypewriterWaitForDisappearances: 1
@@ -323,8 +323,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8.6, y: 19.2362}
-  m_SizeDelta: {x: -40.692, y: -53.2694}
+  m_AnchoredPosition: {x: -8.600006, y: 16.454788}
+  m_SizeDelta: {x: -40.692, y: -71.2776}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8882563350882945800
 MonoBehaviour:
@@ -612,7 +612,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6049581489367439828, guid: aa3770e556115824bb53f12068e145d4, type: 3}
+  m_Sprite: {fileID: -2109274474580734070, guid: 8ff024cb0527fa94bb3ec9a935e48edd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -661,7 +661,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 384, y: 230}
+  m_SizeDelta: {x: 384, y: 260}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7757599511915722237
 CanvasRenderer:
@@ -691,6 +691,7 @@ MonoBehaviour:
   singleChoicePrefab: {fileID: 6626954479111026206, guid: f264fb7b22b2ec942834eab77ac740ba, type: 3}
   choicesContainer: {fileID: 2064204461409268787}
   container: {fileID: 138030533244277261}
+  layoutElement: {fileID: 7169472281793527819}
 --- !u!114 &7169472281793527819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,9 +706,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IgnoreLayout: 0
   m_MinWidth: 384
-  m_MinHeight: 230
+  m_MinHeight: 260
   m_PreferredWidth: 384
-  m_PreferredHeight: 230
+  m_PreferredHeight: 260
   m_FlexibleWidth: 384
-  m_FlexibleHeight: 230
+  m_FlexibleHeight: 260
   m_LayoutPriority: 1

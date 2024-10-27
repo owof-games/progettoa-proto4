@@ -10,9 +10,19 @@ namespace Components.Balloon
         [SerializeField] private CharacterInfo[] allCharacterInfo;
         [SerializeField] private Color textColorForLightBackground = Color.black;
         [SerializeField] private Color textColorForDarkBackground = Color.white;
+        [SerializeField] private Sprite smallChoiceBackgroundSprite;
+        [SerializeField] private Sprite bigChoiceBackgroundSprite;
+        [SerializeField] private float smallHeight = 260;
 
         public Color TextColorForLightBackground => textColorForLightBackground;
         public Color TextColorForDarkBackground => textColorForDarkBackground;
+
+        public Sprite SmallChoiceBackgroundSprite => smallChoiceBackgroundSprite;
+        public Sprite BigChoiceBackgroundSprite => bigChoiceBackgroundSprite;
+        public float SmallHeight => smallHeight;
+
+        public float BigHeight => bigChoiceBackgroundSprite.bounds.size.y *
+            smallHeight / smallChoiceBackgroundSprite.bounds.size.y;
 
         public CharacterInfo GetCharacterInfo(Character.Character character)
         {

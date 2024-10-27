@@ -25,18 +25,17 @@ namespace Components.Dialogue
         }
 
         public void SetUp(Character.Character character, int column, string text, bool showAdvance,
-            [CanBeNull] string[] choices = null)
+            [CanBeNull] string[] choices = null, bool smallChoices = true)
         {
             InsertEmpty(column);
-            InsertBalloon(character, column, text, showAdvance, choices);
+            InsertBalloon(character, column, text, showAdvance, choices, smallChoices);
             InsertEmpty(5 - column - 1);
         }
 
         public event Action<int> ChoiceTaken;
 
         private void InsertBalloon(Character.Character character, int column, [CanBeNull] string text,
-            bool showAdvance,
-            [CanBeNull] string[] choices = null)
+            bool showAdvance, [CanBeNull] string[] choices = null, bool smallChoices = true)
         {
             var characterGameObject =
                 FindObjectsByType<CharacterName>(FindObjectsInactive.Exclude, FindObjectsSortMode.None)
@@ -59,7 +58,7 @@ namespace Components.Dialogue
 
             var balloonGameObject = Instantiate(balloonPrefab, transform);
             var balloon = balloonGameObject.GetComponent<Balloon>();
-            balloon.SetUp(character, direction, choices);
+            balloon.SetUp(character, direction, choices, smallChoices);
             balloon.SetText(text);
             balloon.ShowAdvanceButton(showAdvance);
             balloon.ChoiceTaken += choiceIndex =>

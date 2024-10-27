@@ -47,8 +47,6 @@ namespace Components.Dialogue
                 var thisCharacterGameObjectXCenter =
                     Camera.main!.WorldToScreenPoint(characterGameObject.transform.position).x;
                 var thisBalloonXCenter = Screen.width * column / 5 + Screen.width / 10;
-                Debug.Log(
-                    $"comparing game object X center = {thisCharacterGameObjectXCenter} vs balloon x center = {thisBalloonXCenter}");
                 direction = thisCharacterGameObjectXCenter < thisBalloonXCenter ? Direction.Left : Direction.Right;
             }
             else

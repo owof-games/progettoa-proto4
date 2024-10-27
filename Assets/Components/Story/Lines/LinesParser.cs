@@ -27,8 +27,6 @@ namespace Components.Story.Lines
         public void Initialize(StoryStepEvent storyStepEvent)
         {
             currentStoryState.Value = storyStateTalking.Value;
-            Debug.Log(
-                $"Ho impostato; currentStoryState.Value.Name={currentStoryState.Value.Name}, storyStateTalking.Value.Name={storyStateTalking.Value.Name}");
 
             Assert.IsNotNull(currentStoryState);
             Assert.IsNotNull(storyStateTalking);

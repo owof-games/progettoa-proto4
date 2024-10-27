@@ -31,7 +31,6 @@ namespace Components.Story.Rooms
 
         private void OnEnable()
         {
-            Debug.Log("RoomContents OnEnable");
             whiteRoomContents.Added.Register(OnWhiteRoomContentAdded);
             redRoomContents.Added.Register(OnRedRoomContentAdded);
             greenRoomContents.Added.Register(OnGreenRoomContentAdded);
@@ -55,13 +54,11 @@ namespace Components.Story.Rooms
 
         private void OnRedRoomContentAdded(SerializableInkListItem obj)
         {
-            Debug.Log("Red room changed");
             OnRoomContentAdded(Room.RedRoom, obj);
         }
 
         private void OnWhiteRoomContentAdded(SerializableInkListItem obj)
         {
-            Debug.Log($"RoomContents OnWhiteRoomContentAdded: {obj.itemName}");
             OnRoomContentAdded(Room.WhiteRoom, obj);
         }
 

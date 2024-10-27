@@ -2,6 +2,12 @@
   "inkVersion": 21,
   "root": [
     [
+      "ev",
+      236,
+      "srnd",
+      "pop",
+      "/ev",
+      "\n",
       "\n",
       "\n",
       "\n",
@@ -3229,7 +3235,7 @@
         {
           "VAR?": "currentTime"
         },
-        600,
+        660,
         ">=",
         "/ev",
         [
@@ -3298,10 +3304,7 @@
             "VAR?": "Elia"
           },
           {
-            "VAR?": "Ettore"
-          },
-          {
-            "f()": "are_three_entities_together"
+            "f()": "are_two_entities_together"
           },
           {
             "VAR?": "Elia"
@@ -3448,13 +3451,72 @@
         ],
         "nop",
         "\n",
-        "ev",
-        0,
-        "/ev",
-        {
-          "VAR=": "currentTime",
-          "re": true
-        },
+        [
+          "ev",
+          {
+            "VAR?": "loopResetAtSecondTier"
+          },
+          "!",
+          {
+            "VAR?": "tierState"
+          },
+          {
+            "VAR?": "SecondTier"
+          },
+          "==",
+          "&&",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              0,
+              "/ev",
+              {
+                "VAR=": "currentTime",
+                "re": true
+              },
+              "ev",
+              true,
+              "/ev",
+              {
+                "VAR=": "loopResetAtSecondTier",
+                "re": true
+              },
+              {
+                "->": ".^.^.^.8"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              120,
+              "/ev",
+              {
+                "VAR=": "currentTime",
+                "re": true
+              },
+              {
+                "->": ".^.^.^.8"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
         "ev",
         {
           "list": {}
@@ -10588,6 +10650,44 @@
             "*": ".^.c-7",
             "flg": 5
           },
+          [
+            "ev",
+            {
+              "^->": "cb_first_tier.0.121.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            "/ev",
+            {
+              "*": ".^.^.c-8",
+              "flg": 2
+            },
+            {
+              "s": [
+                "^avanza tempo",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          {
+            "*": ".^.c-9",
+            "flg": 8
+          },
           {
             "c-0": [
               "\n",
@@ -10741,87 +10841,44 @@
                 "#f": 5
               }
             ],
-            "g-0": [
-              [
-                "ev",
-                {
-                  "^->": "cb_first_tier.0.g-0.0.$r1"
-                },
-                {
-                  "temp=": "$r"
-                },
-                "str",
-                {
-                  "->": ".^.s"
-                },
-                [
-                  {
-                    "#n": "$r1"
-                  }
-                ],
-                "/str",
-                "/ev",
-                {
-                  "*": ".^.^.c-8",
-                  "flg": 2
-                },
-                {
-                  "s": [
-                    "^avanza tempo",
-                    {
-                      "->": "$r",
-                      "var": true
-                    },
-                    null
-                  ]
-                }
-              ],
+            "c-8": [
+              "ev",
               {
-                "*": ".^.c-9",
-                "flg": 8
+                "^->": "cb_first_tier.0.c-8.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
               },
               {
-                "c-8": [
-                  "ev",
-                  {
-                    "^->": "cb_first_tier.0.g-0.c-8.$r2"
-                  },
-                  "/ev",
-                  {
-                    "temp=": "$r"
-                  },
-                  {
-                    "->": ".^.^.0.s"
-                  },
-                  [
-                    {
-                      "#n": "$r2"
-                    }
-                  ],
-                  "\n",
-                  {
-                    "->t->": "advance_time"
-                  },
-                  {
-                    "->": ".^.^.^.g-1"
-                  },
-                  {
-                    "#f": 5
-                  }
-                ],
-                "c-9": [
-                  "\n",
-                  {
-                    "->": ".^.^.^.g-1"
-                  },
-                  {
-                    "#f": 5
-                  }
-                ],
+                "->": ".^.^.121.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              "\n",
+              {
+                "->t->": "advance_time"
+              },
+              {
+                "->": ".^.^.g-0"
+              },
+              {
                 "#f": 5
               }
             ],
-            "g-1": [
+            "c-9": [
+              "\n",
+              {
+                "->": ".^.^.g-0"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "g-0": [
               {
                 "->": "intro"
               },
@@ -25889,6 +25946,150 @@
         ],
         "nop",
         "\n",
+        "ev",
+        {
+          "VAR?": "loopableVariables"
+        },
+        {
+          "VAR?": "dontCheckStorylets"
+        },
+        "?",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              "void",
+              "/ev",
+              "->->",
+              {
+                "->": ".^.^.^.12"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        [
+          "ev",
+          {
+            "VAR?": "currentTime"
+          },
+          510,
+          ">=",
+          {
+            "VAR?": "activeObjects"
+          },
+          "&&",
+          {
+            "VAR?": "activeNotebook"
+          },
+          "&&",
+          {
+            "CNT?": "talking_tutorial"
+          },
+          "!",
+          "&&",
+          {
+            "VAR?": "peopleTalking"
+          },
+          false,
+          "==",
+          "&&",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              {
+                "->": "talking_tutorial"
+              },
+              {
+                "->": ".^.^.^.27"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "ev",
+          {
+            "VAR?": "currentTime"
+          },
+          405,
+          ">=",
+          {
+            "VAR?": "activeObjects"
+          },
+          "&&",
+          {
+            "VAR?": "activeNotebook"
+          },
+          "!",
+          "&&",
+          {
+            "VAR?": "peopleTalking"
+          },
+          false,
+          "==",
+          "&&",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              {
+                "->": "notebook_tutorial"
+              },
+              {
+                "->": ".^.^.^.27"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "ev",
+          {
+            "VAR?": "currentTime"
+          },
+          300,
+          ">=",
+          {
+            "VAR?": "activeObjects"
+          },
+          "!",
+          "&&",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              {
+                "->": "objects_tutorial"
+              },
+              {
+                "->": ".^.^.^.27"
+              },
+              null
+            ]
+          }
+        ],
         [
           "ev",
           {
@@ -25942,7 +26143,7 @@
                 "->": "startingDinnerStorylet"
               },
               {
-                "->": ".^.^.^.19"
+                "->": ".^.^.^.27"
               },
               null
             ]
@@ -26017,7 +26218,7 @@
                 "->": "marryMeStorylet"
               },
               {
-                "->": ".^.^.^.19"
+                "->": ".^.^.^.27"
               },
               null
             ]
@@ -26092,7 +26293,7 @@
                 "->": "weddingAtThePubStorylet"
               },
               {
-                "->": ".^.^.^.19"
+                "->": ".^.^.^.27"
               },
               null
             ]
@@ -26142,7 +26343,7 @@
                 "->": "aStrangeKnifeStorylet"
               },
               {
-                "->": ".^.^.^.19"
+                "->": ".^.^.^.27"
               },
               null
             ]
@@ -26217,7 +26418,7 @@
                 "->": "worstBestManStorylet"
               },
               {
-                "->": ".^.^.^.19"
+                "->": ".^.^.^.27"
               },
               null
             ]
@@ -26305,7 +26506,7 @@
                 "->": "anEavesdropAboutFriendshipStorylet"
               },
               {
-                "->": ".^.^.^.19"
+                "->": ".^.^.^.27"
               },
               null
             ]
@@ -26376,7 +26577,7 @@
                 "->": "itsOverisntItStorylet"
               },
               {
-                "->": ".^.^.^.19"
+                "->": ".^.^.^.27"
               },
               null
             ]
@@ -26389,6 +26590,29 @@
           },
           -1,
           "!=",
+          {
+            "VAR?": "Matteo"
+          },
+          {
+            "VAR?": "Elia"
+          },
+          {
+            "VAR?": "Ettore"
+          },
+          {
+            "f()": "are_three_entities_together"
+          },
+          "&&",
+          {
+            "VAR?": "currentTime"
+          },
+          {
+            "VAR?": "sheIsTheBest"
+          },
+          30,
+          "+",
+          "<=",
+          "&&",
           "/ev",
           {
             "->": ".^.b",
@@ -26401,122 +26625,7 @@
                 "->": "sheIsTheBestStorylet"
               },
               {
-                "->": ".^.^.^.19"
-              },
-              null
-            ]
-          }
-        ],
-        [
-          "ev",
-          {
-            "VAR?": "currentTime"
-          },
-          510,
-          ">=",
-          {
-            "VAR?": "activeObjects"
-          },
-          "&&",
-          {
-            "VAR?": "activeNotebook"
-          },
-          "!",
-          "&&",
-          {
-            "CNT?": "talking_tutorial"
-          },
-          "!",
-          "&&",
-          {
-            "VAR?": "peopleTalking"
-          },
-          false,
-          "==",
-          "&&",
-          "/ev",
-          {
-            "->": ".^.b",
-            "c": true
-          },
-          {
-            "b": [
-              "\n",
-              {
-                "->": "talking_tutorial"
-              },
-              {
-                "->": ".^.^.^.19"
-              },
-              null
-            ]
-          }
-        ],
-        [
-          "ev",
-          {
-            "VAR?": "currentTime"
-          },
-          405,
-          ">=",
-          {
-            "VAR?": "activeObjects"
-          },
-          "&&",
-          {
-            "VAR?": "activeNotebook"
-          },
-          "!",
-          "&&",
-          {
-            "VAR?": "peopleTalking"
-          },
-          false,
-          "==",
-          "&&",
-          "/ev",
-          {
-            "->": ".^.b",
-            "c": true
-          },
-          {
-            "b": [
-              "\n",
-              {
-                "->": "notebook_tutorial"
-              },
-              {
-                "->": ".^.^.^.19"
-              },
-              null
-            ]
-          }
-        ],
-        [
-          "ev",
-          {
-            "VAR?": "currentTime"
-          },
-          300,
-          ">=",
-          {
-            "VAR?": "activeObjects"
-          },
-          "!",
-          "&&",
-          "/ev",
-          {
-            "->": ".^.b",
-            "c": true
-          },
-          {
-            "b": [
-              "\n",
-              {
-                "->": "objects_tutorial"
-              },
-              {
-                "->": ".^.^.^.19"
+                "->": ".^.^.^.27"
               },
               null
             ]
@@ -26559,7 +26668,7 @@
                 "->": "paolaIsDeadStorylet"
               },
               {
-                "->": ".^.^.^.19"
+                "->": ".^.^.^.27"
               },
               null
             ]
@@ -26577,7 +26686,7 @@
               "/ev",
               "->->",
               {
-                "->": ".^.^.^.19"
+                "->": ".^.^.^.27"
               },
               null
             ]
@@ -27553,7 +27662,7 @@
               },
               "^Zeca: Mmm, è tiepida.",
               "\n",
-              "^Elia: E Non respira.",
+              "^Elia: E non respira.",
               "\n",
               "^Greta: Sempre pensato che fosse un vampiro.",
               "\n",
@@ -30690,11 +30799,37 @@
                 "VAR=": "gretaHaLaLettera",
                 "re": true
               },
+              "ev",
+              {
+                "VAR?": "loopableVariables"
+              },
+              {
+                "VAR?": "dontCheckStorylets"
+              },
+              "+",
+              {
+                "VAR=": "loopableVariables",
+                "re": true
+              },
+              "/ev",
+              "ev",
+              {
+                "VAR?": "loopableVariables"
+              },
+              {
+                "VAR?": "PaolaDavveroMorta"
+              },
+              "+",
+              {
+                "VAR=": "loopableVariables",
+                "re": true
+              },
+              "/ev",
               {
                 "->t->": "advance_time"
               },
               {
-                "->": "intro"
+                "->": "cb_second_tier"
               },
               {
                 "#f": 5
@@ -30743,6 +30878,14 @@
           {
             "f()": "are_two_entities_together"
           },
+          {
+            "VAR?": "loopableVariables"
+          },
+          {
+            "VAR?": "PaolaDavveroMorta"
+          },
+          "!?",
+          "&&",
           "/ev",
           {
             "*": ".^.c-0",
@@ -32861,6 +33004,14 @@
           {
             "f()": "are_two_entities_together"
           },
+          {
+            "VAR?": "loopableVariables"
+          },
+          {
+            "VAR?": "PaolaDavveroMorta"
+          },
+          "!?",
+          "&&",
           "/ev",
           {
             "*": ".^.c-0",
@@ -37417,6 +37568,14 @@
           {
             "f()": "are_two_entities_together"
           },
+          {
+            "VAR?": "loopableVariables"
+          },
+          {
+            "VAR?": "PaolaDavveroMorta"
+          },
+          "!?",
+          "&&",
           "/ev",
           {
             "*": ".^.c-0",
@@ -41275,6 +41434,14 @@
           {
             "f()": "are_two_entities_together"
           },
+          {
+            "VAR?": "loopableVariables"
+          },
+          {
+            "VAR?": "PaolaDavveroMorta"
+          },
+          "!?",
+          "&&",
           "/ev",
           {
             "*": ".^.c-0",
@@ -44464,6 +44631,14 @@
           {
             "f()": "are_two_entities_together"
           },
+          {
+            "VAR?": "loopableVariables"
+          },
+          {
+            "VAR?": "PaolaDavveroMorta"
+          },
+          "!?",
+          "&&",
           "/ev",
           {
             "*": ".^.c-0",
@@ -49534,6 +49709,36 @@
         }
       ],
       "second_tier_storylets": [
+        "ev",
+        {
+          "VAR?": "loopableVariables"
+        },
+        {
+          "VAR?": "dontCheckStorylets"
+        },
+        "?",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              "void",
+              "/ev",
+              "->->",
+              {
+                "->": ".^.^.^.6"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
         [
           "ev",
           {
@@ -49582,7 +49787,7 @@
                 "->": "reStartingDinnerStorylet"
               },
               {
-                "->": ".^.^.^.12"
+                "->": ".^.^.^.20"
               },
               null
             ]
@@ -49658,7 +49863,7 @@
                 "->": "liarCallLiarStorylet"
               },
               {
-                "->": ".^.^.^.12"
+                "->": ".^.^.^.20"
               },
               null
             ]
@@ -49728,7 +49933,7 @@
                 "->": "iLlKillThatBitchStorylet"
               },
               {
-                "->": ".^.^.^.12"
+                "->": ".^.^.^.20"
               },
               null
             ]
@@ -49805,7 +50010,7 @@
                 "->": "forMeHeIsStupidAFStorylet"
               },
               {
-                "->": ".^.^.^.12"
+                "->": ".^.^.^.20"
               },
               null
             ]
@@ -49895,7 +50100,7 @@
                 "->": "whisperingSecretsStorylet"
               },
               {
-                "->": ".^.^.^.12"
+                "->": ".^.^.^.20"
               },
               null
             ]
@@ -49975,7 +50180,7 @@
                 "->": "trueLoveStorylet"
               },
               {
-                "->": ".^.^.^.12"
+                "->": ".^.^.^.20"
               },
               null
             ]
@@ -50055,7 +50260,7 @@
                 "->": "iTryToBeAGoodFriendStorylet"
               },
               {
-                "->": ".^.^.^.12"
+                "->": ".^.^.^.20"
               },
               null
             ]
@@ -50127,7 +50332,7 @@
                 "->": "liesAndPromisesStorylet"
               },
               {
-                "->": ".^.^.^.12"
+                "->": ".^.^.^.20"
               },
               null
             ]
@@ -50210,7 +50415,7 @@
                 "->": "notABigSecretPartOneStorylet"
               },
               {
-                "->": ".^.^.^.12"
+                "->": ".^.^.^.20"
               },
               null
             ]
@@ -50293,7 +50498,7 @@
                 "->": "notABigSecretPartTwoStorylet"
               },
               {
-                "->": ".^.^.^.12"
+                "->": ".^.^.^.20"
               },
               null
             ]
@@ -50318,7 +50523,7 @@
                 "->": "paolaIsDeadStorylet"
               },
               {
-                "->": ".^.^.^.12"
+                "->": ".^.^.^.20"
               },
               null
             ]
@@ -50336,7 +50541,7 @@
               "/ev",
               "->->",
               {
-                "->": ".^.^.^.12"
+                "->": ".^.^.^.20"
               },
               null
             ]
@@ -56399,6 +56604,32 @@
               [
                 "ev",
                 {
+                  "VAR?": "turns_since_this_knot"
+                },
+                0,
+                "<",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "\n",
+                    "ev",
+                    true,
+                    "/ev",
+                    "~ret",
+                    {
+                      "->": ".^.^.^.16"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "ev",
+                {
                   "VAR?": "turns_since_loop"
                 },
                 {
@@ -56418,7 +56649,7 @@
                     "/ev",
                     "~ret",
                     {
-                      "->": ".^.^.^.15"
+                      "->": ".^.^.^.16"
                     },
                     null
                   ]
@@ -56436,7 +56667,7 @@
                     "/ev",
                     "~ret",
                     {
-                      "->": ".^.^.^.15"
+                      "->": ".^.^.^.16"
                     },
                     null
                   ]
@@ -57301,6 +57532,10 @@
         {
           "VAR=": "secondaContraddizione"
         },
+        false,
+        {
+          "VAR=": "loopResetAtSecondTier"
+        },
         "/ev",
         "end",
         null
@@ -57336,7 +57571,8 @@
       "pausaRapportoMatteo": 4,
       "pausaRapportoZeca": 5,
       "pausaRapportoElia": 6,
-      "pausaRapportoGreta": 7
+      "pausaRapportoGreta": 7,
+      "dontCheckStorylets": 8
     },
     "tierState": {
       "FirstTier": 1,

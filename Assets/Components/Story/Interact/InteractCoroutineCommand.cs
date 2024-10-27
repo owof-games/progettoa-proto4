@@ -37,41 +37,50 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
 
     protected override IEnumerator Process(CommandLineProcessorContext context)
     {
+        var previousStoryState = currentStoryState.Value;
         currentStoryState.Value = storyStateInteracting.Value;
+
+        var choices = context.Choices.Select(c => (c.Index, c.Text)).ToArray();
 
         yield return AtomAwaiter.Await(
             interactExitEvent,
             onEvent1: moveToRoomName =>
             {
                 // asked to move to room: take the given choice
-                var choice = context.Choices.FirstOrDefault(choice => choice.Text == $"exit:{moveToRoomName}");
+                var choice = choices.FirstOrDefault(choice => choice.Text == $"exit:{moveToRoomName}");
                 if (choice.Text == null)
                     throw new Exception($"Cannot find an interaction choice in Ink to exit to room {moveToRoomName}");
 
+                currentStoryState.Value = previousStoryState;
                 context.TakeChoice(choice.Index);
             },
             atom2: advanceTimeEvent,
             onEvent2: _ =>
             {
-                var choice = context.Choices.FirstOrDefault(choice => choice.Text == "debug:advance_time");
+                var choice = choices.FirstOrDefault(choice => choice.Text == "debug:advance_time");
                 if (choice.Text == null)
                     throw new Exception(
                         "Cannot find an interaction choice in Ink to advance time for debug with name debug:advance_time");
 
+                currentStoryState.Value = previousStoryState;
                 context.TakeChoice(choice.Index);
             },
             atom3: interactCharacterEvent,
             onEvent3: characterName =>
             {
-                currentStoryState.Value = storyStateTalking.Value;
                 // asked to interact with character: take the given choice
-                var choice = context.Choices.FirstOrDefault(choice => choice.Text == $"character:{characterName}");
+                var choice = choices.FirstOrDefault(choice => choice.Text == $"character:{characterName}");
                 if (choice.Text == null)
                     throw new Exception(
-                        $"Cannot find an interaction choice in Ink to interact with character {characterName}");
+                        $"Cannot find an interaction choice in Ink to interact with character {characterName}; available choices are: " +
+                        string.Join(", ", choices.Select(c => c.Text)));
 
+                currentStoryState.Value = previousStoryState;
                 context.TakeChoice(choice.Index);
             }
         );
+
+        Debug.Log("@interact command ended, whose choices are:");
+        foreach (var choice in choices) Debug.Log("_ " + choice.Text);
     }
 }

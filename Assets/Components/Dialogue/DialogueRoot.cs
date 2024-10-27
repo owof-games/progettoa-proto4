@@ -182,6 +182,12 @@ namespace Components.Dialogue
 
         private DialogueRow CreateAndGetDialogueRow()
         {
+            // should not be necessary, but it is
+            if (dialogueSlidingContainer.childCount == 0)
+                dialogueSlidingContainer.anchoredPosition = new Vector2(
+                    dialogueSlidingContainer.anchoredPosition.x,
+                    0);
+
             var dialogueRowGameObject = Instantiate(dialogueRowPrefab, dialogueSlidingContainer);
             var dialogueRow = dialogueRowGameObject.GetComponent<DialogueRow>();
             return dialogueRow;

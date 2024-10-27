@@ -1,9 +1,13 @@
 === first_tier_storylets
 {debug: <i>Passo per first_tier_storylets</i>}
 
+{loopableVariables has dontCheckStorylets:
+    ->->
+}
+
 {
 //MATERIALI PER TUTORIAL
-    - currentTime >= 510 && activeObjects && not activeNotebook && not talking_tutorial && peopleTalking == false: -> talking_tutorial
+    - currentTime >= 510 && activeObjects && activeNotebook && not talking_tutorial && peopleTalking == false: -> talking_tutorial
     
     
     - currentTime >= 405 && activeObjects && not activeNotebook && peopleTalking == false:
@@ -696,6 +700,8 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
             ~ activePhone = true
             ~ tierState = SecondTier
             ~ gretaHaLaLettera = false
+            ~ loopableVariables += dontCheckStorylets
+            ~ loopableVariables += PaolaDavveroMorta
                 -> advance_time ->
 
-    -> intro
+    -> cb_second_tier

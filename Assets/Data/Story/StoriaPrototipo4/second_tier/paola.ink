@@ -1,6 +1,6 @@
 === cb_second_tier_paola ===
 {debug: <i>passo per second_tier_paola</i>}
-+ {are_two_entities_together(Paola, Ettore)} [character:Paola]
++ {are_two_entities_together(Paola, Ettore) && loopableVariables hasnt PaolaDavveroMorta} [character:Paola]
     -> paola_talking_second_tier->
     
 + {are_two_entities_together(Paola, Ettore) && loopableVariables has PaolaDavveroMorta} [character:Paola]

@@ -1,5 +1,9 @@
 === second_tier_storylets
 
+{loopableVariables has dontCheckStorylets:
+    ->->
+}
+
 {
 
 //SCENA INIZIALE

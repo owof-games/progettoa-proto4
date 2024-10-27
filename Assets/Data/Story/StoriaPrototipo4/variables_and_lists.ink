@@ -11,7 +11,7 @@ LIST characters = Paola, Elia, Zeca, Matteo, Greta, Ettore
 LIST objects = LimettaUnghie, AnticoPugnale, SpiedinoCocktail, Lettera, BottigliaDiVino, FlaconcinoAsma, SigarettaElettronica, Briciole, Torta, Foto
 
 //list of variables to reset on every loop
-LIST loopableVariables = EliaRaggiungeGreta, EliaSpaventatoPerZeca, PaolaDavveroMorta, pausaRapportoMatteo, pausaRapportoZeca, pausaRapportoElia, pausaRapportoGreta
+LIST loopableVariables = EliaRaggiungeGreta, EliaSpaventatoPerZeca, PaolaDavveroMorta, pausaRapportoMatteo, pausaRapportoZeca, pausaRapportoElia, pausaRapportoGreta, dontCheckStorylets
 
 //list to set the current tier
 LIST tierState = (FirstTier), SecondTier

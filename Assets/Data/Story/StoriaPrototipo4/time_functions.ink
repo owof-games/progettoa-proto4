@@ -117,7 +117,7 @@ VAR currentTime = 0
 //UPDATE
 ~ updateEntitiesLocations()
 
-{ currentTime >= 600:
+{ currentTime >= 660:
     -> loop_reset
 }
 
@@ -149,6 +149,7 @@ VAR currentTime = 0
 
 
 
+VAR loopResetAtSecondTier = false
 /**
  * Called whenever the loop resets. All state must be brought back
  * to its initial state here
@@ -156,7 +157,14 @@ VAR currentTime = 0
 === loop_reset
 {debug: <i>Passo per function loop_reset</i>}
 // set the current time
-~ currentTime = 0
+{
+- not loopResetAtSecondTier && tierState == SecondTier:
+    ~ currentTime = 0
+    ~ loopResetAtSecondTier = true
+- else:
+    ~ currentTime = 120
+}
+
 // clear story variables
 
 ~ loopableVariables = ()

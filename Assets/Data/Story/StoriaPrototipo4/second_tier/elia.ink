@@ -1,6 +1,6 @@
 === cb_second_tier_elia ===
 {debug: <i>passo per cb_second_tier_elia</i>}
-+ {are_two_entities_together(Elia, Ettore)} [character:Elia]
++ {are_two_entities_together(Elia, Ettore) && loopableVariables hasnt PaolaDavveroMorta} [character:Elia]
     -> elia_talking_second_tier -> 
 
 

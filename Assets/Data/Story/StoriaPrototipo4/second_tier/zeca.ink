@@ -1,7 +1,7 @@
 === cb_second_tier_zeca ===
 {debug: <i>passo per second_tier_zeca</i>}
 
-+ {are_two_entities_together(Zeca, Ettore)} [character:Zeca]
++ {are_two_entities_together(Zeca, Ettore) && loopableVariables hasnt PaolaDavveroMorta} [character:Zeca]
     -> zeca_talking_second_tier ->    
 
 + {are_two_entities_together(Zeca, Ettore) && loopableVariables has PaolaDavveroMorta} [character:Zeca]

@@ -2,7 +2,6 @@
 /* ORDINE STANZE: White, Red, Green, Yellow */
 
 {debug: [applico la timeline per {currentTime}]}
-TODO: Settare luoghi diversi dopo la prima scena?
 
 
 // Ettore

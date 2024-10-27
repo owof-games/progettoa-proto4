@@ -13,9 +13,14 @@
         ~ temp turns_since_loop = TURNS_SINCE(-> loop_reset)
         ~ temp turns_since_this_knot = TURNS_SINCE(x)
         {
+            - turns_since_this_knot < 0:
+                // non abbiamo mai visto questo knot: è nuovo per forza
+                ~ return true
             - turns_since_loop < turns_since_this_knot:
+                // abbiamo visto questo knot prima del reset: è nuovo in questo loop
                 ~ return true
             -
+                // abbiamo visto questo knot DOPO il reset: non è nuovo in questo loop
                 ~ return false
         }
 }

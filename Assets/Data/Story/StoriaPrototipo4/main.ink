@@ -57,7 +57,7 @@
         ~ remove_entity(SigarettaElettronica)
 + {inventoryContents has Torta} [Lascia la torta nella stanza]
         ~ remove_entity(Torta)    
-    -        
+         
 + avanza tempo
   -> advance_time ->
 + ->

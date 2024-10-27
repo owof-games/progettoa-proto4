@@ -1,6 +1,7 @@
 // activate debug text
 VAR debug = false
-VAR debugTime = false //giusto per avere printato il tempo effettivo
+VAR debugTime = true //giusto per avere printato il tempo effettivo
+~ SEED_RANDOM(236)
 /////////////////////////////////////////////////////////////
 
 // list of all characters

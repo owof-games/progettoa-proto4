@@ -2,6 +2,16 @@
 {debug: <i>Passo per first_tier_storylets</i>}
 
 {
+//MATERIALI PER TUTORIAL
+    - currentTime >= 510 && activeObjects && not activeNotebook && not talking_tutorial && peopleTalking == false: -> talking_tutorial
+    
+    
+    - currentTime >= 405 && activeObjects && not activeNotebook && peopleTalking == false:
+            -> notebook_tutorial
+
+    - currentTime >= 300 && not activeObjects:
+            -> objects_tutorial
+
 
 //SCENA INIZIALE
     - are_six_entities_together(Elia, Matteo, Ettore, Greta, Paola, Zeca) && not startingDinnerStorylet && peopleTalking == false && new_this_loop(->startingDinnerStorylet) :
@@ -35,23 +45,12 @@
 
 
 //CONVERSAZIONI IN ALTRE STANZE, CHE NON ORIGLIAMO, E CHE CONTINUANO QUANDO ENTRIAMO
-    - sheIsTheBest != -1:
+    - sheIsTheBest != -1 && are_three_entities_together(Matteo, Elia, Ettore) && currentTime <= sheIsTheBest +30:
             -> sheIsTheBestStorylet
 
 
 
 
-
-//MATERIALI PER TUTORIAL
-TODO: parte dal secondo loop, perché?
-    - currentTime >= 510 && activeObjects && not activeNotebook && not talking_tutorial && peopleTalking == false: -> talking_tutorial
-    
-    
-    - currentTime >= 405 && activeObjects && not activeNotebook && peopleTalking == false:
-            -> notebook_tutorial
-
-    - currentTime >= 300 && not activeObjects:
-            -> objects_tutorial
 
 
 
@@ -152,7 +151,7 @@ TODO: parte dal secondo loop, perché?
             -> advance_time ->
             
         Zeca: Mmm, è tiepida.
-        Elia: E Non respira.
+        Elia: E non respira.
         Greta: Sempre pensato che fosse un vampiro.
         Matteo: E non ha polso.
         Greta: Questo non cambia la mia teoria.

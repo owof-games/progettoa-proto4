@@ -15,7 +15,6 @@
 Opzioni di dialogo con il personaggio Elia
  ----------------------------------*/
 
-TODO: sembra non funzionare più "new this loop"
 === elia_acting
     {debug: <i>Passo per elia_acting</i>}
     -> first_tier_storylets ->

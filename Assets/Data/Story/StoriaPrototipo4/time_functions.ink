@@ -129,7 +129,7 @@ VAR currentTime = 0
 
 // PER STORYLET CON AVANZAMENTO A TEMPO
 {
-- are_three_entities_together(Matteo, Elia, Ettore) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Zeca) && peopleTalking == false && new_this_loop(->sheIsTheBestStorylet) && sheIsTheBest == -1:
+- are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Zeca) && peopleTalking == false && new_this_loop(->sheIsTheBestStorylet) && sheIsTheBest == -1:
         ~ sheIsTheBest = currentTime
 }
 

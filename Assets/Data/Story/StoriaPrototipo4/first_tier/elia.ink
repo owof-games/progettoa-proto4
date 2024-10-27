@@ -111,7 +111,7 @@ Opzioni di dialogo con il personaggio Elia
                 ~ loopableVariables += EliaRaggiungeGreta
                 }      
                 
-                
+                TODO: cosa succede qua?
     
           
         

@@ -53,15 +53,16 @@ namespace Components.Dialogue
             layoutElement.preferredHeight = height;
             layoutElement.flexibleHeight = height;
 
-            if (direction == Direction.Left)
-            {
-                // default is left; switch left and right margins (it's enough to reflect anchored position)
-                var anchoredPosition = container.anchoredPosition;
-                anchoredPosition.x = -container.anchoredPosition.x;
-                container.anchoredPosition = anchoredPosition;
-                // also reflect the sprite
-                backgroundImage.transform.localScale = new Vector3(-1, 1, 1);
-            }
+            // NOTE: this is a demo, let's ignore balloon flipping
+            // if (direction == Direction.Left)
+            // {
+            //     // default is left; switch left and right margins (it's enough to reflect anchored position)
+            //     var anchoredPosition = container.anchoredPosition;
+            //     anchoredPosition.x = -container.anchoredPosition.x;
+            //     container.anchoredPosition = anchoredPosition;
+            //     // also reflect the sprite
+            //     backgroundImage.transform.localScale = new Vector3(-1, 1, 1);
+            // }
 
             if (choices is { Length: > 0 })
             {

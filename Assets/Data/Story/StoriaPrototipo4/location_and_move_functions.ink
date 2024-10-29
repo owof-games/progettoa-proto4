@@ -161,26 +161,30 @@
 
 //Usiamo questa funzione quando per ragione di scena è necessario che una personaggia se ne vada da una stanza (ma non importa particolarmente dove vada)
 === function move_this_entity_in_a_different_room(entity)
-{debug: <i>passo per is_this_room_near</i>}
-{
-- whiteRoomContents has Ettore:
-        {shuffle:
-        - 
+{debug: <i>passo per move_this_entity_in_a_different_room</i>}
+~ temp location = entity_location(entity)
+{ location:
+- WhiteRoom:
             ~ move_entity(entity, RedRoom)
-        - 
-            ~move_entity(entity, GreenRoom)
-        - 
-            ~move_entity(entity, YellowRoom)
-        }
 
-- redRoomContents has Ettore:
-        ~ move_entity(entity, WhiteRoom)
+- RedRoom:
+    {shuffle:
+        -
+            ~ move_entity(entity, WhiteRoom)
+        -
+            ~ move_entity(entity, GreenRoom)
+    }
 
-- greenRoomContents has Ettore:
-        ~ move_entity(entity, YellowRoom)
+- GreenRoom:
+    {shuffle:
+        -
+            ~ move_entity(entity, YellowRoom)
+        -
+            ~ move_entity(entity, RedRoom)
+    }
         
-- yellowRoomContents has Ettore:
-        ~ move_entity(entity, GreenRoom)        
+- YellowRoom:
+            ~ move_entity(entity, GreenRoom)        
         
 }       
 

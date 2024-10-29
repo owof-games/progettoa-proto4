@@ -164,7 +164,14 @@
 {debug: <i>passo per is_this_room_near</i>}
 {
 - whiteRoomContents has Ettore:
-        ~ move_entity(entity, RedRoom)
+        {shuffle:
+        - 
+            ~ move_entity(entity, RedRoom)
+        - 
+            ~move_entity(entity, GreenRoom)
+        - 
+            ~move_entity(entity, YellowRoom)
+        }
 
 - redRoomContents has Ettore:
         ~ move_entity(entity, WhiteRoom)

@@ -92,26 +92,29 @@ Opzioni di dialogo con il personaggio Elia
                 - whiteRoomContents has Greta:
                 ~ loopableVariables += EliaRaggiungeGreta
                 }
+                    -> intro
             + + {greenRoomContents hasnt Ettore} Ettore: La trovi nella stanza verde.
                 ~ move_entity(Elia, GreenRoom)
                 {
                 - greenRoomContents has Greta:
                 ~ loopableVariables += EliaRaggiungeGreta
                 }
+                    -> intro
             + + {yellowRoomContents hasnt Ettore} Ettore: Sta cazzeggiando nella stanza gialla.              
                 ~ move_entity(Elia, YellowRoom)
                 {
                 - yellowRoomContents has Greta:
                 ~ loopableVariables += EliaRaggiungeGreta
                 }
+                    -> intro
             + + {redRoomContents hasnt Ettore} Ettore: Nella stanza rossa.             
                 ~ move_entity(Elia, RedRoom)
                 {
                 - redRoomContents has Greta:
                 ~ loopableVariables += EliaRaggiungeGreta
-                }      
-                
-                TODO: cosa succede qua?
+                }
+                    -> intro
+       
     
           
         

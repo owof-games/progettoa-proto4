@@ -53,8 +53,8 @@
     - 0:
         ~ move_entity(Paola, WhiteRoom)
     
-     //- 120:
-         //~ move_entity(Paola, WhiteRoom)
+    - 120:
+        ~ move_entity(Paola, WhiteRoom)
 
     - 180:
         {

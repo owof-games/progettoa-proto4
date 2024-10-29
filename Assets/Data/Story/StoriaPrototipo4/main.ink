@@ -58,8 +58,8 @@
 + {inventoryContents has Torta} [Lascia la torta nella stanza]
         ~ remove_entity(Torta)    
          
-+ avanza tempo
-  -> advance_time ->
++ [debug: advance_time]
+    -> advance_time ->
 + ->
 -
 
@@ -95,7 +95,7 @@ DEBUG: errore, nessun personaggio con cui interagire
 // thread per gestire il notebook
 <- phone
 // only present because ink doesn't allow to produce a choice list made ONLY of threads: at least one choice must be in this list (using a default choice that will never appear)
-+ avanza tempo
++ [debug: advance_time]
   -> advance_time ->
 + ->
 -

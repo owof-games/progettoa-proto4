@@ -246,6 +246,7 @@ Opzioni di dialogo con il personaggio Elia
         Elia: E dalla commercialista.
         Elia: Però posso rimanere a torso nudo.
         Elia: Dice che fa bene ai guadagni.
+        {are_two_entities_together(Greta, Elia): Greta: E il top è quando non parli.}
                 -> advance_time ->
             -> elia_acting 
 
@@ -253,6 +254,7 @@ Opzioni di dialogo con il personaggio Elia
      ~ EliaActing++
         Elia: Posso farti una domanda, Ettore?
         Elia: Cosa ci trovi in mio fratello Matteo?
+        {are_two_entities_together(Matteo, Elia): Matteo: Fai pure come se non fossi qui, guarda.}
             + Ettore: Mi fa sentire al sicuro.
             + Ettore: Mi fa sentire desiderato.
             + Ettore: A volte me lo chiedo anche io.
@@ -313,9 +315,9 @@ Opzioni di dialogo con la persona Elia
         -> intro
     - else:
         { shuffle once:
-        -   -> first_qn
+        - {not are_two_entities_together(Zeca, Elia)}: -> first_qn
         -   -> second_qn
-        -   -> third_qn
+        - {not are_two_entities_together(Elia, Paola)};  -> third_qn
         
         }
     }
@@ -372,6 +374,7 @@ Opzioni di dialogo con la persona Elia
             -    
                 -> advance_time ->
         Elia: Poi da quando collaboro con Zeca, è tutto molto più divertente.
+        {are_two_entities_together(Greta, Elia): Zeca: Sono l'anima della festa!}       
         Ettore: Ma in cosa consiste BRO?
         Elia: Non è che consiste, perché non lo tocchi.
         Elia: Anche se ci sono le foto, quelle le tocchi, quindi forse BRO consiste?
@@ -387,6 +390,7 @@ Opzioni di dialogo con la persona Elia
         Elia: E tu sei sicuro che nessuno ti vede nudo.
         Elia: A parte la gente in palestra.
         Elia: E Zeca.
+        {are_two_entities_together(Greta, Elia): Zeca: PERO'. PERO'.} 
         Elia: Vuole che le facciamo una foto?
         Ettore: Ehm, facciamo un altro giorno, tipo mai?
         Elia: Forse dovrei farle a Matteo. Palese che è fuori forma.

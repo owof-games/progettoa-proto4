@@ -356,6 +356,7 @@ Opzioni di dialogo con la persona Zeca
         Zeca: Magari con Filippo Timi, che è così bono!
         Zeca: Devo assolutamente dirlo ad Elia.
         Zeca: ELIAAAAAAAAA! ETTORE MI FA LAVORARE CON TIMI! ELIAAAAA!
+        {are_two_entities_together(Zeca, Elia): Elia: La pianta?} 
                 -> advance_time ->
                 ~ move_this_entity_in_a_different_room(Zeca)
             -> intro

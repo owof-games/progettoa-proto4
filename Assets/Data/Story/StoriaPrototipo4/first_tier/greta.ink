@@ -247,7 +247,7 @@ Opzioni di dialogo con la persona Greta
         { shuffle once:
         -   -> first_qn
         -   -> second_qn
-        -   -> third_qn
+        - {not are_two_entities_together(Greta, Elia) && not are_two_entities_together(Greta, Zeca)}  -> third_qn
         
         }
     }

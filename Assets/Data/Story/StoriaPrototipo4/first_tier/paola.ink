@@ -67,6 +67,7 @@ Opzioni di dialogo con la persona Paola
         Paola: Sa che voglio solo ricariche al rabarbaro per la mia sigaretta elettronica.
         Paola: E invece me l'ha presa al mentolo.
         Paola: Ora la uccido.
+        {are_two_entities_together(Greta, Paola): Greta: Merda.} 
             -> advance_time ->
         
         -> paola_talking 

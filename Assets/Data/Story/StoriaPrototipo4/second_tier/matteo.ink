@@ -248,6 +248,7 @@ Opzioni di dialogo con la persona Matteo
         Matteo: Io vivo con Greta, sai?
         Matteo: Sono quattro anni a breve, e la adoro.
         Matteo: Per me, lei è famiglia.
+        {are_two_entities_together(Greta, Matteo): Greta: E tu lo sei per me, ama!}
         Matteo: Non sempre ci capiamo, ma ormai sappiamo anche come volerci bene.
         -> advance_time ->
                     {

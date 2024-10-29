@@ -313,7 +313,7 @@ Opzioni di dialogo con la persona Zeca
     { shuffle:
     -   -> first_qn
     -   -> second_qn
-    -   -> third_qn
+    - {not are_two_entities_together(Greta, Zeca) && not are_two_entities_together(Paola, Zeca) && not are_two_entities_together(Matteo, Zeca) && not are_two_entities_together(Elia, Zeca) }  -> third_qn
     
     }
 }

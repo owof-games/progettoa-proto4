@@ -33,6 +33,7 @@ namespace Components.Dialogue
             }
         }
 
+#if UNITY_EDITOR
         private void OnValidate()
         {
             if (!storyStateTalking)
@@ -50,5 +51,6 @@ namespace Components.Dialogue
                     AssetDatabase.LoadAssetAtPath<StringEvent>(
                         "Assets/Components/Story/Ink Atoms Story - Continue Event.asset");
         }
+#endif
     }
 }

@@ -31,11 +31,13 @@ namespace Components.Dialogue
             Assert.IsNotNull(layoutElement);
         }
 
+#if UNITY_EDITOR
         private void OnValidate()
         {
             if (!advanceButton) advanceButton = transform.Find("Advance Button").gameObject;
             if (!layoutElement) layoutElement = GetComponent<LayoutElement>();
         }
+#endif
 
         public void SetUp(Character.Character character, Direction direction, [CanBeNull] string[] choices = null,
             bool smallChoices = true)

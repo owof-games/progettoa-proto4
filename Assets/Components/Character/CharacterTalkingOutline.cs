@@ -21,10 +21,12 @@ namespace Components.Character
             _talkingHash = Animator.StringToHash("Talking");
         }
 
+#if UNITY_EDITOR
         private void OnValidate()
         {
             characterName = GetComponent<CharacterName>();
         }
+#endif
 
         public void OnDialogueLine(DialogueLine dialogueLine)
         {

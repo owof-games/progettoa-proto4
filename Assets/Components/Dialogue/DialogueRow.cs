@@ -19,10 +19,12 @@ namespace Components.Dialogue
             Assert.IsNotNull(balloonPrefab);
         }
 
+#if UNITY_EDITOR
         private void OnValidate()
         {
             gridLayoutGroup = GetComponent<GridLayoutGroup>();
         }
+#endif
 
         public void SetUp(Character.Character character, int column, string text, bool showAdvance,
             [CanBeNull] string[] choices = null, bool smallChoices = true)

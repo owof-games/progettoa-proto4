@@ -31,11 +31,13 @@ namespace Components.Dialogue
             Assert.IsNotNull(layoutElement);
         }
 
+#if UNITY_EDITOR
         private void OnValidate()
         {
             if (!advanceButton) advanceButton = transform.Find("Advance Button").gameObject;
             if (!layoutElement) layoutElement = GetComponent<LayoutElement>();
         }
+#endif
 
         public void SetUp(Character.Character character, Direction direction, [CanBeNull] string[] choices = null,
             bool smallChoices = true)
@@ -53,15 +55,16 @@ namespace Components.Dialogue
             layoutElement.preferredHeight = height;
             layoutElement.flexibleHeight = height;
 
-            if (direction == Direction.Left)
-            {
-                // default is left; switch left and right margins (it's enough to reflect anchored position)
-                var anchoredPosition = container.anchoredPosition;
-                anchoredPosition.x = -container.anchoredPosition.x;
-                container.anchoredPosition = anchoredPosition;
-                // also reflect the sprite
-                backgroundImage.transform.localScale = new Vector3(-1, 1, 1);
-            }
+            // NOTE: this is a demo, let's ignore balloon flipping
+            // if (direction == Direction.Left)
+            // {
+            //     // default is left; switch left and right margins (it's enough to reflect anchored position)
+            //     var anchoredPosition = container.anchoredPosition;
+            //     anchoredPosition.x = -container.anchoredPosition.x;
+            //     container.anchoredPosition = anchoredPosition;
+            //     // also reflect the sprite
+            //     backgroundImage.transform.localScale = new Vector3(-1, 1, 1);
+            // }
 
             if (choices is { Length: > 0 })
             {

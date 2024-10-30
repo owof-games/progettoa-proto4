@@ -508,6 +508,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 436279649}
   m_CullTransparentMesh: 1
+--- !u!114 &459968159 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 181079882183154070, guid: f61f44a952113f54d8a941ccd56b732d, type: 3}
+  m_PrefabInstance: {fileID: 3952608678671334480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f2dce150a417d34eb4f7de1e2603e08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &495026288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1582,6 +1593,7 @@ GameObject:
   - component: {fileID: 1744676013}
   - component: {fileID: 1744676014}
   - component: {fileID: 1744676015}
+  - component: {fileID: 1744676016}
   m_Layer: 5
   m_Name: DialogueRoot
   m_TagString: Untagged
@@ -1625,7 +1637,9 @@ MonoBehaviour:
   dialogueRowPrefab: {fileID: 4848299891961417999, guid: da00f7da002b62443b95580fec3f1033, type: 3}
   slideDuration: 0.1
   chosenChoiceEvent: {fileID: 11400000, guid: bbb734abb5780294fb5a335d48beee17, type: 2}
+  roomTransitionHandler: {fileID: 459968159}
   storyStateTalking: {fileID: 11400000, guid: f983d5e69a958d447a8117867e2a69e4, type: 2}
+  choicesTotalLengthBreakpoint: 180
 --- !u!114 &1744676014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1702,6 +1716,23 @@ MonoBehaviour:
     _eventInstancer: {fileID: 0}
     _variable: {fileID: 0}
     _variableInstancer: {fileID: 0}
+--- !u!114 &1744676016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744676010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f002cace3fdca41aec5c9fe0c90541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storyStateTalking: {fileID: 11400000, guid: f983d5e69a958d447a8117867e2a69e4, type: 2}
+  currentStoryState: {fileID: 11400000, guid: 15f13ae7eb0e5574f8f1abd68f45d19b, type: 2}
+  continueEvent: {fileID: 11400000, guid: f1836d32c09bf4f4ca4b1bc5567fda79, type: 2}
+  chosenChoiceEvent: {fileID: 11400000, guid: bbb734abb5780294fb5a335d48beee17, type: 2}
+  storyStep: {fileID: 11400000, guid: cdb8ab666e8592d42bcb7bebf0ca63b6, type: 2}
 --- !u!1001 &3782842853177998912
 PrefabInstance:
   m_ObjectHideFlags: 0

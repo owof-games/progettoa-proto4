@@ -367,8 +367,8 @@ PS: ricordarsi di resettare la variabile al reset_loop
 
 === marryMeStorylet
 {debug: <i>Passo per marryMe</i>}
-        Ettore: Finalmente soli, amore.
-        Matteo: Già. Dio, quanto sei bello, te l'ho mai detto?
+        Matteo: Finalmente soli, amore.
+        Matteo: Dio, quanto sei bello, te l'ho mai detto?
         Ettore: Mai abbastanza, cucciolone.
         Matteo: E sai, c'è una cosa che vorrei dirti da un bel po'.
         Matteo: Hai presente che ho fatto ristrutturare l'ala a nord del castello?

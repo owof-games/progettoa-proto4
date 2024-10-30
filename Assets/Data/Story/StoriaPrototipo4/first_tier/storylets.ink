@@ -324,7 +324,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
         -> step_two
 
     = step_two
-        Elia: Non provare a ripeterlo, non provarci!
+        Elia: Sarai tu noioso, coso.
         Matteo: Così prevedibile.
         Matteo: Così "So solo io quello che è giusto".
         Matteo: Sapessi cosa diceva di te alle tue spalle.
@@ -344,6 +344,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
         Matteo: Non sono in bancarotta!
         Elia: Certo che no, solo perché i nonni continuano a pararti il culo.
         Elia: Me ne devo andare da tutta questa negatività.
+            ~ move_this_entity_in_a_different_room(Elia)
             -> advance_time ->
         -> intro
 

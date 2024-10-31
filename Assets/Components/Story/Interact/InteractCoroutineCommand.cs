@@ -3,6 +3,8 @@
 using System;
 using System.Collections;
 using System.Linq;
+using Components;
+using Components.InteractionSelector;
 using LemuRivolta.InkAtoms;
 using LemuRivolta.InkAtoms.CommandLineProcessors;
 using UnityAtoms.BaseAtoms;
@@ -20,6 +22,7 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
     [SerializeField] private StoryStateConstant storyStateInteracting;
     [SerializeField] private StoryStateConstant storyStateTalking;
     [SerializeField] private StoryStateVariable currentStoryState;
+    [SerializeField] private AvailableInteractionsEvent availableInteractionsEvent;
 
     public InteractCoroutineCommand() : base("interact")
     {
@@ -42,6 +45,28 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
 
         var choices = context.Choices.Select(c => (c.Index, c.Text)).ToArray();
 
+        // declare which interactions are available
+        availableInteractionsEvent.Raise(new AvailableInteractions
+        {
+            availableInteractions = context.Choices.Select(choice =>
+                {
+                    var parts = choice.Text.Split(':');
+                    if (parts.Length != 2)
+                    {
+                        return null;
+                    }
+
+                    return parts[0] switch
+                    {
+                        "exit" => new AvailableInteraction(Interaction.Exit, parts[1]),
+                        "character" => new AvailableInteraction(Interaction.Character, parts[1]),
+                        _ => null
+                    };
+                })
+                .WhereNotNull()
+                .ToArray()
+        });
+
         yield return AtomAwaiter.Await(
             interactExitEvent,
             onEvent1: moveToRoomName =>
@@ -52,6 +77,7 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
                     throw new Exception($"Cannot find an interaction choice in Ink to exit to room {moveToRoomName}");
 
                 currentStoryState.Value = previousStoryState;
+                availableInteractionsEvent.Raise(AvailableInteractions.EmptyAvailableInteractions);
                 context.TakeChoice(choice.Index);
             },
             atom2: advanceTimeEvent,
@@ -63,6 +89,7 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
                         "Cannot find an interaction choice in Ink to advance time for debug with name debug:advance_time");
 
                 currentStoryState.Value = previousStoryState;
+                availableInteractionsEvent.Raise(AvailableInteractions.EmptyAvailableInteractions);
                 context.TakeChoice(choice.Index);
             },
             atom3: interactCharacterEvent,
@@ -76,6 +103,7 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
                         string.Join(", ", choices.Select(c => c.Text)));
 
                 currentStoryState.Value = previousStoryState;
+                availableInteractionsEvent.Raise(AvailableInteractions.EmptyAvailableInteractions);
                 context.TakeChoice(choice.Index);
             }
         );

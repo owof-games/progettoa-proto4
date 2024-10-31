@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityAtoms.BaseAtoms;
 using UnityEditor;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine.Assertions;
 
 namespace Components.InteractionSelector
 {
-    internal enum Interaction
+    public enum Interaction
     {
         Exit,
         Character
@@ -21,6 +22,8 @@ namespace Components.InteractionSelector
         [SerializeField] private StoryStateVariable currentStoryState;
         [SerializeField] private StoryStateConstant storyStateInteracting;
         private int _hoveredHash = -1;
+        private bool _isInteractionEnabled = false;
+        private bool _mouseInside = false;
 
         private void Awake()
         {
@@ -35,16 +38,21 @@ namespace Components.InteractionSelector
 
         private void OnMouseEnter()
         {
-            if (currentStoryState.Value.Equals(storyStateInteracting.Value)) animator.SetBool(_hoveredHash, true);
+            if (currentStoryState.Value.Equals(storyStateInteracting.Value))
+                _mouseInside = true; //animator.SetBool(_hoveredHash, true);
+            UpdateAnimationStatus();
         }
 
         private void OnMouseExit()
         {
-            if (currentStoryState.Value.Equals(storyStateInteracting.Value)) animator.SetBool(_hoveredHash, false);
+            if (currentStoryState.Value.Equals(storyStateInteracting.Value))
+                _mouseInside = false; // animator.SetBool(_hoveredHash, false);
+            UpdateAnimationStatus();
         }
 
         private void OnMouseUp()
         {
+            if (!_isInteractionEnabled) return;
             switch (interaction)
             {
                 case Interaction.Exit:
@@ -57,6 +65,19 @@ namespace Components.InteractionSelector
                     Debug.LogError($"Unknown interaction {interaction}");
                     break;
             }
+        }
+
+        public void OnAvailableInteractionsChanged(AvailableInteractions availableInteractions)
+        {
+            _isInteractionEnabled = availableInteractions.availableInteractions.Any(availableInteraction =>
+                availableInteraction.interaction == interaction &&
+                availableInteraction.key == interactionKey);
+            UpdateAnimationStatus();
+        }
+
+        private void UpdateAnimationStatus()
+        {
+            animator.SetBool(_hoveredHash, _mouseInside && _isInteractionEnabled);
         }
 
 #if UNITY_EDITOR

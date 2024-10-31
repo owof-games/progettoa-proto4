@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe9139a7-064e-4f3c-8cc0-98b1b6da0fc7" name="Changes" comment="fix: room reset works">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.progettoa-proto4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.progettoa-proto4/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="fe9139a7-064e-4f3c-8cc0-98b1b6da0fc7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,26 +13,26 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "RedGlow"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;RedGlow&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/owof-games/progettoa-proto4.git",
-    "accountId": "d12b7af3-467c-41a4-92af-fab7f9a3c763"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/owof-games/progettoa-proto4.git&quot;,
+    &quot;accountId&quot;: &quot;d12b7af3-467c-41a4-92af-fab7f9a3c763&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://C:/Users/mbelletti/source/repos/proto4/progettoa-proto4/Assets/Components/RoomTransitionHandler/RoomTransitionHandler.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2nLDReD6d9ctof1j9SJ65D2Ns76" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -52,13 +50,6 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\mbelletti\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\mbelletti\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\mbelletti\\AppData\\Local\\Symbols\\src"
-    ]
   }
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -108,6 +99,7 @@
       <option name="presentableId" value="Default" />
       <updated>1728743457200</updated>
       <workItem from="1728743459589" duration="1568000" />
+      <workItem from="1730372458389" duration="47000" />
     </task>
     <task id="LOCAL-00001" summary="fix: room reset works">
       <option name="closed" value="true" />

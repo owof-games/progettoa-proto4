@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7215220536674580985}
   - component: {fileID: 2837752688507707575}
   - component: {fileID: 1605230796317988711}
+  - component: {fileID: 2767922725881149173}
   m_Layer: 0
   m_Name: InteractionSelector
   m_TagString: Untagged
@@ -287,3 +288,42 @@ MonoBehaviour:
   interactionCharacterEvent: {fileID: 11400000, guid: da922ef8f92423e4aa0cb54cafaec129, type: 2}
   currentStoryState: {fileID: 11400000, guid: 15f13ae7eb0e5574f8f1abd68f45d19b, type: 2}
   storyStateInteracting: {fileID: 11400000, guid: 731d7e1e22932c34faf3cb978feee760, type: 2}
+--- !u!114 &2767922725881149173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3269288920116296686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eb55845243c59446bdf763014599ce8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _developerDescription: 
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1605230796317988711}
+        m_TargetAssemblyTypeName: Components.InteractionSelector.InteractionSelector,
+          Assembly-CSharp
+        m_MethodName: OnAvailableInteractionsChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _actionResponses: []
+  _conditions: []
+  _operator: 0
+  _replayEventBufferOnRegister: 1
+  _eventReference:
+    _usage: 0
+    _event: {fileID: 11400000, guid: 9828ae187d49cc345b977e1803f9bc2b, type: 2}
+    _eventInstancer: {fileID: 0}
+    _variable: {fileID: 0}
+    _variableInstancer: {fileID: 0}

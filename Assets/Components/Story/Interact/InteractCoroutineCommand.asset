@@ -18,3 +18,4 @@ MonoBehaviour:
   storyStateInteracting: {fileID: 11400000, guid: 731d7e1e22932c34faf3cb978feee760, type: 2}
   storyStateTalking: {fileID: 11400000, guid: f983d5e69a958d447a8117867e2a69e4, type: 2}
   currentStoryState: {fileID: 11400000, guid: 15f13ae7eb0e5574f8f1abd68f45d19b, type: 2}
+  availableInteractionsEvent: {fileID: 11400000, guid: 9828ae187d49cc345b977e1803f9bc2b, type: 2}

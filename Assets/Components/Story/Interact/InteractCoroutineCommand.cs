@@ -17,6 +17,8 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
 
     [SerializeField] private StringEvent interactCharacterEvent;
 
+    [SerializeField] private StringEvent interactObjectEvent;
+
     [SerializeField] private VoidEvent advanceTimeEvent;
 
     [SerializeField] private StoryStateConstant storyStateInteracting;
@@ -60,6 +62,7 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
                     {
                         "exit" => new AvailableInteraction(Interaction.Exit, parts[1]),
                         "character" => new AvailableInteraction(Interaction.Character, parts[1]),
+                        "object" => new AvailableInteraction(Interaction.Object, parts[1]),
                         _ => null
                     };
                 })
@@ -100,6 +103,20 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
                 if (choice.Text == null)
                     throw new Exception(
                         $"Cannot find an interaction choice in Ink to interact with character {characterName}; available choices are: " +
+                        string.Join(", ", choices.Select(c => c.Text)));
+
+                currentStoryState.Value = previousStoryState;
+                availableInteractionsEvent.Raise(AvailableInteractions.EmptyAvailableInteractions);
+                context.TakeChoice(choice.Index);
+            },
+            atom4: interactObjectEvent,
+            onEvent4: objectName =>
+            {
+                // asked to interact with an object: take the given choice
+                var choice = choices.FirstOrDefault(choice => choice.Text == $"object:{objectName}");
+                if (choice.Text == null)
+                    throw new Exception(
+                        $"Cannot find an interaction choice in Ink to interact with object {objectName}; available choices are: " +
                         string.Join(", ", choices.Select(c => c.Text)));
 
                 currentStoryState.Value = previousStoryState;

@@ -9,7 +9,8 @@ namespace Components.InteractionSelector
     public enum Interaction
     {
         Exit,
-        Character
+        Character,
+        Object
     }
 
     public class InteractionSelector : MonoBehaviour
@@ -19,6 +20,7 @@ namespace Components.InteractionSelector
         [SerializeField] private string interactionKey;
         [SerializeField] private StringEvent interactionExitEvent;
         [SerializeField] private StringEvent interactionCharacterEvent;
+        [SerializeField] private StringEvent interactionObjectEvent;
         [SerializeField] private StoryStateVariable currentStoryState;
         [SerializeField] private StoryStateConstant storyStateInteracting;
         private int _hoveredHash = -1;
@@ -31,6 +33,7 @@ namespace Components.InteractionSelector
             Assert.IsNotNull(animator);
             Assert.IsNotNull(interactionExitEvent);
             Assert.IsNotNull(interactionCharacterEvent);
+            Assert.IsNotNull(interactionObjectEvent);
             Assert.IsNotNull(currentStoryState);
             Assert.IsNotNull(storyStateInteracting);
             Assert.IsFalse(string.IsNullOrWhiteSpace(interactionKey));
@@ -39,14 +42,14 @@ namespace Components.InteractionSelector
         private void OnMouseEnter()
         {
             if (currentStoryState.Value.Equals(storyStateInteracting.Value))
-                _mouseInside = true; //animator.SetBool(_hoveredHash, true);
+                _mouseInside = true;
             UpdateAnimationStatus();
         }
 
         private void OnMouseExit()
         {
             if (currentStoryState.Value.Equals(storyStateInteracting.Value))
-                _mouseInside = false; // animator.SetBool(_hoveredHash, false);
+                _mouseInside = false;
             UpdateAnimationStatus();
         }
 
@@ -61,23 +64,13 @@ namespace Components.InteractionSelector
                 case Interaction.Character:
                     interactionCharacterEvent.Raise(interactionKey);
                     break;
+                case Interaction.Object:
+                    interactionObjectEvent.Raise(interactionKey);
+                    break;
                 default:
                     Debug.LogError($"Unknown interaction {interaction}");
                     break;
             }
-        }
-
-        public void OnAvailableInteractionsChanged(AvailableInteractions availableInteractions)
-        {
-            _isInteractionEnabled = availableInteractions.availableInteractions.Any(availableInteraction =>
-                availableInteraction.interaction == interaction &&
-                availableInteraction.key == interactionKey);
-            UpdateAnimationStatus();
-        }
-
-        private void UpdateAnimationStatus()
-        {
-            animator.SetBool(_hoveredHash, _mouseInside && _isInteractionEnabled);
         }
 
 #if UNITY_EDITOR
@@ -93,6 +86,11 @@ namespace Components.InteractionSelector
                     AssetDatabase.LoadAssetAtPath<StringEvent>(
                         "Assets/Components/Story/Interact/InteractCharacterEvent.asset");
 
+            if (!interactionObjectEvent)
+                interactionObjectEvent =
+                    AssetDatabase.LoadAssetAtPath<StringEvent>(
+                        "Assets/Components/Story/Interact/InteractObjectEvent.asset");
+
             if (!currentStoryState)
                 currentStoryState =
                     AssetDatabase.LoadAssetAtPath<StoryStateVariable>(
@@ -104,5 +102,19 @@ namespace Components.InteractionSelector
                         "Assets/Components/Story/Lines/Story State Interacting.asset");
         }
 #endif
+
+        public void OnAvailableInteractionsChanged(AvailableInteractions availableInteractions)
+        {
+            _isInteractionEnabled = availableInteractions.availableInteractions.Any(availableInteraction =>
+                availableInteraction.interaction == interaction &&
+                availableInteraction.key == interactionKey);
+            Debug.Log($"interaction selector di {gameObject.name} vale {_isInteractionEnabled}", this);
+            UpdateAnimationStatus();
+        }
+
+        private void UpdateAnimationStatus()
+        {
+            animator.SetBool(_hoveredHash, _mouseInside && _isInteractionEnabled);
+        }
     }
 }

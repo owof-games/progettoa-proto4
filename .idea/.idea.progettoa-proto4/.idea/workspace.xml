@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe9139a7-064e-4f3c-8cc0-98b1b6da0fc7" name="Changes" comment="" />
+    <list default="true" id="fe9139a7-064e-4f3c-8cc0-98b1b6da0fc7" name="Changes" comment="feat: objects.">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.progettoa-proto4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.progettoa-proto4/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Components/InteractionSelector/InteractionSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Components/InteractionSelector/InteractionSelector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Components/Story/Interact/InteractCoroutineCommand.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Components/Story/Interact/InteractCoroutineCommand.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Components/Story/Interact/InteractCoroutineCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Components/Story/Interact/InteractCoroutineCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Story/StoriaPrototipo4/StoriaPrototipo4.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Story/StoriaPrototipo4/StoriaPrototipo4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Story/StoriaPrototipo4/first_tier/storylets.ink" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Story/StoriaPrototipo4/first_tier/storylets.ink" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Story/StoriaPrototipo4/main.ink" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Story/StoriaPrototipo4/main.ink" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Rooms/WhiteRoom.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Rooms/WhiteRoom.unity" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,7 +35,13 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/mbelletti/source/repos/proto4/progettoa-proto4/Assets/Components/RoomTransitionHandler/RoomTransitionHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d303c2bf72cd4cec95665b89c457d265d2b8ef3ed6da17cd4f85587c2f9de7/System.Linq.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/mbelletti/source/repos/proto4/progettoa-proto4/Assets/Components/Character/Character.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/mbelletti/source/repos/proto4/progettoa-proto4/Assets/Components/Character/Character.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Components/InanimateObject/InanimateObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Components/InteractionSelector/AvailableInteraction.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -41,6 +56,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
@@ -54,7 +70,7 @@
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.18f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.23f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\mbelletti\source\repos\proto4\progettoa-proto4 -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\mbelletti\source\repos\proto4\progettoa-proto4" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -62,7 +78,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.18f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.23f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\mbelletti\source\repos\proto4\progettoa-proto4 -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\mbelletti\source\repos\proto4\progettoa-proto4" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -79,10 +95,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="32376">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="32376" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -100,6 +116,7 @@
       <updated>1728743457200</updated>
       <workItem from="1728743459589" duration="1568000" />
       <workItem from="1730372458389" duration="47000" />
+      <workItem from="1730393775125" duration="4793000" />
     </task>
     <task id="LOCAL-00001" summary="fix: room reset works">
       <option name="closed" value="true" />
@@ -109,7 +126,23 @@
       <option name="project" value="LOCAL" />
       <updated>1728744232217</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: disable interactivity when not available.">
+      <option name="closed" value="true" />
+      <created>1730394989262</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1730394989262</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: disable interactivity when not available.">
+      <option name="closed" value="true" />
+      <created>1730395025133</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1730395025133</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -135,8 +168,14 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="fix: room reset works" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: room reset works" />
+    <MESSAGE value="feat: disable interactivity when not available." />
+    <MESSAGE value="feat: objects." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: objects." />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

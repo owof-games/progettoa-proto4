@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactExitEvent: {fileID: 11400000, guid: 59f8d391d36778b4fb358810e73f8cb8, type: 2}
   interactCharacterEvent: {fileID: 11400000, guid: da922ef8f92423e4aa0cb54cafaec129, type: 2}
+  interactObjectEvent: {fileID: 11400000, guid: 6cee4f86aa431364497384b80543a8f5, type: 2}
   advanceTimeEvent: {fileID: 11400000, guid: d4494cb7494169845b881c63ac1d3929, type: 2}
   storyStateInteracting: {fileID: 11400000, guid: 731d7e1e22932c34faf3cb978feee760, type: 2}
   storyStateTalking: {fileID: 11400000, guid: f983d5e69a958d447a8117867e2a69e4, type: 2}

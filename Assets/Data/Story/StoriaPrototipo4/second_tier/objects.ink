@@ -42,7 +42,7 @@
 ->->
 
 === cb_second_tier_flaconcino_asma ===
-+ {are_two_entities_together(Ettore, FlaconcinoAsma)} [object:Flaconcino Asma]
++ {are_two_entities_together(Ettore, FlaconcinoAsma)} [object:FlaconcinoAsma]
     -> flaconcino_asma->
 
 -> intro

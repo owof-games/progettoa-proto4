@@ -79,7 +79,6 @@
 === startingDinnerStorylet
 {debug: <i>Passo per startingDinnerStorylet</i>}
         Matteo: No, ma ti giuro Paola, ti giuro! Faceva tutto lo sborone quello.
-        -> intro
         Matteo: Poi ho chiamato nonno e: tadaaan! Silenzio.
         Matteo: Tutto il consiglio di amministrazione muto.
         Matteo: E il progetto per la piscina sul tetto del grattacielo è passato.

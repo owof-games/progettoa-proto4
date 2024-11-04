@@ -17,6 +17,7 @@
       "\n",
       "\n",
       "\n",
+      "\n",
       "ev",
       {
         "f()": "updateEntitiesLocations"
@@ -4013,6 +4014,48 @@
         "out",
         "/ev",
         "\n",
+        {
+          "#f": 1
+        }
+      ],
+      "isObjectWithEttore": [
+        {
+          "temp=": "obj"
+        },
+        "ev",
+        {
+          "VAR?": "Ettore"
+        },
+        {
+          "f()": "entity_location"
+        },
+        "/ev",
+        {
+          "temp=": "ettoreLocation"
+        },
+        "\n",
+        "ev",
+        {
+          "VAR?": "obj"
+        },
+        {
+          "f()": "entity_location"
+        },
+        "/ev",
+        {
+          "temp=": "objectLocation"
+        },
+        "\n",
+        "ev",
+        {
+          "VAR?": "ettoreLocation"
+        },
+        {
+          "VAR?": "objectLocation"
+        },
+        "==",
+        "/ev",
+        "~ret",
         {
           "#f": 1
         }
@@ -10919,14 +10962,74 @@
           "\n",
           "^@interact",
           "\n",
-          "ev",
-          "str",
-          "^object:Flaconcino Asma",
-          "/str",
-          "/ev",
+          "thread",
           {
-            "*": ".^.c-0",
-            "flg": 4
+            "->": "cb_first_tier_paola"
+          },
+          "thread",
+          {
+            "->": "cb_first_tier_elia"
+          },
+          "thread",
+          {
+            "->": "cb_first_tier_zeca"
+          },
+          "thread",
+          {
+            "->": "cb_first_tier_greta"
+          },
+          "thread",
+          {
+            "->": "cb_first_tier_matteo"
+          },
+          "thread",
+          {
+            "->": "cb_first_tier_limetta_unghie"
+          },
+          "thread",
+          {
+            "->": "cb_first_tier_antico_pugnale"
+          },
+          "thread",
+          {
+            "->": "cb_first_tier_spiedino_cocktail"
+          },
+          "thread",
+          {
+            "->": "cb_first_tier_lettera"
+          },
+          "thread",
+          {
+            "->": "cb_first_tier_cibo"
+          },
+          "thread",
+          {
+            "->": "cb_first_tier_flaconcino_asma"
+          },
+          "thread",
+          {
+            "->": "cb_first_tier_bottiglia_di_vino"
+          },
+          "thread",
+          {
+            "->": "cb_first_tier_sigaretta_elettronica"
+          },
+          "ev",
+          {
+            "VAR?": "my_location"
+          },
+          "/ev",
+          "thread",
+          {
+            "->": "move_between_rooms"
+          },
+          "thread",
+          {
+            "->": "notebook"
+          },
+          "thread",
+          {
+            "->": "phone"
           },
           "ev",
           "str",
@@ -10941,7 +11044,7 @@
           "?",
           "/ev",
           {
-            "*": ".^.c-1",
+            "*": ".^.c-0",
             "flg": 5
           },
           "ev",
@@ -10957,7 +11060,7 @@
           "?",
           "/ev",
           {
-            "*": ".^.c-2",
+            "*": ".^.c-1",
             "flg": 5
           },
           "ev",
@@ -10973,7 +11076,7 @@
           "?",
           "/ev",
           {
-            "*": ".^.c-3",
+            "*": ".^.c-2",
             "flg": 5
           },
           "ev",
@@ -10989,7 +11092,7 @@
           "?",
           "/ev",
           {
-            "*": ".^.c-4",
+            "*": ".^.c-3",
             "flg": 5
           },
           "ev",
@@ -11005,7 +11108,7 @@
           "?",
           "/ev",
           {
-            "*": ".^.c-5",
+            "*": ".^.c-4",
             "flg": 5
           },
           "ev",
@@ -11021,7 +11124,7 @@
           "?",
           "/ev",
           {
-            "*": ".^.c-6",
+            "*": ".^.c-5",
             "flg": 5
           },
           "ev",
@@ -11037,7 +11140,7 @@
           "?",
           "/ev",
           {
-            "*": ".^.c-7",
+            "*": ".^.c-6",
             "flg": 5
           },
           "ev",
@@ -11053,7 +11156,7 @@
           "?",
           "/ev",
           {
-            "*": ".^.c-8",
+            "*": ".^.c-7",
             "flg": 5
           },
           "ev",
@@ -11062,95 +11165,15 @@
           "/str",
           "/ev",
           {
-            "*": ".^.c-9",
+            "*": ".^.c-8",
             "flg": 4
           },
           {
-            "*": ".^.c-10",
+            "*": ".^.c-9",
             "flg": 8
           },
           {
             "c-0": [
-              "\n",
-              "^Ettore: interessante.",
-              "\n",
-              "thread",
-              {
-                "->": "cb_first_tier_paola"
-              },
-              "thread",
-              {
-                "->": "cb_first_tier_elia"
-              },
-              "thread",
-              {
-                "->": "cb_first_tier_zeca"
-              },
-              "thread",
-              {
-                "->": "cb_first_tier_greta"
-              },
-              "thread",
-              {
-                "->": "cb_first_tier_matteo"
-              },
-              "thread",
-              {
-                "->": "cb_first_tier_limetta_unghie"
-              },
-              "thread",
-              {
-                "->": "cb_first_tier_antico_pugnale"
-              },
-              "thread",
-              {
-                "->": "cb_first_tier_spiedino_cocktail"
-              },
-              "thread",
-              {
-                "->": "cb_first_tier_lettera"
-              },
-              "thread",
-              {
-                "->": "cb_first_tier_cibo"
-              },
-              "thread",
-              {
-                "->": "cb_first_tier_flaconcino_asma"
-              },
-              "thread",
-              {
-                "->": "cb_first_tier_bottiglia_di_vino"
-              },
-              "thread",
-              {
-                "->": "cb_first_tier_sigaretta_elettronica"
-              },
-              "ev",
-              {
-                "VAR?": "my_location"
-              },
-              "/ev",
-              "thread",
-              {
-                "->": "move_between_rooms"
-              },
-              "thread",
-              {
-                "->": "notebook"
-              },
-              "thread",
-              {
-                "->": "phone"
-              },
-              {
-                "->": ".^.^.g-0"
-              },
-              {
-                "#f": 5
-              }
-            ],
-            "c-1": [
               "\n",
               "ev",
               {
@@ -11169,7 +11192,7 @@
                 "#f": 5
               }
             ],
-            "c-2": [
+            "c-1": [
               "\n",
               "ev",
               {
@@ -11188,7 +11211,7 @@
                 "#f": 5
               }
             ],
-            "c-3": [
+            "c-2": [
               "\n",
               "ev",
               {
@@ -11207,7 +11230,7 @@
                 "#f": 5
               }
             ],
-            "c-4": [
+            "c-3": [
               "\n",
               "ev",
               {
@@ -11226,7 +11249,7 @@
                 "#f": 5
               }
             ],
-            "c-5": [
+            "c-4": [
               "\n",
               "ev",
               {
@@ -11245,7 +11268,7 @@
                 "#f": 5
               }
             ],
-            "c-6": [
+            "c-5": [
               "\n",
               "ev",
               {
@@ -11264,7 +11287,7 @@
                 "#f": 5
               }
             ],
-            "c-7": [
+            "c-6": [
               "\n",
               "ev",
               {
@@ -11283,7 +11306,7 @@
                 "#f": 5
               }
             ],
-            "c-8": [
+            "c-7": [
               "\n",
               "ev",
               {
@@ -11302,7 +11325,7 @@
                 "#f": 5
               }
             ],
-            "c-9": [
+            "c-8": [
               "\n",
               {
                 "->t->": "advance_time"
@@ -11314,7 +11337,7 @@
                 "#f": 5
               }
             ],
-            "c-10": [
+            "c-9": [
               "\n",
               {
                 "->": ".^.^.g-0"
@@ -27379,9 +27402,6 @@
           "\n",
           "^Matteo: No, ma ti giuro Paola, ti giuro! Faceva tutto lo sborone quello.",
           "\n",
-          {
-            "->": "intro"
-          },
           "^Matteo: Poi ho chiamato nonno e: tadaaan! Silenzio.",
           "\n",
           "^Matteo: Tutto il consiglio di amministrazione muto.",
@@ -27402,7 +27422,7 @@
           [
             "ev",
             {
-              "^->": "startingDinnerStorylet.0.24.$r1"
+              "^->": "startingDinnerStorylet.0.23.$r1"
             },
             {
               "temp=": "$r"
@@ -27436,7 +27456,7 @@
           [
             "ev",
             {
-              "^->": "startingDinnerStorylet.0.25.$r1"
+              "^->": "startingDinnerStorylet.0.24.$r1"
             },
             {
               "temp=": "$r"
@@ -27470,7 +27490,7 @@
           [
             "ev",
             {
-              "^->": "startingDinnerStorylet.0.26.$r1"
+              "^->": "startingDinnerStorylet.0.25.$r1"
             },
             {
               "temp=": "$r"
@@ -27512,7 +27532,7 @@
                 "temp=": "$r"
               },
               {
-                "->": ".^.^.24.s"
+                "->": ".^.^.23.s"
               },
               [
                 {
@@ -27537,7 +27557,7 @@
                 "temp=": "$r"
               },
               {
-                "->": ".^.^.25.s"
+                "->": ".^.^.24.s"
               },
               [
                 {
@@ -27562,7 +27582,7 @@
                 "temp=": "$r"
               },
               {
-                "->": ".^.^.26.s"
+                "->": ".^.^.25.s"
               },
               [
                 {
@@ -49808,7 +49828,7 @@
         [
           "ev",
           "str",
-          "^object:Flaconcino Asma",
+          "^object:FlaconcinoAsma",
           "/str",
           {
             "VAR?": "Ettore"

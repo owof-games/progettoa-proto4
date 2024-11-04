@@ -26,6 +26,7 @@ namespace Components.InteractionSelector
         private int _hoveredHash = -1;
         private bool _isInteractionEnabled = false;
         private bool _mouseInside = false;
+        public string InteractionKey => interactionKey;
 
         private void Awake()
         {

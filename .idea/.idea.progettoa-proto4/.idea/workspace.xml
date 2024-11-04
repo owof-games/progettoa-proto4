@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe9139a7-064e-4f3c-8cc0-98b1b6da0fc7" name="Changes" comment="feat: objects.">
+    <list default="true" id="fe9139a7-064e-4f3c-8cc0-98b1b6da0fc7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.progettoa-proto4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.progettoa-proto4/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Components/InanimateObject/InanimateObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Components/InanimateObject/InanimateObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Components/InanimateObject/InanimateObject.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Components/InanimateObject/InanimateObject.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Components/InteractionSelector/InteractionSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Components/InteractionSelector/InteractionSelector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Components/Story/Interact/InteractCoroutineCommand.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Components/Story/Interact/InteractCoroutineCommand.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Components/Story/Interact/InteractCoroutineCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Components/Story/Interact/InteractCoroutineCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Story/StoriaPrototipo4/StoriaPrototipo4.ink" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Story/StoriaPrototipo4/StoriaPrototipo4.ink" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Data/Story/StoriaPrototipo4/StoriaPrototipo4.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Story/StoriaPrototipo4/StoriaPrototipo4.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Story/StoriaPrototipo4/first_tier/storylets.ink" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Story/StoriaPrototipo4/first_tier/storylets.ink" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Story/StoriaPrototipo4/first_tier/objects.ink" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Story/StoriaPrototipo4/first_tier/objects.ink" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Data/Story/StoriaPrototipo4/main.ink" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Story/StoriaPrototipo4/main.ink" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Rooms/WhiteRoom.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Rooms/WhiteRoom.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Story/StoriaPrototipo4/second_tier/objects.ink" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Story/StoriaPrototipo4/second_tier/objects.ink" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +43,7 @@
     <setting file="mock://C:/Users/mbelletti/source/repos/proto4/progettoa-proto4/Assets/Components/Character/Character.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Components/InanimateObject/InanimateObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Components/InteractionSelector/AvailableInteraction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/mbelletti/source/repos/proto4/progettoa-proto4/Assets/Components/Story/Interact/InteractCoroutineCommand.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -116,7 +118,7 @@
       <updated>1728743457200</updated>
       <workItem from="1728743459589" duration="1568000" />
       <workItem from="1730372458389" duration="47000" />
-      <workItem from="1730393775125" duration="4793000" />
+      <workItem from="1730393775125" duration="6480000" />
     </task>
     <task id="LOCAL-00001" summary="fix: room reset works">
       <option name="closed" value="true" />
@@ -142,7 +144,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730395025133</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat: objects.">
+      <option name="closed" value="true" />
+      <created>1730398623740</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1730398623740</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

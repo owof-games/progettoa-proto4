@@ -17,8 +17,6 @@
 {debug: [sono le {print_time()}, sei in {my_location}]}
 @interact
 // thread per ogni personaggio
-+ [object:Flaconcino Asma]
-  Ettore: interessante.
 <- cb_first_tier_paola
 <- cb_first_tier_elia
 <- cb_first_tier_zeca

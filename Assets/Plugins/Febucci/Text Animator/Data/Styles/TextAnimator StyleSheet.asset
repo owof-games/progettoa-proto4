@@ -13,6 +13,21 @@ MonoBehaviour:
   m_Name: TextAnimator StyleSheet
   m_EditorClassIdentifier: 
   styles:
-  - styleTag: happy
-    openingTag: <wiggle a=0.1><rainb>
+  - styleTag: joy
+    openingTag: "<wiggle a=0.1><rainb>\t"
     closingTag: </rainb></wiggle>
+  - styleTag: hesitate
+    openingTag: <waitfor=1>
+    closingTag: 
+  - styleTag: fear
+    openingTag: <shake>
+    closingTag: </shake>
+  - styleTag: rage
+    openingTag: <b>
+    closingTag: </b>
+  - styleTag: waitrage
+    openingTag: <waitfor=0.5>
+    closingTag: 
+  - styleTag: cry
+    openingTag: <shake a=0.5><size=140%>
+    closingTag: <size=100%></shake>

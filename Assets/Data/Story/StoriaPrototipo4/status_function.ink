@@ -8,6 +8,7 @@ LIST paolaState = (Live), Unalived
  * Paola è {get_status(Paola)}
  * ========> Paola è Happy
  */
+ TODO: fare anche per altri personaggi
 === function get_status(entity)
 { entity:
     - Paola:

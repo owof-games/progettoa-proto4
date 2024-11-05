@@ -208,6 +208,8 @@
 //CONVERSAZIONI ORIGLIATE
 
 === anEavesdropAboutFriendshipStorylet
+    ~ EliaInConversazione = true
+    ~ GretaInConversazione = true
 {debug: <i>Passo per anEavesdropAboutFriendshipStorylet</i>}
         Elia: Quindi, ora vuoi uccidermi?
         Greta: Ucciderti?

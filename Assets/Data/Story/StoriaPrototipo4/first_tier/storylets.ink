@@ -141,7 +141,8 @@
             -> advance_time ->
         
             ~ move_entity(Paola,WhiteRoom)
-        Paola entra. Paola muore.
+            Paola: Adgg.
+            ~ change_status(Paola, PaolaUnalived)
             ~ move_entity(Elia,WhiteRoom)
         Elia: Paola, non mi sembra il momento per dormire.
             ~ move_entity(Zeca,WhiteRoom)
@@ -524,6 +525,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
 //MATERIALI PER TUTORIAL
 
 === objects_tutorial
+            ~ change_status(Paola, PaolaLive)
             ~ move_first_entity_to_second_entity_location(Paola,Ettore)
         Paola: Stop stop stop maledizione!
             ~ move_first_entity_to_second_entity_location(Greta,Ettore)
@@ -562,6 +564,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
 
 
 === notebook_tutorial
+            ~ change_status(Paola, PaolaLive)
             ~ move_first_entity_to_second_entity_location(Paola,Ettore)
         Paola: STOP STOP STOP DI NUOVO!
         Paola: GRETA! Ma l'hai dato il taccuino ad Ettore?!?
@@ -595,6 +598,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
 
 
 === talking_tutorial
+            ~ change_status(Paola, PaolaLive)
             ~ move_first_entity_to_second_entity_location(Paola,Ettore)
         Paola: Madre santa, che fatica prepararvi per questo pezzo!
             ~ move_first_entity_to_second_entity_location(Greta,Ettore)

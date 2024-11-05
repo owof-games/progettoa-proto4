@@ -193,6 +193,7 @@ VAR loopResetAtSecondTier = false
 // print something for the user
 {
 - tierState == FirstTier: Paola: La festa è finita, resettiamo tutto, ripartiamo da dopo il mio omicidio!
+    ~ change_status(Paola, PaolaUnalived)
 - else: Questo è il testo che dice che è avvenuto un loop!
 }
 

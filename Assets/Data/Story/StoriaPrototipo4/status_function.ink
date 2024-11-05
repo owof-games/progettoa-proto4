@@ -1,10 +1,10 @@
 // variables containing the state of various objects
-LIST paolaState = (Live), Unalived
-LIST gretaState = (Live), Unalived
-LIST matteoState = (Live), Unalived
-LIST eliaState = (Live), Unalived
-LIST zecaState = (Live), Unalived
-
+LIST paolaState = (PaolaLive), PaolaUnalived
+LIST gretaState = (GretaLive), GretaUnalived
+LIST matteoState = (MatteoLive), MatteoUnalived
+LIST eliaState = (EliaLive), EliaUnalived
+LIST zecaState = (ZecaLive), ZecaUnalived
+TODO: ho dovuto mettere delle variazioni Live, Unalived perché sennò chiamando la funzione mi diceva che il valore era ambiguo, ma non credo sia una buona soluzione XD
 
 /*
  * Get the current status of an entity (object or character).
@@ -12,7 +12,7 @@ LIST zecaState = (Live), Unalived
  * Paola è {get_status(Paola)}
  * ========> Paola è Happy
  */
- TODO: fare anche per altri personaggi
+
 === function get_status(entity)
 { entity:
     - Paola:
@@ -47,16 +47,16 @@ LIST zecaState = (Live), Unalived
         ~ _change_status_inner(entity, new_status, paolaState)
 
     - Greta:
-        ~ _change_status_inner(entity, new_status, paolaState)
+        ~ _change_status_inner(entity, new_status, gretaState)
 
     - Matteo:
-        ~ _change_status_inner(entity, new_status, paolaState)
+        ~ _change_status_inner(entity, new_status, matteoState)
 
     - Elia:
-        ~ _change_status_inner(entity, new_status, paolaState)
+        ~ _change_status_inner(entity, new_status, eliaState)
 
     - Zeca:
-        ~ _change_status_inner(entity, new_status, paolaState)
+        ~ _change_status_inner(entity, new_status, zecaState)
     
     - else:
         DEBUG: error, entity {entity} has no state

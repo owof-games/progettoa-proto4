@@ -130,16 +130,21 @@
             -> advance_time ->
 
             ~ move_entity(Elia,WhiteRoom)
-        Elia entra, muore.
+        Elia: Siamo tutti colpevoli...
+            ~ change_status(Elia, EliaUnalived)
             ~ move_entity(Zeca,WhiteRoom)
-        Zeca entra, muore.
+        Zeca: ... condannati alla ripetizione.
+            ~ change_status(Zeca, ZecaUnalived)
             ~ move_entity(Matteo,WhiteRoom)
-        Matteo entra, muore.
-            ~ move_entity(Greta,WhiteRoom)        
-        Greta entra, muore.
+        Matteo: Ripetendo nel possesso...
+            ~ change_status(Matteo, MatteoUnalived)
+            ~ move_entity(Greta,WhiteRoom)
+        Zeca: <cry>Vendetta!</cry>
+        Greta: ... la nostra eterna dannazione.
+            ~ change_status(Greta, GretaUnalived)
             ~ move_entity(Paola,WhiteRoom)
         Paola:{& Non voglio morire non voglio morire non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }
-        Paola muore.
+            ~ change_status(Paola, PaolaUnalived)
 
             -> advance_time ->
 
@@ -147,10 +152,15 @@
             -
         Paola: {& Non voglio morire non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }
             -> advance_time ->
+            ~ change_status(Greta, GretaLive)
         Greta: BASTAAAAAAA! Questo script è tremendo!
+            ~ change_status(Zeca, ZecaLive)
         Paola: {& Non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }
+            ~ change_status(Elia, EliaLive)
         Elia: Basta, basta, basta. Prendiamoci dieci minuti di riposo.
+            ~ change_status(Matteo, MatteoLive)
         Paola: Non voglio.
+            ~ change_status(Paola, EliaLive)
             ~ peopleTalking = true
             -> advance_time ->
 

@@ -23,8 +23,8 @@
 
 
 //Indicazioni per effetti testo
-//grido: <cry>...</cry>
-//gioia: <joy>...</joy>
+//grido: <cry> </cry>
+//gioia: <joy> </joy>
 //titubanza: <hesitate>
-//spavento/paura: <fear>...</fear>
-//rabbia: <rage> parola <waitrage> parola <waitrage> parola </rage>
+//spavento/paura: <fear> </fear>
+//rabbia: <rage>  <waitrage>  <waitrage>  </rage>

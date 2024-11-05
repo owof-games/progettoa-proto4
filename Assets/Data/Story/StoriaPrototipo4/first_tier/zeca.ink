@@ -36,11 +36,11 @@ Opzioni di dialogo con il personaggio Zeca
 
     + (omicidio) {new_this_loop(->omicidio)} Ettore: Non voglio essere indelicato, ma hai idea di chi possa averla uccisa?
         Zeca: Greta credo la invidiasse.
-        Zeca: Ma le era anche riconoscete, perché è stata Paola ad accoglierla quando è entrata nella famiglia.
+        Zeca: Ma le era anche riconoscente, perché è stata Paola ad accoglierla quando è entrata nella famiglia.
         Zeca: Matteo la ammirava tantissimo.
         Zeca: E a volte si può uccidere anche la propria divinità.
-        Zeca: Elia ha il cuore di un bambino.
-        Zeca: Ma anche un bambino può essere crudele.
+        Zeca: <joy>Elia ha il cuore di un bambino.</joy>
+        Zeca: <fear>Ma anche un bambino può essere crudele.</fear>
             -> advance_time ->
         Zeca: E a me ha tolto tanto, se non tutto.
         Zeca: Ma l'ha fatto per il mio bene.
@@ -66,7 +66,7 @@ Opzioni di dialogo con il personaggio Zeca
             Zeca: No. Matteo mi ha detto che ti avrebbe sposato mesi fa, quando ha prenotato il luogo, l'orchestra e mandato gli inviti.
             Ettore: Ma a me ha fatto la proposta solo pochi minuti fa!
             Zeca: Matteo è una persona lungimirante, che si organizza in anticipo.
-            Zeca: Non sono persona da gossip, ma una cosa però te la devo dire.
+            Zeca: <hesitate>Non sono persona da gossip, ma una cosa però te la devo dire.
             - -(matrimonio) Zeca: Matteo e Paola hanno litigato per il matrimonio, perché Paola pensa che lui ti stia usando solo per candidarsi come sindaco.
             Zeca: Sposare un povero lo renderebbe molto popolare.
                 -> advance_time ->
@@ -95,7 +95,7 @@ Opzioni di dialogo con il personaggio Zeca
             Zeca: E non ho mai creduto molto nell'amicizia tra lei e Paola.
             - -(matteoGreta) Zeca: Non mi stupirebbe se Greta stesse ricattando Matteo in qualche modo.
             Ettore: Ricattando? E per cosa?
-            Zeca: Per l'unica cosa che conta in questa famiglia: i soldi.
+            Zeca: Per l'unica cosa che conta in questa famiglia:<hesitate> i soldi.
             Zeca: No, non è vero: <i> l'affetto dei nonni </i> e i soldi.
                 -> advance_time ->
             -> zeca_acting    
@@ -120,7 +120,7 @@ Opzioni di dialogo con il personaggio Zeca
             Zeca: E invece tu cerchi di capire cosa sia successo e perché.
             Zeca: E sei un po' come questo spiedino, che sa tenere assieme cose di norma destinate a restare separate.
             Zeca: O forse, forse è la morte di Paola, lo spiedino?
-            Zeca: Ci devo pensare.
+            Zeca: <hesitate>Ci devo pensare.
             -> advance_time -> 
                 -> zeca_acting
     
@@ -196,10 +196,10 @@ Opzioni di dialogo con il personaggio Zeca
         Ettore: Ti era mancato vedere i tuoi fratelli e sorelle?
         Zeca: Avrei preferito un contesto diverso, ma sì, mi sono mancati.
         Zeca: Anche se credo mi manchi qualcosa che non c'è più, il passato con loro.
-        Zeca: Quando eravamo poveri, ma felici.
+        Zeca: <joy>Quando eravamo poveri, ma felici.</joy>
         Zeca: Quando nessuno di noi doveva tuffarsi in alcool, lavoro o cazzate spirituali per sopravvivere un'altra giornata.
         Zeca: Mi sembra di stare in una stanza piena di ragazzini che ancora vogliono compiacere papà e mamma.
-        Zeca: Anche se son morti da decenni.
+        Zeca: <hesitate>Anche se son morti da decenni.
         Zeca: E alla fine cosa mi rimane da fare se non riprendere a ignorarli e bere?
                 -> advance_time ->
             -> zeca_acting 
@@ -213,7 +213,7 @@ Opzioni di dialogo con il personaggio Zeca
             Zeca: Ci sono giornate in cui esploro il <i>questo</i>, tutto ciò che è prossimo, vicino, a contatto con la mia pelle.
             Zeca: E notti in cui esploro il <i>quello</i>, l'alieno, fuori e dentro di me.
             Ettore: Eh, ehm, cosa trovi dentro di te?
-            Zeca: Principalmente arachidi e superalcolici.
+            Zeca: <joy>Principalmente arachidi e superalcolici.</joy>
                     -> advance_time ->
             -> zeca_acting     
 
@@ -222,7 +222,7 @@ Opzioni di dialogo con il personaggio Zeca
         Zeca: Ettore, tu sei in giro a fare un sacco di domande, ma ti sei mai chiesto la cosa più grande?
         Ettore: E quale sarebbe?
         Zeca: La grande domande non è chi avrebbe avuto motivo di uccidere Paola, ma chi avrebbe avuto un motivo per tenerla in vita.
-        Zeca: Quello è il crimine più grande.
+        Zeca: <fear>Quello è il crimine più grande.</fear>
         Zeca: Davanti a questo mondo che brucia, infettato dal fascismo, distrutto dal capitalismo e dall'individualismo, dimmi:
         Zeca: non è forse più crudele volere che qualcun altro viva un solo giorno in tutto questo?
         Zeca: Forse, giovane amico, stai indagando sul crimine sbagliato.
@@ -269,7 +269,7 @@ Opzioni di dialogo con la persona Zeca
 
     = first_qn
     ~ ZecaTalking++
-        Zeca: Puoi dirmelo se ti piace, lo capirei. Non si può negare che è irresistibile.
+        Zeca: Puoi dirmelo se ti piace, lo capirei. Non si può negare che è <joy>irresistibile.</joy>
         Ettore: Chi? Cosa? Quando? Come?
         Zeca: Elia, ovviamente. Se ne innamorano tutti, subito. Quel ragazzo ha un superpotere.
             + Ettore: Non mi piacciono i ragazzi.
@@ -295,11 +295,12 @@ Opzioni di dialogo con la persona Zeca
                 Zeca: Vuoi seriamente che il mio bell'uccello rimanga per sempre in un solo nido?
             -
         Zeca: Comunque sono contento che non dobbiamo litigarcelo.
-        Zeca: Che poi, insomma, con quel fisico che ti ritrovi, davvero non avresti avuto possibilità.
+        Zeca: Che poi, insomma:
+        Zeca: <fear>con quel fisico che ti ritrovi, davvero non avresti avuto possibilità.</fear>
         Zeca: Cosa sei? Un metro e settanta per settanta chili?
         Zeca: Pancetta da birra, occhiaie da canne e pippe.
         Zeca: Tieni il mio numero. Non per scopà, sia chiaro. Ma per venire a provare i nostri workout.
-        Zeca: Forse c'è speranza anche per te.
+        Zeca: <joy>Forse c'è speranza anche per te.</joy>
                     -> advance_time ->
             -> zeca_talking 
     
@@ -312,7 +313,7 @@ Opzioni di dialogo con la persona Zeca
         Zeca: Roba triste tipo genitori morti quando era piccolissima lacrime e tristezza blah blah blah.
         Zeca: L'hai vista quindi, sì o no?
         Ettore:{are_two_entities_together(Ettore, Greta): Guarda che è letteralmente in questa stanza|No, mi spiace}.
-        Zeca: GRETAAAAAAAAAA! GRETAAAAAA! Ti ho portato la scheda glutei e la nuova dieta.
+        Zeca: <cry>GRETAAAAAAAAAA! GRETAAAAAA!</cry> Ti ho portato la scheda glutei e la nuova dieta.
         Zeca: Sono troppe 300 kcal al giorno?!?
                 -> advance_time ->
                 ~ move_this_entity_in_a_different_room(Zeca)
@@ -349,13 +350,13 @@ Opzioni di dialogo con la persona Zeca
             -> advance_time ->
         Zeca: Palese che c'ho tutto no? Capacità, presenza, umorismo.
         Zeca: So anche fare lo stand-up commedian.
-        Zeca: Che la gente impazzisce perché posso dire frocio perché son frocio e loro no e tutte le volte non sanno se ridere e mostarsi prese male. Adoro.
+        Zeca: Che la gente impazzisce perché posso dire <joy>frocio</joy> perché son <joy>frocio</joy> e loro no e tutte le volte non sanno se ridere e mostarsi prese male. Adoro.
         Zeca: Quindi?
         Ettore: Non sono io a decidere, è l'agente che se ne occupa.
         Zeca: A bene perfetto bravo, digli al tuo agente di trovarmi un lavoro e di chiamarmi.
-        Zeca: Magari con Filippo Timi, che è così bono!
+        Zeca: Magari con <joy>Filippo Timi</joy>, che è così bono!
         Zeca: Devo assolutamente dirlo ad Elia.
-        Zeca: ELIAAAAAAAAA! ETTORE MI FA LAVORARE CON TIMI! ELIAAAAA!
+        Zeca: <cry>ELIAAAAAAAAA! ETTORE MI FA LAVORARE CON TIMI! ELIAAAAA!</cry>
         {are_two_entities_together(Zeca, Elia): Elia: La pianta?} 
                 -> advance_time ->
                 ~ move_this_entity_in_a_different_room(Zeca)

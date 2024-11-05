@@ -56,9 +56,9 @@ Opzioni di dialogo con il personaggio Elia
             Elia: Paola voleva rilevare il pub per trasformarlo in un rifugio per senzatetto.
             - - - (senzatetto2) Elia: E Greta ha detto cose terribili e ripetuto che avrebbe fatto di tutto per fermarla.
             Elia: Di tutto.
-            Elia: Per cui se sei un suo semplice, vattene!
+            Elia: Per cui se sei un suo semplice, <cry>vattene!</cry>
             Ettore: Semplice?
-            Elia: Hai capito. Via!
+            Elia: Hai capito. <cry>Via!</cry>
                 -> advance_time ->
 
         + + (uniti){weddingAtThePubStorylet && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && new_this_loop(->uniti)} Ettore: Ho una proposta da farti.
@@ -69,7 +69,7 @@ Opzioni di dialogo con il personaggio Elia
             {elia_acting.third_qn: Ettore: No, non c'entra Sonia.}
             Ettore: So che tu e Matteo avete litigato, per via del matrimonio.
             Ettore: Tu vuoi che festeggiamo al pub, lui non ne vuole sapere. Se lo convinco, andrai da Greta?
-            Elia: Quindi vuoi davvero che io muoia? Va bene.
+            Elia: <fear>Quindi vuoi davvero che io muoia?</fear> Va bene.
             Elia: Se ci riesci, parlerò con quella arpia.
             Elia: Ma magari aiutami a proteggermi!
             -> advance_time ->   
@@ -138,15 +138,15 @@ Opzioni di dialogo con il personaggio Elia
             -> advance_time ->
     
     + (spiedino) {inventoryContents has SpiedinoCocktail && new_this_loop(->spiedino)} Ettore: Elia, ti è caduta quest'arma dalla tasca!
-        Elia: Non ho mai visto questa roba, mai.
+        Elia: <hesitate>Non ho mai visto questa roba, mai.
         {elia_acting.first_qn: Ettore: Ma ci sono le iniziali del tuo locale, vedi?}
-        Elia: Lasciami in pace!
+        Elia: <cry>Lasciami in pace!</cry>
         + +  Ettore: Sarebbe perfetto per uccidere qualcuno!
             Elia: No, una cosa perfetta per uccidere qualcuno è la morte!
             Elia: L'ho portato a Paola per vedere se va bene per il matrimonio.
             {!hardTrueFeelingsStorylet.matteoGreta: Ettore: Il matrimonio mio e di Matteo?}
             {hardTrueFeelingsStorylet.matteoGreta: Ettore: Il non più matrimonio mio e di Matteo?}
-            Elia: No, il suo. Paola si sposa.
+            Elia: No, il suo. <joy>Paola si sposa.</joy>
             - -(paolaSiSposa) Elia: Ha organizzato un matrimonio in fretta e furia, manco sappiamo con chi.
                         -> advance_time ->
 
@@ -180,7 +180,7 @@ Opzioni di dialogo con il personaggio Elia
             Elia: Non voglio fare la fine di Zeca.
             Ettore: Elia: vorrei solo sapere chi...
             Elia: Guarda che è maleducato insistere quando...
-            Ettore: CHI HA PORTATO QUESTA BOTTIGLIA?!?
+            Ettore: <cry>CHI HA PORTATO QUESTA BOTTIGLIA?!?</cry>
             Elia: Paola. Credo sia della collezione di Paola.
             Elia: E guarda che non serve urlare!
             -> advance_time ->
@@ -205,7 +205,7 @@ Opzioni di dialogo con il personaggio Elia
             Ettore: Quindi non sai di chi sia?
             Elia: No, non posso saperlo, non ora. Non so se mi capisci.
             Ettore: No Elia, non ti capisco.
-            Elia: Nessuno mi capisce, è sempre stato così.
+            Elia: <hesitate>Nessuno mi capisce, è sempre stato così.
             -> advance_time ->
     
     + [Prova ad avere una conversazione con Elia] -> esplora_elia_personaggia   
@@ -275,21 +275,21 @@ Opzioni di dialogo con il personaggio Elia
 
     = third_qn
     ~ EliaActing++
-        Elia: Non ci credo che se ne sia andata, non ci credo.
+        Elia: <fear>Non ci credo che se ne sia andata, non ci credo</fear>.
         Ettore: Le volevi molto bene?
         Elia: Sì, anche se la conoscevo da poco.
         Ettore: Non era tua sorella?
         Elia: La consideravo più una figlia. L'ho praticamente vista crescere.
         Ettore: Ma non era molto più grande di te?
         Elia: Nell'anima di sicuro. Ma non ti preoccupare: so per certo che la raggiungerò presto.
-        Ettore: Elia: se hai bisogno di sfogarti sono qui, ma non fare gesti dati dalla disperazione.
+        Ettore: Elia: se hai bisogno di sfogarti sono qui, ma non fare gesti disperati.
                 -> advance_time -> 
         Elia: No, non sono così disperato, alla fine starà via un paio d'ore.
         Ettore: Elia, guarda che è morta.
         Elia: Come, morta?
         Ettore: Non hai visto prima? Quando eravamo tutti assieme, che l'hanno pugnalata?
         Elia: No, no, no!
-        Elia: Povera la mia cucciola, nooooo!
+        Elia: <fear>Povera la mia cucciola, nooooo!</fear>
         Elia: Dov'è la mia micetta, dov'è?
         Ettore: Ma di chi stai parlando, Elia?
         Elia: Di Sonia, la mia certosina, la mia povera piccola angioletta.
@@ -362,7 +362,7 @@ Opzioni di dialogo con la persona Elia
     = second_qn
      ~ EliaTalking++
         Ettore: Che fai di bello nella vita, Elia?
-        Elia: Sono felice che abbia notato che sono bello!
+        Elia: <joy>Sono felice che abbia notato che sono bello!</joy>
         Ettore: Non è quello che...
         Elia: Temevo che il lavoro in <i>BRO</i> mi sciupasse la pelle.
         Ettore: Bro?
@@ -381,10 +381,10 @@ Opzioni di dialogo con la persona Elia
         Ettore: Ma in cosa consiste BRO?
         Elia: Non è che consiste, perché non lo tocchi.
         Elia: Anche se ci sono le foto, quelle le tocchi, quindi forse BRO consiste?
-        Elia: BRO sono? è? BRO può essere vivo? Sì, perché parlo di BRO.
+        Elia: BRO sono?<hesitate> è?<hesitate> BRO può essere vivo? Sì, perché parlo di BRO.
         Elia: BRO è fare foto a chi fa palestra, così vedi i tuoi cambiamenti.
         Elia: Entriamo negli spogliatoi, ti facciamo un po' di foto e le appendiamo in giro.
-        Elia: Così tutti vedono i tuoi difetti, e sei spinto a migliorarti.
+        Elia: Così tutti vedono i tuoi difetti, <joy>e sei spinto a migliorarti.</joy>
         Elia: O ci paghi per levarle.
                 -> advance_time ->
         Elia: E Zeca le tiene a casa sua per sicurezza.
@@ -416,7 +416,7 @@ Opzioni di dialogo con la persona Elia
         Ettore: Ricominciamo. Sei orgoglioso di tua sorella, e tua sorella è Paola.
         Elia: E come lo sai?
         Ettore: Me l'hai detto poco fa.
-        Elia: Sei uno di quelli? Un telepratico?
+        Elia: <fear>Sei uno di quelli? Un telepratico?</fear>
         Elia: Zeca dice che una volta un telepratico le ha sistemato un dolore alla spalla che si portava da anni.
             -> advance_time ->
         Elia: Non è che puoi sistemarmi questo dolorino qui al trapezio?

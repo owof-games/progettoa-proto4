@@ -37,7 +37,7 @@ Opzioni di dialogo con il personaggio Matteo
                 Matteo: Allora ho provato a distrarmi masturbandomi.
                 Matteo: Ma non c'è vera privacy in questo posto.
                 Matteo: Però magari potresti darmi una mano.
-                Matteo: Lì, sotto la tovaglia?
+                Matteo:<joy>Lì, sotto la tovaglia?</joy>
                     -> advance_time ->
                 Ettore: Magari non ora, amore.
                 Matteo: Non mi giudicare: ognuno elabora il lutto come può.
@@ -59,7 +59,7 @@ Opzioni di dialogo con il personaggio Matteo
         Ettore: Amore, io...
         Matteo: Comunque no, nessuno avrebbe potuto odiarla, figurarsi ucciderla.
         Matteo: Eppure è morta.
-        Matteo: La vita è un mistero.
+        Matteo: <hesitate>La vita è un mistero.
              -> advance_time ->
                 -> matteo_acting  
     
@@ -74,7 +74,7 @@ Opzioni di dialogo con il personaggio Matteo
             Matteo: Quando sappiamo tutti in famiglia che Zeca odia Paola da sempre!
             Matteo: E non a me, il fratello fedele che le dava un sacco di soldi per le sue opere di carità.
             Matteo: No, al fallito, a quello che fa vergognare tutta la famiglia.
-            Matteo: Quello che si è rovinato la vita per tirare su un collettivo di videogiochi.
+            Matteo: Quello che si è rovinato la vita per tirare su <rage>un<waitrage> collettivo<waitrage> di<waitrage> videogiochi</rage>.
             Matteo: Ma andasse a zappare!
             -> advance_time ->
                     -> matteo_acting 
@@ -89,9 +89,9 @@ Opzioni di dialogo con il personaggio Matteo
                 -> matteo_acting 
                 
     + (minacce) {inventoryContents has Lettera && new_this_loop(->minacce)} Ettore: Riconosci questa lettera?
-            Matteo: Come? Mettila via, subito!
+            Matteo: Come? <fear>Mettila via, subito!</fear>
             Ettore: Perché?
-            Matteo: SUBITO!
+            Matteo: <cry>SUBITO!</cry>
                     -> matteo_acting 
     
     + (limetta) {inventoryContents has LimettaUnghie && new_this_loop(->limetta)}Ettore: Sai di chi sia questa limetta?
@@ -136,7 +136,7 @@ Opzioni di dialogo con il personaggio Matteo
             Matteo: Anche mentre dorme.
             Matteo: Anche mentre scopa.
             Ettore: Uh, questo è poco lusinghiero.
-            Matteo: Con le lusinghe non si manda avanti l'economia, non si salva il Paese!!!
+            Matteo: Con le lusinghe non si manda avanti l'economia, <joy>non si salva il Paese!</joy>
             Matteo: Ora via, che c'ho da pensare!      
             -> advance_time ->
                 -> matteo_acting 
@@ -197,7 +197,7 @@ Opzioni di dialogo con il personaggio Matteo
         Matteo: Ti ricordi la sera in cui ci siamo conosciuti?
         Ettore: E come potrei dimenticarla? Pensavo sarebbe stato un semplice colloquio di lavoro, ed eccoci quì.
         Matteo: Sai qual è stata la prima cosa che ho pensato quando ti ho visto entrare?
-        Matteo: <i>Bel culo. Questo tizio ha davvero un gran bel culo.</i>
+        Matteo: <joy>Bel culo</joy>. Questo tizio ha davvero un <joy>gran bel culo</joy>.
         Ettore: Me lo dicesti pure. Mi imbarazzai un sacco.
         Matteo: Eh, son sempre stato una persona diretta, vero?
         Matteo: Anche se mi son dovuto dare una calmata, dopo quelle denunce.
@@ -262,7 +262,7 @@ Opzioni di dialogo con la persona Matteo
         Matteo: Ed Elia è qui perché non sa mai dire di no a Paola.
         Matteo: Anche se, e rimanga tra noi, sono settimane che litigano, e di brutto, davvero di brutto.      
         Ettore: Hai idea del perché?
-        Matteo: Diciamo che non sono cose che si dicono a chi non fa parte dell'inner circle.
+        Matteo: <hesitate> Diciamo che non sono cose che si dicono a chi non fa parte dell'inner circle.
         Matteo: Ma se ti capitasse un cellulare sotto mano, beh: cerca Londar INC tra le notizie e avrai le idee un po' più chiare.
                 -> advance_time ->
             -> matteo_talking 
@@ -283,7 +283,7 @@ Opzioni di dialogo con la persona Matteo
                 + Ettore: Paola non apprezza Elia?
                     Matteo: Al lupo importa qualcosa della preda che sta per addentare?    
                 -
-        Matteo: Ma che ne dici se dopo tutto questo casino ci beviamo qualcosa?
+        Matteo: Ma che ne dici se dopo tutto questo casino <joy>ci beviamo qualcosa</joy>?
         Matteo: Non è un appuntamento, tranqui.
         Matteo: Ma non so da quanto tempo non ho una conversazione che non sia di lavoro.
         Matteo: O con qualcuno con cui non lavoro.
@@ -315,7 +315,7 @@ Opzioni di dialogo con la persona Matteo
         Matteo: Ma non l'hai fatta, e hai chiesto a qualcun altro di fare quella cosa.
         Matteo: E quella persona quella cosa l'ha fatta, ma non sai se bene o meno.
         Matteo: E chi ti ha chiesto di fare quella cosa ti ha riempito di complimenti, complimenti che però non andrebbero davvero dati a te.
-        Matteo: Quale sarebbe la cosa giusta da fare?    
+        Matteo: <hesitate>Quale sarebbe la cosa giusta da fare?    
             -> advance_time ->
             + Ettore: Quando l'altra persona ha deciso di aiutarti di nascosto, ha accettato il rischio.
                 Matteo: Una visione pragmatica.

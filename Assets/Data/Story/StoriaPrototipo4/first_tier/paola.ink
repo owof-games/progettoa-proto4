@@ -59,7 +59,7 @@ Opzioni di dialogo con la persona Paola
     = first_qn
     ~ PaolaTalking++
         Paola: Quella cretina.
-        Paola: Quella enorme disgustosa incapace cretina.
+        Paola: <rage>Quella<waitrage> enorme<waitrage> disgustosa<waitrage> incapace<waitrage> cretina.</rage>
         Ettore: Tutto bene?
         Paola: Greta è ancora viva?
         Ettore: Fino a pochi minuti fa, sì.
@@ -79,7 +79,7 @@ Opzioni di dialogo con la persona Paola
         Paola: Ma grazie a te per la pazienza.
         Paola: Come vedi, questa è tutta gente incapace. Enormemente incapace.
         Ettore: Da che compagnia vengono?
-        Paola: COMPAGNIA? MA LI HAI VISTI?
+        Paola: <cry>COMPAGNIA? MA LI HAI VISTI?</cry>
         Paola: Sono parenti e dipendenti e conoscenti.
         Paola: E odio parenti, dipendenti e conoscenti.
         Paola: E se vuoi sopravvivere stasera, vedi di non diventare nessuna delle tre cose.

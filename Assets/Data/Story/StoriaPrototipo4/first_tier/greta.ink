@@ -33,7 +33,7 @@ Opzioni di dialogo con il personaggio Greta
                 Greta: Come dovrei sentirmi?
                 Greta: C'è un buco da qualche parte, che non riesco a guardare.
                 Greta: E una parte di me nega che tutto questo sia accaduto.
-                Greta: E forse la domanda più grossa anche per questo è: cosa ne sarà di Elia?
+                Greta: E forse la domanda più grossa anche per questo è: <hesitate>cosa ne sarà di Elia?
                 Greta: Cosa ne sarà di quel tontolotto incapace?
                 Greta: Immagino che quando la polizia arriverà e finalmente potrò tornare a casa, riempirò quel vuoto di lacrime.
                 Greta: E vodka.
@@ -47,7 +47,7 @@ Opzioni di dialogo con il personaggio Greta
             Greta: Un essere senza cuore, incapace di provare sentimenti.
             Greta: Destinato a osservare il mondo da un angolo buio, provando odio e rancore eterno.
             Greta: Spendendo ore su ore a immaginare modi atroci per distruggere sé stesso e il resto del mondo.
-            Greta: Ma c'è solo una persona che può corrispondere a questa descrizione: io!
+            Greta: Ma c'è solo una persona che può corrispondere a questa descrizione: <hesitate>io!
             Greta: E sono abbastanza sicura di non aver ucciso nessuno.
             Greta: Non stasera, per lo meno.
             Greta: Ma ti propongo un patto: ti dirò chi è l'unico plausibile assassino se tu convinci Elia a venire a parlarmi.
@@ -78,9 +78,9 @@ Opzioni di dialogo con il personaggio Greta
             Greta: Non ho detto questo.
             Greta: Abbiamo scopato solo una volta, ed ero molto molto molto ubriaca, e Matteo ha perso la testa.
             Greta: A un certo punto pensavo fosse mio padre.
-            Greta: Scusa, un po' di daddy issues li abbiamo tutti, no?
+            Greta: Scusa, un po' di daddy issues li abbiamo tutti, <hesitate>no?
                     -> advance_time ->
-            Greta: Cioè, anche tu a uscire con quel tizio che ha ottant'anni da quando andava all'asilo.
+            Greta: Cioè, anche tu a uscire con Matteo, che ha ottant'anni da quando andava all'asilo.
             Greta: Ma no, niente amore, mai.
             Greta: Greta ama solo due cose: psilocibina e Kesha.
             Greta: Se lo becco provo a farlo ragionare.
@@ -89,13 +89,13 @@ Opzioni di dialogo con il personaggio Greta
                 + + Ettore: No, te lo puoi tenere.
                 - -
             Greta: Te la butto lì: fatti dare un indennizzo, tanto i nonni sono pieni di soldi.
-            Greta: E facciamoci tre settimane in Messico a sperimentare un po' di allucinogeni.
+            Greta: E facciamoci tre settimane in Messico a sperimentare un po' di <joy>allucinogeni</joy>.
             Greta: Comunque, nel dubbio, due chiacchiere con lui le faccio appena capita.    
                     -> advance_time ->
 
     //SCELTE CONDIZIONALI OGGETTI//
     + (minacce) {inventoryContents has Lettera && new_this_loop(->minacce)} Ettore: Sai da dove viene questa lettera?
-        Greta: Uh, è la calligrafia di Paola. Dove l'hai trovata?
+        Greta: <fear>La calligrafia è di Paola</fear>. Dove l'hai trovata?
         Greta: Non importa, comunque. Questa rimane con me per un po'.
             ~ inventoryContents -= Lettera
             ~ objectStorageContents += Lettera
@@ -113,8 +113,8 @@ Opzioni di dialogo con il personaggio Greta
     + (limetta) {inventoryContents has LimettaUnghie && new_this_loop(->limetta)} Ettore: Riconosci questa limetta per unghie?
         Greta: Yep, è mia.
         Greta: Ho una seconda unghia che mi sta spuntando sull'alluce destro.
-        Greta: Una cosa mostruosa, sinceramente.
-        Greta: Elia ha anche proposto di vendere le sue foto su internet, e non è una cattiva idea.
+        Greta: Una cosa <joy>mostruosa</joy>, sinceramente.
+        Greta: Elia ha anche proposto di vendere le sue foto su OnlyPiedini, e non è una cattiva idea.
         Greta: Devo limarla spesso o fa male.
         Greta: Ma non voglio levarla, lo schifo che mi genera è liberatorio.
         Greta: Per questo l'ho chiamata <i>Zeca</i>.
@@ -146,13 +146,12 @@ Opzioni di dialogo con il personaggio Greta
         Ettore: Ma non c'è alcun serial killer, no?
         Ettore: C'è stato un solo omicidio.
         Greta: Dipenderà molto da quante domande continuerai a fare.
-        Greta: Qualcuno mi uccida, ora!
             -> advance_time ->
     
     + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} Ettore: Sai chi potrebbe averla persa?
         Greta: No.
         Ettore: Ma..
-        Greta: No.
+        Greta: <cry>No.</cry>
 
     + [Conosci meglio Greta] -> esplora_greta_personaggia
     + [Te ne vai]
@@ -181,13 +180,13 @@ Opzioni di dialogo con il personaggio Greta
     = first_qn
     ~ GretaActing++
             Ettore: Com'è essere una sorella acquisita?
-            Greta: Hai presente quando qualcuno della tua famiglia trova un gattino per strada,
+            Greta: Hai presente quando qualcuno della tua famiglia trova <joy>un gattino</joy> per strada,
             Greta: e quel gattino è adorabile e coccoloso e tutti lo coccolano,
             Greta: e magari all'inizio in famiglia dicono che no, non lo voglio un gattino,
             Greta: ma ora fanno a gara a chi lo carezza di più o gli dà da mangiare o lo fa giocare,
             Greta: e quella famiglia che magari prima era un po' infelice, ora ha qualcosa di bello attorno a cui riunirsi,
             Greta: e ogni giorno sembra Natale, una festa di compleanno, un matrimonio?
-            Greta: Ecco, io per loro sono i vermi del micino, e la diarrea che ti caccerà per tutta casa.
+            Greta: Ecco, io per loro sono <joy>i vermi</joy> del micino, e la diarrea che ti caccerà per tutta casa.
                     -> advance_time ->
                 -> greta_acting 
 
@@ -258,10 +257,10 @@ Opzioni di dialogo con la persona Greta
     ~ GretaTalking++
         Greta: Moriremo tutti, tutti.
         Ettore: Cosa è successo?
-        Greta: COSA E' SUCCESSO?
+        Greta: <cry>COSA E' SUCCESSO?</cry>
         Greta: Ah, mi chiede cosa è successo.
         Ettore: Forse è il caso che me ne vada.
-        Greta: NO, NON LASCIARMI SOLA!
+        Greta: <cry>NO, NON LASCIARMI SOLA!</cry>
         Ettore: Sono confuso in questo momento.
         Greta: Tu sei un attore professionista. Quindi, dimmi: quanto fa schifo questa roba?
                 -> advance_time ->
@@ -270,7 +269,7 @@ Opzioni di dialogo con la persona Greta
             -
         Greta: Pensi di essere divertente?
         Greta: Paola mi aveva promesso le mie prime ferie da sei anni, se avessi fatto un buon lavoro.
-        Greta: LE MIE PRIME FERIEEEEE!
+        Greta: <cry>LE MIE PRIME FERIEEEEE!</cry>
         Greta: E ora il massimo del sole che prenderò sarà come sempre la luce del frigorifero.
         Greta: Forse, se faccio bere Paola a sufficienza, si potrebbe dimenticare di ogni cosa, no?
                 -> advance_time ->
@@ -329,6 +328,6 @@ Opzioni di dialogo con la persona Greta
         Greta: E lui si scopa anche altra gente.
         Greta: Un po' la cosa ti farebbe incazzare, no?
         Greta: E mi immagino il povero Zeca, come potrebbe sentirsi.
-        Greta: Soprattutto se questa ragazza immaginaria non fosse poi così tanto immaginaria.
+        Greta: <hesitate> Soprattutto se questa ragazza immaginaria non fosse poi così tanto immaginaria.
                 -> advance_time ->
             -> greta_talking

@@ -48,6 +48,19 @@
     - else:
         DEBUG: error, cannot understand location {CurrentLocation} while trying to move {entity} out.
 }
+//elemento da aggiungere: se il personaggio X è in una conversazione, non va spostato ora. La sua posizione ipotetica va registrata in una variabile , e in advance time poi si sposta quando il personaggio sarà uscito dal dialogo.
+/* ---------------------------------
+    Ipotetica struttura.
+        ~ temp speakerLocation = destination
+    - MatteoInConversazione == false
+        ~ move_entity(Matteo, speakerLocation)
+        
+        
+   
+
+ ----------------------------------*/
+
+
 {destination:
     - Inventory:
         ~ inventoryContents += entity

@@ -472,7 +472,7 @@ Opzioni di dialogo con la persona Zeca
                 Zeca: Datti ancora un paio di prove e vedrai.
             + Ettore: Antipatica, ma non così tanto da ucciderla.
                 Zeca: Mh, vedremo.
-            + Ettore: <joy>Se cadesse dalle scale, insomma, non la fermerei.</joy>
+            + Ettore: [Se cadesse dalle scale, insomma, non la fermerei]<joy>Se cadesse dalle scale, insomma, non la fermerei.</joy>
                 Zeca: <joy>E probabilmente l'avrei spinta io.</joy>
             -
         Zeca: E infine, cosa ne pensi di me? Sincero, zero complimenti.

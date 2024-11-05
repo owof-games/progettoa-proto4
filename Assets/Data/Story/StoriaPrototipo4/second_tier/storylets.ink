@@ -733,7 +733,7 @@ Ettore: Ed è qui che si complicano le cose.
             Ettore: Addio -> END
         + Ettore: Provare ancora una volta.
             -> loop_reset
-        + {matteo_talking_second_tier.loop3 or matteo_talking_second_tier.loop2} Ettore: <joy>Darti un ultimo bacio, prima di ricominciare.</joy>
+        + {matteo_talking_second_tier.loop3 or matteo_talking_second_tier.loop2} Ettore: [Darti un ultimo bacio, prima di ricominciare.] <joy>Darti un ultimo bacio, prima di ricominciare.</joy>
             Matteo: <joy>Non aspettavo altro.</joy>
             -> loop_reset  
 

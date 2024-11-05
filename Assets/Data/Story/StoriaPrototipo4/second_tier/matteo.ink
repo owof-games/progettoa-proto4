@@ -44,7 +44,7 @@ Opzioni di dialogo con la persona Matteo
                                 Ettore: Che una volta ci hai provato con Elia perché non sapevi più se eri Matteo, o il personaggio.
                                 Matteo: Uh, interessante.
                                 Matteo: Prova a parlarne con Greta. Lei sa un sacco di cose strane.
-                                Matteo: Ma se siamo davvero in un loop, allora vorrei un tuo bacio prima o poi.
+                                Matteo: Ma se siamo davvero in un loop, allora <joy>vorrei un tuo bacio prima o poi.</joy>
                                 Matteo: Almeno una cosa bella continuerà a ripetersi.
                                     -> advance_time ->
                                     -> matteo_talking_second_tier
@@ -52,10 +52,10 @@ Opzioni di dialogo con la persona Matteo
                             + + + (loop3) {matteo_talking_second_tier.loop2} [Baci Matteo]
                                 Ettore: Scusa, ma mi hai detto in un altro loop di farlo.
                                 Ettore: Hai detto che almeno sarebbe capitato di nuovo qualcosa di bello.
-                                Matteo: Ok, questa è una cosa che potrei aver davvero detto. Perché mi piaci da che ti ho visto.
+                                Matteo: Ok, questa è una cosa che potrei aver davvero detto. Perché <joy>mi piaci da che ti ho visto.</joy>
                                 Matteo: E tu stai cercando di fermare tutto questo?
                                 Ettore: Sì, perché qualcuno sta per morire.
-                                Matteo: Quando avrai risolto il crimine, allora, ridammi un altro bacio, e portami via da qui.
+                                Matteo: Quando avrai risolto il crimine, allora, <joy>ridammi un altro bacio, e portami via da qui.</joy>
                                     -> advance_time ->
                                     -> matteo_talking_second_tier
 
@@ -65,8 +65,8 @@ Opzioni di dialogo con la persona Matteo
                 -> advance_time ->
 
     + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Teo, tu e Paola che rapporto avete?
-        Matteo: Che cosa carina che mi chiami <i>Teo</i>.
-        Matteo: La conosco poco nulla.
+        Matteo: <joy>Che cosa carina che mi chiami Teo.</joy>
+        Matteo: <hesitate>La conosco poco nulla.
         Matteo: So che è ricca, so che è stronza, e so che è sorella di Elia.
         Matteo: Che tratta costantemente di merda.
         Matteo: Sono qui sostanzialmente per lui.
@@ -85,8 +85,8 @@ Opzioni di dialogo con la persona Matteo
                 Matteo: Ma mi chiedo: perché tutto questo dovrebbe importarti?
 
                     + + + (opzioneScarica2) Ettore: Sto cercando di conoscervi meglio, visto che siamo qui.
-                            Matteo: Allora la prossima volta chiedimi dove mi piace cenare.
-                            Matteo: O il colore del mio intimo.
+                            Matteo: Allora la prossima volta chiedimi <joy>dove mi piace cenare.</joy>
+                            Matteo: <joy>O il colore del mio intimo.</joy>
                                 -> advance_time ->
                             -> matteo_talking_second_tier
                     
@@ -205,7 +205,7 @@ Opzioni di dialogo con la persona Matteo
      + (fotografia) {inventoryContents has Foto && new_this_loop(->fotografia)} Ettore: Hai già visto questa foto?
         Matteo: No.
         Matteo: Ma ti prego, non farla vedere a Zeca.
-        Matteo: Gli spezzeresti il cuore.
+        Matteo: <fear>Gli spezzeresti il cuore.</fear>
 
     + [Chiacchiera con Matteo] -> esplora_matteo
     + [Te ne vai]
@@ -289,14 +289,14 @@ Opzioni di dialogo con la persona Matteo
             -> paolaIsDeadStorylet    
 
             }
-    Matteo: E forse nell'ultimo tempo ho pensato così tanto alle cose da fare, da cambiare, da dimenticarmi di vivere.
+    Matteo: E forse nell'ultimo tempo ho pensato così tanto alle cose da fare, da cambiare, <fear>da dimenticarmi di vivere.</fear>
         -> matteo_talking_second_tier    
 
 = third_qn
 ~ MatteoTalking++
     Matteo: Credo... Posso chiederti un favore?
     Matteo: Resteresti qui con me, in silenzio, per qualche secondo?
-    Matteo: C'è qualcosa che mi spaventa, e non riesco a calmarmi.
+    Matteo: <fear>C'è qualcosa che mi spaventa, e non riesco a calmarmi.</fear>
         + Ettore: Ho da fare, scusa.
             Matteo: Non ti preoccupare.
                 -> advance_time ->
@@ -313,7 +313,7 @@ Opzioni di dialogo con la persona Matteo
             }
     Matteo: Credo di aver capito cosa mi inquieta.
     Matteo: E credo di aver deciso cosa fare.
-    Matteo: Hai un bel cuore Ettore, un gran bel cuore.
+    Matteo: <joy>Hai un bel cuore Ettore, un gran bel cuore.</joy>
     Matteo: Spero di incontrarti di nuovo, fuori da qui.    
         -> matteo_talking_second_tier
 

@@ -91,7 +91,7 @@
             + Ettore: Salve a tutti!
             + Ettore: Non ho alcuna innocenza: chi posso spingere dal grattacielo?
             -
-        Matteo: Amore! Non ti avevo sentito proprio arrivare!
+        Matteo: <joy>Amore!</joy> Non ti avevo sentito proprio arrivare!
         Matteo: Fratelli, sorella, Greta.
         Greta: Fottiti.
             -> advance_time ->

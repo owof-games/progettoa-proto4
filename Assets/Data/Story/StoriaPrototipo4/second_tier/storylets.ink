@@ -71,10 +71,10 @@
         Matteo: No, ma ti giuro Paola, ti giuro! Faceva tutto lo sborone quello.
             -> advance_time ->
         Matteo: Poi ho chiamato nonno e: bang!
-        Matteo: Tutto il consiglio di amministrazione muto.
+        Matteo: <joy>Tutto il consiglio di amministrazione muto.</joy>
         Matteo: E il progetto per la piscina sul tetto del grattacielo è passato.
         Greta: Un giorno annegherete tutti, e sarà festa nazionale.
-        Paola: {& Non voglio morire non voglio morire non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }
+        Paola: <cry>{& Non voglio morire non voglio morire non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }</cry>
         Elia: Quindi è permesso augurare la morte a qualcuno? Perché avrei un po' di nomi, nel caso.
         Zeca: Elia, almeno tu mantieni la tua innocenza o perderei l'unica spinta a sacrificarti.
             + Ettore: Eccomi! In tutto il mio splendore!
@@ -82,7 +82,7 @@
             + Ettore: Non ho alcuna innocenza: chi devo spingere dal grattacielo?
             -
             -> advance_time ->
-        Matteo: Amore! Non ti avevo sentito proprio arrivare!
+        Matteo: <joy>Amore!</joy> Non ti avevo sentito proprio arrivare!
         Matteo: Fratelli, sorella, Greta.
         Greta: Fottiti.
         Matteo: Vi presento l'uomo che amo: Ettore. Ettore, loro sono i miei familiari.
@@ -97,12 +97,12 @@
                 Zeca: E almeno abbiamo qualcosa in comune.
             -
             -> advance_time ->
-        Paola: {& Non voglio morire non voglio morire non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }
+        Paola: <cry>{& Non voglio morire non voglio morire non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }</cry>
         Elia: Sapete che nemmeno oggi ho aperto la porta dal lato giusto?
         Elia: Sono tutto un livido, guardate!
         Greta: Questo è un buon motivo per festeggiare in effetti.
         Matteo: Nessuno ha detto che dobbiamo festeggiare.
-        Paola: {& Non voglio morire non voglio morire non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }
+        Paola: <cry>{& Non voglio morire non voglio morire non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }</cry>
         Matteo: Però brindiamo! Perché siamo qui ad affrontare l'alcolismo di Zeca, e farlo smettere di bere.
             + Ettore: E avete pensato di partire con un brindisi?
                 Zeca: Ettore, giusto? Ecco, Ettore: non farti domande su questa famiglia, o c'è da perdere il senno.
@@ -113,7 +113,7 @@
             -
             -> advance_time ->
             
-        Paola: {& Non voglio morire non voglio morire non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }
+        Paola: <cry>{& Non voglio morire non voglio morire non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }</cry>
              ~ move_this_entity_in_a_different_room(Paola)
         Greta: Ho scordato una cosa!
             ~ move_this_entity_in_a_different_room(Greta)
@@ -143,23 +143,23 @@
         Greta: ... la nostra eterna dannazione.
             ~ change_status(Greta, GretaUnalived)
             ~ move_entity(Paola,WhiteRoom)
-        Paola:{& Non voglio morire non voglio morire non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }
+        Paola:<fear>{& Non voglio morire non voglio morire non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }</fear>
             ~ change_status(Paola, PaolaUnalived)
 
             -> advance_time ->
 
             + (tuttiMorti) Ettore: Perché vi comportate così?!?!
             -
-        Paola: {& Non voglio morire non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }
+        Paola: <fear>{& Non voglio morire non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }</fear>
             -> advance_time ->
             ~ change_status(Greta, GretaLive)
-        Greta: BASTAAAAAAA! Questo script è tremendo!
+        Greta: <cry>BASTAAAAAAA! Questo script è tremendo!</cry>
             ~ change_status(Zeca, ZecaLive)
-        Paola: {& Non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }
+        Paola: <fear>{& Non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }</fear>
             ~ change_status(Elia, EliaLive)
         Elia: Basta, basta, basta. Prendiamoci dieci minuti di riposo.
             ~ change_status(Matteo, MatteoLive)
-        Paola: Non voglio.
+        Paola: <hesitate>Non voglio.
             ~ change_status(Paola, EliaLive)
             ~ peopleTalking = true
             -> advance_time ->
@@ -189,11 +189,11 @@
         Zeca: A te non ha detto nulla la tua amica, vero?
         Zeca: E non ha fatto un passo che uno per aiutarti quando Paola ha iniziato a mettere in giro voci per incolparti.
         Elia: Cosa sono i giornali?
-        Zeca: Elia: tu hai solo me.
+        Zeca: <joy>Elia: tu hai solo me.</joy>
         Zeca: Gli altri se ne approfitteranno sempre della tua innocenza.
         Zeca: Sono l'unica cosa che ti rimane.
             + Ettore: Cringe.
-                Zeca: Fottiti. E non osare più parlarmi.
+                Zeca: <rage>Fottiti. E non osare più parlarmi.</rage>
                 ~ loopableVariables += pausaRapportoZeca
                 -> advance_time ->            
         -> intro
@@ -205,17 +205,17 @@
 
 
 === iLlKillThatBitchStorylet
-        Zeca: DAMMI SUBITO QUELLA FOTO!
+        Zeca: <cry>DAMMI SUBITO QUELLA FOTO!</cry>
             ~ inventoryContents -= Foto
             ~ objectStorageContents += Foto
-        Zeca: QUELLA GRANDISSIMA STRONZA!
-        Zeca: La uccido, io la uccido!
+        Zeca: <cry>QUELLA GRANDISSIMA STRONZA!<cry>
+        Zeca: <rage> La uccido, io la uccido!</rage> 
         Zeca: E lui. Lui. Lui.
         Zeca: Io. Io.
         Zeca: Solo.
-        Zeca: Sono solo.
+        Zeca: <fear>Sono solo.</fear>
         Zeca: VATTENE TU AMEBA, ORA!
-        Zeca: Anzi no, me ne andrò io.
+        Zeca: <cry>Anzi no, me ne andrò io.</cry>
             -> advance_time -> 
             ~ move_this_entity_in_a_different_room(Zeca)
                  
@@ -267,9 +267,9 @@
         Elia: Paola forse mi vuole fare male.
         Elia: E tu che fai?
         Zeca: Sei preoccupato? O speri che ti protegga?
-        Elia: Voglio essere il tuo cane.
-        Elia: Ma ho paura di essere solo la cotola.
-        Elia: Non bermi.
+        Elia: <joy>Voglio essere il tuo cane.</joy>
+        Elia: <fear>Ma ho paura di essere solo la cotola.</fear>
+        Elia: <fear>Non bermi.</fear>
             -> advance_time ->   
     -> intro
 
@@ -283,7 +283,7 @@
         Zeca: Come se fosse possibile farti stare zitto.
         Matteo: Sto cercando solo di essere un buon amico.
         Matteo: E di evitare che tu stia male.
-        Zeca: No, tu sei solo geloso, e per questo vuoi sabotare la mia relazione.
+        Zeca: <rage>No, tu sei solo geloso, e per questo vuoi sabotare la mia relazione.</rage>
             -> advance_time ->   
         Zeca: So che ti è sempre piaciuto Elia, non serve un genio per vedere come lo guardi.
         Matteo: Zeca, lo guardo come un bambino guarderebbe un gorilla allo zoo: incuriosito e spaventato.
@@ -315,8 +315,8 @@
     Elia: Sbaglio tutto io, scusa.
     Greta: No no no, ridimmela perché è un cosa bella.
     - (promise)Elia: Ti amo, Greta.
-    Greta: Ti amo anche io, Elia.
-    Elia: Ora mi fai i grattini?
+    Greta: <joy>Ti amo anche io, Elia.</joy>
+    Elia: <joy>Ora mi fai i grattini?</joy>
     Greta: Alza quella maglietta e ti faccio tutti i grattini del mondo.
         -> advance_time ->  
     -> intro
@@ -330,7 +330,7 @@
         Elia: Mi fanno i grattini, vado su di giri e poi accadono cose.
         Zeca: Con me non è mai successo.
         Elia: Perché con te é diverso.
-        Elia: Tu sei un mio fratello.
+        Elia: <joy>Tu sei un mio fratello.</joy>
             -> advance_time ->
                             {
                             - currentTime >= 600:
@@ -349,13 +349,13 @@
                             -> paolaIsDeadStorylet
                         }
         Zeca: Se volessi che nessun altro, e nessuna stronza orfanella in particolare, ti facesse i grattini, per te sarebbe ok?
-        Elia: Me ne fai due qui?
-        Elia: Mi dici che sono un bravo ragazzo?
+        Elia: <joy>Me ne fai due qui?</joy>
+        Elia: <joy>Mi dici che sono un bravo ragazzo?</joy>
         Elia: E non mi prendi in giro quando ti dico che ti amo?
         Zeca: Elia, perché dovrei prenderti in giro?
-        Elia: Perché tutti pensano che sono stupido.
+        Elia: <fear>Perché tutti pensano che sono stupido.</fear>
         Elia: E quindi lo sono anche i miei sentimenti.
-        Elia: Ma io so cosa provo quando sono con te.
+        Elia: <joy>Ma io so cosa provo quando sono con te.</joy>
         - (promise) Elia: Abbracciami. Te lo prometto Zeca: basta grattini con Greta o qualsiasi altra persona.
             -> advance_time ->  
     -> intro    
@@ -406,7 +406,7 @@
         Elia: No, quello l'ho in garage.
         Elia: Sono le barrette che non trovo.
         Elia: Le mie proteine.
-        Elia: Senza mi spariscono i muscoli.
+        Elia: <fear>Senza mi spariscono i muscoli.</fear>
         Ettore: Non credo che funzionino così.
         Elia: No no giuro me l'ha detto il tizio del negozio.
         Elia: Se non le mangio ogni tre ore perderò tutti i muscoli.
@@ -500,7 +500,7 @@
             + Ettore: Credo sia davvero ammirevole!
             + Ettore: E i tuoi colleghi come hanno reagito?
             -
-        Matteo: I miei colleghi si sono mostrati entusiasti. Avevano bisogno di credere in qualcosa di nuovo.
+        Matteo: <joy>I miei colleghi si sono mostrati entusiasti.</joy> Avevano bisogno di credere in qualcosa di nuovo.
         Matteo: Ne hanno tutt'ora.
             -> advance_time ->
             {
@@ -510,9 +510,9 @@
         Matteo: Alla prima riunione, molti di loro hanno detto che è solo questione di tempo, prima di ritrovarsi dall'altra parte del telefono.
         Matteo: Ora siamo solo all'inizio, abbiamo avuto un contatto da Risorse Umane che è stato totalmente disumano, hanno praticamente cercato di farci il lavaggio del cervello.
         Matteo: E Paola, qui, non ha ancora messo assieme i pezzi, credo.
-        Matteo: Ma quando mi affronterà, si troverà davanti un osso duro.
+        Matteo: <rage> Ma quando mi affronterà, si troverà davanti un osso duro.</rage> 
         Matteo: Sono stanco di questo sistema, e farò di tutto perché almeno qualcosa di piccolo possa cambiare.
-        Matteo: Pensi sia un illuso?
+        Matteo: <fear>Pensi sia un illuso?</fear>
             + Ettore: No. E ti ammiro tantissimo, Matteo.
                 Matteo: Na, niente ammirazione. Ma se servirà, aiutaci.
             + Ettore: Credo non cambierà nulla, ma è bello vederti provare.
@@ -535,19 +535,19 @@
 
 Paola: Quindi, cos'è tutta questa urgenza? Abbiamo delle prove da riprendere.
 Elia: Hai trovato le mie barrette proteiche?
-Ettore: Silenzio!
+Ettore: <cry>Silenzio!</cry>
 Ettore: Siamo nel bel mezzo di un crimine.
 Zeca: Un crimine peggiore della sceneggiatura di Paola?
-Ettore: Silenzio!
+Ettore: <cry>Silenzio!</cry>
 Ettore: Durante la serata ho parlato con tutti voi, molte molte molte volte.
 Elia: Ma io non ricordo che-
-Greta: Silenzio!
+Greta: <cry>Silenzio!</cry>
 Ettore: Grazie, Greta.
 Ettore: Parlando con voi ho notato un sacco di discrepanze, di bugie, di informazioni non chiare.
 Ettore: E la prima cosa piccola piccola e strane, è che sembra che nessuno di voi si sia occupato di allestire il buffet nella sala gialla.
 Zeca: Greta e-
 Elia: Matteo e-
-Ettore: Silenzio!!!
+Ettore: <cry>Silenzio!!!</cry>
 Ettore: Ognuno di voi aveva un motivo per mentire.
     + Ettore: Per nascondere un litigio.
         Elia: Chi ha litigato?
@@ -606,11 +606,11 @@ Ettore: Ed è qui che si complicano le cose.
     Paola: E vi lamentate delle mie sceneggiature?
     Paola: Nessuno è morto.
     Ettore: Paola: tu stai per morire.
-    Zeca: Farnetichi!
+    Zeca: <cry>Farnetichi!</cry>
     Elia: Questa sceneggiatura mi piace!
     Greta: Chi ha portato i funghetti e non li ha condivisi?
     Matteo: Ettore, tutto bene?
-    Paola: LASCIATELO PARLARE!
+    Paola: /cry>LASCIATELO PARLARE!</cry>
     Paola: Sentiamo che cazzata ha da dire.
     Ettore: Grazie per la fiducia, davvero!
     Ettore: Dicevo: non abbiamo ancora l'assassino, ma c'è un ultimo elemento su cui riflettere.
@@ -654,12 +654,12 @@ Ettore: Ed è qui che si complicano le cose.
     
     = zecaConfessa
         Zeca: Perché? Lo sai già perché.
-        Zeca: L'ho detto dall'inizio: farei di tutto per proteggere Elia.
+        Zeca: L'ho detto dall'inizio: <joy>farei di tutto per proteggere Elia.</joy>
         Zeca: E questa stronza sta per distruggere Elia.
         Paola: E casualmente, te.
         Paola: Non parlare di protezione: lo fai solo perché saresti nulla senza Elia.
         Paola: Lo estrometto dall'azienda per salvarlo da te!
-        Zeca: Non dire cazzate.
+        Zeca: <rage>Non dire cazzate.</rage>
         Paola: BRO è un colabrodo. Avete più debiti di un insulso paese del terzo mondo.
         Elia: Zeca, è vero?
         Zeca: Non è nulla di irrecuperabile, Elia, davvero.
@@ -669,7 +669,7 @@ Ettore: Ed è qui che si complicano le cose.
              -> choice
 
     = gretaConfessa
-        Greta: Vendetta.
+        Greta: <joy>Vendetta.</joy>
         Greta: Lunga, lenta, coltivata vendetta.
         Paola: Cazzo stai a dire?!?
         Greta: Per i miei genitori.
@@ -681,7 +681,7 @@ Ettore: Ed è qui che si complicano le cose.
         Greta: Hanno perso il lavoro.
         Greta: E poi come dei mafiosi, come degli strozzini, siete arrivati per chiedergli soldi che non avevano più, che non avevano mai avuto.
         Greta: Si sono suicidati per colpa tua, Paola.
-        Greta: Li hai uccisi tu.
+        Greta: <rage>Li hai uccisi tu.</rage>
         Paola: Mi deludi, Greta.
         Paola: Pensavo avessi imparato ormai a capire la realtà.
         Paola: A capire che i deboli per questo mondo sono una malattia.
@@ -698,7 +698,7 @@ Ettore: Ed è qui che si complicano le cose.
         Matteo: E se è impossibile risolvere le cose scioperando.
         Matteo: Manifestando.
         Matteo: Votando.
-        Matteo: Beh, allora resta solo la violenza.
+        Matteo: <rage>Beh, allora resta solo la violenza.</rage>
             -> choice
 
 
@@ -706,9 +706,9 @@ Ettore: Ed è qui che si complicano le cose.
         Elia: Non lo so. Davvero, non lo so.
         Elia: Ero solo stanco.
         Elia: Sono stanco.
-        Elia: Stanco di essere una ciotola.
-        Elia: Stanco di essere trattato da stupido.
-        Elia: Stanco.
+        Elia: <fear>Stanco di essere una ciotola.</fear>
+        Elia: <fear>Stanco di essere trattato da stupido.</fear>
+        Elia: <fear>Stanco.</fear>
             -> choice
 
 
@@ -724,7 +724,7 @@ Ettore: Ed è qui che si complicano le cose.
     Ettore: Stai già morendo.
     Ettore: Sei sempre morta alle 22:10 in punto.
     Ettore: Buffo, l'ora è ferma da un bel po' oramai.
-    Paola: COSA CAZZO STAI FARNETICANDO?!?!?
+    Paola: <cry>COSA CAZZO STAI FARNETICANDO?!?!?</cry>
     Ettore: Sto viaggiando avanti e indietro nel tempo da non so quanto.
     Ettore: Cercando di capire cosa è successo.
     Ettore: Ma tutto si ripete, si ripete, si ripete.
@@ -733,8 +733,8 @@ Ettore: Ed è qui che si complicano le cose.
             Ettore: Addio -> END
         + Ettore: Provare ancora una volta.
             -> loop_reset
-        + {matteo_talking_second_tier.loop3 or matteo_talking_second_tier.loop2} Ettore: Darti un ultimo bacio, prima di ricominciare.
-            Matteo: Non aspettavo altro.
+        + {matteo_talking_second_tier.loop3 or matteo_talking_second_tier.loop2} Ettore: <joy>Darti un ultimo bacio, prima di ricominciare.</joy>
+            Matteo: <joy>Non aspettavo altro.</joy>
             -> loop_reset  
 
 

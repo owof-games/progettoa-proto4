@@ -31,11 +31,11 @@ Opzioni di dialogo con la persona Greta
             Ettore: A volte, quando ero più piccolo.
             Greta: E l'armadio è aperto e sei sicura di averlo chiuso prima di andare a dormire perché ne hai ancora paura anche se hai trentasei anni.
             Greta: E poi una gruccia casca a terra.
-            Greta: E il letto trema.
+            Greta: <fear>E il letto trema.</fear>
                 -> advance_time ->
             
             + + (dejavu) {matteo_talking_second_tier.loop2} Ettore: In realtà pensavo più a dei loop, e Matteo crede tu sia la persona giusta con cui parlarne.
-                    Greta: So tutto sui loop!
+                    Greta: <joy>So tutto sui loop!</joy>
                     Greta: La mia teoria preferita è che siano seconde possibilità.
                     Greta: Occasioni di non ripetere errori che hai commesso in altri tempi, altre vite.
                     Ettore: E se non ho commesso nulla di male?
@@ -54,7 +54,7 @@ Opzioni di dialogo con la persona Greta
                     Greta: O impediscile di fare l'errore che la tormenta.
                     Ettore: E se non ci dovessi riuscire?
                     Greta: Beh: hai l'occasione di fare quello che vuoi senza pagarne le conseguenze, perché tanto tutto si resetta.
-                    Greta: Goditela!
+                    Greta: <joy>Goditela!</joy>
                     Greta: E se siamo in loop, uccidimi: quante occasioni ci sono di morire due volte?
                         -> advance_time ->
                             -> greta_talking_second_tier
@@ -65,7 +65,7 @@ Opzioni di dialogo con la persona Greta
                     Greta: Ricordi che sei anni prima avevi offerto la tua anima in cambio di un contratto a tempo indeterminato.
                     Greta: E Satana ti ha detto che di questi tempi il massimo che ti poteva promettere è una partita Iva.
                     Greta: E hai accettato. E lui ti ha detto che te la saresti goduta per sei anni.
-                    Greta: E ora è tempo di riscuotere.
+                    Greta: <hesitate>E ora è tempo di riscuotere.
                     Greta: E allora gli proponi uno scambio, un'altra anima. E lui accetta.
                         -> advance_time ->
                         {
@@ -74,7 +74,7 @@ Opzioni di dialogo con la persona Greta
                         }
 
                     Greta: Ma scusa, mi sono persa un attimo.
-                    Greta: Bella maglietta, comunque.
+                    Greta: <joy>Bella maglietta, comunque.</joy>
                         -> greta_talking_second_tier
             
             + + Ettore: Mi spiace ma non sono pronto per questa conversazione. -> greta_talking_second_tier
@@ -112,7 +112,7 @@ Opzioni di dialogo con la persona Greta
             Ettore: Piccoli segreti utili a rafforzare il suo lavoro di contrattazione col sindacato.
             Greta: Dimmi: è stato lui a dirtelo?
             Ettore: No, Elia.
-            Greta: Ahah piccolo infame. Piccolo schifoso infame.
+            Greta: Ahah piccolo infame. <rage>Piccolo<waitrage> schifoso<waitrage> infame.</rage>
             Greta: Secondo te chi si rafforza se Paola si mostra fallibile?
                 + + + Ettore: Gli azionisti?
                 + + + Ettore: Il consiglio di amministrazione?
@@ -124,7 +124,7 @@ Opzioni di dialogo con la persona Greta
                     -> paolaIsDeadStorylet    
                 }
 
-            Greta: Elia.
+            Greta: <hesitate>Elia.
             Greta: Almeno fino a domattina, Elia è ancora a metà proprietario dell'azienda.
             Greta: E se Paola capitola, lui finisce diritto in consiglio di amministrazione.
             Ettore: Quindi cosa mi stai dicendo?
@@ -140,7 +140,7 @@ Opzioni di dialogo con la persona Greta
                 + + + Ettore: Questo però non risponde alla mia domanda: hai passato le informazioni a Matteo?
                         Greta: Mmm, mi stavi quasi simpatico, Ettore, quasi.
                         Greta: Ma non mi piace chi mi accusa di cose a caso.
-                        Greta: Vattene e non parlarmi più!
+                        Greta: <rage>Vattene<waitrage> e<waitrage> non<waitrage> parlarmi<waitrage> più!</rage> 
                         ~ loopableVariables += pausaRapportoGreta
                     -> advance_time ->
                         -> intro
@@ -150,7 +150,7 @@ Opzioni di dialogo con la persona Greta
                 Greta: Cosa vorresti dire?
                 Ettore: Zeca sostiene che la polizia abbia avuto dati molto molto personali su Paola.
                 Ettore: Cose che solo la sua segretaria potrebbe sapere.
-                Greta: E se anche fosse?
+                Greta: <rage>E<waitrage> se<waitrage> anche<waitrage> fosse?</rage>
                 Greta: Qualcuno ha tutto, tu non hai niente, e ti si apre lo spiraglio per un cambiamento, per un vantaggio.
                 Greta: Al posto mio cosa avresti fatto?
                     -> advance_time ->
@@ -166,7 +166,7 @@ Opzioni di dialogo con la persona Greta
                         Greta: Per loro tutto è un gioco, perché tanto non possono mai davvero perdere.
                         Greta: Io ho già perso mille volte, e sinceramente son stanca.
                         Greta: E stanca di te.
-                        Greta: Non mi parlare più, fighetto del cazzo.
+                        Greta: Non mi parlare più, <rage>fighetto del cazzo.</rage>
                             ~ loopableVariables += pausaRapportoGreta
                             -> advance_time ->
                                 -> intro
@@ -176,7 +176,7 @@ Opzioni di dialogo con la persona Greta
                         Greta: Immagino anche tu venga dal nulla, e per questo puoi capirmi.
                         Greta: Non so cosa potrà esserci dopo Paola, ma peggio non potrà essere.
                         Greta: E per Matteo è lo stesso.
-                        Greta: Viviamo assieme da anni, sai? Ed è l'unica persona in tutta la mia vita che mi abbia mai davvero capito.
+                        Greta: Viviamo assieme da anni, sai? <joy>Ed è l'unica persona in tutta la mia vita che mi abbia mai davvero capito.</joy>
                         Greta: Ha un enorme senso della giustizia.
                         Greta: E sa anche che viviamo in un mondo profondamente ingiusto.
                             -> advance_time ->
@@ -238,12 +238,12 @@ Opzioni di dialogo con la persona Greta
                                         -> greta_talking_second_tier
                                     
                     + + + Ettore: Suuuubdolo!
-                            Greta: Adoro!
+                            Greta: <joy>Adoro!</joy>
                             Greta: Allora, fammi pensare.
                             Greta: Abbiamo dovuto mettere in giro del veleno per topi perché beh, ci sono i topi.
                             Greta: In realtà è più difficile da farlo ingerire di quanto non ti facciano credere al cinema.
                             Greta: Ma con un vino così pesante come quello che c'era stasera, forse forse ce la potresti fare.
-                            Greta: Oppure c'è qualcosa di ancora più interessante.
+                            Greta: Oppure c'è qualcosa di ancora più <joy>interessante</joy>.
                             Greta: Sapevi che la nicotina è un veleno terribile?
                                 -> advance_time ->
                                 {
@@ -267,7 +267,7 @@ Opzioni di dialogo con la persona Greta
 
                                 }
 
-                            Greta: Un omicidio su misura.
+                            Greta: <joy>Un omicidio su misura.</joy>
                             Greta: Paola è allergica all'acido acetilsalicilico.
                             Greta: Le dà delle botte d'asma micidiali.
                             Greta: Che già insomma, ne soffre di suo.
@@ -310,7 +310,7 @@ Opzioni di dialogo con la persona Greta
              
              + + Ettore: No, che stanno assieme. Romanticamente.
                     Greta: Ah.
-                    Greta: Ah.
+                    Greta: <rage>Ah.</rage> 
                     Greta: Questa cosa mi è nuova.
                     Greta: Ne sei certo?
                     Ettore: Sì, ho sentito Elia dire a Zeca che lo ama.
@@ -387,7 +387,7 @@ Opzioni di dialogo con la persona Greta
             + + (foto2) Ettore: Elia, si è incastrato da qualche parte.
                 Greta: Madonna quel ragazzo, madonna!
                 Greta: Andiamo a salvarlo prima che ci rimetta le penne.
-                Greta: Grazie, Ettore!
+                Greta: <joy>Grazie, Ettore!</joy>
                    ~ move_this_entity_in_a_different_room(Greta)
                    -> intro 
 
@@ -436,7 +436,7 @@ Opzioni di dialogo con la persona Greta
             Greta: Fotocopiala.
             Greta: Appendila nei cessi pubblici.
             Greta: Usala per una maledizione.
-            Greta: Ma non osare più parlarmi.
+            Greta: <rage>Ma<waitrage> non<waitrage> osare<waitrage> più<waitrage> parlarmi.</rage> 
                 ~ loopableVariables += pausaRapportoGreta
                 -> advance_time ->
             -> greta_talking_second_tier
@@ -470,9 +470,9 @@ Opzioni di dialogo con la persona Greta
 ~ GretaTalking++
     Greta: Quindi, qual è la tua conoscenza delle arti oscure?
         + Ettore: Sia protetto il nome di Crowley!
-            Greta: BAAASIC!
+            Greta: <cry>BAAASIC!</cry>
         + Ettore: Peter Carroll mio padre.
-            Greta: I feel you!
+            Greta: <joy>I feel you!</joy>
         + Ettore: Ehm, zero?
             Greta: E che dovevo aspettarmi?
         -
@@ -500,11 +500,11 @@ Opzioni di dialogo con la persona Greta
 
 = second_qn
  ~ GretaTalking++
-    Greta: Non ci credo!
+    Greta: <joy>Non ci credo!</joy>
     Ettore: Tutto bene?
     Greta: No.
     Greta: Hanno cancellato "Il giorno della smarmotta"!
-    Greta: La mia vita è ROVINATA!
+    Greta: <joy>La mia vita è ROVINATA!</joy>
     Ettore: Mio padre lo adora.
     Greta: Tuo padre ha buon gusto.
     Greta: Era l'unica cosa che dava senso alla mia vita!
@@ -521,7 +521,7 @@ Opzioni di dialogo con la persona Greta
     Greta: Poi mi chiedono perché c'ho l'ansia.
     Greta: E perché mi piango addosso tutto il giorno.
     Greta: Per queste crudeltà.
-    Greta: CRU-DEL-TAAAAAAA'!
+    Greta: <joy>CRUDELTAAAAAAA'!</joy>
         -> advance_time ->
         -> greta_talking_second_tier 
 
@@ -544,7 +544,7 @@ Opzioni di dialogo con la persona Greta
         }
 
     Greta: Ma stasera il problema è un altro.
-    Greta: Ettore, non si sente un rumore a parte il nostro parlare.
+    Greta: <fear>Ettore, non si sente un rumore a parte il nostro parlare.</fear>
     Greta: Ma è un venerdì sera.
     Greta: Ed è estate.
     Greta: E siamo in pieno centro.
@@ -559,13 +559,13 @@ Opzioni di dialogo con la persona Greta
         }
 
     Greta: E invece.
-    Greta: IL NULLA.
+    Greta: <fear>IL NULLA.</fear>
     Greta: Solo noi sei.
     Greta: L'eco dei nostri drammi.
     Greta: E la fine del mondo.
     Greta: E sono minuti che vorrei aprire la porta e uscire.
     Greta: Ma ho paura di scoprire cosa ci sia fuori.
-    Greta: E allora resto qui a tremare.    
+    Greta: <fear>E allora resto qui a tremare.</fear>
         -> advance_time ->  
     -> greta_talking_second_tier
 

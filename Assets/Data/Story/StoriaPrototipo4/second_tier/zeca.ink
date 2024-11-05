@@ -39,14 +39,14 @@ Opzioni di dialogo con la persona Zeca
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
             }
-        Zeca: C'ho la mafia gay.
+        Zeca: <fear>C'ho la mafia gay.</fear>
         Ettore: Non era la lobby gay?
         Zeca: No, quella è quella che ha creato M¥SS KETA.
         Zeca: La mafia gay è quella che ti fa i quality check prima di entrare nelle disco.
         Zeca: O prima di entrare in uno spazio nerd.
         Zeca: Quella che decide se sei bono abbastanza o se ti deve buttare in un bidone di acido ialuronico.
         Ettore: Ahah divertente.
-        Zeca: DIVERTENTE?!?!
+        Zeca: <cry>DIVERTENTE?!?!</cry>
             -> advance_time ->
                                     {
             - currentTime >= 600:
@@ -59,20 +59,20 @@ Opzioni di dialogo con la persona Zeca
         Zeca: E ora i debiti sono alti. Incolmabili.
         Ettore: E cosa vogliono da te?
         Zeca: Quote della Londar Cosmetics.
-        Zeca: E un incremento della produzione di costumi furry da lontra.
+        Zeca: <fear>E un incremento della produzione di costumi furry da lontra.</fear>
             -> advance_time ->
                                     {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
 
             }
-        Zeca: E SE NON LA SMETTI DI RIDERE TI MENO!
+        Zeca: <cry>E SE NON LA SMETTI DI RIDERE TI MENO!</cry>
         Zeca: Perché ne va della mia pelle. Hai visto cosa hanno fatto a Chiara Iezzi?
         Zeca: Prima l'hanno cancellata per omofobia, poi l'hanno riportata in auge contro la sua volontà.
         Zeca: Giusto per farle vedere chi comanda.
         Zeca: Ma cosa ti dico queste cose a te?
         Zeca: Sei così vestito male che sei o etero o woke.
-        Zeca: Devo chiedere aiuto a Paola, è l'unica opzione che mi rimane.
+        Zeca: <hesitate>Devo chiedere aiuto a Paola, è l'unica opzione che mi rimane.
             -> advance_time ->      
                  -> zeca_talking_second_tier
 
@@ -82,8 +82,9 @@ Opzioni di dialogo con la persona Zeca
         Zeca: Cosa che adoro in una donna, ma fa troppo elder millenial.
         Zeca: La nostra generazione preferisce qualcosa di più diretto e meno sofisticato.
         Zeca: Demure.
-        Zeca: Tipo Jennifer Coolidge.
-        Ettore: Quindi, hai stima di Paola?
+        Zeca: <joy>Tipo Jennifer Coolidge.</joy>
+        Ettore: Coolidge è tutto fuorché demure.
+        Ettore: Ma quindi, hai stima di Paola?
             -> advance_time ->
                                     {
             - currentTime >= 600:
@@ -97,13 +98,13 @@ Opzioni di dialogo con la persona Zeca
 
     + (omicidio) {new_this_loop(->omicidio)} Ettore: Secondo te qualcuno potrebbe volere del male a Paola?
         Zeca: Tesoro.
-        Zeca: CHI non vorrebbe farle del male?
+        Zeca: <joy>CHI non vorrebbe farle del male?</joy>
         Zeca: O almeno dirle due paroline a modo.
         Ettore: E tu, le vuoi male?
         Zeca: Naa, ci saremo parlate tre volte in due anni.
         Zeca: PERO'. PERO'.
-        Zeca: Se continua a trattare così di merda Elia, potrei farci un pensierino.
-        Zeca: Solo io posso insultarlo.
+        Zeca: <rage>Se continua a trattare così di merda Elia, potrei farci un pensierino.</rage>
+        Zeca: <joy>Solo io posso insultarlo.</joy>
         - (omicidio2) Zeca: Per il resto: farei qualsiasi cosa per proteggere Elia.
         -> advance_time ->
             -> zeca_talking_second_tier
@@ -123,7 +124,7 @@ Opzioni di dialogo con la persona Zeca
         Zeca: PERO'. PERO'.
         Zeca: Continuo a non capire questa fissa per il buffet.
         Ettore: Mi annoio, può andare?
-        Zeca: Povera stellina, povera.
+        Zeca: <joy>Povera stellina, povera.</joy>
             -> advance_time ->
                                     {
             - currentTime >= 600:
@@ -132,7 +133,7 @@ Opzioni di dialogo con la persona Zeca
         Zeca: Comunque sì, Matteo ed io ci siamo occupati di tabacco e cibo, ma non abbiamo preparato noi il buffet.
         Zeca: Né io né Matteo abbiamo messo piede nella stanza gialla prima delle prove.
         - -(allestimento) Zeca: Abbiamo lasciato le cose fuori dalla porta e chiesto a Greta di occuparsene, perché c'erano dei problemi coi costumi.
-        Zeca: O per dirla diversamente: Greta si deve essere scofanata un cavallo dalle ultime prove, perché ora non ci entra più in quel vestito.
+        Zeca: O per dirla diversamente: Greta si deve essere scofanata un cavallo dalle ultime prove, perché <joy>ora non ci entra più in quel vestito.</joy>
         Zeca: Hai altre domande, Sherlock?
                 + + {elia_talking_second_tier.allestimento}Ettore: Sì; mi sembra buffo quel che dici, perché Elia giura di averti lasciato il vino, perché lui e Greta avevano un problema coi tavoli.
                     Zeca: <i>Buffo>/i> che tu non sappia farti un giro di cazzi tuoi, Ettore.
@@ -156,12 +157,12 @@ Opzioni di dialogo con la persona Zeca
                 
                 + + {paola_talking_second_tier.allestimento} Ettore: Paola dice di aver sentito litigare te e Matteo nella stanza gialla.
                     Ettore: Ma prima hai detto di non essere mai entrato nella stanza gialla prima delle prove.
-                    Zeca: Oh va bene, mi hai colto in flagrante.
-                    Zeca: Tira fuori le manette e sculacciami perché sono un bimbo cattivo.
+                    Zeca: <hesitate>Oh va bene, mi hai colto in flagrante.
+                    Zeca: Tira fuori le manette e <joy>sculacciami</joy> perché sono un bimbo cattivo.
                     Zeca: Ho mentito.
                     Zeca: PERO'. PERO'.
                     Zeca: Non ti sei chiesto il perché, Sherlock?
-                    Zeca: È perché non sono cazzi tuoi.
+                    Zeca: <rage>È perché non sono cazzi tuoi.</rage>
                         -> advance_time ->
                                                 {
             - currentTime >= 600:
@@ -191,7 +192,7 @@ Opzioni di dialogo con la persona Zeca
         + + (love2){paola_talking_second_tier.money && new_this_loop(->love2)} Ettore: Secondo Paola, è perché i tuoi soldi provengono da Elia.
             Zeca: Al massimo è il contrario.
             Zeca: Prima della nostra collab Elia proponeva foto a sciampiste su Grindr.
-            Zeca: Ora c'ha questo ammasso di fustacchiotti fissati con la barra e le proteine, che vanno in burnout se in vacanza non hanno la palestra vicino.
+            Zeca: Ora c'ha questo ammasso di <joy>fustacchiotti</joy> fissati con la barra e le proteine, che vanno in burnout se in vacanza non hanno la palestra vicino.
             Zeca: Le fotine giuste, e loro si sentiranno sempre brutti e verranno alla mia palestra, e continueranno a farsi fare foto da Elia.
             Ettore: Non è poco etico?
             Zeca: E cosa c'è di etico ormai a questo mondo?
@@ -212,10 +213,10 @@ Opzioni di dialogo con la persona Zeca
                     -> zeca_talking_second_tier
         + + (love3){trueLoveStorylet && new_this_loop(->love3)} Ettore: Come ti senti, ora che Elia ti ha dichiarato il suo amore?
             Zeca: E come lo sai?
-            Zeca: Merda, quanto siete pettegole!
+            Zeca: <rage>Merda,<waitrage> quanto<waitrage> siete<waitrage> pettegole!</rage>
             Zeca: Ci scometto che è stato Matteo, quello sa ingoiare solo a letto, il maledetto.
             Zeca: PERO'. PERO'.
-            Zeca: Sto bene.
+            Zeca: <hesitate>Sto bene.
             Zeca: Spaventato, ma bene.
             Ettore: Spaventato?
                 -> advance_time ->
@@ -234,13 +235,13 @@ Opzioni di dialogo con la persona Zeca
                     -> zeca_talking_second_tier
 
         + + (love4){elia_talking_second_tier.indagini2 && greta_talking_second_tier.indagini && not are_two_entities_together(Elia, Zeca)} Ettore: Sapevi che Paola vuole estromettere Elia dalla Londar?
-            Zeca: Quindi lo sta per fare davvero? La stronza!
+            Zeca: <rage> Quindi lo sta per fare davvero? La stronza!</rage>
             Ettore: Ed Elia non l'ha presa bene. Se provo a parlargli della cosa, mette la musica a manetta e non mi ascolta.
             Zeca: Ok, ci penso io.
             Zeca: Povero stupido bimbo.
             Zeca: Povero.
             Zeca: Stupido.
-            Zeca: Bimbo.       
+            Zeca: <joy>Bimbo.</joy>      
                 -> advance_time ->
                     -> zeca_talking_second_tier
 
@@ -268,7 +269,7 @@ Opzioni di dialogo con la persona Zeca
         Zeca: Forse.
         Zeca: PERO'. PERO'.
         Zeca: No, non è vero.
-        Zeca: QUALCUNO HA VISTO DELLE FORMICHE?!?!?
+        Zeca: <cry>QUALCUNO HA VISTO DELLE FORMICHE?!?!?</cry>
         -> advance_time ->
                     -> zeca_talking_second_tier
     + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Hai comprato tu questa bottiglia di vino?
@@ -285,12 +286,12 @@ Opzioni di dialogo con la persona Zeca
                     -> zeca_talking_second_tier
     + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Hai mai visto questo flaconcino per l'asma?
         Zeca: Dio.
-        Zeca: Se mai la vita dovesse portarmi a un tale entusiasmo per un flaconcino, uccidetemi.
+        Zeca: <fear>Se mai la vita dovesse portarmi a un tale entusiasmo per un flaconcino, uccidetemi.</fear>
                     -> zeca_talking_second_tier
     + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} Ettore: Sai di chi sia questa sigaretta elettronica?
         Zeca: Di Paola, è lei la tossica del gruppo.
         Zeca: No, quello sono io.
-        Zeca: Ma è lei che fuma,
+        Zeca: Ma è lei che fuma.
                     -> zeca_talking_second_tier
     
     + [Chiacchiera con Zeca] -> esplora_zeca
@@ -329,7 +330,7 @@ Opzioni di dialogo con la persona Zeca
     Zeca: Ho aperto una palestra perché non mi piaccio fisicamente.
     Zeca: Ma proprio perché non riesco a guardarmi allo specchio senza sentire disagio, se non rabbia.
     Zeca: Quando qualcuno a letto mi dice che gli piaccio, mi smonto, sono sicuro che stia mentendo.
-    Zeca: Ho questa sensazione spaventosa.
+    Zeca: <fear>Ho questa sensazione spaventosa.</fear>
         -> advance_time ->
                                 {
             - currentTime >= 600:
@@ -368,11 +369,11 @@ Opzioni di dialogo con la persona Zeca
 
             }
     Zeca: E con l'orticaria la voglia di tirargli due sberle.
-    Zeca: Di dirgli "Svegliati! Così non ci arrivi ai quaranta!"
+    Zeca: Di dirgli <cry>"Svegliati! Così non ci arrivi ai quaranta!"</cry>
     Zeca: E lo sai la cosa peggiore?
     Zeca: Che questi sopravvivono.
     Zeca: Saltellano inconsapevoli mentre tutto il mondo attorno esplode e non si rendono conto di niente.
-    Zeca: "Non ti preoccupare, ora ci sono io". Ciccio, è quello che mi preoccupa!
+    Zeca: "Non ti preoccupare, ora ci sono io". <cry>Ciccio, è quello che mi preoccupa!</cry>
     Zeca: Ora ci sei tu, ma se mi affido a te, come posso sopravvivere quando te ne andrai?
     Zeca: Per questo odio Matteo. E gli voglio bene. Ma lo odio tanto tanto tanto.
         -> advance_time ->
@@ -380,12 +381,12 @@ Opzioni di dialogo con la persona Zeca
 
 = third_qn
 ~ ZecaTalking++
-    Zeca: Conosciamoci meglio.
+    Ettore: Conosciamoci meglio.
     Zeca: Dio, perché mai vorrei farlo?!?
     Zeca: Conoscimi meglio!
     Zeca: Cosa vuoi sapere di me?
     Zeca: No dai, che poi ti innamori.
-    Zeca: Ma invece, che ne pensi di Elia?
+    Zeca: Ma invece, <joy>che ne pensi di Elia?</joy>
          -> advance_time ->
                                  {
             - currentTime >= 600:
@@ -398,7 +399,7 @@ Opzioni di dialogo con la persona Zeca
         + Ettore: Mi sembra un ragazzo semplice.
             Zeca: L'eufemismo del secolo.
             Zeca: Un sasso è una cosa semplice. Elia è vuoto.
-            Zeca: Se urli in un orecchio, ci senti l'eco che grida aiuto.
+            Zeca: Se urli in un orecchio, <joy>ci senti l'eco che grida aiuto.</joy>
         + Ettore: Mi sembra impossibile che nessuno l'abbia ancora strozzato.
             Zeca: Oh, ma è già successo due volte.
             Zeca: Questa settimana.
@@ -418,11 +419,11 @@ Opzioni di dialogo con la persona Zeca
         + Ettore: Un concentrato di ansia.
             Zeca: PERO'. PERO'.
             Zeca: Secondo me fa un po' finta. Lo fa per sentirsi importante.
-            Zeca: Perché chi se la incula a quella, detto tra noi?
+            Zeca: Perché <joy>chi se la incula a quella</joy>, detto tra noi?
             Zeca: Così invece prima o poi uno sfigato glielo chiede "tutto bene?".
             Zeca: E a quel punto quella si azzecca per i prossimi tre anni.
         + Ettore: Una specie di emblema millenial.
-            Zeca: TOTALE!
+            Zeca: <cry>TOTALE!</cry>
             Zeca: Si lamenta sempre, si sente sempre al centro dell'attenzione, ed è sempre su Instagram.
             Zeca: Sfigata.
         -
@@ -434,21 +435,21 @@ Opzioni di dialogo con la persona Zeca
             }
         Zeca: E di Matteo, quanto lo detesti?
             + Ettore: In realtà mi piace molto.
-                Zeca: COOOOOOOOOOOOOSA?
+                Zeca: <cry>COOOOOOOOOOOOOSA?</cry>
                 Zeca: A quella?
                 Zeca: A quella ti piace?!?
-                Zeca: Ma se è così noisa?
+                Zeca: Ma se è così noiosa?!
                 Zeca: Ma se parla solo che lavora troppo e che non c'ha un compagno.
                 Zeca: E io vorrei dirgli: ma ti sei vista, sorella? Con quelle occhiaie ti ci fai la controfigura di Michael Myers, altro che il maritino.
                 Zeca: Ma senti un po', ti piace.
                 Zeca: Povera sfigata.
             + Ettore: No dai, è un tipo mediocre.
-                Zeca: Uh, mi stupisci.
+                Zeca: <hesitate>Uh, mi stupisci.
                 Zeca: Pensavo l'avresti difeso o che.
                 Zeca: Pensavo avresti detto che è una persona gentile e affettuosa.
                 Zeca: Son contento che tu non abbia il paraocchi.
                 Zeca: PERO'. PERO'. 
-                Zeca: Gli voglio bene, sia chiaro!
+                Zeca: <joy>Gli voglio bene, sia chiaro!</joy>
                 Zeca: Ma è così pesante.
                 Zeca: Così pesante!
             + Ettore: Se ci prova ancora, urlo.
@@ -456,7 +457,7 @@ Opzioni di dialogo con la persona Zeca
                 Zeca: Dio, quella è disperata!
                 Zeca: Pensa che sta sempre in casa di Elia.
                 Zeca: Per le pulizie, dice.
-                Zeca: Certo, per pulirgli con la linga la banana.
+                Zeca: Certo, <rage>per pulirgli con la lingua la banana.</rage>
                 Zeca: Non so se mi sono spiegata.
                 Zeca: Aspetta che ti faccio il gesto.
             -    
@@ -471,12 +472,12 @@ Opzioni di dialogo con la persona Zeca
                 Zeca: Datti ancora un paio di prove e vedrai.
             + Ettore: Antipatica, ma non così tanto da ucciderla.
                 Zeca: Mh, vedremo.
-            + Ettore: Se cadesse dalle scale, insomma, non la fermerei.
-                Zeca: E probabilmente l'avrei spinta io.
+            + Ettore: <joy>Se cadesse dalle scale, insomma, non la fermerei.</joy>
+                Zeca: <joy>E probabilmente l'avrei spinta io.</joy>
             -
         Zeca: E infine, cosa ne pensi di me? Sincero, zero complimenti.
              + Ettore: Che meno ti devo parlare meglio è.
-                Zeca: Ah, è facile: non ti parlo più, così stai bene, stronzetta.
+                Zeca: Ah, è facile: non ti parlo più, così stai bene, <joy>stronzetta.</joy>
                     ~ loopableVariables += pausaRapportoZeca
                 -> advance_time ->
                 -> intro

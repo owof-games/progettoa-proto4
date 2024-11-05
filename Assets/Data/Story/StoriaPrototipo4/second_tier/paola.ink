@@ -28,7 +28,7 @@ Opzioni di dialogo con la persona Paola
         Paola: Gente che tira parole a caso perché non ricorda uno script basilare?
         Paola: Il mio reflusso che spacca più del solito e mi sento mancare l'aria?
         Paola: Ah no, queste son cose normali quando lavori con dei deficienti.
-        Paola: Dei mentecatti.
+        Paola: <rage>Dei mentecatti.</rage>
         Paola: Gente a cui dovrebbero strappare ovaie e testicoli perché non si riproducano.
         Paola: L'unica cosa strana qui è che abbia ancora voglia di vivere.
             -> advance_time ->
@@ -76,7 +76,7 @@ Opzioni di dialogo con la persona Paola
         Paola: Beh, nella stanza gialla Matteo e Zeca si sono urlati contro come se ne andasse dell'intero universo.
         Paola: O come due gatte in calore.
         - -(allestimento) Paola: E Matteo è uscito piangendo.
-        Paola: Sinceramente? Mi masturberò sull'immagine di quella faccina disperata stasera.
+        Paola: Sinceramente? <joy>Mi masturberò sull'immagine di quella faccina disperata stasera.</joy>
         Paola: L'unica cosa decente di questa serata.
         Paola: Già che ci sono potrei andare da Zeca e stuzzicarlo un po' per capire perché hanno litigato.
         Paola: Magari piange anche quella fighetta.
@@ -86,7 +86,7 @@ Opzioni di dialogo con la persona Paola
     
 
     + {liarCallLiarStorylet.indagini}: Ettore: Quindi: qualcuno ha dato tuoi dati personali alla polizia.
-            Paola: Ecco, così mi si deve parlare: fuori dai denti.
+            Paola: Ecco, così mi si deve parlare: <joy>fuori dai denti.</joy>
             Paola: Niente cazzate del cazzo.
             Paola: Come se potessi fare paura.
             Paola: Come se sapere dove vivi, dove vive tua madre e avere la possilibità di ricattare il tuo agente fino al midollo mi rendesse minacciosa.
@@ -110,24 +110,24 @@ Opzioni di dialogo con la persona Paola
             Paola: Come se a mio fratello potesse piacere un frocetto.
             Paola: Anche se è così stupido da non capire la differenza tra due tette e due chiappe.
             Paola: Tra me e me: credo che Elia sia ancora vergine.
-            Paola: Piccola puttanella.
+            Paola: <joy>Piccola puttanella.</joy>
                 -> advance_time ->
 
     + (foto3) {zeca_talking_second_tier.allestimento2 && are_two_entities_together(Paola, Greta)} Ettore: Pa-pa-pa-Paola. Per caso ti sei tipo masturbata nella sala gialla?
-            Paola: Et-et-et-Ettore. Per masturbarmi mi serve una mezz'ora di silenzio.
-            Paola: Un po' di popper.
+            Paola: Ettore. Per masturbarmi mi serve una mezz'ora di silenzio.
+            Paola: E un po' di popper.
             Paola: E il mio amico vibratore.
             Paola: Ma anche quelle tue belle manone potrebbero essere utili.
             Paola: Ma dato che non sei così coglione, chi ti ha messo in testa questa cazzata?
             Ettore: Non voglio creare pro-
-            Paola: DIMMELO!
+            Paola: <cry>DIMMELO!</cry>
                 -> advance_time ->
             Ettore: Zeca.
             Paola: Bravo bimbo.
             Paola: E i bravi bimbi meritano un premio.
             - -(foto) Paola: Se allontani Greta da questa stanza o se passi quando non c'è, ti darò il tuo premio.
             Paola: Un premio che farà felice anche quella merdaccina di Zeca.
-            Paola: Fai il tuo dovere, mio cagnolino.
+            Paola: Fai il tuo dovere, <joy>mio cagnolino.</joy>
                 -> advance_time ->
 
     + (foto2) {greta_talking_second_tier.foto2 && not are_two_entities_together(Paola, Greta)} Ettore: Siamo soli, hai qualcosa per me?
@@ -163,11 +163,11 @@ Opzioni di dialogo con la persona Paola
             -> advance_time ->
     
     + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)}Ettore: Che, uhm, che sai di questa bottiglia?
-        Paola: Amo da morire questo vino.
+        Paola: <joy>Amo da morire questo vino.</joy>
         Paola: E che per questo spero ce ne siano almeno altre tre bottiglie da qualche parte.
     
     + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Ho trovato questo.
-        Paola: Oh, grazie al cielo!
+        Paola: <joy>Oh, grazie al cielo!</joy>
         Paola: Non sapevo più dove diavolo fosse finito.
         Paola: Tra polvere e muffa in questo posto, senza potrei morire.
             ~ inventoryContents -= FlaconcinoAsma
@@ -226,16 +226,16 @@ Opzioni di dialogo con la persona Paola
     Paola: Un lusso che non posso permettermi, Ettore.
     Paola: E quindi l'unica cosa che mi rimane e prendere tutti a calci.
     Paola: E sai qual è la cosa dolorosa?
-    Paola: Che mi piace.
+    Paola: <joy>Che mi piace.</joy>
         -> advance_time ->
-    Paola: Mi piace umiliarvi.
+    Paola: <joy>Mi piace umiliarvi.</joy>
     Paola: Mi piace vedervi diventare piccoli davanti al mio odio.
-    Paola: Licenziarvi solo perché posso.
+    Paola: <joy>Licenziarvi solo perché posso.v
     Paola: Sapere che perderete casa solo perché esisto.
     Paola: Ed è una cosa terribile perché non posso manco passare per quella che è stronza perché lo chiede la società.
     Paola: Ne ho incontrate molte, Ettore. Pecore nel corpo di manager pseudodominanti.
     Paola: Ma io non sono come loro.
-    Paola: Io vivo del vostro sangue.
+    Paola: <joy>Io vivo del vostro sangue.</joy>
             -> advance_time ->
         -> paola_talking_second_tier
 
@@ -243,26 +243,26 @@ Opzioni di dialogo con la persona Paola
  ~ PaolaTalking++
         Paola: I poveri hanno perso la lotta di classe, l'hanno persa quando li abbiamo convinti che fosse roba del passato.
         Paola: Risolta con la fast fashion e la celebrità social.
-        Paola: Ma il tuo piccolo cervellino proletario non può capire quello che sto dicendo vero EttorAAAAAAA!
-        Paola: Non voglio morire non voglio morire non voglio morire non voglio.
+        Paola: Ma il tuo piccolo cervellino proletario non può capire quello che sto dicendo vero <cry>EttorAAAAAAA!</cry>
+        Paola: <cry>Non voglio morire non voglio morire non voglio morire non voglio.</cry>
         Ettore: Come, scusa?!?
-        Paola: L'aria manca, presto saremo cenere.
-        Paola: Lei attende silente nell'ombra.
-        Paola: AAAAAAAAAAAAAAAAAAAA!
+        Paola: <cry>L'aria manca, presto saremo cenere.</cry>
+        Paola: <cry>Lei attende silente nell'ombra.</cry>
+        Paola: <cry>AAAAAAAAAAAAAAAAAAAA!</cry>
                 -> advance_time ->
-        Paola: Mi urla nelle orecchie.
-        Paola: Mi dice che merito di soffrire in eterno.
-        Paola: Per le armi che ho finanziato.
-        Paola: Per il corpo di suo figlio carbonizzato sulla spiaggia.
-        Paola: Per il mare tormentato dal suo eterno dolore.
-        Paola: "Terrore sei e terrore tornerai".
+        Paola: <fear>Mi urla nelle orecchie.</fear>
+        Paola: <fear>Mi dice che merito di soffrire in eterno.</fear>
+        Paola: <fear>Per le armi che ho finanziato.</fear>
+        Paola: <fear>Per il corpo di suo figlio carbonizzato sulla spiaggia.</fear>
+        Paola: <fear>Per il mare tormentato dal suo eterno dolore.</fear>
+        Paola: <fear>"Terrore sei e terrore tornerai".</fear>
         Paola: Toglimela dalla testa Ettore.
-        Paola: TI HO DETTO DI
+        Paola: <rage>TI<waitrage> HO<waitrage> DETTO<waitrage> DI</rage> 
             -> advance_time ->
-        Paola: TOGLIMELA
-        Paola: DALLA
-        Paola: TESTA!!!
-        Paola: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARGH!
+        Paola: <rage>TOGLIMELA</rage> 
+        Paola: <rage>DALLA</rage> 
+        Paola: <rage>TESTA!!!</rage> 
+        Paola: <cry>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARGH!</cry>
         Ettore: Paola?
         Paola: ...
         Paola: Già. Vai a condividere il tuo giornalino comunista su Instagram, vai bimbo.

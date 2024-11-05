@@ -28,3 +28,4 @@
 //titubanza: <hesitate>
 //spavento/paura: <fear> </fear>
 //rabbia: <rage>  <waitrage>  <waitrage>  </rage>
+//DUE EMOZIONI COMODE PER IL FUTURO, più di titubanza: tristezza e confusione. Sarcasmo?

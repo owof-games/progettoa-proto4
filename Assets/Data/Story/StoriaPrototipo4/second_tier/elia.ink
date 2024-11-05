@@ -24,7 +24,7 @@ Opzioni di dialogo con la persona Elia
 
     + (loop) {new_this_loop(->loop)} Ettore: Elia, non stai notando nulla di strano?
         Elia: In effetti, sì.
-        Ettore: Oh, allora non sto perdendo la testa!
+        Ettore: <fear>Oh, allora non sto perdendo la testa!</fear>
         Elia: No no, lo sto notando anche io.
         Elia: Fino a stamani, sollevavo tranquillo quel tavolo.
         Elia: Ora ci metto circa due secondi in più.
@@ -39,13 +39,13 @@ Opzioni di dialogo con la persona Elia
 
 
     + (omicidio) {new_this_loop(->omicidio)} Ettore: Conosci qualcuno che vorrebbe far male a Paola?
-        Elia: Uh, spero non i tizi delle piramidi, vero?
+        Elia: <fear>Uh, spero non i tizi delle piramidi, vero?</fear>
         Elia: O le lontre giganti.
-        Elia: Naa, loro sono molto tenere.
+        Elia: <joy>Naa, loro sono molto tenere.</joy>
         Elia: Paola vorrebbe fare del male a me, ogni tanto.
         Elia: Ma quello succede spesso.
         Elia: Tu però sei gentile con me.
-        Elia: Mi fai due grattini?
+        Elia: <joy>Mi fai due grattini?</joy>
             -> advance_time ->
                         {
             - currentTime >= 600:
@@ -59,10 +59,10 @@ Opzioni di dialogo con la persona Elia
                 Elia: No. No. No.
                 Elia: Lui è il mio socio d'affari, e gli affari si puliscono sempre in famiglia assieme all'acqua del bambino e la ciotola del cane.
                 Elia: Lo dice sempre Paola.
-                Elia: Oh. Ma forse sono io il cane?
+                Elia: Oh. <hesitate>Ma forse sono io il cane?
                 Elia: O la ciotola?
                 Elia: Devo trovare Zeca!
-                Elia: E tu stammi lontano!
+                Elia: <cry>E tu stammi lontano!</cry>
                 ~ move_first_entity_to_second_entity_location(Elia,Zeca)
                 ~ loopableVariables += EliaSpaventatoPerZeca
                 ~ loopableVariables += pausaRapportoElia
@@ -77,7 +77,7 @@ Opzioni di dialogo con la persona Elia
 
     //SCELTE CONDIZIONALI//
     + (indagini2) {greta_talking_second_tier.indagini && not are_two_entities_together(Elia, Zeca)} Ettore: Elia, sapevi che Paola vuole estrometterti dalla Londar?
-        Elia: Estroflettermi?
+        Elia: <hesitate>Estroflettermi?
         Ettore: Cacciarti.
         Ettore: Rimanere l'unica responsabile.
         Elia: Non ti credo.
@@ -90,8 +90,8 @@ Opzioni di dialogo con la persona Elia
            
             + + {zeca_talking_second_tier.love4} Ettore: ZECAAAAAAA!
                 ~ move_first_entity_to_second_entity_location(Elia,Zeca)
-                Zeca: Elia, abbassa la musica, va tutto bene.
-                Elia abbassa la musica.
+                Zeca: <cry>Elia, abbassa la musica, va tutto bene.</cry>
+                TODO: come facciamo spegnere o accendere la musica?
                 Elia: Paola, Paola mi vuole cacciare dall'azienda.
                 Elia: Come se fossi un cerbiatto.
                 Elia: Come se fossi Bambi.
@@ -160,7 +160,7 @@ Opzioni di dialogo con la persona Elia
                 Elia: Mai fatto sesso.
                 Ettore: Mai.
                 Elia: Mai ora.
-                Elia: Mai adesso.
+                Elia: <hesitate>Mai adesso.
                 Elia: Ero a chiamare con Greta.
                     -> advance_time -> 
                         -> elia_talking_second_tier
@@ -185,9 +185,9 @@ Opzioni di dialogo con la persona Elia
         Elia: Vuol dire che potrei essere un'altra persona?
         Ettore: Beh, credo tu sia ricco abbastanza per farlo ma...
         Elia: Voglio essere Jhonny Deep.
-        Elia: Anzi: Ronaldo.
-        Elia: Anzi: BoJack!
-        Elia: Così posso fare il cavallo con Zeca!
+        Elia: Anzi: Cristiano Ronaldo.
+        Elia: <cry>Anzi: BoJack!</cry>
+        Elia: <joy>Così posso fare il cavallo con Zeca!</joy>
              -> advance_time ->
                                      {
             - currentTime >= 600:
@@ -197,7 +197,7 @@ Opzioni di dialogo con la persona Elia
         Ettore: Non è quello che intendevano, Elia!
         Ettore: Matteo ha detto a Zeca di non parlarti più, di lasciare il progetto.
         Ettore: Dice che farai solo stare male Zeca.
-        Elia: Ah. Uh. Ih.
+        Elia: <hesitate> Ah. Uh. Ih.
         Elia: Ah.
         Elia: Sto facendo del male a Zeca secondo te?
             + Ettore: Forse lui spera che tu possa amarlo?
@@ -214,7 +214,7 @@ Opzioni di dialogo con la persona Elia
 
             }
         Elia: Questa cosa da Matteo non me la credevo comunque.
-        Elia: Io sono stato un sacco zitto per Matteo.
+        Elia: <rage>Io<waitrage> sono<waitrage> stato<waitrage> un<waitrage> sacco<waitrage> zitto<waitrage> per<waitrage> Matteo.</rage>
         Elia: Non con Matteo, perché parlo molto, ma per Matteo, sì.
         Elia: Allora ti dico un segreto: Greta ha dato a Matteo molte informazioni sui conti dell'azienda.
         - (indagini) Elia: Vuole aiutarlo con questa cosa del sindicato, così che Matteo possa sindicare meglio sindicando Paola e venendo sindicato dai colleghi del sindicato.
@@ -264,7 +264,7 @@ Opzioni di dialogo con la persona Elia
             Elia: E l'idea di concetto.
             Elia: E di concerto.
             Elia: E..
-            Ettore: Vado, vado, vado!
+            Ettore: <cry>Vado, vado, vado!</cry>
                 -> advance_time -> 
     
     + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Sai di chi sia questo flaconcino?
@@ -277,7 +277,7 @@ Opzioni di dialogo con la persona Elia
             Elia: Che non fa crescere i bambini.
             Elia: Che se Paola me la tira sul naso mi diventa tutto rosso.
             Elia: Una volta l'ha fatto tutto un pomeriggio.
-            Elia: Faceva male, ma rideva e non volevo andare via e renderla triste.
+            Elia: Faceva male, <joy>ma rideva e non volevo andare via e renderla triste.</joy>
                 -> advance_time -> 
     
      + (fotografia) {inventoryContents has Foto && new_this_loop(->fotografia)} Ettore: Guarda questa foto.
@@ -333,12 +333,12 @@ Opzioni di dialogo con la persona Elia
             }
     Elia: E poi sono legato a Zeca, un po' per BRO, perché quel notaio ci ha annotati assieme.
     Elia: E un po' perché per tutti e due la cosa preferita è passare le sere assieme.
-    Elia: Io gioco a Mario Kart mentre lui mi massaggia.
+    Elia: Io gioco a Mario Kart mentre lui <joy>mi massaggia.</joy>
     Elia: E me piacciono i massaggi, per cui siamo legatissimi così.
     Elia: E Matteo è legato a me perché mi fa le pulizie a casa.
     Elia: E quindi vede un sacco di cose che gli altri non vedono.
     Elia: Come la mia collezione di barrette energetiche e i campioncini di funghi della palestra.
-    Elia: Però non so molto di Matteo a dire il vero.
+    Elia: <hesitate>Però non so molto di Matteo a dire il vero.
         -> advance_time ->
                                 {
             - currentTime >= 600:
@@ -348,9 +348,9 @@ Opzioni di dialogo con la persona Elia
     Elia: Ma quella di cui so meno è Greta.
     Elia: Però siamo legati da una cosa grossa grossa.
     Elia: Siamo tutti e due organi.
-    Elia: Io ho perso i miei genitori al supermercato, e non li ho più trovati.
+    Elia: Io ho perso i miei genitori al supermercato, <fear>e non li ho più trovati.</fear>
     Elia: Lei invece in un incidente: sono caduti da un balcone, legati.
-    Elia: E pensa che è accaduto nella Londar! Quindi siamo ancora più legati.
+    Elia: <cry>E pensa che è accaduto nella Londar!</cry> Quindi siamo ancora più legati.
     Elia: Ma non capisco come possano averli persi dopo essere caduti e legati da così in alto.
     Elia: E sono sicuro che entro fine serata saremo anche noi legati!!!
         -> advance_time ->     
@@ -371,7 +371,7 @@ Opzioni di dialogo con la persona Elia
 
 = third_qn
 ~ EliaTalking++
-    Elia: Centoooooo!
+    Elia: <cry>Centoooooo!</cry>
     Elia: Ormai è un record personale!
     Ettore: Di cosa?
     Elia: Di fiato trattenuto.
@@ -464,7 +464,7 @@ Opzioni di dialogo con la persona Elia
         Elia: E la cosa è che dovevo comprare delle macchine fotografiche.
         Elia: E poi rivenderle a altre piramidi per fare una piramide più grande.
         Elia: E a quel punto avrei guadagnato un sacco.
-        Elia: Un sacco di soldi, non di piramidi.
+        Elia: <joy>Un sacco di soldi</joy>, non di piramidi.
             -> advance_time ->
                                     {
             - currentTime >= 600:
@@ -473,10 +473,10 @@ Opzioni di dialogo con la persona Elia
             }
         Elia: Ma devo aver fatto confusione perché ho iniziato a comprare macchine, autonomobili.
         Elia: E a venderle alle fotografie.
-        Elia: Che però hanno le idee poco chiare su cosa siano i soldi.
+        Elia: <hesitate>Che però hanno le idee poco chiare su cosa siano i soldi.
         Elia: E quindi mi sentivo in colpa a insistere e gliele ho regalate, le macchine.
         Elia: E per recuperare un po' di dignità ho iniziato a fare una piramide di fotografie.
-        Elia: Ma quelli dell'altra piramide erano arrabbiati.
+        Elia: Ma quelli dell'altra piramide erano <fear>arrabbiati.</fear>
         Elia: E poi è arrivata la polizia a dirmi che ho fatto reato di occupazione di suolo pubblico.
         Elia: Ma io ho occupato una statua, per cui non tocca il suolo.
             -> advance_time ->
@@ -486,7 +486,7 @@ Opzioni di dialogo con la persona Elia
 
             }
         Elia: Ma mentre che discutevamo di questa cosa è arrivato un gruppo di lontre giganti.
-        Elia: Ero un po' perplesso ma sono state molto carine.
+        Elia: Ero un po' perplesso ma sono state <joy>molto carine.</joy>
         Elia: E hanno iniziato a montare luci, telecamere, e a fare cose.
         Elia: Non ho ben capito, ma si stavano divertendo e gli ho lasciati lontrellare.
         Elia: E altre persone hanno iniziato a portare altre foto, foto con un sacco di animali giganti.
@@ -501,9 +501,9 @@ Opzioni di dialogo con la persona Elia
             }
         Elia: E ho dato ai tizi delle piramidi il suo numero, ma lei non era contenta.
         Elia: E ora quelli delle piramidi mi dicono che mi lasceranno in mutande.
-        Elia: Paola mi dice che mi mi lascerà in mutande.
-        Elia: Le lontre giganti mi dicono che mi lasceranno in mutande.
-        Elia: Tranne quella con la frusta. Quella dice che me le toglierà.
+        Elia: <fear>Paola mi dice che mi lascerà in mutande.</fear>
+        Elia: <joy>Le lontre giganti mi dicono che mi lasceranno in mutande.</joy>
+        Elia: <hesitate>Tranne quella con la frusta. Quella dice che me le toglierà.
         Elia: E io non so cosa fare.
         Elia: Zeca dice che può mettermi in contatto con la mafia gay.
         Elia: Forse sanno dove parcheggiare le sei Maserati che ho preso per le fotografie.

@@ -42,7 +42,7 @@ VARIABLES FOR STORY TRACKING
 //TRACKING DEL PUZZLE FINALE
 VAR relationshipDiscovered = false
 
-//TRACKING DIALOGO PG
+//GESTIONE DEGLI STATUS DIALOGATIVI O MENO DEI PERSONAGGI
 VAR EliaActing = 0
 VAR PaolaActing = 0
 VAR GretaActing = 0
@@ -68,3 +68,10 @@ VAR gretaHaLaLettera = false
 // variabili degli storylet
 VAR paolaPausa = -1
 VAR sheIsTheBest = -1
+
+//VARIABILI PER MONITORARE SE LE PERSONAGGE STANNO PARLANDO E NON FARLE SPOSTARE
+VAR EliaInConversazione = false
+VAR PaolaInConversazione = false
+VAR GretaInConversazione = false
+VAR ZecaInConversazione = false
+VAR MatteoInConversazione = false

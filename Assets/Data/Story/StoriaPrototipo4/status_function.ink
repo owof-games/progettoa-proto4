@@ -1,5 +1,9 @@
 // variables containing the state of various objects
 LIST paolaState = (Live), Unalived
+LIST gretaState = (Live), Unalived
+LIST matteoState = (Live), Unalived
+LIST eliaState = (Live), Unalived
+LIST zecaState = (Live), Unalived
 
 
 /*
@@ -12,12 +16,24 @@ LIST paolaState = (Live), Unalived
 === function get_status(entity)
 { entity:
     - Paola:
-        ~ return paolaState  
+        ~ return paolaState
+        
+    - Greta:
+        ~ return gretaState 
+        
+    - Matteo:
+        ~ return matteoState 
+        
+    - Elia:
+        ~ return eliaState 
+        
+    - Zeca:
+        ~ return zecaState 
+        
     - else:
         DEBUG: error, entity {entity} has no state
         ~ return 0
 }
-
 /*
  * Change the status of an entity (object or character).
  * e.g.:
@@ -29,11 +45,23 @@ LIST paolaState = (Live), Unalived
 { entity:
     - Paola:
         ~ _change_status_inner(entity, new_status, paolaState)
+
+    - Greta:
+        ~ _change_status_inner(entity, new_status, paolaState)
+
+    - Matteo:
+        ~ _change_status_inner(entity, new_status, paolaState)
+
+    - Elia:
+        ~ _change_status_inner(entity, new_status, paolaState)
+
+    - Zeca:
+        ~ _change_status_inner(entity, new_status, paolaState)
+    
     - else:
         DEBUG: error, entity {entity} has no state
         ~ return 0
 }
-
 === function _change_status_inner(entity, new_status, ref status_lst)
 { LIST_ALL(status_lst) has new_status:
     ~ status_lst = new_status

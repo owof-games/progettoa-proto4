@@ -108,7 +108,7 @@
             -
         Paola: Bene! Ora che ci siamo tutti, possiamo anche brindare al motivo per cui siamo qui!
         Elia: Sapete che oggi ho finalmente aperto la porta dal lato giusto?
-        Elia: Nessun livido, <joy>guardate!</joy>!
+        Elia: Nessun livido, <joy>guardate!</joy>
             -> advance_time ->
         Greta: Questo è un buon motivo per festeggiare in effetti.
         Matteo: Nessuno ha detto che dobbiamo festeggiare.
@@ -132,7 +132,7 @@
             ~ move_this_entity_in_a_different_room(Matteo)
         Zeca: E io ne approfitto per scappare.
             ~ move_this_entity_in_a_different_room(Zeca)
-        Elia: Beh, a questo punto me ne vado anche io!    
+        Elia: Ne approfitto per fare due flessioni di là.
             ~ move_this_entity_in_a_different_room(Elia)
             + Ettore: Bella festa, davvero. Grazie.
             + Ettore: Boh, a questo punto me ne vado anche io.
@@ -416,7 +416,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
             Matteo: Sii la firma sul <joy>mio</joy> accordo prematrimoniale.
             Matteo: La  <joy>mia</joy> exit strategy.
             Matteo: Vieni a vivere con me.
-            Matteo: Ettore, sei il miglior pacchetto azionario della mia vita,  <joy>sposami</joy>!
+            Matteo: Ettore, sei il miglior pacchetto azionario della mia vita,  <joy>sposami!</joy>
             Ettore: Oh sì, sì, sì! Accetto!
             Matteo: Oh, sono così felice Ettore!
             Matteo: Ti va di fare quella fusione, ora?
@@ -615,7 +615,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Paola: Madre santa, che fatica prepararvi per questo pezzo!
             ~ move_first_entity_to_second_entity_location(Greta,Ettore)
         Greta: Cosa ho sbagliato ora?!?
-        Paola: <joy>A nascere</joy>.    
+        Paola: <joy>A nascere.</joy> 
         Paola: Ettore, Ettore. Nel teatro di improvvisazione il ritmo è importante, sono io a dovertelo dire?
             ~ move_first_entity_to_second_entity_location(Elia,Ettore)
             ~ move_first_entity_to_second_entity_location(Zeca,Ettore)

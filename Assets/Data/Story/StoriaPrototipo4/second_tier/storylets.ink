@@ -173,6 +173,9 @@
 === liarCallLiarStorylet
         Zeca: Devi smetterla di fidarti di lei, Elia.
         Zeca: Lo dico per il tuo bene.
+                + {liarCallLiarStorylet > 1} [Ti allontani.]
+                + ->
+                -
         Elia: Ma è mia sorella.
         Elia: Sono sicuro che ci sia una spiegazione.
         Elia: Greta può aiutarmi.
@@ -209,6 +212,9 @@
             ~ inventoryContents -= Foto
             ~ objectStorageContents += Foto
         Zeca: <cry>QUELLA GRANDISSIMA STRONZA!<cry>
+                + {iLlKillThatBitchStorylet > 1} [Ti allontani.]
+                + ->
+                -        
         Zeca: <rage> La uccido, io la uccido!</rage> 
         Zeca: E lui. Lui. Lui.
         Zeca: Io. Io.
@@ -225,6 +231,9 @@
 === forMeHeIsStupidAFStorylet
     Matteo: Non me lo sarei mai aspettato.
     Ettore: Cosa?
+            + {forMeHeIsStupidAFStorylet> 1} [Ti allontani.]
+            + ->
+            - 
     Matteo: Che Elia confessasse i suoi sentimenti a Zeca.
     Ettore: {trueLoveStorylet: Mi sembra una cosa tenera|Non ne sapevo nulla}.
     Matteo: Detto fra me e te: adoro Elia, ma è un coglione.
@@ -256,6 +265,9 @@
 === whisperingSecretsStorylet
         Elia: Sono la ciotola, o sono il cane?
         Zeca: Che stai dicendo?
+            + {whisperingSecretsStorylet> 1} [Ti allontani.]
+            + ->
+            -         
         Elia: Paola, vuoi fare del male a Paola?
         Zeca: Tutti i giorni, Elia.
         Elia: E sono la ciotola o il cane?
@@ -278,6 +290,9 @@
         Zeca: Te lo ripeto: non voglio parlare con te.
         Matteo: Zeca, Paola vuole mettere zizzania tra noi, e per ques-
         Zeca: Per quello basti tu.
+            + {iTryToBeAGoodFriendStorylet> 1} [Ti allontani.]
+            + ->
+            -          
         Matteo: Ma perché non vuoi ascoltarmi?
         Zeca: PERO'. PERO'.
         Zeca: Come se fosse possibile farti stare zitto.
@@ -312,6 +327,9 @@
 === liesAndPromisesStorylet
     Greta: Dimmelo di nuovo, ti prego.
     Elia: Era una cosa sbagliata?
+            + {liesAndPromisesStorylet> 1} [Ti allontani.]
+            + ->
+            -     
     Elia: Sbaglio tutto io, scusa.
     Greta: No no no, ridimmela perché è un cosa bella.
     - (promise)Elia: Ti amo, Greta.
@@ -325,6 +343,9 @@
 === trueLoveStorylet
         Zeca: No, non ti dico come lo so.
         Zeca: Quindi, ti scopi quella?
+            + {trueLoveStorylet> 1} [Ti allontani.]
+            + ->
+            -           
         Zeca: La ami?
         Elia: No. Ma sai come faccio.
         Elia: Mi fanno i grattini, vado su di giri e poi accadono cose.
@@ -367,6 +388,9 @@
 === notABigSecretPartOneStorylet
         Matteo: Uh, ehi, ciao Ettore.
         Matteo: Mi hai colto di sorpresa.
+            + {notABigSecretPartOneStorylet> 1} [Ti allontani.]
+            + ->
+            -           
         Ettore: Tutto ok?
         Matteo: Sì, sì. Stavo solo sistemando due cose.
         Matteo: Rimasugli del buffet di prima.
@@ -391,6 +415,9 @@
 === notABigSecretPartTwoStorylet
         Elia: Non le trovo!
         Ettore: Cosa?
+            + {notABigSecretPartTwoStorylet> 1} [Ti allontani.]
+            + ->
+            -          
         Elia: Eh, se lo trovassi saprei cosa.
         Ettore: Ma stai cercando qualcosa, giusto?
         Elia: Esatto, ma non le trovo.

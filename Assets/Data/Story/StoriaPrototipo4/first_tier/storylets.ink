@@ -380,7 +380,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
         Matteo: Dio, quanto sei bello, te l'ho mai detto?
         Ettore: Mai abbastanza, cucciolone.
         Matteo: E sai, c'è una cosa che vorrei dirti da un bel po'.
-        Matteo: Hai presente che ho fatto ristrutturare l'ala a nord del castello?
+        Matteo: Hai presente che ho fatto ristrutturare l'ala nord del castello?
         Matteo: Pensavo di metterci qualcosa di importante.
         Ettore: Un altro dei tuoi cavalli?
         Matteo: No, qualcosa di più importante.
@@ -395,7 +395,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
             Matteo: Ah, son così un disastro con queste cose, amore.
             Matteo: Posso provare a dirtelo in imprenditorese?
             Ettore: Ma certo, tesoro.
-            Matteo: Stavo pensando a una  <joy>fusione</joy> tra le nostre società.
+            Matteo: Stavo pensando a una <joy>fusione</joy> tra le nostre società.
             Ettore: Qui, ora? Con tua sorella morta?
             Matteo: Beh, non era esattamente quella la proposta, ma ora che mi ci fai pensare.
             Ettore: Chiudi quei pantaloni, amore. A casa poi ci si fonde per bene.
@@ -411,12 +411,12 @@ PS: ricordarsi di resettare la variabile al reset_loop
                 + (matteoSiSposa) Ettore: Va tutto bene amore, davvero!
                 + (matteoSiSposa2) Ettore: Siamo in due
                 -
-            Matteo: Sii il  <joy>mio</joy> direttore commerciale.
-            Matteo: Sii la  <joy>mia</joy> subholding.
+            Matteo: Sii il <joy>mio</joy> direttore commerciale.
+            Matteo: Sii la <joy>mia</joy> subholding.
             Matteo: Sii la firma sul <joy>mio</joy> accordo prematrimoniale.
-            Matteo: La  <joy>mia</joy> exit strategy.
+            Matteo: La <joy>mia</joy> exit strategy.
             Matteo: Vieni a vivere con me.
-            Matteo: Ettore, sei il miglior pacchetto azionario della mia vita,  <joy>sposami!</joy>
+            Matteo: Ettore, sei il miglior pacchetto azionario della mia vita, <joy>sposami!</joy>
             Ettore: Oh sì, sì, sì! Accetto!
             Matteo: Oh, sono così felice Ettore!
             Matteo: Ti va di fare quella fusione, ora?
@@ -441,7 +441,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
 === worstBestManStorylet
 {debug: <i>Passo per worstBestMate</i>}
     Zeca: Mio nuovo giovane amico, che bello rivederti.
-    {new_this_loop(->zeca_acting.rapportoPaola): Zeca: Forse adesso è un buon momento per rispondere alla tua domanda di prima.}
+    {not new_this_loop(->zeca_acting.rapportoPaola): Zeca: Forse adesso è un buon momento per rispondere alla tua domanda di prima.}
     Zeca: La vita sa essere crudele, sai?
     Zeca: Continuo a pensare a come eravamo io e Paola, da piccoli.
     Zeca: Hai mai avuto qualcuno che sembrava leggerti nel pensiero?
@@ -586,10 +586,10 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
             ~ activeNotebook = true
             ~ move_first_entity_to_second_entity_location(Elia,Ettore)
             ~ move_first_entity_to_second_entity_location(Zeca,Ettore)
-        Paola: Il taccuino è fondamentale: tiene traccia degli elementi fondamentali per l'investigazione.
+        Paola: Il taccuino è fondamentale: tiene traccia degli elementi centrali per l'investigazione.
         Paola: Ma presta attenzione: molte verità si capiscono solo prestando attenzione anche a cose che sul taccuino non ci sono.
             ~ move_first_entity_to_second_entity_location(Matteo,Ettore)
-        Paola: E saranno fondamentali per risolvere le contraddizioni.
+        Paola: E saranno indispensabili per risolvere le contraddizioni.
             -> advance_time ->
         Ettore: Contraddizioni?
         Paola: Ci sono un sacco di cose che non tornano in quel che dicono gli altri personaggi.

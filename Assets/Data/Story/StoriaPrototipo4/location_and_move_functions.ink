@@ -37,12 +37,10 @@ VAR destinationEntityToMove2 = ()
 { inConversazione has entity:
     {
     - not entityToMove1:
-        [salvo spostamento di {entity} in {destination} in variabile 1]
         ~ entityToMove1 = entity
         ~ destinationEntityToMove1 = destination
         ~ return
     - not entityToMove2:
-        [salvo spostamento di {entity} in {destination} in variabile 2]
         ~ entityToMove2 = entity
         ~ destinationEntityToMove2 = destination
         ~ return
@@ -51,7 +49,6 @@ VAR destinationEntityToMove2 = ()
         ~ return
     }
 }
-<i>{entity} si sposta in {destination}</i>
 {debug: <i>Passo per function move_entity</i>}
 ~ temp CurrentLocation = entity_location(entity)
 {CurrentLocation:

@@ -4,7 +4,6 @@ LIST gretaState = (GretaLive), GretaUnalived
 LIST matteoState = (MatteoLive), MatteoUnalived
 LIST eliaState = (EliaLive), EliaUnalived
 LIST zecaState = (ZecaLive), ZecaUnalived
-TODO: ho dovuto mettere delle variazioni Live, Unalived perché sennò chiamando la funzione mi diceva che il valore era ambiguo, ma non credo sia una buona soluzione XD
 
 /*
  * Get the current status of an entity (object or character).

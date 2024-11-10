@@ -69,9 +69,5 @@ VAR gretaHaLaLettera = false
 VAR paolaPausa = -1
 VAR sheIsTheBest = -1
 
-//VARIABILI PER MONITORARE SE LE PERSONAGGE STANNO PARLANDO E NON FARLE SPOSTARE
-VAR EliaInConversazione = false
-VAR PaolaInConversazione = false
-VAR GretaInConversazione = false
-VAR ZecaInConversazione = false
-VAR MatteoInConversazione = false
+//VARIABILE PER MONITORARE SE LE PERSONAGGE STANNO PARLANDO E NON FARLE SPOSTARE
+VAR inConversazione = ()

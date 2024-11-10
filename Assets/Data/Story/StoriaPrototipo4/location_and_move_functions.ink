@@ -29,7 +29,29 @@
  ~ move_entity(Candle, Hallway)
  ~ move_entity(Greta, WhiteRoom)
 */
+VAR entityToMove1 = ()
+VAR destinationEntityToMove1 = ()
+VAR entityToMove2 = ()
+VAR destinationEntityToMove2 = ()
 === function move_entity(entity, destination)
+{ inConversazione has entity:
+    {
+    - not entityToMove1:
+        [salvo spostamento di {entity} in {destination} in variabile 1]
+        ~ entityToMove1 = entity
+        ~ destinationEntityToMove1 = destination
+        ~ return
+    - not entityToMove2:
+        [salvo spostamento di {entity} in {destination} in variabile 2]
+        ~ entityToMove2 = entity
+        ~ destinationEntityToMove2 = destination
+        ~ return
+    - else:
+        ~ throw_exception("NON HO PIÙ SPAZIO PER SALVARE SPOSTAMENTI")
+        ~ return
+    }
+}
+<i>{entity} si sposta in {destination}</i>
 {debug: <i>Passo per function move_entity</i>}
 ~ temp CurrentLocation = entity_location(entity)
 {CurrentLocation:
@@ -48,18 +70,6 @@
     - else:
         DEBUG: error, cannot understand location {CurrentLocation} while trying to move {entity} out.
 }
-//elemento da aggiungere: se il personaggio X è in una conversazione, non va spostato ora. La sua posizione ipotetica va registrata in una variabile , e in advance time poi si sposta quando il personaggio sarà uscito dal dialogo.
-/* ---------------------------------
-    Ipotetica struttura.
-        ~ temp speakerLocation = destination
-    - MatteoInConversazione == false
-        ~ move_entity(Matteo, speakerLocation)
-        
-        
-   
-
- ----------------------------------*/
-
 
 {destination:
     - Inventory:
@@ -81,6 +91,25 @@
 // if the entity is Ettore, also trigger the room switch animation
 {entity == Ettore:
   @moveTo roomName:{destination}
+}
+
+
+/*
+Se ci sono personaggi che erano bloccati nello spostamento da una conversazione, questa funzione li sposta.
+Marca anche tutti i personaggi come "non più in conversazione".
+Chiamata da "intro".
+*/
+=== function move_locked_entities()
+~ inConversazione = ()
+{ entityToMove1:
+    ~ move_entity(entityToMove1, destinationEntityToMove1)
+    ~ entityToMove1 = ()
+    ~ destinationEntityToMove1 = ()
+}
+{ entityToMove2:
+    ~ move_entity(entityToMove2, destinationEntityToMove2)
+    ~ entityToMove2 = ()
+    ~ destinationEntityToMove2 = ()
 }
 
 

@@ -212,8 +212,6 @@
 //CONVERSAZIONI ORIGLIATE
 
 === anEavesdropAboutFriendshipStorylet
-    ~ EliaInConversazione = true
-    ~ GretaInConversazione = true
 {debug: <i>Passo per anEavesdropAboutFriendshipStorylet</i>}
         Elia: <fear>Quindi ora vuoi uccidermi?</fear> 
         Greta: Ucciderti?
@@ -242,8 +240,6 @@
             Greta: Non ne hai idea. E per questo ora non voglio rivivere quel trauma.
             Greta: Non posso aver contatto con altri senzatetto puzzolenti, mi capisci Elia, vero?
             Elia: Io. No, ma sarò sempre dalla tua parte Greta, promesso!
-                ~ EliaInConversazione = false
-                ~ GretaInConversazione = false
                     -> advance_time ->
                 -> intro
 
@@ -252,8 +248,6 @@
         -> advance_time ->
             Greta: Ma ovvio che tu sei lì a raccontare i cazzi tuoi e entra qualcun altro.
             Greta: Scusa Elia, ne riparliamo in un altro momento.
-            ~ EliaInConversazione = false
-            ~ GretaInConversazione = false
         -> intro
 
 
@@ -395,8 +389,8 @@ PS: ricordarsi di resettare la variabile al reset_loop
 
 
 === marryMeStorylet
+~ inConversazione += Matteo
 {debug: <i>Passo per marryMe</i>}
-        ~ MatteoInConversazione = true
         Matteo: <joy>Finalmente soli, amore.</joy>
         Matteo: Dio, quanto sei bello, te l'ho mai detto?
             + {marryMeStorylet > 1} [Ti allontani.]
@@ -445,7 +439,6 @@ PS: ricordarsi di resettare la variabile al reset_loop
             Matteo: Oh, sono così felice Ettore!
             Matteo: Ti va di fare quella fusione, ora?
             Ettore: Chiudi i pantaloni, futuro marito.
-            ~ MatteoInConversazione = false
                      -> advance_time ->
                 -> intro
      
@@ -457,7 +450,6 @@ PS: ricordarsi di resettare la variabile al reset_loop
         Matteo: Come sanno le altre persone in questa stanza, non si scopa nel raggio di dieci metri da un cadavere.
         Ettore: Ma io! Ma tu!
         Matteo: Me ne vado, così ti lascio ripensare a modo alla tua idea di moralità, Ettore.
-            ~ MatteoInConversazione = false
             ~ move_this_entity_in_a_different_room(Matteo)
         -> intro
 

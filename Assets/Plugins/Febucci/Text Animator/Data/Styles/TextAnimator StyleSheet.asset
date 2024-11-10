@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   styles:
   - styleTag: joy
-    openingTag: "<wiggle a=0.1><rainb>\t"
+    openingTag: <wiggle a=0.1><rainb>
     closingTag: </rainb></wiggle>
   - styleTag: hesitate
     openingTag: <waitfor=1>

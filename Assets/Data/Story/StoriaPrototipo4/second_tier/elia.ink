@@ -91,7 +91,7 @@ Opzioni di dialogo con la persona Elia
             + + {zeca_talking_second_tier.love4} Ettore: ZECAAAAAAA!
                 ~ move_first_entity_to_second_entity_location(Elia,Zeca)
                 Zeca: <cry>Elia, abbassa la musica, va tutto bene.</cry>
-                TODO: come facciamo spegnere o accendere la musica?
+                // ~ start_distracting_music("gigi_dag", Elia)
                 Elia: Paola, Paola mi vuole cacciare dall'azienda.
                 Elia: Come se fossi un cerbiatto.
                 Elia: Come se fossi Bambi.

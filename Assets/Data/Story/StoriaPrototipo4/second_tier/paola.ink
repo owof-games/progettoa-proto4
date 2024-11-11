@@ -113,7 +113,7 @@ Opzioni di dialogo con la persona Paola
             Paola: <joy>Piccola puttanella.</joy>
                 -> advance_time ->
 
-    + (foto3) {zeca_talking_second_tier.allestimento2 && are_two_entities_together(Paola, Greta)} Ettore: Pa-pa-pa-Paola. Per caso ti sei tipo masturbata nella sala gialla?
+    + (foto3) {zeca_talking_second_tier.allestimento2 && are_two_entities_together(Paola, Greta)} Ettore: <hesitate>Per caso ti sei tipo masturbata nella sala gialla?
             Paola: Ettore. Per masturbarmi mi serve una mezz'ora di silenzio.
             Paola: E un po' di popper.
             Paola: E il mio amico vibratore.

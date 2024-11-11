@@ -333,7 +333,7 @@ Opzioni di dialogo con la persona Elia
         Ettore: Non mi dare del lei, dammi pure del tu.
         Elia: Ha ragione. Mi scusi, <i>tu</i> ha visto Zeca?
         Elia: Non so dove abbia messo la mia riserva di proteine.
-            + Ettore: Ma quindi usate tutti il nome reale anche nella recita?
+            + Ettore: Ma usate tutti il nome reale anche nella recita?
                 Elia: Sì, è stata una idea di Paola.
                 Elia: Dice che ci spalmiamo meglio nel personaggio così.
             + Ettore: Riserva di proteine? Devi andare in letargo?
@@ -343,7 +343,7 @@ Opzioni di dialogo con la persona Elia
             -> advance_time ->
         Elia: Comunque complimenti per la recita.
         Elia: Quando Paola è schiattata, tu è stato molto credibile!
-            + Ettore: Perché nessuno mi aveva detto che sarebbe morta!
+            + Ettore: [Nessuno mi aveva detto che sarebbe morta!]<cry>Nessuno mi aveva detto che sarebbe morta!</cry>
                 Elia: Ma non è morta, recitava!
                 Ettore: Appunto, ma senza script e con quel sangue ho pensato il peggio!
                 Elia: Se vuole tielo spiego: è un po' come nei film.
@@ -371,7 +371,7 @@ Opzioni di dialogo con la persona Elia
             + Ettore: Non vedo una palestra dal 2024 Avanti Cristo.
                 Elia: Quindi ha conosciuto i dinosauri?
                 Elia: A me piace un sacco la dieta paleo!
-            + Ettore: Perché chiunque va in palestra, ovviamente. Tutto il mondo.
+            + Ettore: Perché chiunque va in palestra, ovviamente.
                 Elia: Beh, sennò cosa fai di tutte quelle ore della giornata?
                 Elia: A parte fare sonnellini di bellezza?
             -    

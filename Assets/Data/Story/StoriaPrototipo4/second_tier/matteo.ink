@@ -78,13 +78,13 @@ Opzioni di dialogo con la persona Matteo
  
             }
             
-            + + (lavoro) {zeca_talking_second_tier.money}Ettore: Da quel che dice Zeca, però, tu Paola la conosci.
+            + + (lavoro) {zeca_talking_second_tier.money}Ettore: Zeca dice che tu Paola la conosci.
                 Ettore: Dice che campi alle spalle sue e di Elia.
                 Matteo: Lavoro per la sua azienda, che è diverso. Ma non ci ho mai avuto a che fare direttamente.
                 Matteo: Però le insinuazioni di Zeca hanno senso: le mie entrate dipendono dal lavoro per lei, e dalle pulizie a casa di Elia.
                 Matteo: Ma mi chiedo: perché tutto questo dovrebbe importarti?
 
-                    + + + (opzioneScarica2) Ettore: Sto cercando di conoscervi meglio, visto che siamo qui.
+                    + + + (opzioneScarica2) Ettore: Sto cercando di conoscervi meglio.
                             Matteo: Allora la prossima volta chiedimi <joy>dove mi piace cenare.</joy>
                             Matteo: <joy>O il colore del mio intimo.</joy>
                                 -> advance_time ->
@@ -117,7 +117,7 @@ Opzioni di dialogo con la persona Matteo
                                 -> advance_time ->
                             -> matteo_talking_second_tier
 
-                    + + + (lavoro2) {phone.sindacato} Ettore: Credo che Paola ti stia minacciando, per via del sindacato.
+                    + + + (lavoro2) {phone.sindacato} Ettore: Credo che Paola ti stia minacciando[.], per via del sindacato.
                           {new_this_loop(->lettera): Ettore: C'è una lettera minatoria, e credo sia scritta da lei.}
                           {not new_this_loop(->lettera): Matteo: Per quella lettera di prima?}
                           Matteo: Sei preoccupato per me?
@@ -160,13 +160,13 @@ Opzioni di dialogo con la persona Matteo
     + {primaContraddizione && secondaContraddizione} [È il momento di fermare l’omicida di Paola!] Ettore: Venite tutti, ho bisogno di parlarvi! -> arringa_finale
 
     //SCELTE CONDIZIONALI//
-    + {matteo_talking_second_tier.lavoro2 && not new_this_loop(->lavoro2)} Ettore: Posso chiederti perché stai tirando su un sindacato alla Londar?
+    + {matteo_talking_second_tier.lavoro2 && not new_this_loop(->lavoro2)} Ettore: Posso chiederti perché hai creato un sindacato alla Londar?
         {
             - are_two_entities_together (Matteo, Paola) or are_two_entities_together (Matteo,Elia) or are_two_entities_together: Matteo: Forse non è il momento adatto ora. Chiedimelo quando siamo soli. -> matteo_talking_second_tier
             - else: -> evilJobStorylet
         }
 
-    + (allestimento) {paola_talking_second_tier.allestimento && new_this_loop(->allestimento)} Ettore: Matteo, Paola dice che tu e Zeca stavate litigando nella stanza gialla prima delle prove.
+    + (allestimento) {paola_talking_second_tier.allestimento && new_this_loop(->allestimento)} Ettore: Paola dice che tu e Zeca avete litigato nella stanza gialla prima delle prove.
         Ettore: E che vuole andare a stuzzicare Zeca per capire il perché.
         Matteo: E chi l'ha vista quella fottuta stanza gialla?!?!
         Matteo: Quella strega! Devo subito trovare Zeca, sai dove possa essere?

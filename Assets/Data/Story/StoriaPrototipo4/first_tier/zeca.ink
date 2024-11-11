@@ -290,7 +290,7 @@ Opzioni di dialogo con la persona Zeca
             + Ettore: Mi godrei la bella amicizia che avete.
                 Zeca: Hai provato a ragionarci, vero?
                 Zeca: Quel ragazzo è sexy solo quando sta in silenzio.
-            + Ettore: Questi sono i momenti in cui benedico di essere aromantico.
+            + Ettore: In questi momenti benedico di essere aromantico.
                 Zeca: Tesò, se vuoi ti faccio un disegno, ma io stavo a parlare di scopà, non di matrimonio.
                 Zeca: Vuoi seriamente che il mio bell'uccello rimanga per sempre in un solo nido?
             -

@@ -264,8 +264,8 @@ Opzioni di dialogo con la persona Greta
         Ettore: Sono confuso in questo momento.
         Greta: Tu sei un attore professionista. Quindi, dimmi: quanto fa schifo questa roba?
                 -> advance_time ->
-            + Ettore: Su una scala che va da Tommy Wiseau a Manuela Arcuri, noi siamo Alberto Tomba.
-            + Ettore: Le blatte sullo sfondo non se la sono cavata male.
+            + Ettore: Dai, livello Alberto Tomba in "Alex l'ariete".
+            + Ettore: Le blatte non se la sono cavata male.
             -
         Greta: Pensi di essere divertente?
         Greta: Paola mi aveva promesso le mie prime ferie da sei anni, se avessi fatto un buon lavoro.

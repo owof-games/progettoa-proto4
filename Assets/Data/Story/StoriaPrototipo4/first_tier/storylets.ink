@@ -89,7 +89,7 @@
         Zeca: Elia, almeno tu mantieni la tua innocenza, ti prego!
             + Ettore: Ehm, ehm. Scusate se vi disturbo.
             + Ettore: Salve a tutti!
-            + Ettore: Non ho alcuna innocenza: chi posso spingere dal grattacielo?
+            + Ettore: Interessante: chi posso spingere dal grattacielo?
             -
         Matteo: <joy>Amore!</joy> Non ti avevo sentito proprio arrivare!
         Matteo: Fratelli, sorella, Greta.
@@ -99,10 +99,10 @@
             + Ettore: Finalmente incontro il famoso Elia!
                 Elia: Famoso? Sono finito su Tik Tok?
                 Greta: No, nel Guinness dei Primati come primo essere umano vivo eppure senza cervello.
-            + Ettore: Tu devi essere Paola! Matteo ti ammira molto.
+            + Ettore: Paola! Matteo ti ammira molto.
                 Paola: Oh, sono sicura che esageri su un sacco di cose, sai?
                 Matteo: Gli parlo di rado di te. A parte a pranzo, cena, letto e durante le preghiere.
-            + Ettore: Vorrei dire di ricordami un solo dei vostri nomi, ma ho scolato un'intera boccia di gin prima di venire qui.
+            + Ettore: Zero memoria dei vostri nomi: ho scolato una boccia di gin prima di venire qui.
                 Greta: Bene Matteo, finalmente ci presenti qualcuno di interessante!
                 Zeca: E almeno abbiamo qualcosa in comune.
             -
@@ -136,7 +136,7 @@
             ~ move_this_entity_in_a_different_room(Elia)
             + Ettore: Bella festa, davvero. Grazie.
             + Ettore: Boh, a questo punto me ne vado anche io.
-            + Ettore: Ma non è che c'è dell'altro vino in giro?
+            + Ettore: C'è dell'altro vino in giro?
             -
             -> advance_time ->
         
@@ -198,8 +198,9 @@
         Elia: Una volte c'è venuta anche Antonella Elia!
         Matteo: No. Ho già prenotato al Superbo Castello dei Conti de Viscontinis.
         Elia: Ma non facciamo mai nulla in famiglia, mai!
-        + (matteoSiSposa) Ettore: Amore, Elia ha ragione. Non è meglio restare in famiglia?
-        + (matteoSiSposa2) Ettore: Elia, ehm, perdonami, ma Matteo mi ha raccontato che avete letteralmente una famiglia stabile di blatte nel pub.
+        + (matteoSiSposa) Ettore: Amore, Elia ha ragione.
+            Ettore: Non è meglio restare in famiglia?
+        + (matteoSiSposa2) Ettore: Elia, ehm, perdonami[...],ma Matteo mi ha raccontato che avete letteralmente una famiglia stabile di blatte nel pub.
         -
             Matteo: Elia, non festeggerò mai il mio matrimonio nel tuo bar triste con la tua insopportabile collega!
             Matteo: Questa è la cosa peggiore che potrebbe capitarmi, ed è il <b>mio</b> matrimonio, capito?!?
@@ -735,7 +736,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         
                     -> advance_time ->
             
-            + Ettore: Scusate, ma la scena della morte non doveva arrivare dopo la cena?
+            + Ettore: Ma non doveva morire dopo cena?
             + Ettore: Greta ha ragione, non ci sto capendo nulla.
             + Ettore: Mmm, avete provato a farle il solletico?
             -

@@ -317,7 +317,7 @@ Opzioni di dialogo con la persona Matteo
         Matteo: E chi ti ha chiesto di fare quella cosa ti ha riempito di complimenti, complimenti che però non andrebbero davvero dati a te.
         Matteo: <hesitate>Quale sarebbe la cosa giusta da fare?    
             -> advance_time ->
-            + Ettore: Quando l'altra persona ha deciso di aiutarti di nascosto, ha accettato il rischio.
+            + Ettore: Chi ha deciso di aiutarti ha accettato le conseguenze.
                 Matteo: Una visione pragmatica.
             + Ettore: Dì a chi ti ha aiutato che i complimenti sono per lei.
                 Matteo: Così li abbiamo entrambi?

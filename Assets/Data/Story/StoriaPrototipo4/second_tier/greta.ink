@@ -34,7 +34,7 @@ Opzioni di dialogo con la persona Greta
             Greta: <fear>E il letto trema.</fear>
                 -> advance_time ->
             
-            + + (dejavu) {matteo_talking_second_tier.loop2} Ettore: In realtà pensavo più a dei loop, e Matteo crede tu sia la persona giusta con cui parlarne.
+            + + (dejavu) {matteo_talking_second_tier.loop2} Ettore: In realtà pensavo più a dei loop[.], e Matteo crede tu sia la persona giusta con cui parlarne.
                     Greta: <joy>So tutto sui loop!</joy>
                     Greta: La mia teoria preferita è che siano seconde possibilità.
                     Greta: Occasioni di non ripetere errori che hai commesso in altri tempi, altre vite.
@@ -107,7 +107,7 @@ Opzioni di dialogo con la persona Greta
                 -> advance_time ->
                  -> greta_talking_second_tier
     
-        + + {elia_talking_second_tier.indagini} Ettore: E che ne pensa Paola delle informazioni che hai passato a Matteo?
+        + + {elia_talking_second_tier.indagini} Ettore: Paola sa già che hai passato info segrete a Matteo?
             Greta: Quali informazioni?
             Ettore: Piccoli segreti utili a rafforzare il suo lavoro di contrattazione col sindacato.
             Greta: Dimmi: è stato lui a dirtelo?
@@ -137,7 +137,7 @@ Opzioni di dialogo con la persona Greta
                     -> advance_time ->
                         -> greta_talking_second_tier
                         
-                + + + Ettore: Questo però non risponde alla mia domanda: hai passato le informazioni a Matteo?
+                + + + Ettore: Questo però non risponde alla mia domanda[.]: hai passato le informazioni a Matteo?
                         Greta: Mmm, mi stavi quasi simpatico, Ettore, quasi.
                         Greta: Ma non mi piace chi mi accusa di cose a caso.
                         Greta: <rage>Vattene<waitrage> e<waitrage> non<waitrage> parlarmi<waitrage> più!</rage> 

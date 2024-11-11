@@ -152,7 +152,7 @@ Opzioni di dialogo con la persona Elia
             -> paolaIsDeadStorylet    
 
             }
-            + + {zeca_talking_second_tier.allestimento2} Ettore: Zeca dice però che qualcuno nella stanza gialla c'è stato.
+            + + {zeca_talking_second_tier.allestimento2} Ettore: Zeca però ha sentito qualcuno nella stanza gialla.
                 Ettore: E a suo dire stava scopando.
                 - (allestimento2) Elia: Naa, Zeca sente sesso ovunque.
                 Elia: Pensa che dorme sentendo le balene scopare.

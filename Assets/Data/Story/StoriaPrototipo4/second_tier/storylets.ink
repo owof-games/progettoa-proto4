@@ -79,7 +79,7 @@
         Zeca: Elia, almeno tu mantieni la tua innocenza o perderei l'unica spinta a sacrificarti.
             + Ettore: Eccomi! In tutto il mio splendore!
             + Ettore: Cosa diavolo è successo?!?
-            + Ettore: Non ho alcuna innocenza: chi devo spingere dal grattacielo?
+            + Ettore: Interessante: chi devo spingere dal grattacielo?
             -
             -> advance_time ->
         Matteo: <joy>Amore!</joy> Non ti avevo sentito proprio arrivare!
@@ -92,7 +92,7 @@
             + Ettore: Tu devi essere Paola! Matteo parla un sacco di te!
                 Paola: Non voglio morire non voglio morire non voglio morire non voglio.
                 Matteo: Non ti parlo così tanto di lei. A parte a pranzo, cena, letto e durante le preghiere.
-            + Ettore: Perché state facendo finta di nulla?!?.
+            + Ettore: [Perché state facendo finta di nulla?!?.]<cry>Perché state facendo finta di nulla?!?.</cry>
                 Greta: Bene Matteo, finalmente ci presenti qualcuno di interessante!
                 Zeca: E almeno abbiamo qualcosa in comune.
             -
@@ -476,7 +476,7 @@
 === evilJobStorylet
 ~ inConversazione += Matteo
     Matteo: Vuoi davvero ascoltare una storia lunga e noiosa?
-        + Ettore: Se è lunga, forse non ho tutto questo tempo, scusa.
+        + Ettore: Forse non ho tutto questo tempo, scusa.
             -> intro
         + Ettore: Ho tutto il tempo del mondo.
             -> uno
@@ -661,7 +661,7 @@ Ettore: Ed è qui che si complicano le cose.
         + (VN) {cb_second_tier_bottiglia_di_vino.primoCheck or paola_is_dead.vino} Ettore: Il vino: è stato avvelenato.
                 Ettore: C'è il veleno per topi.
                 Ettore: E c'è la nicotina nelle sigarette elettroniche. 
-        + (AS) {cb_second_tier_flaconcino_asma.primoCheck or paola_is_dead.asma} Ettore: Il boccettino per l'asma, è stato svuotato.
+        + (AS) {cb_second_tier_flaconcino_asma.primoCheck or paola_is_dead.asma} Ettore: Il boccettino per l'asma è stato svuotato.
                 Ettore: Questo posto è una cloaca, e Paola si lamenta del raffreddore da ore.
                 Ettore: Evitarle la possibilità di salvarsi, è un modo per ucciderla.
         + (NI) {cb_second_tier_sigaretta_elettronica.primoCheck or paola_is_dead.sigaretta} Ettore: Sigaretta e nicotina.
@@ -775,7 +775,7 @@ Ettore: Ed è qui che si complicano le cose.
             Ettore: Addio -> END
         + Ettore: Provare ancora una volta.
             -> loop_reset
-        + {matteo_talking_second_tier.loop3 or matteo_talking_second_tier.loop2} Ettore: [Darti un ultimo bacio, prima di ricominciare.] <joy>Darti un ultimo bacio, prima di ricominciare.</joy>
+        + {matteo_talking_second_tier.loop3 or matteo_talking_second_tier.loop2} Ettore: [Darti un ultimo bacio, prima di ricominciare.] <joy>Darti un ultimo bacio prima di ricominciare.</joy>
             Matteo: <joy>Non aspettavo altro.</joy>
             -> loop_reset  
 

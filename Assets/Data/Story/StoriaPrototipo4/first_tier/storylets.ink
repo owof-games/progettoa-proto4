@@ -192,8 +192,8 @@
 ~ inConversazione += Elia
         Matteo: Te l'ho già detto più volte, Elia: è una scelta pacchiana.
         Elia: Ma il nostro pub non è pacchiano!
-            + {weddingAtThePubStorylet > 1} [Ti allontani.]
-            + ->
+            + {weddingAtThePubStorylet > 1} [Ti allontani.] -> intro
+            + + {weddingAtThePubStorylet > 1} [Resti]
             -
         Elia: Una volte c'è venuta anche Antonella Elia!
         Matteo: No. Ho già prenotato al Superbo Castello dei Conti de Viscontinis.
@@ -220,8 +220,8 @@
 ~ inConversazione += Greta
         Elia: <fear>Quindi ora vuoi uccidermi?</fear> 
         Greta: Ucciderti?
-            + {anEavesdropAboutFriendshipStorylet > 1} [Ti allontani.]
-            + ->
+            + {anEavesdropAboutFriendshipStorylet > 1} [Ti allontani.] -> intro
+            + {anEavesdropAboutFriendshipStorylet > 1} [Resti]
             -
         Elia: Come hai fatto con Paola. Per via dei senzatetto e del pub!
         Greta: Elia. Credi davvero che. Oh, lascia che ti spieghi una cosa.
@@ -259,8 +259,8 @@
 === itsOverisntItStorylet
     Greta: <rage>Co<waitrage>glio<waitrage>ne</rage>.
     Greta: Matteo, sei un coglione infinito.
-        + {itsOverisntItStorylet > 1} [Ti allontani.]
-        + ->
+        + {itsOverisntItStorylet > 1} [Ti allontani.] -> intro
+        + {itsOverisntItStorylet > 1} [Resti.]
         -
     Matteo: Non è quello che ti piace di me?
     Greta: No, non mi piace nulla di te, Matteo.
@@ -331,8 +331,8 @@ PS: ricordarsi di resettare la variabile al reset_loop
     = step_one    
         Elia: Mi ha sempre sorpreso il modo in cui hai trattato Paola.
         Matteo: In che senso?
-            + {sheIsTheBestStorylet.step_one > 1} [Ti allontani.]
-            + ->
+            + {sheIsTheBestStorylet.step_one > 1} [Ti allontani.] -> intro
+            + {sheIsTheBestStorylet.step_one > 1} [Resti.]
             -
         Elia: Beh, sei sempre stato crudele con lei.
         Elia: Eppure è stata Paola a convincere i nonni a prestarti tutti quei soldi!
@@ -347,8 +347,8 @@ PS: ricordarsi di resettare la variabile al reset_loop
     = step_two
         Elia: Sarai tu noioso, coso.
         Matteo: Così prevedibile.
-            + {sheIsTheBestStorylet.step_two > 1} [Ti allontani.]
-            + ->
+            + {sheIsTheBestStorylet.step_two > 1} [Ti allontani.] -> intro
+            + {sheIsTheBestStorylet.step_two > 1} [Resti]
             -
         Matteo: Così "So solo io quello che è giusto".
         Matteo: Sapessi cosa diceva di te alle tue spalle.
@@ -362,8 +362,8 @@ PS: ricordarsi di resettare la variabile al reset_loop
     = step_three
         Elia: Ma mica è una cosa crudele!
         Matteo: E che non sai gestire gli affari!
-            + {sheIsTheBestStorylet.step_three > 1} [Ti allontani.]
-            + ->
+            + {sheIsTheBestStorylet.step_three > 1} [Ti allontani.] -> intro
+            + {sheIsTheBestStorylet.step_three > 1} [Resti.]
             -
         Elia: Anche questo è vero.
         Elia: Ma io lo so, e infatti ho chiesto una mano a Greta.
@@ -382,8 +382,8 @@ PS: ricordarsi di resettare la variabile al reset_loop
 {debug: <i>Passo per aStrangeKnifeStorylet</i>}
         Matteo: Ehi, ma quello è il mio antico pugnale sacrificale!
         Matteo: Grazie per avermelo riportato!
-            + {aStrangeKnifeStorylet > 1} [Ti allontani.]
-            + ->
+            + {aStrangeKnifeStorylet > 1} [Ti allontani.] -> intro
+            + {aStrangeKnifeStorylet > 1} [Resti.]
             -
         Ettore: In realtà.
         Matteo: Ecco, ora è di nuovo mio.
@@ -401,8 +401,8 @@ PS: ricordarsi di resettare la variabile al reset_loop
 {debug: <i>Passo per marryMe</i>}
         Matteo: <joy>Finalmente soli, amore.</joy>
         Matteo: Dio, quanto sei bello, te l'ho mai detto?
-            + {marryMeStorylet > 1} [Ti allontani.]
-            + ->
+            + {marryMeStorylet > 1} [Ti allontani.] -> intro
+            + {marryMeStorylet > 1} [Resti.]
             -
         Ettore: Mai abbastanza, cucciolone.
         Matteo: E sai, c'è una cosa che vorrei dirti da un bel po'.
@@ -468,8 +468,8 @@ PS: ricordarsi di resettare la variabile al reset_loop
     Zeca: Mio nuovo giovane amico, che bello rivederti.
     {not new_this_loop(->zeca_acting.rapportoPaola): Zeca: Forse adesso è un buon momento per rispondere alla tua domanda di prima.}
     Zeca: La vita sa essere crudele, sai?
-        + {worstBestManStorylet > 1} [Ti allontani.]
-        + ->
+        + {worstBestManStorylet > 1} [Ti allontani.] -> intro
+        + {worstBestManStorylet > 1} [Resti.]
         -
     Zeca: Continuo a pensare a come eravamo io e Paola, da piccoli.
     Zeca: Hai mai avuto qualcuno che sembrava leggerti nel pensiero?
@@ -511,8 +511,8 @@ PS: ricordarsi di resettare la variabile al reset_loop
 {debug: <i>Passo per hardTrueFeelingsStorylet</i>}
 Matteo: Anche io.
 Ettore: Uh, dimmi pure.
-    + {hardTrueFeelingsStorylet > 1} [Ti allontani.]
-    + ->
+    + {hardTrueFeelingsStorylet > 1} [Ti allontani.] -> intro
+    + {hardTrueFeelingsStorylet > 1} [Resti.]
     -
 Matteo: Non voglio sposarti.
 Ettore: Cos

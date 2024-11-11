@@ -175,8 +175,8 @@
 ~ inConversazione += Elia
         Zeca: Devi smetterla di fidarti di lei, Elia.
         Zeca: Lo dico per il tuo bene.
-                + {liarCallLiarStorylet > 1} [Ti allontani.]
-                + ->
+                + {liarCallLiarStorylet > 1} [Ti allontani.] -> intro
+                + {liarCallLiarStorylet > 1} [Resti.]
                 -
         Elia: Ma è mia sorella.
         Elia: Sono sicuro che ci sia una spiegazione.
@@ -215,8 +215,8 @@
             ~ inventoryContents -= Foto
             ~ objectStorageContents += Foto
         Zeca: <cry>QUELLA GRANDISSIMA STRONZA!<cry>
-                + {iLlKillThatBitchStorylet > 1} [Ti allontani.]
-                + ->
+                + {iLlKillThatBitchStorylet > 1} [Ti allontani.] -> intro
+                + {iLlKillThatBitchStorylet > 1} [Resti.]
                 -        
         Zeca: <rage> La uccido, io la uccido!</rage> 
         Zeca: E lui. Lui. Lui.
@@ -235,8 +235,8 @@
 ~ inConversazione += Matteo
     Matteo: Non me lo sarei mai aspettato.
     Ettore: Cosa?
-            + {forMeHeIsStupidAFStorylet> 1} [Ti allontani.]
-            + ->
+            + {forMeHeIsStupidAFStorylet> 1} [Ti allontani.] -> intro
+            + {forMeHeIsStupidAFStorylet> 1} [Resti.]
             - 
     Matteo: Che Elia confessasse i suoi sentimenti a Zeca.
     Ettore: {trueLoveStorylet: Mi sembra una cosa tenera|Non ne sapevo nulla}.
@@ -271,8 +271,8 @@
 ~ inConversazione += Zeca
         Elia: Sono la ciotola, o sono il cane?
         Zeca: Che stai dicendo?
-            + {whisperingSecretsStorylet> 1} [Ti allontani.]
-            + ->
+            + {whisperingSecretsStorylet> 1} [Ti allontani.] -> intro
+            + {whisperingSecretsStorylet> 1} [Resti.]
             -         
         Elia: Paola, vuoi fare del male a Paola?
         Zeca: Tutti i giorni, Elia.
@@ -298,8 +298,8 @@
         Zeca: Te lo ripeto: non voglio parlare con te.
         Matteo: Zeca, Paola vuole mettere zizzania tra noi, e per ques-
         Zeca: Per quello basti tu.
-            + {iTryToBeAGoodFriendStorylet> 1} [Ti allontani.]
-            + ->
+            + {iTryToBeAGoodFriendStorylet> 1} [Ti allontani.] -> intro
+            + {iTryToBeAGoodFriendStorylet> 1} [Resti.]
             -          
         Matteo: Ma perché non vuoi ascoltarmi?
         Zeca: PERO'. PERO'.
@@ -337,8 +337,8 @@
 ~ inConversazione += Elia
     Greta: Dimmelo di nuovo, ti prego.
     Elia: Era una cosa sbagliata?
-            + {liesAndPromisesStorylet> 1} [Ti allontani.]
-            + ->
+            + {liesAndPromisesStorylet> 1} [Ti allontani.] -> intro
+            + {liesAndPromisesStorylet> 1} [Resti.]
             -     
     Elia: Sbaglio tutto io, scusa.
     Greta: No no no, ridimmela perché è un cosa bella.
@@ -355,8 +355,8 @@
 ~ inConversazione += Elia
         Zeca: No, non ti dico come lo so.
         Zeca: Quindi, ti scopi quella?
-            + {trueLoveStorylet> 1} [Ti allontani.]
-            + ->
+            + {trueLoveStorylet> 1} [Ti allontani.] -> intro
+            + {trueLoveStorylet> 1} [Resti.]
             -           
         Zeca: La ami?
         Elia: No. Ma sai come faccio.
@@ -401,8 +401,8 @@
 ~ inConversazione += Matteo
         Matteo: Uh, ehi, ciao Ettore.
         Matteo: Mi hai colto di sorpresa.
-            + {notABigSecretPartOneStorylet> 1} [Ti allontani.]
-            + ->
+            + {notABigSecretPartOneStorylet> 1} [Ti allontani.] -> intro
+            + {notABigSecretPartOneStorylet> 1} [Resti.]
             -           
         Ettore: Tutto ok?
         Matteo: Sì, sì. Stavo solo sistemando due cose.
@@ -429,8 +429,8 @@
 ~ inConversazione += Elia
         Elia: Non le trovo!
         Ettore: Cosa?
-            + {notABigSecretPartTwoStorylet> 1} [Ti allontani.]
-            + ->
+            + {notABigSecretPartTwoStorylet> 1} [Ti allontani.] -> intro
+            + {notABigSecretPartTwoStorylet> 1} [Resti.]
             -          
         Elia: Eh, se lo trovassi saprei cosa.
         Ettore: Ma stai cercando qualcosa, giusto?

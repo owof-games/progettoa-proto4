@@ -313,6 +313,7 @@ Opzioni di dialogo con la persona Matteo
     = third_qn
     ~ MatteoTalking++
                     ~ inConversazione += Matteo
+        Matteo: Ehi Ettore!
         Matteo: Come te la cavi con le bugie?
             + Ettore: Mi faccio sgamare in tre secondi.
                 Matteo: Ahah allora capirai il mio dramma.

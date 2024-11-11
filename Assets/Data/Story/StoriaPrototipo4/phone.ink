@@ -30,16 +30,16 @@ Chi chiami?
 
 = papa
         Ettore: Papà, ti ricordi quel tuo telefilm preferito, "Il giorno della smarmotta"?
-        Papà: Cioè: non mi scrivi per tre giorni e mi fai questa domanda?
+        Papà: <hesitate>Cioè: non mi scrivi per tre giorni e mi fai questa domanda?
         Ettore: Diciamo che è una situazione complicata.
         Papà: Con te lo è sempre.
-        Papà: Passi per lo meno domenica per il polpettone di seitan, vero?
+        Papà: Passi per lo meno domenica per il <joy>polpettone di seitan</joy>, vero?
         Ettore: Sì, promesso papà.
         Papà: Vai, dimmi pure.
         -> advance_time ->
                 - (question)
                 + (obiettivo) {new_this_loop(->obiettivo)} Ettore: Qual era l'obiettivo del tizio del telefilm?
-                        Papà: Sconfiggere le marmotte mutanti.
+                        Papà: Sconfiggere le <fear>marmotte mutanti</fear>.
                         Ettore: Sì, ma come?
                         Papà: Una delle persone chiusa nell'albergo con lui le aveva create.
                         Papà: Tutti sembravano potenziali sospettati.
@@ -55,7 +55,7 @@ Chi chiami?
                         Papà: O isolava altre.
                         Papà: E a volte dicevano cose diverse.
                         Papà: O mostrando loro oggetti.
-                        Papà: A parte la marmotta impagliata: quella li terrorizzava tutti.
+                        Papà: A parte la marmotta impagliata: <fear>quella li terrorizzava tutti</fear>.
                         Papà: E poi si segnava un sacco di cose.
                         Papà: Mica come te, che ti ho mandato a studiare e non sai scrivere!
                                 -> advance_time ->
@@ -70,11 +70,11 @@ Chi chiami?
                                 -> advance_time ->
                         Papà: E quello era colpevole, punto.
                         Ettore: E se prendeva la persona sbagliata?
-                        Papà: Non l'avrebbe mai saputo.
+                        Papà: Non l'avrebbe <fear>mai</fear> saputo.
                         Papà: Alla fine le marmotte volevano solo un sacrificio, maledette marmotte.
                         Papà: Ma il protagonista se ne rimaneva con il rimorso e il dubbio per sempre.
                         Papà: Deve essere una roba orribile.
-                        Papà: Fortuna che è solo un telefilm vero?
+                        Papà: <joy>Fortuna che è solo un telefilm vero?</joy>
                                 -> advance_time ->
                                 -> question
                 + Ettore: A posto così, grazie papà!
@@ -92,7 +92,7 @@ Chi chiami?
 
 
 = agente
-        + Ettore: Dove cazzo mi hai mandato?
+        + Ettore: [Dove cazzo mi hai mandato?]<cry>Dove cazzo mi hai mandato?</cry>
                 Agente: Ehi, datti una calmata, biondino!
         + Ettore: Cosa ti ha fatto pensare che questa fosse una bazza?
                 Agente: I soldi che ci hanno dato.
@@ -109,7 +109,7 @@ Chi chiami?
         Agente: L'azienda di Paola è sotto indagine, sono arrivati documenti compromettenti.
         - (indagini) Agente: E insomma, sembra che lei stia scaricando la colpa sul fratello.
         Agente: Un idiota totale.
-        Agente: MA COMUNQUE: fammi fare bella figura.
+        Agente: <cry>MA COMUNQUE</cry>: fammi fare bella figura.
         Agente: Questa è gente ricca, cade sempre in piedi.
         Agente: E una bella prova non sai mai dove possa portarti.
         Agente: Stammi bene!
@@ -127,7 +127,7 @@ Chi chiami?
                 Amica: Zero.
                 Amica: No, scherzo, potrei parlartene per ore.
                 Ettore: Un riassunto veloce?
-                Amica: Conti truccati, mazzette, gente morta.
+                Amica: Conti truccati, mazzette, <joy>gente morta.</joy>
                         -> advance_time ->
                 Amica: E fresca fresca di oggi, il migliore amico di Elia che sta tirando su un sindacato contro la sorella.
                 Ettore: Intendi Zeca.
@@ -141,7 +141,7 @@ Chi chiami?
                         -> advance_time ->
                  -> contents 
         + Ettore: Credo di essere bloccato in un deja-vu.
-                Amica: Come quella volta coi funghetti?
+                Amica: <joy>Come quella volta coi funghetti?</joy>
                 Ettore: No no, questa volta per davvero.
                 Ettore: E non ho idea di come uscirne.
                 Amica: Ti ricordi quello che diceva sempre tuo padre quando eri piccolo?
@@ -152,9 +152,9 @@ Chi chiami?
                 Amica: Quindi, datti da fare, esci dal tunnel o loop o quel che è.
                 Amica: Che poi mi devi raccontare di questa assurda esperienza.
                 Ettore: E non sei preoccupata per me?
-                Amica: Naaa.
+                Amica: <joy>Naaa.</joy>
                 Amica: Se è un loop e non sei morto, non morirai mai.
-                Amica: Ma forse è anche perché c'è Alfredo Torrelli nudo davanti alla fidanzata.
+                Amica: Ma forse è anche perché c'è Alfredo Torrelli <joy>nudo</joy> davanti alla fidanzata.
                 Amica: Scusa, scappo, fammi sapere se sopravvivi!
                         -> advance_time ->
                         -> contents
@@ -175,7 +175,7 @@ Chi chiami?
         Polizia: Protestava perché licenziato ingiustamente?
         Polizia: Ha occupato una strada in modo pacifico?
         Ettore: No mi scus.
-        Polizia: Ha nominato il nome di Giorgia invano?
+        Polizia: <rage>Ha nominato<waitrage> Giorgia<waitrage> invano</rage>?
                 -> advance_time ->
         Ettore: No guardi eravamo qui a recitare e.
         Polizia: Ok, quindi c'è il frocio.
@@ -191,8 +191,8 @@ Chi chiami?
         Ettore: Paola! Paola Londar!
         Ettore: La vittima è Paola Londard.
         Polizia: Ah.
-        Polizia: Ma perché non mi ha detto subito che era ricca?!?
-        Polizia: Mo mi fanno il culo, mi fanno!
+        Polizia: <fear>Ma perché non mi ha detto subito che era ricca?!?</fear>
+        Polizia: <fear>Mo mi fanno il culo, mi fanno!</fear>
         Polizia: Venti minuti e arriviamo.
         Polizia: E la arresto per intralcio a qualcosa, qualcosa lo trovo.
         Polizia: Non si muova di lì!

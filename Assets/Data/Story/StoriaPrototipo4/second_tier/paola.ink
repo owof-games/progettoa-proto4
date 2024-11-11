@@ -65,6 +65,7 @@ Opzioni di dialogo con la persona Paola
 
     //SCELTE CONDIZIONALI//
     +  {zeca_talking_second_tier.allestimento && elia_talking_second_tier.allestimento} Ettore: Può essere una domanda strana, ma sai chi si è occupato di sistemare il buffet?
+        ~ inConversazione += Paola
         Ettore: Zeca dice che lui e Matteo hanno smollato tutto a Greta.
         Ettore: E Elia dice che lui e Greta aveva altro da fare.
         Paola: Faceva schifo, vero?
@@ -87,6 +88,7 @@ Opzioni di dialogo con la persona Paola
     
 
     + {liarCallLiarStorylet.indagini}: Ettore: Quindi: qualcuno ha dato tuoi dati personali alla polizia.
+        ~ inConversazione += Paola
             Paola: Ecco, così mi si deve parlare: <joy>fuori dai denti.</joy>
             Paola: Niente cazzate del cazzo.
             Paola: Come se potessi fare paura.
@@ -115,6 +117,7 @@ Opzioni di dialogo con la persona Paola
                 -> advance_time ->
 
     + (foto3) {zeca_talking_second_tier.allestimento2 && are_two_entities_together(Paola, Greta)} Ettore: <hesitate>Per caso ti sei tipo masturbata nella sala gialla?
+            ~ inConversazione += Paola
             Paola: Ettore. Per masturbarmi mi serve una mezz'ora di silenzio.
             Paola: E un po' di popper.
             Paola: E il mio amico vibratore.
@@ -132,6 +135,7 @@ Opzioni di dialogo con la persona Paola
                 -> advance_time ->
 
     + (foto2) {greta_talking_second_tier.foto2 && not are_two_entities_together(Paola, Greta)} Ettore: Siamo soli, hai qualcosa per me?
+            ~ inConversazione += Paola
             Paola: Bene Ettore, è arrivato Babbo Natale per te.
             Paola: Poi dicono che sono cattiva.
             Paola: Non è bello far del male agli altri.
@@ -220,6 +224,7 @@ Opzioni di dialogo con la persona Paola
 
 = first_qn
 ~ PaolaTalking++
+        ~ inConversazione += Paola
     Paola: Sono consapevole che la gente mi odia.
     Paola: Ma è il peso di essere una donna arrivata.
     Paola: Devi fare l'uomo, più dell'uomo.
@@ -242,6 +247,7 @@ Opzioni di dialogo con la persona Paola
 
 = second_qn
  ~ PaolaTalking++
+         ~ inConversazione += Paola
         Paola: I poveri hanno perso la lotta di classe, l'hanno persa quando li abbiamo convinti che fosse roba del passato.
         Paola: Risolta con la fast fashion e la celebrità social.
         Paola: Ma il tuo piccolo cervellino proletario non può capire quello che sto dicendo vero <cry>EttorAAAAAAA!</cry>
@@ -272,6 +278,7 @@ Opzioni di dialogo con la persona Paola
 
 = third_qn
 ~ PaolaTalking++
+        ~ inConversazione += Paola
     Paola: Sai chi è il mio mito?
     Paola: Ayn Rand.
     Paola: Ma sai la cosa più bella?

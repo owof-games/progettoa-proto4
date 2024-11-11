@@ -40,6 +40,7 @@ Opzioni di dialogo con la persona Elia
 
 
     + (omicidio) {new_this_loop(->omicidio)} Ettore: Conosci qualcuno che vorrebbe far male a Paola?
+        ~ inConversazione += Elia
         Elia: <fear>Uh, spero non i tizi delle piramidi, vero?</fear>
         Elia: O le lontre giganti.
         Elia: <joy>Naa, loro sono molto tenere.</joy>
@@ -78,6 +79,7 @@ Opzioni di dialogo con la persona Elia
 
     //SCELTE CONDIZIONALI//
     + (indagini2) {greta_talking_second_tier.indagini && not are_two_entities_together(Elia, Zeca)} Ettore: Elia, sapevi che Paola vuole estrometterti dalla Londar?
+            ~ inConversazione += Elia
         Elia: <hesitate>Estroflettermi?
         Ettore: Cacciarti.
         Ettore: Rimanere l'unica responsabile.
@@ -114,6 +116,7 @@ Opzioni di dialogo con la persona Elia
             
 
     + (allestimento) {notABigSecretPartOneStorylet.allestimento} Ettore: Elia, è vero che tu e Greta avete comprato il vino?
+            ~ inConversazione += Elia
         Elia: Esatto. Greta e io abbiamo comprato il vino.
         Ettore: Questa è stata facile!
         Elia: Però.
@@ -169,6 +172,7 @@ Opzioni di dialogo con la persona Elia
             - -
 
     + {iTryToBeAGoodFriendStorylet} Ettore: Prima ho ascoltato una conversazione tra Zeca e Matteo...
+            ~ inConversazione += Elia
         Ettore: Ed ero convinto che Matteo fosse tuo amico.
         Elia: Non al passato. Non fosse, ma è.
         Elia: Zeca invece è un collega, abbiamo la BRO assieme.
@@ -244,6 +248,7 @@ Opzioni di dialogo con la persona Elia
                 -> advance_time -> 
     
     + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Questo è il vino che avete comprato?
+            ~ inConversazione += Elia
             Elia: Gli somiglia molto, ma non ne sono sicuro.
             Elia: Questa cosa che tutte le bottiglie sono uguali mi confonde.
             Elia: E accade con tutti i prodotti.
@@ -318,6 +323,7 @@ Opzioni di dialogo con la persona Elia
 
 = first_qn
 ~ EliaTalking++
+        ~ inConversazione += Elia
     Elia: Sai che ho una cosa che mi lega a ogni persona qui dentro?
     Elia: Paola è mia sorella, e questa è facile.
     Elia: Ma Paola anche se è alta meno di me, dentro di lei c'è un pallone che si gonfia.
@@ -359,6 +365,7 @@ Opzioni di dialogo con la persona Elia
 
 = second_qn
  ~ EliaTalking++
+         ~ inConversazione += Elia
     Elia: Me triste.
     Elia: Questa serata non sta andando come volevo, sai?
     Ettore: Cosa speravi accadesse?
@@ -395,6 +402,7 @@ Opzioni di dialogo con la persona Elia
     }
 
 = first_paola
+        ~ inConversazione += Elia
  Elia: Eravamo fratello e sorella.
         Ettore: Questo lo so, ma ci andavi d'accordo? Passavi del tempo con lei?
         Elia: Solo quando eravamo assieme.
@@ -423,6 +431,7 @@ Opzioni di dialogo con la persona Elia
             + + [Cambi argomento] -> elia_talking_second_tier
 
 = second_paola
+        ~ inConversazione += Elia
     Elia: Eravamo fratello e sorella.
         Ettore: Questo lo so, ma ci andavi d'accordo? Passavi del tempo con lei?
         Elia: Spesso.
@@ -457,7 +466,8 @@ Opzioni di dialogo con la persona Elia
             + + [Cambi argomento] -> elia_talking_second_tier
 
 
-    = third_paola   
+    = third_paola
+            ~ inConversazione += Elia
         Elia: Un po' complicato, per colpa delle piramidi.
         Ettore: Aiuto.
         Elia: Eh sì, mi serve aiuto.

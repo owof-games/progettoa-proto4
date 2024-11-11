@@ -27,6 +27,7 @@ Opzioni di dialogo con la persona Greta
     //INFO GENERALI//
     
     + (loop) {new_this_loop(->loop)} Ettore: Greta, secondo te qui è tutto normale?
+            ~ inConversazione += Greta
             Greta: Sinceramente, ho la sensazione che stia per accadere qualcosa di terribile.
             Ettore: Anche io. Come se l'avessi già vissuta, questa cosa.
             Greta: Non so se ti è mai capitata una cosa tipo: sei nel letto e ti svegli la notte, e sai che qualcuno ti sta osservando.
@@ -37,6 +38,7 @@ Opzioni di dialogo con la persona Greta
                 -> advance_time ->
             
             + + (dejavu) {matteo_talking_second_tier.loop2} Ettore: In realtà pensavo più a dei loop[.], e Matteo crede tu sia la persona giusta con cui parlarne.
+                        ~ inConversazione += Greta
                     Greta: <joy>So tutto sui loop!</joy>
                     Greta: La mia teoria preferita è che siano seconde possibilità.
                     Greta: Occasioni di non ripetere errori che hai commesso in altri tempi, altre vite.
@@ -62,6 +64,7 @@ Opzioni di dialogo con la persona Greta
                             -> greta_talking_second_tier
             
             + + Ettore: Perché temo che finirà molto male?
+                        ~ inConversazione += Greta
                     Greta: E compare una luce dalla cucina, flebile e lontana.
                     Greta: E allora ricordi.
                     Greta: Ricordi che sei anni prima avevi offerto la tua anima in cambio di un contratto a tempo indeterminato.
@@ -83,12 +86,14 @@ Opzioni di dialogo con la persona Greta
 
     
     + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Quindi tu lavori per Paola?
+                ~ inConversazione += Greta
             Greta: Per ora, sembrerebbe di sì.
             Greta: Ma con Paola ogni giorno è l'antiNatale: ti svegli e avrai qualcosa di meno a sorpresa.
             Greta: Prima o poi mi venderà qualche organo senza che me ne renda conto.
             -> advance_time ->
             
         + + {phone.indagini} Ettore: Non ti preoccupano le indagini?
+                    ~ inConversazione += Greta
             Greta: Le indagini sulla Londar?
             Greta: Non particolarmente.
             Greta: Paola è una che cade in piedi sempre.
@@ -110,6 +115,7 @@ Opzioni di dialogo con la persona Greta
                  -> greta_talking_second_tier
     
         + + {elia_talking_second_tier.indagini} Ettore: Paola sa già che hai passato info segrete a Matteo?
+                    ~ inConversazione += Greta
             Greta: Quali informazioni?
             Ettore: Piccoli segreti utili a rafforzare il suo lavoro di contrattazione col sindacato.
             Greta: Dimmi: è stato lui a dirtelo?
@@ -149,6 +155,7 @@ Opzioni di dialogo con la persona Greta
                 - - - 
     
         + + {liarCallLiarStorylet.indagini} Ettore: Per questo avrebbe senso tradirla il prima possibile?
+                    ~ inConversazione += Greta
                 Greta: Cosa vorresti dire?
                 Ettore: Zeca sostiene che la polizia abbia avuto dati molto molto personali su Paola.
                 Ettore: Cose che solo la sua segretaria potrebbe sapere.
@@ -174,6 +181,7 @@ Opzioni di dialogo con la persona Greta
                                 -> intro
                     
                     + + + Ettore: Avrei cercato di ottenere ogni minimo vantaggio.
+                        ~ inConversazione += Greta
                         Greta: Esatto.
                         Greta: Immagino anche tu venga dal nulla, e per questo puoi capirmi.
                         Greta: Non so cosa potrà esserci dopo Paola, ma peggio non potrà essere.
@@ -202,10 +210,12 @@ Opzioni di dialogo con la persona Greta
 
     
     + (omicidio) {new_this_loop(->omicidio)} Ettore: Secondo te qualcuno potrebbe volere del male a Paola?
+                ~ inConversazione += Greta
             Greta: Passa cinque minuti con lei e avrai la tua risposta.
             Ettore: Potrei odiarla così tanto da volerla uccidere?
             Greta: No dai, per quello bastano cinque minuti.
             + + Ettore: E qui con cosa la si potrebbe uccidere?
+                        ~ inConversazione += Greta
                 Greta: Girl, stai chiedendo ad una appassionata di true crime come commettere un omicidio, in questo posto?
                 Greta: Mmm, fammi pensare.
                 Greta: Morte violenta o qualcosa di più subdolo?
@@ -217,6 +227,7 @@ Opzioni di dialogo con la persona Greta
                     }
 
                     + + +  Ettore: Violenza, dolore, terrore.
+                                ~ inConversazione += Greta
                                 Greta: Beh, allora hai il mondo qui dentro.
                                 Greta: Vetri, come quelli della finestra, o la bottiglia del vino.
                                 Greta: Botte in testa con le gambe traballanti del tavolo, con le seggiole.
@@ -240,6 +251,7 @@ Opzioni di dialogo con la persona Greta
                                         -> greta_talking_second_tier
                                     
                     + + + Ettore: Suuuubdolo!
+                                ~ inConversazione += Greta
                             Greta: <joy>Adoro!</joy>
                             Greta: Allora, fammi pensare.
                             Greta: Abbiamo dovuto mettere in giro del veleno per topi perché beh, ci sono i topi.
@@ -311,6 +323,7 @@ Opzioni di dialogo con la persona Greta
                     -> greta_talking_second_tier
              
              + + Ettore: No, che stanno assieme. Romanticamente.
+                         ~ inConversazione += Greta
                     Greta: Ah.
                     Greta: <rage>Ah.</rage> 
                     Greta: Questa cosa mi è nuova.
@@ -327,6 +340,7 @@ Opzioni di dialogo con la persona Greta
                             }
 
                         + + + Ettore: E come ti senti ora?
+                                    ~ inConversazione += Greta
                                 Greta: Tradita.
                                 Greta: Usata.
                                 Greta: Mi ha promesso amore.
@@ -339,6 +353,7 @@ Opzioni di dialogo con la persona Greta
                                 -> intro
                         
                         + + + Ettore: Quindi, lui ti piace davvero?
+                                    ~ inConversazione += Greta
                                 Greta: Non mi giudicare.
                                 Greta: Sono consapevole che sia un idiota.
                                 Greta: Ma in un mondo che fa sempre più schifo, la sua leggerezza mi faceva bene al cuore.
@@ -352,6 +367,7 @@ Opzioni di dialogo con la persona Greta
     
 
     + {zeca_talking_second_tier.allestimento2 && new_this_loop(->allestimento3)} Ettore: Mi aiuti a capire una cosa?
+                ~ inConversazione += Greta
             Ettore: Sembra che nessuno si sia occupato del buffet prima delle prove.
             Ettore: Da quel che ho capito, tu ed Elia vi dovevate occupare del vino, Matteo e Zeca dei dolci.
             Ettore: Ma poi tutti stavate facendo altro: chi diavolo l'ha allestita quella sala?
@@ -377,6 +393,7 @@ Opzioni di dialogo con la persona Greta
 
     + (foto) {paola_talking_second_tier.foto} Ettore: Greta, prima ti stavano cercando.
         {new_this_loop(->foto): Greta: Chi? -> secondo|Greta: Non ci ricasco Ettore!}
+                    ~ inConversazione += Greta
         - (secondo)
             + + Ettore: Zeca, dice che ha la tua scheda per la palestra.
                 Greta: Madonna che palle quell'uomo!
@@ -470,6 +487,7 @@ Opzioni di dialogo con la persona Greta
 
 = first_qn
 ~ GretaTalking++
+            ~ inConversazione += Greta
     Greta: Quindi, qual è la tua conoscenza delle arti oscure?
         + Ettore: Sia protetto il nome di Crowley!
             Greta: <cry>BAAASIC!</cry>
@@ -502,6 +520,7 @@ Opzioni di dialogo con la persona Greta
 
 = second_qn
  ~ GretaTalking++
+             ~ inConversazione += Greta
     Greta: <joy>Non ci credo!</joy>
     Ettore: Tutto bene?
     Greta: No.
@@ -529,6 +548,7 @@ Opzioni di dialogo con la persona Greta
 
 = third_qn
 ~ GretaTalking++
+            ~ inConversazione += Greta
     Greta: Lo senti?
     Ettore: Cosa?
     Greta: Il silenzio.

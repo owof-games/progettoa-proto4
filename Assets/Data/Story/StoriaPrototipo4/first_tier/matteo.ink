@@ -23,6 +23,7 @@ Opzioni di dialogo con il personaggio Matteo
     //INFO GENERALI//
 
     + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Amore, non mi hai mai parlato molto di Paola. Eravate legati?
+                    ~ inConversazione += Matteo
         Matteo: Sai come sono: lavoro lavoro lavoro.
         Matteo: Ogni tanto mi chiamava, ma non avevo mai tempo per rispondere.
         Matteo: Però le mandavo gli auguri a Natale.
@@ -46,6 +47,7 @@ Opzioni di dialogo con il personaggio Matteo
             + + [Cambi argomento] -> matteo_acting
 
     + (omicidio) {new_this_loop(->omicidio)} Ettore: Chi potrebbe aver ucciso Paola?
+                    ~ inConversazione += Matteo
         Matteo: La mafia russa.
         Ettore: La mafia russa?
         Matteo: Sì. Aveva debiti con mezzo mondo, Paola.
@@ -247,6 +249,7 @@ Opzioni di dialogo con la persona Matteo
 
     = first_qn
     ~ MatteoTalking++
+                    ~ inConversazione += Matteo
         Matteo: Mi sa ma tra una cosa e l'altra non ci siamo presentati, vero?
         Matteo: Mi chiamo Matteo, e sono intrappolato quasi contro la mia volontà in questa recita.
         Matteo: Ma ci sono cose peggiori, direi.
@@ -272,6 +275,7 @@ Opzioni di dialogo con la persona Matteo
 
     = second_qn
      ~ MatteoTalking++
+                     ~ inConversazione += Matteo
         Matteo: Dio, quanto vorrei avere il ruolo del morto, almeno potrei dormire.
         Ettore: Sei molto stanco?
         Matteo: Questa risposta è sempre vera negli ultimi sei anni.
@@ -308,6 +312,7 @@ Opzioni di dialogo con la persona Matteo
 
     = third_qn
     ~ MatteoTalking++
+                    ~ inConversazione += Matteo
         Matteo: Come te la cavi con le bugie?
             + Ettore: Mi faccio sgamare in tre secondi.
                 Matteo: Ahah allora capirai il mio dramma.

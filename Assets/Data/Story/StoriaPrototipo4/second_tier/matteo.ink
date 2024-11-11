@@ -25,6 +25,7 @@ Opzioni di dialogo con la persona Matteo
 {loopableVariables has pausaRapportoMatteo: Matteo: Non ho niente da dirti. -> intro.}
 
     + (loop) {new_this_loop(->loop)} Ettore: Non stai notando nulla di strano?
+                ~ inConversazione += Matteo
             Matteo: Intendi il provare da ore una storia senza senso? Prova ad essere più specifico.
                 + + (opzioneScarica3) {new_this_loop(->opzioneScarica3)}Ettore: Ho come questo senso di deja-vu...
                         Ettore: Abbiamo già vissuto tutto questo, anche se in modo diverso.
@@ -66,6 +67,7 @@ Opzioni di dialogo con la persona Matteo
                 -> advance_time ->
 
     + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Teo, tu e Paola che rapporto avete?
+                    ~ inConversazione += Matteo
         Matteo: <joy>Che cosa carina che mi chiami Teo.</joy>
         Matteo: <hesitate>La conosco poco nulla.
         Matteo: So che è ricca, so che è stronza, e so che è sorella di Elia.
@@ -140,6 +142,7 @@ Opzioni di dialogo con la persona Matteo
             + + [Cambi argomento] -> matteo_talking_second_tier
 
     + (omicidio) {new_this_loop(->omicidio)} Ettore: Matteo, secondo te chi vorrebbe fare del male a Paola?
+                    ~ inConversazione += Matteo
             Matteo: Credo un bel po' di gente.
             Matteo: Dal cassiere del supermercato alla autista privata.
             Matteo: Dalla postina al tizio che le cura i cani.
@@ -236,6 +239,7 @@ Opzioni di dialogo con la persona Matteo
 
 = first_qn
     ~ MatteoTalking++
+                    ~ inConversazione += Matteo
         Matteo: Vivi solo, Ettore?
             + Ettore: Vivo con la persona che amo.
                 Matteo: Immagino sia bello, svegliarsi accanto a chi ami.
@@ -268,6 +272,7 @@ Opzioni di dialogo con la persona Matteo
 
 = second_qn
  ~ MatteoTalking++
+                 ~ inConversazione += Matteo
     Matteo: Che pensi di tutta questa situazione, Ettore?
         + Ettore: La recita è tremenda.
             Matteo: Hai ragione, qualcuno dovrebbe fermare Paola.
@@ -295,6 +300,7 @@ Opzioni di dialogo con la persona Matteo
 
 = third_qn
 ~ MatteoTalking++
+                ~ inConversazione += Matteo
     Matteo: Credo... Posso chiederti un favore?
     Matteo: Resteresti qui con me, in silenzio, per qualche secondo?
     Matteo: <fear>C'è qualcosa che mi spaventa, e non riesco a calmarmi.</fear>

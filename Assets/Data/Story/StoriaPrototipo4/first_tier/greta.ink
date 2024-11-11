@@ -22,6 +22,7 @@ Opzioni di dialogo con il personaggio Greta
     //INFO GENERALI//
 
     + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Che rapporto avevi con Paola?
+                ~ inConversazione += Greta
         Greta: Che rapporto avevi con Paola?
         Ettore: Ehi, era solo una domanda innocente!
         Greta: Ehi, era solo una domanda innocente!
@@ -73,6 +74,7 @@ Opzioni di dialogo con il personaggio Greta
                     -> advance_time ->
      
      + (matteoGreta) {hardTrueFeelingsStorylet && new_this_loop(->matteoGreta)} Ettore: Quindi, Matteo ti ama?
+                 ~ inConversazione += Greta
             Ettore: Mi ha scaricato, vuole sposare te.
             Greta: Uh, questa mi è nuova.
             Ettore: Quindi non è vero che avete fatto sesso?
@@ -257,6 +259,7 @@ Opzioni di dialogo con la persona Greta
 
     = first_qn
     ~ GretaTalking++
+                ~ inConversazione += Greta
         Greta: Moriremo tutti, tutti.
         Ettore: Cosa è successo?
         Greta: <cry>COSA E' SUCCESSO?</cry>
@@ -280,6 +283,7 @@ Opzioni di dialogo con la persona Greta
     
     = second_qn
      ~ GretaTalking++
+                 ~ inConversazione += Greta
         Greta: Sapevi che questa prima era una fonderia?
         Greta: Poi hanno deciso di costruirci questo inferno social, dove vieni a farti le foto fighe etc etc.
         Greta: Paola aveva un amico di un amico che aveva un debito, e l'ha avuta a gratis.
@@ -310,6 +314,7 @@ Opzioni di dialogo con la persona Greta
 
     = third_qn
     ~ GretaTalking++
+                ~ inConversazione += Greta
         Greta: Come ti trovi coi gossip?
             + Ettore: Non vivo senza.
                 Greta: Siamo in due!

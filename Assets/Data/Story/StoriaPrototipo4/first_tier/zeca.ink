@@ -36,6 +36,7 @@ Opzioni di dialogo con il personaggio Zeca
             -> zeca_acting
 
     + (omicidio) {new_this_loop(->omicidio)} Ettore: Non voglio essere indelicato, ma hai idea di chi possa averla uccisa?
+                ~ inConversazione += Zeca
         Zeca: Greta credo la invidiasse.
         Zeca: Ma le era anche riconoscente, perché è stata Paola ad accoglierla quando è entrata nella famiglia.
         Zeca: Matteo la ammirava tantissimo.
@@ -55,6 +56,7 @@ Opzioni di dialogo con il personaggio Zeca
 
     //SCELTE CONDIZIONALI//
     + (sposo) {marryMeStorylet && not hardTrueFeelingsStorylet.ah or hardTrueFeelingsStorylet.mono && new_this_loop(->sposo)} Ettore: Matteo ed io ci sposeremo!
+                ~ inConversazione += Zeca
             Zeca: E immagino sia una cosa buona?
             Ettore: Non è il modo più nobile di stare assieme?
             Zeca: Nobile, è un parolone: Non è forse più nobile decidere giorno per giorno se stare assieme, senza vincoli esterni?
@@ -81,6 +83,7 @@ Opzioni di dialogo con il personaggio Zeca
                     -> zeca_acting
 
     + {hardTrueFeelingsStorylet && not are_two_entities_together(Zeca, Matteo) && not are_two_entities_together(Zeca, Greta)} Ettore: Matteo mi ha mollato.
+                ~ inConversazione += Zeca
             {zeca_acting.matrimonio: Zeca: Sai già che per me questa è una buona cosa per te.}
             Zeca: E come mai ti avrebbe lasciato?
             Ettore: Dice che ama Greta.
@@ -114,6 +117,7 @@ Opzioni di dialogo con il personaggio Zeca
             -> zeca_acting
     
     + (spiedino) {inventoryContents has SpiedinoCocktail && new_this_loop(->spiedino)} Ettore: Questo spiedino da cocktail ti dice qualcosa?
+                ~ inConversazione += Zeca
             Zeca: Che mi manca uno spritz a modo, e una manciata di noccioline.
             Zeca: Sai cosa stavo pensando, Ettore?
             Zeca: Che sei una benedizione per la famiglia.
@@ -195,6 +199,7 @@ Opzioni di dialogo con il personaggio Zeca
 
     = first_qn
     ~ ZecaActing++
+                ~ inConversazione += Zeca
         Ettore: Ti era mancato vedere i tuoi fratelli e sorelle?
         Zeca: Avrei preferito un contesto diverso, ma sì, mi sono mancati.
         Zeca: Anche se credo mi manchi qualcosa che non c'è più, il passato con loro.
@@ -208,6 +213,7 @@ Opzioni di dialogo con il personaggio Zeca
 
     = second_qn
      ~ ZecaActing++
+                 ~ inConversazione += Zeca
             Ettore: Sai, Matteo non mi parla mai molto di te. Cosa fai nella vita?
             Zeca: Un po' questo, un po' quello.
             Ettore: Nel senso di tanti lavoretti?
@@ -221,6 +227,7 @@ Opzioni di dialogo con il personaggio Zeca
 
     = third_qn
     ~ ZecaActing++
+                ~ inConversazione += Zeca
         Zeca: Ettore, tu sei in giro a fare un sacco di domande, ma ti sei mai chiesto la cosa più grande?
         Ettore: E quale sarebbe?
         Zeca: La grande domande non è chi avrebbe avuto motivo di uccidere Paola, ma chi avrebbe avuto un motivo per tenerla in vita.
@@ -272,6 +279,7 @@ Opzioni di dialogo con la persona Zeca
 
     = first_qn
     ~ ZecaTalking++
+                ~ inConversazione += Zeca
         Zeca: Puoi dirmelo se ti piace, lo capirei. Non si può negare che è <joy>irresistibile.</joy>
         Ettore: Chi? Cosa? Quando? Come?
         Zeca: Elia, ovviamente. Se ne innamorano tutti, subito. Quel ragazzo ha un superpotere.
@@ -309,6 +317,7 @@ Opzioni di dialogo con la persona Zeca
     
     = second_qn
      ~ ZecaTalking++
+                 ~ inConversazione += Zeca
         Zeca: Che hai visto Anastasia per caso?
         Ettore: Anastasia?
         Zeca: Sì, l'orfanella. Greta. L'hai vista?
@@ -324,6 +333,7 @@ Opzioni di dialogo con la persona Zeca
 
     = third_qn
     ~ ZecaTalking++
+                ~ inConversazione += Zeca
         Zeca: Ci mancava la lettera del mistero, mannaggia al gatto del prete.
         Ettore: Lettera del mistero?
         Zeca: Lascia fare. Qui si sta a fare un casino tra oggetti di scena, oggetti privati e casini personali.

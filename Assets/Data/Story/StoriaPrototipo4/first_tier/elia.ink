@@ -80,6 +80,7 @@ Opzioni di dialogo con il personaggio Elia
 
   
     + (sincero) {hardTrueFeelingsStorylet && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Matteo mi ha detto di lui e di Greta.
+            ~ inConversazione += Elia
             Elia: Merda, mi spiace. Per questo volevo fare il matrimonio al pub.
             Elia: Sapevo da tempo che Matteo provava qualcosa per Greta, ma non sapevo come dirtelo!
             Elia: Andrò da Greta, te lo devo.
@@ -121,6 +122,7 @@ Opzioni di dialogo con il personaggio Elia
         
     //SCELTE CONDIZIONALI OGGETTI//
      + (pugnale) {inventoryContents has AnticoPugnale && new_this_loop(->pugnale)} Ettore: Ehi Elia, hai mai visto questo pugnale?
+             ~ inConversazione += Elia
             Elia: Sì!
             Elia: Matteo era disperato, l'aveva perso da settimane!
             {
@@ -236,6 +238,7 @@ Opzioni di dialogo con il personaggio Elia
 
     = first_qn
     ~ EliaActing++
+            ~ inConversazione += Elia
         Ettore: Come sta andando con il pub?
         Elia: Il <i>Funny Elia & Greta</i>? Benissimo! L'altro sabato abbiamo avuto addirittura tre comici di fila.
         Elia: Anche se uno era così ubriaco che si è addormentato durante il suo sketch.
@@ -257,6 +260,7 @@ Opzioni di dialogo con il personaggio Elia
 
     = second_qn
      ~ EliaActing++
+             ~ inConversazione += Elia
         Elia: Posso farti una domanda, Ettore?
         Elia: Cosa ci trovi in mio fratello Matteo?
         {are_two_entities_together(Matteo, Elia): Matteo: Fai pure come se non fossi qui, guarda.}
@@ -277,6 +281,7 @@ Opzioni di dialogo con il personaggio Elia
 
     = third_qn
     ~ EliaActing++
+            ~ inConversazione += Elia
         Elia: <fear>Non ci credo che se ne sia andata, non ci credo</fear>.
         Ettore: Le volevi molto bene?
         Elia: Sì, anche se la conoscevo da poco.
@@ -332,6 +337,7 @@ Opzioni di dialogo con la persona Elia
 
     = first_qn
     ~ EliaTalking++
+            ~ inConversazione += Elia
         Elia: Mi scusi, ha visto Zeca?
         Ettore: Non mi dare del lei, dammi pure del tu.
         Elia: Ha ragione. Mi scusi, <i>tu</i> ha visto Zeca?
@@ -364,6 +370,7 @@ Opzioni di dialogo con la persona Elia
 
     = second_qn
      ~ EliaTalking++
+             ~ inConversazione += Elia
         Ettore: Che fai di bello nella vita, Elia?
         Elia: <joy>Sono felice che abbia notato che sono bello!</joy>
         Ettore: Non è quello che...
@@ -405,6 +412,7 @@ Opzioni di dialogo con la persona Elia
 
     = third_qn
     ~ EliaTalking++
+            ~ inConversazione += Elia
         Elia: Sono così orgoglioso di mia sorella!
         Ettore: Hai una sorella?
         Elia: In che senso "Hai una sorella?"?

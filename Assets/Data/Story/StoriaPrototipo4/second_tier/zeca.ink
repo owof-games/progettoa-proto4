@@ -25,6 +25,7 @@ Opzioni di dialogo con la persona Zeca
  {loopableVariables has pausaRapportoZeca: Zeca: Ma stammi lontano, cafone! -> intro.}
     //INFO GENERALI//
     + (loop) {new_this_loop(->loop)} Ettore: Zeca, non hai notato cose strane negli ultimi minuti?
+            ~ inConversazione += Zeca
         Zeca: Tipo?
         Ettore: Che sembra che state dimenticando le cose, e fate cose strane.
         Zeca: Tipo?
@@ -78,6 +79,7 @@ Opzioni di dialogo con la persona Zeca
                  -> zeca_talking_second_tier
 
     + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Tu e Paola andate d'accordo?
+                ~ inConversazione += Zeca
         Zeca: Non mi dispiace, ma non ci pigliamo.
         Zeca: Lei è un po' troppo bossy, non so se ci capiamo.
         Zeca: Cosa che adoro in una donna, ma fa troppo elder millenial.
@@ -118,6 +120,7 @@ Opzioni di dialogo con la persona Zeca
 
     //SCELTE CONDIZIONALI//
     + (allestimento4) {notABigSecretPartTwoStorylet.allestimento && new_this_loop(->allestimento4)} Ettore: Zeca, ho una domanda sul buffet e su chi se ne è occupato.
+                ~ inConversazione += Zeca
         Zeca: Ecco che torna a fare domande.
         Ettore: Ok, niente domande allora.
         Ettore: Elia prima mi ha detto che tu e Matteo vi siete occupati del cibo e delle sigarette di Paola.
@@ -191,6 +194,7 @@ Opzioni di dialogo con la persona Zeca
     + (love){zeca_talking_second_tier.omicidio && new_this_loop(->love)} Ettore: Zeca, prima hai detto che faresti di tutto per Elia.
         
         + + (love2){paola_talking_second_tier.money && new_this_loop(->love2)} Ettore: Secondo Paola, è perché i tuoi soldi provengono da Elia.
+                    ~ inConversazione += Zeca
             Zeca: Al massimo è il contrario.
             Zeca: Prima della nostra collab Elia proponeva foto a sciampiste su Grindr.
             Zeca: Ora c'ha questo ammasso di <joy>fustacchiotti</joy> fissati con la barra e le proteine, che vanno in burnout se in vacanza non hanno la palestra vicino.
@@ -213,6 +217,7 @@ Opzioni di dialogo con la persona Zeca
                 -> advance_time ->    
                     -> zeca_talking_second_tier
         + + (love3){trueLoveStorylet && new_this_loop(->love3)} Ettore: Come ti senti, ora che Elia ti ha dichiarato il suo amore?
+                    ~ inConversazione += Zeca
             Zeca: E come lo sai?
             Zeca: <rage>Merda,<waitrage> quanto<waitrage> siete<waitrage> pettegole!</rage>
             Zeca: Ci scometto che è stato Matteo, quello sa ingoiare solo a letto, il maledetto.
@@ -261,6 +266,7 @@ Opzioni di dialogo con la persona Zeca
             -> advance_time ->
                     -> zeca_talking_second_tier
     + (torta) {inventoryContents has Torta && new_this_loop(->torta)} Ettore: Hai mai...
+                ~ inConversazione += Zeca
         Zeca: Visto questa torta?
         Zeca: Mangiato questa torta?
         Zeca: Leccato questa torta?
@@ -274,6 +280,7 @@ Opzioni di dialogo con la persona Zeca
         -> advance_time ->
                     -> zeca_talking_second_tier
     + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Hai comprato tu questa bottiglia di vino?
+                ~ inConversazione += Zeca
        - (allestimento3) Zeca: Sì, la boccia l'abbiamo presa Matteo ed io.
         Zeca: Mmm, ora che ci penso, non esattamente.
         Ettore: In che senso?
@@ -324,6 +331,7 @@ Opzioni di dialogo con la persona Zeca
 
 = first_qn
 ~ ZecaTalking++
+            ~ inConversazione += Zeca
     Zeca: Vuoi sapere una cosa buffa?
     Zeca: Certo che vuoi sapere una cosa buffa, sei un impiccione impagabile.
     Zeca: E ci scometto che ti piaccono pure le cose tristi.
@@ -350,6 +358,7 @@ Opzioni di dialogo con la persona Zeca
 
 = second_qn
  ~ ZecaTalking++
+             ~ inConversazione += Zeca
     Zeca: Qual è la cosa che detesti in una persona?
         + Ettore: L'ipocrisia.
             Zeca: Banale.
@@ -382,6 +391,7 @@ Opzioni di dialogo con la persona Zeca
 
 = third_qn
 ~ ZecaTalking++
+            ~ inConversazione += Zeca
     Ettore: Conosciamoci meglio.
     Zeca: Dio, perché mai vorrei farlo?!?
     Zeca: Conoscimi meglio!

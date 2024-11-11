@@ -411,6 +411,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
             + {marryMeStorylet > 1} [Ti allontani.] -> intro
             + {marryMeStorylet > 1} [Resti.]
             + ->
+            -
         Ettore: Mai abbastanza, cucciolone.
         Matteo: E sai, c'è una cosa che vorrei dirti da un bel po'.
         Matteo: Hai presente che ho fatto ristrutturare l'ala nord del castello?

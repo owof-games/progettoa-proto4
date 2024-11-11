@@ -188,6 +188,8 @@
 
 === weddingAtThePubStorylet
 {debug: <i>Passo per weddingAtThePubStorylet</i>}
+~ inConversazione += Matteo
+~ inConversazione += Elia
         Matteo: Te l'ho già detto più volte, Elia: è una scelta pacchiana.
         Elia: Ma il nostro pub non è pacchiano!
             + {weddingAtThePubStorylet > 1} [Ti allontani.]
@@ -213,6 +215,8 @@
 
 === anEavesdropAboutFriendshipStorylet
 {debug: <i>Passo per anEavesdropAboutFriendshipStorylet</i>}
+~ inConversazione += Elia
+~ inConversazione += Greta
         Elia: <fear>Quindi ora vuoi uccidermi?</fear> 
         Greta: Ucciderti?
             + {anEavesdropAboutFriendshipStorylet > 1} [Ti allontani.]
@@ -304,6 +308,8 @@
 //CONVERSAZIONI IN ALTRE STANZE, CHE NON ORIGLIAMO, E CHE CONTINUANO QUANDO ENTRIAMO
 
 === sheIsTheBestStorylet
+~ inConversazione += Matteo
+~ inConversazione += Elia
 /*
 Due punti di modifica:
 1) impostazione variabile
@@ -371,6 +377,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
 
 //CONFESSIONI SOLITARIE 
 === aStrangeKnifeStorylet
+~ inConversazione += Matteo
 {debug: <i>Passo per aStrangeKnifeStorylet</i>}
         Matteo: Ehi, ma quello è il mio antico pugnale sacrificale!
         Matteo: Grazie per avermelo riportato!
@@ -455,6 +462,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
 
 
 === worstBestManStorylet
+~ inConversazione += Zeca
 {debug: <i>Passo per worstBestMate</i>}
     Zeca: Mio nuovo giovane amico, che bello rivederti.
     {not new_this_loop(->zeca_acting.rapportoPaola): Zeca: Forse adesso è un buon momento per rispondere alla tua domanda di prima.}
@@ -498,6 +506,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
 
 //STORYLET A CUI ARRIVIAMO SOLO ATTRAVERSO UNA SCELTA
 === hardTrueFeelingsStorylet
+~ inConversazione += Matteo
 {debug: <i>Passo per hardTrueFeelingsStorylet</i>}
 Matteo: Anche io.
 Ettore: Uh, dimmi pure.
@@ -597,6 +606,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
 
 
 === notebook_tutorial
+~ inConversazione += Paola
             ~ change_status(Paola, PaolaLive)
             ~ move_first_entity_to_second_entity_location(Paola,Ettore)
         Paola: <cry>STOP STOP STOP DI NUOVO!</cry>
@@ -632,6 +642,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
 
 
 === talking_tutorial
+~ inConversazione += Paola
             ~ change_status(Paola, PaolaLive)
             ~ move_first_entity_to_second_entity_location(Paola,Ettore)
         Paola: Madre santa, che fatica prepararvi per questo pezzo!

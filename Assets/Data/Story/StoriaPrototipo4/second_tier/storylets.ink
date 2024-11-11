@@ -171,6 +171,8 @@
 //STORYLET "NORMALI"
 
 === liarCallLiarStorylet
+~ inConversazione += Zeca
+~ inConversazione += Elia
         Zeca: Devi smetterla di fidarti di lei, Elia.
         Zeca: Lo dico per il tuo bene.
                 + {liarCallLiarStorylet > 1} [Ti allontani.]
@@ -208,6 +210,7 @@
 
 
 === iLlKillThatBitchStorylet
+~ inConversazione += Zeca
         Zeca: <cry>DAMMI SUBITO QUELLA FOTO!</cry>
             ~ inventoryContents -= Foto
             ~ objectStorageContents += Foto
@@ -229,6 +232,7 @@
 
 
 === forMeHeIsStupidAFStorylet
+~ inConversazione += Matteo
     Matteo: Non me lo sarei mai aspettato.
     Ettore: Cosa?
             + {forMeHeIsStupidAFStorylet> 1} [Ti allontani.]
@@ -263,6 +267,8 @@
 //CONVERSAZIONI ORIGLIATE
 
 === whisperingSecretsStorylet
+~ inConversazione += Elia
+~ inConversazione += Zeca
         Elia: Sono la ciotola, o sono il cane?
         Zeca: Che stai dicendo?
             + {whisperingSecretsStorylet> 1} [Ti allontani.]
@@ -287,6 +293,8 @@
 
 
 === iTryToBeAGoodFriendStorylet
+~ inConversazione += Matteo
+~ inConversazione += Zeca
         Zeca: Te lo ripeto: non voglio parlare con te.
         Matteo: Zeca, Paola vuole mettere zizzania tra noi, e per ques-
         Zeca: Per quello basti tu.
@@ -325,6 +333,8 @@
 
 
 === liesAndPromisesStorylet
+~ inConversazione += Greta
+~ inConversazione += Elia
     Greta: Dimmelo di nuovo, ti prego.
     Elia: Era una cosa sbagliata?
             + {liesAndPromisesStorylet> 1} [Ti allontani.]
@@ -341,6 +351,8 @@
 
 
 === trueLoveStorylet
+~ inConversazione += Zeca
+~ inConversazione += Elia
         Zeca: No, non ti dico come lo so.
         Zeca: Quindi, ti scopi quella?
             + {trueLoveStorylet> 1} [Ti allontani.]
@@ -386,6 +398,7 @@
 
 //CONFESSIONI SOLITARIE 
 === notABigSecretPartOneStorylet
+~ inConversazione += Matteo
         Matteo: Uh, ehi, ciao Ettore.
         Matteo: Mi hai colto di sorpresa.
             + {notABigSecretPartOneStorylet> 1} [Ti allontani.]
@@ -413,6 +426,7 @@
 
 
 === notABigSecretPartTwoStorylet
+~ inConversazione += Elia
         Elia: Non le trovo!
         Ettore: Cosa?
             + {notABigSecretPartTwoStorylet> 1} [Ti allontani.]
@@ -460,6 +474,7 @@
 
 //STORYLET A CUI ARRIVIAMO SOLO ATTRAVERSO UNA SCELTA
 === evilJobStorylet
+~ inConversazione += Matteo
     Matteo: Vuoi davvero ascoltare una storia lunga e noiosa?
         + Ettore: Se è lunga, forse non ho tutto questo tempo, scusa.
             -> intro

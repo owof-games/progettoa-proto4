@@ -164,7 +164,7 @@
             + (paolaMorta) Ettore: [Chiamiamo la polizia!]<fear>Chiamiamo la polizia!</fear> 
             -
         Matteo: Non esiste.
-        Greta: In questa famiglia le cose si affrontano in famiglia.
+        Greta: Qui le cose si affrontano in famiglia.
         Zeca: E infatti ci odiamo tutti.
         Elia: <fear>Io me ne vado!</fear> 
         

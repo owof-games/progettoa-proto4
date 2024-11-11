@@ -19,6 +19,7 @@ Opzioni di dialogo con la persona Paola
  ----------------------------------*/
 
 === paola_talking_second_tier
+    ~ move_locked_entities()
     -> second_tier_storylets ->
  {debug: <i>Passo per paola_talking</i>}
     //INFO GENERALI//

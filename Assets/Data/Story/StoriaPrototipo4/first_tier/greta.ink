@@ -17,6 +17,7 @@ Opzioni di dialogo con il personaggio Greta
 
 === greta_acting
     {debug: <i>Passo per greta_acting</i>}
+    ~ move_locked_entities()
     -> first_tier_storylets ->
     //INFO GENERALI//
 
@@ -163,7 +164,7 @@ Opzioni di dialogo con il personaggio Greta
 
     = esplora_greta_personaggia
     {debug: <i>Passo per esplora_greta_personaggia</i>}
-    
+    ~ move_locked_entities()
     {
     - GretaActing > 1: Greta: Ettore bello, mo basta, vai a giocare da un'altra parte!
         -> advance_time ->
@@ -227,6 +228,7 @@ Opzioni di dialogo con la persona Greta
 
 === greta_talking
  {debug: <i>Passo per greta_talking</i>}
+ ~ move_locked_entities()
     //INFO GENERALI//
     + [Fai una chiacchierata con Greta] -> esplora_greta
     + [Te ne vai] -> intro

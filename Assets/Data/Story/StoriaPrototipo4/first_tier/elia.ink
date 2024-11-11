@@ -17,6 +17,7 @@ Opzioni di dialogo con il personaggio Elia
 
 === elia_acting
     {debug: <i>Passo per elia_acting</i>}
+    ~ move_locked_entities()
     -> first_tier_storylets ->
     //INTERAZIONI GENERALI//
 
@@ -218,6 +219,7 @@ Opzioni di dialogo con il personaggio Elia
 ->->
 
     = esplora_elia_personaggia
+    ~ move_locked_entities()
     {debug: <i>Passo per esplora_elia</i>}
     
     {
@@ -302,6 +304,7 @@ Opzioni di dialogo con la persona Elia
  ----------------------------------*/
 
 === elia_talking
+~ move_locked_entities()
  {debug: <i>Passo per elia_talking</i>}
     //INFO GENERALI//
     + [Conosci meglio Elia] -> esplora_elia

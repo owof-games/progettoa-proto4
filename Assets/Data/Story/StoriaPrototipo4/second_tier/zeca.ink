@@ -19,6 +19,7 @@ Opzioni di dialogo con la persona Zeca
  ----------------------------------*/
 
 === zeca_talking_second_tier
+~ move_locked_entities()
 -> second_tier_storylets ->
  {debug: <i>Passo per zeca_talking_second_tier</i>}
  {loopableVariables has pausaRapportoZeca: Zeca: Ma stammi lontano, cafone! -> intro.}

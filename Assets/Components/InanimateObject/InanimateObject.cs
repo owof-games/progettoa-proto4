@@ -4,9 +4,9 @@ using Components.RoomTransitionHandler;
 using Components.Story.Rooms;
 using Ink.Runtime;
 using LemuRivolta.InkAtoms;
-using NUnit.Framework;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Components.InanimateObject
 {

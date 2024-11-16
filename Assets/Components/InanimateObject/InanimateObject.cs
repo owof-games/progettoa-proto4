@@ -1,4 +1,8 @@
 using System;
+using System.Linq;
+using Components.RoomTransitionHandler;
+using Components.Story.Rooms;
+using Ink.Runtime;
 using LemuRivolta.InkAtoms;
 using NUnit.Framework;
 using UnityAtoms.BaseAtoms;
@@ -57,6 +61,20 @@ namespace Components.InanimateObject
             // visibility will be updated on Start anyway
             if (!_started) return;
 
+            // check if this object is in the same room as Ettore; if not, don't update its visibility, because the
+            // visibility is always only valid for the room ettore is in
+            var myRoom = CurrentRoom.GetRoomOf(gameObject);
+            var ettoreLocation = inkStory.Call("getEttoreLocation", out _) as InkList;
+            Debug.Assert(ettoreLocation != null);
+            var ettoreRoom = Enum.Parse<Room>(ettoreLocation!.Single().Key.itemName);
+            if (myRoom != ettoreRoom)
+            {
+                Debug.Log(
+                    $"Object {_interactionKey} in room {myRoom} is not in ettore's room {ettoreRoom}, skipping visibility update");
+                return;
+            }
+
+            // check if the object is together with Ettore
             var objectListItem = "objects." + _interactionKey;
             var listValue =
                 inkStory.unsafeStory.listDefinitions.FindSingleItemListWithName(objectListItem);

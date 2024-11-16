@@ -4514,6 +4514,21 @@
           "#f": 1
         }
       ],
+      "getEttoreLocation": [
+        "ev",
+        {
+          "VAR?": "Ettore"
+        },
+        {
+          "f()": "entity_location"
+        },
+        "/ev",
+        "~ret",
+        "\n",
+        {
+          "#f": 1
+        }
+      ],
       "updateEntitiesLocations": [
         "ev",
         {

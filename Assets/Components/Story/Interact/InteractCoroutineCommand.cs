@@ -19,6 +19,8 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
 
     [SerializeField] private StringEvent interactObjectEvent;
 
+    [SerializeField] private StringEvent dropObjectEvent;
+
     [SerializeField] private VoidEvent advanceTimeEvent;
 
     [SerializeField] private StoryStateConstant storyStateInteracting;
@@ -34,6 +36,8 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
     {
         Assert.IsNotNull(interactExitEvent);
         Assert.IsNotNull(interactCharacterEvent);
+        Assert.IsNotNull(interactObjectEvent);
+        Assert.IsNotNull(dropObjectEvent);
         Assert.IsNotNull(advanceTimeEvent);
         Assert.IsNotNull(storyStateInteracting);
         Assert.IsNotNull(storyStateTalking);
@@ -63,6 +67,7 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
                         "exit" => new AvailableInteraction(Interaction.Exit, parts[1]),
                         "character" => new AvailableInteraction(Interaction.Character, parts[1]),
                         "object" => new AvailableInteraction(Interaction.Object, parts[1]),
+                        "dropobject" => new AvailableInteraction(Interaction.DropObject, parts[1]),
                         _ => null
                     };
                 })
@@ -117,6 +122,20 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
                 if (choice.Text == null)
                     throw new Exception(
                         $"Cannot find an interaction choice in Ink to interact with object {objectName}; available choices are: " +
+                        string.Join(", ", choices.Select(c => c.Text)));
+
+                currentStoryState.Value = previousStoryState;
+                availableInteractionsEvent.Raise(AvailableInteractions.EmptyAvailableInteractions);
+                context.TakeChoice(choice.Index);
+            },
+            atom5: dropObjectEvent,
+            onEvent5: objectName =>
+            {
+                // asked to drop an object from inventory: take the given choice
+                var choice = choices.FirstOrDefault(choice => choice.Text == $"dropobject:{objectName}");
+                if (choice.Text == null)
+                    throw new Exception(
+                        $"Cannot find an interaction choice in Ink to drop object {objectName}; available choices are: " +
                         string.Join(", ", choices.Select(c => c.Text)));
 
                 currentStoryState.Value = previousStoryState;

@@ -11498,7 +11498,13 @@
           },
           "ev",
           "str",
-          "^Lascia il flaconcino per l'asma nella stanza",
+          "^dropobject:",
+          "ev",
+          {
+            "VAR?": "FlaconcinoAsma"
+          },
+          "out",
+          "/ev",
           "/str",
           {
             "VAR?": "inventoryContents"
@@ -11514,7 +11520,13 @@
           },
           "ev",
           "str",
-          "^Lascia la limetta nella stanza",
+          "^dropobject:",
+          "ev",
+          {
+            "VAR?": "LimettaUnghie"
+          },
+          "out",
+          "/ev",
           "/str",
           {
             "VAR?": "inventoryContents"
@@ -11530,7 +11542,13 @@
           },
           "ev",
           "str",
-          "^Lascia il pugnale nella stanza",
+          "^dropobject:",
+          "ev",
+          {
+            "VAR?": "AnticoPugnale"
+          },
+          "out",
+          "/ev",
           "/str",
           {
             "VAR?": "inventoryContents"
@@ -11546,7 +11564,13 @@
           },
           "ev",
           "str",
-          "^Lascia lo spiedino nella stanza",
+          "^dropobject:",
+          "ev",
+          {
+            "VAR?": "SpiedinoCocktail"
+          },
+          "out",
+          "/ev",
           "/str",
           {
             "VAR?": "inventoryContents"
@@ -11562,7 +11586,13 @@
           },
           "ev",
           "str",
-          "^Lascia la lettera nella stanza",
+          "^dropobject:",
+          "ev",
+          {
+            "VAR?": "Lettera"
+          },
+          "out",
+          "/ev",
           "/str",
           {
             "VAR?": "inventoryContents"
@@ -11578,7 +11608,13 @@
           },
           "ev",
           "str",
-          "^Lascia la bottiglia di vino nella stanza",
+          "^dropobject:",
+          "ev",
+          {
+            "VAR?": "BottigliaDiVino"
+          },
+          "out",
+          "/ev",
           "/str",
           {
             "VAR?": "inventoryContents"
@@ -11594,7 +11630,13 @@
           },
           "ev",
           "str",
-          "^Lascia la sigaretta elettronica nella stanza",
+          "^dropobject:",
+          "ev",
+          {
+            "VAR?": "SigarettaElettronica"
+          },
+          "out",
+          "/ev",
           "/str",
           {
             "VAR?": "inventoryContents"
@@ -11610,7 +11652,13 @@
           },
           "ev",
           "str",
-          "^Lascia la torta nella stanza",
+          "^dropobject:",
+          "ev",
+          {
+            "VAR?": "Torta"
+          },
+          "out",
+          "/ev",
           "/str",
           {
             "VAR?": "inventoryContents"

@@ -42,21 +42,21 @@
 
 //Rimozione oggetti
 //Quando avremo l'oggetto in mano ci sarà qualcosa tipo leaveObject in modo tale che Unity lo sappia
-+ {inventoryContents has FlaconcinoAsma} [Lascia il flaconcino per l'asma nella stanza]
++ {inventoryContents has FlaconcinoAsma} [dropobject:{FlaconcinoAsma}]
         ~ remove_entity(FlaconcinoAsma)
-+ {inventoryContents has LimettaUnghie} [Lascia la limetta nella stanza]
++ {inventoryContents has LimettaUnghie} [dropobject:{LimettaUnghie}]
         ~ remove_entity(LimettaUnghie)
-+ {inventoryContents has AnticoPugnale} [Lascia il pugnale nella stanza]
++ {inventoryContents has AnticoPugnale} [dropobject:{AnticoPugnale}]
         ~ remove_entity(AnticoPugnale)
-+ {inventoryContents has SpiedinoCocktail}  [Lascia lo spiedino nella stanza]
++ {inventoryContents has SpiedinoCocktail}  [dropobject:{SpiedinoCocktail}]
         ~ remove_entity(SpiedinoCocktail)
-+ {inventoryContents has Lettera} [Lascia la lettera nella stanza]
++ {inventoryContents has Lettera} [dropobject:{Lettera}]
         ~ remove_entity(Lettera)
-+ {inventoryContents has BottigliaDiVino} [Lascia la bottiglia di vino nella stanza]
++ {inventoryContents has BottigliaDiVino} [dropobject:{BottigliaDiVino}]
         ~ remove_entity(BottigliaDiVino)
-+ {inventoryContents has SigarettaElettronica} [Lascia la sigaretta elettronica nella stanza]
++ {inventoryContents has SigarettaElettronica} [dropobject:{SigarettaElettronica}]
         ~ remove_entity(SigarettaElettronica)
-+ {inventoryContents has Torta} [Lascia la torta nella stanza]
++ {inventoryContents has Torta} [dropobject:{Torta}]
         ~ remove_entity(Torta)    
          
 + [debug:advance_time]

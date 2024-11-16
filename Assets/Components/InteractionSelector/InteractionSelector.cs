@@ -10,7 +10,8 @@ namespace Components.InteractionSelector
     {
         Exit,
         Character,
-        Object
+        Object,
+        DropObject
     }
 
     public class InteractionSelector : MonoBehaviour

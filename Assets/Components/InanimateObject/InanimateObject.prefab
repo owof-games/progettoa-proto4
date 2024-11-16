@@ -422,6 +422,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inkStory: {fileID: 11400000, guid: f10acf045d160c24da6697229f63fc88, type: 2}
+  roomChangedEvents:
+  - {fileID: 11400000, guid: 4e5f3498ac94c264a9fa9d752e39436e, type: 2}
+  - {fileID: 11400000, guid: a9672b5786c804448b2fff051711f4a0, type: 2}
+  - {fileID: 11400000, guid: 44fc2413ed0f5ee4fbc6a61cb04da60d, type: 2}
+  - {fileID: 11400000, guid: 38c60fffff25c924aa4e66bd7d0dc189, type: 2}
+  - {fileID: 11400000, guid: 12e59ad950e9d0c43a766b908d7db658, type: 2}
+  - {fileID: 11400000, guid: c34493a556ff3ff4cac221006e57c9f3, type: 2}
+  - {fileID: 11400000, guid: 30e93184606a2e947924173b1714a993, type: 2}
+  - {fileID: 11400000, guid: 95b08437fb36e6e44a28a22a65ce6ac8, type: 2}
 --- !u!114 &4444132367887833664
 MonoBehaviour:
   m_ObjectHideFlags: 0

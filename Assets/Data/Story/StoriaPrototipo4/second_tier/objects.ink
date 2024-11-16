@@ -1,6 +1,6 @@
 === cb_second_tier_lettera ===
 
-+ {are_two_entities_together(Ettore, Lettera)} [object:Lettera]
++ {are_two_entities_together(Ettore, Lettera)} [object:{Lettera}]
     -> lettera ->
 
 -> intro
@@ -22,7 +22,7 @@
 
 === cb_second_tier_bottiglia_di_vino ===
 
-+ {are_two_entities_together(Ettore, BottigliaDiVino)} [object:Bottiglia di Vino]
++ {are_two_entities_together(Ettore, BottigliaDiVino)} [object:{BottigliaDiVino}]
     -> bottiglia_di_vino ->
 
 -> intro
@@ -42,7 +42,7 @@
 ->->
 
 === cb_second_tier_flaconcino_asma ===
-+ {are_two_entities_together(Ettore, FlaconcinoAsma)} [object:FlaconcinoAsma]
++ {are_two_entities_together(Ettore, FlaconcinoAsma)} [object:{FlaconcinoAsma}]
     -> flaconcino_asma->
 
 -> intro
@@ -62,7 +62,7 @@
 ->->
 
 === cb_second_tier_sigaretta_elettronica ===
-+ {are_two_entities_together(Ettore, SigarettaElettronica)} [object:Sigaretta Elettronica]
++ {are_two_entities_together(Ettore, SigarettaElettronica)} [object:{SigarettaElettronica}]
     -> sigaretta_elettronica->
 
 -> intro
@@ -82,7 +82,7 @@
 ->->
 
 === cb_second_tier_cibo ===
-+ {are_two_entities_together(Ettore, Torta)} [object:Torta]
++ {are_two_entities_together(Ettore, Torta)} [object:{Torta}]
     -> cibo ->
 
 -> intro
@@ -103,7 +103,7 @@
 
 
 === cb_second_tier_foto ===
-+ {are_two_entities_together(Ettore, Foto)} [object:Foto]
++ {are_two_entities_together(Ettore, Foto)} [object:{Foto}]
     -> foto ->
 
 -> intro

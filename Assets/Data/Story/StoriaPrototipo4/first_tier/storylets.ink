@@ -132,7 +132,7 @@
             ~ move_this_entity_in_a_different_room(Matteo)
         Zeca: E io ne approfitto per scappare.
             ~ move_this_entity_in_a_different_room(Zeca)
-        Elia: Ne approfitto per fare due flessioni di là.
+        Elia: Allora mi sparo due flessioni di là.
             ~ move_this_entity_in_a_different_room(Elia)
             + Ettore: Bella festa, davvero. Grazie.
             + Ettore: Boh, a questo punto me ne vado anche io.
@@ -158,6 +158,7 @@
         Zeca: Mmm, è tiepida.
         Elia: <hesitate>E non respira.
         Greta: Sempre pensato che fosse un vampiro.
+        Matteo: Ha delle ferite sul petto!
         Matteo: E non ha polso.
         Greta: Questo non cambia la mia teoria.
         Matteo: Fratelli, Greta: Paola è morta!
@@ -228,7 +229,7 @@
         Elia: Come hai fatto con Paola. Per via dei senzatetto e del pub!
         Greta: Elia. Credi davvero che. Oh, lascia che ti spieghi una cosa.
         Greta: Prima che le nostre madri si fidanzassero, sono stata povera.
-        Greta: Papà è stato a lungo un influencer, ma quando le cose sono cambiate per lui, non ha saputo più come affrontare la realtà.
+        Greta: Papà era un influencer, ma dopo lo scandalo del torrone ha perso followers e non ha saputo più come affrontare la realtà.
         Greta: E così papà ed io abbiamo vissuto per mesi per strada.
         {
                 - are_two_entities_together(Ettore, Elia) or are_two_entities_together(Elia, Matteo) or are_two_entities_together(Elia, Zeca): -> quickTalk
@@ -260,6 +261,7 @@
 
 === itsOverisntItStorylet
     Greta: <rage>Co<waitrage>glio<waitrage>ne</rage>.
+    Greta: Cosa cazzo vai in giro a dire che staremo assieme?
     Greta: Matteo, sei un coglione infinito.
         + {itsOverisntItStorylet > 1} [Ti allontani.] -> intro
         + {itsOverisntItStorylet > 1} [Resti.]
@@ -310,7 +312,7 @@
 
 
 //CONVERSAZIONI IN ALTRE STANZE, CHE NON ORIGLIAMO, E CHE CONTINUANO QUANDO ENTRIAMO
-
+TODO: quando clicco "ti allontani" mi ripropone comunque la conversazione da capo, cosa che non accade con le altre. Si ripete "sarai tu noioso"
 === sheIsTheBestStorylet
 ~ inConversazione += Matteo
 ~ inConversazione += Elia
@@ -651,7 +653,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
                 -> intro
 
 
-
+TODO: da vedere se serve davvero dopo i test. Perché da solo arrivo qui con le idee chiare (ovvio) e il risolvibile risolto, per cui potremmo cancellare un intero loop
 === talking_tutorial
 ~ inConversazione += Paola
             ~ change_status(Paola, PaolaLive)
@@ -693,6 +695,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
 
 
 //MORTE DI PAOLA (COMUNE A PRIMO E SECONDO TIER)
+TODO: mi è capitato, giustamente, che Ettore senta tutta la conversazione e risponda da un'altra stanza perché quando parte il dialogo non si può spostare. Come risolviamo? Mettendo la possibilità di muoversi, o forzando lo spostamento del personaggio nella stanza con Paola (non mi piace ma è pratica)?
 === paolaIsDeadStorylet
 {debug: <i>paolaIsDeadStorylet</i>}
         Greta: Paola, ma questa roba non ha senso!

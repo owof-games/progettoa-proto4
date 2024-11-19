@@ -49,11 +49,11 @@ Opzioni di dialogo con il personaggio Greta
             Greta: Un essere senza cuore, incapace di provare sentimenti.
             Greta: Destinato a osservare il mondo da un angolo buio, provando odio e rancore eterno.
             Greta: Spendendo ore su ore a immaginare modi atroci per distruggere sé stesso e il resto del mondo.
-            Greta: Ma c'è solo una persona che può corrispondere a questa descrizione: <hesitate>io!
+            Greta: Ma c'è solo una persona che può corrispondere a questa descrizione: <cry>io</cry>!
             Greta: E sono abbastanza sicura di non aver ucciso nessuno.
             Greta: Non stasera, per lo meno.
             Greta: Ma ti propongo un patto: ti dirò chi è l'unico plausibile assassino se tu convinci Elia a venire a parlarmi.
-            Greta: Mi sta evitando da quando è venuta a mancare Paola, e non capisco perché.
+            Greta: Mi sta evitando e non capisco perché.
                     -> advance_time ->   
                 -> greta_acting
 

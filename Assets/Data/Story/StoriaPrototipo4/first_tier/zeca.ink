@@ -55,7 +55,7 @@ Opzioni di dialogo con il personaggio Zeca
 
 
     //SCELTE CONDIZIONALI//
-    + (sposo) {marryMeStorylet && not hardTrueFeelingsStorylet.ah or hardTrueFeelingsStorylet.mono && new_this_loop(->sposo)} Ettore: Matteo ed io ci sposeremo!
+    + (sposo) {marryMeStorylet && new_this_loop(->sposo) && not hardTrueFeelingsStorylet.ah or not hardTrueFeelingsStorylet.mono} Ettore: <joy>Matteo ed io ci sposeremo!</joy>
                 ~ inConversazione += Zeca
             Zeca: E immagino sia una cosa buona?
             Ettore: Non è il modo più nobile di stare assieme?
@@ -69,7 +69,7 @@ Opzioni di dialogo con il personaggio Zeca
             Zeca: No. Matteo mi ha detto che ti avrebbe sposato mesi fa, quando ha prenotato il luogo, l'orchestra e mandato gli inviti.
             Ettore: Ma a me ha fatto la proposta solo pochi minuti fa!
             Zeca: Matteo è una persona lungimirante, che si organizza in anticipo.
-            Zeca: <hesitate>Non sono persona da gossip, ma una cosa però te la devo dire.
+            Zeca: Non sono persona da gossip, ma <hesitate>una cosa però te la devo dire.
             - -(matrimonio) Zeca: Matteo e Paola hanno litigato per il matrimonio, perché Paola pensa che lui ti stia usando solo per candidarsi come sindaco.
             Zeca: Sposare un povero lo renderebbe molto popolare.
                 -> advance_time ->
@@ -82,7 +82,7 @@ Opzioni di dialogo con il personaggio Zeca
                 -> advance_time ->
                     -> zeca_acting
 
-    + {hardTrueFeelingsStorylet && not are_two_entities_together(Zeca, Matteo) && not are_two_entities_together(Zeca, Greta)} Ettore: Matteo mi ha mollato.
+    + (mollato) {hardTrueFeelingsStorylet && new_this_loop(->mollato) && not are_two_entities_together(Zeca, Matteo) && not are_two_entities_together(Zeca, Greta)} Ettore: Matteo mi ha mollato.
                 ~ inConversazione += Zeca
             {zeca_acting.matrimonio: Zeca: Sai già che per me questa è una buona cosa per te.}
             Zeca: E come mai ti avrebbe lasciato?

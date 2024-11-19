@@ -66,7 +66,7 @@ Opzioni di dialogo con il personaggio Elia
             Ettore: Io faccio una cosa per te, e tu vai da Greta. Che ne dici?
             Elia: Qualcosa a che fare con la mia micia?
             Elia: Perché ormai non credo più a nessuno che vuole toccare la mia micia.
-            {!elia_acting.third_qn: Ettore: Ehm, no. Manco sapevo avessi una micia.}
+            {not elia_acting.third_qn: Ettore: Ehm, no. Manco sapevo avessi una micia.}
             {elia_acting.third_qn: Ettore: No, non c'entra Sonia.}
             Ettore: So che tu e Matteo avete litigato, per via del matrimonio.
             Ettore: Tu vuoi che festeggiamo al pub, lui non ne vuole sapere. Se lo convinco, andrai da Greta?
@@ -83,8 +83,7 @@ Opzioni di dialogo con il personaggio Elia
             ~ inConversazione += Elia
             Elia: Merda, mi spiace. Per questo volevo fare il matrimonio al pub.
             Elia: Sapevo da tempo che Matteo provava qualcosa per Greta, ma non sapevo come dirtelo!
-            Elia: Andrò da Greta, te lo devo.
-            Ettore: Sei un amico.
+            {new_this_loop(->senzatetto): Elia: Andrò da Greta, te lo devo.|Ettore: A proposito di Greta, la raggiungeresti? Deve parlarti}
             Elia: Dove la trovo?
             -> advance_time ->
             ~ move_entity_from_object_storage_to_Ettore_location(SpiedinoCocktail)

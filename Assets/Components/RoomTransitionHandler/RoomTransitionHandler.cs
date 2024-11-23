@@ -158,6 +158,7 @@ namespace Components.RoomTransitionHandler
             }
 
             // save
+            Debug.Log($"lastRemovedFrom: save that {character} was removed from {e.Room}");
             _lastRemovedFrom[character] = e.Room;
         }
 
@@ -165,7 +166,7 @@ namespace Components.RoomTransitionHandler
         {
             if (_currentlyLoadedRoomName == null)
             {
-                Debug.Log("room contents changed when no room was loaded");
+                // Debug.Log("room contents changed when no room was loaded");
                 return;
             }
 
@@ -206,8 +207,11 @@ namespace Components.RoomTransitionHandler
                     /*
                      * CASE: NPC MOVING OUT OF THE CURRENT ROOM
                      */
+                    Debug.Log(
+                        $"lastRemovedFrom: [moving out] found {character} was last removed from {_lastRemovedFrom[character]}");
                     // TODO: refactor with code below that does exactly the same
                     var sourceRoom2 = _lastRemovedFrom[character];
+                    _lastRemovedFrom.Remove(character);
                     if (sourceRoom2 == e.Room)
                     {
                         // the character is not actually moving anywhere
@@ -215,8 +219,12 @@ namespace Components.RoomTransitionHandler
                     }
 
                     var connections2 = _roomConnectionsBySourceName[sourceRoom2.ToString()];
-                    var connection2 = connections2.Single(c =>
+                    var connection2 = connections2.SingleOrDefault(c =>
                         c.destinationRoomName == e.Room.ToString());
+                    if (connection2 == null)
+                        throw new Exception(
+                            $"Moving NPC {character}: cannot find connection from ${sourceRoom2} to ${e.Room}");
+
                     var direction2 = connection2.direction;
 
                     // navigate the character
@@ -227,7 +235,7 @@ namespace Components.RoomTransitionHandler
                     Destroy(characterNavigation2.gameObject);
                 }
 
-                // will immediately get to this return if the character neither comes neither arrives in the current room
+                // will immediately get to this return if the character neither comes nor arrives in the current room
                 return;
             }
 
@@ -252,6 +260,9 @@ namespace Components.RoomTransitionHandler
 
             // find direction
             var sourceRoom = _lastRemovedFrom[character];
+            Debug.Log(
+                $"lastRemovedFrom: [moving in] found {character} was last removed from {_lastRemovedFrom[character]}");
+            _lastRemovedFrom.Remove(character);
             if (sourceRoom == e.Room)
             {
                 // the character is not actually moving anywhere
@@ -418,12 +429,15 @@ namespace Components.RoomTransitionHandler
 
         private static CharacterNavigation GetCharacterNavigation(Scene scene, Character.Character character)
         {
-            return (from characterName in FindObjectsByType<CharacterName>(
+            var result = (from characterName in FindObjectsByType<CharacterName>(
                     FindObjectsInactive.Exclude,
                     FindObjectsSortMode.None)
                 where characterName.Character == character &&
                       characterName.gameObject.scene == scene
-                select characterName.gameObject.GetComponent<CharacterNavigation>()).Single();
+                select characterName.gameObject.GetComponent<CharacterNavigation>()).SingleOrDefault();
+            if (result == null) throw new Exception($"Cannot find character {character} in scene {scene.name}");
+
+            return result;
         }
 
         /// <summary>

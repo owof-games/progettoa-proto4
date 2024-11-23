@@ -29,12 +29,12 @@ namespace Components.Story
         {
             if (!startStoryImmediately)
             {
-                Debug.Log("Not starting story immediately");
+                // Debug.Log("Not starting story immediately");
                 startStoryButton.onClick.AddListener(DoStart);
             }
             else
             {
-                Debug.Log("Starting story immediately");
+                // Debug.Log("Starting story immediately");
                 startStoryButton.gameObject.SetActive(false);
                 DoStart();
             }

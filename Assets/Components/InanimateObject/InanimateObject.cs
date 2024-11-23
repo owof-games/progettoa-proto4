@@ -84,7 +84,7 @@ namespace Components.InanimateObject
             }
 
             var result = inkStory.Call("isObjectWithEttore", out _, listValue.value);
-            Debug.Log($"object: is {objectListItem} here? {result}");
+            // Debug.Log($"object: is {objectListItem} here? {result}");
             _spriteRenderer.enabled = (bool)result;
         }
     }

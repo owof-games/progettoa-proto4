@@ -1,8 +1,6 @@
 === first_tier_storylets
 {debug: <i>Passo per first_tier_storylets</i>}
 
-TODO: salvare il currentTime in una variabile subito prima di "-> intro" dentro ogni storylet. Aggiungere nella condizione di ogni storylet una chiamata a una funzione che controlla se "valore salvato != currentTime + 15", in modo da non avere due storylet che partono uno immediatamente dopo l'altro.
-
 {loopableVariables has dontCheckStorylets:
     ->->
 }

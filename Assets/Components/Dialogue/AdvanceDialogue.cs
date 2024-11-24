@@ -11,12 +11,14 @@ namespace Components.Dialogue
         [SerializeField] private StringEvent continueEvent;
         [SerializeField] private ChosenChoiceEvent chosenChoiceEvent;
         [SerializeField] private StoryStepVariable storyStep;
+        [SerializeField] private IntReference numCharactersMoving;
 
 
         // Update is called once per frame
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space) && storyStateTalking.Value.Equals(currentStoryState.Value))
+            if (Input.GetKeyDown(KeyCode.Space) && storyStateTalking.Value.Equals(currentStoryState.Value) &&
+                numCharactersMoving.Value == 0)
             {
                 var s = storyStep.Value;
                 if (s.CanContinue)

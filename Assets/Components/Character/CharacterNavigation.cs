@@ -5,6 +5,8 @@ using Components.NavigationNetwork;
 using Cysharp.Threading.Tasks;
 using LitMotion;
 using LitMotion.Extensions;
+using UnityAtoms.BaseAtoms;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Debug = System.Diagnostics.Debug;
@@ -21,7 +23,8 @@ namespace Components.Character
     public class CharacterNavigation : MonoBehaviour
     {
         [SerializeField] private float movementJitter = 0.1f;
-        [SerializeField] private float speed = 2f;
+        [SerializeField] private FloatReference speed;
+        [SerializeField] private IntVariable numCharactersMoving;
 
         private readonly CancellationTokenSource _navigationAnimationCancellationSource = new();
 
@@ -44,6 +47,13 @@ namespace Components.Character
         private void OnDestroy()
         {
             _navigationAnimationCancellationSource.Cancel();
+        }
+
+        private void OnValidate()
+        {
+            if (numCharactersMoving == null)
+                numCharactersMoving =
+                    AssetDatabase.LoadAssetAtPath<IntVariable>("Assets/Components/Character/NumCharactersMoving.asset");
         }
 
         private NavigationGraph GetNavigationGraph()
@@ -114,21 +124,29 @@ namespace Components.Character
 
         private async UniTask AnimateMovement(int[] path)
         {
-            // immediately update the current index to the destination node
-            UnityEngine.Debug.Log(
-                $"Animating {GetComponent<CharacterName>().Character} movement in scene {gameObject.scene.name}, currently {_currentNodeIndex} and already jumping to index {path[^1]}");
-            _currentNodeIndex = path[^1];
-            var navigationGraph = GetNavigationGraph();
-            for (var i = 1; i < path.Length; i++)
+            numCharactersMoving.Value += 1;
+            try
             {
-                var from = (Vector2)transform.position;
-                var to = navigationGraph.GetNodePosition(path[i]);
-                to += new Vector2(Random.Range(0, 1), Random.Range(0, 1)).normalized * movementJitter;
-                await LMotion
-                    .Create(from, to, (from - to).magnitude / speed)
-                    .BindToPositionXY(transform)
-                    .AddTo(transform)
-                    .ToUniTask(_navigationAnimationCancellationSource.Token);
+                // immediately update the current index to the destination node
+                UnityEngine.Debug.Log(
+                    $"Animating {GetComponent<CharacterName>().Character} movement in scene {gameObject.scene.name}, currently {_currentNodeIndex} and already jumping to index {path[^1]}");
+                _currentNodeIndex = path[^1];
+                var navigationGraph = GetNavigationGraph();
+                for (var i = 1; i < path.Length; i++)
+                {
+                    var from = (Vector2)transform.position;
+                    var to = navigationGraph.GetNodePosition(path[i]);
+                    to += new Vector2(Random.Range(0, 1), Random.Range(0, 1)).normalized * movementJitter;
+                    await LMotion
+                        .Create(from, to, (from - to).magnitude / speed)
+                        .BindToPositionXY(transform)
+                        .AddTo(transform)
+                        .ToUniTask(_navigationAnimationCancellationSource.Token);
+                }
+            }
+            finally
+            {
+                numCharactersMoving.Value -= 1;
             }
         }
     }

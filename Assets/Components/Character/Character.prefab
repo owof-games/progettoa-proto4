@@ -127,7 +127,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementJitter: 0.1
-  speed: 5
+  speed:
+    _usage: 1
+    _value: 0
+    _constant: {fileID: 11400000, guid: ae452500720cbfa4d9c6c88b108560e1, type: 2}
+    _variable: {fileID: 0}
+    _variableInstancer: {fileID: 0}
+  numCharactersMoving: {fileID: 11400000, guid: c8ad7a4b89d34ea418d7976712ec1208, type: 2}
 --- !u!114 &7293583975340934086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +199,7 @@ MonoBehaviour:
   interactionKey: 
   interactionExitEvent: {fileID: 11400000, guid: 59f8d391d36778b4fb358810e73f8cb8, type: 2}
   interactionCharacterEvent: {fileID: 11400000, guid: da922ef8f92423e4aa0cb54cafaec129, type: 2}
+  interactionObjectEvent: {fileID: 11400000, guid: 6cee4f86aa431364497384b80543a8f5, type: 2}
   currentStoryState: {fileID: 11400000, guid: 15f13ae7eb0e5574f8f1abd68f45d19b, type: 2}
   storyStateInteracting: {fileID: 11400000, guid: 731d7e1e22932c34faf3cb978feee760, type: 2}
 --- !u!60 &6800788012703173347

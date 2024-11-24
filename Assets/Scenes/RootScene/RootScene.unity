@@ -533,6 +533,7 @@ GameObject:
   - component: {fileID: 113887189}
   - component: {fileID: 113887188}
   - component: {fileID: 113887187}
+  - component: {fileID: 113887191}
   m_Layer: 5
   m_Name: DialogueCanvas
   m_TagString: Untagged
@@ -597,8 +598,8 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 1
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -623,6 +624,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!225 &113887191
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113887186}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &436279649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2167,6 +2180,7 @@ GameObject:
   - component: {fileID: 1744676014}
   - component: {fileID: 1744676015}
   - component: {fileID: 1744676016}
+  - component: {fileID: 1744676017}
   m_Layer: 5
   m_Name: DialogueRoot
   m_TagString: Untagged
@@ -2211,6 +2225,7 @@ MonoBehaviour:
   slideDuration: 0.1
   chosenChoiceEvent: {fileID: 11400000, guid: bbb734abb5780294fb5a335d48beee17, type: 2}
   roomTransitionHandler: {fileID: 459968159}
+  canvasGroup: {fileID: 113887191}
   storyStateTalking: {fileID: 11400000, guid: f983d5e69a958d447a8117867e2a69e4, type: 2}
   choicesTotalLengthBreakpoint: 180
 --- !u!114 &1744676014
@@ -2306,6 +2321,51 @@ MonoBehaviour:
   continueEvent: {fileID: 11400000, guid: f1836d32c09bf4f4ca4b1bc5567fda79, type: 2}
   chosenChoiceEvent: {fileID: 11400000, guid: bbb734abb5780294fb5a335d48beee17, type: 2}
   storyStep: {fileID: 11400000, guid: cdb8ab666e8592d42bcb7bebf0ca63b6, type: 2}
+  numCharactersMoving:
+    _usage: 2
+    _value: 0
+    _constant: {fileID: 0}
+    _variable: {fileID: 11400000, guid: c8ad7a4b89d34ea418d7976712ec1208, type: 2}
+    _variableInstancer: {fileID: 0}
+--- !u!114 &1744676017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744676010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050ff37b5550f4b7e9bdf8b985aff484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _developerDescription: Whenever the number of characters moving change, determine
+    if the interface should be interactable (0) or not (> 0)
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1744676013}
+        m_TargetAssemblyTypeName: Components.Dialogue.DialogueRoot, Assembly-CSharp
+        m_MethodName: OnNumCharactersMovingChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _actionResponses: []
+  _conditions: []
+  _operator: 0
+  _replayEventBufferOnRegister: 1
+  _eventReference:
+    _usage: 0
+    _event: {fileID: 11400000, guid: cfc8ab8ec6e52514098aa626282dd374, type: 2}
+    _eventInstancer: {fileID: 0}
+    _variable: {fileID: 0}
+    _variableInstancer: {fileID: 0}
 --- !u!1001 &3782842853177998912
 PrefabInstance:
   m_ObjectHideFlags: 0

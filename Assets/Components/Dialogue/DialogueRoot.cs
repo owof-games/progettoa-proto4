@@ -21,6 +21,7 @@ namespace Components.Dialogue
         [SerializeField] private float slideDuration = 0.1f;
         [SerializeField] private ChosenChoiceEvent chosenChoiceEvent;
         [SerializeField] private RoomTransitionHandler.RoomTransitionHandler roomTransitionHandler;
+        [SerializeField] private CanvasGroup canvasGroup;
 
         [SerializeField] private StoryStateConstant storyStateTalking;
         [SerializeField] private int choicesTotalLengthBreakpoint = 180;
@@ -200,6 +201,11 @@ namespace Components.Dialogue
             foreach (RectTransform row in dialogueSlidingContainer) Destroy(row.gameObject);
 
             SlideDialogueContainer(0);
+        }
+
+        public void OnNumCharactersMovingChanged(int numCharactersMoving)
+        {
+            canvasGroup.interactable = numCharactersMoving == 0;
         }
     }
 }

@@ -25,7 +25,7 @@ Chi chiami?
             Amica: Asp, finisco Temptation Island e ci sono! -> contents
     
         + (pula) Ettore: Pronto, polizia? -> maiali        
-        + [Torna al menù principale] -> contents
+
 -> contents
 
 = papa

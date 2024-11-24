@@ -272,26 +272,26 @@
 === whisperingSecretsStorylet
 ~ inConversazione += Elia
 ~ inConversazione += Zeca
-        Elia: Sono la ciotola, o sono il cane?
-        Zeca: Che stai dicendo?
+        Elia: <i>Sono la ciotola, o sono il cane?</i>
+        Zeca: <i>Che stai dicendo?</i>
             + {whisperingSecretsStorylet> 1} [Ti allontani.] -> intro
             + {whisperingSecretsStorylet> 1} [Resti.]
             + ->
             -         
-        Elia: Paola, vuoi fare del male a Paola?
-        Zeca: Tutti i giorni, Elia.
-        Elia: E sono la ciotola o il cane?
-        Elia: Mi bevi, o mi petti?
-        Elia: Le fai del male per me?
-        Zeca: Perché dovrei farle del male per te?
+        Elia: <i>Paola, vuoi fare del male a Paola?</i>
+        Zeca: <i>Tutti i giorni, Elia.</i>
+        Elia: <i>E sono la ciotola o il cane?</i>
+        Elia: <i>Mi bevi, o mi petti?</i>
+        Elia: <i>Le fai del male per me?</i>
+        Zeca: <i>Perché dovrei farle del male per te?</i>
             -> advance_time ->   
-        Elia: Dici sempre che fai di tutto per proteggermi.
-        Elia: Paola forse mi vuole fare male.
-        Elia: E tu che fai?
-        Zeca: Sei preoccupato? O speri che ti protegga?
-        Elia: <joy>Voglio essere il tuo cane.</joy>
-        Elia: <fear>Ma ho paura di essere solo la cotola.</fear>
-        Elia: <fear>Non bermi.</fear>
+        Elia: <i>Dici sempre che fai di tutto per proteggermi.</i>
+        Elia: <i>Paola forse mi vuole fare male.</i>
+        Elia: <i>E tu che fai?</i>
+        Zeca: <i>Sei preoccupato? O speri che ti protegga?</i>
+        Elia: <i><joy>Voglio essere il tuo cane.</joy></i>
+        Elia: <i><fear>Ma ho paura di essere solo la cotola.</fear></i>
+        Elia: <i><fear>Non bermi.</fear></i>
             -> advance_time ->   
     -> intro
 
@@ -299,38 +299,38 @@
 === iTryToBeAGoodFriendStorylet
 ~ inConversazione += Matteo
 ~ inConversazione += Zeca
-        Zeca: Te lo ripeto: non voglio parlare con te.
-        Matteo: Zeca, Paola vuole mettere zizzania tra noi, e per ques-
-        Zeca: Per quello basti tu.
+        Zeca: /i>Te lo ripeto: non voglio parlare con te.</i>
+        Matteo: <i>Zeca, Paola vuole mettere zizzania tra noi, e per ques-
+        Zeca: <i>Per quello basti tu.</i>
             + {iTryToBeAGoodFriendStorylet> 1} [Ti allontani.] -> intro
             + {iTryToBeAGoodFriendStorylet> 1} [Resti.]
             + ->
             -          
-        Matteo: Ma perché non vuoi ascoltarmi?
-        Zeca: PERO'. PERO'.
-        Zeca: Come se fosse possibile farti stare zitto.
-        Matteo: Sto cercando solo di essere un buon amico.
-        Matteo: E di evitare che tu stia male.
+        Matteo: <i>Ma perché non vuoi ascoltarmi?</i>
+        Zeca: <i>PERO'. PERO'.</i>
+        Zeca: <i>Come se fosse possibile farti stare zitto.</i>
+        Matteo: <i>Sto cercando solo di essere un buon amico.</i>
+        Matteo: <i>E di evitare che tu stia male.</i>
         Zeca: <rage>No, tu sei solo geloso, e per questo vuoi sabotare la mia relazione.</rage>
             -> advance_time ->   
-        Zeca: So che ti è sempre piaciuto Elia, non serve un genio per vedere come lo guardi.
-        Matteo: Zeca, lo guardo come un bambino guarderebbe un gorilla allo zoo: incuriosito e spaventato.
-        Matteo: Ma no, non mi piace Elia.
-        Matteo: Ma soprattutto, è inaffidabile. Ti farà del male.
-        Zeca: Ma non hai le prove, è solo una sensazione, no? Una comoda sensazione.
-        Matteo: Io, insomma, ho visto ma non posso perché, no.
-        Matteo: Zeca, ti prego, fidati di me.
-        Zeca: Matteo: io mi fido di te.
+        Zeca: <i>So che ti è sempre piaciuto Elia, non serve un genio per vedere come lo guardi.</i>
+        Matteo: <i>Zeca, lo guardo come un bambino guarderebbe un gorilla allo zoo: incuriosito e spaventato.</i>
+        Matteo: <i>Ma no, non mi piace Elia.</i>
+        Matteo: <i>Ma soprattutto, è inaffidabile. Ti farà del male.</i>
+        Zeca: <i>Ma non hai le prove, è solo una sensazione, no? Una comoda sensazione.</i>
+        Matteo: <i>Io, insomma, ho visto ma non posso perché, no.</i>
+        Matteo: <i>Zeca, ti prego, fidati di me.</i>
+        Zeca: <i>Matteo: io mi fido di te.</i>
             -> advance_time ->   
-        Zeca: Ma sono innamorato di quel coglione.
-        Zeca: E su questo, non posso farci niente.
-        Matteo: Ha una tipa. Si scopa una tipa.
-        Zeca: Gli farò dimenticare qualsiasi cretinetta.
-        Matteo: Non è qualsiasi cretinetta, Zeca.
-        Zeca: E io non sono qualsiasi Zeca.
-        Zeca: Dammi il nome della stronza.
-        Matteo: Non posso. Mi spiace, non posso.
-        Zeca: Allora lasciami in pace. Ora.
+        Zeca: <i>Ma sono innamorato di quel coglione.</i>
+        Zeca: <i>E su questo, non posso farci niente.</i>
+        Matteo: <i>Ha una tipa. Si scopa una tipa.</i>
+        Zeca: <i>Gli farò dimenticare qualsiasi cretinetta.</i>
+        Matteo: <i>Non è qualsiasi cretinetta, Zeca.</i>
+        Zeca: <i>E io non sono qualsiasi Zeca.</i>
+        Zeca: <i>Dammi il nome della stronza.</i>
+        Matteo: <i>Non posso. Mi spiace, non posso.</i>
+        Zeca: <i>Allora lasciami in pace. Ora.</i>
             -> advance_time ->   
     -> intro
 
@@ -340,18 +340,18 @@
 === liesAndPromisesStorylet
 ~ inConversazione += Greta
 ~ inConversazione += Elia
-    Greta: Dimmelo di nuovo, ti prego.
-    Elia: Era una cosa sbagliata?
+    Greta: <i>Dimmelo di nuovo, ti prego.</i>
+    Elia: <i>Era una cosa sbagliata?</i>
             + {liesAndPromisesStorylet> 1} [Ti allontani.] -> intro
             + {liesAndPromisesStorylet> 1} [Resti.]
             + ->
             -     
-    Elia: Sbaglio tutto io, scusa.
-    Greta: No no no, ridimmela perché è un cosa bella.
-    - (promise)Elia: Ti amo, Greta.
+    Elia: <i>Sbaglio tutto io, scusa.</i>
+    Greta: <i>No no no, ridimmela perché è un cosa bella.</i>
+    - (promise)Elia: </i>Ti amo, Greta.</i>
     Greta: <joy>Ti amo anche io, Elia.</joy>
     Elia: <joy>Ora mi fai i grattini?</joy>
-    Greta: Alza quella maglietta e ti faccio tutti i grattini del mondo.
+    Greta: <i>Alza quella maglietta e ti faccio tutti i grattini del mondo.</i>
         -> advance_time ->  
     -> intro
 
@@ -359,44 +359,44 @@
 === trueLoveStorylet
 ~ inConversazione += Zeca
 ~ inConversazione += Elia
-        Zeca: No, non ti dico come lo so.
-        Zeca: Quindi, ti scopi quella?
+        Zeca: <i>No, non ti dico come lo so.</i>
+        Zeca: <i>Quindi, ti scopi quella?</i>
             + {trueLoveStorylet> 1} [Ti allontani.] -> intro
             + {trueLoveStorylet> 1} [Resti.]
             + ->
             -           
-        Zeca: La ami?
-        Elia: No. Ma sai come faccio.
-        Elia: Mi fanno i grattini, vado su di giri e poi accadono cose.
-        Zeca: Con me non è mai successo.
-        Elia: Perché con te é diverso.
-        Elia: <joy>Tu sei un mio fratello.</joy>
+        Zeca: <i>La ami?</i>
+        Elia: <i>No. Ma sai come faccio.</i>
+        Elia: <i>Mi fanno i grattini, vado su di giri e poi accadono cose.</i>
+        Zeca: <i>Con me non è mai successo.</i>
+        Elia: <i>Perché con te é diverso.</i>
+        Elia: <i><joy>Tu sei un mio fratello.</joy></i>
             -> advance_time ->
                             {
                             - currentTime >= 600:
                             -> paolaIsDeadStorylet
                         }
-        Zeca: Proprio quello che sognavo.
-        Elia: Vuol dire che mi sogni? Perché io ti sogno.
-        Elia: Sogno che ti proteggo.
-        Elia: Sogno che ti schiaccio forte a me.
-        Elia: Sogno che mi fai i grattini e poi mi eccito.
-        Elia: Ma tu non mi fai mai i grattini.
-        Zeca: E se volessi essere l'unica persona che ti fa i grattini, Elia?
+        Zeca: <i>Proprio quello che sognavo.</i>
+        Elia: <i>Vuol dire che mi sogni? Perché io ti sogno.</i>
+        Elia: <i>Sogno che ti proteggo.</i>
+        Elia: <i>Sogno che ti schiaccio forte a me.</i>
+        Elia: <i>Sogno che mi fai i grattini e poi mi eccito.</i>
+        Elia: <i>Ma tu non mi fai mai i grattini.</i>
+        Zeca: <i>E se volessi essere l'unica persona che ti fa i grattini, Elia?</i>
             -> advance_time ->
                             {
                             - currentTime >= 600:
                             -> paolaIsDeadStorylet
                         }
-        Zeca: Se volessi che nessun altro, e nessuna stronza orfanella in particolare, ti facesse i grattini, per te sarebbe ok?
-        Elia: <joy>Me ne fai due qui?</joy>
-        Elia: <joy>Mi dici che sono un bravo ragazzo?</joy>
-        Elia: E non mi prendi in giro quando ti dico che ti amo?
-        Zeca: Elia, perché dovrei prenderti in giro?
+        Zeca: <i>Se volessi che nessun altro, e nessuna stronza orfanella in particolare, ti facesse i grattini, per te sarebbe ok?</i>
+        Elia: <i><joy>Me ne fai due qui?</joy></i>
+        Elia: <i><joy>Mi dici che sono un bravo ragazzo?</joy></i>
+        Elia: <i>E non mi prendi in giro quando ti dico che ti amo?</i>
+        Zeca: <i>Elia, perché dovrei prenderti in giro?</i>
         Elia: <fear>Perché tutti pensano che sono stupido.</fear>
-        Elia: E quindi lo sono anche i miei sentimenti.
-        Elia: <joy>Ma io so cosa provo quando sono con te.</joy>
-        - (promise) Elia: Abbracciami. Te lo prometto Zeca: basta grattini con Greta o qualsiasi altra persona.
+        Elia: <i>E quindi lo sono anche i miei sentimenti.</i>
+        Elia: <i><joy>Ma io so cosa provo quando sono con te.</joy></i>
+        - (promise) Elia: Abbracciami. <i>Te lo prometto Zeca: basta grattini con Greta o qualsiasi altra persona.</i>
             -> advance_time ->  
     -> intro    
 

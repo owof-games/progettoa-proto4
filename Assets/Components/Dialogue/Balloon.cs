@@ -12,6 +12,9 @@ namespace Components.Dialogue
 {
     public class Balloon : MonoBehaviour
     {
+        // the current balloon if it has choices, or null if there's no current balloon or if it has no choices
+        // see AdvanceDialogue
+        [CanBeNull] public static Balloon CurrentBalloonWithChoices;
         [SerializeField] private BalloonData balloonData;
         [SerializeField] private Image backgroundImage;
         [SerializeField] private TextMeshProUGUI textMeshProUGUI;
@@ -66,7 +69,7 @@ namespace Components.Dialogue
             //     backgroundImage.transform.localScale = new Vector3(-1, 1, 1);
             // }
 
-            if (choices is { Length: > 0 })
+            if (hasChoices)
             {
                 var choiceIndex = 0;
                 foreach (var choice in choices)
@@ -76,10 +79,12 @@ namespace Components.Dialogue
                 }
 
                 _showAdvance = false;
+                CurrentBalloonWithChoices = this;
             }
             else
             {
                 _showAdvance = true;
+                CurrentBalloonWithChoices = null;
             }
         }
 
@@ -89,6 +94,7 @@ namespace Components.Dialogue
             var singleChoice = singleChoiceInstance.GetComponent<SingleChoice>();
             singleChoice.SetText(choice);
             singleChoice.Register(() => TakeChoice(choiceIndex));
+            if (choiceIndex == 0) singleChoice.Focus();
         }
 
         public void SetText(string text)
@@ -113,9 +119,10 @@ namespace Components.Dialogue
 
         public event Action<int> ChoiceTaken;
 
-        private void TakeChoice(int choiceIndex)
+        public void TakeChoice(int choiceIndex)
         {
             // Debug.Log($"Choice taken: {choiceIndex}");
+            CurrentBalloonWithChoices = null;
             ChoiceTaken?.Invoke(choiceIndex);
         }
     }

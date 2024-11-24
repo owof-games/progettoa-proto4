@@ -29,6 +29,7 @@ namespace Components.Dialogue
         private IEnumerator Start()
         {
             yield return null;
+
             SetHeight();
         }
 
@@ -62,6 +63,11 @@ namespace Components.Dialogue
         public void OnClick()
         {
             onClick?.Invoke();
+        }
+
+        public void Focus()
+        {
+            EventSystem.current.SetSelectedGameObject(gameObject);
         }
     }
 }

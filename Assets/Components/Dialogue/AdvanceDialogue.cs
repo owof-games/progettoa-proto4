@@ -1,4 +1,3 @@
-using LemuRivolta.InkAtoms;
 using UnityAtoms.BaseAtoms;
 using UnityEditor;
 using UnityEngine;
@@ -22,12 +21,8 @@ namespace Components.Dialogue
                 var s = storyStep.Value;
                 if (s.CanContinue)
                     continueEvent.Raise(null);
-                else if (s.Choices.Length > 0)
-                    chosenChoiceEvent.Raise(new ChosenChoice
-                    {
-                        FlowName = null,
-                        ChoiceIndex = s.Choices[0].Index
-                    });
+                else if (Balloon.CurrentBalloonWithChoices != null)
+                    Balloon.CurrentBalloonWithChoices.TakeChoice(0);
                 else
                     Debug.LogError("Cannot advance after story end");
             }

@@ -13,26 +13,26 @@
 
 //STORYLET "NORMALI"    
 
-    - are_three_entities_together(Elia, Ettore, Zeca) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Paola) && not are_two_entities_together(Elia, Matteo) && elia_talking_second_tier.indagini3 && new_this_loop(-> liarCallLiarStorylet):
+    - are_three_entities_together(Elia, Ettore, Zeca) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Paola) && not are_two_entities_together(Elia, Matteo) && elia_talking_second_tier.indagini3 && pauseStorylet == false && new_this_loop(-> liarCallLiarStorylet):
             -> liarCallLiarStorylet
     
-    - inventoryContents has Foto && are_two_entities_together(Zeca, Ettore) && not are_two_entities_together(Zeca, Elia) && not are_two_entities_together(Zeca,Greta) && not are_two_entities_together(Zeca, Paola): -> iLlKillThatBitchStorylet    
+    - pauseStorylet == false && inventoryContents has Foto && are_two_entities_together(Zeca, Ettore) && not are_two_entities_together(Zeca, Elia) && not are_two_entities_together(Zeca,Greta) && not are_two_entities_together(Zeca, Paola): -> iLlKillThatBitchStorylet    
 
-    - are_two_entities_together(Matteo, Ettore) && not are_two_entities_together(Matteo,Greta) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && not new_this_loop (->trueLoveStorylet) && new_this_loop(->forMeHeIsStupidAFStorylet):
+    - pauseStorylet == false && are_two_entities_together(Matteo, Ettore) && not are_two_entities_together(Matteo,Greta) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && not new_this_loop (->trueLoveStorylet) && new_this_loop(->forMeHeIsStupidAFStorylet):
         -> forMeHeIsStupidAFStorylet
 
 //CONVERSAZIONI ORIGLIATE
 
-    - are_two_entities_together(Elia, Zeca) && is_this_entity_near_Ettore(Elia) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Paola) && not are_two_entities_together(Elia, Matteo) && greta_talking_second_tier.indagini && loopableVariables == (EliaSpaventatoPerZeca) && new_this_loop(-> whisperingSecretsStorylet): -> whisperingSecretsStorylet
+    - pauseStorylet == false && are_two_entities_together(Elia, Zeca) && is_this_entity_near_Ettore(Elia) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Paola) && not are_two_entities_together(Elia, Matteo) && greta_talking_second_tier.indagini && loopableVariables == (EliaSpaventatoPerZeca) && new_this_loop(-> whisperingSecretsStorylet): -> whisperingSecretsStorylet
     
-    - are_two_entities_together(Elia, Zeca) && is_this_entity_near_Ettore(Elia) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Paola) && not are_two_entities_together(Elia, Matteo) && iLlKillThatBitchStorylet && new_this_loop(-> trueLoveStorylet):
+    - pauseStorylet == false && are_two_entities_together(Elia, Zeca) && is_this_entity_near_Ettore(Elia) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Paola) && not are_two_entities_together(Elia, Matteo) && iLlKillThatBitchStorylet && new_this_loop(-> trueLoveStorylet):
         -> trueLoveStorylet
     
-    - are_two_entities_together(Matteo, Zeca) && is_this_entity_near_Ettore(Matteo) && not are_two_entities_together(Matteo, Greta) && not are_two_entities_together(Matteo, Paola) && not are_two_entities_together(Matteo, Elia) && matteo_talking_second_tier.allestimento && new_this_loop(-> iTryToBeAGoodFriendStorylet):
+    - pauseStorylet == false && are_two_entities_together(Matteo, Zeca) && is_this_entity_near_Ettore(Matteo) && not are_two_entities_together(Matteo, Greta) && not are_two_entities_together(Matteo, Paola) && not are_two_entities_together(Matteo, Elia) && matteo_talking_second_tier.allestimento && new_this_loop(-> iTryToBeAGoodFriendStorylet):
         -> iTryToBeAGoodFriendStorylet  
     
     
-    - are_three_entities_together(Elia, Ettore, Greta) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Paola) && not are_two_entities_together(Elia, Matteo)&& new_this_loop(-> liesAndPromisesStorylet ):
+    - pauseStorylet == false && are_three_entities_together(Elia, Ettore, Greta) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Paola) && not are_two_entities_together(Elia, Matteo)&& new_this_loop(-> liesAndPromisesStorylet ):
         -> liesAndPromisesStorylet
     
 
@@ -40,10 +40,10 @@
 
 
 //CONFESSIONI SOLITARIE 
-    - are_entities_together_in(Matteo, Ettore, YellowRoom) && not are_two_entities_together(Matteo, Greta) && not are_two_entities_together(Matteo, Paola) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && new_this_loop(->notABigSecretPartOneStorylet):
+    - pauseStorylet == false && are_entities_together_in(Matteo, Ettore, YellowRoom) && not are_two_entities_together(Matteo, Greta) && not are_two_entities_together(Matteo, Paola) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && new_this_loop(->notABigSecretPartOneStorylet):
             -> notABigSecretPartOneStorylet
 
-    - are_entities_together_in(Ettore, Elia, YellowRoom) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Paola) && not are_two_entities_together(Elia, Matteo) && not are_two_entities_together(Elia, Zeca) && new_this_loop(->notABigSecretPartTwoStorylet):
+    - pauseStorylet == false && are_entities_together_in(Ettore, Elia, YellowRoom) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Paola) && not are_two_entities_together(Elia, Matteo) && not are_two_entities_together(Elia, Zeca) && new_this_loop(->notABigSecretPartTwoStorylet):
             -> notABigSecretPartTwoStorylet
 
 
@@ -163,7 +163,6 @@
             ~ change_status(Paola, EliaLive)
             ~ peopleTalking = true
             -> advance_time ->
-
     -> intro
 
 
@@ -175,7 +174,9 @@
 ~ inConversazione += Elia
         Zeca: Devi smetterla di fidarti di lei, Elia.
         Zeca: Lo dico per il tuo bene.
-                + {liarCallLiarStorylet > 1} [Ti allontani.] -> intro
+                + {liarCallLiarStorylet > 1} [Ti allontani.] 
+                ~ pauseStorylet = true
+                -> intro
                 + {liarCallLiarStorylet > 1} [Resti.]
                 + ->
                 -
@@ -201,12 +202,14 @@
             + Ettore: Cringe.
                 Zeca: <rage>Fottiti. E non osare più parlarmi.</rage>
                 ~ loopableVariables += pausaRapportoZeca
-                -> advance_time ->            
+                -> advance_time ->  
+                ~ pauseStorylet = true
         -> intro
         
             + Ettore: Romantico.
                 Zeca: Si tratta di lavoro, solo di lavoro.
-            -> advance_time ->            
+            -> advance_time -> 
+            ~ pauseStorylet = true
         -> intro
 
 
@@ -216,7 +219,9 @@
             ~ inventoryContents -= Foto
             ~ objectStorageContents += Foto
         Zeca: <cry>QUELLA GRANDISSIMA STRONZA!<cry>
-                + {iLlKillThatBitchStorylet > 1} [Ti allontani.] -> intro
+                + {iLlKillThatBitchStorylet > 1} [Ti allontani.] 
+                ~ pauseStorylet = true
+                -> intro
                 + {iLlKillThatBitchStorylet > 1} [Resti.]
                 + ->
                 -        
@@ -229,7 +234,7 @@
         Zeca: <cry>Anzi no, me ne andrò io.</cry>
             -> advance_time -> 
             ~ move_this_entity_in_a_different_room(Zeca)
-                 
+                 ~ pauseStorylet = true
     -> intro  
 
 
@@ -237,7 +242,9 @@
 ~ inConversazione += Matteo
     Matteo: Non me lo sarei mai aspettato.
     Ettore: Cosa?
-            + {forMeHeIsStupidAFStorylet> 1} [Ti allontani.] -> intro
+            + {forMeHeIsStupidAFStorylet> 1} [Ti allontani.] 
+            ~ pauseStorylet = true
+            -> intro
             + {forMeHeIsStupidAFStorylet> 1} [Resti.]
             + ->
             - 
@@ -263,7 +270,8 @@
             Matteo: E la sua amicizia per amore. Ma magari mi sbaglio.
         -
     Matteo: Se non è un problema, vorrei rimanere un poco da solo, Ettore.
-        -> advance_time ->        
+        -> advance_time ->  
+        ~ pauseStorylet = true
     -> intro
 
 
@@ -274,7 +282,9 @@
 ~ inConversazione += Zeca
         Elia: <i>Sono la ciotola, o sono il cane?</i>
         Zeca: <i>Che stai dicendo?</i>
-            + {whisperingSecretsStorylet> 1} [Ti allontani.] -> intro
+            + {whisperingSecretsStorylet> 1} [Ti allontani.] 
+            ~ pauseStorylet = true
+            -> intro
             + {whisperingSecretsStorylet> 1} [Resti.]
             + ->
             -         
@@ -292,7 +302,8 @@
         Elia: <i><joy>Voglio essere il tuo cane.</joy></i>
         Elia: <i><fear>Ma ho paura di essere solo la cotola.</fear></i>
         Elia: <i><fear>Non bermi.</fear></i>
-            -> advance_time ->   
+            -> advance_time ->  
+            ~ pauseStorylet = true
     -> intro
 
 
@@ -302,7 +313,9 @@
         Zeca: /i>Te lo ripeto: non voglio parlare con te.</i>
         Matteo: <i>Zeca, Paola vuole mettere zizzania tra noi, e per ques-
         Zeca: <i>Per quello basti tu.</i>
-            + {iTryToBeAGoodFriendStorylet> 1} [Ti allontani.] -> intro
+            + {iTryToBeAGoodFriendStorylet> 1} [Ti allontani.] 
+            ~ pauseStorylet = true
+            -> intro
             + {iTryToBeAGoodFriendStorylet> 1} [Resti.]
             + ->
             -          
@@ -332,6 +345,7 @@
         Matteo: <i>Non posso. Mi spiace, non posso.</i>
         Zeca: <i>Allora lasciami in pace. Ora.</i>
             -> advance_time ->   
+            ~ pauseStorylet = true
     -> intro
 
 
@@ -342,7 +356,9 @@
 ~ inConversazione += Elia
     Greta: <i>Dimmelo di nuovo, ti prego.</i>
     Elia: <i>Era una cosa sbagliata?</i>
-            + {liesAndPromisesStorylet> 1} [Ti allontani.] -> intro
+            + {liesAndPromisesStorylet> 1} [Ti allontani.]
+            ~ pauseStorylet = true
+            -> intro
             + {liesAndPromisesStorylet> 1} [Resti.]
             + ->
             -     
@@ -353,6 +369,7 @@
     Elia: <joy>Ora mi fai i grattini?</joy>
     Greta: <i>Alza quella maglietta e ti faccio tutti i grattini del mondo.</i>
         -> advance_time ->  
+        ~ pauseStorylet = true
     -> intro
 
 
@@ -361,7 +378,9 @@
 ~ inConversazione += Elia
         Zeca: <i>No, non ti dico come lo so.</i>
         Zeca: <i>Quindi, ti scopi quella?</i>
-            + {trueLoveStorylet> 1} [Ti allontani.] -> intro
+            + {trueLoveStorylet> 1} [Ti allontani.] 
+            ~ pauseStorylet = true
+            -> intro
             + {trueLoveStorylet> 1} [Resti.]
             + ->
             -           
@@ -398,6 +417,7 @@
         Elia: <i><joy>Ma io so cosa provo quando sono con te.</joy></i>
         - (promise) Elia: Abbracciami. <i>Te lo prometto Zeca: basta grattini con Greta o qualsiasi altra persona.</i>
             -> advance_time ->  
+            ~ pauseStorylet = true
     -> intro    
 
 
@@ -408,7 +428,9 @@
 ~ inConversazione += Matteo
         Matteo: Uh, ehi, ciao Ettore.
         Matteo: Mi hai colto di sorpresa.
-            + {notABigSecretPartOneStorylet> 1} [Ti allontani.] -> intro
+            + {notABigSecretPartOneStorylet> 1} [Ti allontani.]
+            ~ pauseStorylet = true
+            -> intro
             + {notABigSecretPartOneStorylet> 1} [Resti.]
             + ->
             -           
@@ -423,13 +445,14 @@
         - (allestimento) Matteo: Certo: Greta ed Elia potevano recuperare pure del vino decente. E hanno lasciato in tutta la stanza il puzzo delle loro cose da scenografi.
         Matteo: Due cose dovevano fare: riparare le seggiole, allestire il buffet.
         Matteo: E hanno fatto un disastro in tutte e due le occasioni.
-                
+                ~ pauseStorylet = true
             -> intro
 
 
 
     = quickTalk
         Matteo: Ma ecco che arriva qualcuno a rompere le scatole, e la nostra conversazione finisce qui.
+        ~ pauseStorylet = true
         -> intro
 
 
@@ -437,7 +460,9 @@
 ~ inConversazione += Elia
         Elia: Non le trovo!
         Ettore: Cosa?
-            + {notABigSecretPartTwoStorylet> 1} [Ti allontani.] -> intro
+            + {notABigSecretPartTwoStorylet> 1} [Ti allontani.] 
+            ~ pauseStorylet = true
+            -> intro
             + {notABigSecretPartTwoStorylet> 1} [Resti.]
             + ->
             -          
@@ -469,7 +494,7 @@
         - (allestimento)  Elia: Zeca e Matteo sono andati a prendere il cibo, e non le hanno prese. Sono passati anche in farmacia e dal tabacchi per la sigaretta di Paola, e anche lì ci sono le mie barrette. Ma non le hanno prese!
         Elia: Ora perderò tutti i miei muscoli e sarò una persona normale, come te!
         Elia: Povero me!
-        
+        ~ pauseStorylet = true
             -> intro
 
     = quickTalk
@@ -477,7 +502,7 @@
         Elia: Lamentarsi è brutto.
         Elia: Gli uomini non si lamentano.
         Elia: Gli uomini soffrono.
-    
+        ~ pauseStorylet = true
             -> intro
 
 
@@ -486,6 +511,7 @@
 ~ inConversazione += Matteo
     Matteo: Vuoi davvero ascoltare una storia lunga e noiosa?
         + Ettore: Forse non ho tutto questo tempo, scusa.
+            ~ pauseStorylet = true
             -> intro
         + Ettore: Ho tutto il tempo del mondo.
             -> uno
@@ -570,7 +596,8 @@
                 Matteo: Non cambierà nulla se non facciamo nulla, mai. no?
                 Matteo: Ma sono sicuro che stavolta sarà diverso.
             -
-          -> advance_time ->                  
+          -> advance_time ->
+          ~ pauseStorylet = true
             -> intro
 
 

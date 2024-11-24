@@ -23,33 +23,33 @@
 
 
 //STORYLET "NORMALI"
-    - are_two_entities_together(Matteo, Ettore) && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Zeca) && not are_two_entities_together(Ettore, Greta) && peopleTalking == false && new_this_loop(->marryMeStorylet):
+    - pauseStorylet == false && are_two_entities_together(Matteo, Ettore) && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Zeca) && not are_two_entities_together(Ettore, Greta) && peopleTalking == false && new_this_loop(->marryMeStorylet):
             -> marryMeStorylet
 
 
-    - are_three_entities_together(Elia, Matteo, Ettore) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Greta) && (marryMeStorylet.matteoSiSposa or marryMeStorylet.matteoSiSposa2) && peopleTalking == false && new_this_loop(->weddingAtThePubStorylet):
+    - pauseStorylet == false && are_three_entities_together(Elia, Matteo, Ettore) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Greta) && (marryMeStorylet.matteoSiSposa or marryMeStorylet.matteoSiSposa2) && peopleTalking == false && new_this_loop(->weddingAtThePubStorylet):
             -> weddingAtThePubStorylet
     
     
-    - are_two_entities_together(Matteo, Ettore) && inventoryContents has AnticoPugnale && peopleTalking == false && new_this_loop(->aStrangeKnifeStorylet):
+    - pauseStorylet == false && are_two_entities_together(Matteo, Ettore) && inventoryContents has AnticoPugnale && peopleTalking == false && new_this_loop(->aStrangeKnifeStorylet):
             -> aStrangeKnifeStorylet
 
 
-    - are_two_entities_together(Zeca, Ettore) && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Matteo) && not are_two_entities_together(Ettore, Greta) && peopleTalking == false && new_this_loop(->worstBestManStorylet):
+    - pauseStorylet == false && are_two_entities_together(Zeca, Ettore) && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Matteo) && not are_two_entities_together(Ettore, Greta) && peopleTalking == false && new_this_loop(->worstBestManStorylet):
             -> worstBestManStorylet
 
 
 //CONVERSAZIONI ORIGLIATE
-    - are_two_entities_together(Elia, Greta)  && not are_two_entities_together(Elia, Matteo) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Ettore) && elia_acting.sincero && is_this_entity_near_Ettore(Elia) == true && peopleTalking == false && new_this_loop(->anEavesdropAboutFriendshipStorylet):
+    - pauseStorylet == false && are_two_entities_together(Elia, Greta)  && not are_two_entities_together(Elia, Matteo) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Ettore) && elia_acting.sincero && is_this_entity_near_Ettore(Elia) == true && peopleTalking == false && new_this_loop(->anEavesdropAboutFriendshipStorylet):
             -> anEavesdropAboutFriendshipStorylet
 
 
-    - are_three_entities_together(Matteo, Greta, Ettore) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && hardTrueFeelingsStorylet && peopleTalking == false && new_this_loop(->itsOverisntItStorylet):
+    - pauseStorylet == false && are_three_entities_together(Matteo, Greta, Ettore) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && hardTrueFeelingsStorylet && peopleTalking == false && new_this_loop(->itsOverisntItStorylet):
             -> itsOverisntItStorylet
 
 
 //CONVERSAZIONI IN ALTRE STANZE, CHE NON ORIGLIAMO, E CHE CONTINUANO QUANDO ENTRIAMO
-    - sheIsTheBest != -1 && are_three_entities_together(Matteo, Elia, Ettore) && currentTime <= sheIsTheBest +30:
+    - pauseStorylet == false && sheIsTheBest != -1 && are_three_entities_together(Matteo, Elia, Ettore) && currentTime <= sheIsTheBest +30:
             -> sheIsTheBestStorylet
 
 
@@ -180,7 +180,7 @@
         Matteo: E io sento il mio avvocato.
         Elia: <fear>E io, io, io ho paura!</fear>
             -> advance_time ->
-        
+            ~ pauseStorylet = true
         -> intro
 
 
@@ -193,7 +193,9 @@
 ~ inConversazione += Elia
         Matteo: Te l'ho già detto più volte, Elia: è una scelta pacchiana.
         Elia: Ma il nostro pub non è pacchiano!
-            + {weddingAtThePubStorylet > 1} [Ti allontani.] -> intro
+            + {weddingAtThePubStorylet > 1} [Ti allontani.]
+                ~ pauseStorylet = true
+                -> intro
             + {weddingAtThePubStorylet > 1} [Resti]
             + ->
             -
@@ -210,6 +212,7 @@
             Elia: Me ne vado.
                     ~ move_this_entity_in_a_different_room(Elia)
                     -> advance_time ->
+                    ~ pauseStorylet = true
             -> intro
 
 
@@ -222,7 +225,9 @@
 ~ inConversazione += Greta
         Elia: <i><fear>Quindi ora vuoi uccidermi?</fear></i>
         Greta: <i>Ucciderti?</i>
-            + {anEavesdropAboutFriendshipStorylet > 1} [Ti allontani.] -> intro
+            + {anEavesdropAboutFriendshipStorylet > 1} [Ti allontani.]
+                ~ pauseStorylet = true
+                -> intro
             + {anEavesdropAboutFriendshipStorylet > 1} [Resti]
             + ->
             -
@@ -249,6 +254,7 @@
             Greta: <i>Non posso aver contatto con altri senzatetto puzzolenti, mi capisci Elia, vero?</i>
             Elia: <i>Io. No, ma sarò sempre dalla tua parte Greta, promesso!</i>
                     -> advance_time ->
+                    ~ pauseStorylet = true
                 -> intro
 
     
@@ -256,6 +262,7 @@
         -> advance_time ->
             <i>Greta: Ma ovvio che tu sei lì a raccontare i cazzi tuoi e entra qualcun altro.</i>
             <i>Greta: Scusa Elia, ne riparliamo in un altro momento.</i>
+            ~ pauseStorylet = true
         -> intro
 
 
@@ -263,7 +270,9 @@
     Greta: <rage>Co<waitrage>glio<waitrage>ne</rage>.
     Greta: <i>Cosa cazzo vai in giro a dire che staremo assieme?</i>
     Greta: <i>Matteo, sei un coglione infinito.</i>
-        + {itsOverisntItStorylet > 1} [Ti allontani.] -> intro
+        + {itsOverisntItStorylet > 1} [Ti allontani.]
+            ~ pauseStorylet = true
+            -> intro
         + {itsOverisntItStorylet > 1} [Resti.]
         + ->
         -
@@ -290,7 +299,8 @@
         Greta: <i>Ora vai a fare qualcosa di buono nella tua vita, su.</i>
         Greta: <i>Io vado a lavarmi le orecchie da questa conversazione.</i></i>
                 ~ move_this_entity_in_a_different_room(Greta)
-                -> advance_time ->    
+                -> advance_time ->
+                ~ pauseStorylet = true
             -> intro
     
     =poveroEttore
@@ -306,7 +316,7 @@
         Greta: <i>E stammi lontano.</i>
             ~ move_this_entity_in_a_different_room(Greta)
             -> advance_time ->    
-        
+            ~ pauseStorylet = true
         -> intro
 
 
@@ -336,7 +346,9 @@ PS: ricordarsi di resettare la variabile al reset_loop
     = step_one    
         Elia: Mi ha sempre sorpreso il modo in cui hai trattato Paola.
         Matteo: In che senso?
-            + {sheIsTheBestStorylet.step_one > 1} [Ti allontani.] -> intro
+            + {sheIsTheBestStorylet.step_one > 1} [Ti allontani.]
+                ~ pauseStorylet = true
+                -> intro
             + {sheIsTheBestStorylet.step_one > 1} [Resti.]
             + ->
             -
@@ -353,7 +365,9 @@ PS: ricordarsi di resettare la variabile al reset_loop
     = step_two
         Elia: Sarai tu noioso, coso.
         Matteo: Così prevedibile.
-            + {sheIsTheBestStorylet.step_two > 1} [Ti allontani.] -> intro
+            + {sheIsTheBestStorylet.step_two > 1} [Ti allontani.]
+                ~ pauseStorylet = true
+                -> intro
             + {sheIsTheBestStorylet.step_two > 1} [Resti]
             + ->
             -
@@ -369,7 +383,9 @@ PS: ricordarsi di resettare la variabile al reset_loop
     = step_three
         Elia: Ma mica è una cosa crudele!
         Matteo: E che non sai gestire gli affari!
-            + {sheIsTheBestStorylet.step_three > 1} [Ti allontani.] -> intro
+            + {sheIsTheBestStorylet.step_three > 1} [Ti allontani.]
+                ~ pauseStorylet = true
+                -> intro
             + {sheIsTheBestStorylet.step_three > 1} [Resti.]
             + ->
             -
@@ -381,6 +397,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
         Elia: Me ne devo andare da tutta questa negatività.
             ~ move_this_entity_in_a_different_room(Elia)
             -> advance_time ->
+            ~ pauseStorylet = true
         -> intro
 
 
@@ -390,7 +407,9 @@ PS: ricordarsi di resettare la variabile al reset_loop
 {debug: <i>Passo per aStrangeKnifeStorylet</i>}
         Matteo: Ehi, ma quello è il mio antico pugnale sacrificale!
         Matteo: Grazie per avermelo riportato!
-            + {aStrangeKnifeStorylet > 1} [Ti allontani.] -> intro
+            + {aStrangeKnifeStorylet > 1} [Ti allontani.]
+                ~ pauseStorylet = true
+                -> intro
             + {aStrangeKnifeStorylet > 1} [Resti.]
             + ->
             -
@@ -402,6 +421,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
         Matteo: Ahah scherzo, scherzo.
         Matteo: Dove trovo del sangue vergine per purificarlo dal tuo tocco impuro, ora?    
                 -> advance_time ->
+                ~ pauseStorylet = true
             -> intro
 
 
@@ -410,7 +430,9 @@ PS: ricordarsi di resettare la variabile al reset_loop
 {debug: <i>Passo per marryMe</i>}
         Matteo: <joy>Finalmente soli, amore.</joy>
         Matteo: Dio, quanto sei bello, te l'ho mai detto?
-            + {marryMeStorylet > 1} [Ti allontani.] -> intro
+            + {marryMeStorylet > 1} [Ti allontani.]
+            ~ pauseStorylet = true
+            -> intro
             + {marryMeStorylet > 1} [Resti.]
             + ->
             -
@@ -458,6 +480,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
             Matteo: Ti va di fare quella fusione, ora?
             Ettore: Chiudi i pantaloni, futuro marito.
                      -> advance_time ->
+                     ~ pauseStorylet = true
                 -> intro
      
  
@@ -469,6 +492,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
         Ettore: Ma io! Ma tu!
         Matteo: Me ne vado, così ti lascio ripensare a modo alla tua idea di moralità, Ettore.
             ~ move_this_entity_in_a_different_room(Matteo)
+            ~ pauseStorylet = true
         -> intro
 
 
@@ -478,7 +502,9 @@ PS: ricordarsi di resettare la variabile al reset_loop
     Zeca: Mio nuovo giovane amico, che bello rivederti.
     {not new_this_loop(->zeca_acting.rapportoPaola): Zeca: Forse adesso è un buon momento per rispondere alla tua domanda di prima.}
     Zeca: La vita sa essere crudele, sai?
-        + {worstBestManStorylet > 1} [Ti allontani.] -> intro
+        + {worstBestManStorylet > 1} [Ti allontani.]
+        ~ pauseStorylet = true
+        -> intro
         + {worstBestManStorylet > 1} [Resti.]
         + ->
         -
@@ -510,7 +536,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
     {are_two_entities_together(Zeca, Elia): Elia: O quando un pazzo psicopatico le ucciderà.}
     Zeca: Lasciami a meditare amico mio, lasciami a meditare.
         -> advance_time ->
-
+        ~ pauseStorylet = true
     -> intro
 
 
@@ -522,7 +548,9 @@ PS: ricordarsi di resettare la variabile al reset_loop
 {debug: <i>Passo per hardTrueFeelingsStorylet</i>}
 Matteo: Anche io.
 Ettore: Uh, dimmi pure.
-    + {hardTrueFeelingsStorylet > 1} [Ti allontani.] -> intro
+    + {hardTrueFeelingsStorylet > 1} [Ti allontani.]
+    ~ pauseStorylet = true
+    -> intro
     + {hardTrueFeelingsStorylet > 1} [Resti.]
     + ->
     -
@@ -548,7 +576,9 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Matteo: Fammi allontanare da tutta questa cattiveria prima che mi contagi.
             ~ move_this_entity_in_a_different_room(Matteo)
             -> advance_time ->
-    ->->        
+            ~ pauseStorylet = true
+        ->intro  
+        
     + (mono)Ettore: Sai che non mi importa molto della monogamia.
         Matteo: Ma importa a me.
         Matteo: Perché se ora tu dai a me la possibilità di stare con altre persone, poi dovrò darla io a te.
@@ -561,7 +591,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Matteo: Fammi andare via di qui!
             ~ move_this_entity_in_a_different_room(Matteo)
             -> advance_time ->
-    
+        ~ pauseStorylet = true
         -> intro
 
 
@@ -572,7 +602,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
     Matteo: Anzi, me ne vado io.
         ~ move_this_entity_in_a_different_room(Matteo)
             -> advance_time ->
-            
+            ~ pauseStorylet = true
         -> intro
 
 
@@ -653,7 +683,6 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
                 -> intro
 
 
-TODO: da vedere se serve davvero dopo i test. Perché da solo arrivo qui con le idee chiare (ovvio) e il risolvibile risolto, per cui potremmo cancellare un intero loop
 === talking_tutorial
 ~ inConversazione += Paola
             ~ change_status(Paola, PaolaLive)
@@ -695,7 +724,6 @@ TODO: da vedere se serve davvero dopo i test. Perché da solo arrivo qui con le 
 
 
 //MORTE DI PAOLA (COMUNE A PRIMO E SECONDO TIER)
-TODO: mi è capitato, giustamente, che Ettore senta tutta la conversazione e risponda da un'altra stanza perché quando parte il dialogo non si può spostare. Come risolviamo? Mettendo la possibilità di muoversi, o forzando lo spostamento del personaggio nella stanza con Paola (non mi piace ma è pratica)?
 === paolaIsDeadStorylet
 {debug: <i>paolaIsDeadStorylet</i>}
         Greta: Paola, ma questa roba non ha senso!

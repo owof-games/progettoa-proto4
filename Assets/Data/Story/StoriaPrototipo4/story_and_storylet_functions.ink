@@ -81,5 +81,3 @@
     // did we see this line recently?
     ~ return TURNS_SINCE(x) <= 3 && seen_ever(x)
     
-    
-    

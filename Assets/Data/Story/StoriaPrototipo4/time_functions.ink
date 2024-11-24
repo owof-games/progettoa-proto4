@@ -133,8 +133,8 @@ VAR currentTime = 0
         ~ sheIsTheBest = currentTime
 }
 
-
-
+//Da qui gli storylet possono ripartire
+~ pauseStorylet = false
 
 ->->
 

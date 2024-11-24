@@ -69,5 +69,8 @@ VAR gretaHaLaLettera = false
 VAR paolaPausa = -1
 VAR sheIsTheBest = -1
 
+//Variabile per evitare che gli storylets partano in sequenza
+VAR pauseStorylet = false
+
 //VARIABILE PER MONITORARE SE LE PERSONAGGE STANNO PARLANDO E NON FARLE SPOSTARE
 VAR inConversazione = ()

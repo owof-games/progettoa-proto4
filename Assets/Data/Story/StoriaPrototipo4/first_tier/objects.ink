@@ -14,6 +14,7 @@
         + + [Lasciala dov'è]
     // + {inventoryContents has LimettaUnghie} Mostra limetta unghie
     + {inventoryContents has LimettaUnghie} [Lascia la limetta nella stanza]
+        TODO: togliere questa voce in tutti gli oggetti; viene gestito altrove
         ~ remove_entity(LimettaUnghie)
     -
 ->->
@@ -121,7 +122,8 @@
 = flaconcino_asma
     + (primoCheck) [Osserva il flaconcino per l'asma]
     -> advance_time ->
-        Un comune flaconcino. O, con un po' di fantasia, il periscopio di un sottomarino.
+        TODO: sistemare in tutti gli oggetti la descrizione in modo che sia Ettore a dirla
+        Ettore: Un comune flaconcino. O, con un po' di fantasia, il periscopio di un sottomarino.
         + + [Raccoglilo]
         ~ take_object(FlaconcinoAsma)
         + + [Lascialo dov'è]

@@ -13,9 +13,6 @@
         + + [Raccoglila]
         ~ take_object(Lettera)
         + + [Lasciala dov'è]
-    + {inventoryContents has Lettera} [Lascia la lettera nella stanza]
-        ~ remove_entity(Lettera)
-    
     -
 ->->
 
@@ -35,9 +32,6 @@
         + + [Raccoglila]
         ~ take_object(BottigliaDiVino)
         + + [Lasciala dov'è]
-    + {inventoryContents has BottigliaDiVino} [Lascia la bottiglia di vino nella stanza]
-        ~ remove_entity(BottigliaDiVino)
-    
     -
 ->->
 
@@ -55,9 +49,6 @@
         + + [Raccoglilo]
         ~ take_object(FlaconcinoAsma)
         + + [Lascialo dov'è]
-    + {inventoryContents has FlaconcinoAsma} [Lascia il flaconcino per l'asma nella stanza]
-        ~ remove_entity(FlaconcinoAsma)
-    
     -
 ->->
 
@@ -75,9 +66,6 @@
         + + [Raccoglila]
         ~ take_object(SigarettaElettronica)
         + + [Lasciala dov'è]
-    + {inventoryContents has SigarettaElettronica} [Lascia la sigaretta elettronica nella stanza]
-        ~ remove_entity(SigarettaElettronica)
-    
     -
 ->->
 
@@ -95,9 +83,6 @@
         + + [Raccoglila]
         ~ take_object(Torta)
         + + [Lasciala dov'è]
-    + {inventoryContents has Torta} [Lascia la torta nella stanza]
-        ~ remove_entity(Torta)
-    
     -
 ->->
 
@@ -116,8 +101,5 @@
         + + [Raccoglila]
         ~ take_object(Foto)
         + + [Lasciala dov'è]
-    + {inventoryContents has Foto} [Lascia la foto nella stanza]
-        ~ remove_entity(Foto)
-    
     -
 ->->

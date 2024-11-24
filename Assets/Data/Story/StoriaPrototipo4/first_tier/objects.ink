@@ -12,10 +12,7 @@
         + + [Raccoglila]
         ~ take_object(LimettaUnghie)
         + + [Lasciala dov'è]
-    // + {inventoryContents has LimettaUnghie} Mostra limetta unghie
-    + {inventoryContents has LimettaUnghie} [Lascia la limetta nella stanza]
-        TODO: togliere questa voce in tutti gli oggetti; viene gestito altrove
-        ~ remove_entity(LimettaUnghie)
+
     -
 ->->
 
@@ -35,10 +32,6 @@
         + + [Raccoglilo]
         ~ take_object(AnticoPugnale)
         + + [Lascialo dov'è]
-    // + {inventoryContents has AnticoPugnale} Mostra il pugnale
-    + {inventoryContents has AnticoPugnale} [Lascia il pugnale nella stanza]
-        ~ remove_entity(AnticoPugnale)
-
     -
 ->->
 
@@ -59,10 +52,6 @@
         + + [Raccoglilo]
         ~ take_object(SpiedinoCocktail)
         + + [Lascialo dov'è]
-    // + {inventoryContents has SpiedinoCocktail} Mostra lo spiedino
-    + {inventoryContents has SpiedinoCocktail}  [Lascia lo spiedino nella stanza]
-        ~ remove_entity(SpiedinoCocktail)
-    
     -
 ->->
 
@@ -82,10 +71,6 @@
         + + [Raccoglila]
         ~ take_object(Lettera)
         + + [Lasciala dov'è]
-    // + {inventoryContents has Lettera} Mostra lettera
-    + {inventoryContents has Lettera} [Lascia la lettera nella stanza]
-        ~ remove_entity(Lettera)
-    
     -
 ->->
 
@@ -105,10 +90,6 @@
         + + [Raccoglila]
         ~ take_object(BottigliaDiVino)
         + + [Lasciala dov'è]
-    // + {inventoryContents has BottigliaDiVino} Mostra la bottiglia
-    + {inventoryContents has BottigliaDiVino} [Lascia la bottiglia di vino nella stanza]
-        ~ remove_entity(BottigliaDiVino)
-    
     -
 ->->
 
@@ -127,9 +108,6 @@
         + + [Raccoglilo]
         ~ take_object(FlaconcinoAsma)
         + + [Lascialo dov'è]
-    // + {inventoryContents has FlaconcinoAsma} Mostra il flaconcino per l'asma
-    + {inventoryContents has FlaconcinoAsma} [Lascia il flaconcino per l'asma nella stanza]
-        ~ remove_entity(FlaconcinoAsma)
     
     -
 ->->
@@ -148,10 +126,7 @@
         + + [Raccoglila]
         ~ take_object(SigarettaElettronica)
         + + [Lasciala dov'è]
-    // + {inventoryContents has SigarettaElettronica} Mostra la sigaretta elettronica
-    + {inventoryContents has SigarettaElettronica} [Lascia la sigaretta elettronica nella stanza]
-        ~ remove_entity(SigarettaElettronica)
-    
+
     -
 ->->
 
@@ -169,9 +144,7 @@
         + + [Raccoglila]
         ~ take_object(Torta)
         + + [Lasciala dov'è]
-    // + {inventoryContents has Torta} Mostra cibo
-    + {inventoryContents has Torta} [Lascia la torta nella stanza]
-        ~ remove_entity(Torta)
+
     
     -
 ->->

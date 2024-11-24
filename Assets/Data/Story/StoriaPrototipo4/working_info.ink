@@ -29,3 +29,5 @@
 //spavento/paura: <fear> </fear>
 //rabbia: <rage>  <waitrage>  <waitrage>  </rage>
 //DUE EMOZIONI COMODE PER IL FUTURO, più di titubanza: tristezza e confusione. Sarcasmo?
+
+TODO: per i dialoghi sussurrati mettere un italic, a meno di casi speciali (e.g.: urlo)

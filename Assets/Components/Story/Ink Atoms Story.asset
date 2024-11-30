@@ -24,6 +24,7 @@ MonoBehaviour:
   - rid: 4382058951643758684
   - rid: 4382058951643758685
   - rid: 3777093293223182411
+  - rid: 3777093613291307083
   externalFunctions:
   - {fileID: 11400000, guid: 8cbb6008e1940ed4eac5047ad0050b74, type: 2}
   - {fileID: 11400000, guid: 06bcf72ffa424404ead936e80f675f28, type: 2}
@@ -42,6 +43,11 @@ MonoBehaviour:
       data:
         inkVariableName: inventoryContents
         variable: {fileID: 11400000, guid: fd6bf35b47f65e04a9449754dc97c786, type: 2}
+    - rid: 3777093613291307083
+      type: {class: BoolVariableObserver, ns: LemuRivolta.InkAtoms.VariableObserver, asm: LemuRivolta.InkAtoms}
+      data:
+        inkVariableName: activePhone
+        variable: {fileID: 11400000, guid: 51438536078415b43ac7eabbf96e394c, type: 2}
     - rid: 4382058951643758682
       type: {class: ListVariableObserver, ns: LemuRivolta.InkAtoms.VariableObserver, asm: LemuRivolta.InkAtoms}
       data:

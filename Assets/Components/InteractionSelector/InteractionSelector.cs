@@ -11,7 +11,8 @@ namespace Components.InteractionSelector
         Exit,
         Character,
         Object,
-        DropObject
+        DropObject,
+        Phone
     }
 
     public class InteractionSelector : MonoBehaviour

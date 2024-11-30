@@ -3,9 +3,10 @@
 using System;
 using System.Collections;
 using System.Linq;
+using System.Threading;
 using Components;
 using Components.InteractionSelector;
-using LemuRivolta.InkAtoms;
+using Cysharp.Threading.Tasks;
 using LemuRivolta.InkAtoms.CommandLineProcessors;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
@@ -22,6 +23,8 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
     [SerializeField] private StringEvent dropObjectEvent;
 
     [SerializeField] private VoidEvent advanceTimeEvent;
+
+    [SerializeField] private VoidEvent phoneClickedEvent;
 
     [SerializeField] private StoryStateConstant storyStateInteracting;
     [SerializeField] private StoryStateConstant storyStateTalking;
@@ -42,6 +45,7 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
         Assert.IsNotNull(storyStateInteracting);
         Assert.IsNotNull(storyStateTalking);
         Assert.IsNotNull(currentStoryState);
+        Assert.IsNotNull(phoneClickedEvent);
     }
 
     protected override IEnumerator Process(CommandLineProcessorContext context)
@@ -57,7 +61,7 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
             availableInteractions = context.Choices.Select(choice =>
                 {
                     var parts = choice.Text.Split(':');
-                    if (parts.Length != 2)
+                    if (parts.Length != 2 && parts[0] != "phone")
                     {
                         return null;
                     }
@@ -68,6 +72,7 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
                         "character" => new AvailableInteraction(Interaction.Character, parts[1]),
                         "object" => new AvailableInteraction(Interaction.Object, parts[1]),
                         "dropobject" => new AvailableInteraction(Interaction.DropObject, parts[1]),
+                        "phone" => new AvailableInteraction(Interaction.Phone, ""),
                         _ => null
                     };
                 })
@@ -75,76 +80,116 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
                 .ToArray()
         });
 
-        yield return AtomAwaiter.Await(
-            interactExitEvent,
-            onEvent1: moveToRoomName =>
-            {
-                // asked to move to room: take the given choice
-                var choice = choices.FirstOrDefault(choice => choice.Text == $"exit:{moveToRoomName}");
-                if (choice.Text == null)
-                    throw new Exception($"Cannot find an interaction choice in Ink to exit to room {moveToRoomName}");
+        var cancellationTokenSource = new CancellationTokenSource();
 
-                currentStoryState.Value = previousStoryState;
-                availableInteractionsEvent.Raise(AvailableInteractions.EmptyAvailableInteractions);
-                context.TakeChoice(choice.Index);
-            },
-            atom2: advanceTimeEvent,
-            onEvent2: _ =>
-            {
-                var choice = choices.FirstOrDefault(choice => choice.Text == "debug:advance_time");
-                if (choice.Text == null)
-                    throw new Exception(
-                        "Cannot find an interaction choice in Ink to advance time for debug with name debug:advance_time");
+        var moveToRoomTask = interactExitEvent.ToUniTask(cancellationTokenSource.Token)
+            .ContinueWith(moveToRoomName => TakeChoice($"exit:{moveToRoomName}"));
 
-                currentStoryState.Value = previousStoryState;
-                availableInteractionsEvent.Raise(AvailableInteractions.EmptyAvailableInteractions);
-                context.TakeChoice(choice.Index);
-            },
-            atom3: interactCharacterEvent,
-            onEvent3: characterName =>
-            {
-                // asked to interact with character: take the given choice
-                var choice = choices.FirstOrDefault(choice => choice.Text == $"character:{characterName}");
-                if (choice.Text == null)
-                    throw new Exception(
-                        $"Cannot find an interaction choice in Ink to interact with character {characterName}; available choices are: " +
-                        string.Join(", ", choices.Select(c => c.Text)));
+        var takeChoiceTask = advanceTimeEvent.ToUniTask(cancellationTokenSource.Token)
+            .ContinueWith(_ => TakeChoice("debug:advance_time"));
 
-                currentStoryState.Value = previousStoryState;
-                availableInteractionsEvent.Raise(AvailableInteractions.EmptyAvailableInteractions);
-                context.TakeChoice(choice.Index);
-            },
-            atom4: interactObjectEvent,
-            onEvent4: objectName =>
-            {
-                // asked to interact with an object: take the given choice
-                var choice = choices.FirstOrDefault(choice => choice.Text == $"object:{objectName}");
-                if (choice.Text == null)
-                    throw new Exception(
-                        $"Cannot find an interaction choice in Ink to interact with object {objectName}; available choices are: " +
-                        string.Join(", ", choices.Select(c => c.Text)));
+        var interactCharacterTask = interactCharacterEvent.ToUniTask(cancellationTokenSource.Token).ContinueWith(
+            characterName => TakeChoice($"character:{characterName}"));
 
-                currentStoryState.Value = previousStoryState;
-                availableInteractionsEvent.Raise(AvailableInteractions.EmptyAvailableInteractions);
-                context.TakeChoice(choice.Index);
-            },
-            atom5: dropObjectEvent,
-            onEvent5: objectName =>
-            {
-                // asked to drop an object from inventory: take the given choice
-                var choice = choices.FirstOrDefault(choice => choice.Text == $"dropobject:{objectName}");
-                if (choice.Text == null)
-                    throw new Exception(
-                        $"Cannot find an interaction choice in Ink to drop object {objectName}; available choices are: " +
-                        string.Join(", ", choices.Select(c => c.Text)));
+        var interactObjectTask = interactObjectEvent.ToUniTask(cancellationTokenSource.Token).ContinueWith(
+            objectName => TakeChoice($"object:{objectName}"));
 
-                currentStoryState.Value = previousStoryState;
-                availableInteractionsEvent.Raise(AvailableInteractions.EmptyAvailableInteractions);
-                context.TakeChoice(choice.Index);
-            }
-        );
+        var dropObjectTask = dropObjectEvent.ToUniTask(cancellationTokenSource.Token).ContinueWith(
+            objectName => TakeChoice($"dropobject:{objectName}"));
+
+        var phoneClickedTask = phoneClickedEvent.ToUniTask(cancellationTokenSource.Token).ContinueWith(
+            _ => TakeChoice("phone"));
+
+        yield return UniTask.WhenAny(moveToRoomTask, takeChoiceTask, interactCharacterTask, interactObjectTask,
+                dropObjectTask, phoneClickedTask)
+            .ToCoroutine();
+        cancellationTokenSource.Cancel();
+
+        // yield return AtomAwaiter.Await(
+        //     interactExitEvent,
+        //     onEvent1: moveToRoomName =>
+        //     {
+        //         // asked to move to room: take the given choice
+        //         var choice = choices.FirstOrDefault(choice => choice.Text == $"exit:{moveToRoomName}");
+        //         if (choice.Text == null)
+        //             throw new Exception($"Cannot find an interaction choice in Ink to exit to room {moveToRoomName}");
+        //
+        //         currentStoryState.Value = previousStoryState;
+        //         availableInteractionsEvent.Raise(AvailableInteractions.EmptyAvailableInteractions);
+        //         context.TakeChoice(choice.Index);
+        //     },
+        //     atom2: advanceTimeEvent,
+        //     onEvent2: _ =>
+        //     {
+        //         var choice = choices.FirstOrDefault(choice => choice.Text == "debug:advance_time");
+        //         if (choice.Text == null)
+        //             throw new Exception(
+        //                 "Cannot find an interaction choice in Ink to advance time for debug with name debug:advance_time");
+        //
+        //         currentStoryState.Value = previousStoryState;
+        //         availableInteractionsEvent.Raise(AvailableInteractions.EmptyAvailableInteractions);
+        //         context.TakeChoice(choice.Index);
+        //     },
+        //     atom3: interactCharacterEvent,
+        //     onEvent3: characterName =>
+        //     {
+        //         // asked to interact with character: take the given choice
+        //         var choice = choices.FirstOrDefault(choice => choice.Text == $"character:{characterName}");
+        //         if (choice.Text == null)
+        //             throw new Exception(
+        //                 $"Cannot find an interaction choice in Ink to interact with character {characterName}; available choices are: " +
+        //                 string.Join(", ", choices.Select(c => c.Text)));
+        //
+        //         currentStoryState.Value = previousStoryState;
+        //         availableInteractionsEvent.Raise(AvailableInteractions.EmptyAvailableInteractions);
+        //         context.TakeChoice(choice.Index);
+        //     },
+        //     atom4: interactObjectEvent,
+        //     onEvent4: objectName =>
+        //     {
+        //         // asked to interact with an object: take the given choice
+        //         var choice = choices.FirstOrDefault(choice => choice.Text == $"object:{objectName}");
+        //         if (choice.Text == null)
+        //             throw new Exception(
+        //                 $"Cannot find an interaction choice in Ink to interact with object {objectName}; available choices are: " +
+        //                 string.Join(", ", choices.Select(c => c.Text)));
+        //
+        //         currentStoryState.Value = previousStoryState;
+        //         availableInteractionsEvent.Raise(AvailableInteractions.EmptyAvailableInteractions);
+        //         context.TakeChoice(choice.Index);
+        //     },
+        //     atom5: dropObjectEvent,
+        //     onEvent5: objectName =>
+        //     {
+        //         // asked to drop an object from inventory: take the given choice
+        //         var choice = choices.FirstOrDefault(choice => choice.Text == $"dropobject:{objectName}");
+        //         if (choice.Text == null)
+        //             throw new Exception(
+        //                 $"Cannot find an interaction choice in Ink to drop object {objectName}; available choices are: " +
+        //                 string.Join(", ", choices.Select(c => c.Text)));
+        //
+        //         currentStoryState.Value = previousStoryState;
+        //         availableInteractionsEvent.Raise(AvailableInteractions.EmptyAvailableInteractions);
+        //         context.TakeChoice(choice.Index);
+        //     }
+        // );
 
         Debug.Log("@interact command ended, whose choices are:");
         foreach (var choice in choices) Debug.Log("_ " + choice.Text);
+        yield break;
+
+        void TakeChoice(string choiceText)
+        {
+            // asked to interact with character: take the given choice
+            var choice = choices.FirstOrDefault(choice => choice.Text == choiceText);
+            if (choice.Text == null)
+                throw new Exception(
+                    $"Cannot find an interaction choice in Ink named {choiceText}; available choices are: " +
+                    string.Join(", ", choices.Select(c => c.Text)));
+
+            currentStoryState.Value = previousStoryState;
+            availableInteractionsEvent.Raise(AvailableInteractions.EmptyAvailableInteractions);
+            context.TakeChoice(choice.Index);
+        }
     }
 }

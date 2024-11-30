@@ -17,6 +17,7 @@ MonoBehaviour:
   interactObjectEvent: {fileID: 11400000, guid: 6cee4f86aa431364497384b80543a8f5, type: 2}
   dropObjectEvent: {fileID: 11400000, guid: b6eb3e955bf04f14eb772a3dad8a3c04, type: 2}
   advanceTimeEvent: {fileID: 11400000, guid: d4494cb7494169845b881c63ac1d3929, type: 2}
+  phoneClickedEvent: {fileID: 11400000, guid: 808e17924305999419fdcd45c8f290e4, type: 2}
   storyStateInteracting: {fileID: 11400000, guid: 731d7e1e22932c34faf3cb978feee760, type: 2}
   storyStateTalking: {fileID: 11400000, guid: f983d5e69a958d447a8117867e2a69e4, type: 2}
   currentStoryState: {fileID: 11400000, guid: 15f13ae7eb0e5574f8f1abd68f45d19b, type: 2}

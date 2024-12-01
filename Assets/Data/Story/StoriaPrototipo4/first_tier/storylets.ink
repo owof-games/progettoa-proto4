@@ -21,35 +21,39 @@
     - are_six_entities_together(Elia, Matteo, Ettore, Greta, Paola, Zeca) && not startingDinnerStorylet && peopleTalking == false && new_this_loop(->startingDinnerStorylet) :
             -> startingDinnerStorylet
 
+    - pauseStorylet:
+        // evita che tutti gli storylet dopo questo possano partire attaccati l'uno all'altro
+        ->->
+
 
 //STORYLET "NORMALI"
-    - pauseStorylet == false && are_two_entities_together(Matteo, Ettore) && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Zeca) && not are_two_entities_together(Ettore, Greta) && peopleTalking == false && new_this_loop(->marryMeStorylet):
+    - are_two_entities_together(Matteo, Ettore) && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Zeca) && not are_two_entities_together(Ettore, Greta) && peopleTalking == false && new_this_loop(->marryMeStorylet):
             -> marryMeStorylet
 
 
-    - pauseStorylet == false && are_three_entities_together(Elia, Matteo, Ettore) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Greta) && (marryMeStorylet.matteoSiSposa or marryMeStorylet.matteoSiSposa2) && peopleTalking == false && new_this_loop(->weddingAtThePubStorylet):
+    - are_three_entities_together(Elia, Matteo, Ettore) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Greta) && (marryMeStorylet.matteoSiSposa or marryMeStorylet.matteoSiSposa2) && peopleTalking == false && new_this_loop(->weddingAtThePubStorylet):
             -> weddingAtThePubStorylet
     
     
-    - pauseStorylet == false && are_two_entities_together(Matteo, Ettore) && inventoryContents has AnticoPugnale && peopleTalking == false && new_this_loop(->aStrangeKnifeStorylet):
+    - are_two_entities_together(Matteo, Ettore) && inventoryContents has AnticoPugnale && peopleTalking == false && new_this_loop(->aStrangeKnifeStorylet):
             -> aStrangeKnifeStorylet
 
 
-    - pauseStorylet == false && are_two_entities_together(Zeca, Ettore) && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Matteo) && not are_two_entities_together(Ettore, Greta) && peopleTalking == false && new_this_loop(->worstBestManStorylet):
+    - are_two_entities_together(Zeca, Ettore) && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Matteo) && not are_two_entities_together(Ettore, Greta) && peopleTalking == false && new_this_loop(->worstBestManStorylet):
             -> worstBestManStorylet
 
 
 //CONVERSAZIONI ORIGLIATE
-    - pauseStorylet == false && are_two_entities_together(Elia, Greta)  && not are_two_entities_together(Elia, Matteo) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Ettore) && elia_acting.sincero && is_this_entity_near_Ettore(Elia) == true && peopleTalking == false && new_this_loop(->anEavesdropAboutFriendshipStorylet):
+    - are_two_entities_together(Elia, Greta)  && not are_two_entities_together(Elia, Matteo) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Ettore) && elia_acting.sincero && is_this_entity_near_Ettore(Elia) == true && peopleTalking == false && new_this_loop(->anEavesdropAboutFriendshipStorylet):
             -> anEavesdropAboutFriendshipStorylet
 
 
-    - pauseStorylet == false && are_three_entities_together(Matteo, Greta, Ettore) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && hardTrueFeelingsStorylet && peopleTalking == false && new_this_loop(->itsOverisntItStorylet):
+    - are_three_entities_together(Matteo, Greta, Ettore) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && hardTrueFeelingsStorylet && peopleTalking == false && new_this_loop(->itsOverisntItStorylet):
             -> itsOverisntItStorylet
 
 
 //CONVERSAZIONI IN ALTRE STANZE, CHE NON ORIGLIAMO, E CHE CONTINUANO QUANDO ENTRIAMO
-    - pauseStorylet == false && sheIsTheBest != -1 && are_three_entities_together(Matteo, Elia, Ettore) && currentTime <= sheIsTheBest +30:
+    - sheIsTheBest != -1 && are_three_entities_together(Matteo, Elia, Ettore) && currentTime <= sheIsTheBest +30:
             -> sheIsTheBestStorylet
 
 

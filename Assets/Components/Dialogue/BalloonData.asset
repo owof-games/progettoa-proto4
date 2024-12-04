@@ -31,6 +31,9 @@ MonoBehaviour:
   - character: 5
     hasLightBackground: 1
     backgroundSprite: {fileID: -2109274474580734070, guid: 8ff024cb0527fa94bb3ec9a935e48edd, type: 3}
+  - character: 6
+    hasLightBackground: 1
+    backgroundSprite: {fileID: 4061710086810705494, guid: 8ff024cb0527fa94bb3ec9a935e48edd, type: 3}
   textColorForLightBackground: {r: 0, g: 0, b: 0, a: 1}
   textColorForDarkBackground: {r: 1, g: 1, b: 1, a: 1}
   smallChoiceBackgroundSprite: {fileID: -3237029375106172173, guid: 2ca9d216ea3ed424d8a980e45876dd28, type: 3}

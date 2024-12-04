@@ -114,19 +114,23 @@ namespace Components.Dialogue
                         ?.gameObject;
                 var skippedColumn = -1;
                 var skippedColumnDistanceFromCharacter = float.MaxValue;
-                if (characterGameObject)
+                if (characterGameObject || character == Character.Character.Anonymous
+                   )
                 {
-                    var thisCharacterGameObjectXCenter =
-                        Camera.main!.WorldToScreenPoint(characterGameObject.transform.position).x;
-                    for (var tentativeColumn = 0; tentativeColumn < 3; tentativeColumn++)
+                    if (character != Character.Character.Anonymous)
                     {
-                        var thisBalloonXCenter =
-                            Screen.width * _columnRemapper[tentativeColumn] / 5 + Screen.width / 10;
-                        var distance = Mathf.Abs(thisCharacterGameObjectXCenter - thisBalloonXCenter);
-                        if (distance < skippedColumnDistanceFromCharacter)
+                        var thisCharacterGameObjectXCenter =
+                            Camera.main!.WorldToScreenPoint(characterGameObject.transform.position).x;
+                        for (var tentativeColumn = 0; tentativeColumn < 3; tentativeColumn++)
                         {
-                            skippedColumn = tentativeColumn;
-                            skippedColumnDistanceFromCharacter = distance;
+                            var thisBalloonXCenter =
+                                Screen.width * _columnRemapper[tentativeColumn] / 5 + Screen.width / 10;
+                            var distance = Mathf.Abs(thisCharacterGameObjectXCenter - thisBalloonXCenter);
+                            if (distance < skippedColumnDistanceFromCharacter)
+                            {
+                                skippedColumn = tentativeColumn;
+                                skippedColumnDistanceFromCharacter = distance;
+                            }
                         }
                     }
 

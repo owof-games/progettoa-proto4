@@ -22,6 +22,14 @@ namespace Components.Story.Lines
 
         [SerializeField] private StringEvent continueEvent;
 
+        [SerializeField] private string[] anonymousCharacters =
+        {
+            "papà",
+            "agente",
+            "amica",
+            "polizia"
+        };
+
         private Dictionary<string, Character.Character> _charactersByLowercaseName;
 
         public void Initialize(StoryStepEvent storyStepEvent)
@@ -40,6 +48,12 @@ namespace Components.Story.Lines
                 .ToDictionary(character => character.ToString().ToLower(), character => character);
 
             storyStepEvent.Register(OnStoryStep);
+        }
+
+        private bool TryAnonymous(string characterName, out Character.Character character)
+        {
+            character = Character.Character.Anonymous;
+            return anonymousCharacters.Contains(characterName);
         }
 
         public void OnStoryStep(StoryStep step)
@@ -61,7 +75,8 @@ namespace Components.Story.Lines
                 }
 
                 var lowercaseCharacterName = text[..colonIndex].Trim().ToLower();
-                if (!_charactersByLowercaseName.TryGetValue(lowercaseCharacterName, out var character))
+                if (!_charactersByLowercaseName.TryGetValue(lowercaseCharacterName, out var character) &&
+                    !TryAnonymous(lowercaseCharacterName, out character))
                 {
                     Unparsable(step, $"cannot find character '{lowercaseCharacterName}'");
                     return;

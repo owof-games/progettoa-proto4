@@ -12,7 +12,8 @@ namespace Components.Character
         Zeca,
         Matteo,
         Greta,
-        Ettore
+        Ettore,
+        Anonymous
     }
 
     [CreateAssetMenu(fileName = "CharacterMappings", menuName = "Scriptable Objects/CharacterMappings")]

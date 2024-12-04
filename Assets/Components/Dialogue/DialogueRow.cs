@@ -53,7 +53,7 @@ namespace Components.Dialogue
             }
             else
             {
-                Debug.Log("Whispered line");
+                Debug.Log("Whispered line or anonymous");
             }
 
             var balloonGameObject = Instantiate(balloonPrefab, transform);

@@ -18,7 +18,9 @@ MonoBehaviour:
   dropObjectEvent: {fileID: 11400000, guid: b6eb3e955bf04f14eb772a3dad8a3c04, type: 2}
   advanceTimeEvent: {fileID: 11400000, guid: d4494cb7494169845b881c63ac1d3929, type: 2}
   phoneClickedEvent: {fileID: 11400000, guid: 808e17924305999419fdcd45c8f290e4, type: 2}
+  notebookClickedEvent: {fileID: 11400000, guid: d1781a807e6f07e4191ab88c15e7ff98, type: 2}
   storyStateInteracting: {fileID: 11400000, guid: 731d7e1e22932c34faf3cb978feee760, type: 2}
   storyStateTalking: {fileID: 11400000, guid: f983d5e69a958d447a8117867e2a69e4, type: 2}
   currentStoryState: {fileID: 11400000, guid: 15f13ae7eb0e5574f8f1abd68f45d19b, type: 2}
+  notebookStoryState: {fileID: 11400000, guid: 082ad79e572db864eb3a186b84a202b1, type: 2}
   availableInteractionsEvent: {fileID: 11400000, guid: 9828ae187d49cc345b977e1803f9bc2b, type: 2}

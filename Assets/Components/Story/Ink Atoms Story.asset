@@ -25,6 +25,7 @@ MonoBehaviour:
   - rid: 4382058951643758685
   - rid: 3777093293223182411
   - rid: 3777093613291307083
+  - rid: 123756762606600267
   externalFunctions:
   - {fileID: 11400000, guid: 8cbb6008e1940ed4eac5047ad0050b74, type: 2}
   - {fileID: 11400000, guid: 06bcf72ffa424404ead936e80f675f28, type: 2}
@@ -32,12 +33,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c57cf009d21d3ad44aa5bad1063bb775, type: 2}
   - {fileID: 11400000, guid: ba4fe05af865e7f44a3123e5dd4533c6, type: 2}
   - {fileID: 11400000, guid: d66b704e310bc664b91b701c40cc7041, type: 2}
+  - {fileID: 11400000, guid: 71bb315daf1ab4b4ca1fb6f528889a25, type: 2}
   cmdLinePrefix: '@'
   tagProcessors: []
   inkFileAsset: {fileID: 102900000, guid: bdf67750aad027747926f6fb2fc43068, type: 3}
   references:
     version: 2
     RefIds:
+    - rid: 123756762606600267
+      type: {class: BoolVariableObserver, ns: LemuRivolta.InkAtoms.VariableObserver, asm: LemuRivolta.InkAtoms}
+      data:
+        inkVariableName: activeNotebook
+        variable: {fileID: 11400000, guid: 71ef4f75e889ae04abc4b63d3a8a62d6, type: 2}
     - rid: 3777093293223182411
       type: {class: ListVariableObserver, ns: LemuRivolta.InkAtoms.VariableObserver, asm: LemuRivolta.InkAtoms}
       data:

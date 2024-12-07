@@ -26,9 +26,12 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
 
     [SerializeField] private VoidEvent phoneClickedEvent;
 
+    [SerializeField] private VoidEvent notebookClickedEvent;
+
     [SerializeField] private StoryStateConstant storyStateInteracting;
     [SerializeField] private StoryStateConstant storyStateTalking;
     [SerializeField] private StoryStateVariable currentStoryState;
+    [SerializeField] private StoryStateConstant notebookStoryState;
     [SerializeField] private AvailableInteractionsEvent availableInteractionsEvent;
 
     public InteractCoroutineCommand() : base("interact")
@@ -46,6 +49,8 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
         Assert.IsNotNull(storyStateTalking);
         Assert.IsNotNull(currentStoryState);
         Assert.IsNotNull(phoneClickedEvent);
+        Assert.IsNotNull(notebookClickedEvent);
+        Assert.IsNotNull(notebookStoryState);
     }
 
     protected override IEnumerator Process(CommandLineProcessorContext context)
@@ -61,7 +66,7 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
             availableInteractions = context.Choices.Select(choice =>
                 {
                     var parts = choice.Text.Split(':');
-                    if (parts.Length != 2 && parts[0] != "phone")
+                    if (parts.Length != 2 && parts[0] != "phone" && parts[0] != "notebook")
                     {
                         return null;
                     }
@@ -73,6 +78,7 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
                         "object" => new AvailableInteraction(Interaction.Object, parts[1]),
                         "dropobject" => new AvailableInteraction(Interaction.DropObject, parts[1]),
                         "phone" => new AvailableInteraction(Interaction.Phone, ""),
+                        "notebook" => new AvailableInteraction(Interaction.Notebook, ""),
                         _ => null
                     };
                 })
@@ -100,8 +106,11 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
         var phoneClickedTask = phoneClickedEvent.ToUniTask(cancellationTokenSource.Token).ContinueWith(
             _ => TakeChoice("phone"));
 
+        var notebookClickedTask = notebookClickedEvent.ToUniTask(cancellationTokenSource.Token).ContinueWith(
+            _ => TakeChoice("notebook", notebookStoryState));
+
         yield return UniTask.WhenAny(moveToRoomTask, takeChoiceTask, interactCharacterTask, interactObjectTask,
-                dropObjectTask, phoneClickedTask)
+                dropObjectTask, phoneClickedTask, notebookClickedTask)
             .ToCoroutine();
         cancellationTokenSource.Cancel();
 
@@ -178,7 +187,7 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
         foreach (var choice in choices) Debug.Log("_ " + choice.Text);
         yield break;
 
-        void TakeChoice(string choiceText)
+        void TakeChoice(string choiceText, StoryStateConstant? storyState = null)
         {
             // asked to interact with character: take the given choice
             var choice = choices.FirstOrDefault(choice => choice.Text == choiceText);
@@ -187,7 +196,8 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
                     $"Cannot find an interaction choice in Ink named {choiceText}; available choices are: " +
                     string.Join(", ", choices.Select(c => c.Text)));
 
-            currentStoryState.Value = previousStoryState;
+            currentStoryState.Value = storyState != null ? storyState.Value : previousStoryState;
+
             availableInteractionsEvent.Raise(AvailableInteractions.EmptyAvailableInteractions);
             context.TakeChoice(choice.Index);
         }

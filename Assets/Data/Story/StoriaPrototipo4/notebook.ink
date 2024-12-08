@@ -27,8 +27,8 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 /**
     NOTEBOOK PER IL PRIMO TIER
 **/
-
-
+TODO: assegnare pagine e slot
+VAR notebookPage = 1
 === notebook
 + {activeNotebook} [notebook]
 
@@ -39,13 +39,17 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 
 
 === tier_one_notebook
+~ notebookPage = 1
+//ogni pagina è due facciate
 {
-- startingDinnerStorylet.paolaMorta: <b>Chi ha ucciso Paola?:</b>
+- startingDinnerStorylet.paolaMorta: <b>Chi ha ucciso Paola?:</b> #slot-1
 - else: <b>Il taccuino è vuoto</b>
 }
 
 
 {elia_acting.senzatetto2: <i>Informazioni sul personaggio Elia</i>}
+
+
 {elia_acting.senzatetto2: Elia: Paola voleva rilevare il pub per trasformarlo in un rifugio per senzatetto. E Greta ha detto cose terribili e ripetuto che avrebbe fatto di tutto per fermarla.}
 
 

@@ -26,6 +26,7 @@ MonoBehaviour:
   - rid: 3777093293223182411
   - rid: 3777093613291307083
   - rid: 123756762606600267
+  - rid: 123756820167655424
   externalFunctions:
   - {fileID: 11400000, guid: 8cbb6008e1940ed4eac5047ad0050b74, type: 2}
   - {fileID: 11400000, guid: 06bcf72ffa424404ead936e80f675f28, type: 2}
@@ -45,6 +46,11 @@ MonoBehaviour:
       data:
         inkVariableName: activeNotebook
         variable: {fileID: 11400000, guid: 71ef4f75e889ae04abc4b63d3a8a62d6, type: 2}
+    - rid: 123756820167655424
+      type: {class: IntVariableObserver, ns: LemuRivolta.InkAtoms.VariableObserver, asm: LemuRivolta.InkAtoms}
+      data:
+        inkVariableName: notebookPage
+        variable: {fileID: 11400000, guid: 867649ebd8cd9924aa400427c1443a41, type: 2}
     - rid: 3777093293223182411
       type: {class: ListVariableObserver, ns: LemuRivolta.InkAtoms.VariableObserver, asm: LemuRivolta.InkAtoms}
       data:

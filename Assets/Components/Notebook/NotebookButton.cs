@@ -56,5 +56,10 @@ namespace Components.Notebook
             notebookButton.interactable =
                 availableInteractions.availableInteractions.Any(i => i.interaction == Interaction.Notebook);
         }
+
+        public void OnNotebookClosed()
+        {
+            notebookImage.sprite = closedNotebook;
+        }
     }
 }

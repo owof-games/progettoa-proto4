@@ -19,6 +19,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using InvalidOperationException = System.InvalidOperationException;
 
 namespace Components
 {
@@ -92,6 +94,30 @@ namespace Components
                 }
 
                 return min;
+            }
+        }
+
+        public static int? MinOrNull(this IEnumerable<int> source)
+        {
+            try
+            {
+                return source.Min();
+            }
+            catch (InvalidOperationException)
+            {
+                return null;
+            }
+        }
+
+        public static int? MaxOrNull(this IEnumerable<int> source)
+        {
+            try
+            {
+                return source.Max();
+            }
+            catch (InvalidOperationException)
+            {
+                return null;
             }
         }
     }

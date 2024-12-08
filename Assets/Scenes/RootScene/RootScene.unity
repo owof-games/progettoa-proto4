@@ -199,12 +199,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notebookStoryState: {fileID: 11400000, guid: 082ad79e572db864eb3a186b84a202b1, type: 2}
+  dialogueStoryState: {fileID: 11400000, guid: 082ad79e572db864eb3a186b84a202b1, type: 2}
   currentStoryState: {fileID: 11400000, guid: 15f13ae7eb0e5574f8f1abd68f45d19b, type: 2}
   animator: {fileID: 27917265}
   continueEvent: {fileID: 11400000, guid: f1836d32c09bf4f4ca4b1bc5567fda79, type: 2}
   nextButton: {fileID: 156328369}
   prevButton: {fileID: 880029096}
   notebookClosed: {fileID: 11400000, guid: 48714b044ea23e84ab1bde76e1f8b00d, type: 2}
+  notebookPage:
+    _usage: 2
+    _value: 0
+    _constant: {fileID: 0}
+    _variable: {fileID: 11400000, guid: 867649ebd8cd9924aa400427c1443a41, type: 2}
+    _variableInstancer: {fileID: 0}
   slots:
   - name: 1
     root: {fileID: 1249009388}
@@ -4056,6 +4063,7 @@ GameObject:
   - component: {fileID: 1950850821}
   - component: {fileID: 1950850820}
   - component: {fileID: 1950850819}
+  - component: {fileID: 1950850825}
   m_Layer: 5
   m_Name: Taccuino
   m_TagString: Untagged
@@ -4271,6 +4279,47 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1950850817}
   m_CullTransparentMesh: 1
+--- !u!114 &1950850825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950850817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2458933140c54c9db0aec7a69c1b617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _developerDescription: When the notebook is closed, restore the closed notebook
+    image
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1950850821}
+        m_TargetAssemblyTypeName: Components.Notebook.NotebookButton, Assembly-CSharp
+        m_MethodName: OnNotebookClosed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _actionResponses: []
+  _conditions: []
+  _operator: 0
+  _replayEventBufferOnRegister: 1
+  _eventReference:
+    _usage: 0
+    _event: {fileID: 11400000, guid: 48714b044ea23e84ab1bde76e1f8b00d, type: 2}
+    _eventInstancer: {fileID: 0}
+    _collection: {fileID: 0}
+    _list: {fileID: 0}
+    _collectionInstancer: {fileID: 0}
+    _listInstancer: {fileID: 0}
 --- !u!1 &1951369370
 GameObject:
   m_ObjectHideFlags: 0

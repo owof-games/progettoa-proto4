@@ -27,7 +27,6 @@ Le scelte salvano delle variabili globali che hanno sempre prefisso "choice_"
 /**
     NOTEBOOK PER IL PRIMO TIER
 **/
-TODO: assegnare pagine e slot
 VAR notebookPage = 1
 === notebook
 + {activeNotebook} [notebook]
@@ -48,13 +47,12 @@ VAR notebookPage = 1
 
 
 {elia_acting.senzatetto2: <i>Informazioni sul personaggio Elia</i>} #slot-2
-
-
 {elia_acting.senzatetto2: Elia: Paola voleva rilevare il pub per trasformarlo in un rifugio per senzatetto. E Greta ha detto cose terribili e ripetuto che avrebbe fatto di tutto per fermarla.} #slot-3
 
-
     ~ notebookPage = 2
-{elia_acting.sincero: <i>Informazioni sul personaggio Matteo</i>} #slot-1
+~ temp info_matteo = elia_acting.sincero or marryMeStorylet or hardTrueFeelingsStorylet or greta_acting.matteoGreta or weddingAtThePubStorylet or zeca_acting.matteoGreta or zeca_acting.matrimonio or itsOverisntItStorylet or sheIsTheBestStorylet.step_one
+    
+{info_matteo: <i>Informazioni sul personaggio Matteo</i>} #slot-1
 {hardTrueFeelingsStorylet.ah or hardTrueFeelingsStorylet.mono: Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelosire.} #slot-2
 {elia_acting.sincero: Elia: Merda, mi spiace. Per questo volevo fare il matrimonio al pub. Sapevo da tempo che Matteo provava qualcosa per Greta, ma non sapevo come dirtelo!} #slot-3
 {greta_acting.matteoGreta: Greta: Abbiamo scopato solo una volta, ed ero molto molto molto ubriaca, e Matteo ha perso la testa.} #slot-4
@@ -67,7 +65,10 @@ VAR notebookPage = 1
 {sheIsTheBestStorylet.step_one: Elia: Eppure è stata Paola a convincere i nonni a prestarti tutti quei soldi!} #slot-11
 
     ~ notebookPage = 3
-{elia_acting.paolaSiSposa:<i>Informazioni sul personaggio Paola</i>}#slot-1
+    ~ temp info_elia = elia_acting.paolaSiSposa or zeca_acting.matrimonio or matteo_acting.paolaZeca or greta_acting.paolaPerfetta
+    
+    
+{info_elia:<i>Informazioni sul personaggio Paola</i>}#slot-1
 {elia_acting.paolaSiSposa:Elia: Ha organizzato un matrimonio in fretta e furia, manco sappiamo con chi.} #slot-2
 {matteo_acting.paolaSiSposa && marryMeStorylet: Matteo: Paola ha organizzato il matrimonio appena le ho confidato che avrei voluto sposarti, la stronza.} #slot-3
 {zeca_acting.matrimonio: Zeca: Matteo e Paola hanno litigato per il matrimonio, perché Paola pensa che lui ti stia usando solo per candidarsi come sindaco.} #slot-4
@@ -75,18 +76,23 @@ VAR notebookPage = 1
 {greta_acting.paolaPerfetta: Greta: Sinceramente, non ho idea di chi possa aver ucciso Paola, lei era perfetta.} #slot-6
 
     ~ notebookPage = 4
-{anEavesdropAboutFriendshipStorylet.one or zeca_acting.matteoGreta: <i>Informazioni sul personaggio Greta</i>} #slot-1
+    ~ temp info_greta = anEavesdropAboutFriendshipStorylet.one or zeca_acting.matteoGreta
+    
+{info_greta: <i>Informazioni sul personaggio Greta</i>} #slot-1
 {anEavesdropAboutFriendshipStorylet.one: Greta: E così papà ed io abbiamo vissuto per mesi per strada.} #slot-2
 {zeca_acting.matteoGreta: Zeca: Sinceramente, non ho mai creduto che a Greta interessi tanto il pub, quanto controllare Elia.} #slot-3
 {zeca_acting.matteoGreta: Zeca: Non mi stupirebbe se Greta stesse ricattando Matteo in qualche modo.} #slot-4
 
     ~ notebookPage = 5
-{matteo_acting.paolaZeca or worstBestManStorylet.paolaZeca: <i>Informazioni sul personaggio Zeca</i>} #slot-1
+    ~ temp info_zeca = matteo_acting.paolaZeca or worstBestManStorylet.paolaZeca
+    
+{info_zeca: <i>Informazioni sul personaggio Zeca</i>} #slot-1
 {matteo_acting.paolaZeca: Matteo: Quando sappiamo tutti in famiglia che Zeca odia Paola da sempre!} #slot-2
 {worstBestManStorylet.paolaZeca: Zeca: Non vedevo Paola da una vita. Era la mia migliore amica, e ora solo una sconosciuta.} #slot-3
 
 
     ~ notebookPage = 6
+    
 {cb_first_tier_spiedino_cocktail.primoCheck:<i>Informazioni sullo spiedino da cocktail</i>} #slot-1
 {cb_first_tier_spiedino_cocktail.primoCheck: Un banale spiedino da cocktail. In controluce si legge la sigla <i>FEG</i>} #slot-2
 {elia_acting.paolaSiSposa:Elia: L'ho portato a Paola per vedere se va bene per il matrimonio.} #slot-3

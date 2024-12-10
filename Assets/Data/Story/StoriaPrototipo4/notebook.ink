@@ -39,7 +39,7 @@ VAR notebookPage = 1
 
 
 === tier_one_notebook
-~ notebookPage = 1
+    ~ notebookPage = 1
 //ogni pagina è due facciate
 {
 - startingDinnerStorylet.paolaMorta: <b>Chi ha ucciso Paola?:</b> #slot-1
@@ -53,7 +53,7 @@ VAR notebookPage = 1
 {elia_acting.senzatetto2: Elia: Paola voleva rilevare il pub per trasformarlo in un rifugio per senzatetto. E Greta ha detto cose terribili e ripetuto che avrebbe fatto di tutto per fermarla.}
 
 
-
+    ~ notebookPage = 2
 {elia_acting.sincero: <i>Informazioni sul personaggio Matteo</i>}
 {hardTrueFeelingsStorylet.ah or hardTrueFeelingsStorylet.mono: Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelosire.}
 {elia_acting.sincero: Elia: Merda, mi spiace. Per questo volevo fare il matrimonio al pub. Sapevo da tempo che Matteo provava qualcosa per Greta, ma non sapevo come dirtelo!}
@@ -68,7 +68,7 @@ VAR notebookPage = 1
 {sheIsTheBestStorylet.step_one: Elia: Eppure è stata Paola a convincere i nonni a prestarti tutti quei soldi!}
 {sheIsTheBestStorylet.step_three: Elia: Tu pensi ancora di sapere gestire i soldi, e stai rischiando di finire in bancarotta.}
 
-
+    ~ notebookPage = 3
 {elia_acting.paolaSiSposa:<i>Informazioni sul personaggio Paola</i>}
 {elia_acting.paolaSiSposa:Elia: Ha organizzato un matrimonio in fretta e furia, manco sappiamo con chi.}
 {matteo_acting.paolaSiSposa && marryMeStorylet: Matteo: Paola ha organizzato il matrimonio appena le ho confidato che avrei voluto sposarti, la stronza.}
@@ -76,18 +76,19 @@ VAR notebookPage = 1
 {matteo_acting.paolaZeca: Matteo: Ma la cosa più ridicola è che abbia chiesto a Zeca di fare da testimone.}
 {greta_acting.paolaPerfetta: Greta: Sinceramente, non ho idea di chi possa aver ucciso Paola, lei era perfetta.}
 
-
+    ~ notebookPage = 4
 {anEavesdropAboutFriendshipStorylet.one or zeca_acting.matteoGreta: <i>Informazioni sul personaggio Greta</i>}
 {anEavesdropAboutFriendshipStorylet.one: Greta: E così papà ed io abbiamo vissuto per mesi per strada.}
 {zeca_acting.matteoGreta: Zeca: Sinceramente, non ho mai creduto che a Greta interessi tanto il pub, quanto controllare Elia.}
 {zeca_acting.matteoGreta: Zeca: Non mi stupirebbe se Greta stesse ricattando Matteo in qualche modo.}
 
+    ~ notebookPage = 5
 {matteo_acting.paolaZeca or worstBestManStorylet.paolaZeca: <i>Informazioni sul personaggio Zeca</i>}
 {matteo_acting.paolaZeca: Matteo: Quando sappiamo tutti in famiglia che Zeca odia Paola da sempre!}
 {worstBestManStorylet.paolaZeca: Zeca: Non vedevo Paola da una vita. Era la mia migliore amica, e ora solo una sconosciuta.}
 
 
-
+    ~ notebookPage = 6
 {cb_first_tier_spiedino_cocktail.primoCheck:<i>Informazioni sullo spiedino da cocktail</i>}
 {cb_first_tier_spiedino_cocktail.primoCheck: Un banale spiedino da cocktail. In controluce si legge la sigla <i>FEG</i>}
 {elia_acting.paolaSiSposa:Elia: L'ho portato a Paola per vedere se va bene per il matrimonio.}
@@ -128,7 +129,7 @@ VAR notebookPage = 1
 {cb_first_tier_cibo.primoCheck: <i>Informazioni sulla torta</i>}
 {cb_first_tier_cibo.primoCheck: Il paradiso di un dodicenne: cioccolata, crema di arachidi, fragole, biscottini sbriciolati. La adori.}
 
-
+    ~ notebookPage = 7
 {marryMeStorylet.matteoSiSposa && hardTrueFeelingsStorylet.matteoGreta: <b>Quali sono le intenzioni di Matteo sul matrimonio?</b>}
 
 
@@ -184,13 +185,16 @@ VAR notebookPage = 1
 **/
 
 === tier_two_notebook
+    ~ notebookPage = 1
 {
 - reStartingDinnerStorylet.tuttiMorti: <b>Chi ha ucciso Paola?:</b>
 - else: <b>Il taccuino è vuoto</b>
 }
 
 
+    ~ notebookPage = 2
 ~ temp info_elia = paola_talking_second_tier.money or greta_talking_second_tier.indagini2 or greta_talking_second_tier.indagini3
+
 
 {info_elia: <i>Informazioni su Elia</i>}
     
@@ -203,7 +207,7 @@ VAR notebookPage = 1
 {trueLoveStorylet.promise: Elia: Abbracciami. Te lo prometto Zeca: basta grattini con Greta o qualsiasi altra persona.}
 
 
-
+    ~ notebookPage = 3
 ~ temp info_matteo = paola_talking_second_tier.allestimento or zeca_talking_second_tier.money or notABigSecretPartTwoStorylet.allestimento or phone.sindacato
 
 {info_matteo: <i>Informazioni su Matteo</i>}
@@ -216,7 +220,7 @@ VAR notebookPage = 1
 {phone.sindacato: Amica: E fresca fresca di oggi, il migliore amico di Elia che sta tirando su un sindacato contro la sorella. Michele, Mirco, Marco.}
 
 
-
+    ~ notebookPage = 4
 ~ temp info_paola = zeca_talking_second_tier.allestimento2 or greta_talking_second_tier.indagini or phone.indagini
 
 {info_paola:<i>Informazioni su Paola</i>}
@@ -228,7 +232,7 @@ VAR notebookPage = 1
 {phone.indagini: E insomma, sembra che lei stia scaricando la colpa sul fratello.Agente: L'azienda di Paola è sotto indagine, sono arrivati documenti compromettenti.}
 
 
-
+    ~ notebookPage = 5
 ~ temp info_greta = elia_talking_second_tier.indagini or liarCallLiarStorylet.indagini or liesAndPromisesStorylet or notABigSecretPartOneStorylet.allestimento or zeca_talking_second_tier.allestimento
 
 {info_greta: <i>Informazioni su Greta</i>}
@@ -241,7 +245,7 @@ VAR notebookPage = 1
 {notABigSecretPartOneStorylet.allestimento: Matteo: Certo: Greta ed Elia potevano recuperare pure del vino decente. E hanno lasciato in tutta la stanza il puzzo delle loro cose da scenografi. Due cose dovevano fare: riparare le seggiole, allestire il buffet. E hanno fatto un disastro in tutte e due le occasioni.}
 
 
-
+    ~ notebookPage = 6
 ~ temp info_zeca = zeca_talking_second_tier.omicidio2 or paola_talking_second_tier.money or paola_talking_second_tier.allestimento or elia_talking_second_tier.allestimento or elia_talking_second_tier.minacce
 
 {info_zeca: <i>Informazioni su Zeca</i>}
@@ -256,7 +260,7 @@ VAR notebookPage = 1
 
 
 //Oggetti
-
+    ~ notebookPage = 7
 {cb_second_tier_lettera.primoCheck: <i>Informazioni sulla lettera</i>}
 {cb_second_tier_lettera.primoCheck: La carta è lercia e la calligrafia minacciosa: <i>So cosa hai fatto e la pagherai!</i>. Ha un odore metallico.}
 {greta_acting.minacce: Greta: Uh, è la calligrafia di Paola. Dove l'hai trovata?}
@@ -300,7 +304,7 @@ VAR notebookPage = 1
 {paola_talking_second_tier.foto2: <i>Informazioni sulla foto</i>}
 {paola_talking_second_tier.foto2: Due persone. In un locale. Con l'urgenza di divorarsi.}
 
-
+    ~ notebookPage = 8
 //Condizioni
 ~ temp contraddizione_buffet = (zeca_talking_second_tier.allestimento or notABigSecretPartOneStorylet.allestimento) && (elia_talking_second_tier.allestimento or notABigSecretPartTwoStorylet.allestimento)
     

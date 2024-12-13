@@ -24,12 +24,14 @@ namespace Components.Phone
             UpdateActivePhone();
         }
 
+#if UNITY_EDITOR
         private void OnValidate()
         {
             if (!phoneImage) phoneImage = GetComponent<Image>();
 
             if (!phoneButton) phoneButton = GetComponent<Button>();
         }
+#endif
 
         public void OnActivePhoneChanged(bool newValue)
         {

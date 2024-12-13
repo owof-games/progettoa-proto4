@@ -46,10 +46,12 @@ namespace Components.Notebook
             Assert.IsNotNull(notebookPage);
         }
 
+#if UNITY_EDITOR
         private void OnValidate()
         {
             if (!animator) animator = GetComponent<Animator>();
         }
+#endif
 
         public void OnNotebookStart()
         {

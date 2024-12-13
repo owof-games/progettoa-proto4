@@ -29,6 +29,8 @@ namespace Components.SaveSystem
             Assert.IsNotNull(saveButtonContainer);
             Assert.IsNotNull(saveButtonPrefab);
             Assert.IsNotNull(loadStoryCanvas);
+            Assert.IsNotNull(loading);
+            Assert.IsNotNull(loaded);
         }
 
         public void OnStoryStep(StoryStep storyStep)
@@ -78,12 +80,17 @@ namespace Components.SaveSystem
             }
         }
 
+        [SerializeField] private VoidEvent loading;
+        [SerializeField] private VoidEvent loaded;
+
         private void LoadSaveFile(string filename)
         {
+            loading.Raise();
             using var sr = new StreamReader(filename);
             var json = sr.ReadToEnd();
             inkAtomsStory.LoadCurrentStateJson(json);
             loadStoryCanvas.SetActive(false);
+            loaded.Raise();
         }
     }
 }

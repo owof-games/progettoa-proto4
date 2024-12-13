@@ -49,12 +49,15 @@ namespace Components.Character
             _navigationAnimationCancellationSource.Cancel();
         }
 
+        
+        #if UNITY_EDITOR
         private void OnValidate()
         {
             if (numCharactersMoving == null)
                 numCharactersMoving =
                     AssetDatabase.LoadAssetAtPath<IntVariable>("Assets/Components/Character/NumCharactersMoving.asset");
         }
+        #endif
 
         private NavigationGraph GetNavigationGraph()
         {

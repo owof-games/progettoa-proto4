@@ -13,9 +13,11 @@ namespace Components.Configuration.InanimateObjects
 
         public Sprite Sprite => sprite;
 
+#if UNITY_EDITOR
         private void OnValidate()
         {
             if (string.IsNullOrWhiteSpace(inkObjectName)) inkObjectName = name;
         }
+#endif
     }
 }

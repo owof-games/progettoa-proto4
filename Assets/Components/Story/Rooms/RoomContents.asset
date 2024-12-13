@@ -16,3 +16,5 @@ MonoBehaviour:
   redRoomContents: {fileID: 11400000, guid: 39fb7627434374a438f565dc9509fdfd, type: 2}
   greenRoomContents: {fileID: 11400000, guid: ada24e44ebed4ae43af7517085159b37, type: 2}
   yellowRoomContents: {fileID: 11400000, guid: 698b04a1e3ed22d4db3f3b5f98e93c2f, type: 2}
+  loadingEvent: {fileID: 11400000, guid: fde05d402eb003147a52a40809114148, type: 2}
+  loadedEvent: {fileID: 11400000, guid: 6fe456b6b69ace7458339cd77fa5c2e2, type: 2}

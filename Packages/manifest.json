@@ -11,7 +11,7 @@
     "com.unity.inputsystem": "1.11.2",
     "com.unity.render-pipelines.universal": "17.0.3",
     "com.unity.ugui": "2.0.0",
-    "it.lemurivolta.ink-atoms": "https://github.com/lemurivolta/ink-atoms.git#upm",
+    "it.lemurivolta.ink-atoms": "file:E:/ProgettiUnity/ink-atoms/ink-atoms/Packages/it.lemurivolta.ink-atoms",
     "com.unity.modules.accessibility": "1.0.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",

@@ -506,5 +506,14 @@ namespace Components.RoomTransitionHandler
 
             throw new Exception("Cannot find character in any room");
         }
+
+        public void OnLoading()
+        {
+            if (_currentSceneRootGameObject == null) return;
+            SceneManager.UnloadScene(_currentSceneRootGameObject.scene);
+            _currentlyLoadedRoomName = null;
+            _currentSceneRootGameObject = null;
+            _lastRemovedFrom.Clear();
+        }
     }
 }

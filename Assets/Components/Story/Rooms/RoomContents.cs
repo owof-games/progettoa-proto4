@@ -4,6 +4,8 @@ using System.Linq;
 using LemuRivolta.InkAtoms;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
+using UnityEngine.Assertions;
+using Void = UnityAtoms.Void;
 
 namespace Components.Story.Rooms
 {
@@ -28,9 +30,18 @@ namespace Components.Story.Rooms
         [SerializeField] private SerializableInkListItemValueList redRoomContents;
         [SerializeField] private SerializableInkListItemValueList greenRoomContents;
         [SerializeField] private SerializableInkListItemValueList yellowRoomContents;
+        [SerializeField] private VoidEvent loadingEvent;
+        [SerializeField] private VoidEvent loadedEvent;
 
         private void OnEnable()
         {
+            Assert.IsNotNull(whiteRoomContents);
+            Assert.IsNotNull(redRoomContents);
+            Assert.IsNotNull(greenRoomContents);
+            Assert.IsNotNull(yellowRoomContents);
+            Assert.IsNotNull(loadingEvent);
+            Assert.IsNotNull(loadedEvent);
+
             whiteRoomContents.Added.Register(OnWhiteRoomContentAdded);
             redRoomContents.Added.Register(OnRedRoomContentAdded);
             greenRoomContents.Added.Register(OnGreenRoomContentAdded);
@@ -40,6 +51,25 @@ namespace Components.Story.Rooms
             redRoomContents.Removed.Register(OnRedRoomContentRemoved);
             greenRoomContents.Removed.Register(OnGreenRoomContentRemoved);
             yellowRoomContents.Removed.Register(OnYellowRoomContentRemoved);
+
+            loadingEvent.Register(OnLoadingEvent);
+            loadedEvent.Register(OnLoadedEvent);
+        }
+
+        private void OnDisable()
+        {
+            whiteRoomContents.Added.Unregister(OnWhiteRoomContentAdded);
+            redRoomContents.Added.Unregister(OnRedRoomContentAdded);
+            greenRoomContents.Added.Unregister(OnGreenRoomContentAdded);
+            yellowRoomContents.Added.Unregister(OnYellowRoomContentAdded);
+
+            whiteRoomContents.Removed.Unregister(OnWhiteRoomContentRemoved);
+            redRoomContents.Removed.Unregister(OnRedRoomContentRemoved);
+            greenRoomContents.Removed.Unregister(OnGreenRoomContentRemoved);
+            yellowRoomContents.Removed.Unregister(OnYellowRoomContentRemoved);
+
+            loadingEvent.Unregister(OnLoadingEvent);
+            loadedEvent.Unregister(OnLoadedEvent);
         }
 
         private void OnYellowRoomContentAdded(SerializableInkListItem obj)
@@ -138,6 +168,36 @@ namespace Components.Story.Rooms
             }
 
             throw new InvalidOperationException();
+        }
+
+        private void OnLoadingEvent(Void obj)
+        {
+            // when the loading starts, clear all the rooms            
+            whiteRoomContents.Clear();
+            redRoomContents.Clear();
+            greenRoomContents.Clear();
+            yellowRoomContents.Clear();
+        }
+
+        private void OnLoadedEvent(Void obj)
+        {
+            // when the save game is loaded, notify about each room's contents
+            foreach (var c in whiteRoomContents)
+            {
+                OnWhiteRoomContentAdded(c);
+            }
+            foreach (var c in redRoomContents)
+            {
+                OnRedRoomContentAdded(c);
+            }
+            foreach (var c in greenRoomContents)
+            {
+                OnGreenRoomContentAdded(c);
+            }
+            foreach (var c in yellowRoomContents)
+            {
+                OnYellowRoomContentAdded(c);
+            }
         }
     }
 }

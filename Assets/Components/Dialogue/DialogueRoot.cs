@@ -202,6 +202,11 @@ namespace Components.Dialogue
         {
             if (newStoryState.Equals(storyStateTalking.Value)) return;
 
+            ClearDialogue();
+        }
+
+        private void ClearDialogue()
+        {
             foreach (RectTransform row in dialogueSlidingContainer) Destroy(row.gameObject);
 
             SlideDialogueContainer(0);
@@ -210,6 +215,11 @@ namespace Components.Dialogue
         public void OnNumCharactersMovingChanged(int numCharactersMoving)
         {
             canvasGroup.interactable = numCharactersMoving == 0;
+        }
+
+        public void OnLoading()
+        {
+            ClearDialogue();
         }
     }
 }

@@ -26,12 +26,14 @@ namespace Components.Notebook
             UpdateActiveNotebook();
         }
 
+#if UNITY_EDITOR
         private void OnValidate()
         {
             if (!notebookImage) notebookImage = GetComponent<Image>();
 
             if (!notebookButton) notebookButton = GetComponent<Button>();
         }
+#endif
 
         public void OnActiveNotebookChanged(bool newValue)
         {

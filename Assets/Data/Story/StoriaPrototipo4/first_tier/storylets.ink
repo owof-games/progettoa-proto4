@@ -666,7 +666,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
             ~ move_first_entity_to_second_entity_location(Elia,Ettore)
             ~ move_first_entity_to_second_entity_location(Zeca,Ettore)
         Paola: Il taccuino è fondamentale: tiene traccia degli elementi centrali per l'investigazione.
-        Paola: Ma presta attenzione: molte verità si capiscono solo prestando attenzione anche a cose che sul taccuino non ci sono.
+        Paola: Ma ricorda: molte verità si capiscono solo prestando attenzione anche a cose che sul taccuino non ci sono.
             ~ move_first_entity_to_second_entity_location(Matteo,Ettore)
         Paola: E saranno indispensabili per risolvere le contraddizioni.
             -> advance_time ->

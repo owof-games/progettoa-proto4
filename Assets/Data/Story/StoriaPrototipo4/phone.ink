@@ -11,20 +11,35 @@
 //MESSAGGI
 = call
 Chi chiami?
-        + (padre){new_this_loop(->padre) && tierState has SecondTier} Ettore: Ciao papà! -> papa
-        + {not new_this_loop(->padre) && tierState has SecondTier}
+        + (padre){new_this_loop(->padre) && reStartingDinnerStorylet} Ettore: Ciao papà!
+            -> papa
+        + {not new_this_loop(->padre) && reStartingDinnerStorylet}
             Ettore: Ciao papà!
-            Papà: Ettore, ti rispondo appena trovo gli occhiali.  -> contents
+            Papà: Ettore, ti rispondo appena trovo gli occhiali.
+                -> contents
+        +{not reStartingDinnerStorylet} Ettore: Ciao papà!
+            Papà: Non ora figliolo, non ora.
+            -> contents
 
-        + (agentino) {new_this_loop(->agentino) && tierState has SecondTier} Ettore: Ehi agente dei miei stivali! -> agente
-         + {not new_this_loop(->agentino) && tierState has SecondTier} Ettore: Ehi agente dei miei stivali!
-            Agente: Non ora, lavora e non rompermi!  -> contents
+        + (agentino) {new_this_loop(->agentino) && reStartingDinnerStorylet} Ettore: Ehi agente dei miei stivali! -> agente
+        + {not new_this_loop(->agentino) && tierState has SecondTier} Ettore: Ehi agente dei miei stivali!
+            Agente: Non ora, lavora e non rompermi!
+                -> contents
+        +{not reStartingDinnerStorylet} Ettore: Ehi agente dei miei stivali.
+            Agente: <i>In questo momento sono a dormire. O al concerto di Taylor. Chiamate più tardi</i>.
+            -> contents    
 
-        + (amichetta) {new_this_loop(->amichetta) && tierState has SecondTier} Ettore: Ehi, stronzetta, hai un minuto? -> amica
+        + (amichetta) {new_this_loop(->amichetta) && reStartingDinnerStorylet} Ettore: Ehi, stronzetta, hai un minuto?
+            -> amica
         + {not new_this_loop(->amichetta) && tierState has SecondTier} Ettore: Ehi, stronzetta, hai un minuto? 
-            Amica: Asp, finisco Temptation Island e ci sono! -> contents
+            Amica: Asp, finisco Temptation Island e ci sono!
+                -> contents
+        +{not reStartingDinnerStorylet} Ettore: Ehi, stronzetta, hai un minuto?
+            Amica: No ama, c'è Temptation Island! A dopo!!!
+            -> contents    
     
-        + (pula) Ettore: Pronto, polizia? -> maiali        
+        + (pula) Ettore: Pronto, polizia?
+            -> maiali        
 
 -> contents
 

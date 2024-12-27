@@ -7,10 +7,10 @@
 
 {
 //MATERIALI PER TUTORIAL
-    - currentTime >= 510 && activeObjects && activeNotebook && not talking_tutorial && peopleTalking == false: -> talking_tutorial
+    - currentTime >= 420 && activeObjects && activeNotebook && not talking_tutorial && peopleTalking == false: -> talking_tutorial
     
     
-    - currentTime >= 405 && activeObjects && not activeNotebook && peopleTalking == false:
+    - currentTime >= 360 && activeObjects && not activeNotebook && peopleTalking == false:
             -> notebook_tutorial
 
     - currentTime >= 300 && not activeObjects:

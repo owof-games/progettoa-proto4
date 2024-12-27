@@ -50,7 +50,7 @@ VAR notebookPage = 1
 {elia_acting.senzatetto2: Elia: Paola voleva rilevare il pub per trasformarlo in un rifugio per senzatetto. E Greta ha detto cose terribili e ripetuto che avrebbe fatto di tutto per fermarla.} #slot-3
 
     ~ notebookPage = 2
-~ temp info_matteo = elia_acting.sincero or marryMeStorylet or hardTrueFeelingsStorylet or greta_acting.matteoGreta or weddingAtThePubStorylet or zeca_acting.matteoGreta or zeca_acting.matrimonio or itsOverisntItStorylet or sheIsTheBestStorylet.step_one
+~ temp info_matteo = elia_acting.sincero or marryMeStorylet or hardTrueFeelingsStorylet or greta_acting.matteoGreta or weddingAtThePubStorylet or zeca_acting.matteoGreta or zeca_acting.matrimonio or itsOverisntItStorylet or sheIsTheBestStorylet
     
 {info_matteo: <i>Informazioni sul personaggio Matteo</i>} #slot-1
 {hardTrueFeelingsStorylet.ah or hardTrueFeelingsStorylet.mono: Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelosire.} #slot-2
@@ -62,7 +62,7 @@ VAR notebookPage = 1
 {zeca_acting.matrimonio: Zeca: No. Matteo mi ha detto che ti avrebbe sposato mesi fa, quando ha prenotato il luogo, l'orchestra e mandato gli inviti.} #slot-8
 {zeca_acting.matrimonio: Zeca: Matteo e Paola hanno litigato per il matrimonio, perché Paola pensa che lui ti stia usando solo per candidarsi come sindaco.} #slot-9
 {itsOverisntItStorylet: Greta: Non mi piace nulla di te, Matteo. A parte i soldi, ma sappiamo benissimo che non sono tuoi.} #slot-10
-{sheIsTheBestStorylet.step_one: Elia: Eppure è stata Paola a convincere i nonni a prestarti tutti quei soldi!} #slot-11
+{sheIsTheBestStorylet: Elia: Eppure è stata Paola a convincere i nonni a prestarti tutti quei soldi!} #slot-11
 
     ~ notebookPage = 3
     ~ temp info_elia = elia_acting.paolaSiSposa or zeca_acting.matrimonio or matteo_acting.paolaZeca or greta_acting.paolaPerfetta

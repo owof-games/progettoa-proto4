@@ -127,12 +127,6 @@ VAR currentTime = 0
     -> loop_reset
 }
 
-// PER STORYLET CON AVANZAMENTO A TEMPO
-{
-- are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Zeca) && peopleTalking == false && new_this_loop(->sheIsTheBestStorylet) && sheIsTheBest == -1:
-        ~ sheIsTheBest = currentTime
-}
-
 //Da qui gli storylet possono ripartire
 ~ pauseStorylet = false
 

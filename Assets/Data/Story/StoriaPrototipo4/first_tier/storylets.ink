@@ -41,6 +41,10 @@
 
     - are_two_entities_together(Zeca, Ettore) && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Matteo) && not are_two_entities_together(Ettore, Greta) && peopleTalking == false && new_this_loop(->worstBestManStorylet):
             -> worstBestManStorylet
+    
+    - are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Zeca) && peopleTalking == false && new_this_loop(->sheIsTheBestStorylet):
+            -> sheIsTheBestStorylet
+        
 
 
 //CONVERSAZIONI ORIGLIATE
@@ -50,15 +54,6 @@
 
     - are_three_entities_together(Matteo, Greta, Ettore) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && hardTrueFeelingsStorylet && peopleTalking == false && new_this_loop(->itsOverisntItStorylet):
             -> itsOverisntItStorylet
-
-
-//CONVERSAZIONI IN ALTRE STANZE, CHE NON ORIGLIAMO, E CHE CONTINUANO QUANDO ENTRIAMO
-    - sheIsTheBest != -1 && are_three_entities_together(Matteo, Elia, Ettore) && currentTime <= sheIsTheBest +30:
-            -> sheIsTheBestStorylet
-
-
-
-
 
 
 
@@ -326,7 +321,6 @@
 
 
 //CONVERSAZIONI IN ALTRE STANZE, CHE NON ORIGLIAMO, E CHE CONTINUANO QUANDO ENTRIAMO
-TODO: quando clicco "ti allontani" mi ripropone comunque la conversazione da capo, cosa che non accade con le altre. Si ripete "sarai tu noioso"
 === sheIsTheBestStorylet
 ~ inConversazione += Matteo
 ~ inConversazione += Elia
@@ -340,20 +334,13 @@ entro in questa storylet solo se la variabile NON vale -1, e qui dentro confront
 PS: ricordarsi di resettare la variabile al reset_loop
 */
 {debug: <i>Passo per sheIsTheBestStorylet</i>}
-{
-    - currentTime == sheIsTheBest: ->step_one
-    - currentTime == sheIsTheBest +15: ->step_two
-    - currentTime == sheIsTheBest + 30: ->step_three
-    - else: ->->
-    }
-    
-    = step_one    
+
         Elia: Mi ha sempre sorpreso il modo in cui hai trattato Paola.
         Matteo: In che senso?
-            + {sheIsTheBestStorylet.step_one > 1} [Ti allontani.]
+            + {sheIsTheBestStorylet > 1} [Ti allontani.]
                 ~ pauseStorylet = true
                 -> intro
-            + {sheIsTheBestStorylet.step_one > 1} [Resti.]
+            + {sheIsTheBestStorylet > 1} [Resti.]
             + ->
             -
         Elia: Beh, sei sempre stato crudele con lei.
@@ -364,17 +351,10 @@ PS: ricordarsi di resettare la variabile al reset_loop
         Matteo: Così noiosa!
     
             -> advance_time ->
-        -> step_two
 
-    = step_two
+
         Elia: Sarai tu noioso, coso.
         Matteo: Così prevedibile.
-            + {sheIsTheBestStorylet.step_two > 1} [Ti allontani.]
-                ~ pauseStorylet = true
-                -> intro
-            + {sheIsTheBestStorylet.step_two > 1} [Resti]
-            + ->
-            -
         Matteo: Così "So solo io quello che è giusto".
         Matteo: Sapessi cosa diceva di te alle tue spalle.
         Elia: Non mi importa saperlo. L'avrai istigata.
@@ -382,17 +362,9 @@ PS: ricordarsi di resettare la variabile al reset_loop
         Elia: Ma è vero.
         Matteo: E il più empatico?
             -> advance_time ->
-        -> step_three
 
-    = step_three
         Elia: Ma mica è una cosa crudele!
         Matteo: E che non sai gestire gli affari!
-            + {sheIsTheBestStorylet.step_three > 1} [Ti allontani.]
-                ~ pauseStorylet = true
-                -> intro
-            + {sheIsTheBestStorylet.step_three > 1} [Resti.]
-            + ->
-            -
         Elia: Anche questo è vero.
         Elia: Ma io lo so, e infatti ho chiesto una mano a Greta.
         Elia: Tu pensi ancora di sapere gestire i soldi, e stai rischiando di finire in bancarotta.

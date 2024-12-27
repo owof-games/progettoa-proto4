@@ -43,8 +43,10 @@ Opzioni di dialogo con il personaggio Matteo
                     -> advance_time ->
                 Ettore: Magari non ora, amore.
                 Matteo: Non mi giudicare: ognuno elabora il lutto come può.
+                ~ pauseStorylet = true
                     -> matteo_acting    
-            + + [Cambi argomento] -> matteo_acting
+            + + [Cambi argomento]
+                -> matteo_acting
 
     + (omicidio) {new_this_loop(->omicidio)} Ettore: Chi potrebbe aver ucciso Paola?
                     ~ inConversazione += Matteo
@@ -64,6 +66,7 @@ Opzioni di dialogo con il personaggio Matteo
         Matteo: Eppure è morta.
         Matteo: <hesitate>La vita è un mistero.
              -> advance_time ->
+             ~ pauseStorylet = true
                 -> matteo_acting  
     
     //SCELTE CONDIZIONALI//
@@ -80,6 +83,7 @@ Opzioni di dialogo con il personaggio Matteo
             Matteo: Quello che si è rovinato la vita per tirare su <rage>un<waitrage> collettivo<waitrage> di<waitrage> videogiochi</rage>.
             Matteo: Ma andasse a zappare!
             -> advance_time ->
+                ~ pauseStorylet = true
                     -> matteo_acting 
                     
     + {new_this_loop(->hardTrueFeelingsStorylet)} {elia_acting.uniti && not are_four_entities_together(Greta, Elia, Matteo, Zeca)} Ettore: Amore, avrei un favore da chiederti in merito al matrimonio.
@@ -89,22 +93,25 @@ Opzioni di dialogo con il personaggio Matteo
     //SCELTE CONDIZIONALI OGGETTI//
     + (pugnale) {inventoryContents has AnticoPugnale && new_this_loop(->pugnale)} Ettore: Hai mai visto questo spiedino?
             Matteo: No.
+                ~ pauseStorylet = true
                 -> matteo_acting 
                 
     + (minacce) {inventoryContents has Lettera && new_this_loop(->minacce)} Ettore: Riconosci questa lettera?
             Matteo: Come? <fear>Mettila via, subito!</fear>
             Ettore: Perché?
             Matteo: <cry>SUBITO!</cry>
+                ~ pauseStorylet = true
                     -> matteo_acting 
     
     + (limetta) {inventoryContents has LimettaUnghie && new_this_loop(->limetta)}Ettore: Sai di chi sia questa limetta?
             Matteo: Pacchiana, economica, e con tracce di schifo? Deve essere di Greta.
+                ~ pauseStorylet = true
                     -> matteo_acting 
     
     + (torta) {inventoryContents has Torta && new_this_loop(->torta)} Ettore: Hai portato tu questa torta?
             Matteo: Palesemente è stata cucinata, e io non ho il tempo di cucinare.
             Matteo: Lo sai che ho la mia azienda da portare avanti!
-            
+                ~ pauseStorylet = true
                     -> matteo_acting 
     
     + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Riconosci questa bottiglia di vino?
@@ -117,6 +124,7 @@ Opzioni di dialogo con il personaggio Matteo
             Matteo: Come quando eravamo al sicuro, prottetti, e non lo sapevamo.
             Matteo: Fa schifo, portalo via!
             -> advance_time ->
+                ~ pauseStorylet = true
                     -> matteo_acting 
     
     + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Sai chi ha problemi d'asma?
@@ -128,6 +136,7 @@ Opzioni di dialogo con il personaggio Matteo
             Ettore: Stai tremando, sai?
             Matteo: Ah sì, ho la dengue da un paio di giorni, niente di grave.
             -> advance_time ->
+                ~ pauseStorylet = true
                 -> matteo_acting 
     
     + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} Ettore: Tu sai chi possa fumare questa roba?
@@ -142,6 +151,7 @@ Opzioni di dialogo con il personaggio Matteo
             Matteo: Con le lusinghe non si manda avanti l'economia, <joy>non si salva il Paese!</joy>
             Matteo: Ora via, che c'ho da pensare!      
             -> advance_time ->
+                ~ pauseStorylet = true
                 -> matteo_acting 
       
     + [Chiacchiera un po' con Matteo] -> esplora_matteo_personaggia
@@ -180,6 +190,7 @@ Opzioni di dialogo con il personaggio Matteo
             Ettore: Ti va una merendina?
             Matteo: Ecco, sì, una merendina sarebbe perfetta.
                     -> advance_time ->
+                    ~ pauseStorylet = true
                 -> matteo_acting 
 
     = second_qn
@@ -194,6 +205,7 @@ Opzioni di dialogo con il personaggio Matteo
             Matteo: Ma almeno mi hanno dato una mano con l'azienda.
             Matteo: Ma solo una mano, giuro, il resto ho fatto da solo!
                     -> advance_time ->
+                    ~ pauseStorylet = true
                 -> matteo_acting     
 
     = third_qn
@@ -208,7 +220,8 @@ Opzioni di dialogo con il personaggio Matteo
         Matteo: Certi ragazzi non sanno stare più allo scherzo.
         Ettore: E cosa pensi di me, ora?
         Matteo: Che ti porterei in bagno e te lo mangerei, quel gran bel culo.
-                    -> advance_time ->    
+                    -> advance_time ->
+                    ~ pauseStorylet = true
                 -> matteo_acting
 
 
@@ -222,9 +235,10 @@ Opzioni di dialogo con la persona Matteo
  {debug: <i>Passo per matteo_talking</i>}
  ~ move_locked_entities()
     //INFO GENERALI//
-    + [Provi a conoscere Matteo] -> esplora_matteo
+    + [Provi a conoscere Matteo]
+        -> esplora_matteo
     + [Ti guardi attorno]
-    -> intro
+        -> intro
     -
     
     -> matteo_talking

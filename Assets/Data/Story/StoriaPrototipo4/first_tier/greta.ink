@@ -41,8 +41,11 @@ Opzioni di dialogo con il personaggio Greta
                 Greta: E vodka.
                 Greta: E kebab.
                         -> advance_time ->
+                        ~ pauseStorylet = true
                     -> greta_acting
-            + + [Cambi argomento] -> greta_acting
+            + + [Cambi argomento]
+                ~ pauseStorylet = true
+                -> greta_acting
 
         
     + (omicidio) {new_this_loop(->omicidio)} Ettore: Secondo te chi ha ucciso Paola?
@@ -54,7 +57,8 @@ Opzioni di dialogo con il personaggio Greta
             Greta: Non stasera, per lo meno.
             Greta: Ma ti propongo un patto: ti dirò chi è l'unico plausibile assassino se tu convinci Elia a venire a parlarmi.
             Greta: Mi sta evitando e non capisco perché.
-                    -> advance_time ->   
+                    -> advance_time ->
+                    ~ pauseStorylet = true
                 -> greta_acting
 
    
@@ -71,6 +75,7 @@ Opzioni di dialogo con il personaggio Greta
             Greta: È l'unica persona che non posso davvero insultare, perché sarebbe come insultare un'icona.
             Greta: Fossi religiosa, penserei che l'abbia uccisa un demone.
             Greta: O il fisco. So che aveva aperto partita IVA da poco, ed è cosa peggiore dell'inferno.
+                ~ pauseStorylet = true
                     -> advance_time ->
      
      + (matteoGreta) {hardTrueFeelingsStorylet && new_this_loop(->matteoGreta)} Ettore: Quindi, Matteo ti ama?
@@ -93,7 +98,8 @@ Opzioni di dialogo con il personaggio Greta
                 - -
             Greta: Te la butto lì: fatti dare un indennizzo, tanto i nonni sono pieni di soldi.
             Greta: E facciamoci tre settimane in Messico a sperimentare un po' di <joy>allucinogeni</joy>.
-            Greta: Comunque, nel dubbio, due chiacchiere con lui le faccio appena capita.    
+            Greta: Comunque, nel dubbio, due chiacchiere con lui le faccio appena capita.
+                ~ pauseStorylet = true
                     -> advance_time ->
 
     //SCELTE CONDIZIONALI OGGETTI//
@@ -103,15 +109,18 @@ Opzioni di dialogo con il personaggio Greta
             ~ inventoryContents -= Lettera
             ~ objectStorageContents += Lettera
             ~ gretaHaLaLettera = true
+            ~ pauseStorylet = true
                 -> advance_time ->
     
     + (pugnale) {inventoryContents has AnticoPugnale && new_this_loop(->pugnale)} Ettore: Hai mai visto questo pugnale?
         Greta: Solo in qualche film dell'orrore.
         Greta: O al battesimo di mia zia Selma.
         Greta: Oh sì che sapeva come farci divertire, la vecchia sagoma!
+            ~ pauseStorylet = true
     
     + (spiedino) {inventoryContents has SpiedinoCocktail && new_this_loop(->spiedino)} Ettore: Sai qualcosa su questo spiedino?
             Greta: <i>FEG</i>? Questa è la sigla del locale mio e di Elia, ma non ricordo di averne mai visto uno prima d'ora.
+            ~ pauseStorylet = true
     
     + (limetta) {inventoryContents has LimettaUnghie && new_this_loop(->limetta)} Ettore: Riconosci questa limetta per unghie?
         Greta: Yep, è mia.
@@ -121,6 +130,7 @@ Opzioni di dialogo con il personaggio Greta
         Greta: Devo limarla spesso o fa male.
         Greta: Ma non voglio levarla, lo schifo che mi genera è liberatorio.
         Greta: Per questo l'ho chiamata <i>Zeca</i>.
+            ~ pauseStorylet = true
                 -> advance_time ->
     
     + (torta) {inventoryContents has Torta && new_this_loop(->torta)} Ettore: Conosci questa torta?
@@ -131,6 +141,7 @@ Opzioni di dialogo con il personaggio Greta
         Greta: Quindi è un "Fintanto che farai domande stupide, avrai risposte stupide".
         Greta: Però sul sesso è un peccato: sei davvero belloccio.
         Greta: Ma ormai so troppo di te per poterti trovare sexy.
+            ~ pauseStorylet = true
                 -> advance_time ->
     
     + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Sai da dove viene questa bottiglia di vino?
@@ -141,6 +152,7 @@ Opzioni di dialogo con il personaggio Greta
         Greta: Sarebbe una scoperta interessante.
         Greta: E un segno di acutezza ben maggiore di quella di Elia.
         Greta: O di qualcuno che va in giro a fare domande a caso.
+            ~ pauseStorylet = true
             -> advance_time ->
     
     + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Greta, guarda questo flaconcino per l'asma!
@@ -149,12 +161,14 @@ Opzioni di dialogo con il personaggio Greta
         Ettore: Ma non c'è alcun serial killer, no?
         Ettore: C'è stato un solo omicidio.
         Greta: Dipenderà molto da quante domande continuerai a fare.
+            ~ pauseStorylet = true
             -> advance_time ->
     
     + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} Ettore: Sai chi potrebbe averla persa?
         Greta: No.
         Ettore: Ma..
         Greta: <cry>No.</cry>
+            ~ pauseStorylet = true
 
     + [Conosci meglio Greta] -> esplora_greta_personaggia
     + [Te ne vai]
@@ -191,6 +205,7 @@ Opzioni di dialogo con il personaggio Greta
             Greta: e ogni giorno sembra Natale, una festa di compleanno, un matrimonio?
             Greta: Ecco, io per loro sono <joy>i vermi</joy> del micino, e la diarrea che ti caccerà per tutta casa.
                     -> advance_time ->
+                    ~ pauseStorylet = true
                 -> greta_acting 
 
     = second_qn
@@ -204,6 +219,7 @@ Opzioni di dialogo con il personaggio Greta
             Greta: E non intendo la morte di Paola.
             Greta: Intendo questa conversazione.
                     -> advance_time ->
+                    ~ pauseStorylet = true
                 -> greta_acting     
 
     = third_qn
@@ -218,7 +234,8 @@ Opzioni di dialogo con il personaggio Greta
             Ettore: Ehm, io ora non ricordo bene.
             Greta: Non parla mai di me, vero?
             Greta: Meglio: adoro essere ignorata dalla mia divinità, è una cosa così cattolica.
-                    -> advance_time ->    
+                    -> advance_time ->
+                    ~ pauseStorylet = true
                 -> greta_acting
 
 

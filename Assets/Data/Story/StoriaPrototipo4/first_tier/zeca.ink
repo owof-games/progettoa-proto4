@@ -32,7 +32,8 @@ Opzioni di dialogo con il personaggio Zeca
         Zeca: Sono sicuro che le saresti piaciuto così tanto.
         Zeca: Povera Paola.
         Zeca: Povera, povera Paola.
-                -> advance_time ->     
+                -> advance_time ->
+                ~ pauseStorylet = true
             -> zeca_acting
 
     + (omicidio) {new_this_loop(->omicidio)} Ettore: Non voglio essere indelicato, ma hai idea di chi possa averla uccisa?
@@ -50,6 +51,7 @@ Opzioni di dialogo con il personaggio Zeca
         Zeca: Ma togliere una vita è cosa così facile e insieme così grave.
         Zeca: Chiunque potrebbe averlo fatto.
         Zeca: Soprattutto se è una persona che fa molte domande.
+            ~ pauseStorylet = true
             -> advance_time ->
 
 
@@ -80,6 +82,7 @@ Opzioni di dialogo con il personaggio Zeca
             Zeca: Spero sia cambiato con gli anni, ma il Matteo che conoscevo amava solo una cosa: Matteo.
             Zeca: E tu mi sembri un bravo ragazzo. Vedi di badare a te stesso.
                 -> advance_time ->
+                    ~ pauseStorylet = true
                     -> zeca_acting
 
     + (mollato) {hardTrueFeelingsStorylet && new_this_loop(->mollato) && not are_two_entities_together(Zeca, Matteo) && not are_two_entities_together(Zeca, Greta)} Ettore: Matteo mi ha mollato.
@@ -102,7 +105,8 @@ Opzioni di dialogo con il personaggio Zeca
             Zeca: Per l'unica cosa che conta in questa famiglia:<hesitate> i soldi.
             Zeca: No, non è vero: <i> l'affetto dei nonni </i> e i soldi.
                 -> advance_time ->
-            -> zeca_acting    
+                ~ pauseStorylet = true
+                -> zeca_acting    
     
     //SCELTE CONDIZIONALI OGGETTI//
     + (pugnale) {inventoryContents has AnticoPugnale && new_this_loop(->pugnale)} Ettore: Ehi Zeca, riconosci questo pugnale!
@@ -114,6 +118,7 @@ Opzioni di dialogo con il personaggio Zeca
             ~ objectStorageContents += AnticoPugnale
             }
         -> advance_time ->
+        ~ pauseStorylet = true
             -> zeca_acting
     
     + (spiedino) {inventoryContents has SpiedinoCocktail && new_this_loop(->spiedino)} Ettore: Questo spiedino da cocktail ti dice qualcosa?
@@ -126,7 +131,8 @@ Opzioni di dialogo con il personaggio Zeca
             Zeca: E sei un po' come questo spiedino, che sa tenere assieme cose di norma destinate a restare separate.
             Zeca: O forse, forse è la morte di Paola, lo spiedino?
             Zeca: <hesitate>Ci devo pensare.
-            -> advance_time -> 
+            -> advance_time ->
+            ~ pauseStorylet = true
                 -> zeca_acting
     
     + (minacce) {inventoryContents has Lettera && new_this_loop(->minacce)} Ettore: Hai mai visto questa lettera?
@@ -148,6 +154,7 @@ Opzioni di dialogo con il personaggio Zeca
             Zeca: O forse ha pensato di salvarlo, il mondo, uccidendola?
             Zeca: Quasi quasi anche io mi metto a indagare.
                 -> advance_time ->
+                    ~ pauseStorylet = true
                     -> zeca_acting
             
     + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Hai idea di chi può aver portato questa bottiglia?
@@ -159,6 +166,7 @@ Opzioni di dialogo con il personaggio Zeca
             Zeca: Scherzi a parte, non la berrò, promesso.
             Zeca: Ma è gentile da parte tua preoccuparti per me.
                 -> advance_time ->
+                ~ pauseStorylet = true
                     -> zeca_acting
                 
     + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Non riesco a capire a chi appartenga questo flaconcino.
@@ -171,12 +179,14 @@ Opzioni di dialogo con il personaggio Zeca
             Zeca: E non ho ancora capito chi dei due mi ucciderà per primo.
             Zeca: Ma nessuno dei due ha questo odore terribile.
                 -> advance_time ->
+                ~ pauseStorylet = true
                     -> zeca_acting
     
     
-    + [Conosci meglio Zeca] -> esplora_zeca_personaggia
+    + [Conosci meglio Zeca]
+        -> esplora_zeca_personaggia
     + [Te ne vai]
-    -> intro
+        -> intro
     -
 ->->
 
@@ -209,6 +219,7 @@ Opzioni di dialogo con il personaggio Zeca
         Zeca: <hesitate>Anche se son morti da decenni.
         Zeca: E alla fine cosa mi rimane da fare se non riprendere a ignorarli e bere?
                 -> advance_time ->
+                ~ pauseStorylet = true
             -> zeca_acting 
 
     = second_qn
@@ -223,6 +234,7 @@ Opzioni di dialogo con il personaggio Zeca
             Ettore: Eh, ehm, cosa trovi dentro di te?
             Zeca: <joy>Principalmente arachidi e superalcolici.</joy>
                     -> advance_time ->
+                    ~ pauseStorylet = true
             -> zeca_acting     
 
     = third_qn
@@ -236,7 +248,8 @@ Opzioni di dialogo con il personaggio Zeca
         Zeca: non è forse più crudele volere che qualcun altro viva un solo giorno in tutto questo?
         Zeca: Forse, giovane amico, stai indagando sul crimine sbagliato.
         Zeca: Pensaci su, mentre vado a cercare del pastis.
-                -> advance_time ->    
+                -> advance_time ->
+                ~ pauseStorylet = true
             -> zeca_acting
 
 
@@ -250,7 +263,8 @@ Opzioni di dialogo con la persona Zeca
  {debug: <i>Passo per zeca_talking</i>}
  ~ move_locked_entities()
     //INFO GENERALI//
-    + [Scambia due parole con Zeca] -> esplora_zeca
+    + [Scambia due parole con Zeca]
+    -> esplora_zeca
       
     + [Te ne vai]
     -> intro

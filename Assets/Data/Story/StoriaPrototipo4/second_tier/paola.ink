@@ -33,6 +33,7 @@ Opzioni di dialogo con la persona Paola
         Paola: Gente a cui dovrebbero strappare ovaie e testicoli perché non si riproducano.
         Paola: L'unica cosa strana qui è che abbia ancora voglia di vivere.
             -> advance_time ->
+            ~ pauseStorylet = true
                 -> paola_talking_second_tier
 
     + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Non, ti, forse. Ok. Ti fa male da qualche parte? In modo quasi mortale?
@@ -46,6 +47,7 @@ Opzioni di dialogo con la persona Paola
         Paola: E la non insolita speranza che qualcuno mi uccida.
         Paola: Hai visto il mio boccettino per l'asma? L'ho comprato giusto stamani, cazzo.
             -> advance_time ->
+            ~ pauseStorylet = true
 
     + (omicidio) {new_this_loop(->omicidio)} Ettore: C'è, c'è. C'è qualcuno qui che vorrebbe ucciderti?
         Paola: Dipende.
@@ -56,6 +58,7 @@ Opzioni di dialogo con la persona Paola
         Paola: Prima che li uccida io.
         Paola: Sei qui per entrare nella lista dei morti?
         -> advance_time ->
+        ~ pauseStorylet = true
 
     
 
@@ -83,6 +86,7 @@ Opzioni di dialogo con la persona Paola
         Paola: Già che ci sono potrei andare da Zeca e stuzzicarlo un po' per capire perché hanno litigato.
         Paola: Magari piange anche quella fighetta.
             -> advance_time ->
+            ~ pauseStorylet = true
             -> paola_talking_second_tier
 
     
@@ -114,6 +118,7 @@ Opzioni di dialogo con la persona Paola
             Paola: Anche se è così stupido da non capire la differenza tra due tette e due chiappe.
             Paola: Tra me e me: credo che Elia sia ancora vergine.
             Paola: <joy>Piccola puttanella.</joy>
+                ~ pauseStorylet = true
                 -> advance_time ->
 
     + (foto3) {zeca_talking_second_tier.allestimento2 && are_two_entities_together(Paola, Greta)} Ettore: <hesitate>Per caso ti sei tipo masturbata nella sala gialla?
@@ -132,6 +137,7 @@ Opzioni di dialogo con la persona Paola
             - -(foto) Paola: Se allontani Greta da questa stanza o se passi quando non c'è, ti darò il tuo premio.
             Paola: Un premio che farà felice anche quella merdaccina di Zeca.
             Paola: Fai il tuo dovere, <joy>mio cagnolino.</joy>
+            ~ pauseStorylet = true
                 -> advance_time ->
 
     + (foto2) {greta_talking_second_tier.foto2 && not are_two_entities_together(Paola, Greta)} Ettore: Siamo soli, hai qualcosa per me?
@@ -143,6 +149,7 @@ Opzioni di dialogo con la persona Paola
             Paola: Eccoti una bella foto di lei ed Elia due secondi prima di scopare nel loro pub.
             Paola: Credo che Zeca apprezzerà molto.
             Paola: E smollerà mio fratello.
+                ~ pauseStorylet = true
                 -> advance_time ->
             {
             - LIST_COUNT(inventoryContents) > 0:
@@ -165,6 +172,7 @@ Opzioni di dialogo con la persona Paola
         Paola: Pensa che da piccola sono andata in coma per tre giorni.
         Paola: Per risvegliarmi e trovarmi davanti Elia che mi chiedeva: Ma ora sei Cristo?
         Paola: Ora sei resuscitata, come Vegeta?
+            ~ pauseStorylet = true
             -> advance_time ->
     
     + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)}Ettore: Che, uhm, che sai di questa bottiglia?
@@ -189,14 +197,16 @@ Opzioni di dialogo con la persona Paola
             ~ inventoryContents -= SigarettaElettronica
             ~ objectStorageContents += SigarettaElettronica
         Ettore: Ma non si può fumare ov...
-        Paola: Ah, finalmente! Quanto mi sei mancata!    
+        Paola: Ah, finalmente! Quanto mi sei mancata!
+            ~ pauseStorylet = true
             -> advance_time ->
     
     + (fotografia) {inventoryContents has Foto && new_this_loop(->fotografia)} Ettore: Guarda questa foto.
         Paola: Ettore, ho di meglio da fare, sloggia.
 
 
-    + [Fai domande sulla persona Paola] -> esplora_paola
+    + [Fai domande sulla persona Paola]
+        -> esplora_paola
     + [Te ne vai]
         -> intro
     -
@@ -243,6 +253,7 @@ Opzioni di dialogo con la persona Paola
     Paola: Ma io non sono come loro.
     Paola: <joy>Io vivo del vostro sangue.</joy>
             -> advance_time ->
+            ~ pauseStorylet = true
         -> paola_talking_second_tier
 
 = second_qn
@@ -274,6 +285,7 @@ Opzioni di dialogo con la persona Paola
         Paola: ...
         Paola: Già. Vai a condividere il tuo giornalino comunista su Instagram, vai bimbo.
                 -> advance_time ->
+                ~ pauseStorylet = true
         -> paola_talking_second_tier    
 
 = third_qn
@@ -296,7 +308,8 @@ Opzioni di dialogo con la persona Paola
     Paola: Non assomigliano a nessuna persona reale, perché le persone reali sono schifose e ridicole.
     Paola: Con questa recita del cazzo risulterò ridicola, schifosa. E allora avrò vinto, Ettore.
     Paola: E a quel punto potrete temermi.
-            -> advance_time ->    
+            -> advance_time ->
+            ~ pauseStorylet = true
         -> paola_talking_second_tier
 
 

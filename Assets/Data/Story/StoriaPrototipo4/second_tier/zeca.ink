@@ -75,7 +75,8 @@ Opzioni di dialogo con la persona Zeca
         Zeca: Ma cosa ti dico queste cose a te?
         Zeca: Sei così vestito male che sei o etero o woke.
         Zeca: <hesitate>Devo chiedere aiuto a Paola, è l'unica opzione che mi rimane.
-            -> advance_time ->      
+            -> advance_time ->
+            ~ pauseStorylet = true
                  -> zeca_talking_second_tier
 
     + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Tu e Paola andate d'accordo?
@@ -110,6 +111,7 @@ Opzioni di dialogo con la persona Zeca
         Zeca: <joy>Solo io posso insultarlo.</joy>
         - (omicidio2) Zeca: Per il resto: farei qualsiasi cosa per proteggere Elia.
         -> advance_time ->
+        ~ pauseStorylet = true
             -> zeca_talking_second_tier
 
     
@@ -238,6 +240,7 @@ Opzioni di dialogo con la persona Zeca
             Zeca: Non ho mai avuto manco un criceto, e ho il timore di annoiarmi entro un paio di settimane.
             Zeca: Nel caso lo passo a quella disperata di Greta.
                 -> advance_time ->
+                ~ pauseStorylet = true
                     -> zeca_talking_second_tier
 
         + + (love4){elia_talking_second_tier.indagini2 && greta_talking_second_tier.indagini && not are_two_entities_together(Elia, Zeca)} Ettore: Sapevi che Paola vuole estromettere Elia dalla Londar?
@@ -249,6 +252,7 @@ Opzioni di dialogo con la persona Zeca
             Zeca: Stupido.
             Zeca: <joy>Bimbo.</joy>      
                 -> advance_time ->
+                ~ pauseStorylet = true
                     -> zeca_talking_second_tier
 
     //SCELTE CONDIZIONALI OGGETTI//
@@ -264,7 +268,9 @@ Opzioni di dialogo con la persona Zeca
         Zeca: Tu, da parte di uno degli avvocati dei fratellini.
         Zeca: Se c'è una cosa che Paola odia, sono le domande indiscrete.
             -> advance_time ->
-                    -> zeca_talking_second_tier
+            ~ pauseStorylet = true
+            -> zeca_talking_second_tier
+    
     + (torta) {inventoryContents has Torta && new_this_loop(->torta)} Ettore: Hai mai...
                 ~ inConversazione += Zeca
         Zeca: Visto questa torta?
@@ -277,8 +283,10 @@ Opzioni di dialogo con la persona Zeca
         Zeca: PERO'. PERO'.
         Zeca: No, non è vero.
         Zeca: <cry>QUALCUNO HA VISTO DELLE FORMICHE?!?!?</cry>
-        -> advance_time ->
-                    -> zeca_talking_second_tier
+            -> advance_time ->
+            ~ pauseStorylet = true
+            -> zeca_talking_second_tier
+            
     + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Hai comprato tu questa bottiglia di vino?
                 ~ inConversazione += Zeca
        - (allestimento3) Zeca: Sì, la boccia l'abbiamo presa Matteo ed io.
@@ -291,20 +299,26 @@ Opzioni di dialogo con la persona Zeca
         Zeca: I soldi di Elia sono della Londar e quindi di fatto di Paola, per cui la risposta è:
         Zeca: Non l'ho comprata io. Sorry.
             -> advance_time ->
-                    -> zeca_talking_second_tier
+            ~ pauseStorylet = true
+            -> zeca_talking_second_tier
+                    
     + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Hai mai visto questo flaconcino per l'asma?
         Zeca: Dio.
         Zeca: <fear>Se mai la vita dovesse portarmi a un tale entusiasmo per un flaconcino, uccidetemi.</fear>
-                    -> zeca_talking_second_tier
+            ~ pauseStorylet = true
+            -> zeca_talking_second_tier
+            
     + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} Ettore: Sai di chi sia questa sigaretta elettronica?
         Zeca: Di Paola, è lei la tossica del gruppo.
         Zeca: No, quello sono io.
         Zeca: Ma è lei che fuma.
-                    -> zeca_talking_second_tier
+            ~ pauseStorylet = true
+            -> zeca_talking_second_tier
     
-    + [Chiacchiera con Zeca] -> esplora_zeca
+    + [Chiacchiera con Zeca]
+        -> esplora_zeca
     + [Ti allontani]
-    -> intro
+        -> intro
     -
     
     -> zeca_talking_second_tier
@@ -353,7 +367,8 @@ Opzioni di dialogo con la persona Zeca
     Zeca: E non sapere altro.
     Zeca: Perché ho questa amara certezza che se dovessi davvero vedere quella cosa, quella verità, perderei tutto.
     Zeca: E insieme, non potrei più far finta di essere me, ora, davvero me.
-            -> advance_time ->   
+            -> advance_time ->
+            ~ pauseStorylet = true
             -> zeca_talking_second_tier 
 
 = second_qn
@@ -387,6 +402,7 @@ Opzioni di dialogo con la persona Zeca
     Zeca: Ora ci sei tu, ma se mi affido a te, come posso sopravvivere quando te ne andrai?
     Zeca: Per questo odio Matteo. E gli voglio bene. Ma lo odio tanto tanto tanto.
         -> advance_time ->
+        ~ pauseStorylet = true
         -> zeca_talking_second_tier    
 
 = third_qn
@@ -511,7 +527,8 @@ Opzioni di dialogo con la persona Zeca
     Zeca: Non molto, a dire il vero, a parte che sei molto curioso.
     Zeca: Ma visto che non sei bruciato come noi, ti do un consiglio: stai lontano dai casini di questa famiglia.
     Zeca: Incluso me, incluso Matteo.
--> zeca_talking_second_tier
+         ~ pauseStorylet = true
+        -> zeca_talking_second_tier
 
 
 

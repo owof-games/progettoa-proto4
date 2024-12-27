@@ -32,6 +32,7 @@ Opzioni di dialogo con la persona Elia
         Elia: Possibile che stia perdendo la mia forza?
         Elia: O è colpa dei colori? Queste stanze, è colpa di queste stanze!
                 -> advance_time ->
+                ~ pauseStorylet = true
             -> elia_talking_second_tier
 
 
@@ -69,6 +70,7 @@ Opzioni di dialogo con la persona Elia
                 ~ loopableVariables += EliaSpaventatoPerZeca
                 ~ loopableVariables += pausaRapportoElia
                 -> advance_time ->
+                ~ pauseStorylet = true
             -> elia_talking_second_tier
             + + -> elia_talking_second_tier
 
@@ -111,6 +113,7 @@ Opzioni di dialogo con la persona Elia
             - -
             Elia: E NON MI PARLARE!
             ~ loopableVariables += pausaRapportoElia
+            ~ pauseStorylet = true
             -> zeca_talking_second_tier
             
             
@@ -166,7 +169,8 @@ Opzioni di dialogo con la persona Elia
                 Elia: Mai ora.
                 Elia: <hesitate>Mai adesso.
                 Elia: Ero a chiamare con Greta.
-                    -> advance_time -> 
+                    -> advance_time ->
+                    ~ pauseStorylet = true
                         -> elia_talking_second_tier
             + + -> elia_talking_second_tier
             - -
@@ -225,7 +229,8 @@ Opzioni di dialogo con la persona Elia
         - (indagini) Elia: Vuole aiutarlo con questa cosa del sindicato, così che Matteo possa sindicare meglio sindicando Paola e venendo sindicato dai colleghi del sindicato.
         Elia: E io l'ho detto a Greta che fa bene, perché nessuno deve indicare i miei amici.
         Elia: Ma possono sindicarli, perché non è scritto diversamente da nessuna parte, no?
-            -> advance_time ->   
+            -> advance_time ->
+            ~ pauseStorylet = true
                 -> elia_talking_second_tier
  
    
@@ -271,6 +276,7 @@ Opzioni di dialogo con la persona Elia
             Elia: E di concerto.
             Elia: E..
             Ettore: <cry>Vado, vado, vado!</cry>
+            ~ pauseStorylet = true
                 -> advance_time -> 
     
     + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Sai di chi sia questo flaconcino?
@@ -284,6 +290,7 @@ Opzioni di dialogo con la persona Elia
             Elia: Che se Paola me la tira sul naso mi diventa tutto rosso.
             Elia: Una volta l'ha fatto tutto un pomeriggio.
             Elia: Faceva male, <joy>ma rideva e non volevo andare via e renderla triste.</joy>
+            ~ pauseStorylet = true
                 -> advance_time -> 
     
      + (fotografia) {inventoryContents has Foto && new_this_loop(->fotografia)} Ettore: Guarda questa foto.
@@ -294,6 +301,7 @@ Opzioni di dialogo con la persona Elia
             Elia: Dovrebbe esserci un deltoide molto carico.
             Elia: Ma invece sembro morbido.
             Elia: Devo assolutamente allenarmi, ora!
+            ~ pauseStorylet = true
                 -> advance_time -> 
     
     + [Conosci meglio Elia]-> esplora_elia
@@ -360,8 +368,9 @@ Opzioni di dialogo con la persona Elia
     Elia: <cry>E pensa che è accaduto nella Londar!</cry> Quindi siamo ancora più legati.
     Elia: Ma non capisco come possano averli persi dopo essere caduti e legati da così in alto.
     Elia: E sono sicuro che entro fine serata saremo anche noi legati!!!
-        -> advance_time ->     
--> elia_talking_second_tier 
+        -> advance_time ->
+            ~ pauseStorylet = true
+        -> elia_talking_second_tier 
 
 = second_qn
  ~ EliaTalking++
@@ -375,7 +384,8 @@ Opzioni di dialogo con la persona Elia
     Elia: Pensi sia arrabbiata con me?
     Elia: Sono un cattivo fratello?
         -> advance_time ->
-            -> elia_talking_second_tier    
+        ~ pauseStorylet = true
+        -> elia_talking_second_tier    
 
 = third_qn
 ~ EliaTalking++
@@ -388,8 +398,9 @@ Opzioni di dialogo con la persona Elia
     Elia: Ed è difficile parlare senza respirare per contare fino a cento.
     Elia: Però mi aiuta a non pensare, aveva ragione!
     Elia: Lui è sempre molto intelligente!
-    -> advance_time ->     
--> elia_talking_second_tier
+    -> advance_time ->
+    ~ pauseStorylet = true
+    -> elia_talking_second_tier
 
 
 
@@ -426,6 +437,7 @@ Opzioni di dialogo con la persona Elia
                 Elia: E ora credo morirò all'inferno.
                 Elia: Ed è un bene perché sono freddoloso.
                     -> advance_time ->
+                    ~ pauseStorylet = true
                      -> elia_talking_second_tier
             
             + + [Cambi argomento] -> elia_talking_second_tier
@@ -461,6 +473,7 @@ Opzioni di dialogo con la persona Elia
                 Elia: Ma devo capire ancora cosa ne pensa il tacchino, della bresaola.
                 Elia: Ma mi aveva chiesto qualcosa, vero? A volte mi perdo.
                     -> advance_time ->
+                    ~ pauseStorylet = true
                      -> elia_talking_second_tier
             
             + + [Cambi argomento] -> elia_talking_second_tier
@@ -520,6 +533,7 @@ Opzioni di dialogo con la persona Elia
         Elia: Forse sanno dove parcheggiare le sei Maserati che ho preso per le fotografie.
         Elia: Sono molto confuso, Ettore, molto confuso.
             -> advance_time ->
+            ~ pauseStorylet = true
                 -> elia_talking_second_tier
 
 /* ---------------------------------

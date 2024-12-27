@@ -35,6 +35,7 @@ Opzioni di dialogo con la persona Greta
             Greta: E l'armadio è aperto e sei sicura di averlo chiuso prima di andare a dormire perché ne hai ancora paura anche se hai trentasei anni.
             Greta: E poi una gruccia casca a terra.
             Greta: <fear>E il letto trema.</fear>
+                ~ pauseStorylet = true
                 -> advance_time ->
             
             + + (dejavu) {matteo_talking_second_tier.loop2} Ettore: In realtà pensavo più a dei loop[.], e Matteo crede tu sia la persona giusta con cui parlarne.
@@ -61,6 +62,7 @@ Opzioni di dialogo con la persona Greta
                     Greta: <joy>Goditela!</joy>
                     Greta: E se siamo in loop, uccidimi: quante occasioni ci sono di morire due volte?
                         -> advance_time ->
+                        ~ pauseStorylet = true
                             -> greta_talking_second_tier
             
             + + Ettore: Perché temo che finirà molto male?
@@ -80,6 +82,7 @@ Opzioni di dialogo con la persona Greta
 
                     Greta: Ma scusa, mi sono persa un attimo.
                     Greta: <joy>Bella maglietta, comunque.</joy>
+                        ~ pauseStorylet = true
                         -> greta_talking_second_tier
             
             + + Ettore: Mi spiace ma non sono pronto per questa conversazione. -> greta_talking_second_tier
@@ -90,6 +93,7 @@ Opzioni di dialogo con la persona Greta
             Greta: Per ora, sembrerebbe di sì.
             Greta: Ma con Paola ogni giorno è l'antiNatale: ti svegli e avrai qualcosa di meno a sorpresa.
             Greta: Prima o poi mi venderà qualche organo senza che me ne renda conto.
+            ~ pauseStorylet = true
             -> advance_time ->
             
         + + {phone.indagini} Ettore: Non ti preoccupano le indagini?
@@ -112,6 +116,7 @@ Opzioni di dialogo con la persona Greta
             Greta: Non che cambi molto: l'ultima volta che si è visto in azienda è perché aveva un appuntamento con una stagista.
             Greta: Paola l'ha licenziata il giorno dopo.
                 -> advance_time ->
+                ~ pauseStorylet = true
                  -> greta_talking_second_tier
     
         + + {elia_talking_second_tier.indagini} Ettore: Paola sa già che hai passato info segrete a Matteo?
@@ -143,6 +148,7 @@ Opzioni di dialogo con la persona Greta
                         Greta: Ma la maestra è stanca e ti lascia un compito per casa: chi ha così influenza su Elia da trattarlo come una marionetta?
                         Greta: E per quale vantaggio?
                     -> advance_time ->
+                        ~ pauseStorylet = true
                         -> greta_talking_second_tier
                         
                 + + + Ettore: Questo però non risponde alla mia domanda[.]: hai passato le informazioni a Matteo?
@@ -151,6 +157,7 @@ Opzioni di dialogo con la persona Greta
                         Greta: <rage>Vattene<waitrage> e<waitrage> non<waitrage> parlarmi<waitrage> più!</rage> 
                         ~ loopableVariables += pausaRapportoGreta
                     -> advance_time ->
+                        ~ pauseStorylet = true
                         -> intro
                 - - - 
     
@@ -178,6 +185,7 @@ Opzioni di dialogo con la persona Greta
                         Greta: Non mi parlare più, <rage>fighetto del cazzo.</rage>
                             ~ loopableVariables += pausaRapportoGreta
                             -> advance_time ->
+                            ~ pauseStorylet = true
                                 -> intro
                     
                     + + + Ettore: Avrei cercato di ottenere ogni minimo vantaggio.
@@ -204,6 +212,7 @@ Opzioni di dialogo con la persona Greta
                         Greta: A questo mondo non c'è giustizia.
                         Greta: E quando non c'è giustizia, l'unica cosa che rimane per sopravvivere è la violenza.
                             -> advance_time ->
+                            ~ pauseStorylet = true
                                 -> greta_talking_second_tier
                         
         + + Ettore: Ripensandoci, non ho altro da chiederti. -> greta_talking_second_tier
@@ -220,9 +229,12 @@ Opzioni di dialogo con la persona Greta
                 Greta: Mmm, fammi pensare.
                 Greta: Morte violenta o qualcosa di più subdolo?
                     -> advance_time ->
+                    
                     {
                         - currentTime >= 600:
-                        -> paolaIsDeadStorylet    
+                        -> paolaIsDeadStorylet
+                        - else: 
+                            ~ pauseStorylet = true
 
                     }
 
@@ -248,6 +260,7 @@ Opzioni di dialogo con la persona Greta
                                 Greta: Così ti sgancia un bonus sulla paga, sicuro.
                                 Greta: Poi ci sarà tempo per riscrivere quel disastro.
                                     -> advance_time ->
+                                    ~ pauseStorylet = true
                                         -> greta_talking_second_tier
                                     
                     + + + Ettore: Suuuubdolo!
@@ -290,9 +303,12 @@ Opzioni di dialogo con la persona Greta
                             Greta: E lei manco riesce a urlare perché non respira.
                             Greta: E adios!
                                 -> advance_time ->
+                                
                                 {
                                     - currentTime >= 600:
-                                    -> paolaIsDeadStorylet    
+                                    -> paolaIsDeadStorylet
+                                    - else:
+                                        ~ pauseStorylet = true
 
                                 }
 
@@ -320,6 +336,7 @@ Opzioni di dialogo con la persona Greta
              + + Ettore: Ah ah sì, esatto, proprio quello.
                     Greta: Non fosse per i soldi che arrivano dalla Londar, sarebbero tutti e due falliti da mesi.
                     Greta: Dio, Elia è un tale cucciolo, ma è incapace di vivere.
+                    ~ pauseStorylet = true
                     -> greta_talking_second_tier
              
              + + Ettore: No, che stanno assieme. Romanticamente.
@@ -335,7 +352,9 @@ Opzioni di dialogo con la persona Greta
                         -> advance_time ->
                         {
                                 - currentTime >= 600:
-                                -> paolaIsDeadStorylet    
+                                -> paolaIsDeadStorylet
+                                - else_
+                                    ~ pauseStorylet = true
 
                             }
 
@@ -350,6 +369,7 @@ Opzioni di dialogo con la persona Greta
                                  Greta: Ho bisogno di un poco di privacy Ettore, scusami.
                                 ~ loopableVariables += pausaRapportoGreta
                                     -> advance_time ->
+                                    ~ pauseStorylet = true
                                 -> intro
                         
                         + + + Ettore: Quindi, lui ti piace davvero?
@@ -362,6 +382,7 @@ Opzioni di dialogo con la persona Greta
                                 Greta: Lasciami un poco da sola, per favore.
                                 ~ loopableVariables += pausaRapportoGreta
                                     -> advance_time ->
+                                    ~ pauseStorylet = true
                                 -> intro
                         
     
@@ -378,7 +399,9 @@ Opzioni di dialogo con la persona Greta
                     -> advance_time ->
                     {
                         - currentTime >= 600:
-                        -> paolaIsDeadStorylet    
+                        -> paolaIsDeadStorylet
+                        - else:
+                        ~ pauseStorylet = true
 
                     }
 
@@ -388,6 +411,7 @@ Opzioni di dialogo con la persona Greta
             Greta: Mio dio, Elia ci ha quasi lasciato un dito.
             Greta: Che vita difficile che ho!
                     -> advance_time ->
+                    ~ pauseStorylet = true
                 -> greta_talking_second_tier
 
 
@@ -426,16 +450,19 @@ Opzioni di dialogo con la persona Greta
         Ettore: TROPPE INFORMAZIONI!!!
         Greta: Allora sta attento a quel che chiedi, idiota.
                 -> advance_time ->
+                ~ pauseStorylet = true
             -> greta_talking_second_tier
     
     + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Hai mai visto questa bottiglia di vino?
         Greta: Sì, è tra quelle che abbiamo comprato al supermercato.
         Greta: Ma non dirlo a Paola: abbiamo preso la roba che costava meno e con l'etichetta più spocchiosa.
         Greta: E da come ha sorriso, credo abbia funzionato!
+            ~ pauseStorylet = true
             -> greta_talking_second_tier
             
     + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Sai di chi sia questo flaconcino per l'asma?
         Greta: Paola, punto.
+            ~ pauseStorylet = true
             -> greta_talking_second_tier
             
     + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} Ettore: Ho trovato questa sigaretta elettronica!
@@ -446,6 +473,7 @@ Opzioni di dialogo con la persona Greta
             Greta: Ora quella è pissata con me, maledizione.
             Greta: Mai far fare le cose agli altri, mai.
                     -> advance_time ->
+                    ~ pauseStorylet = true
             -> greta_talking_second_tier
             
     + (fotografia) {inventoryContents has Foto && new_this_loop(->fotografia)} Ettore: Guarda questa foto.
@@ -458,11 +486,14 @@ Opzioni di dialogo con la persona Greta
             Greta: <rage>Ma<waitrage> non<waitrage> osare<waitrage> più<waitrage> parlarmi.</rage> 
                 ~ loopableVariables += pausaRapportoGreta
                 -> advance_time ->
+                ~ pauseStorylet = true
             -> greta_talking_second_tier
     
-    + [Conosci meglio Greta]-> esplora_greta
+    + [Conosci meglio Greta]
+        -> esplora_greta
 
-    + [Lascia la conversazione]-> intro
+    + [Lascia la conversazione]
+        -> intro
     
 
     
@@ -516,6 +547,7 @@ Opzioni di dialogo con la persona Greta
     Greta: E quando ci sarà silenzio, finalmente ci sarà spazio per ricominciare tutto da capo.
     Greta: Spero non con gli stessi errori.
         -> advance_time ->
+        ~ pauseStorylet = true
             -> greta_talking_second_tier 
 
 = second_qn
@@ -544,6 +576,7 @@ Opzioni di dialogo con la persona Greta
     Greta: Per queste crudeltà.
     Greta: <joy>CRUDELTAAAAAAA'!</joy>
         -> advance_time ->
+        ~ pauseStorylet = true
         -> greta_talking_second_tier 
 
 = third_qn
@@ -588,7 +621,8 @@ Opzioni di dialogo con la persona Greta
     Greta: E sono minuti che vorrei aprire la porta e uscire.
     Greta: Ma ho paura di scoprire cosa ci sia fuori.
     Greta: <fear>E allora resto qui a tremare.</fear>
-        -> advance_time ->  
+        -> advance_time ->
+        ~ pauseStorylet = true
     -> greta_talking_second_tier
 
 

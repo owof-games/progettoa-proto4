@@ -40,6 +40,7 @@ Opzioni di dialogo con la persona Matteo
                                 Matteo: O fai finta di svenire, che forse è efficace.
                                 Matteo: O dille che ha i capelli fuori posto, e ci guadagnamo mezz'ora sicura!
                                         -> advance_time ->
+                                        ~ pauseStorylet = true
                                     -> matteo_talking_second_tier
 
                             + + + (loop2){matteo_talking_second_tier.opzioneScarica} Ettore: Sì!
@@ -49,6 +50,7 @@ Opzioni di dialogo con la persona Matteo
                                 Matteo: Ma se siamo davvero in un loop, allora <joy>vorrei un tuo bacio prima o poi.</joy>
                                 Matteo: Almeno una cosa bella continuerà a ripetersi.
                                     -> advance_time ->
+                                    ~ pauseStorylet = true
                                     -> matteo_talking_second_tier
 
                             + + + (loop3) {matteo_talking_second_tier.loop2} [Baci Matteo]
@@ -59,6 +61,7 @@ Opzioni di dialogo con la persona Matteo
                                 Ettore: Sì, perché qualcuno sta per morire.
                                 Matteo: Quando avrai risolto il crimine, allora, <joy>ridammi un altro bacio, e portami via da qui.</joy>
                                     -> advance_time ->
+                                    ~ pauseStorylet = true
                                     -> matteo_talking_second_tier
 
                             - - -    
@@ -91,6 +94,7 @@ Opzioni di dialogo con la persona Matteo
                             Matteo: Allora la prossima volta chiedimi <joy>dove mi piace cenare.</joy>
                             Matteo: <joy>O il colore del mio intimo.</joy>
                                 -> advance_time ->
+                                ~ pauseStorylet = true
                             -> matteo_talking_second_tier
                     
                     + + + {cb_second_tier_lettera.primoCheck} Ettore: C'è una lettera, una lettera di minacce.
@@ -98,6 +102,7 @@ Opzioni di dialogo con la persona Matteo
                             - (lettera2) Matteo: Solo due persone in questo posto mossono minacciare qualcuno: Paola e Zeca.
                             Matteo: Ma sono così inutile qui, che dubito qualcuno voglia minacciarmi per qualcosa.
                                 -> advance_time ->
+                                ~ pauseStorylet = true
                             -> matteo_talking_second_tier
 
                     + + + (lettera3) {not new_this_loop(->lettera)} Ettore: Per la lettera che ti ho mostrato prima.
@@ -118,6 +123,7 @@ Opzioni di dialogo con la persona Matteo
                             Matteo: Non sarai tu a risolverle stasera.
                             Matteo: Beviti un goccio di vino, recita quello che devi recitare, e fuggi da qui.
                                 -> advance_time ->
+                                ~ pauseStorylet = true
                             -> matteo_talking_second_tier
 
                     + + + (lavoro2) {phone.sindacato} Ettore: Credo che Paola ti stia minacciando[.], per via del sindacato.
@@ -130,11 +136,13 @@ Opzioni di dialogo con la persona Matteo
                                     Matteo: Questa è una cosa tenera, Ettore.
                                     Matteo: Facciamo così: la prossima volta che c'è una pausa e siamo soli, chiedimi di raccontarti tutto, e lo farò.
                                     Matteo: Ora però lascia che mi rilassi un poco.
+                                    ~ pauseStorylet = true
                                         -> matteo_talking_second_tier
                             
                             + + + + Ettore: Sì, credo che tu possa farle del male.
                                     Matteo: Beh, se hai già deciso che sono una cattiva persona, che senso ha parlarmi ancora?
                                         ~ loopableVariables += pausaRapportoMatteo
+                                        ~ pauseStorylet = true
                                         -> intro
                               
                     + + + ->            
@@ -155,13 +163,15 @@ Opzioni di dialogo con la persona Matteo
             -> paolaIsDeadStorylet    
             }
             Ettore: E tra le persone qui presenti?
-            Matteo: Un bel po' di gente.  
+            Matteo: Un bel po' di gente.
+            ~ pauseStorylet = true
                 -> matteo_talking_second_tier
 
     
     
     // OPZIONE PER IL FINALE
-    + {primaContraddizione && secondaContraddizione} [È il momento di fermare l’omicida di Paola!] Ettore: Venite tutti, ho bisogno di parlarvi! -> arringa_finale
+    + {primaContraddizione && secondaContraddizione} [È il momento di fermare l’omicida di Paola!] Ettore: Venite tutti, ho bisogno di parlarvi!
+    -> arringa_finale
 
     //SCELTE CONDIZIONALI//
     + {matteo_talking_second_tier.lavoro2 && not new_this_loop(->lavoro2)} Ettore: Posso chiederti perché hai creato un sindacato alla Londar?
@@ -211,9 +221,10 @@ Opzioni di dialogo con la persona Matteo
         Matteo: Ma ti prego, non farla vedere a Zeca.
         Matteo: <fear>Gli spezzeresti il cuore.</fear>
 
-    + [Chiacchiera con Matteo] -> esplora_matteo
+    + [Chiacchiera con Matteo]
+        -> esplora_matteo
     + [Te ne vai]
-    -> intro
+        -> intro
     -
     
     -> matteo_talking_second_tier
@@ -268,7 +279,8 @@ Opzioni di dialogo con la persona Matteo
         Matteo: Il padrone di casa vuole aumentare l'affitto a sproposito.
         Matteo: E le uniche case che stiamo trovando sono a un'ora di bus dal centro.
         Matteo: E per me vuol dire non aver più del tutto una vita.
-    -> matteo_talking_second_tier 
+            ~ pauseStorylet = true
+            -> matteo_talking_second_tier 
 
 = second_qn
  ~ MatteoTalking++
@@ -296,6 +308,7 @@ Opzioni di dialogo con la persona Matteo
 
             }
     Matteo: E forse nell'ultimo tempo ho pensato così tanto alle cose da fare, da cambiare, <fear>da dimenticarmi di vivere.</fear>
+        ~ pauseStorylet = true
         -> matteo_talking_second_tier    
 
 = third_qn
@@ -321,7 +334,8 @@ Opzioni di dialogo con la persona Matteo
     Matteo: Credo di aver capito cosa mi inquieta.
     Matteo: E credo di aver deciso cosa fare.
     Matteo: <joy>Hai un bel cuore Ettore, un gran bel cuore.</joy>
-    Matteo: Spero di incontrarti di nuovo, fuori da qui.    
+    Matteo: Spero di incontrarti di nuovo, fuori da qui.
+        ~ pauseStorylet = true
         -> matteo_talking_second_tier
 
 /* ---------------------------------

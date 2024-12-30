@@ -7,7 +7,7 @@ public class InternalStoryException : Exception
     {
     }
 
-    public InternalStoryException(string message) : base(message)
+    public InternalStoryException(string message) : base("Ink story signalling an error with external function throw_exception: " + message)
     {
     }
 
@@ -24,6 +24,6 @@ public class ThrowExceptionActionFunction : ActionExternalFunctionProcessor
 
     protected override void Process(ExternalFunctionProcessorContext context)
     {
-        throw new InternalStoryException(context[0] as string);
+         throw new InternalStoryException(context[0] as string);
     }
 }

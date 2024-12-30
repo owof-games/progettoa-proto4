@@ -35,17 +35,21 @@ VAR entityToMove2 = ()
 VAR destinationEntityToMove2 = ()
 === function move_entity(entity, destination)
 { inConversazione has entity:
+    // a conversation is in place: save the movement and let move_locked_entities perform the move operation later on
     {
-    - not entityToMove1:
+    // check if we have space in the first slot to save the movement, or if the first slot is used by this character (if it is, we can just overwrite the destination!)
+    - not entityToMove1 || entity == entityToMove1:
         ~ entityToMove1 = entity
         ~ destinationEntityToMove1 = destination
         ~ return
-    - not entityToMove2:
+    // same as above
+    - not entityToMove2 || entity == entityToMove2:
         ~ entityToMove2 = entity
         ~ destinationEntityToMove2 = destination
         ~ return
+    // this method has a limit in the number of slot spaces: throw an explicative error if there's no more space to save
     - else:
-        ~ throw_exception("NON HO PIÙ SPAZIO PER SALVARE SPOSTAMENTI")
+        ~ throw_exception("NON HO PIÙ SPAZIO PER SALVARE SPOSTAMENTI - spostamenti salvati: {entityToMove1}=>{destinationEntityToMove1}, {entityToMove2}=>{destinationEntityToMove2} - dovrei spostare anche {entity} in {destination}")
         ~ return
     }
 }

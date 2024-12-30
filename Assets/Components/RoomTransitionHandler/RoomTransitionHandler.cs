@@ -494,6 +494,11 @@ namespace Components.RoomTransitionHandler
             for (var direction = Direction.Left; direction <= Direction.Right; direction++)
             {
                 var currentRoom = _currentlyLoadedRoomName;
+                if (currentRoom == destinationRoomName)
+                {
+                    throw new InvalidOperationException(
+                        "Cannot get a left/right direction for character wrt the current room: the character is in the current room!");
+                }
                 for (;;)
                 {
                     var roomConnection = roomConnections.FirstOrDefault(rc =>

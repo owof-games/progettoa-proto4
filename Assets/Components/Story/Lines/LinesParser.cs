@@ -58,43 +58,42 @@ namespace Components.Story.Lines
 
         public void OnStoryStep(StoryStep step)
         {
+            if (!currentStoryState.Value.Equals(storyStateTalking.Value)) return;
+
             if (step.CanContinue && string.IsNullOrWhiteSpace(step.Text))
             {
                 Unparsable(step, "empty line");
                 return;
             }
 
-            if (currentStoryState.Value.Equals(storyStateTalking.Value))
+            var text = step.Text;
+            var colonIndex = text.IndexOf(':');
+            if (colonIndex < 0)
             {
-                var text = step.Text;
-                var colonIndex = text.IndexOf(':');
-                if (colonIndex < 0)
-                {
-                    Unparsable(step, "cannot find colon");
-                    return;
-                }
-
-                var lowercaseCharacterName = text[..colonIndex].Trim().ToLower();
-                if (!_charactersByLowercaseName.TryGetValue(lowercaseCharacterName, out var character) &&
-                    !TryAnonymous(lowercaseCharacterName, out character))
-                {
-                    Unparsable(step, $"cannot find character '{lowercaseCharacterName}'");
-                    return;
-                }
-
-                var dialogueText = text[(colonIndex + 1)..].Trim();
-                dialogueLineEvent.Raise(new DialogueLine
-                {
-                    character = character,
-                    text = dialogueText,
-                    canContinue = step.CanContinue,
-                    choices = step.Choices.Select(c => new Choice
-                    {
-                        text = c.Text,
-                        index = c.Index
-                    }).ToArray()
-                });
+                Unparsable(step, "cannot find colon");
+                return;
             }
+
+            var lowercaseCharacterName = text[..colonIndex].Trim().ToLower();
+            if (!_charactersByLowercaseName.TryGetValue(lowercaseCharacterName, out var character) &&
+                !TryAnonymous(lowercaseCharacterName, out character))
+            {
+                Unparsable(step, $"cannot find character '{lowercaseCharacterName}'");
+                return;
+            }
+
+            var dialogueText = text[(colonIndex + 1)..].Trim();
+            dialogueLineEvent.Raise(new DialogueLine
+            {
+                character = character,
+                text = dialogueText,
+                canContinue = step.CanContinue,
+                choices = step.Choices.Select(c => new Choice
+                {
+                    text = c.Text,
+                    index = c.Index
+                }).ToArray()
+            });
         }
 
         private void Unparsable(StoryStep step, string reason)

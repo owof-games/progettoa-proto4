@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using LemuRivolta.InkAtoms;
 using TMPro;
 using UnityAtoms.BaseAtoms;
@@ -53,47 +56,21 @@ namespace Components.Notebook
         }
 #endif
 
+        private CancellationTokenSource _clearNotebookEndCheckTimerCancellationTokenSource;
+
         public void OnNotebookStart()
         {
             _notebookContents.Clear();
             _page = 0;
             animator.SetBool(Opened, true);
+
+            _clearNotebookEndCheckTimerCancellationTokenSource = new CancellationTokenSource();
+            UniTask
+                .Delay(4000, cancellationToken: _clearNotebookEndCheckTimerCancellationTokenSource.Token)
+                .ContinueWith(() => UnityEngine.Debug.LogError("Notebook has been opened, but didn't find an end to it in Ink. Did you forget '@waitForNotebookClosed' and the end of === notebook?"))
+                .Forget();
         }
-
-        public void OnNotebookClose()
-        {
-            animator.SetBool(Opened, false);
-            currentStoryState.Value = dialogueStoryState.Value;
-            notebookClosed.Raise();
-        }
-
-        public void OnNotebookEnd()
-        {
-            UpdateNotesContents();
-        }
-
-        private void UpdateNotesContents()
-        {
-            var page = _notebookContents[_page];
-            var slotsWithContent = new HashSet<string>();
-            foreach (var key in page.Keys)
-            {
-                var slot = slots.FirstOrDefault(s => s.name == key);
-                if (slot == null)
-                    throw new Exception(
-                        $"Cannot find a slot in NotebookCanvas.slots with name ${key}, but there's a #slot-${key} in the notebook.");
-
-                slot.root.SetActive(true);
-                slot.root.GetComponentInChildren<TextMeshProUGUI>().text = page[key].Trim();
-                slotsWithContent.Add(key);
-            }
-
-            foreach (var slot in slots) slot.root.SetActive(slotsWithContent.Contains(slot.name));
-
-            nextButton.interactable = NextPage.HasValue;
-            prevButton.interactable = PrevPage.HasValue;
-        }
-
+        
         public void OnStoryStep(StoryStep storyStep)
         {
             // check if we're reading in notebook mode
@@ -124,6 +101,12 @@ namespace Components.Notebook
             }
         }
 
+        public void OnNotebookEnd()
+        {
+            _clearNotebookEndCheckTimerCancellationTokenSource.Cancel();
+            UpdateNotesContents();
+        }
+        
         public void OnNextPage()
         {
             Debug.Assert(NextPage != null, nameof(NextPage) + " != null");
@@ -136,6 +119,35 @@ namespace Components.Notebook
             Debug.Assert(PrevPage != null, nameof(PrevPage) + " != null");
             _page = PrevPage.Value;
             UpdateNotesContents();
+        }
+
+        public void OnNotebookClose()
+        {
+            animator.SetBool(Opened, false);
+            currentStoryState.Value = dialogueStoryState.Value;
+            notebookClosed.Raise();
+        }
+
+        private void UpdateNotesContents()
+        {
+            var page = _notebookContents[_page];
+            var slotsWithContent = new HashSet<string>();
+            foreach (var key in page.Keys)
+            {
+                var slot = slots.FirstOrDefault(s => s.name == key);
+                if (slot == null)
+                    throw new Exception(
+                        $"Cannot find a slot in NotebookCanvas.slots with name ${key}, but there's a #slot-${key} in the notebook.");
+
+                slot.root.SetActive(true);
+                slot.root.GetComponentInChildren<TextMeshProUGUI>().text = page[key].Trim();
+                slotsWithContent.Add(key);
+            }
+
+            foreach (var slot in slots) slot.root.SetActive(slotsWithContent.Contains(slot.name));
+
+            nextButton.interactable = NextPage.HasValue;
+            prevButton.interactable = PrevPage.HasValue;
         }
 
         [Serializable]

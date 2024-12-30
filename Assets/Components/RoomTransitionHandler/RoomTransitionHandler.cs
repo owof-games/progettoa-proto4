@@ -218,14 +218,7 @@ namespace Components.RoomTransitionHandler
                         return;
                     }
 
-                    var connections2 = _roomConnectionsBySourceName[sourceRoom2.ToString()];
-                    var connection2 = connections2.SingleOrDefault(c =>
-                        c.destinationRoomName == e.Room.ToString());
-                    if (connection2 == null)
-                        throw new Exception(
-                            $"Moving NPC {character}: cannot find connection from ${sourceRoom2} to ${e.Room}");
-
-                    var direction2 = connection2.direction;
+                    var direction2 = GetDirection(sourceRoom2, e.Room);
 
                     // navigate the character
                     // different from here on
@@ -269,11 +262,7 @@ namespace Components.RoomTransitionHandler
                 return;
             }
 
-            var connections = _roomConnectionsBySourceName[sourceRoom.ToString()];
-            // TODO: this could error with .Single during loop reset (characters jump from far away rooms)
-            // how to solve this?
-            var connection = connections.SingleOrDefault(c => c.destinationRoomName == e.Room.ToString());
-            var direction = connection?.direction ?? Direction.Left;
+            var direction = GetDirection(sourceRoom, e.Room);
 
             // navigate the character
             var navigationGraph = GetCurrentNavigationGraph();
@@ -490,26 +479,48 @@ namespace Components.RoomTransitionHandler
             // get character's current room
             var destinationRoom = roomContents!.GetCharacterRoom(character);
             var destinationRoomName = destinationRoom.ToString();
+            // sanity check
+            if (_currentlyLoadedRoomName == destinationRoomName)
+                throw new InvalidOperationException(
+                    "Cannot get a left/right direction for character wrt the current room: the character is in the current room!");
+
             // try both directions
             for (var direction = Direction.Left; direction <= Direction.Right; direction++)
             {
-                var currentRoom = _currentlyLoadedRoomName;
-                if (currentRoom == destinationRoomName)
-                {
-                    throw new InvalidOperationException(
-                        "Cannot get a left/right direction for character wrt the current room: the character is in the current room!");
-                }
+                var currentRoom = _currentlyLoadedRoomName!;
                 for (;;)
                 {
-                    var roomConnection = roomConnections.FirstOrDefault(rc =>
-                        rc.direction == direction && rc.sourceRoomName == currentRoom);
+                    var roomConnection = _roomConnectionsBySourceName[currentRoom]
+                        .FirstOrDefault(connection => connection.direction == direction);
                     if (roomConnection == null) break;
-
                     if (roomConnection.destinationRoomName == destinationRoomName) return direction;
+                    currentRoom = roomConnection.destinationRoomName;
                 }
             }
 
             throw new Exception("Cannot find character in any room");
+        }
+
+        public Direction GetDirection(Room sourceRoom, Room destinationRoom)
+        {
+            var destinationRoomName = destinationRoom.ToString();
+            if (sourceRoom == destinationRoom)
+                throw new Exception("sourceRoom = destinationRoom, there's no left/right direction to return");
+
+            for (var direction = Direction.Left; direction <= Direction.Right; direction++)
+            {
+                var currentRoom = sourceRoom.ToString();
+                for (;;)
+                {
+                    var roomConnection = _roomConnectionsBySourceName[currentRoom]
+                        .FirstOrDefault(connection => connection.direction == direction);
+                    if (roomConnection == null) break;
+                    if (roomConnection.destinationRoomName == destinationRoomName) return direction;
+                    currentRoom = roomConnection.destinationRoomName;
+                }
+            }
+
+            throw new Exception($"Cannot find a connection from {sourceRoom} to {destinationRoom}");
         }
     }
 }

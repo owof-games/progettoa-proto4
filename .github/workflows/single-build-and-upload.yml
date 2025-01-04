@@ -6,9 +6,6 @@ on:
       project_name:
         required: true
         type: string
-      version:
-        required: false
-        type: string
       tags:
         required: true
         type: string
@@ -46,9 +43,28 @@ on:
       UNITY_PASSWORD:
         required: true
 jobs:
+#  versioning:
+#    runs-on: ubuntu-latest
+#    name: Upload for ${{ inputs.name }}
+#    outputs:
+#      version: ${{ steps.latest.outputs.version }}
+#    steps:
+#      - name: Setup butler
+#        uses: remarkablegames/setup-butler@v1
+#      - id: latest
+#        name: Get latest version
+#        run: |
+#          VERSION=$(butler status owofgames/loop-internal | grep '\#' | head -n 1 | cut -d'|' -f5 | awk '$1=$1')
+#          NEW_PATCH=$(($(echo $VERSION | cut -d. -f3)+1))
+#          echo "version=$(echo $VERSION | cut -d. -f1).$(echo $VERSION | cut -d. -f2).$NEW_PATCH" >> "$GITHUB_OUTPUT"
+#        env:
+#          BUTLER_API_KEY: ${{ secrets.BUTLER_CREDENTIALS }}
   build:
     runs-on: ${{ fromJson(inputs.tags) }}
     name: Build for ${{ inputs.name }}
+#    needs: versioning
+    outputs:
+      version: ${{ steps.outputversion.outputs.version }}
     steps:
       # see https://github.com/actions/checkout/issues/211, and in particular
       # https://github.com/actions/checkout/issues/211#issuecomment-611986243
@@ -107,10 +123,11 @@ jobs:
         with:
           targetPlatform: ${{ inputs.targetPlatform }}
           customParameters: ${{ inputs.development && '-Development' || '' }}
+          versioning: Semantic
           # use the custom win installation with vc redist included only if using windows, otherwise the default image is good
           # customImage: ${{ inputs.targetPlatform == 'StandaloneWindows' && 'redglow/editor:windows-2022.3.10f1-windows-il2cpp-3-vstoolsworkload' || '' }}
           # customImage: ${{ inputs.targetPlatform == 'StandaloneWindows' && 'unityci/editor:ubuntu-2022.3.10f1-windows-mono-3.0.1' || '' }}
-      
+
       # Save as artifact
       - name: Upload build as artifact
         uses: actions/upload-artifact@v3
@@ -122,8 +139,13 @@ jobs:
         if: ${{ ! cancelled() && inputs.fix_permissions }}
         shell: sh
         run: echo "user is $USER and workspace is $GITHUB_WORKSPACE and curr dir is $(pwd)" && sudo chown -R $USER:$USER $GITHUB_WORKSPACE/../..
+        
+      # Output computed version
+      - name: Output build version
+        id: outputversion
+        run: echo "version=${{ steps.build.outputs.buildVersion }}" >> "$GITHUB_OUTPUT"
   upload:
-    runs-on: ['self-hosted', 'Linux']
+    runs-on: ubuntu-latest
     name: Upload for ${{ inputs.name }}
     needs: build
     steps:
@@ -142,4 +164,4 @@ jobs:
         ITCH_GAME: ${{ inputs.project_name }}
         ITCH_USER: ${{ vars.ITCH_USER }}
         PACKAGE: ${{ inputs.targetPlatform }}
-        VERSION: ${{ inputs.version }}
+        VERSION: ${{ needs.build.outputs.version }}

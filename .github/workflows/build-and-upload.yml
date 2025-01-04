@@ -3,9 +3,6 @@ name: (build-and-upload)
 on:
   workflow_call:
     inputs:
-      version:
-        required: false
-        type: string
       project_name:
         required: true
         type: string
@@ -45,7 +42,6 @@ jobs:
     uses: ./.github/workflows/single-build-and-upload.yml
     with:
       project_name: ${{ inputs.project_name }}
-      version: ${{ inputs.version }}
       name: Windows 🪟
       targetPlatform: StandaloneWindows
       channel: win
@@ -69,7 +65,6 @@ jobs:
     uses: ./.github/workflows/single-build-and-upload.yml
     with:
       project_name: ${{ inputs.project_name }}
-      version: ${{ inputs.version }}
       tags: '["self-hosted", "Linux"]'
       name: Linux 🐧
       targetPlatform: StandaloneLinux64
@@ -88,7 +83,6 @@ jobs:
     with:
       # todo: self-hosted;Linux + fix_permissions is ok, but we should just have self-hosted and fix_permissions according to the platform
       project_name: ${{ inputs.project_name }}
-      version: ${{ inputs.version }}
       tags: '["self-hosted", "Linux"]'
       name: WebGL 🌐
       targetPlatform: WebGL
@@ -106,7 +100,6 @@ jobs:
     uses: ./.github/workflows/single-build-and-upload.yml
     with:
       project_name: ${{ inputs.project_name }}
-      version: ${{ inputs.version }}
       # tags: '["macos-latest"]'
       tags: '["self-hosted", "Linux"]'
       fix_permissions: true

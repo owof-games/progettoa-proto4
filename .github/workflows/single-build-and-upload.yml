@@ -49,11 +49,17 @@ jobs:
   versioning:
     runs-on: ubuntu-latest
     name: Upload for ${{ inputs.name }}
+    outputs:
+      version: ${{ steps.latest.outputs.version }}
     steps:
       - name: Setup butler
         uses: remarkablegames/setup-butler@v1
-      - name: Get latest version
-        run: butler status ${{ vars.ITCH_USER }}/${{ inputs.project_name }}
+      - id: latest
+        name: Get latest version
+        run:
+          VERSION=$(./butler status owofgames/loop-internal | grep '\#' | head -n 1 | cut -d'|' -f5 | awk '$1=$1')
+          NEW_PATCH=$(($(echo $VERSION | cut -d. -f3)+1))
+          echo "version=$(echo $VERSION | cut -d. -f1).$(echo $VERSION | cut -d. -f2).$NEW_PATCH" >> "$GITHUB_OUTPUT"
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_CREDENTIALS }}
 #  build:

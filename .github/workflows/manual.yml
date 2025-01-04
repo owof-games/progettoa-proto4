@@ -6,27 +6,27 @@ on:
       include_windows:
         type: boolean
         default: true
-        description: Whether to create a Windows build
+        description: Create a Windows build
       include_macos:
         type: boolean
         default: false
-        description: Whether to create a MacOS build
+        description: Create a MacOS build
       include_linux:
         type: boolean
         default: false
-        description: Whether to create a Linux build
+        description: Create a Linux build
       include_webgl:
         type: boolean
         default: true
-        description: Whether to create a WebGL build
+        description: Create a WebGL build
       development:
         type: boolean
         default: true
-        description: Whether the development flag is enabled
+        description: Enable development mode
       version:
         type: string
         required: true
-        description: The version of the build
+        description: Version of the build
 
 jobs:
   build-and-upload:

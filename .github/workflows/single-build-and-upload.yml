@@ -56,8 +56,8 @@ jobs:
         uses: remarkablegames/setup-butler@v1
       - id: latest
         name: Get latest version
-        run:
-          VERSION=$(./butler status owofgames/loop-internal | grep '\#' | head -n 1 | cut -d'|' -f5 | awk '$1=$1')
+        run: |
+          VERSION=$(butler status owofgames/loop-internal | grep '\#' | head -n 1 | cut -d'|' -f5 | awk '$1=$1')
           NEW_PATCH=$(($(echo $VERSION | cut -d. -f3)+1))
           echo "version=$(echo $VERSION | cut -d. -f1).$(echo $VERSION | cut -d. -f2).$NEW_PATCH" >> "$GITHUB_OUTPUT"
         env:

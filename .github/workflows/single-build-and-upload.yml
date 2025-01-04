@@ -80,6 +80,8 @@ jobs:
       # Checkout (without LFS)
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-tags: true
 
       # Git LFS
       - name: Create LFS file list

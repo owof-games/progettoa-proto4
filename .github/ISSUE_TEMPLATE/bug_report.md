@@ -7,27 +7,39 @@ assignees: RedGlow
 
 ---
 
-**Versione**: ...
-(la versione indicata di fianco al tasto di download su itch, o [l'identificativo univoco del commit](https://www.geeksforgeeks.org/how-to-retrieve-the-hash-for-the-current-commit-in-git/#approach-1-using-git-revparse-head) se si sta provando direttamente da unity)
+**Versione**: _N.N.N_
+_(puoi trovare la versione premendo Shift+Ctrl+D durante l'esecuzione)_
 
-**Sistema**: ...
-Windows, MacOS, Web o Linux
+**Session GUID**: _1111111-2222-3333-aaaa-bbbbbbcccccc_
+_(puoi trovare il session GUID premendo Shift+Ctrl+D durante l'esecuzione, e usando il tasto "copia session guid")_
+
+**Hai lanciato il gioco da Unity?**: _Sì/No_
+
+**Se sì, il commit che stai usando:** _111122223333444455556666aaaabbbbccccdddd_
+_puoi trovarlo lanciando da riga di comando, nella stessa directory del repository GIT del gioco, il comando:_
+```
+git rev-parse HEAD
+```
+_e copiando l'output._
+
+**Sistema**: _Tostapane_
+_(Windows, MacOS, Web o Linux)_
 
 **Descrivi il bug**
-A clear and concise description of what the bug is.
+Una descrizione chiara e concisa del bug.
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+**Per riprodurre**
+Passaggi per riprodurre il bug:
+1. Vai a '...'
+2. Clicca su '....'
+3. Fai scroll giù fino a '....'
+4. Vedi l'errore
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**Comportamento previsto**
+Una descrizione chiara e concisa di cosa ti saresti aspettat*.
 
 **Screenshots**
-If applicable, add screenshots to help explain your problem.
+Se applicabile, degli screenshot che mostrino il problema.
 
 **Additional context**
-Add any other context about the problem here.
+Qualunque altra informazione addizionale o contesto che possa aiutare.

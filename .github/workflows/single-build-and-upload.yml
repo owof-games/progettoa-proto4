@@ -49,7 +49,6 @@ jobs:
   versioning:
     runs-on: ['self-hosted', 'Linux']
     name: Upload for ${{ inputs.name }}
-    needs: build
     steps:
       - name: Setup butler
         uses: remarkablegames/setup-butler@v1

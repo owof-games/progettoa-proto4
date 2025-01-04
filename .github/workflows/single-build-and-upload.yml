@@ -53,7 +53,9 @@ jobs:
       - name: Setup butler
         uses: remarkablegames/setup-butler@v1
       - name: Get latest version
-        run: butler status ${{ inputs.channel }}/${{ inputs.project_name }}
+        run: butler status ${{ vars.ITCH_USER }}/${{ inputs.project_name }}
+        env:
+          BUTLER_API_KEY: ${{ secrets.BUTLER_CREDENTIALS }}
 #  build:
 #    runs-on: ${{ fromJson(inputs.tags) }}
 #    name: Build for ${{ inputs.name }}

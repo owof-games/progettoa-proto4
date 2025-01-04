@@ -25,7 +25,7 @@ on:
         description: Enable development mode
       version:
         type: string
-        required: true
+        required: false
         description: Version of the build
 
 jobs:

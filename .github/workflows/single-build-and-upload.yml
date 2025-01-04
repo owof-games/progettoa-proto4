@@ -47,7 +47,7 @@ on:
         required: true
 jobs:
   versioning:
-    runs-on: ['self-hosted', 'Linux']
+    runs-on: ubuntu-latest
     name: Upload for ${{ inputs.name }}
     steps:
       - name: Setup butler

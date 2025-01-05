@@ -16,6 +16,7 @@ namespace Components.DebugCanvas
         [SerializeField] private TextMeshProUGUI sessionGuidTextMeshPro;
         [SerializeField] private Button copySessionGuidButton;
         [SerializeField] private TextMeshProUGUI copySessionGuidTextMeshProUGUI;
+        [SerializeField] private TMP_InputField remoteLoggerInputField;
 
         private string _originalCopySessionGuidText;
 
@@ -24,7 +25,13 @@ namespace Components.DebugCanvas
         {
             container.SetActive(false);
             copySessionGuidButton.onClick.AddListener(OnCopySessionGuidClicked);
+            remoteLoggerInputField.onValueChanged.AddListener(OnRemoteLoggerInputFieldValueChanged);
             _originalCopySessionGuidText = copySessionGuidTextMeshProUGUI.text;
+        }
+
+        private void OnRemoteLoggerInputFieldValueChanged(string text)
+        {
+            RemoteLogger.RemoteLogger.RemoteLoggerUrl = text;
         }
 
         private void OnCopySessionGuidClicked()
@@ -46,6 +53,7 @@ namespace Components.DebugCanvas
                 versionTextMeshPro.text = $"Version: {Application.version}";
                 sessionGuidTextMeshPro.text = "Session GUID: " + RemoteLogger.RemoteLogger.SessionGuid;
                 copySessionGuidButton.GetComponentInChildren<TextMeshProUGUI>().text = _originalCopySessionGuidText;
+                remoteLoggerInputField.text = RemoteLogger.RemoteLogger.RemoteLoggerUrl;
             }
         }
 
@@ -54,11 +62,16 @@ namespace Components.DebugCanvas
             OnContinueAsync(flowName).Forget();
         }
 
+        private static string GetFlowName(string flowName)
+        {
+            return string.IsNullOrWhiteSpace(flowName) ? "DEFAULT" : flowName;
+        }
+
         private static async UniTaskVoid OnContinueAsync(string flowName)
         {
             try
             {
-                await RemoteLogger.RemoteLogger.Log($"Continue on flow {flowName}", new[]
+                await RemoteLogger.RemoteLogger.Log($"Continue on flow '{GetFlowName(flowName)}'", new[]
                 {
                     ("operation", "continue"),
                     ("flowName", flowName)
@@ -79,12 +92,13 @@ namespace Components.DebugCanvas
         {
             try
             {
-                await RemoteLogger.RemoteLogger.Log($"Take choice {choice.ChoiceIndex} on flow {choice.FlowName}", new[]
-                {
-                    ("operation", "choice"),
-                    ("flowName", choice.FlowName),
-                    ("choiceIndex", choice.ChoiceIndex.ToString())
-                });
+                await RemoteLogger.RemoteLogger.Log(
+                    $"Take choice {choice.ChoiceIndex} on flow {GetFlowName(choice.FlowName)}", new[]
+                    {
+                        ("operation", "choice"),
+                        ("flowName", choice.FlowName),
+                        ("choiceIndex", choice.ChoiceIndex.ToString())
+                    });
             }
             catch (Exception e)
             {

@@ -12,39 +12,35 @@ namespace Components.RemoteLogger
     public static class RemoteLogger
     {
         public const string GameName = "Loop Proto 4";
-        public static string RemoteLoggerUrl = "https://game-logger.foxthesystem.space";
+
+        public static string RemoteLoggerUrl =
+            "https://game-logger.foxthesystem.space/api/logs/{gameName}/{version}/{saveGuid}/{sessionGuid}";
 
         public static string SessionGuid { get; } = Guid.NewGuid().ToString();
 
         public static async ValueTask Log(string message, IEnumerable<(string, string)> metadata)
         {
-            // var formData = new List<IMultipartFormSection>
-            // {
-            //     new MultipartFormDataSection("message", message),
-            //     new MultipartFormDataSection("gameName", GameName),
-            //     new MultipartFormDataSection("version", Application.version),
-            //     new MultipartFormDataSection("sessionGuid", sessionGuid)
-            // };
-            // formData.AddRange(metadata.Select(entry =>
-            //     new MultipartFormDataSection(
-            //         string.IsNullOrEmpty(entry.Item2) ? "-" + entry.Item1 : entry.Item1,
-            //         string.IsNullOrEmpty(entry.Item2) ? "<<<empty>>>" : entry.Item2)));
-
             // create the JSON for the log entry
             var logEntry = new LogEntry
             {
                 message = message,
-                gameName = GameName,
-                version = Application.version,
-                saveGuid = "",
-                sessionGuid = SessionGuid,
-                metadata = metadata.Select(entry => new[] { entry.Item1, entry.Item2 }).ToArray()
+                // gameName = GameName,
+                // version = Application.version,
+                // saveGuid = "",
+                // sessionGuid = SessionGuid,
+                metadata = metadata.Select(entry =>
+                    new LogEntryMetadata { key = entry.Item1, value = entry.Item2 }).ToArray()
             };
             var json = JsonUtility.ToJson(logEntry);
             var jsonToSend = Encoding.UTF8.GetBytes(json);
 
             // create the web request
-            var unityWebRequest = new UnityWebRequest(RemoteLoggerUrl, "POST");
+            var url = RemoteLoggerUrl
+                .Replace("{gameName}", Application.productName)
+                .Replace("{version}", Application.version)
+                .Replace("{saveGuid}", SessionGuid)
+                .Replace("{sessionGuid}", SessionGuid);
+            var unityWebRequest = new UnityWebRequest(url, "POST");
             unityWebRequest.uploadHandler = new UploadHandlerRaw(jsonToSend);
             unityWebRequest.downloadHandler = new DownloadHandlerBuffer();
             unityWebRequest.SetRequestHeader("Content-Type", "application/json");
@@ -67,7 +63,14 @@ namespace Components.RemoteLogger
             public string sessionGuid;
 
             // ReSharper disable once InconsistentNaming
-            public string[][] metadata;
+            public LogEntryMetadata[] metadata;
+        }
+
+        [Serializable]
+        private struct LogEntryMetadata
+        {
+            public string key;
+            public string value;
         }
     }
 }

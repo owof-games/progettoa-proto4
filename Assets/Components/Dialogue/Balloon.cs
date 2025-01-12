@@ -1,9 +1,11 @@
 using System;
 using Components.Balloon;
 using Components.RoomTransitionHandler;
+using Febucci.UI.Core;
 using JetBrains.Annotations;
 using TMPro;
 using UnityAtoms.BaseAtoms;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
@@ -15,6 +17,7 @@ namespace Components.Dialogue
         // the current balloon if it has choices, or null if there's no current balloon or if it has no choices
         // see AdvanceDialogue
         [CanBeNull] public static Balloon CurrentBalloonWithChoices;
+        [CanBeNull] public static Balloon CurrentBalloon;
         [SerializeField] private BalloonData balloonData;
         [SerializeField] private Image backgroundImage;
         [SerializeField] private TextMeshProUGUI textMeshProUGUI;
@@ -24,6 +27,12 @@ namespace Components.Dialogue
         [SerializeField] private RectTransform choicesContainer;
         [SerializeField] private RectTransform container;
         [SerializeField] private LayoutElement layoutElement;
+        [SerializeField] private StoryStateConstant storyStateTalking;
+        [SerializeField] private StoryStateVariable currentStoryState;
+        [SerializeField] private IntReference numCharactersMoving;
+        private SingleChoice _currentChoice;
+
+        private bool _isWriting;
         private bool _showAdvance;
 
         private void Awake()
@@ -39,6 +48,21 @@ namespace Components.Dialogue
         {
             if (!advanceButton) advanceButton = transform.Find("Advance Button").gameObject;
             if (!layoutElement) layoutElement = GetComponent<LayoutElement>();
+
+            if (!storyStateTalking)
+                storyStateTalking =
+                    AssetDatabase.LoadAssetAtPath<StoryStateConstant>(
+                        "Assets/Components/Story/Lines/StoryStateTalking.asset");
+
+            if (!currentStoryState)
+                currentStoryState =
+                    AssetDatabase.LoadAssetAtPath<StoryStateVariable>(
+                        "Assets/Components/Story/Lines/CurrentStoryState.asset");
+
+            if (!continueEvent)
+                continueEvent =
+                    AssetDatabase.LoadAssetAtPath<StringEvent>(
+                        "Assets/Components/Story/Ink Atoms Story - Continue Event.asset");
         }
 #endif
 
@@ -72,29 +96,68 @@ namespace Components.Dialogue
             if (hasChoices)
             {
                 var choiceIndex = 0;
+                SingleChoice sc = null;
                 foreach (var choice in choices)
                 {
-                    CreateSingleChoice(choice, choiceIndex);
+                    var singleChoice = CreateSingleChoice(choice, choiceIndex);
+                    if (sc == null) sc = singleChoice;
+
                     choiceIndex++;
                 }
 
                 _showAdvance = false;
                 CurrentBalloonWithChoices = this;
+                _currentChoice = sc;
             }
             else
             {
                 _showAdvance = true;
                 CurrentBalloonWithChoices = null;
+                _currentChoice = null;
             }
+
+            CurrentBalloon = this;
         }
 
-        private void CreateSingleChoice(string choice, int choiceIndex)
+        /// <summary>
+        ///     Called to ask the current balloon (if any) to go to the end of the current balloon (if the text is running),
+        ///     to move to the next balloon (if the text is at the end) or to pick the first choice (if there's a choice)
+        /// </summary>
+        public static void MoveNext()
+        {
+            CurrentBalloon?.MoveNextInternal();
+        }
+
+        public void MoveNextInternal()
+        {
+            if (!storyStateTalking.Value.Equals(currentStoryState.Value) || numCharactersMoving.Value > 0) return;
+
+            if (_isWriting)
+                GetComponentInChildren<TypewriterCore>().SkipTypewriter();
+            else if (_currentChoice != null)
+                _currentChoice.OnClick();
+            else
+                OnAdvanceButtonClick();
+        }
+
+        public void OnTextShowed()
+        {
+            _isWriting = false;
+        }
+
+        public void OnTypewriterStart()
+        {
+            _isWriting = true;
+        }
+
+        private SingleChoice CreateSingleChoice(string choice, int choiceIndex)
         {
             var singleChoiceInstance = Instantiate(singleChoicePrefab, choicesContainer);
             var singleChoice = singleChoiceInstance.GetComponent<SingleChoice>();
             singleChoice.SetText(choice);
             singleChoice.Register(() => TakeChoice(choiceIndex));
             if (choiceIndex == 0) singleChoice.Focus();
+            return singleChoice;
         }
 
         public void SetText(string text)

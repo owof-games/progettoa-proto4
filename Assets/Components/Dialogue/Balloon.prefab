@@ -184,17 +184,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useTypeWriter: 1
   startTypewriterMode: 3
-  hideAppearancesOnSkip: 0
-  hideDisappearancesOnSkip: 0
+  hideAppearancesOnSkip: 1
+  hideDisappearancesOnSkip: 1
   triggerEventsOnSkip: 0
   resetTypingSpeedAtStartup: 1
   disappearanceOrientation: 0
   onTextShowed:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7664197735825302756}
+        m_TargetAssemblyTypeName: Components.Dialogue.Balloon, Assembly-CSharp
+        m_MethodName: OnTextShowed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onTypewriterStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7664197735825302756}
+        m_TargetAssemblyTypeName: Components.Dialogue.Balloon, Assembly-CSharp
+        m_MethodName: OnTypewriterStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onTextDisappeared:
     m_PersistentCalls:
       m_Calls: []
@@ -692,6 +716,14 @@ MonoBehaviour:
   choicesContainer: {fileID: 2064204461409268787}
   container: {fileID: 138030533244277261}
   layoutElement: {fileID: 7169472281793527819}
+  storyStateTalking: {fileID: 11400000, guid: f983d5e69a958d447a8117867e2a69e4, type: 2}
+  currentStoryState: {fileID: 11400000, guid: 15f13ae7eb0e5574f8f1abd68f45d19b, type: 2}
+  numCharactersMoving:
+    _usage: 0
+    _value: 0
+    _constant: {fileID: 0}
+    _variable: {fileID: 0}
+    _variableInstancer: {fileID: 0}
 --- !u!114 &7169472281793527819
 MonoBehaviour:
   m_ObjectHideFlags: 0

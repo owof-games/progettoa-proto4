@@ -62,6 +62,8 @@ namespace Components.Dialogue
 
         public void OnClick()
         {
+            if (!GetComponent<Button>().interactable) return;
+
             onClick?.Invoke();
         }
 

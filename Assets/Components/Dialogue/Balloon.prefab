@@ -719,10 +719,10 @@ MonoBehaviour:
   storyStateTalking: {fileID: 11400000, guid: f983d5e69a958d447a8117867e2a69e4, type: 2}
   currentStoryState: {fileID: 11400000, guid: 15f13ae7eb0e5574f8f1abd68f45d19b, type: 2}
   numCharactersMoving:
-    _usage: 0
+    _usage: 2
     _value: 0
     _constant: {fileID: 0}
-    _variable: {fileID: 0}
+    _variable: {fileID: 11400000, guid: c8ad7a4b89d34ea418d7976712ec1208, type: 2}
     _variableInstancer: {fileID: 0}
 --- !u!114 &7169472281793527819
 MonoBehaviour:

@@ -33,6 +33,9 @@ namespace Components.Dialogue
         private SingleChoice _currentChoice;
 
         private bool _isWriting;
+        private Action _onDone;
+
+        private bool _shouldShowAdvanceButton;
         private bool _showAdvance;
 
         private void Awake()
@@ -67,7 +70,7 @@ namespace Components.Dialogue
 #endif
 
         public void SetUp(Character.Character character, Direction direction, [CanBeNull] string[] choices = null,
-            bool smallChoices = true)
+            bool smallChoices = true, Action onDone = null)
         {
             var characterInfo = balloonData.GetCharacterInfo(character);
             var hasChoices = choices is { Length: > 0 };
@@ -116,6 +119,7 @@ namespace Components.Dialogue
                 _currentChoice = null;
             }
 
+            _onDone = onDone;
             CurrentBalloon = this;
         }
 
@@ -143,6 +147,8 @@ namespace Components.Dialogue
         public void OnTextShowed()
         {
             _isWriting = false;
+            _onDone?.Invoke();
+            UpdateShowAdvanceButton();
         }
 
         public void OnTypewriterStart()
@@ -171,7 +177,12 @@ namespace Components.Dialogue
         public void ShowAdvanceButton(bool show = true)
         {
             if (!_showAdvance && show) return;
-            advanceButton.SetActive(show);
+            _shouldShowAdvanceButton = show;
+        }
+
+        private void UpdateShowAdvanceButton()
+        {
+            advanceButton.SetActive(_shouldShowAdvanceButton);
         }
 
         public void OnAdvanceButtonClick()

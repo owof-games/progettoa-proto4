@@ -158,30 +158,29 @@ namespace Components.Dialogue
             if (!string.IsNullOrEmpty(text))
             {
                 var dialogueRow = CreateAndGetDialogueRow();
-                dialogueRow.SetUp(character, _columnRemapper[column], text, showAdvance);
-            }
-
-            if (choices is { Length: > 0 })
-            {
-                var dialogueRow = CreateAndGetDialogueRow();
-                var choicesArray = (from choice in choices
-                    let choiceText = choice.text
-                    let finalText = (choiceText.ToLower().StartsWith("ettore:")
-                        ? choiceText["ettore:".Length..]
-                        : choiceText).Trim()
-                    select finalText).ToArray();
-                dialogueRow.SetUp(Character.Character.Ettore, 2, null, false,
-                    choicesArray,
-                    choicesArray.Select(c => c.Length).Sum() < choicesTotalLengthBreakpoint);
-                dialogueRow.ChoiceTaken += choiceIndex =>
+                dialogueRow.SetUp(character, _columnRemapper[column], text, showAdvance, onDone: () =>
                 {
-                    var choice = choices[choiceIndex];
-                    chosenChoiceEvent.Raise(new ChosenChoice
+                    if (choices is not { Length: > 0 }) return;
+                    var choicesDialogueRow = CreateAndGetDialogueRow();
+                    var choicesArray = (from choice in choices
+                        let choiceText = choice.text
+                        let finalText = (choiceText.ToLower().StartsWith("ettore:")
+                            ? choiceText["ettore:".Length..]
+                            : choiceText).Trim()
+                        select finalText).ToArray();
+                    choicesDialogueRow.SetUp(Character.Character.Ettore, 2, null, false,
+                        choicesArray,
+                        choicesArray.Select(c => c.Length).Sum() < choicesTotalLengthBreakpoint);
+                    choicesDialogueRow.ChoiceTaken += choiceIndex =>
                     {
-                        ChoiceIndex = choice.index,
-                        FlowName = null
-                    });
-                };
+                        var choice = choices[choiceIndex];
+                        chosenChoiceEvent.Raise(new ChosenChoice
+                        {
+                            ChoiceIndex = choice.index,
+                            FlowName = null
+                        });
+                    };
+                });
             }
         }
 

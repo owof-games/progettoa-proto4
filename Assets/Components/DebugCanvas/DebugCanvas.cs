@@ -72,10 +72,11 @@ namespace Components.DebugCanvas
             try
             {
                 await RemoteLogger.RemoteLogger.Log($"Continue on flow '{GetFlowName(flowName)}'", new[]
-                {
-                    ("operation", "continue"),
-                    ("flowName", flowName)
-                });
+                    {
+                        ("operation", "continue"),
+                        ("flowName", flowName)
+                    },
+                    "ink");
             }
             catch (Exception e)
             {
@@ -98,7 +99,8 @@ namespace Components.DebugCanvas
                         ("operation", "choice"),
                         ("flowName", choice.FlowName),
                         ("choiceIndex", choice.ChoiceIndex.ToString())
-                    });
+                    },
+                    "ink");
             }
             catch (Exception e)
             {

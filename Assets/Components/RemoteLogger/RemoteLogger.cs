@@ -18,16 +18,13 @@ namespace Components.RemoteLogger
 
         public static string SessionGuid { get; } = Guid.NewGuid().ToString();
 
-        public static async ValueTask Log(string message, IEnumerable<(string, string)> metadata)
+        public static async ValueTask Log(string message, IEnumerable<(string, string)> metadata, string category)
         {
             // create the JSON for the log entry
             var logEntry = new LogEntry
             {
                 message = message,
-                // gameName = GameName,
-                // version = Application.version,
-                // saveGuid = "",
-                // sessionGuid = SessionGuid,
+                category = category,
                 metadata = metadata.Select(entry =>
                     new LogEntryMetadata { key = entry.Item1, value = entry.Item2 }).ToArray()
             };
@@ -57,10 +54,7 @@ namespace Components.RemoteLogger
         private struct LogEntry
         {
             public string message;
-            public string gameName;
-            public string version;
-            public string saveGuid;
-            public string sessionGuid;
+            public string category;
 
             // ReSharper disable once InconsistentNaming
             public LogEntryMetadata[] metadata;

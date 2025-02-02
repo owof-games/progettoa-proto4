@@ -155,33 +155,34 @@ namespace Components.Dialogue
         private void OnText(Character.Character character, string text, bool showAdvance, int column,
             Choice[] choices = null)
         {
-            if (!string.IsNullOrEmpty(text))
+            // if (!string.IsNullOrEmpty(text))
+            // {
+            var dialogueRow = CreateAndGetDialogueRow();
+
+            void OnDone()
             {
-                var dialogueRow = CreateAndGetDialogueRow();
-                dialogueRow.SetUp(character, _columnRemapper[column], text, showAdvance, onDone: () =>
+                if (choices is not { Length: > 0 }) return;
+                var choicesDialogueRow = CreateAndGetDialogueRow();
+                var choicesArray = (from choice in choices
+                    let choiceText = choice.text
+                    let finalText = (choiceText.ToLower().StartsWith("ettore:")
+                        ? choiceText["ettore:".Length..]
+                        : choiceText).Trim()
+                    select finalText).ToArray();
+                choicesDialogueRow.SetUp(Character.Character.Ettore, 2, null, false, choicesArray,
+                    choicesArray.Select(c => c.Length).Sum() < choicesTotalLengthBreakpoint);
+                choicesDialogueRow.ChoiceTaken += choiceIndex =>
                 {
-                    if (choices is not { Length: > 0 }) return;
-                    var choicesDialogueRow = CreateAndGetDialogueRow();
-                    var choicesArray = (from choice in choices
-                        let choiceText = choice.text
-                        let finalText = (choiceText.ToLower().StartsWith("ettore:")
-                            ? choiceText["ettore:".Length..]
-                            : choiceText).Trim()
-                        select finalText).ToArray();
-                    choicesDialogueRow.SetUp(Character.Character.Ettore, 2, null, false,
-                        choicesArray,
-                        choicesArray.Select(c => c.Length).Sum() < choicesTotalLengthBreakpoint);
-                    choicesDialogueRow.ChoiceTaken += choiceIndex =>
-                    {
-                        var choice = choices[choiceIndex];
-                        chosenChoiceEvent.Raise(new ChosenChoice
-                        {
-                            ChoiceIndex = choice.index,
-                            FlowName = null
-                        });
-                    };
-                });
+                    var choice = choices[choiceIndex];
+                    chosenChoiceEvent.Raise(new ChosenChoice { ChoiceIndex = choice.index, FlowName = null });
+                };
             }
+
+            if (text == "")
+                OnDone();
+            else
+                dialogueRow.SetUp(character, _columnRemapper[column], text, showAdvance, onDone: OnDone);
+            // }
         }
 
         private DialogueRow CreateAndGetDialogueRow()

@@ -168,7 +168,7 @@ namespace Components.Dialogue
 
         public void SetText(string text)
         {
-            if (!string.IsNullOrEmpty(text))
+            if (text != null)
                 textMeshProUGUI.text = text;
             else
                 textMeshProUGUI.gameObject.SetActive(false);

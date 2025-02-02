@@ -26,6 +26,20 @@ namespace Components.Dialogue
         }
 #endif
 
+        /// <summary>
+        ///     This method can be called with both choices and text, but it's actually only called with choices OR with
+        ///     text, but not with both.
+        /// </summary>
+        /// <param name="character"></param>
+        /// <param name="column"></param>
+        /// <param name="text">If it's <c>null</c>, just displays the choices and no text box.</param>
+        /// <param name="showAdvance"></param>
+        /// <param name="choices">If it's <c>null</c>, don't display any choice.</param>
+        /// <param name="smallChoices"></param>
+        /// <param name="onDone">
+        ///     Method called once the text is completely displayed (if text is different from
+        ///     <c>null</c>, but including when it's empty string)
+        /// </param>
         public void SetUp(Character.Character character, int column, string text, bool showAdvance,
             [CanBeNull] string[] choices = null, bool smallChoices = true, Action onDone = null)
         {

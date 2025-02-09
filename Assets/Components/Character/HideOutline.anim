@@ -23,7 +23,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -42,10 +42,10 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: _color.a
+    attribute: alpha
     path: 
     classID: 114
-    script: {fileID: 11500000, guid: 4218d78ef2d54d0898b7514e121a781f, type: 3}
+    script: {fileID: 11500000, guid: a61e82ade03c01241928accc28e65fa9, type: 3}
     flags: 0
   m_PPtrCurves: []
   m_SampleRate: 60
@@ -57,8 +57,8 @@ AnimationClip:
     genericBindings:
     - serializedVersion: 2
       path: 0
-      attribute: 4086844465
-      script: {fileID: 11500000, guid: 4218d78ef2d54d0898b7514e121a781f, type: 3}
+      attribute: 3504355690
+      script: {fileID: 11500000, guid: a61e82ade03c01241928accc28e65fa9, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
@@ -92,7 +92,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -111,10 +111,10 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: _color.a
+    attribute: alpha
     path: 
     classID: 114
-    script: {fileID: 11500000, guid: 4218d78ef2d54d0898b7514e121a781f, type: 3}
+    script: {fileID: 11500000, guid: a61e82ade03c01241928accc28e65fa9, type: 3}
     flags: 0
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0

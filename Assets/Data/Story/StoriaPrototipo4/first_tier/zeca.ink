@@ -183,7 +183,7 @@ Opzioni di dialogo con il personaggio Zeca
                     -> zeca_acting
     
     
-    + [Conosci meglio Zeca]
+    + [Chiedi a Zeca di raccontarti qualcosa di sè]
         -> esplora_zeca_personaggia
     + [Te ne vai]
         -> intro

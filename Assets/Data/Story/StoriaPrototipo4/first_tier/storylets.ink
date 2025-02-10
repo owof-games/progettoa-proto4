@@ -90,7 +90,7 @@
             + Ettore: Salve a tutti!
             + Ettore: Interessante: chi posso spingere dal grattacielo?
             -
-        Matteo: <joy>Amore!</joy> Non ti avevo sentito proprio arrivare!
+        Matteo: <joy>Amore!</joy> Non ti avevo proprio sentito arrivare!
         Matteo: Fratelli, sorella, Greta.
         Greta: Fottiti.
             -> advance_time ->
@@ -536,7 +536,6 @@ Ettore: Cos
 
 {
     - are_two_entities_together(Ettore, Elia) or are_two_entities_together(Ettore, Greta) or are_two_entities_together(Ettore, Zeca): -> quickTalk
-    -else: ->->
 }
     + (matteoGreta)Ettore: Matteo, così mi preoccupi.
     -
@@ -588,6 +587,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
             ~ change_status(Paola, PaolaLive)
             ~ move_first_entity_to_second_entity_location(Paola,Ettore)
         Paola: <cry>Stop stop stop maledizione!</cry>
+        Paola: Non siete attori, siete <cry>CAPRE!</cry>
             ~ move_first_entity_to_second_entity_location(Greta,Ettore)
         Paola: <cry>Sant'iddio Greta, dove hai messo tutti i cazzo di oggetti? Mettili al loro posto, ora!</cry>
             ~ move_this_entity_in_a_different_room(Greta)
@@ -707,6 +707,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Greta: Ma poi qui ci sono motivi a sufficienza per tutti!
         Greta: Quindi nel tuo piano tutti hanno ucciso Paola?
         Greta: <rage>Paola<waitrage> mi<waitrage> rispondi?!?</rage>
+            ~ move_first_entity_to_second_entity_location(Ettore,Paola)
 //Grida di chi è in scena
         {
         - are_two_entities_together(Elia, Paola):

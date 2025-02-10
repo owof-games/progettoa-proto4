@@ -170,7 +170,8 @@ Opzioni di dialogo con il personaggio Greta
         Greta: <cry>No.</cry>
             ~ pauseStorylet = true
 
-    + [Conosci meglio Greta] -> esplora_greta_personaggia
+    + [Chiedi a Greta di raccontarti qualcosa di sè]
+        -> esplora_greta_personaggia
     + [Te ne vai]
         -> intro
       

@@ -224,7 +224,7 @@ Opzioni di dialogo con il personaggio Elia
             ~ pauseStorylet = true
             -> advance_time ->
     
-    + [Prova ad avere una conversazione con Elia]
+    + [Chiedi a Elia di raccontarti qualcosa di sè]
         -> esplora_elia_personaggia   
            
     + [Ti allontani]

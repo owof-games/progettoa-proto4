@@ -22,7 +22,7 @@ Opzioni di dialogo con il personaggio Matteo
     -> first_tier_storylets ->
     //INFO GENERALI//
 
-    + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Amore, non mi hai mai parlato molto di Paola. Eravate legati?
+    + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Amore tu e Paola eravate davvero legati?
                     ~ inConversazione += Matteo
         Matteo: Sai come sono: lavoro lavoro lavoro.
         Matteo: Ogni tanto mi chiamava, ma non avevo mai tempo per rispondere.
@@ -154,7 +154,8 @@ Opzioni di dialogo con il personaggio Matteo
                 ~ pauseStorylet = true
                 -> matteo_acting 
       
-    + [Chiacchiera un po' con Matteo] -> esplora_matteo_personaggia
+    + [Chiedi a Matteo di raccontarti qualcosa di sè]
+        -> esplora_matteo_personaggia
     + [Te ne vai]
         -> intro
     -

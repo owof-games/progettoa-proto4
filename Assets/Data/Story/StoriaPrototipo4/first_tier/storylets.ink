@@ -597,7 +597,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
             ~ move_first_entity_to_second_entity_location(Matteo,Ettore)
         Elia: Cerca di trovare la limetta più avanti possibile perché è quella l'arma del delitto!
         Paola: <cry>Elia, imbecille!</cry> Ora vi tocca improvvisare, l'arma sarà un'altra.
-        Paola: Mi spiace per il livello di non professionalismo, Ettore.
+        Paola: Mi spiace per la mancanza di professionalità, Ettore.
             ~ move_first_entity_to_second_entity_location(Greta,Ettore)
         Greta: Oggetti sistemati!
             ~ currentTime = currentTime + 15
@@ -611,6 +611,11 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
             ~ move_entity(Torta, YellowRoom)
             ~ move_entity(Briciole, ObjectStorage)
         Paola: Due minuti e poi si riparte dall'omicidio!
+        Paola: Dimenticavo: Ettore, ricorda che la sera dello spettacolo il tuo personaggio rivivrà queste scene più volte.
+        Paola: A differenza di questi cretini, intrappolati in un loop.
+        Paola: Ma d'altronde ci sono abituati, coi microcervelli che si ritrovano.
+        Paola: Quindi già da adesso tieni conto delle indicazioni che ti hanno dato questo ammasso di imbecilli coi loro personaggi.
+        Paola: Tanto sono sicura che non sarà la prima volta che dovrò bloccare queste cazzo di prove.
             ~ peopleTalking = true
             ~ activeObjects = true
             ~ move_this_entity_in_a_different_room(Greta)

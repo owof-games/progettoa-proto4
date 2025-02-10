@@ -20,7 +20,8 @@ Opzioni di dialogo con il personaggio Greta
     ~ move_locked_entities()
     -> first_tier_storylets ->
     //INFO GENERALI//
-
+    {debug: seen in this loop omicidio = {seen_in_this_loop(->omicidio)}, Greta e Elia sono assieme o meno {are_two_entities_together(Greta, Elia)}, loopable variables non ha EliaRaggiungeGreta {loopableVariables has EliaRaggiungeGreta} e abbiamo visto (elia) in questo loop {seen_in_this_loop(->elia)}}
+    
     + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Che rapporto avevi con Paola?
                 ~ inConversazione += Greta
         Greta: Che rapporto avevi con Paola?
@@ -48,7 +49,7 @@ Opzioni di dialogo con il personaggio Greta
                 -> greta_acting
 
         
-    + (omicidio) {new_this_loop(->omicidio)} Ettore: Secondo te chi ha ucciso Paola?
+    + (omicidio) {new_this_loop(->omicidio) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Secondo te chi ha ucciso Paola?
             Greta: Un essere senza cuore, incapace di provare sentimenti.
             Greta: Destinato a osservare il mondo da un angolo buio, provando odio e rancore eterno.
             Greta: Spendendo ore su ore a immaginare modi atroci per distruggere sé stesso e il resto del mondo.
@@ -65,7 +66,7 @@ Opzioni di dialogo con il personaggio Greta
     
     //SCELTE CONDIZIONALI//
 
-    + (elia) {seen_in_this_loop(->omicidio) && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta && seen_in_this_loop(->elia)}  Ettore: Non sono ancora riuscito a convincere Elia.
+    + (elia) {seen_in_this_loop(->omicidio) && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta && not seen_in_this_loop(->elia)}  Ettore: Non sono ancora riuscito a convincere Elia.
             Greta: Mi stupisce: quel ragazzo {~ha il cervello di un pesce bollito|ha smesso di ragionare nel novantasei|ha un unico neurone, ed è disperso dall'undici settembre|crede che la noce moscata sia un insetto}, non deve essere difficile!
     
     + (paolaPerfetta) {loopableVariables has EliaRaggiungeGreta} Ettore: Ho fatto quello che mi hai chiesto, Greta.

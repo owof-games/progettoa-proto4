@@ -53,7 +53,7 @@ Opzioni di dialogo con il personaggio Elia
    
     //SCELTE CONDIZIONALI//
 
-    + (senzatetto){greta_acting.omicidio && new_this_loop(->senzatetto) && not are_two_entities_together(Greta, Elia)} Ettore: Sai Elia, Greta vorrebbe parlare con te.
+    * (senzatetto){greta_acting.omicidio && new_this_loop(->senzatetto) && not are_two_entities_together(Greta, Elia) && new_this_loop(-> uniti)} Ettore: Sai Elia, Greta vorrebbe parlare con te.
         Elia: Così può uccidere anche me?
          + + Ettore: In che senso?
             Elia: Chi altri avrebbe potuto uccidere Paola?
@@ -66,7 +66,7 @@ Opzioni di dialogo con il personaggio Elia
                 ~ pauseStorylet = true
                 -> advance_time ->
 
-        + + (uniti){weddingAtThePubStorylet && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && new_this_loop(->uniti)} Ettore: Ho una proposta da farti.
+    + (uniti){weddingAtThePubStorylet && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && new_this_loop(->uniti)} Ettore: Ho una proposta da farti.
             Ettore: Io faccio una cosa per te, e tu vai da Greta. Che ne dici?
             Elia: Qualcosa a che fare con la mia micia?
             Elia: Perché ormai non credo più a nessuno che vuole toccare la mia micia.
@@ -80,7 +80,7 @@ Opzioni di dialogo con il personaggio Elia
                 ~ pauseStorylet = true
                 -> advance_time ->   
     
-        + + {not new_this_loop(->uniti) && elia_acting.uniti && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Sto ancora cercando il modo di convincere Matteo, ma ce la farò!
+    + {not new_this_loop(->uniti) && elia_acting.uniti && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Sto ancora cercando il modo di convincere Matteo, ma ce la farò!
             Elia: Non ho fretta di morire, tranquillo!
 
   

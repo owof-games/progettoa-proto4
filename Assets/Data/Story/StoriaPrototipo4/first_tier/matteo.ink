@@ -86,7 +86,7 @@ Opzioni di dialogo con il personaggio Matteo
                 ~ pauseStorylet = true
                     -> matteo_acting 
                     
-    + {new_this_loop(->hardTrueFeelingsStorylet)} {elia_acting.uniti && not are_four_entities_together(Greta, Elia, Matteo, Zeca)} Ettore: Amore, avrei un favore da chiederti in merito al matrimonio.
+    + {new_this_loop(->hardTrueFeelingsStorylet)} {elia_acting.uniti && not are_two_entities_together(Greta, Matteo)} Ettore: Amore, avrei un favore da chiederti in merito al matrimonio.
         ->hardTrueFeelingsStorylet->
             
         

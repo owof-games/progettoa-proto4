@@ -63,8 +63,8 @@ Opzioni di dialogo con il personaggio Elia
             Elia: Per cui se sei un suo semplice, <cry>vattene!</cry>
             Ettore: Semplice?
             Elia: Hai capito. <cry>Via!</cry>
-                ~ pauseStorylet = true
                 -> advance_time ->
+                ~ pauseStorylet = true
 
     + (uniti){weddingAtThePubStorylet && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && new_this_loop(->uniti)} Ettore: Ho una proposta da farti.
             Ettore: Io faccio una cosa per te, e tu vai da Greta. Che ne dici?

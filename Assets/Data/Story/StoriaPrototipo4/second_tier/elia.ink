@@ -18,7 +18,7 @@ Opzioni di dialogo con la persona Elia
 
 === elia_talking_second_tier
 {debug: <i>Passo per elia_talking_second_tier</i>}
-~ move_locked_entities()
+~ move_locked_entities(false)
 -> second_tier_storylets ->
 {loopableVariables has pausaRapportoElia: Elia: Sei cattivo, vai via! -> intro.}
     //INFO GENERALI//

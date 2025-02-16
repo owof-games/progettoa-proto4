@@ -35,6 +35,7 @@ VAR entityToMove2 = ()
 VAR destinationEntityToMove2 = ()
 
 === function move_entity(entity, destination)
+DEBUG: sposto {entity} in {destination}; inConversazione={inConversazione}
 { inConversazione has entity:
     // a conversation is in place: save the movement and let move_locked_entities perform the move operation later on
     {
@@ -99,17 +100,30 @@ VAR destinationEntityToMove2 = ()
 /*
 Se ci sono personaggi che erano bloccati nello spostamento da una conversazione, questa funzione li sposta.
 Marca anche tutti i personaggi come "non più in conversazione".
-Chiamata da "intro".
+Chiamata da "intro" e da tutti i "personaggio_talking_number_tier" (per permettere agli ALTRI personaggi di spostarsi mentre una conversazione è in corso)
+conversation_has_finished: true se siamo in intro (la conversazione che avevamo è finita), false se siamo nel loop di conversazione di un personaggio 
 */
-=== function move_locked_entities()
-~ inConversazione = ()
-{ entityToMove1:
+=== function move_locked_entities(conversation_has_finished)
+// svuota i personaggi con cui sto parlando solo se la conversazione è finita (questa funziona viene chiamata da intro e non durante un loop di dialogo)
+{conversation_has_finished:
+    ~ inConversazione = ()
+}
+// sposta la personaggia 1 solo se a) c'è effettivamente una personaggia da spostare ("entityToMove1"), e b) tra le personagge che parlano non c'è questa entità ("inConversazione hasnt entityToMove1")
+{ entityToMove1 and inConversazione hasnt entityToMove1:
     ~ move_entity(entityToMove1, destinationEntityToMove1)
     ~ entityToMove1 = ()
     ~ destinationEntityToMove1 = ()
 }
-{ entityToMove2:
+// identico a sopra, per entità 2
+{ entityToMove2 and inConversazione hasnt entityToMove2:
     ~ move_entity(entityToMove2, destinationEntityToMove2)
+    ~ entityToMove2 = ()
+    ~ destinationEntityToMove2 = ()
+}
+// potremmo trovarci in una situazione incoerente, ovvero che entityToMove1 è vuoto, ma entityToMove2 ha un valore: li inverto, in modo che le variabili siano sempre riempite in ordine (prima 1, e poi 2)
+{ entityToMove2 and not entityToMove1:
+    ~ entityToMove1 = entityToMove2
+    ~ destinationEntityToMove1 = destinationEntityToMove2
     ~ entityToMove2 = ()
     ~ destinationEntityToMove2 = ()
 }

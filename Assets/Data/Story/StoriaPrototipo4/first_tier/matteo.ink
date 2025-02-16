@@ -18,7 +18,7 @@ Opzioni di dialogo con il personaggio Matteo
 
 === matteo_acting
     {debug: <i>Passo per matteo_acting</i>}
-    ~ move_locked_entities()
+    ~ move_locked_entities(false)
     -> first_tier_storylets ->
     //INFO GENERALI//
 
@@ -163,7 +163,7 @@ Opzioni di dialogo con il personaggio Matteo
 
     = esplora_matteo_personaggia
     {debug: <i>Passo per esplora_matteo_personaggia</i>}
-    ~ move_locked_entities()
+    ~ move_locked_entities(false)
     
     {
     - MatteoActing > 1: Matteo: Cucciolo, fai due passi, che paparino ha da fare due chiamate di lavoro.
@@ -234,7 +234,7 @@ Opzioni di dialogo con la persona Matteo
 
 === matteo_talking
  {debug: <i>Passo per matteo_talking</i>}
- ~ move_locked_entities()
+ ~ move_locked_entities(false)
     //INFO GENERALI//
     + [Provi a conoscere Matteo]
         -> esplora_matteo

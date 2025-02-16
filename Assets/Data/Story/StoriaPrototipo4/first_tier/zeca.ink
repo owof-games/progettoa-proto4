@@ -20,7 +20,7 @@ Opzioni di dialogo con il personaggio Zeca
 
 === zeca_acting
     {debug: <i>Passo per zeca_acting</i>}
-    ~ move_locked_entities()
+    ~ move_locked_entities(false)
     -> first_tier_storylets ->
     //INFO GENERALI//
 
@@ -192,7 +192,7 @@ Opzioni di dialogo con il personaggio Zeca
 
 = esplora_zeca_personaggia
 {debug: <i>Passo per esplora_zeca_personaggia</i>}
-~ move_locked_entities()
+~ move_locked_entities(false)
 
 {
 - ZecaActing > 1: Zeca: Amico mio, amo le tue domande, ma ora devo riposare un poco.
@@ -261,7 +261,7 @@ Opzioni di dialogo con la persona Zeca
 
 === zeca_talking
  {debug: <i>Passo per zeca_talking</i>}
- ~ move_locked_entities()
+ ~ move_locked_entities(false)
     //INFO GENERALI//
     + [Scambia due parole con Zeca]
     -> esplora_zeca

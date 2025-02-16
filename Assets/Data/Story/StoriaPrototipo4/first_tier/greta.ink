@@ -17,7 +17,7 @@ Opzioni di dialogo con il personaggio Greta
 
 === greta_acting
     {debug: <i>Passo per greta_acting</i>}
-    ~ move_locked_entities()
+    ~ move_locked_entities(false)
     -> first_tier_storylets ->
     //INFO GENERALI//
     {debug: seen in this loop omicidio = {seen_in_this_loop(->omicidio)}, Greta e Elia sono assieme o meno {are_two_entities_together(Greta, Elia)}, loopable variables non ha EliaRaggiungeGreta {loopableVariables has EliaRaggiungeGreta} e abbiamo visto (elia) in questo loop {seen_in_this_loop(->elia)}}
@@ -182,7 +182,7 @@ Opzioni di dialogo con il personaggio Greta
 
     = esplora_greta_personaggia
     {debug: <i>Passo per esplora_greta_personaggia</i>}
-    ~ move_locked_entities()
+    ~ move_locked_entities(false)
     {
     - GretaActing > 1: Greta: Ettore bello, mo basta, vai a giocare da un'altra parte!
         -> advance_time ->
@@ -249,7 +249,7 @@ Opzioni di dialogo con la persona Greta
 
 === greta_talking
  {debug: <i>Passo per greta_talking</i>}
- ~ move_locked_entities()
+ ~ move_locked_entities(false)
     //INFO GENERALI//
     + [Fai una chiacchierata con Greta] -> esplora_greta
     + [Te ne vai] -> intro

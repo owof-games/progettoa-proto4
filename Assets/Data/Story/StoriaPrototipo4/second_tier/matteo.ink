@@ -18,7 +18,7 @@ Opzioni di dialogo con la persona Matteo
  ----------------------------------*/
 
 === matteo_talking_second_tier
-~ move_locked_entities()
+~ move_locked_entities(false)
 -> second_tier_storylets ->
  {debug: <i>Passo per matteo_talking_second_tier</i>}
     //INFO GENERALI//

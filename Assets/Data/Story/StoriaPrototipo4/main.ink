@@ -1,7 +1,7 @@
 ~ updateEntitiesLocations()
 -> intro
 === intro ===
-~ move_locked_entities()
+~ move_locked_entities(true)
 {
     - tierState == FirstTier: -> first_tier_storylets ->
     - else: -> second_tier_storylets ->

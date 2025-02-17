@@ -35,7 +35,7 @@ VAR entityToMove2 = ()
 VAR destinationEntityToMove2 = ()
 
 === function move_entity(entity, destination)
-DEBUG: sposto {entity} in {destination}; inConversazione={inConversazione}
+{debug: sposto {entity} in {destination}; inConversazione={inConversazione}}
 { inConversazione has entity:
     // a conversation is in place: save the movement and let move_locked_entities perform the move operation later on
     {

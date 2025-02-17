@@ -117,8 +117,6 @@ VAR currentTime = 0
 //UPDATE
 ~ updateEntitiesLocations()
 
-TODO: se in conversazione "maiali" o analoga, non far ripartire il loop
-
 { currentTime >= 660:
     -> loop_reset
 }

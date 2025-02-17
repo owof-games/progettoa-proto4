@@ -29,9 +29,9 @@ Chi chiami?
             Agente: <i>In questo momento sono a dormire. O al concerto di Taylor. Chiamate più tardi</i>.
             -> contents    
 
-        + (amichetta) {new_this_loop(->amichetta) && reStartingDinnerStorylet} Ettore: Ehi, stronzetta, hai un minuto?
+        + (amichetta) {new_this_loop(->amichetta) && reStartingDinnerStorylet} Ettore: Ehi ama, hai un minuto?
             -> amica
-        + {not new_this_loop(->amichetta) && tierState has SecondTier} Ettore: Ehi, stronzetta, hai un minuto? 
+        + {not new_this_loop(->amichetta) && tierState has SecondTier} Ettore: Ehi ama, hai un minuto? 
             Amica: Asp, finisco Temptation Island e ci sono!
                 -> contents
         +{not reStartingDinnerStorylet} Ettore: Ehi, stronzetta, hai un minuto?
@@ -175,41 +175,13 @@ Chi chiami?
                         -> contents
 
 = maiali
-        Polizia: Dica.
-        Ettore: Qualcuno è morto, ucciso.
-        Polizia: Era immigrato?
-        Ettore: No, non è immigrato.
-        Polizia: Frocio?
-        Ettore: Non che io sappia, è una donna.
-        Polizia: Quindi lesbica?
-        Ettore: No, ma che c'entra?
-                -> advance_time ->
-        Polizia: Qui le domande le faccio io, scusi.
-        Polizia: Aveva striscioni contro Israele?
-        Polizia: Lattine di tempera lavabile?
-        Polizia: Protestava perché licenziato ingiustamente?
-        Polizia: Ha occupato una strada in modo pacifico?
-        Ettore: No mi scus.
-        Polizia: <rage>Ha nominato<waitrage> Giorgia<waitrage> invano</rage>?
-                -> advance_time ->
-        Ettore: No guardi eravamo qui a recitare e.
-        Polizia: Ok, quindi c'è il frocio.
-        Polizia: No Maresciallo, no, niente roba del decreto sicurezza, mi spiace.
-        Polizia: Su, non pianga, ne hanno altri di...
-        Ettore: No aspetti, è un omicidio.
-        Polizia: Sì sì ma son sempre delitti di passione quelli, sa com'è.
-        Ettore: No! Qualcosa nel collo, le hanno messo qualc.
-        Polizia: Questi dettagli immorali li tenga per sé.
-        Polizia: Non voglio sapere chi ha messo cosa dove quando non mi importa.
-                -> advance_time ->
-        Polizia: E ora se mi scusa, ho altro da fa.
-        Ettore: Paola! Paola Londar!
-        Ettore: La vittima è Paola Londard.
-        Polizia: Ah.
-        Polizia: <fear>Ma perché non mi ha detto subito che era ricca?!?</fear>
-        Polizia: <fear>Mo mi fanno il culo, mi fanno!</fear>
-        Polizia: Venti minuti e arriviamo.
-        Polizia: E la arresto per intralcio a qualcosa, qualcosa lo trovo.
-        Polizia: Non si muova di lì!
+        Polizia: Qui è il 112, buonasera.
+        Ettore: Qualcuno è morto, è stato ucciso.
+        Polizia: Dove? Chi? Lei è al sicuro?
+        Ettore: Non mi ero posto questa domanda.
+        Ettore: Hanno ucciso Paola Londar.
+        Ettore: Siamo in un, non ho idea di cosa sia.
+        Ettore: Al civico 13 di via Quattordici Marzo.
+        Polizia: Arriviamo subito!
                 -> advance_time ->        
 -> contents

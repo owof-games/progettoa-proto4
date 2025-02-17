@@ -618,7 +618,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Paola: E spero tu abbia notato che ogni personaggio ha degli spostamenti schedulati: vanno in una certa stanza in un certo momento...
         Paola: ...salvo che con le giuste condizioni tu non li abbia convinti a fare diversamente.
         Paola: Ma a volte anche lasciarli da soli è utile: stando in una stanza vicina potresti sentire cose che non direbbero mai davanti a un'altra persona.
-        Paola: Prova ad esempio ad andare nella <b>stanza verde</b> quando Elia e Matteo sono nella <b>stanza gialla</b>.
+        {sheIsTheBestStorylet: Paola: Un po' come quando ti è successo di origliare la conversazione tra Matteo ed Elia.| Paola: Prova ad esempio ad ascoltare da una stanza vicina cosa hanno da dirsi Matteo ed Elia quando sono assieme.}
         Paola: Dio, dimmi che ti ricorderai tutto o urlo.
         Paola: Due minuti e poi si riparte dall'omicidio!
             ~ peopleTalking = true

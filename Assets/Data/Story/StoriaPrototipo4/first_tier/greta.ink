@@ -92,7 +92,7 @@ Opzioni di dialogo con il personaggio Greta
                 ~ pauseStorylet = true
                     -> advance_time ->
      
-     + (matteoGreta) {hardTrueFeelingsStorylet && new_this_loop(->matteoGreta)} Ettore: Quindi, Matteo ti ama?
+     + (matteoGreta) {hardTrueFeelingsStorylet.matteoGreta && new_this_loop(->matteoGreta)} Ettore: Quindi, Matteo ti ama?
                  ~ inConversazione += Greta
             Ettore: Mi ha scaricato, vuole sposare te.
             Greta: Uh, questa mi è nuova.

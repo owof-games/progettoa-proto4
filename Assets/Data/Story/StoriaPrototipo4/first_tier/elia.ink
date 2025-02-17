@@ -66,7 +66,7 @@ Opzioni di dialogo con il personaggio Elia
                 -> advance_time ->
                 ~ pauseStorylet = true
 
-    + (uniti){weddingAtThePubStorylet && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && new_this_loop(->uniti)} Ettore: Ho una proposta da farti.
+    + (uniti){weddingAtThePubStorylet && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && new_this_loop(->uniti)} Ettore: Che ne dici se ci facciamo un favore a vicenda?
             Ettore: Io faccio una cosa per te, e tu vai da Greta. Che ne dici?
             Elia: Qualcosa a che fare con la mia micia?
             Elia: Perché ormai non credo più a nessuno che vuole toccare la mia micia.
@@ -146,15 +146,14 @@ Opzioni di dialogo con il personaggio Elia
             ~ pauseStorylet = true
             -> advance_time ->
     
-    + (spiedino) {inventoryContents has SpiedinoCocktail && new_this_loop(->spiedino)} Ettore: Elia, ti è caduta quest'arma dalla tasca!
-        Elia: <hesitate>Non ho mai visto questa roba, mai.
-        {elia_acting.first_qn: Ettore: Ma ci sono le iniziali del tuo locale, vedi?}
+    + (spiedino) {inventoryContents has SpiedinoCocktail && new_this_loop(->spiedino)} Ettore: Elia, hai mai visto questo spiedino?
+        Elia: <hesitate>No, non mi è mai caduto dalla tasca.
+        {elia_acting.first_qn: Ettore: Ma ci sono le iniziali del tuo locale, vedi?|Ettore: Ma non è quello che ti ho chiesto!}
         Elia: <cry>Lasciami in pace!</cry>
         + +  Ettore: Sarebbe perfetto per uccidere qualcuno!
             Elia: No, una cosa perfetta per uccidere qualcuno è la morte!
             Elia: L'ho portato a Paola per vedere se va bene per il matrimonio.
-            {!hardTrueFeelingsStorylet.matteoGreta: Ettore: Il matrimonio mio e di Matteo?}
-            {hardTrueFeelingsStorylet.matteoGreta: Ettore: Il non più matrimonio mio e di Matteo?}
+            {hardTrueFeelingsStorylet.matteoGreta: Ettore: Il non più matrimonio mio e di Matteo?|Ettore: Il matrimonio mio e di Matteo?}
             Elia: No, il suo. <joy>Paola si sposa.</joy>
             - -(paolaSiSposa) Elia: Ha organizzato un matrimonio in fretta e furia, manco sappiamo con chi.
                 ~ pauseStorylet = true

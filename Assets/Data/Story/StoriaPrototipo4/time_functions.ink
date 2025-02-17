@@ -112,7 +112,12 @@ VAR currentTime = 0
  
 === advance_time
 {debug: <i>Passo per function advance_time</i>}
-~ currentTime = currentTime + 15
+TODO: per evitare che il tempo superi i 600 secondi e possa non partire la morte di paola in tempo ho fatto questo magheggio, ha senso?
+{
+    - currentTime < 600:
+    ~ currentTime = currentTime + 15
+}
+
 {debugTime: <b>Sono le {print_time()}, ovvero {currentTime} secondi</b>}
 //UPDATE
 ~ updateEntitiesLocations()

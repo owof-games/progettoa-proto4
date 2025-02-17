@@ -11,34 +11,44 @@
 //MESSAGGI
 = call
 Chi chiami?
-        + (padre){new_this_loop(->padre) && reStartingDinnerStorylet} Ettore: Ciao papà!
+        + (padre){new_this_loop(->padre) && reStartingDinnerStorylet} [Chiama tuo padre.]
+            Ettore: Ciao papà!
             -> papa
-        + {not new_this_loop(->padre) && reStartingDinnerStorylet}
+        + {not new_this_loop(->padre) && reStartingDinnerStorylet} [Chiama tuo padre.]
             Ettore: Ciao papà!
             Papà: Ettore, ti rispondo appena trovo gli occhiali.
                 -> contents
-        +{not reStartingDinnerStorylet} Ettore: Ciao papà!
+        +{not reStartingDinnerStorylet} [Chiama tuo padre.]
+            Ettore: Ciao papà!
             Papà: Non ora figliolo, non ora.
             -> contents
 
-        + (agentino) {new_this_loop(->agentino) && reStartingDinnerStorylet} Ettore: Ehi agente dei miei stivali! -> agente
-        + {not new_this_loop(->agentino) && tierState has SecondTier} Ettore: Ehi agente dei miei stivali!
+        + (agentino) {new_this_loop(->agentino) && reStartingDinnerStorylet} [Chiama il tuo agente.]
+            Ettore: Ehi agente dei miei stivali!
+            -> agente
+        + {not new_this_loop(->agentino) && tierState has SecondTier} [Chiama il tuo agente.]
+            Ettore: Ehi agente dei miei stivali!
             Agente: Non ora, lavora e non rompermi!
                 -> contents
-        +{not reStartingDinnerStorylet} Ettore: Ehi agente dei miei stivali.
+        +{not reStartingDinnerStorylet} [Chiama il tuo agente.]
+            Ettore: Ehi agente dei miei stivali.
             Agente: <i>In questo momento sono a dormire. O al concerto di Taylor. Chiamate più tardi</i>.
             -> contents    
 
-        + (amichetta) {new_this_loop(->amichetta) && reStartingDinnerStorylet} Ettore: Ehi ama, hai un minuto?
+        + (amichetta) {new_this_loop(->amichetta) && reStartingDinnerStorylet} [Chiama la tua migliore amica.]
+            Ettore: Ehi, stronzetta, hai un minuto?
             -> amica
-        + {not new_this_loop(->amichetta) && tierState has SecondTier} Ettore: Ehi ama, hai un minuto? 
+        + {not new_this_loop(->amichetta) && tierState has SecondTier} [Chiama la tua migliore amica.]
+            Ettore: Ehi, stronzetta, hai un minuto?
             Amica: Asp, finisco Temptation Island e ci sono!
                 -> contents
-        +{not reStartingDinnerStorylet} Ettore: Ehi, stronzetta, hai un minuto?
+        +{not reStartingDinnerStorylet} [Chiama la tua migliore amica.]
+            Ettore: Ehi, stronzetta, hai un minuto?
             Amica: No ama, c'è Temptation Island! A dopo!!!
             -> contents    
     
-        + (pula) Ettore: Pronto, polizia?
+        + (pula) [Chiama la polizia.]
+            Ettore: Pronto, polizia?
             -> maiali        
 
 -> contents
@@ -100,7 +110,7 @@ Chi chiami?
                         Papà: Merda, mi son caduti gli occhiali.
                         Papà: Ti scrivo dopo.
                                 -> advance_time ->
-                        -> contents
+                                -> contents
         -> contents
 
 
@@ -128,7 +138,7 @@ Chi chiami?
         Agente: E una bella prova non sai mai dove possa portarti.
         Agente: Stammi bene!
                 -> advance_time ->
-        -> contents
+                -> contents
 
 
 = amica
@@ -168,7 +178,7 @@ Chi chiami?
                 Ettore: E non sei preoccupata per me?
                 Amica: <joy>Naaa.</joy>
                 Amica: Se è un loop e non sei morto, non morirai mai.
-                Amica: Ma forse è anche perché c'è Alfredo Torrelli <joy>nudo</joy> davanti alla fidanzata.
+                Amica: Ma forse è anche perché c'è Alfredo <joy>nudo</joy> davanti alla fidanzata.
                 Amica: Scusa, scappo, fammi sapere se sopravvivi!
                         -> advance_time ->
                         -> contents

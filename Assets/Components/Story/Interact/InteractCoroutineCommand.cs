@@ -55,7 +55,6 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
 
     protected override IEnumerator Process(CommandLineProcessorContext context)
     {
-        var previousStoryState = currentStoryState.Value;
         currentStoryState.Value = storyStateInteracting.Value;
 
         var choices = context.Choices.Select(c => (c.Index, c.Text)).ToArray();
@@ -95,7 +94,7 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
             .ContinueWith(_ => TakeChoice("debug:advance_time"));
 
         var interactCharacterTask = interactCharacterEvent.ToUniTask(cancellationTokenSource.Token).ContinueWith(
-            characterName => TakeChoice($"character:{characterName}"));
+            characterName => TakeChoice($"character:{characterName}", storyStateTalking));
 
         var interactObjectTask = interactObjectEvent.ToUniTask(cancellationTokenSource.Token).ContinueWith(
             objectName => TakeChoice($"object:{objectName}"));
@@ -127,7 +126,7 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
                     $"Cannot find an interaction choice in Ink named {choiceText}; available choices are: " +
                     string.Join(", ", choices.Select(c => c.Text)));
 
-            currentStoryState.Value = storyState != null ? storyState.Value : previousStoryState;
+            if (storyState != null) currentStoryState.Value = storyState.Value;
 
             availableInteractionsEvent.Raise(AvailableInteractions.EmptyAvailableInteractions);
             context.TakeChoice(choice.Index);

@@ -58,6 +58,12 @@ namespace Components.Story.Lines
 
         public void OnStoryStep(StoryStep step)
         {
+            /* THIS SHOULD NOT BE HERE! */
+            if (currentStoryState.Value.Equals(storyStateInteracting.Value))
+                Unparsable(step, "no line should be read in interacting state");
+            /* END OF "THIS SHOULD NOT BE HERE!" */
+
+
             if (!currentStoryState.Value.Equals(storyStateTalking.Value)) return;
 
             if (step.CanContinue && string.IsNullOrWhiteSpace(step.Text))

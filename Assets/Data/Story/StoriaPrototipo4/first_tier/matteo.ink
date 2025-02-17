@@ -86,8 +86,22 @@ Opzioni di dialogo con il personaggio Matteo
                 ~ pauseStorylet = true
                     -> matteo_acting 
                     
-    + {new_this_loop(->hardTrueFeelingsStorylet)} {elia_acting.uniti && not are_two_entities_together(Greta, Matteo)} Ettore: Amore, avrei un favore da chiederti in merito al matrimonio.
-        ->hardTrueFeelingsStorylet->
+    + (sposo) {new_this_loop(->sposo) && new_this_loop(->hardTrueFeelingsStorylet)} {elia_acting.uniti && not are_two_entities_together(Greta, Matteo)} Ettore: Amore, avrei un favore da chiederti in merito al matrimonio.
+            ->hardTrueFeelingsStorylet->
+    
+    + (sposo2) {new_this_loop(->sposo2) && zeca_acting.sposo2 && new_this_loop (-> hardTrueFeelingsStorylet)} Ettore: Zeca dice che mi sposi perché ti torna comodo.
+            Matteo: E se anche fosse?
+            Matteo: Ogni relazione è una relazione di comodo.
+            Matteo: Per compensare la solitudine.
+            Matteo: Per denaro.
+            Matteo: Per del sesso garantito.
+            Matteo: Tu avrai tutte e tre queste cose da me, per cui non farmi la morale.
+            Matteo: E ora vai dal tuo nuovo amico alcolizzato e digli di andare a cagare.
+            {are_two_entities_together(Zeca, Matteo): Zeca: Ettore, spero davvero tu possa aprire gli occhi.}
+                -> advance_time ->
+                ~ pauseStorylet = true
+                    -> matteo_acting 
+        
             
         
     //SCELTE CONDIZIONALI OGGETTI//

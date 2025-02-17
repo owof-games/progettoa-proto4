@@ -81,6 +81,7 @@ Opzioni di dialogo con il personaggio Zeca
             Ettore: Credi quindi che non mi ami davvero? Matteo, intendo.
             Zeca: Non sta a me dirlo.
             Zeca: Spero sia cambiato con gli anni, ma il Matteo che conoscevo amava solo una cosa: Matteo.
+                -- (sposo2)
             Zeca: E tu mi sembri un bravo ragazzo. Vedi di badare a te stesso.
                 -> advance_time ->
                     ~ pauseStorylet = true

@@ -73,6 +73,14 @@ Opzioni di dialogo con il personaggio Greta
     //Se Greta ci ha dato la missione, ma in un loop precedente e ancora Elia e Greta non si sono parlati
     + (elia) {omicidio && new_this_loop(->omicidio) && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta && not seen_in_this_loop(->elia)} Ettore: So che vuoi parlare con Elia, ma ancora non l'ho convinto.
             Greta: Mi stupisce: quel ragazzo {~ha il cervello di un pesce bollito|ha smesso di ragionare nel novantasei|ha un unico neurone, ed è disperso dall'undici settembre|crede che la noce moscata sia un insetto}, non deve essere difficile!
+            
+    + (elia2){elia_acting.senzatetto && new_this_loop(->elia2) && loopableVariables has EliaRaggiungeGreta} Ettore: Elia dice che ce l'avevi con Paola per dei senzatetto.
+        Greta: Ah, è per questa cazzata che mi evita?
+        Greta: E per onore di cronaca non ce l'avevo con Paola per quello.
+        Greta: Ma non sono cavoli tuoi.
+        Greta: Convincilo a venire qui e chiudiamo questo casino inutile.
+            ~ pauseStorylet = true
+            -> advance_time ->
     
     + (paolaPerfetta) {loopableVariables has EliaRaggiungeGreta} Ettore: Ho fatto quello che mi hai chiesto, Greta.
             Greta: E Greta te ne è grata, gretino.

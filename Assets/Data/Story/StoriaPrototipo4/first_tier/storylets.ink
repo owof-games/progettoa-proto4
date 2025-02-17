@@ -7,9 +7,7 @@
 
 {
 //MATERIALI PER TUTORIAL
-    - currentTime >= 420 && activeObjects && activeNotebook && not talking_tutorial && peopleTalking == false: -> talking_tutorial
-    
-    
+
     - currentTime >= 360 && activeObjects && not activeNotebook && peopleTalking == false:
             -> notebook_tutorial
 
@@ -57,8 +55,8 @@
 
 
 
-//La morte di Paola deve arrivare solo quando abbbiamo fatto tutti i tutorial e abbiamo compiuto le scelte su Matteo e Zeca
-    -  currentTime >= 600 && activeObjects && activeNotebook && talking_tutorial && peopleTalking == false:
+//La morte di Paola deve arrivare solo quando abbbiamo fatto tutti i tutorial
+    -  currentTime >= 600 && activeObjects && activeNotebook && peopleTalking == false:
             -> paolaIsDeadStorylet
     
 
@@ -586,6 +584,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
 === objects_tutorial
             ~ change_status(Paola, PaolaLive)
             ~ move_first_entity_to_second_entity_location(Paola,Ettore)
+            ~ inConversazione += Paola
         Paola: <cry>Stop stop stop maledizione!</cry>
         Paola: Non siete attori, siete <cry>CAPRE!</cry>
             ~ move_first_entity_to_second_entity_location(Greta,Ettore)
@@ -610,12 +609,18 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
             ~ move_entity(FlaconcinoAsma, WhiteRoom)
             ~ move_entity(Torta, YellowRoom)
             ~ move_entity(Briciole, ObjectStorage)
-        Paola: Due minuti e poi si riparte dall'omicidio!
-        Paola: Dimenticavo: Ettore, ricorda che la sera dello spettacolo il tuo personaggio rivivrà queste scene più volte.
+            -> advance_time ->
+        Paola: Vediamo, ci sono altre cose che devo dirti, Ettore?    
+        Paola: Sì: ricorda che la sera dello spettacolo il tuo personaggio rivivrà queste scene più volte.
         Paola: A differenza di questi cretini, intrappolati in un loop.
         Paola: Ma d'altronde ci sono abituati, coi microcervelli che si ritrovano.
         Paola: Quindi già da adesso tieni conto delle indicazioni che ti hanno dato questo ammasso di imbecilli coi loro personaggi.
-        Paola: Tanto sono sicura che non sarà la prima volta che dovrò bloccare queste cazzo di prove.
+        Paola: E spero tu abbia notato che ogni personaggio ha degli spostamenti schedulati: vanno in una certa stanza in un certo momento...
+        Paola: ...salvo che con le giuste condizioni tu non li abbia convinti a fare diversamente.
+        Paola: Ma a volte anche lasciarli da soli è utile: stando in una stanza vicina potresti sentire cose che non direbbero mai davanti a un'altra persona.
+        Paola: Prova ad esempio ad andare nella <b>stanza verde</b> quando Elia e Matteo sono nella <b>stanza gialla</b>.
+        Paola: Dio, dimmi che ti ricorderai tutto o urlo.
+        Paola: Due minuti e poi si riparte dall'omicidio!
             ~ peopleTalking = true
             ~ activeObjects = true
             ~ move_this_entity_in_a_different_room(Greta)
@@ -663,43 +668,6 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
                     -> resting_time ->
                     
                 -> intro
-
-
-=== talking_tutorial
-    ~ change_status(Paola, PaolaLive)
-    ~ move_first_entity_to_second_entity_location(Paola,Ettore)
-    ~ inConversazione += Paola
-            
-            
-        Paola: Madre santa, che fatica prepararvi per questo pezzo!
-            ~ move_first_entity_to_second_entity_location(Greta,Ettore)
-        Greta: Cosa ho sbagliato ora?!?
-        Paola: <joy>A nascere.</joy> 
-        Paola: Ettore, Ettore. Nel teatro di improvvisazione il ritmo è importante, sono io a dovertelo dire?
-            ~ move_first_entity_to_second_entity_location(Elia,Ettore)
-            ~ move_first_entity_to_second_entity_location(Zeca,Ettore)
-        Zeca: A dire il vero, sì.
-        Paola: <cry>CHI TI HA INTERPELLATO, EUNUCO?!?</cry>
-            ~ move_first_entity_to_second_entity_location(Matteo,Ettore)
-        Paola: Dicevo, Ettore. Se vedi che i personaggi non ti dicono nulla di nuovo, non ti viene il dubbio che...
-        Ettore: Che si siano annoiati?
-            -> advance_time ->
-        Matteo: Che potrebbero dire cose diverse se sono in stanze diverse, o con persone diverse. O da sole.
-        Paola: Grazie. Leccaculo.
-        Paola: Ma stavo pensando anche a un'altra cosa: i personaggi parlano tra loro anche quando tu non ci sei. Hai mai pensato che, con le giuste condizioni, potresti <hesitate>origliare una conversazione?
-        Paola: Cavolo, sei bellino ma non sei sveglio, eh?
-        Paola: Centoventi secondi di riposo, non uno di più, non uno di meno!
-        Paola: Poi ripartiamo da dopo la mia morte.
-        Paola: Peccato sia solo recitazione.
-        ~ peopleTalking = true
-            ~ move_this_entity_in_a_different_room(Greta)
-            ~ move_this_entity_in_a_different_room(Elia)
-            ~ move_this_entity_in_a_different_room(Matteo)
-            ~ move_this_entity_in_a_different_room(Zeca)
-                    -> advance_time ->
-                -> resting_time ->
-            -> intro
-
 
 
 

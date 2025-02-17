@@ -44,7 +44,7 @@ Chi chiami?
 -> contents
 
 = papa
-        Ettore: Papà, ti ricordi quel tuo telefilm preferito, "Il giorno della smarmotta"?
+        Ettore: Papà, ti ricordi quel tuo telefilm preferito, quello sulle marmotte?
         Papà: <hesitate>Cioè: non mi scrivi per tre giorni e mi fai questa domanda?
         Ettore: Diciamo che è una situazione complicata.
         Papà: Con te lo è sempre.
@@ -61,16 +61,15 @@ Chi chiami?
                         Papà: E alcuni mentivano pure.
                         Papà: Però alla fine ce la faceva e salvava tutti.
                         Ettore: E come riusciva?
-                        Papà: Beh, perché lui a differenza tua l'era sveglio!
+                        Papà: Prestando attenzione ai dettagli, ovviamente!
                                 -> advance_time ->
                                 -> question
                 + (info) {new_this_loop(->info)} Ettore: Come faceva ad avere informazioni?
                         Papà: Mmm, fammi ricordare.
+                        Papà: Mostrava oggetti alle persone.
                         Papà: Metteva alcune persone vicino.
                         Papà: O isolava altre.
-                        Papà: E a volte dicevano cose diverse.
-                        Papà: O mostrando loro oggetti.
-                        Papà: A parte la marmotta impagliata: <fear>quella li terrorizzava tutti</fear>.
+                        Papà: Così a volte si contraddicevano.
                         Papà: E poi si segnava un sacco di cose.
                         Papà: Mica come te, che ti ho mandato a studiare e non sai scrivere!
                                 -> advance_time ->

@@ -78,7 +78,7 @@
         Matteo: <joy>Tutto il consiglio di amministrazione muto.</joy>
         Matteo: E il progetto per la piscina sul tetto del grattacielo è passato.
         Greta: Un giorno annegherete tutti, e sarà festa nazionale.
-        Paola: <cry>{& Non voglio morire non voglio morire non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }</cry>
+        Paola: <cry>Nnn</cry>
         Elia: Quindi è permesso augurare la morte a qualcuno? Perché avrei un po' di nomi, nel caso.
         Zeca: Elia, almeno tu mantieni la tua innocenza o perderei l'unica spinta a sacrificarti.
             + Ettore: Eccomi! In tutto il mio splendore!
@@ -101,23 +101,21 @@
                 Zeca: E almeno abbiamo qualcosa in comune.
             -
             -> advance_time ->
-        Paola: <cry>{& Non voglio morire non voglio morire non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }</cry>
+        Paola: <cry>Non</cry>
         Elia: Sapete che nemmeno oggi ho aperto la porta dal lato giusto?
         Elia: Sono tutto un livido, guardate!
         Greta: Questo è un buon motivo per festeggiare in effetti.
         Matteo: Nessuno ha detto che dobbiamo festeggiare.
-        Paola: <cry>{& Non voglio morire non voglio morire non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }</cry>
         Matteo: Però brindiamo! Perché siamo qui ad affrontare l'alcolismo di Zeca, e farlo smettere di bere.
             + Ettore: E avete pensato di partire con un brindisi?
                 Zeca: Ettore, giusto? Ecco, Ettore: non farti domande su questa famiglia, o c'è da perdere il senno.
             + Ettore: Ehm, e io che c'entro?
                 Matteo: Tu sei il testimone speciale, vedrai!
             + Ettore: Sono ubriaco? Era tutta una allucinazione?
-                Paola: Non voglio morire non voglio morire non voglio morire non voglio.
             -
             -> advance_time ->
             
-        Paola: <cry>{& Non voglio morire non voglio morire non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }</cry>
+        Paola: <cry>Non voglio</cry>
              ~ move_this_entity_in_a_different_room(Paola)
         Greta: Ho scordato una cosa!
             ~ move_this_entity_in_a_different_room(Greta)
@@ -147,14 +145,13 @@
         Greta: ... la nostra eterna dannazione.
             ~ change_status(Greta, GretaUnalived)
             ~ move_entity(Paola,WhiteRoom)
-        Paola:<fear>{& Non voglio morire non voglio morire non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }</fear>
             ~ change_status(Paola, PaolaUnalived)
 
             -> advance_time ->
 
             + (tuttiMorti) Ettore: Perché vi comportate così?!?!
             -
-        Paola: <fear>{& Non voglio morire non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }</fear>
+        Paola: <fear>NON VOGLIO MORIRE!</fear>
             -> advance_time ->
             ~ change_status(Greta, GretaLive)
         Greta: <cry>BASTAAAAAAA! Questo script è tremendo!</cry>

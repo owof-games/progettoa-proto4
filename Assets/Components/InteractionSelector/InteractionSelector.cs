@@ -26,14 +26,13 @@ namespace Components.InteractionSelector
         [SerializeField] private StringEvent interactionObjectEvent;
         [SerializeField] private StoryStateVariable currentStoryState;
         [SerializeField] private StoryStateConstant storyStateInteracting;
-        private int _hoveredHash = -1;
+        private readonly int _hoveredHash = Animator.StringToHash("Hovered");
         private bool _isInteractionEnabled = false;
         private bool _mouseInside = false;
         public string InteractionKey => interactionKey;
 
         private void Awake()
         {
-            _hoveredHash = Animator.StringToHash("Hovered");
             Assert.IsNotNull(animator);
             Assert.IsNotNull(interactionExitEvent);
             Assert.IsNotNull(interactionCharacterEvent);

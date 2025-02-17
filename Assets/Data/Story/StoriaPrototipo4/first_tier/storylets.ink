@@ -332,7 +332,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
 */
 {debug: <i>Passo per sheIsTheBestStorylet</i>}
 
-        Elia: Mi ha sempre sorpreso il modo in cui hai trattato Paola.
+        Elia: Non trattare Paola come un autobus.
         Matteo: In che senso?
             + {sheIsTheBestStorylet > 1} [Ti allontani.]
                 ~ pauseStorylet = true
@@ -341,10 +341,11 @@ PS: ricordarsi di resettare la variabile al reset_loop
             + ->
             -
         Elia: Beh, sei sempre stato crudele con lei.
-        Elia: Eppure è stata Paola a convincere i nonni a prestarti tutti quei soldi!
-        Elia: E non capisco come è possibile.
-        Elia: Lei è così attenta.
-        Elia: Così perfetta.
+        Matteo: E le persone sono crudeli con gli autobus?
+        Elia: Sì: fanno tutto il lavoro ma poi dicono che sono brutti.
+        Elia: Ed è stata Paola a convincere i nonni a prestarti tutti quei soldi!
+        Elia: Devi volerle bene!
+        Elia: Lei è così perfetta.
         Matteo: Così noiosa!
     
             -> advance_time ->
@@ -354,20 +355,20 @@ PS: ricordarsi di resettare la variabile al reset_loop
         Matteo: Così prevedibile.
         Matteo: Così "So solo io quello che è giusto".
         Matteo: Sapessi cosa diceva di te alle tue spalle.
-        Elia: Non mi importa saperlo. L'avrai istigata.
-        Matteo: L'ho istigata io a dire che sarai sempre il più piccolo?
-        Elia: Ma è vero.
-        Matteo: E il più empatico?
+        Elia: Cosa hanno le mie spalle?!?
+        Matteo: Dice che sarai sempre il più piccolo!
+        Elia: Di spalle?
+        Matteo: E il più empatico!
             -> advance_time ->
 
-        Elia: Ma mica è una cosa crudele!
+        Elia: Quella non ce l'ha Zeca per l'alcool?
         Matteo: E che non sai gestire gli affari!
-        Elia: Anche questo è vero.
-        Elia: Ma io lo so, e infatti ho chiesto una mano a Greta.
-        Elia: Tu pensi ancora di sapere gestire i soldi, e stai rischiando di finire in bancarotta.
+        Elia: Questo lo dice anche Greta, ma mi sa che è vero.
+        Elia: Tu invece pensi di capire i soldi, e stai finendo in rosso e in verde e in bianca rotta.
         Matteo: <cry>Non sono in bancarotta!</cry>
-        Elia: Certo che no, solo perché i nonni continuano a pararti il culo.
-        Elia: Me ne devo andare da tutta questa negatività.
+        Elia: Perché i nonni ti danno i soldi.
+        Elia: Grazie a Paola.
+        Elia: Mi sento troppo teso: devo fare due flessioni.
             ~ move_this_entity_in_a_different_room(Elia)
             -> advance_time ->
             ~ pauseStorylet = true

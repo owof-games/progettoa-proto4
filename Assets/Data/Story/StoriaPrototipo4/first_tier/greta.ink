@@ -212,7 +212,7 @@ Opzioni di dialogo con il personaggio Greta
 
     = second_qn
      ~ GretaActing++
-            Ettore: Come mai hai deciso di aprire il pub con Elia?
+            Ettore: Matteo non mi ha mai spiegato perché hai aperto un pub con Elia.
             Greta: Perché qualcuno doveva chiudere da qualche parte quella specie di labrador.
             Greta: E perché è un bel luogo dove insultare le persone.
             Greta: Tanto i comici che vengono sono solo dei falliti.

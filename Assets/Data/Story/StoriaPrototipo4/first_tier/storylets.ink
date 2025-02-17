@@ -630,9 +630,10 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
 
 
 === notebook_tutorial
-~ inConversazione += Paola
-            ~ change_status(Paola, PaolaLive)
-            ~ move_first_entity_to_second_entity_location(Paola,Ettore)
+    ~ change_status(Paola, PaolaLive)
+    ~ move_first_entity_to_second_entity_location(Paola,Ettore)
+    ~ inConversazione += Paola
+            
         Paola: <cry>STOP STOP STOP DI NUOVO!</cry>
         Paola: <cry>GRETA! Ma l'hai dato il taccuino ad Ettore?!?</cry>
             ~ move_first_entity_to_second_entity_location(Greta,Ettore)
@@ -665,9 +666,11 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
 
 
 === talking_tutorial
-~ inConversazione += Paola
-            ~ change_status(Paola, PaolaLive)
-            ~ move_first_entity_to_second_entity_location(Paola,Ettore)
+    ~ change_status(Paola, PaolaLive)
+    ~ move_first_entity_to_second_entity_location(Paola,Ettore)
+    ~ inConversazione += Paola
+            
+            
         Paola: Madre santa, che fatica prepararvi per questo pezzo!
             ~ move_first_entity_to_second_entity_location(Greta,Ettore)
         Greta: Cosa ho sbagliato ora?!?

@@ -49,13 +49,17 @@ Opzioni di dialogo con il personaggio Greta
                 -> greta_acting
 
         
-    + (omicidio) {new_this_loop(->omicidio) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Secondo te chi ha ucciso Paola?
+    + {new_this_loop(->omicidio) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Secondo te chi ha ucciso Paola?
             Greta: Un essere senza cuore, incapace di provare sentimenti.
             Greta: Destinato a osservare il mondo da un angolo buio, provando odio e rancore eterno.
             Greta: Spendendo ore su ore a immaginare modi atroci per distruggere sé stesso e il resto del mondo.
             Greta: Ma c'è solo una persona che può corrispondere a questa descrizione: <cry>io</cry>!
             Greta: E sono abbastanza sicura di non aver ucciso nessuno.
             Greta: Non stasera, per lo meno.
+                {
+                    - omicidio: -> advance_time -> greta_acting
+                }
+            -- (omicidio)
             Greta: Ma ti propongo un patto: ti dirò chi è l'unico plausibile assassino se tu convinci Elia a venire a parlarmi.
             Greta: Mi sta evitando e non capisco perché.
                     -> advance_time ->
@@ -65,8 +69,9 @@ Opzioni di dialogo con il personaggio Greta
    
     
     //SCELTE CONDIZIONALI//
-
-    + (elia) {seen_in_this_loop(->omicidio) && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta && not seen_in_this_loop(->elia)}  Ettore: Non sono ancora riuscito a convincere Elia.
+    
+    //Se Greta ci ha dato la missione, ma in un loop precedente e ancora Elia e Greta non si sono parlati
+    + (elia) {omicidio && new_this_loop(->omicidio) && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta && not seen_in_this_loop(->elia)} Ettore: So che vuoi parlare con Elia, ma ancora non l'ho convinto.
             Greta: Mi stupisce: quel ragazzo {~ha il cervello di un pesce bollito|ha smesso di ragionare nel novantasei|ha un unico neurone, ed è disperso dall'undici settembre|crede che la noce moscata sia un insetto}, non deve essere difficile!
     
     + (paolaPerfetta) {loopableVariables has EliaRaggiungeGreta} Ettore: Ho fatto quello che mi hai chiesto, Greta.

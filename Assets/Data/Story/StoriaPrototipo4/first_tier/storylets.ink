@@ -40,15 +40,14 @@
     - are_two_entities_together(Zeca, Ettore) && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Matteo) && not are_two_entities_together(Ettore, Greta) && peopleTalking == false && new_this_loop(->worstBestManStorylet):
             -> worstBestManStorylet
     
-    - are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Zeca) && peopleTalking == false && new_this_loop(->sheIsTheBestStorylet):
-            -> sheIsTheBestStorylet
-        
 
 
 //CONVERSAZIONI ORIGLIATE
-    - are_two_entities_together(Elia, Greta)  && not are_two_entities_together(Elia, Matteo) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Ettore) && elia_acting.sincero && is_this_entity_near_Ettore(Elia) == true && peopleTalking == false && new_this_loop(->anEavesdropAboutFriendshipStorylet):
+    - are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Ettore) && peopleTalking == false && new_this_loop(->sheIsTheBestStorylet):
+            -> sheIsTheBestStorylet
+            
+    - are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Matteo) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Ettore) && elia_acting.sincero && is_this_entity_near_Ettore(Elia) == true && peopleTalking == false && new_this_loop(->anEavesdropAboutFriendshipStorylet):
             -> anEavesdropAboutFriendshipStorylet
-
 
     - are_three_entities_together(Matteo, Greta, Ettore) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && hardTrueFeelingsStorylet && peopleTalking == false && new_this_loop(->itsOverisntItStorylet):
             -> itsOverisntItStorylet

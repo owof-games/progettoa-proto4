@@ -112,7 +112,7 @@
                 Zeca: Ettore, giusto? Ecco, Ettore: non farti domande su questa famiglia, o c'è da perdere il senno.
             + Ettore: Ehm, e io che c'entro?
                 Matteo: Tu sei il testimone speciale, vedrai!
-            + Ettore: Forse ho bevuto davvero? E non lo ricordo?
+            + Ettore: Sono ubriaco? Era tutta una allucinazione?
                 Paola: Non voglio morire non voglio morire non voglio morire non voglio.
             -
             -> advance_time ->
@@ -128,7 +128,7 @@
         Elia: Beh, a questo punto me ne vado anche io!    
             ~ move_this_entity_in_a_different_room(Matteo)
             + Ettore: Bella festa, davvero. Grazie.
-            + Ettore: Boh, a questo punto me ne vado anche io.
+            + Ettore: RAGA, MA NON POTETE FARE FINTA DI NULLA!
             + Ettore: Ma non è che c'è dell'altro vino in giro?
             -
             -> advance_time ->
@@ -159,11 +159,11 @@
             ~ change_status(Greta, GretaLive)
         Greta: <cry>BASTAAAAAAA! Questo script è tremendo!</cry>
             ~ change_status(Zeca, ZecaLive)
-        Paola: <fear>{& Non voglio morire non voglio.|L'aria manca, presto saremo cenere|Lei attende silente nell'ombra.|AAAAAAAAAAAAAAAAAAAA!|   }</fear>
+        Paola: <fear>Tremendo.</fear>
             ~ change_status(Elia, EliaLive)
         Elia: Basta, basta, basta. Prendiamoci dieci minuti di riposo.
             ~ change_status(Matteo, MatteoLive)
-        Paola: <hesitate>Non voglio.
+        Paola: <hesitate>Riposo.
             ~ change_status(Paola, EliaLive)
             ~ peopleTalking = true
             -> advance_time ->

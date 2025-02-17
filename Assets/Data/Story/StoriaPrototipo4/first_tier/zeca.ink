@@ -57,7 +57,8 @@ Opzioni di dialogo con il personaggio Zeca
 
 
     //SCELTE CONDIZIONALI//
-    + (sposo) {marryMeStorylet && new_this_loop(->sposo) && not hardTrueFeelingsStorylet.ah or not hardTrueFeelingsStorylet.mono} Ettore: [Matteo ed io ci sposeremo!]<joy>Matteo ed io ci sposeremo!</joy>
+    //Opzione accessibile solo una volta, solo se ho ricevuto la proosta di matrimonio e solo 
+    * (sposo) {(marryMeStorylet.matteoSiSposa or marryMeStorylet.matteoSiSposa2) && not hardTrueFeelingsStorylet.ah or not hardTrueFeelingsStorylet.mono} Ettore: [Matteo ed io ci sposeremo!]<joy>Matteo ed io ci sposeremo!</joy>
                 ~ inConversazione += Zeca
             Zeca: E immagino sia una cosa buona?
             Ettore: Non è il modo più nobile di stare assieme?

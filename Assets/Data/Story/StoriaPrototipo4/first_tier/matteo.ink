@@ -94,7 +94,12 @@ Opzioni di dialogo con il personaggio Matteo
     + (pugnale) {inventoryContents has AnticoPugnale && new_this_loop(->pugnale)} Ettore: Hai mai visto questo spiedino?
             Matteo: No.
                 ~ pauseStorylet = true
-                -> matteo_acting 
+                -> matteo_acting
+                
+    + (spiedino) {inventoryContents has SpiedinoCocktail && new_this_loop(->spiedino)} Ettore: Hai mai visto questo spiedino?
+            Matteo: Mmm, hai in mente qualcosa di kinky?
+                ~ pauseStorylet = true
+                -> matteo_acting            
                 
     + (minacce) {inventoryContents has Lettera && new_this_loop(->minacce)} Ettore: Riconosci questa lettera?
             Matteo: Come? <fear>Mettila via, subito!</fear>

@@ -1,3 +1,4 @@
+using LemuRivolta.InkAtoms;
 using TMPro;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
@@ -8,17 +9,22 @@ namespace Components.Tests
     public class TemporaryPrintTime : MonoBehaviour
     {
         [SerializeField] private IntVariable currentTime;
+        [SerializeField] private InkAtomsStoryVariable inkAtomsStoryChanged;
         [SerializeField] private TextMeshProUGUI tmProText;
+
+        private InkAtomsStory _inkAtomsStory;
 
         private void Awake()
         {
             Assert.IsNotNull(currentTime);
+            Assert.IsNotNull(inkAtomsStoryChanged);
             Assert.IsNotNull(tmProText);
         }
 
         private void OnEnable()
         {
             currentTime.Changed.Register(OnCurrentTimeChanged);
+            inkAtomsStoryChanged.Changed.Register(OnInkAtomsStoryChanged);
             UpdateTime();
         }
 
@@ -27,17 +33,22 @@ namespace Components.Tests
             currentTime.Changed.Unregister(OnCurrentTimeChanged);
         }
 
+        private void OnInkAtomsStoryChanged(InkAtomsStory inkAtomsStory)
+        {
+            _inkAtomsStory = inkAtomsStory;
+            UpdateTime();
+        }
+
         private void OnCurrentTimeChanged(int obj)
         {
-            Debug.Log("new value:" + obj);
             UpdateTime();
         }
 
         private void UpdateTime()
         {
-            var minutes = currentTime.Value / 60;
-            var seconds = currentTime.Value % 60;
-            tmProText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
+            if (!_inkAtomsStory) return;
+            var time = (string)_inkAtomsStory.Call("print_time", out _);
+            tmProText.text = time;
         }
     }
 }

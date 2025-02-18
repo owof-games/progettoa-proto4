@@ -1554,6 +1554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTime: {fileID: 11400000, guid: 4937416b12754d54999bc5f6dfc8a878, type: 2}
+  inkAtomsStoryChanged: {fileID: 11400000, guid: c64d263f342401a43aaad9c76887e99f, type: 2}
   tmProText: {fileID: 436279652}
 --- !u!114 &436279652
 MonoBehaviour:
@@ -5716,17 +5717,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f002cace3fdca41aec5c9fe0c90541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  storyStateTalking: {fileID: 11400000, guid: f983d5e69a958d447a8117867e2a69e4, type: 2}
-  currentStoryState: {fileID: 11400000, guid: 15f13ae7eb0e5574f8f1abd68f45d19b, type: 2}
   continueEvent: {fileID: 11400000, guid: f1836d32c09bf4f4ca4b1bc5567fda79, type: 2}
   chosenChoiceEvent: {fileID: 11400000, guid: bbb734abb5780294fb5a335d48beee17, type: 2}
   storyStep: {fileID: 11400000, guid: cdb8ab666e8592d42bcb7bebf0ca63b6, type: 2}
-  numCharactersMoving:
-    _usage: 2
-    _value: 0
-    _constant: {fileID: 0}
-    _variable: {fileID: 11400000, guid: c8ad7a4b89d34ea418d7976712ec1208, type: 2}
-    _variableInstancer: {fileID: 0}
 --- !u!114 &1744676017
 MonoBehaviour:
   m_ObjectHideFlags: 0

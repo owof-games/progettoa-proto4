@@ -791,7 +791,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &110663865
 MonoBehaviour:
@@ -2063,7 +2063,7 @@ GameObject:
   - component: {fileID: 592565518}
   - component: {fileID: 592565519}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: HelperButtons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4300,7 +4300,7 @@ GameObject:
   - component: {fileID: 1269618331}
   - component: {fileID: 1269618332}
   m_Layer: 5
-  m_Name: GameObject (1)
+  m_Name: GameButtons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4705,7 +4705,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1014, y: 50}
+  m_SizeDelta: {x: 500, y: 80}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1499150335
 MonoBehaviour:

@@ -55,6 +55,7 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
 
     protected override IEnumerator Process(CommandLineProcessorContext context)
     {
+        var previousStoryState = currentStoryState.Value;
         currentStoryState.Value = storyStateInteracting.Value;
 
         var choices = context.Choices.Select(c => (c.Index, c.Text)).ToArray();
@@ -88,7 +89,7 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
         var cancellationTokenSource = new CancellationTokenSource();
 
         var moveToRoomTask = interactExitEvent.ToUniTask(cancellationTokenSource.Token)
-            .ContinueWith(moveToRoomName => TakeChoice($"exit:{moveToRoomName}"));
+            .ContinueWith(moveToRoomName => TakeChoice($"exit:{moveToRoomName}", storyStateTalking));
 
         var takeChoiceTask = advanceTimeEvent.ToUniTask(cancellationTokenSource.Token)
             .ContinueWith(_ => TakeChoice("debug:advance_time"));
@@ -97,13 +98,13 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
             characterName => TakeChoice($"character:{characterName}", storyStateTalking));
 
         var interactObjectTask = interactObjectEvent.ToUniTask(cancellationTokenSource.Token).ContinueWith(
-            objectName => TakeChoice($"object:{objectName}"));
+            objectName => TakeChoice($"object:{objectName}", storyStateTalking));
 
         var dropObjectTask = dropObjectEvent.ToUniTask(cancellationTokenSource.Token).ContinueWith(
             objectName => TakeChoice($"dropobject:{objectName}"));
 
         var phoneClickedTask = phoneClickedEvent.ToUniTask(cancellationTokenSource.Token).ContinueWith(
-            _ => TakeChoice("phone"));
+            _ => TakeChoice("phone", storyStateTalking));
 
         var notebookClickedTask = notebookClickedEvent.ToUniTask(cancellationTokenSource.Token).ContinueWith(
             _ => TakeChoice("notebook", notebookStoryState));
@@ -126,7 +127,8 @@ public class InteractCoroutineCommand : CoroutineCommandLineProcessor
                     $"Cannot find an interaction choice in Ink named {choiceText}; available choices are: " +
                     string.Join(", ", choices.Select(c => c.Text)));
 
-            if (storyState != null) currentStoryState.Value = storyState.Value;
+            // if (storyState != null) currentStoryState.Value = storyState.Value;
+            currentStoryState.Value = storyState != null ? storyState.Value : previousStoryState;
 
             availableInteractionsEvent.Raise(AvailableInteractions.EmptyAvailableInteractions);
             context.TakeChoice(choice.Index);

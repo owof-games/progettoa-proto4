@@ -9,8 +9,11 @@
     + (primoCheck) [Osserva la limetta per le unghie]
         Ettore: Una limetta consumata, con il logo di un noto franchise molto economico.
         -> advance_time ->
-        + + [Raccoglila]
-        ~ take_object(LimettaUnghie)
+        + + {inventoryContents == ()}[Raccoglila]
+                ~ take_object(LimettaUnghie)
+        + + {inventoryContents != ()} [Lascia l'oggetto che hai in mano e prendi questo.] 
+                ~ remove_entity(inventoryContents)
+                ~ take_object(LimettaUnghie)
         + + [Lasciala dov'è]
 
     -
@@ -29,8 +32,11 @@
     + (primoCheck) [Ispeziona il pugnale]
         Ettore: Un pugnale dall'aria antica, con simboli che non hai mai visto.
         -> advance_time ->
-        + + [Raccoglilo]
-        ~ take_object(AnticoPugnale)
+        + + {inventoryContents == ()} [Raccoglilo]
+                ~ take_object(AnticoPugnale)
+        + + {inventoryContents != ()} [Lascia l'oggetto che hai in mano e prendi questo.]
+                ~ remove_entity(inventoryContents)
+                ~ take_object(AnticoPugnale)
         + + [Lascialo dov'è]
     -
 ->->
@@ -49,8 +55,11 @@
     + (primoCheck) [Controlla lo spiedino]
     -> advance_time ->
         Ettore: Un banale spiedino da cocktail. In controluce si legge la sigla <i>FEG</i>
-        + + [Raccoglilo]
-        ~ take_object(SpiedinoCocktail)
+        + + {inventoryContents == ()} [Raccoglilo]
+                ~ take_object(SpiedinoCocktail)
+        + + {inventoryContents != ()} [Lascia l'oggetto che hai in mano e prendi questo.]
+                ~ remove_entity(inventoryContents)
+                ~ take_object(SpiedinoCocktail)
         + + [Lascialo dov'è]
     -
 ->->
@@ -68,8 +77,11 @@
     + (primoCheck) [Leggi la lettera]
     -> advance_time ->
         Ettore: Con una calligrafia nervosa è stato scritto: <i>So cosa hai fatto e la pagherai!</i>. Non c'è firma.
-        + + [Raccoglila]
-        ~ take_object(Lettera)
+        + + {inventoryContents == ()} [Raccoglila]
+                ~ take_object(Lettera)
+        + + {inventoryContents != ()} [Lascia l'oggetto che hai in mano e prendi questo.]
+                ~ remove_entity(inventoryContents)
+                ~ take_object(Lettera)
         + + [Lasciala dov'è]
     -
 ->->
@@ -87,8 +99,11 @@
     + (primoCheck) [Ispeziona la bottiglia di vino]
     -> advance_time ->
         Ettore: Un negramaro di prestigio. Probabilmente costa più di quanto tu possa guadagnare in metà mese.
-        + + [Raccoglila]
-        ~ take_object(BottigliaDiVino)
+        + + {inventoryContents == ()} [Raccoglila]
+                ~ take_object(BottigliaDiVino)
+        + + {inventoryContents != ()} [Lascia l'oggetto che hai in mano e prendi questo.]
+                ~ remove_entity(inventoryContents)
+                ~ take_object(BottigliaDiVino)
         + + [Lasciala dov'è]
     -
 ->->
@@ -104,8 +119,11 @@
     + (primoCheck) [Osserva il flaconcino per l'asma]
     -> advance_time ->
         Ettore: Un comune flaconcino. O, con un po' di fantasia, il periscopio di un sottomarino.
-        + + [Raccoglilo]
-        ~ take_object(FlaconcinoAsma)
+        + + {inventoryContents == ()} [Raccoglilo]
+                ~ take_object(FlaconcinoAsma)
+        + + {inventoryContents != ()} [Lascia l'oggetto che hai in mano e prendi questo.]
+                ~ remove_entity(inventoryContents)
+                ~ take_object(FlaconcinoAsma)
         + + [Lascialo dov'è]
     
     -
@@ -122,8 +140,11 @@
     + (primoCheck) [Controlla la sigaretta elettronica]
     -> advance_time ->
         Ettore: Ha l'odore di un deodorante per il bagno, ma per il resto, niente di particolare.
-        + + [Raccoglila]
-        ~ take_object(SigarettaElettronica)
+        + + {inventoryContents == ()} [Raccoglila]
+                ~ take_object(SigarettaElettronica)
+        + + {inventoryContents != ()} [Lascia l'oggetto che hai in mano e prendi questo.]
+                ~ remove_entity(inventoryContents)
+                ~ take_object(SigarettaElettronica)
         + + [Lasciala dov'è]
 
     -
@@ -140,8 +161,11 @@
     + (primoCheck) [Assaggia la torta]
     -> advance_time ->
         Ettore: Il paradiso di un dodicenne: cioccolata, crema di arachidi, fragole, biscottini sbriciolati. La adori.
-        + + [Raccoglila]
-        ~ take_object(Torta)
+        + + {inventoryContents == ()} [Raccoglila]
+                ~ take_object(Torta)
+        + + {inventoryContents != ()} [Lascia l'oggetto che hai in mano e prendi questo.]
+                ~ remove_entity(inventoryContents)
+                ~ take_object(Torta)
         + + [Lasciala dov'è]
 
     

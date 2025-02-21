@@ -10,8 +10,11 @@
     + (primoCheck) [Leggi la lettera]
     -> advance_time ->
         Ettore: La carta è lercia e la calligrafia minacciosa: <i>So cosa hai fatto e la pagherai!</i>. Ha un odore metallico.
-        + + [Raccoglila]
-        ~ take_object(Lettera)
+        + + {inventoryContents == ()} [Raccoglila]
+                ~ take_object(Lettera)
+        + + {inventoryContents != ()} [Lascia l'oggetto che hai in mano e prendi questo.]
+                ~ remove_entity(inventoryContents)
+                ~ take_object(Lettera)
         + + [Lasciala dov'è]
     -
 ->->
@@ -29,8 +32,11 @@
     + (primoCheck) [Ispeziona la bottiglia di vino]
     -> advance_time ->
     Ettore: Il liquido è inquieto e torbido, e si agita nella bottiglia come fosse dotato di vita propria.
-        + + [Raccoglila]
-        ~ take_object(BottigliaDiVino)
+        + + {inventoryContents == ()} [Raccoglila]
+                ~ take_object(BottigliaDiVino)
+        + + {inventoryContents != ()} [Lascia l'oggetto che hai in mano e prendi questo.]
+                ~ remove_entity(inventoryContents)
+                ~ take_object(BottigliaDiVino)
         + + [Lasciala dov'è]
     -
 ->->
@@ -46,8 +52,11 @@
     + (primoCheck) [Osserva il flaconcino per l'asma]
     -> advance_time ->
         Ettore: Banale pezzo di plastica, leggero e maleabile, a cui è aggrappata l'intera vita di una persona. Ed è vuoto.
-        + + [Raccoglilo]
-        ~ take_object(FlaconcinoAsma)
+        + + {inventoryContents == ()} [Raccoglilo]
+                ~ take_object(FlaconcinoAsma)
+        + + {inventoryContents != ()} [Lascia l'oggetto che hai in mano e prendi questo.]
+                ~ remove_entity(inventoryContents)
+                ~ take_object(FlaconcinoAsma)
         + + [Lascialo dov'è]
     -
 ->->
@@ -63,8 +72,11 @@
     + (primoCheck) [Controlla la sigaretta elettronica]
     -> advance_time ->
     Ettore: Morte tascabile.
-        + + [Raccoglila]
-        ~ take_object(SigarettaElettronica)
+        + + {inventoryContents == ()} [Raccoglila]
+                ~ take_object(SigarettaElettronica)
+        + + {inventoryContents != ()} [Lascia l'oggetto che hai in mano e prendi questo.]
+                ~ remove_entity(inventoryContents)
+                ~ take_object(SigarettaElettronica)
         + + [Lasciala dov'è]
     -
 ->->
@@ -80,8 +92,11 @@
     + (primoCheck) [Esamina la torta.]
     Ettore: Friabile come le proprie sicurezze, come un sacco d'ossa che cade dal sesto piano.
     -> advance_time ->
-        + + [Raccoglila]
-        ~ take_object(Torta)
+        + + {inventoryContents == ()} [Raccoglila]
+                ~ take_object(Torta)
+        + + {inventoryContents != ()} [Lascia l'oggetto che hai in mano e prendi questo.]
+                ~ remove_entity(inventoryContents)
+                ~ take_object(Torta)
         + + [Lasciala dov'è]
     -
 ->->
@@ -98,8 +113,11 @@
     + (primoCheck) [Esamina la foto]
     -> advance_time ->
         Ettore: Due persone. In un locale. Con l'urgenza di divorarsi.
-        + + [Raccoglila]
-        ~ take_object(Foto)
+        + + {inventoryContents == ()} [Raccoglila]
+                ~ take_object(Foto)
+        + + {inventoryContents != ()} [Lascia l'oggetto che hai in mano e prendi questo.]
+                ~ remove_entity(inventoryContents)
+                ~ take_object(Foto)
         + + [Lasciala dov'è]
     -
 ->->

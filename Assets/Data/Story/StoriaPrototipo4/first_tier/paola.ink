@@ -61,6 +61,7 @@ Opzioni di dialogo con la persona Paola
 
     = first_qn
     ~ PaolaTalking++
+    ~ inConversazione += Paola
         Paola: Quella cretina.
         Paola: <rage>Quella<waitrage> enorme<waitrage> disgustosa<waitrage> incapace<waitrage> cretina.</rage>
         Ettore: Tutto bene?
@@ -77,6 +78,7 @@ Opzioni di dialogo con la persona Paola
 
     = second_qn
      ~ PaolaTalking++
+     ~ inConversazione += Paola
         Ettore: Grazie per avermi chiamato per questa recita.
         Paola: Non è recita, è improvvisazione.
         Paola: Ma grazie a te per la pazienza.
@@ -92,6 +94,7 @@ Opzioni di dialogo con la persona Paola
 
     = third_qn
     ~ PaolaTalking++
+    ~ inConversazione += Paola
         Ettore: Quindi sei una regista?
         Paola: Anche. In realtà il lavoro principale è gestire l'azienda di famiglia.
         Paola: Lavoro che dovrebbe toccare anche a Elia.

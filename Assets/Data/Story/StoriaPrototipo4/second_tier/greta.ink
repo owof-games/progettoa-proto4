@@ -91,6 +91,7 @@ Opzioni di dialogo con la persona Greta
     + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Quindi tu lavori per Paola?
                 ~ inConversazione += Greta
             Greta: Per ora, sembrerebbe di sì.
+            {are_two_entities_together(Paola, Greta): Greta: Ma non ti dirò altro fintanto che lei è qui. -> greta_talking_second_tier}
             Greta: Ma con Paola ogni giorno è l'antiNatale: ti svegli e avrai qualcosa di meno a sorpresa.
             Greta: Prima o poi mi venderà qualche organo senza che me ne renda conto.
             ~ pauseStorylet = true
@@ -101,6 +102,7 @@ Opzioni di dialogo con la persona Greta
             Greta: Le indagini sulla Londar?
             Greta: Non particolarmente.
             Greta: Paola è una che cade in piedi sempre.
+            {are_two_entities_together(Paola, Greta): Greta: Ma non ti dirò altro fintanto che lei è qui. -> greta_talking_second_tier}
             Greta: E la caduta è attutita da qualche decina di cadaveri.
             Greta: E a questo giro, il corpo sarà quello di Elia.
             Ettore: In che senso?
@@ -119,7 +121,7 @@ Opzioni di dialogo con la persona Greta
                 ~ pauseStorylet = true
                  -> greta_talking_second_tier
     
-        + + {elia_talking_second_tier.indagini} Ettore: Paola sa già che hai passato info segrete a Matteo?
+        + + {elia_talking_second_tier.indagini && not are_two_entities_together(Paola, Greta)} Ettore: Paola sa già che hai passato info segrete a Matteo?
                     ~ inConversazione += Greta
             Greta: Quali informazioni?
             Ettore: Piccoli segreti utili a rafforzare il suo lavoro di contrattazione col sindacato.
@@ -139,6 +141,7 @@ Opzioni di dialogo con la persona Greta
 
             Greta: <hesitate>Elia.
             Greta: Almeno fino a domattina, Elia è ancora a metà proprietario dell'azienda.
+            {are_two_entities_together(Paola, Greta): Greta: Ma non ti dirò altro fintanto che lei è qui. -> greta_talking_second_tier}
             Greta: E se Paola capitola, lui finisce diritto in consiglio di amministrazione.
             Ettore: Quindi cosa mi stai dicendo?
             - - -(indagini2) Greta: Elia sta usando l'amicizia con Matteo per usare il sindacato contro Paola.
@@ -165,6 +168,7 @@ Opzioni di dialogo con la persona Greta
                 Greta: Cosa vorresti dire?
                 Ettore: Zeca sostiene che la polizia abbia avuto dati molto molto personali su Paola.
                 Ettore: Cose che solo la sua segretaria potrebbe sapere.
+                {are_two_entities_together(Paola, Greta): Greta: E secondo te ti rispondo con lei qui? -> greta_talking_second_tier}
                 Greta: <rage>E<waitrage> se<waitrage> anche<waitrage> fosse?</rage>
                 Greta: Qualcuno ha tutto, tu non hai niente, e ti si apre lo spiraglio per un cambiamento, per un vantaggio.
                 Greta: Al posto mio cosa avresti fatto?
@@ -330,7 +334,7 @@ Opzioni di dialogo con la persona Greta
 
     //SCELTE CONDIZIONALI//
 
-    + (love) {trueLoveStorylet && new_this_loop(->love)} Ettore: Sapevi della relazione tra Elia e Zeca?
+    + (love) {trueLoveStorylet && new_this_loop(->love) && not are_two_entities_together(Elia, Greta) or not are_two_entities_together(Zeca, Greta)} Ettore: Sapevi della relazione tra Elia e Zeca?
             Greta: Quell'obbrobrio che chiamano "Bro"?
              + + Ettore: Ah ah sì, esatto, proprio quello.
                     Greta: Non fosse per i soldi che arrivano dalla Londar, sarebbero tutti e due falliti da mesi.
@@ -361,6 +365,7 @@ Opzioni di dialogo con la persona Greta
                                     ~ inConversazione += Greta
                                 Greta: Tradita.
                                 Greta: Usata.
+                                {are_two_entities_together(Elia, Greta): Greta: Elia, mi fai schifo. -> greta_talking_second_tier}
                                 Greta: Mi ha promesso amore.
                                 Greta: Mi ha regalato le piattole.
                                 - - - -(indagini3) Greta: E io che, stupida, coprivo i furti di denaro di Elia in azienda.
@@ -386,7 +391,7 @@ Opzioni di dialogo con la persona Greta
                         
     
 
-    + {zeca_talking_second_tier.allestimento2 && new_this_loop(->allestimento3)} Ettore: Mi aiuti a capire una cosa?
+    + {zeca_talking_second_tier.allestimento2 && not are_two_entities_together(Zeca, Greta) or not are_two_entities_together(Matteo, Greta) && new_this_loop(->allestimento3)} Ettore: Mi aiuti a capire una cosa?
                 ~ inConversazione += Greta
             Ettore: Sembra che nessuno si sia occupato del buffet prima delle prove.
             Ettore: Da quel che ho capito, tu ed Elia vi dovevate occupare del vino, Matteo e Zeca dei dolci.

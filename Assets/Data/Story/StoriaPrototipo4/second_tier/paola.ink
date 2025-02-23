@@ -11,7 +11,7 @@
 
 -> intro
 
-
+TODO: per tutto il secondo tier posso sempre fare le domande dove si parla di altre persone presenti, ma se sono lì ricevo un motivo per non portare avanti al conversazione
 /* ---------------------------------
 
 Opzioni di dialogo con la persona Paola

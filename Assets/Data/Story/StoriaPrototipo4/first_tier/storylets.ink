@@ -4,7 +4,7 @@
 {loopableVariables has dontCheckStorylets:
     ->->
 }
-
+TODO: sistema problema telefono prima scena Matteo
 {
 //MATERIALI PER TUTORIAL
 

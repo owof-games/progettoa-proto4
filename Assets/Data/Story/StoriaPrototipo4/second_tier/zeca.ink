@@ -45,7 +45,6 @@ Opzioni di dialogo con la persona Zeca
         Ettore: Non era la lobby gay?
         Zeca: No, quella è quella che ha creato M¥SS KETA.
         Zeca: La mafia gay è quella che ti fa i quality check prima di entrare nelle disco.
-        Zeca: O prima di entrare in uno spazio nerd.
         Zeca: Quella che decide se sei bono abbastanza o se ti deve buttare in un bidone di acido ialuronico.
         Ettore: Ahah divertente.
         Zeca: <cry>DIVERTENTE?!?!</cry>

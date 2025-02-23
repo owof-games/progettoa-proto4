@@ -539,7 +539,7 @@ Ettore: Cos
     -
     
 Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelosire.
-    + (ah)Ettore: Ah. E da quando lo sai?
+    + (ah) Ettore: Ah. E da quando lo sai?
         Matteo: Mesi. Forse anni.
         Ettore: <rage>E<waitrage> me<waitrage> lo<waitrage> dici<waitrage>  solo<waitrage> ora?</rage>
         Ettore: Dopo avermi chiesto la mano pochi minuti fa?
@@ -552,7 +552,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
             ~ pauseStorylet = true
         ->intro  
         
-    + (mono)Ettore: Sai che non mi importa molto della monogamia.
+    + (mono) Ettore: Sai che non mi importa molto della monogamia.
         Matteo: Ma importa a me.
         Matteo: Perché se ora tu dai a me la possibilità di stare con altre persone, poi dovrò darla io a te.
         Matteo: E io non saprei gestire la mia gelosia.

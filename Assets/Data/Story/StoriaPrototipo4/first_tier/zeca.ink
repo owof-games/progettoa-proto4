@@ -58,7 +58,7 @@ Opzioni di dialogo con il personaggio Zeca
 
     //SCELTE CONDIZIONALI//
     //Opzione accessibile solo una volta, solo se ho ricevuto la proosta di matrimonio e solo 
-    * (sposo) {(marryMeStorylet.matteoSiSposa or marryMeStorylet.matteoSiSposa2) && (not hardTrueFeelingsStorylet.ah or not hardTrueFeelingsStorylet.mono)} Ettore: [Matteo ed io ci sposeremo!]<joy>Matteo ed io ci sposeremo!</joy>
+    * (sposo) {(marryMeStorylet.matteoSiSposa or marryMeStorylet.matteoSiSposa2) && not hardTrueFeelingsStorylet.ah or not hardTrueFeelingsStorylet.mono} Ettore: [Matteo ed io ci sposeremo!]<joy>Matteo ed io ci sposeremo!</joy>
                 ~ inConversazione += Zeca
             Zeca: E immagino sia una cosa buona?
             Ettore: Non è il modo più nobile di stare assieme?
@@ -87,7 +87,7 @@ Opzioni di dialogo con il personaggio Zeca
                     ~ pauseStorylet = true
                     -> zeca_acting
 
-    + (mollato) {hardTrueFeelingsStorylet && new_this_loop(->mollato) && not are_two_entities_together(Zeca, Matteo) && not are_two_entities_together(Zeca, Greta)} Ettore: Matteo mi ha mollato.
+    + (mollato) {hardTrueFeelingsStorylet.mono or hardTrueFeelingsStorylet.ah && new_this_loop(->mollato) && not are_two_entities_together(Zeca, Matteo) && not are_two_entities_together(Zeca, Greta)} Ettore: Matteo mi ha mollato.
                 ~ inConversazione += Zeca
             {zeca_acting.matrimonio: Zeca: Sai già che per me questa è una buona cosa per te.}
             Zeca: E come mai ti avrebbe lasciato?
@@ -102,7 +102,7 @@ Opzioni di dialogo con il personaggio Zeca
             Zeca: O forse la nostra sorellastra ha in mente qualcosa.
             Zeca: Sinceramente, non ho mai creduto che a Greta interessi tanto il pub, quanto controllare Elia.
             Zeca: E non ho mai creduto molto nell'amicizia tra lei e Paola.
-            - -(matteoGreta) Zeca: Non mi stupirebbe se Greta stesse ricattando Matteo in qualche modo.
+            - - (matteoGreta) Zeca: Non mi stupirebbe se Greta stesse ricattando Matteo in qualche modo.
             Ettore: Ricattando? E per cosa?
             Zeca: Per l'unica cosa che conta in questa famiglia:<hesitate> i soldi.
             Zeca: No, non è vero: <i> l'affetto dei nonni </i> e i soldi.

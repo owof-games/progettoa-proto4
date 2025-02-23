@@ -115,6 +115,15 @@ Opzioni di dialogo con il personaggio Greta
             Greta: Comunque, nel dubbio, due chiacchiere con lui le faccio appena capita.
                 ~ pauseStorylet = true
                     -> advance_time ->
+        
+        + (zecaAlcool) {new_this_loop(-> zecaAlcool) && zeca_acting.matteoGreta} Ettore: Zeca dice che stai ricattando Matteo.
+            Greta: Gliel'ha detto la bottiglia di vodka?
+            Greta: O quella di rhum.
+            Greta: Ah, no, lo so: i funghetti con cui ha strippato due anni fa.
+            Greta: Zeca vede il male ovunque.
+            Greta: Ma è solo il suo.
+                ~ pauseStorylet = true
+                    -> advance_time ->
 
     //SCELTE CONDIZIONALI OGGETTI//
     + (minacce) {inventoryContents has Lettera && new_this_loop(->minacce)} Ettore: Sai da dove viene questa lettera?

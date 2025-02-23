@@ -620,6 +620,16 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Paola: Ma a volte anche lasciarli da soli è utile: stando in una stanza vicina potresti sentire cose che non direbbero mai davanti a un'altra persona.
         {sheIsTheBestStorylet: Paola: Un po' come quando ti è successo di origliare la conversazione tra Matteo ed Elia.| Paola: Prova ad esempio ad ascoltare da una stanza vicina cosa hanno da dirsi Matteo ed Elia quando sono assieme.}
         Paola: Dio, dimmi che ti ricorderai tutto o urlo.
+        Ettore: Quindi: a ogni prova gli altri seguiranno lo stesso copione, mentre io possono tenere conto delle informazioni che mi hanno dato nelle prove precedenti.
+        Paola: Giusto.
+        Ettore: E hanno degli spostamenti organizzati, per cui sono nello stesso posto alla stessa ora.
+        Paola: Tranne...
+        Ettore: Tranne se ho detto o fatto qualcosa che ha rotto quella routine.
+        Ettore: E a quel punto possono accadere cose inaspettate.
+        Paola: E infine...
+        Ettore: Posso origliare alcune conversazioni se dei personaggi pensano di non essere sentiti.
+        Paola: Credo di essere venuta.
+        Paola: Vado a darmi una sciacquata.
         Paola: Due minuti e poi si riparte dall'omicidio!
             ~ peopleTalking = true
             ~ activeObjects = true

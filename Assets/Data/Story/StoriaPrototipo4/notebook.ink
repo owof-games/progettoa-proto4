@@ -53,16 +53,17 @@ VAR notebookPage = 1
 ~ temp info_matteo = elia_acting.sincero or marryMeStorylet or hardTrueFeelingsStorylet or greta_acting.matteoGreta or weddingAtThePubStorylet or zeca_acting.matteoGreta or zeca_acting.matrimonio or itsOverisntItStorylet or sheIsTheBestStorylet
     
 {info_matteo: <i>Informazioni sul personaggio Matteo</i> #slot-1}
-{hardTrueFeelingsStorylet.ah or hardTrueFeelingsStorylet.mono: Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelosire. #slot-2}
-{elia_acting.sincero: Elia: Merda, mi spiace. Per questo volevo fare il matrimonio al pub. Sapevo da tempo che Matteo provava qualcosa per Greta, ma non sapevo come dirtelo! #slot-3}
-{greta_acting.matteoGreta: Greta: Abbiamo scopato solo una volta, ed ero molto molto molto ubriaca, e Matteo ha perso la testa. #slot-4}
-{weddingAtThePubStorylet.matteoSiSposa or weddingAtThePubStorylet.matteoSiSposa2: Matteo: Elia, non festeggerò mai il mio matrimonio nel tuo bar triste con la tua insopportabile collega! #slot-5}
-{marryMeStorylet.matteoSiSposa or marryMeStorylet.matteoSiSposa2: Matteo: Ettore, sei il miglior pacchetto azionario della mia vita, sposami! #slot-6}
-{zeca_acting.matteoGreta: Zeca: Non mi stupirebbe se Greta stesse ricattando Matteo in qualche modo. #slot-7}
-{zeca_acting.matrimonio: Zeca: No. Matteo mi ha detto che ti avrebbe sposato mesi fa, quando ha prenotato il luogo, l'orchestra e mandato gli inviti. #slot-8}
-{zeca_acting.matrimonio: Zeca: Matteo e Paola hanno litigato per il matrimonio, perché Paola pensa che lui ti stia usando solo per candidarsi come sindaco. #slot-9}
-{itsOverisntItStorylet: Greta: Non mi piace nulla di te, Matteo. A parte i soldi, ma sappiamo benissimo che non sono tuoi. #slot-10}
-{sheIsTheBestStorylet: Elia: Eppure è stata Paola a convincere i nonni a prestarti tutti quei soldi! #slot-11}
+{elia_acting.sincero: Elia: Merda, mi spiace. Per questo volevo fare il matrimonio al pub. Sapevo da tempo che Matteo provava qualcosa per Greta, ma non sapevo come dirtelo! #slot-2}
+{hardTrueFeelingsStorylet: Matteo: Ettore, non voglio sposarti.#slot-3}
+{hardTrueFeelingsStorylet.ah or hardTrueFeelingsStorylet.mono: Matteo: Amo Greta. Il matrimonio era solo una scusa per farla ingelosire. #slot-4}
+{greta_acting.matteoGreta: Greta: Abbiamo scopato solo una volta, ed ero molto molto molto ubriaca, e Matteo ha perso la testa. #slot-5}
+{weddingAtThePubStorylet.matteoSiSposa or weddingAtThePubStorylet.matteoSiSposa2: Matteo: Elia, non festeggerò mai il mio matrimonio nel tuo bar triste con la tua insopportabile collega! #slot-6}
+{marryMeStorylet.matteoSiSposa or marryMeStorylet.matteoSiSposa2: Matteo: Ettore, sei il miglior pacchetto azionario della mia vita, sposami! #slot-7}
+{zeca_acting.matteoGreta: Zeca: Non mi stupirebbe se Greta stesse ricattando Matteo in qualche modo. #slot-8}
+{zeca_acting.matrimonio: Zeca: No. Matteo mi ha detto che ti avrebbe sposato mesi fa, quando ha prenotato il luogo, l'orchestra e mandato gli inviti. #slot-9}
+{zeca_acting.matrimonio: Zeca: Matteo e Paola hanno litigato per il matrimonio, perché Paola pensa che lui ti stia usando solo per candidarsi come sindaco. #slot-10}
+{itsOverisntItStorylet: Greta: Non mi piace nulla di te, Matteo. A parte i soldi, ma sappiamo benissimo che non sono tuoi. #slot-11}
+{sheIsTheBestStorylet: Elia: Eppure è stata Paola a convincere i nonni a prestarti tutti quei soldi! #slot-12}
 
     ~ notebookPage = 3
     ~ temp info_elia = elia_acting.paolaSiSposa or zeca_acting.matrimonio or matteo_acting.paolaZeca or greta_acting.paolaPerfetta

@@ -219,7 +219,7 @@ Opzioni di dialogo con la persona Greta
     
     + (omicidio) {new_this_loop(->omicidio)} Ettore: Secondo te qualcuno potrebbe volere del male a Paola?
                 ~ inConversazione += Greta
-            Greta: Passa cinque minuti con lei e avrai la tua risposta.
+            Greta: Passa un quarto d'ora con lei e avrai la tua risposta.
             Ettore: Potrei odiarla così tanto da volerla uccidere?
             Greta: No dai, per quello bastano cinque minuti.
             + + Ettore: E qui con cosa la si potrebbe uccidere?

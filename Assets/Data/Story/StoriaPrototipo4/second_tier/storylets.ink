@@ -96,7 +96,7 @@
             + Ettore: Tu devi essere Paola! Matteo parla un sacco di te!
                 Paola: Non voglio morire non voglio morire non voglio morire non voglio.
                 Matteo: Non ti parlo così tanto di lei. A parte a pranzo, cena, letto e durante le preghiere.
-            + Ettore: [Perché state facendo finta di nulla?!?.]<cry>Perché state facendo finta di nulla?!?.</cry>
+            + Ettore: [Perché state facendo finta di nulla?!?.]<cry>Perché state facendo finta di nulla?!?</cry>
                 Greta: Bene Matteo, finalmente ci presenti qualcuno di interessante!
                 Zeca: E almeno abbiamo qualcosa in comune.
             -

@@ -315,7 +315,7 @@ Opzioni di dialogo con la persona Matteo
         Matteo: Questa risposta è sempre vera negli ultimi sei anni.
         Matteo: Per campare in questa economia mi tocca fare due lavori. E ora persino recitare.
         Matteo: Ironico che Paola mi abbia appioppato il ruolo del ricco idiota che non sa fare niente.
-        Matteo: Una manco velata rappresentazione di come lei vede Elia, sinceramente.
+        Matteo: Una manco velata rappresentazione di come lei vede Elia.
         Matteo: E a proposito dell'altro Matteo: mi spiace di dover essere un fidanzato di merda, sinceramente.
         Matteo: {hardTrueFeelingsStorylet: Soprattutto quella faccenda con Greta|E il peggio deve ancora arrivare}.
                 -> advance_time ->

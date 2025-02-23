@@ -53,9 +53,10 @@ Opzioni di dialogo con il personaggio Elia
    
     //SCELTE CONDIZIONALI//
 
-    * (senzatetto){greta_acting.omicidio && new_this_loop(->senzatetto) && not are_two_entities_together(Greta, Elia) && new_this_loop(-> uniti)} Ettore: Sai Elia, Greta vorrebbe parlare con te.
+    //Questa è la prima interazione sul tema ed è accessibile fino a quando non ho Wedding At The Pub Storylet
+    + (senzatetto){greta_acting.omicidio && not weddingAtThePubStorylet && new_this_loop(->senzatetto) && not are_two_entities_together(Greta, Elia) && new_this_loop(-> uniti)} Ettore: Sai Elia, Greta vorrebbe parlare con te.
         Elia: Così può uccidere anche me?
-         + + Ettore: In che senso?
+        + + Ettore: In che senso?
             Elia: Chi altri avrebbe potuto uccidere Paola?
             Elia: Paola voleva rilevare il pub per trasformarlo in un rifugio per senzatetto.
             - - - (senzatetto2) Elia: E Greta ha detto cose terribili e ripetuto che avrebbe fatto di tutto per fermarla.
@@ -65,8 +66,10 @@ Opzioni di dialogo con il personaggio Elia
             Elia: Hai capito. <cry>Via!</cry>
                 -> advance_time ->
                 ~ pauseStorylet = true
+                -> elia_acting
 
-    + (uniti){weddingAtThePubStorylet && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && new_this_loop(->uniti)} Ettore: Che ne dici se ci facciamo un favore a vicenda?
+    //Questa è il successivo default se so del matrimonio, so che Elia ho parlato con greta e non sono con lei o Matteo.
+    + (uniti){weddingAtThePubStorylet && greta_acting.omicidio && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && new_this_loop(->uniti)} Ettore: Che ne dici se ci facciamo un favore a vicenda?
             Ettore: Io faccio una cosa per te, e tu vai da Greta. Che ne dici?
             Elia: Qualcosa a che fare con la mia micia?
             Elia: Perché ormai non credo più a nessuno che vuole toccare la mia micia.
@@ -84,7 +87,7 @@ Opzioni di dialogo con il personaggio Elia
             Elia: Non ho fretta di morire, tranquillo!
 
   
-    + (sincero) {hardTrueFeelingsStorylet && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Matteo mi ha detto di lui e di Greta.
+    + (sincero) {(hardTrueFeelingsStorylet.ah or hardTrueFeelingsStorylet.mono) && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Matteo mi ha detto di lui e di Greta.
             ~ inConversazione += Elia
             Elia: Merda, mi spiace. Per questo volevo fare il matrimonio al pub.
             Elia: Sapevo da tempo che Matteo provava qualcosa per Greta, ma non sapevo come dirtelo!

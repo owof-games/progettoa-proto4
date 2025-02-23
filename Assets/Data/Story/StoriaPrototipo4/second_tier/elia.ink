@@ -161,7 +161,7 @@ Opzioni di dialogo con la persona Elia
             }
             + + {zeca_talking_second_tier.allestimento2} Ettore: Zeca però ha sentito qualcuno nella stanza gialla.
                 Ettore: E a suo dire stava scopando.
-                - (allestimento2) Elia: Naa, Zeca sente sesso ovunque.
+                - - - (allestimento2) Elia: Naa, Zeca sente sesso ovunque.
                 Elia: Pensa che dorme sentendo le balene scopare.
                 Elia: E io non ho fatto sesso, no.
                 Elia: Mai fatto sesso.
@@ -209,13 +209,13 @@ Opzioni di dialogo con la persona Elia
         Elia: <hesitate> Ah. Uh. Ih.
         Elia: Ah.
         Elia: Sto facendo del male a Zeca secondo te?
-            + Ettore: Forse lui spera che tu possa amarlo?
+            + + Ettore: Forse lui spera che tu possa amarlo?
                 Elia: Ma io lo amo.
                 Ettore: Forse non come vuole lui.
-            + Ettore: Al massimo può intontirlo.
+            + + Ettore: Al massimo può intontirlo.
                 Elia: Quello lo dice anche lui.
                 Elia: Poi mi gratta la testa sorridendo e mi dice che sono un bravo ragazzo.
-            -
+            - -
             -> advance_time ->     
                                     {
             - currentTime >= 600:
@@ -226,7 +226,7 @@ Opzioni di dialogo con la persona Elia
         Elia: <rage>Io<waitrage> sono<waitrage> stato<waitrage> un<waitrage> sacco<waitrage> zitto<waitrage> per<waitrage> Matteo.</rage>
         Elia: Non con Matteo, perché parlo molto, ma per Matteo, sì.
         Elia: Allora ti dico un segreto: Greta ha dato a Matteo molte informazioni sui conti dell'azienda.
-        - (indagini) Elia: Vuole aiutarlo con questa cosa del sindicato, così che Matteo possa sindicare meglio sindicando Paola e venendo sindicato dai colleghi del sindicato.
+        - - (indagini) Elia: Vuole aiutarlo con questa cosa del sindicato, così che Matteo possa sindicare meglio sindicando Paola e venendo sindicato dai colleghi del sindicato.
         Elia: E io l'ho detto a Greta che fa bene, perché nessuno deve indicare i miei amici.
         Elia: Ma possono sindicarli, perché non è scritto diversamente da nessuna parte, no?
             -> advance_time ->

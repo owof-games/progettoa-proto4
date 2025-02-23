@@ -95,7 +95,7 @@ Opzioni di dialogo con la persona Greta
             Greta: Prima o poi mi venderà qualche organo senza che me ne renda conto.
             ~ pauseStorylet = true
             -> advance_time ->
-            
+
         + + {phone.indagini} Ettore: Non ti preoccupano le indagini?
                     ~ inConversazione += Greta
             Greta: Le indagini sulla Londar?
@@ -104,7 +104,7 @@ Opzioni di dialogo con la persona Greta
             Greta: E la caduta è attutita da qualche decina di cadaveri.
             Greta: E a questo giro, il corpo sarà quello di Elia.
             Ettore: In che senso?
-            - -(indagini) Greta: Beh: Paola sta cercando far estromettere Elia dalla Londar.
+            - - -(indagini) Greta: Beh: Paola sta cercando far estromettere Elia dalla Londar.
                 -> advance_time ->
                 {
                     - currentTime >= 600:
@@ -141,7 +141,7 @@ Opzioni di dialogo con la persona Greta
             Greta: Almeno fino a domattina, Elia è ancora a metà proprietario dell'azienda.
             Greta: E se Paola capitola, lui finisce diritto in consiglio di amministrazione.
             Ettore: Quindi cosa mi stai dicendo?
-            - -(indagini2) Greta: Elia sta usando l'amicizia con Matteo per usare il sindacato contro Paola.
+            - - -(indagini2) Greta: Elia sta usando l'amicizia con Matteo per usare il sindacato contro Paola.
                 
                 + + + Ettore: Perdonami, ma Elia non mi sembra così macchiavellico.
                         Greta: Vedo che sei sveglio, Ettore.
@@ -159,7 +159,6 @@ Opzioni di dialogo con la persona Greta
                     -> advance_time ->
                         ~ pauseStorylet = true
                         -> intro
-                - - - 
     
         + + {liarCallLiarStorylet.indagini} Ettore: Per questo avrebbe senso tradirla il prima possibile?
                     ~ inConversazione += Greta
@@ -284,7 +283,7 @@ Opzioni di dialogo con la persona Greta
                             Greta: Le ricariche della pod mod di Paola arriva a 18 mg.
                             Greta: Bastano tre ricariche per ucciderla.
                             Greta: E tu dirai: "Ma chi fuma così tanto?"
-                            - -(allestimento2) Greta: Ed ecco la cosa divertente: che grazie alle sigarette elettroniche ora basta versare il veleno sulla pelle e bang, è fatta! Puoi uccidere qualcuno.
+                            - - - -(allestimento2) Greta: Ed ecco la cosa divertente: che grazie alle sigarette elettroniche ora basta versare il veleno sulla pelle e bang, è fatta! Puoi uccidere qualcuno.
                             Greta: Grazie, evoluzione tecnologica!
                             Greta: Ma poi per me c'è il colpo di genio vero e proprio.
                                 -> advance_time ->
@@ -364,7 +363,7 @@ Opzioni di dialogo con la persona Greta
                                 Greta: Usata.
                                 Greta: Mi ha promesso amore.
                                 Greta: Mi ha regalato le piattole.
-                                - -(indagini3) Greta: E io che, stupida, coprivo i furti di denaro di Elia in azienda.
+                                - - - -(indagini3) Greta: E io che, stupida, coprivo i furti di denaro di Elia in azienda.
                                 Greta: Convinta che ci avremmo costruito una casa assieme, con quei soldi.
                                  Greta: Ho bisogno di un poco di privacy Ettore, scusami.
                                 ~ loopableVariables += pausaRapportoGreta
@@ -418,7 +417,7 @@ Opzioni di dialogo con la persona Greta
     + (foto) {paola_talking_second_tier.foto} Ettore: Greta, prima ti stavano cercando.
         {new_this_loop(->foto): Greta: Chi? -> secondo|Greta: Non ci ricasco Ettore!}
                     ~ inConversazione += Greta
-        - (secondo)
+        - - (secondo)
             + + Ettore: Zeca, dice che ha la tua scheda per la palestra.
                 Greta: Madonna che palle quell'uomo!
                 Greta: Lascia che sia lui a trovarmi.

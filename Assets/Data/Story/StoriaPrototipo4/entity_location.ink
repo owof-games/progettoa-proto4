@@ -23,7 +23,7 @@
     - 240:
          ~ move_entity(Matteo, YellowRoom)
 
-         paolaPausa != -1  
+         //paolaPausa != -1  
 
     - 300:
         ~ move_entity(Matteo, YellowRoom)    

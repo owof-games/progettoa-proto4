@@ -109,7 +109,7 @@ Opzioni di dialogo con la persona Zeca
         Zeca: PERO'. PERO'.
         Zeca: <rage>Se continua a trattare così di merda Elia, potrei farci un pensierino.</rage>
         Zeca: <joy>Solo io posso insultarlo.</joy>
-        - (omicidio2) Zeca: Per il resto: farei qualsiasi cosa per proteggere Elia.
+        - - (omicidio2) Zeca: Per il resto: farei qualsiasi cosa per proteggere Elia.
         -> advance_time ->
         ~ pauseStorylet = true
             -> zeca_talking_second_tier
@@ -156,7 +156,7 @@ Opzioni di dialogo con la persona Zeca
                     Zeca: La sala gialla, dove dovevamo fare il buffet, era serrata.
                     Zeca: E qualcuno dentro ansimava come se avesse fatto le scale di corsa, molto di corsa.
                     Zeca: E per scale, intendo tutta una squadra di calcio.
-                    - -(allestimento2) Zeca: Forse era Paola col suo vibratore a saltellare sul tavolo del buffet. Una elder millenial sicuro che ne ha sempre uno con sé.
+                    - - - (allestimento2) Zeca: Forse era Paola col suo vibratore a saltellare sul tavolo del buffet. Una elder millenial sicuro che ne ha sempre uno con sé.
                     Zeca: Anche se non ho sentito il solito puzzo di cesso delle sue sigarette elettroniche.
                      -> advance_time ->
                         -> zeca_talking_second_tier
@@ -215,7 +215,7 @@ Opzioni di dialogo con la persona Zeca
             Zeca: Dovrebbero farmi santa.
             Zeca: E piuttosto: invece di rompere le balle a me, c'è qualcun altro a cui Paola dovrebbe fare le pulci.
             Ettore: E chi? Greta?
-            - -(money) Zeca: No: Matteo è l'unico qui dentro che campa sulle spalle dei due fratelli.
+            - - - (money) Zeca: No: Matteo è l'unico qui dentro che campa sulle spalle dei due fratelli.
                 -> advance_time ->    
                     -> zeca_talking_second_tier
         + + (love3){trueLoveStorylet && new_this_loop(->love3)} Ettore: Come ti senti, ora che Elia ti ha dichiarato il suo amore?
@@ -254,6 +254,9 @@ Opzioni di dialogo con la persona Zeca
                 -> advance_time ->
                 ~ pauseStorylet = true
                     -> zeca_talking_second_tier
+        + + Marco scrivi qualcosa
+            TODO: qua va scritto qualcosa
+            -> zeca_talking_second_tier
 
     //SCELTE CONDIZIONALI OGGETTI//
     + (lettera) {inventoryContents has Lettera && new_this_loop(->lettera)} Ettore: Hai idea di chi sia questa lettera?
@@ -289,7 +292,7 @@ Opzioni di dialogo con la persona Zeca
             
     + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Hai comprato tu questa bottiglia di vino?
                 ~ inConversazione += Zeca
-       - (allestimento3) Zeca: Sì, la boccia l'abbiamo presa Matteo ed io.
+       - - (allestimento3) Zeca: Sì, la boccia l'abbiamo presa Matteo ed io.
         Zeca: Mmm, ora che ci penso, non esattamente.
         Ettore: In che senso?
         Zeca: Ufficialmente l'ha comprata Matteo, per quanto fossimo assieme.

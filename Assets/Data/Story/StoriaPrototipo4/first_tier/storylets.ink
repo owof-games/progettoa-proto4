@@ -562,8 +562,8 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Matteo: Ma io ho una carretta da tirare avanti.
         Matteo: Dio, non credo di averti mai amato, sei così fastidioso!
         Matteo: Fammi andare via di qui!
-            ~ move_this_entity_in_a_different_room(Matteo)
             -> advance_time ->
+            ~ move_this_entity_in_a_different_room(Matteo)
         ~ pauseStorylet = true
         -> intro
 

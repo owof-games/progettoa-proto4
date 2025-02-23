@@ -99,7 +99,7 @@ Opzioni di dialogo con la persona Matteo
                     
                     + + + {cb_second_tier_lettera.primoCheck} Ettore: C'è una lettera, una lettera di minacce.
                             Ettore: Sto cercando di capire chi l'ha scritta, e contro chi.
-                            - (lettera2) Matteo: Solo due persone in questo posto mossono minacciare qualcuno: Paola e Zeca.
+                            - - - -(lettera2) Matteo: Solo due persone in questo posto mossono minacciare qualcuno: Paola e Zeca.
                             Matteo: Ma sono così inutile qui, che dubito qualcuno voglia minacciarmi per qualcosa.
                                 -> advance_time ->
                                 ~ pauseStorylet = true

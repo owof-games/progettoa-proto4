@@ -105,7 +105,7 @@ Opzioni di dialogo con il personaggio Matteo
             
         
     //SCELTE CONDIZIONALI OGGETTI//
-    + (pugnale) {inventoryContents has AnticoPugnale && new_this_loop(->pugnale)} Ettore: Hai mai visto questo spiedino?
+    + (pugnale) {inventoryContents has AnticoPugnale && new_this_loop(->pugnale)} Ettore: Hai mai visto questo pugnale?
             Matteo: No.
                 ~ pauseStorylet = true
                 -> matteo_acting

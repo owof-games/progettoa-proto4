@@ -45,6 +45,7 @@ Opzioni di dialogo con la persona Paola
         Paola: Reflusso cronico.
         Paola: Nausea.
         Paola: Voglia di bere il mondo per dimenticarmi che quella specie di australopiteco di Elia è mio fratello.
+        {are_two_entities_together(Paola, Elia): Elia: Andiamo in Australia?}
         Paola: E la non insolita speranza che qualcuno mi uccida.
         Paola: Hai visto il mio boccettino per l'asma? L'ho comprato giusto stamani, cazzo.
             -> advance_time ->
@@ -55,6 +56,7 @@ Opzioni di dialogo con la persona Paola
         Paola: Per il patrimonio, molti.
         Paola: Anche se l'unico che può sperare di accederci è Elia.
         Paola: E solo fino a domattina.
+        {are_two_entities_together(Paola, Elia): Elia: Poi smetto di esistere?}
         Paola: Per il resto, sono tutti liberi di andarsene.
         Paola: Prima che li uccida io.
         Paola: Sei qui per entrare nella lista dei morti?
@@ -71,14 +73,22 @@ Opzioni di dialogo con la persona Paola
     +  (buffet) {zeca_talking_second_tier.allestimento && elia_talking_second_tier.allestimento && new_this_loop(->buffet)} Ettore: Può essere una domanda strana, ma sai chi si è occupato di sistemare il buffet?
         ~ inConversazione += Paola
         Ettore: Zeca dice che lui e Matteo hanno smollato tutto a Greta.
+        {are_two_entities_together(Ettore, Zeca): Zeca: Non è che Zeca dice, è così.}
         Ettore: E Elia dice che lui e Greta aveva altro da fare.
+        {are_two_entities_together(Ettore, Greta): Greta: Molto da fare!}
         Paola: Faceva schifo, vero?
         Paola: Il vino troppo amaro.
         Paola: La torta troppo dolce.
         Paola: E Zeca troppo vivo.
+        {are_two_entities_together(Ettore, Zeca): Zeca: Mannaggia al...}
         Paola: Cosa che mi stupisce, sinceramente.
             -> advance_time ->
         Ettore: Come mai?
+            {
+                - are_two_entities_together(Ettore, Zeca) or are_two_entities_together(Ettore, Matteo): Paola: Richiedimelo quando saremo da soli.
+                    ~ pauseStorylet = true
+                    -> paola_talking_second_tier
+            }
         Paola: Beh, nella stanza gialla Matteo e Zeca si sono urlati contro come se ne andasse dell'intero universo.
         Paola: O come due gatte in calore.
             - - (allestimento) Paola: E Matteo è uscito piangendo.
@@ -99,6 +109,12 @@ Opzioni di dialogo con la persona Paola
             Paola: Come se potessi fare paura.
             Paola: Come se sapere dove vivi, dove vive tua madre e avere la possilibità di ricattare il tuo agente fino al midollo mi rendesse minacciosa.
             Ettore: Eh eh ehm coff coff esatto.
+            {
+            - are_two_entities_together(Ettore, Zeca) or are_two_entities_together(Ettore, Elia) or are_two_entities_together(Ettore, Greta) or are_two_entities_together(Ettore, Matteo): Paola: Ragazzino, sono sicura che qualsiasi cosa tu voglia dirmi, vorrai dirmela quando saremo soli.
+                    -> advance_time ->
+                    ~ pauseStorylet = true
+                    -> paola_talking_second_tier
+            }
             Ettore: ZECA, non io, Zeca sostiene che Greta fosse l'unica persona a poter dare quei dati alla polizia.
             Paola: Zeca sostiene molte cose, Ettore.
                 -> advance_time ->
@@ -122,7 +138,7 @@ Opzioni di dialogo con la persona Paola
                     ~ pauseStorylet = true
                     -> advance_time ->
 
-    + (foto3) {zeca_talking_second_tier.allestimento2 && are_two_entities_together(Paola, Greta) && new_this_loop(-> foto3)} Ettore: <hesitate>Per caso ti sei tipo masturbata nella sala gialla?
+    + (foto3) {zeca_talking_second_tier.allestimento2 && new_this_loop(-> foto3)} Ettore: <hesitate>Per caso ti sei tipo masturbata nella sala gialla?
             ~ inConversazione += Paola
             Paola: Ettore. Per masturbarmi mi serve una mezz'ora di silenzio.
             Paola: E un po' di popper.
@@ -136,7 +152,9 @@ Opzioni di dialogo con la persona Paola
             Paola: Bravo bimbo.
             Paola: E i bravi bimbi meritano un premio.
                 - -(foto) Paola: Se allontani Greta da questa stanza o se passi quando non c'è, ti darò il tuo premio.
+                {are_two_entities_together(Paola, Greta): Greta: Cos?!?}
                 Paola: Un premio che farà felice anche quella merdaccina di Zeca.
+                {are_two_entities_together(Paola, Zeca): Zeca: Ehi!}
                 Paola: Fai il tuo dovere, <joy>mio cagnolino.</joy>
                 ~ pauseStorylet = true
                     -> advance_time ->
@@ -204,7 +222,9 @@ Opzioni di dialogo con la persona Paola
     
     + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} Ettore: Sai chi fuma qui tra noi?
         Paola: Erba? Zeca.
+        {are_two_entities_together(Paola, Zeca): Zeca: Solo per dormire!}
         Paola: Oppio? Matteo.
+        {are_two_entities_together(Paola, Matteo): Matteo: E chi se lo può permettere?}
         Paola: Tabacco? Greta.
         Paola: Vorrei capire di cosa è fatto Elia per essere così cretino, invece.
         Paola: Io vivo di sigaretta elettronica. Adoro i suoi sapori chimici, la possibilità di fumarla ovunque.
@@ -261,7 +281,7 @@ Opzioni di dialogo con la persona Paola
         -> advance_time ->
     Paola: <joy>Mi piace umiliarvi.</joy>
     Paola: Mi piace vedervi diventare piccoli davanti al mio odio.
-    Paola: <joy>Licenziarvi solo perché posso.v
+    Paola: <joy>Licenziarvi solo perché posso.</joy>
     Paola: Sapere che perderete casa solo perché esisto.
     Paola: Ed è una cosa terribile perché non posso manco passare per quella che è stronza perché lo chiede la società.
     Paola: Ne ho incontrate molte, Ettore. Pecore nel corpo di manager pseudodominanti.

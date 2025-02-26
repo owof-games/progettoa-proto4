@@ -72,7 +72,10 @@ Opzioni di dialogo con la persona Elia
                 -> advance_time ->
                 ~ pauseStorylet = true
             -> elia_talking_second_tier
-            + + -> elia_talking_second_tier
+            
+            + + Ettore: Ehm, magari passo.
+                ~ pauseStorylet = true
+                -> elia_talking_second_tier
 
     
 
@@ -103,18 +106,17 @@ Opzioni di dialogo con la persona Elia
                 Ettore: A dire il vero è la mamm...
                 Zeca: Ora ci penso io a te. Vieni, andiamo a fare un paio di flessioni.
                 Elia: Ma quelle boom clap, va bene?
-                - - -(indagini3) Zeca: Va bene bimbo. Ora andiamo.
-                    -> advance_time ->
-                   ~ move_this_entity_in_a_different_room(Zeca)
-                   ~ move_this_entity_in_a_different_room(Elia)
-                    -> intro
+                    - - - (indagini3) Zeca: Va bene bimbo. Ora andiamo.
+                        -> advance_time ->
+                       ~ move_this_entity_in_a_different_room(Zeca)
+                       ~ move_this_entity_in_a_different_room(Elia)
+                        -> intro
         
-            + + -> 
-            - -
-            Elia: E NON MI PARLARE!
-            ~ loopableVariables += pausaRapportoElia
-            ~ pauseStorylet = true
-            -> zeca_talking_second_tier
+            + + Ettore: Ma non è una soluzione!
+                Elia: E NON MI PARLARE!
+                ~ loopableVariables += pausaRapportoElia
+                ~ pauseStorylet = true
+                -> zeca_talking_second_tier
             
             
 
@@ -152,7 +154,7 @@ Opzioni di dialogo con la persona Elia
         Ettore: E avete chiamato i fornitori?
         Elia: Sì, sennò poi i comici cosa bevono?
         Elia: Ora che ci penso: non abbiamo chiamato nessun comico.
-        Elia: Devo subito comunicarlo a Greta prima che mi mangi vivo!
+        Elia: Devo dirlo a Greta prima che mi mangi vivo!
             -> advance_time -> 
                                     {
             - currentTime >= 600:
@@ -161,19 +163,22 @@ Opzioni di dialogo con la persona Elia
             }
             + + {zeca_talking_second_tier.allestimento2} Ettore: Zeca però ha sentito qualcuno nella stanza gialla.
                 Ettore: E a suo dire stava scopando.
-                - - - (allestimento2) Elia: Naa, Zeca sente sesso ovunque.
-                Elia: Pensa che dorme sentendo le balene scopare.
-                Elia: E io non ho fatto sesso, no.
-                Elia: Mai fatto sesso.
-                Ettore: Mai.
-                Elia: Mai ora.
-                Elia: <hesitate>Mai adesso.
-                Elia: Ero a chiamare con Greta.
-                    -> advance_time ->
-                    ~ pauseStorylet = true
-                        -> elia_talking_second_tier
-            + + -> elia_talking_second_tier
-            - -
+                    - - - (allestimento2) Elia: Naa, Zeca sente sesso ovunque.
+                    Elia: Pensa che dorme sentendo le balene scopare.
+                    Elia: E io non ho fatto sesso, no.
+                    Elia: Mai fatto sesso.
+                    Ettore: Mai.
+                    Elia: Mai ora.
+                    Elia: <hesitate>Mai adesso.
+                    Elia: Ero a chiamare con Greta.
+                        -> advance_time ->
+                        ~ pauseStorylet = true
+                            -> elia_talking_second_tier
+            + + Ettore: Sono molto confuso.
+                Elia: Benvenuto nel club.
+                ~ pauseStorylet = true
+                -> elia_talking_second_tier
+                - -
 
     + {iTryToBeAGoodFriendStorylet} Ettore: Prima ho ascoltato una conversazione tra Zeca e Matteo...
             ~ inConversazione += Elia
@@ -226,12 +231,12 @@ Opzioni di dialogo con la persona Elia
         Elia: <rage>Io<waitrage> sono<waitrage> stato<waitrage> un<waitrage> sacco<waitrage> zitto<waitrage> per<waitrage> Matteo.</rage>
         Elia: Non con Matteo, perché parlo molto, ma per Matteo, sì.
         Elia: Allora ti dico un segreto: Greta ha dato a Matteo molte informazioni sui conti dell'azienda.
-        - - (indagini) Elia: Vuole aiutarlo con questa cosa del sindicato, così che Matteo possa sindicare meglio sindicando Paola e venendo sindicato dai colleghi del sindicato.
-        Elia: E io l'ho detto a Greta che fa bene, perché nessuno deve indicare i miei amici.
-        Elia: Ma possono sindicarli, perché non è scritto diversamente da nessuna parte, no?
-            -> advance_time ->
-            ~ pauseStorylet = true
-                -> elia_talking_second_tier
+            - - (indagini) Elia: Vuole aiutarlo con questa cosa del sindicato, così che Matteo possa sindicare meglio sindicando Paola e venendo sindicato dai colleghi del sindicato.
+            Elia: E io l'ho detto a Greta che fa bene, perché nessuno deve indicare i miei amici.
+            Elia: Ma possono sindicarli, perché non è scritto diversamente da nessuna parte, no?
+                -> advance_time ->
+                ~ pauseStorylet = true
+                    -> elia_talking_second_tier
  
    
 

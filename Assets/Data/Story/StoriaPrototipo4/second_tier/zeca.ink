@@ -108,10 +108,10 @@ Opzioni di dialogo con la persona Zeca
         Zeca: PERO'. PERO'.
         Zeca: <rage>Se continua a trattare così di merda Elia, potrei farci un pensierino.</rage>
         Zeca: <joy>Solo io posso insultarlo.</joy>
-        - - (omicidio2) Zeca: Per il resto: farei qualsiasi cosa per proteggere Elia.
-        -> advance_time ->
-        ~ pauseStorylet = true
-            -> zeca_talking_second_tier
+            - - (omicidio2) Zeca: Per il resto: farei qualsiasi cosa per proteggere Elia.
+                -> advance_time ->
+                ~ pauseStorylet = true
+                -> zeca_talking_second_tier
 
     
 
@@ -137,9 +137,10 @@ Opzioni di dialogo con la persona Zeca
             }
         Zeca: Comunque sì, Matteo ed io ci siamo occupati di tabacco e cibo, ma non abbiamo preparato noi il buffet.
         Zeca: Né io né Matteo abbiamo messo piede nella stanza gialla prima delle prove.
-        - -(allestimento) Zeca: Abbiamo lasciato le cose fuori dalla porta e chiesto a Greta di occuparsene, perché c'erano dei problemi coi costumi.
-        Zeca: O per dirla diversamente: Greta si deve essere scofanata un cavallo dalle ultime prove, perché <joy>ora non ci entra più in quel vestito.</joy>
-        Zeca: Hai altre domande, Sherlock?
+            - -(allestimento) Zeca: Abbiamo lasciato le cose fuori dalla porta e chiesto a Greta di occuparsene, perché c'erano dei problemi coi costumi.
+            Zeca: O per dirla diversamente: Greta si deve essere scofanata un cavallo dalle ultime prove, perché <joy>ora non ci entra più in quel vestito.</joy>
+            Zeca: Hai altre domande, Sherlock?
+            
                 + + {elia_talking_second_tier.allestimento}Ettore: Sì; mi sembra buffo quel che dici, perché Elia giura di averti lasciato il vino, perché lui e Greta avevano un problema coi tavoli.
                     Zeca: <i>Buffo>/i> che tu non sappia farti un giro di cazzi tuoi, Ettore.
                     Zeca: Vero, Elia mi ha chiesto di farlo, ma io non gli ho mai detto di sì.
@@ -181,7 +182,7 @@ Opzioni di dialogo con la persona Zeca
                     Zeca: Non so se ci siamo capiti.
                        + + + {matteo_talking_second_tier.allestimento} Ettore: Quando ho detto la stessa cosa a Matteo, è corso a cercarti.
                             Zeca: E ci siamo trovati, e ora va tutto bene.
-                       + + +Ettore: Forte e chiaro.
+                       + + + Ettore: Forte e chiaro.
                       
                     Zeca: Bene. Ora lasciami nel mio silenzio a odiare te e il resto del mondo, grazie.
                         -> advance_time ->       
@@ -214,9 +215,9 @@ Opzioni di dialogo con la persona Zeca
             Zeca: Dovrebbero farmi santa.
             Zeca: E piuttosto: invece di rompere le balle a me, c'è qualcun altro a cui Paola dovrebbe fare le pulci.
             Ettore: E chi? Greta?
-            - - - (money) Zeca: No: Matteo è l'unico qui dentro che campa sulle spalle dei due fratelli.
-                -> advance_time ->    
-                    -> zeca_talking_second_tier
+                - - - (money) Zeca: No: Matteo è l'unico qui dentro che campa sulle spalle dei due fratelli.
+                    -> advance_time ->    
+                        -> zeca_talking_second_tier
         
         + + (love3){trueLoveStorylet && new_this_loop(->love3)} Ettore: Come ti senti, ora che Elia ti ha dichiarato il suo amore?
                     ~ inConversazione += Zeca
@@ -282,13 +283,13 @@ Opzioni di dialogo con la persona Zeca
             Zeca: E non è mai successo.
         + + ->
         - -
-        Zeca: Comunque so chi potrebbe ricevere una lettera, presto a tardi.
-        Ettore: E chi?
-        Zeca: Tu, da parte di uno degli avvocati dei fratellini.
-        Zeca: Se c'è una cosa che Paola odia, sono le domande indiscrete.
-            -> advance_time ->
-            ~ pauseStorylet = true
-            -> zeca_talking_second_tier
+            Zeca: Comunque so chi potrebbe ricevere una lettera, presto a tardi.
+            Ettore: E chi?
+            Zeca: Tu, da parte di uno degli avvocati dei fratellini.
+            Zeca: Se c'è una cosa che Paola odia, sono le domande indiscrete.
+                -> advance_time ->
+                ~ pauseStorylet = true
+                -> zeca_talking_second_tier
     
     + (torta) {inventoryContents has Torta && new_this_loop(->torta)} Ettore: Hai mai...
                 ~ inConversazione += Zeca
@@ -308,18 +309,18 @@ Opzioni di dialogo con la persona Zeca
             
     + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Hai comprato tu questa bottiglia di vino?
                 ~ inConversazione += Zeca
-       - - (allestimento3) Zeca: Sì, la boccia l'abbiamo presa Matteo ed io.
-        Zeca: Mmm, ora che ci penso, non esattamente.
-        Ettore: In che senso?
-        Zeca: Ufficialmente l'ha comprata Matteo, per quanto fossimo assieme.
-        Zeca: PERO'. PERO'.
-        Zeca: Anticipava i soldi di Elia, per cui in teoria l'ha comprata Elia.
-        Zeca. PERO'. PERO'.
-        Zeca: I soldi di Elia sono della Londar e quindi di fatto di Paola, per cui la risposta è:
-        Zeca: Non l'ho comprata io. Sorry.
-            -> advance_time ->
-            ~ pauseStorylet = true
-            -> zeca_talking_second_tier
+            - - (allestimento3) Zeca: Sì, la boccia l'abbiamo presa Matteo ed io.
+            Zeca: Mmm, ora che ci penso, non esattamente.
+            Ettore: In che senso?
+            Zeca: Ufficialmente l'ha comprata Matteo, per quanto fossimo assieme.
+            Zeca: PERO'. PERO'.
+            Zeca: Anticipava i soldi di Elia, per cui in teoria l'ha comprata Elia.
+            Zeca. PERO'. PERO'.
+            Zeca: I soldi di Elia sono della Londar e quindi di fatto di Paola, per cui la risposta è:
+            Zeca: Non l'ho comprata io. Sorry.
+                -> advance_time ->
+                ~ pauseStorylet = true
+                -> zeca_talking_second_tier
                     
     + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Hai mai visto questo flaconcino per l'asma?
         Zeca: Dio.

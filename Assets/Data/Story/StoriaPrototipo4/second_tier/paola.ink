@@ -21,7 +21,8 @@ Opzioni di dialogo con la persona Paola
 === paola_talking_second_tier
     ~ move_locked_entities(false)
     -> second_tier_storylets ->
- {debug: <i>Passo per paola_talking</i>}
+    {debug: <i>Passo per paola_talking</i>}
+    
     //INFO GENERALI//
     + (loop) {new_this_loop(->loop)} Ettore: Paola, ehm, hai notato nulla di problematico?
         Paola: Io che cerco una biro dopo che non scrivo dal duemila e quattro?
@@ -57,8 +58,8 @@ Opzioni di dialogo con la persona Paola
         Paola: Per il resto, sono tutti liberi di andarsene.
         Paola: Prima che li uccida io.
         Paola: Sei qui per entrare nella lista dei morti?
-        -> advance_time ->
-        ~ pauseStorylet = true
+            -> advance_time ->
+            ~ pauseStorylet = true
 
     
 
@@ -67,7 +68,7 @@ Opzioni di dialogo con la persona Paola
 
 
     //SCELTE CONDIZIONALI//
-    +  {zeca_talking_second_tier.allestimento && elia_talking_second_tier.allestimento} Ettore: Può essere una domanda strana, ma sai chi si è occupato di sistemare il buffet?
+    +  (buffet) {zeca_talking_second_tier.allestimento && elia_talking_second_tier.allestimento && new_this_loop(->buffet)} Ettore: Può essere una domanda strana, ma sai chi si è occupato di sistemare il buffet?
         ~ inConversazione += Paola
         Ettore: Zeca dice che lui e Matteo hanno smollato tutto a Greta.
         Ettore: E Elia dice che lui e Greta aveva altro da fare.
@@ -80,18 +81,18 @@ Opzioni di dialogo con la persona Paola
         Ettore: Come mai?
         Paola: Beh, nella stanza gialla Matteo e Zeca si sono urlati contro come se ne andasse dell'intero universo.
         Paola: O come due gatte in calore.
-        - -(allestimento) Paola: E Matteo è uscito piangendo.
-        Paola: Sinceramente? <joy>Mi masturberò sull'immagine di quella faccina disperata stasera.</joy>
-        Paola: L'unica cosa decente di questa serata.
-        Paola: Già che ci sono potrei andare da Zeca e stuzzicarlo un po' per capire perché hanno litigato.
-        Paola: Magari piange anche quella fighetta.
-            -> advance_time ->
-            ~ pauseStorylet = true
-            -> paola_talking_second_tier
+            - - (allestimento) Paola: E Matteo è uscito piangendo.
+            Paola: Sinceramente? <joy>Mi masturberò sull'immagine di quella faccina disperata stasera.</joy>
+            Paola: L'unica cosa decente di questa serata.
+            Paola: Già che ci sono potrei andare da Zeca e stuzzicarlo un po' per capire perché hanno litigato.
+            Paola: Magari piange anche quella fighetta.
+                -> advance_time ->
+                ~ pauseStorylet = true
+                -> paola_talking_second_tier
 
     
 
-    + {liarCallLiarStorylet.indagini}: Ettore: Quindi: qualcuno ha dato tuoi dati personali alla polizia.
+    + (liar) {liarCallLiarStorylet.indagini && new_this_loop(-> liar)}: Ettore: Quindi: qualcuno ha dato tuoi dati personali alla polizia.
         ~ inConversazione += Paola
             Paola: Ecco, così mi si deve parlare: <joy>fuori dai denti.</joy>
             Paola: Niente cazzate del cazzo.
@@ -110,18 +111,18 @@ Opzioni di dialogo con la persona Paola
             Paola: Il coglione palestrato da spremere fino al midollo per un progetto inutile.
             Paola: E a quel punto cosa gli resta se non tornare a farsi pagare per le pompe all'Autogrill?
                 -> advance_time ->
-            - -(money)  Paola: Elia per Zeca è la gallina delle uova d'oro, ma di galline non se ne trovano due in questa vita.
-            Paola: E a me è toccato essere la gallina di me stessa.
-            Paola: Certo, la morte dei miei genitori mi ha dato una grossa mano.
-            Paola: Ma sapevi che Zeca si è fatto sbiancare il buco del culo?
-            Paola: Come se a mio fratello potesse piacere un frocetto.
-            Paola: Anche se è così stupido da non capire la differenza tra due tette e due chiappe.
-            Paola: Tra me e me: credo che Elia sia ancora vergine.
-            Paola: <joy>Piccola puttanella.</joy>
-                ~ pauseStorylet = true
-                -> advance_time ->
+                - -(money)  Paola: Elia per Zeca è la gallina delle uova d'oro, ma di galline non se ne trovano due in questa vita.
+                Paola: E a me è toccato essere la gallina di me stessa.
+                Paola: Certo, la morte dei miei genitori mi ha dato una grossa mano.
+                Paola: Ma sapevi che Zeca si è fatto sbiancare il buco del culo?
+                Paola: Come se a mio fratello potesse piacere un frocetto.
+                Paola: Anche se è così stupido da non capire la differenza tra due tette e due chiappe.
+                Paola: Tra me e me: credo che Elia sia ancora vergine.
+                Paola: <joy>Piccola puttanella.</joy>
+                    ~ pauseStorylet = true
+                    -> advance_time ->
 
-    + (foto3) {zeca_talking_second_tier.allestimento2 && are_two_entities_together(Paola, Greta)} Ettore: <hesitate>Per caso ti sei tipo masturbata nella sala gialla?
+    + (foto3) {zeca_talking_second_tier.allestimento2 && are_two_entities_together(Paola, Greta) && new_this_loop(-> foto3)} Ettore: <hesitate>Per caso ti sei tipo masturbata nella sala gialla?
             ~ inConversazione += Paola
             Paola: Ettore. Per masturbarmi mi serve una mezz'ora di silenzio.
             Paola: E un po' di popper.
@@ -134,13 +135,13 @@ Opzioni di dialogo con la persona Paola
             Ettore: Zeca.
             Paola: Bravo bimbo.
             Paola: E i bravi bimbi meritano un premio.
-            - -(foto) Paola: Se allontani Greta da questa stanza o se passi quando non c'è, ti darò il tuo premio.
-            Paola: Un premio che farà felice anche quella merdaccina di Zeca.
-            Paola: Fai il tuo dovere, <joy>mio cagnolino.</joy>
-            ~ pauseStorylet = true
-                -> advance_time ->
+                - -(foto) Paola: Se allontani Greta da questa stanza o se passi quando non c'è, ti darò il tuo premio.
+                Paola: Un premio che farà felice anche quella merdaccina di Zeca.
+                Paola: Fai il tuo dovere, <joy>mio cagnolino.</joy>
+                ~ pauseStorylet = true
+                    -> advance_time ->
 
-    + (foto2) {greta_talking_second_tier.foto2 && not are_two_entities_together(Paola, Greta)} Ettore: Siamo soli, hai qualcosa per me?
+    * (foto2) {greta_talking_second_tier.foto2 && not are_two_entities_together(Paola, Greta) && new_this_loop(-> foto2)} Ettore: Siamo soli, hai qualcosa per me?
             ~ inConversazione += Paola
             Paola: Bene Ettore, è arrivato Babbo Natale per te.
             Paola: Poi dicono che sono cattiva.
@@ -149,14 +150,28 @@ Opzioni di dialogo con la persona Paola
             Paola: Eccoti una bella foto di lei ed Elia due secondi prima di scopare nel loro pub.
             Paola: Credo che Zeca apprezzerà molto.
             Paola: E smollerà mio fratello.
-                ~ pauseStorylet = true
-                -> advance_time ->
             {
             - LIST_COUNT(inventoryContents) > 0:
             ~ throw_exception("Paola: Peccato tu abbia le mani piene. Torna quando non avrai altro, bimbo.")
             - else:
                 ~ inventoryContents += Foto
-                }
+            }
+            
+            ~ pauseStorylet = true
+                -> advance_time ->
+    
+    * {greta_talking_second_tier.foto2 && not are_two_entities_together(Paola, Greta) && not new_this_loop(-> foto2) && inventoryContents==()}
+        Ettore: Ora ho spazio per la foto.
+        ~ inConversazione += Paola
+        {new_this_loop(-> foto2): Paola: Come lo sai? Uh, chi se ne frega.|Paola: Bravo bimbo.}
+        Paola: Un bravo bimbo fa mamma Paola felice.
+        Paola: Eccoti il tuo premio.
+            ~ inventoryContents += Foto
+            ~ pauseStorylet = true
+                -> advance_time ->
+
+        
+            
                 
     //SCELTE CONDIZIONALI OGGETTI//
      + (minacce) {inventoryContents has Lettera && new_this_loop(->minacce)} Ettore: Hai mai visto questa lettera?

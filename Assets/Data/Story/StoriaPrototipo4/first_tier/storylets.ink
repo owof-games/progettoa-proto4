@@ -4,7 +4,6 @@
 {loopableVariables has dontCheckStorylets:
     ->->
 }
-TODO: sistema problema telefono prima scena Matteo
 {
 //MATERIALI PER TUTORIAL
 
@@ -122,13 +121,13 @@ TODO: sistema problema telefono prima scena Matteo
             
         Paola: Capperina, ho dimenticato una cosa di là, arrivo subito.
              ~ move_this_entity_in_a_different_room(Paola)
-        Greta: Anche io ho scordato una cosa!
+        Greta: Merda, la torta!
             ~ move_this_entity_in_a_different_room(Greta)
-        Matteo: A questo punto faccio una chiamata.
+        Matteo: Secondo me la stanza rossa può diventare una bellissima piscina.
             ~ move_this_entity_in_a_different_room(Matteo)
-        Zeca: E io ne approfitto per scappare.
+        Zeca: Credo di aver visto una bottiglia di vino nella stanza gialla.
             ~ move_this_entity_in_a_different_room(Zeca)
-        Elia: Allora mi sparo due flessioni di là.
+        Elia: Vado a fare due flessioni e torno.
             ~ move_this_entity_in_a_different_room(Elia)
             + Ettore: Bella festa, davvero. Grazie.
             + Ettore: Boh, a questo punto me ne vado anche io.
@@ -144,7 +143,7 @@ TODO: sistema problema telefono prima scena Matteo
             ~ move_entity(Zeca,WhiteRoom)
         Zeca: Per non farmi bere ti sei scolata tutto il vino?
             ~ move_entity(Matteo,WhiteRoom)
-        Matteo: Sembra che ci sia un problema con la piscina.
+        Matteo: No, la finestra dà sulla Accademia. Nessuno vuole nuotare davanti a quei falliti.
             ~ move_entity(Greta,WhiteRoom)        
         Greta: Certo che questo posto è tutto uguale.
         Greta: Raga, ma Paola sta bene?
@@ -173,7 +172,7 @@ TODO: sistema problema telefono prima scena Matteo
         Elia: E ha requisito tutti i cellulari.
         Ettore: Anche il mio, come diavolo ha fatto?!?
         Zeca: Beh, rega, io mi faccio due passi per queste stanze.
-        Matteo: E io sento il mio avvocato.
+        Matteo: Però potrei chiedere a nonno di far abbattere l'Accademia. Fammi prendere due misure.
         Elia: <fear>E io, io, io ho paura!</fear>
             -> advance_time ->
             ~ pauseStorylet = true

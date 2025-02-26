@@ -84,7 +84,7 @@ Opzioni di dialogo con la persona Matteo
  
             }
             
-            + + (lavoro) {zeca_talking_second_tier.money}Ettore: Zeca dice che tu Paola la conosci.
+            + + (lavoro) {zeca_talking_second_tier.money} Ettore: Zeca dice che tu Paola la conosci.
                 Ettore: Dice che campi alle spalle sue e di Elia.
                 Matteo: Lavoro per la sua azienda, che è diverso. Ma non ci ho mai avuto a che fare direttamente.
                 Matteo: Però le insinuazioni di Zeca hanno senso: le mie entrate dipendono dal lavoro per lei, e dalle pulizie a casa di Elia.
@@ -99,11 +99,11 @@ Opzioni di dialogo con la persona Matteo
                     
                     + + + {cb_second_tier_lettera.primoCheck} Ettore: C'è una lettera, una lettera di minacce.
                             Ettore: Sto cercando di capire chi l'ha scritta, e contro chi.
-                            - - - -(lettera2) Matteo: Solo due persone in questo posto mossono minacciare qualcuno: Paola e Zeca.
-                            Matteo: Ma sono così inutile qui, che dubito qualcuno voglia minacciarmi per qualcosa.
-                                -> advance_time ->
-                                ~ pauseStorylet = true
-                            -> matteo_talking_second_tier
+                                - - - -(lettera2) Matteo: Solo due persone in questo posto mossono minacciare qualcuno: Paola e Zeca.
+                                    Matteo: Ma sono così inutile qui, che dubito qualcuno voglia minacciarmi per qualcosa.
+                                    -> advance_time ->
+                                    ~ pauseStorylet = true
+                                -> matteo_talking_second_tier
 
                     + + + (lettera3) {not new_this_loop(->lettera)} Ettore: Per la lettera che ti ho mostrato prima.
                             Ettore: Quella che mi hai fatto mettere via, impaurito da Paola.
@@ -144,8 +144,6 @@ Opzioni di dialogo con la persona Matteo
                                         ~ loopableVariables += pausaRapportoMatteo
                                         ~ pauseStorylet = true
                                         -> intro
-                              
-                    + + + ->            
 
             + + [Cambi argomento] -> matteo_talking_second_tier
 
@@ -184,6 +182,7 @@ Opzioni di dialogo con la persona Matteo
         Ettore: E che vuole andare a stuzzicare Zeca per capire il perché.
         Matteo: E chi l'ha vista quella fottuta stanza gialla?!?!
         Matteo: Quella strega! Devo subito trovare Zeca, sai dove possa essere?
+        
         + + {whiteRoomContents hasnt Ettore} Ettore: Credo sia nella stanza bianca.
                 ~ move_entity(Matteo, WhiteRoom)
         + + {greenRoomContents hasnt Ettore} Ettore: Forse nella stanza verde?

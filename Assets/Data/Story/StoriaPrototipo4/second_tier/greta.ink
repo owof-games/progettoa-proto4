@@ -22,7 +22,7 @@ Opzioni di dialogo con la persona Greta
 -> second_tier_storylets ->
 
  {debug: <i>Passo per greta_talking_second_tier</i>}
- {loopableVariables has pausaRapportoGreta: Greta: ...}
+ {loopableVariables has pausaRapportoGreta: Greta: Lasciami in pace.}
     
     //INFO GENERALI//
     
@@ -99,10 +99,19 @@ Opzioni di dialogo con la persona Greta
 
         + + {phone.indagini} Ettore: Non ti preoccupano le indagini?
                     ~ inConversazione += Greta
+                {
+                    - are_two_entities_together(Paola, Greta): Greta: Indagini? Quali indagini? Non ci sono indagini, vero Paola?
+                        ~ pauseStorylet = true
+                        -> greta_talking_second_tier
+                }        
             Greta: Le indagini sulla Londar?
             Greta: Non particolarmente.
             Greta: Paola è una che cade in piedi sempre.
-            {are_two_entities_together(Paola, Greta): Greta: Ma non ti dirò altro fintanto che lei è qui. -> greta_talking_second_tier}
+            {
+                - are_two_entities_together(Paola, Greta): Greta: Ma non ti dirò altro fintanto che lei è qui.
+                    ~ pauseStorylet = true
+                -> greta_talking_second_tier
+            }
             Greta: E la caduta è attutita da qualche decina di cadaveri.
             Greta: E a questo giro, il corpo sarà quello di Elia.
             Ettore: In che senso?
@@ -121,8 +130,17 @@ Opzioni di dialogo con la persona Greta
                     ~ pauseStorylet = true
                      -> greta_talking_second_tier
     
-        + + {elia_talking_second_tier.indagini && not are_two_entities_together(Paola, Greta)} Ettore: Paola sa già che hai passato info segrete a Matteo?
+        + + {elia_talking_second_tier.indagini} Ettore: Paola sa già che hai passato info segrete a Matteo?
                     ~ inConversazione += Greta
+                {
+                    - are_two_entities_together(Paola, Greta): Paola: QUALI INFORMAZIONI?
+                        Greta: Niente, niente Paola!
+                        Paola: Ora tu vieni con me, piccola stronza!
+                        ~ move_this_entity_in_a_different_room(Greta)
+                        ~ move_this_entity_in_a_different_room(Paola)
+                        ~ loopableVariables += pausaRapportoGreta
+                            -> intro
+                }        
             Greta: Quali informazioni?
             Ettore: Piccoli segreti utili a rafforzare il suo lavoro di contrattazione col sindacato.
             Greta: Dimmi: è stato lui a dirtelo?
@@ -141,7 +159,7 @@ Opzioni di dialogo con la persona Greta
 
             Greta: <hesitate>Elia.
             Greta: Almeno fino a domattina, Elia è ancora a metà proprietario dell'azienda.
-            {are_two_entities_together(Paola, Greta): Greta: Ma non ti dirò altro fintanto che lei è qui. -> greta_talking_second_tier}
+            {are_two_entities_together(Paola, Greta) or are_two_entities_together(Elia, Greta) or are_two_entities_together(Matteo, Greta) or are_two_entities_together(Zeca, Greta): Greta: Ma non ti dirò altro fintanto che non siamo soli. -> greta_talking_second_tier}
             Greta: E se Paola capitola, lui finisce diritto in consiglio di amministrazione.
             Ettore: Quindi cosa mi stai dicendo?
                 - - -(indagini2) Greta: Elia sta usando l'amicizia con Matteo per usare il sindacato contro Paola.
@@ -223,6 +241,12 @@ Opzioni di dialogo con la persona Greta
     
     + (omicidio) {new_this_loop(->omicidio)} Ettore: Secondo te qualcuno potrebbe volere del male a Paola?
                 ~ inConversazione += Greta
+            {
+                - are_two_entities_together(Paola, Greta):
+                    Greta: E secondo te ti rispondo con lei qui?
+                    ~ pauseStorylet = true
+                    -> greta_talking_second_tier
+            }    
             Greta: Passa un quarto d'ora con lei e avrai la tua risposta.
             Ettore: Potrei odiarla così tanto da volerla uccidere?
             Greta: No dai, per quello bastano cinque minuti.
@@ -306,6 +330,7 @@ Opzioni di dialogo con la persona Greta
                                 Greta: E le tieni lontano il suo flaconcino dell'asma.
                                 Greta: E lei manco riesce a urlare perché non respira.
                                 Greta: E adios!
+                                {are_two_entities_together(Paola, Greta): Paola: Avessi conosciuto prima questo tuo animo da killer, forse ti avrei tollerata di più.}
                                     -> advance_time ->
                                     
                                     {
@@ -337,6 +362,7 @@ Opzioni di dialogo con la persona Greta
 
     + (love) {trueLoveStorylet && new_this_loop(->love) && not are_two_entities_together(Elia, Greta) or not are_two_entities_together(Zeca, Greta)} Ettore: Sapevi della relazione tra Elia e Zeca?
             Greta: Quell'obbrobrio che chiamano "Bro"?
+            
              + + Ettore: Ah ah sì, esatto, proprio quello.
                     Greta: Non fosse per i soldi che arrivano dalla Londar, sarebbero tutti e due falliti da mesi.
                     Greta: Dio, Elia è un tale cucciolo, ma è incapace di vivere.
@@ -366,7 +392,16 @@ Opzioni di dialogo con la persona Greta
                                     ~ inConversazione += Greta
                                 Greta: Tradita.
                                 Greta: Usata.
-                                {are_two_entities_together(Elia, Greta): Greta: Elia, mi fai schifo. -> greta_talking_second_tier}
+                                {
+                                - are_two_entities_together(Elia, Greta): Greta: Elia, mi fai schifo.
+                                    ~ pauseStorylet = true
+                                    ~ move_this_entity_in_a_different_room(Greta)
+                                    -> intro
+                                - are_two_entities_together(Zeca, Greta): Greta: Zeca, preparati a soffrire.
+                                    ~ pauseStorylet = true
+                                    ~ move_this_entity_in_a_different_room(Greta)
+                                    -> intro
+                                }
                                 Greta: Mi ha promesso amore.
                                 Greta: Mi ha regalato le piattole.
                                     - - - -(indagini3) Greta: E io che, stupida, coprivo i furti di denaro di Elia in azienda.
@@ -479,6 +514,7 @@ Opzioni di dialogo con la persona Greta
             Greta: Che pensa, che Paola abbia novant'anni?!?
             Greta: Ora quella è pissata con me, maledizione.
             Greta: Mai far fare le cose agli altri, mai.
+            {are_two_entities_together(Zeca, Greta): Zeca: Fanculo, orfantella del cazzo.}
                     -> advance_time ->
                     ~ pauseStorylet = true
             -> greta_talking_second_tier

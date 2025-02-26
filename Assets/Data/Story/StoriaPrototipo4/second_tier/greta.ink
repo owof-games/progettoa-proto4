@@ -94,8 +94,8 @@ Opzioni di dialogo con la persona Greta
             {are_two_entities_together(Paola, Greta): Greta: Ma non ti dirò altro fintanto che lei è qui. -> greta_talking_second_tier}
             Greta: Ma con Paola ogni giorno è l'antiNatale: ti svegli e avrai qualcosa di meno a sorpresa.
             Greta: Prima o poi mi venderà qualche organo senza che me ne renda conto.
-            ~ pauseStorylet = true
-            -> advance_time ->
+                ~ pauseStorylet = true
+                -> advance_time ->
 
         + + {phone.indagini} Ettore: Non ti preoccupano le indagini?
                     ~ inConversazione += Greta
@@ -106,20 +106,20 @@ Opzioni di dialogo con la persona Greta
             Greta: E la caduta è attutita da qualche decina di cadaveri.
             Greta: E a questo giro, il corpo sarà quello di Elia.
             Ettore: In che senso?
-            - - -(indagini) Greta: Beh: Paola sta cercando far estromettere Elia dalla Londar.
-                -> advance_time ->
-                {
-                    - currentTime >= 600:
-                    -> paolaIsDeadStorylet
-                }
-            Greta: Sostiene di avere delle prove che la condotta illegale sia sua responsabilità.
-            Greta: Domattina ci sarà un incontro straordinario con il consiglio di amministrazione.
-            Greta: E se i conti sono stati fatti per bene, Elia ricerverà la convocazione domani, via lettera, esattamente con venti minuti di ritardo.
-            Greta: Non che cambi molto: l'ultima volta che si è visto in azienda è perché aveva un appuntamento con una stagista.
-            Greta: Paola l'ha licenziata il giorno dopo.
-                -> advance_time ->
-                ~ pauseStorylet = true
-                 -> greta_talking_second_tier
+                - - -(indagini) Greta: Beh: Paola sta cercando far estromettere Elia dalla Londar.
+                    -> advance_time ->
+                    {
+                        - currentTime >= 600:
+                        -> paolaIsDeadStorylet
+                    }
+                Greta: Sostiene di avere delle prove che la condotta illegale sia sua responsabilità.
+                Greta: Domattina ci sarà un incontro straordinario con il consiglio di amministrazione.
+                Greta: E se i conti sono stati fatti per bene, Elia ricerverà la convocazione domani, via lettera, esattamente con venti minuti di ritardo.
+                Greta: Non che cambi molto: l'ultima volta che si è visto in azienda è perché aveva un appuntamento con una stagista.
+                Greta: Paola l'ha licenziata il giorno dopo.
+                    -> advance_time ->
+                    ~ pauseStorylet = true
+                     -> greta_talking_second_tier
     
         + + {elia_talking_second_tier.indagini && not are_two_entities_together(Paola, Greta)} Ettore: Paola sa già che hai passato info segrete a Matteo?
                     ~ inConversazione += Greta
@@ -144,7 +144,7 @@ Opzioni di dialogo con la persona Greta
             {are_two_entities_together(Paola, Greta): Greta: Ma non ti dirò altro fintanto che lei è qui. -> greta_talking_second_tier}
             Greta: E se Paola capitola, lui finisce diritto in consiglio di amministrazione.
             Ettore: Quindi cosa mi stai dicendo?
-            - - -(indagini2) Greta: Elia sta usando l'amicizia con Matteo per usare il sindacato contro Paola.
+                - - -(indagini2) Greta: Elia sta usando l'amicizia con Matteo per usare il sindacato contro Paola.
                 
                 + + + Ettore: Perdonami, ma Elia non mi sembra così macchiavellico.
                         Greta: Vedo che sei sveglio, Ettore.
@@ -226,6 +226,7 @@ Opzioni di dialogo con la persona Greta
             Greta: Passa un quarto d'ora con lei e avrai la tua risposta.
             Ettore: Potrei odiarla così tanto da volerla uccidere?
             Greta: No dai, per quello bastano cinque minuti.
+            
             + + Ettore: E qui con cosa la si potrebbe uccidere?
                         ~ inConversazione += Greta
                 Greta: Girl, stai chiedendo ad una appassionata di true crime come commettere un omicidio, in questo posto?
@@ -287,41 +288,41 @@ Opzioni di dialogo con la persona Greta
                             Greta: Le ricariche della pod mod di Paola arriva a 18 mg.
                             Greta: Bastano tre ricariche per ucciderla.
                             Greta: E tu dirai: "Ma chi fuma così tanto?"
-                            - - - -(allestimento2) Greta: Ed ecco la cosa divertente: che grazie alle sigarette elettroniche ora basta versare il veleno sulla pelle e bang, è fatta! Puoi uccidere qualcuno.
-                            Greta: Grazie, evoluzione tecnologica!
-                            Greta: Ma poi per me c'è il colpo di genio vero e proprio.
-                                -> advance_time ->
-                                {
-                                    - currentTime >= 600:
-                                    -> paolaIsDeadStorylet    
-
-                                }
-
-                            Greta: <joy>Un omicidio su misura.</joy>
-                            Greta: Paola è allergica all'acido acetilsalicilico.
-                            Greta: Le dà delle botte d'asma micidiali.
-                            Greta: Che già insomma, ne soffre di suo.
-                            Greta: E allora metti che le fai prendere una bella aspirinetta o qualcosa del genere.
-                            Greta: E le tieni lontano il suo flaconcino dell'asma.
-                            Greta: E lei manco riesce a urlare perché non respira.
-                            Greta: E adios!
-                                -> advance_time ->
-                                
-                                {
-                                    - currentTime >= 600:
-                                    -> paolaIsDeadStorylet
-                                    - else:
-                                        ~ pauseStorylet = true
-
-                                }
-
-                            Greta: Che ne pensi?
+                                - - - -(allestimento2) Greta: Ed ecco la cosa divertente: che grazie alle sigarette elettroniche ora basta versare il veleno sulla pelle e bang, è fatta! Puoi uccidere qualcuno.
+                                Greta: Grazie, evoluzione tecnologica!
+                                Greta: Ma poi per me c'è il colpo di genio vero e proprio.
+                                    -> advance_time ->
+                                    {
+                                        - currentTime >= 600:
+                                        -> paolaIsDeadStorylet    
+    
+                                    }
+    
+                                Greta: <joy>Un omicidio su misura.</joy>
+                                Greta: Paola è allergica all'acido acetilsalicilico.
+                                Greta: Le dà delle botte d'asma micidiali.
+                                Greta: Che già insomma, ne soffre di suo.
+                                Greta: E allora metti che le fai prendere una bella aspirinetta o qualcosa del genere.
+                                Greta: E le tieni lontano il suo flaconcino dell'asma.
+                                Greta: E lei manco riesce a urlare perché non respira.
+                                Greta: E adios!
+                                    -> advance_time ->
+                                    
+                                    {
+                                        - currentTime >= 600:
+                                        -> paolaIsDeadStorylet
+                                        - else:
+                                            ~ pauseStorylet = true
+    
+                                    }
+    
+                                Greta: Che ne pensi?
                                 + + + + Ettore: Che non devo farti arrabbiare, mai.
-                                    Greta: Bravo ragazzo!
-                                         -> greta_talking_second_tier
+                                        Greta: Bravo ragazzo!
+                                             -> greta_talking_second_tier
                                 + + + + Ettore: Stai pianificando di ucciderla?
-                                    Greta: Mmm, no, sono solo fantasie da tempo libero.
-                                         -> greta_talking_second_tier
+                                        Greta: Mmm, no, sono solo fantasie da tempo libero.
+                                             -> greta_talking_second_tier
                     
             + + Ettore: Mmm, vedremo.
                 -> greta_talking_second_tier
@@ -368,13 +369,13 @@ Opzioni di dialogo con la persona Greta
                                 {are_two_entities_together(Elia, Greta): Greta: Elia, mi fai schifo. -> greta_talking_second_tier}
                                 Greta: Mi ha promesso amore.
                                 Greta: Mi ha regalato le piattole.
-                                - - - -(indagini3) Greta: E io che, stupida, coprivo i furti di denaro di Elia in azienda.
-                                Greta: Convinta che ci avremmo costruito una casa assieme, con quei soldi.
-                                 Greta: Ho bisogno di un poco di privacy Ettore, scusami.
-                                ~ loopableVariables += pausaRapportoGreta
-                                    -> advance_time ->
-                                    ~ pauseStorylet = true
-                                -> intro
+                                    - - - -(indagini3) Greta: E io che, stupida, coprivo i furti di denaro di Elia in azienda.
+                                    Greta: Convinta che ci avremmo costruito una casa assieme, con quei soldi.
+                                     Greta: Ho bisogno di un poco di privacy Ettore, scusami.
+                                        ~ loopableVariables += pausaRapportoGreta
+                                            -> advance_time ->
+                                            ~ pauseStorylet = true
+                                        -> intro
                         
                         + + + Ettore: Quindi, lui ti piace davvero?
                                     ~ inConversazione += Greta
@@ -384,14 +385,14 @@ Opzioni di dialogo con la persona Greta
                                 Greta: Ma ora è tutto finito.
                                 Greta: L'unica traccia di luce nella mia vita, svanita.
                                 Greta: Lasciami un poco da sola, per favore.
-                                ~ loopableVariables += pausaRapportoGreta
-                                    -> advance_time ->
-                                    ~ pauseStorylet = true
-                                -> intro
+                                    ~ loopableVariables += pausaRapportoGreta
+                                        -> advance_time ->
+                                        ~ pauseStorylet = true
+                                    -> intro
                         
     
 
-    + {zeca_talking_second_tier.allestimento2 && not are_two_entities_together(Zeca, Greta) or not are_two_entities_together(Matteo, Greta) && new_this_loop(->allestimento3)} Ettore: Mi aiuti a capire una cosa?
+    + (allestimento4) {zeca_talking_second_tier.allestimento2 && not are_two_entities_together(Zeca, Greta) or not are_two_entities_together(Matteo, Greta) && new_this_loop(->allestimento4)} Ettore: Mi aiuti a capire una cosa?
                 ~ inConversazione += Greta
             Ettore: Sembra che nessuno si sia occupato del buffet prima delle prove.
             Ettore: Da quel che ho capito, tu ed Elia vi dovevate occupare del vino, Matteo e Zeca dei dolci.
@@ -409,28 +410,30 @@ Opzioni di dialogo con la persona Greta
 
                     }
 
-            - -(allestimento3) Greta: Ero in giro con Elia a sistemare i tavoli della altre sale.
-            Greta: Gambe traballanti e quelle cose lì.
-            Greta: Roba da maschi, che le altre due signorine non sanno come affrontare.
-            Greta: Mio dio, Elia ci ha quasi lasciato un dito.
-            Greta: Che vita difficile che ho!
-                    -> advance_time ->
-                    ~ pauseStorylet = true
-                -> greta_talking_second_tier
+                - - (allestimento3) Greta: Ero in giro con Elia a sistemare i tavoli della altre sale.
+                Greta: Gambe traballanti e quelle cose lì.
+                Greta: Roba da maschi, che le altre due signorine non sanno come affrontare.
+                Greta: Mio dio, Elia ci ha quasi lasciato un dito.
+                Greta: Che vita difficile che ho!
+                        -> advance_time ->
+                        ~ pauseStorylet = true
+                    -> greta_talking_second_tier
 
 
     + (foto) {paola_talking_second_tier.foto} Ettore: Greta, prima ti stavano cercando.
         {new_this_loop(->foto): Greta: Chi? -> secondo|Greta: Non ci ricasco Ettore!}
                     ~ inConversazione += Greta
-        - - (secondo)
+            - - (secondo)
             + + Ettore: Zeca, dice che ha la tua scheda per la palestra.
                 Greta: Madonna che palle quell'uomo!
                 Greta: Lascia che sia lui a trovarmi.
                 -> greta_talking_second_tier
+            
             + + Ettore: Matteo, dice che ci sono problemi con la casa, non ho capito.
                 Greta: Quella casa è sempre un macello, non sarà nulla di più terribile dell'ultimo casino.
                 Greta: Cristo, chi lo sapeva quanto velocemente le farfalline della farina potessero infestare una casa?!?
                 -> greta_talking_second_tier
+            
             + + (foto2) Ettore: Elia, si è incastrato da qualche parte.
                 Greta: Madonna quel ragazzo, madonna!
                 Greta: Andiamo a salvarlo prima che ci rimetta le penne.

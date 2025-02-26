@@ -27,6 +27,7 @@ Opzioni di dialogo con la persona Matteo
     + (loop) {new_this_loop(->loop)} Ettore: Non stai notando nulla di strano?
                 ~ inConversazione += Matteo
             Matteo: Intendi il provare da ore una storia senza senso? Prova ad essere più specifico.
+                
                 + + (opzioneScarica3) {new_this_loop(->opzioneScarica3)}Ettore: Ho come questo senso di deja-vu...
                         Ettore: Abbiamo già vissuto tutto questo, anche se in modo diverso.
                         Ettore: E tende a finire male. So che tende a finire male.
@@ -85,7 +86,14 @@ Opzioni di dialogo con la persona Matteo
             }
             
             + + (lavoro) {zeca_talking_second_tier.money} Ettore: Zeca dice che tu Paola la conosci.
+                {
+                -   are_two_entities_together(Zeca, Matteo):
+                    Matteo: Se vuoi sentire cosa penso davvero, parlami quando lui non è qui.
+                    ~ pauseStorylet = true
+                            -> matteo_talking_second_tier
+                }
                 Ettore: Dice che campi alle spalle sue e di Elia.
+                {are_two_entities_together(Elia, Matteo): Elia: Le mie spalle sono così <joy>grandi.</joy>}
                 Matteo: Lavoro per la sua azienda, che è diverso. Ma non ci ho mai avuto a che fare direttamente.
                 Matteo: Però le insinuazioni di Zeca hanno senso: le mie entrate dipendono dal lavoro per lei, e dalle pulizie a casa di Elia.
                 Matteo: Ma mi chiedo: perché tutto questo dovrebbe importarti?
@@ -99,14 +107,27 @@ Opzioni di dialogo con la persona Matteo
                     
                     + + + {cb_second_tier_lettera.primoCheck} Ettore: C'è una lettera, una lettera di minacce.
                             Ettore: Sto cercando di capire chi l'ha scritta, e contro chi.
+                            {
+                                -   are_two_entities_together(Zeca, Matteo) or are_two_entities_together(Paola, Matteo):
+                                    Matteo: E lo saprai se mi parlerai quando non ci saranno qui Zeca o Paola.
+                                    ~ pauseStorylet = true
+                                    -> matteo_talking_second_tier
+                            }
                                 - - - -(lettera2) Matteo: Solo due persone in questo posto mossono minacciare qualcuno: Paola e Zeca.
                                     Matteo: Ma sono così inutile qui, che dubito qualcuno voglia minacciarmi per qualcosa.
                                     -> advance_time ->
                                     ~ pauseStorylet = true
-                                -> matteo_talking_second_tier
+                                    -> matteo_talking_second_tier
 
                     + + + (lettera3) {not new_this_loop(->lettera)} Ettore: Per la lettera che ti ho mostrato prima.
                             Ettore: Quella che mi hai fatto mettere via, impaurito da Paola.
+                            {
+                                -   are_two_entities_together(Paola, Matteo):
+                                    Matteo: Sei bellino Ettore, ma è idiota parlarne ora che lei è qui.
+                                    ~ pauseStorylet = true
+                                    -> matteo_talking_second_tier
+                            }
+                            
                             Matteo: Non ero impaurito da Paola, ma impaurito per te.
                             Matteo: Quella è la sua calligrafia.
                                 -> advance_time ->
@@ -127,6 +148,17 @@ Opzioni di dialogo con la persona Matteo
                             -> matteo_talking_second_tier
 
                     + + + (lavoro2) {phone.sindacato} Ettore: Credo che Paola ti stia minacciando[.], per via del sindacato.
+                    
+                            {
+                                -   are_two_entities_together(Paola, Matteo):
+                                        Paola: Sindacato? Ancora con quel cazzo di sindacato?
+                                        Paola: Matteo: vieni con me!
+                                        ~ pauseStorylet = true
+                                        ~ move_this_entity_in_a_different_room(Matteo)
+                                        ~ move_this_entity_in_a_different_room(Paola)
+                                    -> intro
+                            }
+                            
                           {new_this_loop(->lettera): Ettore: C'è una lettera minatoria, e credo sia scritta da lei.}
                           {not new_this_loop(->lettera): Matteo: Per quella lettera di prima?}
                           Matteo: Sei preoccupato per me?
@@ -149,6 +181,12 @@ Opzioni di dialogo con la persona Matteo
 
     + (omicidio) {new_this_loop(->omicidio)} Ettore: Matteo, secondo te chi vorrebbe fare del male a Paola?
                     ~ inConversazione += Matteo
+                        {
+                            -   are_two_entities_together(Paola, Matteo):
+                                Matteo: Non è una buona idea parlarne mentre lei è qui.
+                                    ~ pauseStorylet = true
+                                    -> matteo_talking_second_tier
+                        }                    
             Matteo: Credo un bel po' di gente.
             Matteo: Dal cassiere del supermercato alla autista privata.
             Matteo: Dalla postina al tizio che le cura i cani.
@@ -179,22 +217,36 @@ Opzioni di dialogo con la persona Matteo
         }
 
     + (allestimento) {paola_talking_second_tier.allestimento && new_this_loop(->allestimento)} Ettore: Paola dice che tu e Zeca avete litigato nella stanza gialla prima delle prove.
+            {
+                -   are_two_entities_together(Paola, Matteo):
+                    Matteo: Non ne parlo fintanto che lei è qui.
+                        ~ pauseStorylet = true
+                        -> matteo_talking_second_tier
+            }
         Ettore: E che vuole andare a stuzzicare Zeca per capire il perché.
         Matteo: E chi l'ha vista quella fottuta stanza gialla?!?!
+            {
+                -   are_two_entities_together(Zeca, Matteo):
+                    Matteo: Zeca, vieni, dobbiamo parlare subito!
+                        ~ move_this_entity_in_a_different_room(Zeca)
+                        ~ move_this_entity_in_a_different_room(Matteo) 
+                        ~ pauseStorylet = true
+                        -> intro
+            }        
         Matteo: Quella strega! Devo subito trovare Zeca, sai dove possa essere?
         
-        + + {whiteRoomContents hasnt Ettore} Ettore: Credo sia nella stanza bianca.
-                ~ move_entity(Matteo, WhiteRoom)
-        + + {greenRoomContents hasnt Ettore} Ettore: Forse nella stanza verde?
-                ~ move_entity(Matteo, GreenRoom)
-        + + {yellowRoomContents hasnt Ettore} Ettore: Dovresti trovarlo nella camera gialla.                
-                ~ move_entity(Matteo, YellowRoom)
-        + + {redRoomContents hasnt Ettore} Ettore: Quasi certamente nella stanza rossa.               
-                ~ move_entity(Matteo, RedRoom)
-        + + Ettore:"Non ho idea di dove sia, mi spiace.
-            Matteo: Provo a cercarlo, grazie Ettore!
-                ~ move_this_entity_in_a_different_room(Matteo)
-            -> intro
+            + + {whiteRoomContents hasnt Ettore} Ettore: Credo sia nella stanza bianca.
+                    ~ move_entity(Matteo, WhiteRoom)
+            + + {greenRoomContents hasnt Ettore} Ettore: Forse nella stanza verde?
+                    ~ move_entity(Matteo, GreenRoom)
+            + + {yellowRoomContents hasnt Ettore} Ettore: Dovresti trovarlo nella camera gialla.                
+                    ~ move_entity(Matteo, YellowRoom)
+            + + {redRoomContents hasnt Ettore} Ettore: Quasi certamente nella stanza rossa.               
+                    ~ move_entity(Matteo, RedRoom)
+            + + Ettore:"Non ho idea di dove sia, mi spiace.
+                Matteo: Provo a cercarlo, grazie Ettore!
+                    ~ move_this_entity_in_a_different_room(Matteo)
+                -> intro
    
     
     //SCELTE CONDIZIONALI OGGETTI//

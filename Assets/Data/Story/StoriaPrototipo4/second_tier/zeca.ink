@@ -97,9 +97,16 @@ Opzioni di dialogo con la persona Zeca
         Zeca: Mmm. No. Ora che ci penso, no.
         Zeca: PERO'. PERO'.
         Zeca: Ci uscirei a fare serata e sparlare di Elia, quello sì.
+        {are_two_entities_together(Zeca, Paola): Paola: Io ci sto.}
+            
             + + [Cambi argomento] -> zeca_talking_second_tier
 
     + (omicidio) {new_this_loop(->omicidio)} Ettore: Secondo te qualcuno potrebbe volere del male a Paola?
+               {
+                    - are_two_entities_together(Paola, Zeca): Zeca: Sono così scemo da risponderti mentre è qui?
+                         ~ pauseStorylet = true
+                            -> zeca_talking_second_tier
+                }    
         Zeca: Tesoro.
         Zeca: <joy>CHI non vorrebbe farle del male?</joy>
         Zeca: O almeno dirle due paroline a modo.
@@ -137,6 +144,11 @@ Opzioni di dialogo con la persona Zeca
             }
         Zeca: Comunque sì, Matteo ed io ci siamo occupati di tabacco e cibo, ma non abbiamo preparato noi il buffet.
         Zeca: Né io né Matteo abbiamo messo piede nella stanza gialla prima delle prove.
+               {
+                    - are_two_entities_together(Greta, Zeca): Zeca: Ma il resto te lo dico quando siamo soli.
+                         ~ pauseStorylet = true
+                            -> zeca_talking_second_tier
+                }         
             - -(allestimento) Zeca: Abbiamo lasciato le cose fuori dalla porta e chiesto a Greta di occuparsene, perché c'erano dei problemi coi costumi.
             Zeca: O per dirla diversamente: Greta si deve essere scofanata un cavallo dalle ultime prove, perché <joy>ora non ci entra più in quel vestito.</joy>
             Zeca: Hai altre domande, Sherlock?
@@ -156,12 +168,22 @@ Opzioni di dialogo con la persona Zeca
                     Zeca: La sala gialla, dove dovevamo fare il buffet, era serrata.
                     Zeca: E qualcuno dentro ansimava come se avesse fatto le scale di corsa, molto di corsa.
                     Zeca: E per scale, intendo tutta una squadra di calcio.
+                {
+                    - are_two_entities_together(Paola, Zeca): Zeca: Ma il resto te lo dico quando siamo soli.
+                         ~ pauseStorylet = true
+                            -> zeca_talking_second_tier
+                } 
                     - - - (allestimento2) Zeca: Forse era Paola col suo vibratore a saltellare sul tavolo del buffet. Una elder millenial sicuro che ne ha sempre uno con sé.
                     Zeca: Anche se non ho sentito il solito puzzo di cesso delle sue sigarette elettroniche.
                      -> advance_time ->
                         -> zeca_talking_second_tier
                 
                 + + {paola_talking_second_tier.allestimento} Ettore: Paola dice di aver sentito litigare te e Matteo nella stanza gialla.
+               {
+                    - are_two_entities_together(Paola, Zeca): Zeca: Se vuoi vivere, continua questo discorso quando lei non è qui.
+                         ~ pauseStorylet = true
+                            -> zeca_talking_second_tier
+                }                 
                     Ettore: Ma prima hai detto di non essere mai entrato nella stanza gialla prima delle prove.
                     Zeca: <hesitate>Oh va bene, mi hai colto in flagrante.
                     Zeca: Tira fuori le manette e <joy>sculacciami</joy> perché sono un bimbo cattivo.
@@ -208,6 +230,11 @@ Opzioni di dialogo con la persona Zeca
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
             }
+                 {
+                    - are_two_entities_together(Paola, Zeca): Zeca: Ma continuiamo questo discorso quando saremo soli.
+                         ~ pauseStorylet = true
+                            -> zeca_talking_second_tier
+                }         
             Zeca: Sei qui pagato da soldi che Paola guadagna sfrattando poveracci e chiudendo piccoli negozi a gestione familiare.
             Zeca: Il cibo del buffet viene dalla grande distribuzione, ovvero: ti sei mangiato un po' di sfruttamento.
             Zeca: E la storia scritta da Paola è un crimine contro la decenza.
@@ -221,6 +248,11 @@ Opzioni di dialogo con la persona Zeca
         
         + + (love3){trueLoveStorylet && new_this_loop(->love3)} Ettore: Come ti senti, ora che Elia ti ha dichiarato il suo amore?
                     ~ inConversazione += Zeca
+                {
+                    - are_two_entities_together(Greta, Zeca): Zeca: Col cazzo che rispondo con quella qui.
+                         ~ pauseStorylet = true
+                            -> zeca_talking_second_tier
+                }                    
             Zeca: E come lo sai?
             Zeca: <rage>Merda,<waitrage> quanto<waitrage> siete<waitrage> pettegole!</rage>
             Zeca: Ci scometto che è stato Matteo, quello sa ingoiare solo a letto, il maledetto.
@@ -235,6 +267,7 @@ Opzioni di dialogo con la persona Zeca
     
             }
             Zeca: Beh: a tutti fa piacere l'idea di avere un bellissimo labrador in casa.
+            {are_two_entities_together(Elia, Zeca): Elia: <joy>Me labrador!</joy>}
             Zeca: Ma sei dello stesso avviso quando ti ha rotto il vaso di zia?
             Zeca: Quando ti ha cagato sulle coperte appena lavate?
             Zeca: Quando ha ringhiato contro il tuo date e ti tocca una notte senza cazzo?
@@ -245,6 +278,11 @@ Opzioni di dialogo con la persona Zeca
                     -> zeca_talking_second_tier
 
         + + (love4){elia_talking_second_tier.indagini2 && greta_talking_second_tier.indagini && not are_two_entities_together(Elia, Zeca)} Ettore: Sapevi che Paola vuole estromettere Elia dalla Londar?
+                {
+                    - are_two_entities_together(Paola, Zeca): Zeca: Chiedimelo quando siamo soli.
+                         ~ pauseStorylet = true
+                            -> zeca_talking_second_tier
+                }        
             Zeca: <rage> Quindi lo sta per fare davvero? La stronza!</rage>
             Ettore: Ed Elia non l'ha presa bene. Se provo a parlargli della cosa, mette la musica a manetta e non mi ascolta.
             Zeca: Ok, ci penso io.
@@ -257,6 +295,11 @@ Opzioni di dialogo con la persona Zeca
                     -> zeca_talking_second_tier
         
         + + Ettore: Anche uccidere Paola?
+                    {
+                    - are_two_entities_together(Paola, Zeca): Zeca: Chiedimelo quando siamo soli.
+                         ~ pauseStorylet = true
+                            -> zeca_talking_second_tier
+                }        
                 Zeca: Bimbo, ti spiego una cosa.
                 Zeca: Paola è quel tipo di persona che ti dà motivazioni a sufficienza di suo per ucciderla.
                 Zeca: PERO'. PERO'.
@@ -443,6 +486,7 @@ Opzioni di dialogo con la persona Zeca
         + Ettore: Mi sembra un idiota.
             Zeca: Eh sì, fa quella prima impressione.
             Zeca: E la seconda. E la terza.
+        
         + Ettore: Mi sembra un ragazzo semplice.
             Zeca: L'eufemismo del secolo.
             Zeca: Un sasso è una cosa semplice. Elia è vuoto.
@@ -451,28 +495,37 @@ Opzioni di dialogo con la persona Zeca
             Zeca: Oh, ma è già successo due volte.
             Zeca: Questa settimana.
             Zeca: Ed era il prete di famiglia.
+        
         + Ettore: No no scusa non c'ho tempo per questa conversazione.
             Zeca: Cafone! Col cazzo che mi chiedi ancora qualcosa!
                 ~ loopableVariables += pausaRapportoZeca
                 -> intro
         -
+    {are_two_entities_together(Ettore, Elia): Elia: Mi chiamo <joy>Elia!<joy>}    
+    
     Zeca: E di Greta, che idea ti sei fatto?
+    
         + Ettore: Una ragazza curiosa.
             Zeca: Curiosa?
             Zeca: Curiosa è la gazza che viene a rovistare nella spazzatura.
             Zeca: Curiosa è Alfonso Signorini.
             Zeca: Quella donna è una idrovora di informazioni.
             Zeca: Sa le cose prima ancora che ti accadano.
+            {are_two_entities_together(Ettore, Greta): Greta: Confermo.}  
+        
         + Ettore: Un concentrato di ansia.
             Zeca: PERO'. PERO'.
             Zeca: Secondo me fa un po' finta. Lo fa per sentirsi importante.
             Zeca: Perché <joy>chi se la incula a quella</joy>, detto tra noi?
             Zeca: Così invece prima o poi uno sfigato glielo chiede "tutto bene?".
             Zeca: E a quel punto quella si azzecca per i prossimi tre anni.
+            {are_two_entities_together(Ettore, Greta): Greta: Come se volessi passare del tempo con voi sfigati.}
+        
         + Ettore: Una specie di emblema millenial.
             Zeca: <cry>TOTALE!</cry>
             Zeca: Si lamenta sempre, si sente sempre al centro dell'attenzione, ed è sempre su Instagram.
             Zeca: Sfigata.
+            {are_two_entities_together(Ettore, Greta): Greta: Si esiste solo online, imbecilli.}
         -
             -> advance_time ->   
                                     {
@@ -480,7 +533,9 @@ Opzioni di dialogo con la persona Zeca
             -> paolaIsDeadStorylet    
  
             }
+            
         Zeca: E di Matteo, quanto lo detesti?
+        
             + Ettore: In realtà mi piace molto.
                 Zeca: <cry>COOOOOOOOOOOOOSA?</cry>
                 Zeca: A quella?
@@ -490,7 +545,10 @@ Opzioni di dialogo con la persona Zeca
                 Zeca: E io vorrei dirgli: ma ti sei vista, sorella? Con quelle occhiaie ti ci fai la controfigura di Michael Myers, altro che il maritino.
                 Zeca: Ma senti un po', ti piace.
                 Zeca: Povera sfigata.
+                {are_two_entities_together(Ettore, Matteo): Matteo: Oh, Ettore, mi piaci così tanto!}
+                
             + Ettore: No dai, è un tipo mediocre.
+                {are_two_entities_together(Ettore, Matteo): Matteo: Hai appena distrutto il mio cuore!}
                 Zeca: <hesitate>Uh, mi stupisci.
                 Zeca: Pensavo l'avresti difeso o che.
                 Zeca: Pensavo avresti detto che è una persona gentile e affettuosa.
@@ -499,6 +557,7 @@ Opzioni di dialogo con la persona Zeca
                 Zeca: <joy>Gli voglio bene, sia chiaro!</joy>
                 Zeca: Ma è così pesante.
                 Zeca: Così pesante!
+                
             + Ettore: Se ci prova ancora, urlo.
                 Zeca: Anche con te?!?
                 Zeca: Dio, quella è disperata!
@@ -507,6 +566,7 @@ Opzioni di dialogo con la persona Zeca
                 Zeca: Certo, <rage>per pulirgli con la lingua la banana.</rage>
                 Zeca: Non so se mi sono spiegata.
                 Zeca: Aspetta che ti faccio il gesto.
+                {are_two_entities_together(Ettore, Matteo): Matteo: Ma, ma. Ma. Oh.}
             -    
               -> advance_time ->
                                       {
@@ -515,12 +575,18 @@ Opzioni di dialogo con la persona Zeca
 
             }
         Zeca: E Paola? che ne pensi di Paola?
+        {are_two_entities_together(Ettore, Paola): Paola: Già: cosa pensi di Paola?}
             + Ettore: Non capisco perché tutti la detestino qui dentro.
                 Zeca: Datti ancora un paio di prove e vedrai.
+                {are_two_entities_together(Ettore, Paola): Paola: Temetemi!}
+                
             + Ettore: Antipatica, ma non così tanto da ucciderla.
                 Zeca: Mh, vedremo.
+                {are_two_entities_together(Ettore, Paola): Paola: Vigliacco.}
+                
             + Ettore: [Se cadesse dalle scale, insomma, non la fermerei]<joy>Se cadesse dalle scale, insomma, non la fermerei.</joy>
                 Zeca: <joy>E probabilmente l'avrei spinta io.</joy>
+                {are_two_entities_together(Ettore, Paola): Paola: <joy>Piscerò sulle vostre tombe.</joy>}
             -
         Zeca: E infine, cosa ne pensi di me? Sincero, zero complimenti.
              + Ettore: Che meno ti devo parlare meglio è.

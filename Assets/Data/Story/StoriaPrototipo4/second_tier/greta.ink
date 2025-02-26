@@ -456,7 +456,7 @@ Opzioni di dialogo con la persona Greta
                     -> greta_talking_second_tier
 
 
-    + (foto) {paola_talking_second_tier.foto} Ettore: Greta, prima ti stavano cercando.
+    + (foto) {paola_talking_second_tier.foto && new_this_loop(->foto)} Ettore: Greta, prima ti stavano cercando.
         {new_this_loop(->foto): Greta: Chi? -> secondo|Greta: Non ci ricasco Ettore!}
                     ~ inConversazione += Greta
             - - (secondo)

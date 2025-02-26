@@ -89,7 +89,7 @@ Opzioni di dialogo con la persona Elia
     + {primaContraddizione && secondaContraddizione} [È il momento di fermare l’omicida di Paola!] Ettore: Venite tutti, ho bisogno di parlarvi! -> arringa_finale
 
     //SCELTE CONDIZIONALI//
-    + (indagini2) {greta_talking_second_tier.indagini && not are_two_entities_together(Elia, Zeca)} Ettore: Elia, sapevi che Paola vuole estrometterti dalla Londar?
+    + (indagini2) {greta_talking_second_tier.indagini && not are_two_entities_together(Elia, Zeca) && new_this_loop(->indagini2)} Ettore: Elia, sapevi che Paola vuole estrometterti dalla Londar?
             ~ inConversazione += Elia
         Elia: <hesitate>Estroflettermi?
         Ettore: Cacciarti.
@@ -127,7 +127,7 @@ Opzioni di dialogo con la persona Elia
             
             
 
-    + (allestimento) {notABigSecretPartOneStorylet.allestimento} Ettore: Elia, è vero che tu e Greta avete comprato il vino?
+    + (allestimento) {notABigSecretPartOneStorylet.allestimento && new_this_loop(-> allestimento)} Ettore: Elia, è vero che tu e Greta avete comprato il vino?
             ~ inConversazione += Elia
         Elia: Esatto. Greta e io abbiamo comprato il vino.
         Ettore: Questa è stata facile!
@@ -195,7 +195,7 @@ Opzioni di dialogo con la persona Elia
                 -> elia_talking_second_tier
                 - -
 
-    + {iTryToBeAGoodFriendStorylet} Ettore: Prima ho ascoltato una conversazione tra Zeca e Matteo...
+    + (conversazione) {iTryToBeAGoodFriendStorylet && new_this_loop(-> conversazione)} Ettore: Prima ho ascoltato una conversazione tra Zeca e Matteo...
             ~ inConversazione += Elia
             {
             - are_two_entities_together(Zeca, Elia) or are_two_entities_together(Matteo, Elia): Elia: Fermo. Dimmi questa cosa solo se non ci sono loro!

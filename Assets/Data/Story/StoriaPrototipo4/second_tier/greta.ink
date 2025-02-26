@@ -139,6 +139,7 @@ Opzioni di dialogo con la persona Greta
                         ~ move_this_entity_in_a_different_room(Greta)
                         ~ move_this_entity_in_a_different_room(Paola)
                         ~ loopableVariables += pausaRapportoGreta
+                         ~ pauseStorylet = true
                             -> intro
                 }        
             Greta: Quali informazioni?

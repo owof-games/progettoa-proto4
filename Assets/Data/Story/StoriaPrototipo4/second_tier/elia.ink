@@ -46,6 +46,7 @@ Opzioni di dialogo con la persona Elia
         Elia: O le lontre giganti.
         Elia: <joy>Naa, loro sono molto tenere.</joy>
         Elia: Paola vorrebbe fare del male a me, ogni tanto.
+        {are_two_entities_together(Paola, Elia): Paola: Ogni tanto?}
         Elia: Ma quello succede spesso.
         Elia: Tu però sei gentile con me.
         Elia: <joy>Mi fai due grattini?</joy>
@@ -56,6 +57,11 @@ Opzioni di dialogo con la persona Elia
             }
            
             + + (minacce) {zeca_talking_second_tier.love && phone.indagini && elia_talking_second_tier.indagini2} Ettore: E Zeca, potrebbe voler far del male a Paola?
+                {
+                    - are_two_entities_together(Paola, Elia) or are_two_entities_together(Zeca, Elia): Elia: BRO! Parliamo quando non è qui!
+                         ~ pauseStorylet = true
+                            -> intro
+                }        
                 Ettore: Sapeva delle indagini, e ha detto che farebbe di tutto per proteggerti.
                 Elia: No.
                 Ettore: Tiene molto a te, no?
@@ -66,12 +72,12 @@ Opzioni di dialogo con la persona Elia
                 Elia: O la ciotola?
                 Elia: Devo trovare Zeca!
                 Elia: <cry>E tu stammi lontano!</cry>
-                ~ move_first_entity_to_second_entity_location(Elia,Zeca)
-                ~ loopableVariables += EliaSpaventatoPerZeca
-                ~ loopableVariables += pausaRapportoElia
-                -> advance_time ->
-                ~ pauseStorylet = true
-            -> elia_talking_second_tier
+                    ~ move_first_entity_to_second_entity_location(Elia,Zeca)
+                    ~ loopableVariables += EliaSpaventatoPerZeca
+                    ~ loopableVariables += pausaRapportoElia
+                    -> advance_time ->
+                    ~ pauseStorylet = true
+                    -> elia_talking_second_tier
             
             + + Ettore: Ehm, magari passo.
                 ~ pauseStorylet = true
@@ -89,6 +95,7 @@ Opzioni di dialogo con la persona Elia
         Ettore: Cacciarti.
         Ettore: Rimanere l'unica responsabile.
         Elia: Non ti credo.
+        {are_two_entities_together(Elia, Paola): Paola: Bravo cucciolo!}
         Elia: E quindi ascolterò musica a manetta.
             -> advance_time ->
                         {
@@ -96,7 +103,7 @@ Opzioni di dialogo con la persona Elia
             -> paolaIsDeadStorylet    
             }
            
-            + + {zeca_talking_second_tier.love4} Ettore: ZECAAAAAAA!
+            + + {zeca_talking_second_tier.love4 && not are_two_entities_together(Paola, Ettore)} Ettore: ZECAAAAAAA!
                 ~ move_first_entity_to_second_entity_location(Elia,Zeca)
                 Zeca: <cry>Elia, abbassa la musica, va tutto bene.</cry>
                 // ~ start_distracting_music("gigi_dag", Elia)
@@ -134,6 +141,7 @@ Opzioni di dialogo con la persona Elia
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
             }
+        {are_two_entities_together(Greta, Ettore): Greta: Perché non te ne stai zitto, perché?}    
         Elia: Shot story long...
         Ettore: Long story short?
         Elia: No no. Shot perché Greta voleva sparare una supercazzola a Zeca.
@@ -154,7 +162,8 @@ Opzioni di dialogo con la persona Elia
         Ettore: E avete chiamato i fornitori?
         Elia: Sì, sennò poi i comici cosa bevono?
         Elia: Ora che ci penso: non abbiamo chiamato nessun comico.
-        Elia: Devo dirlo a Greta prima che mi mangi vivo!
+        {are_two_entities_together(Greta, Ettore): Elia: Greta! Non ho chiamato i comici!|Elia: Devo dirlo a Greta prima che mi mangi vivo!}
+        {are_two_entities_together(Greta, Ettore): Greta: Tranqui, Elia, ci sei già tu come buffone.}
             -> advance_time -> 
                                     {
             - currentTime >= 600:
@@ -164,6 +173,11 @@ Opzioni di dialogo con la persona Elia
             + + {zeca_talking_second_tier.allestimento2} Ettore: Zeca però ha sentito qualcuno nella stanza gialla.
                 Ettore: E a suo dire stava scopando.
                     - - - (allestimento2) Elia: Naa, Zeca sente sesso ovunque.
+                    {
+                        - are_two_entities_together(Zeca, Elia) or are_two_entities_together(Greta, Elia): Elia: Te lo dico solo se non c'è nessuno.
+                         ~ pauseStorylet = true
+                            -> elia_talking_second_tier
+                    }
                     Elia: Pensa che dorme sentendo le balene scopare.
                     Elia: E io non ho fatto sesso, no.
                     Elia: Mai fatto sesso.
@@ -174,6 +188,7 @@ Opzioni di dialogo con la persona Elia
                         -> advance_time ->
                         ~ pauseStorylet = true
                             -> elia_talking_second_tier
+            
             + + Ettore: Sono molto confuso.
                 Elia: Benvenuto nel club.
                 ~ pauseStorylet = true
@@ -182,6 +197,11 @@ Opzioni di dialogo con la persona Elia
 
     + {iTryToBeAGoodFriendStorylet} Ettore: Prima ho ascoltato una conversazione tra Zeca e Matteo...
             ~ inConversazione += Elia
+            {
+            - are_two_entities_together(Zeca, Elia) or are_two_entities_together(Matteo, Elia): Elia: Fermo. Dimmi questa cosa solo se non ci sono loro!
+                         ~ pauseStorylet = true
+                            -> elia_talking_second_tier
+            }            
         Ettore: Ed ero convinto che Matteo fosse tuo amico.
         Elia: Non al passato. Non fosse, ma è.
         Elia: Zeca invece è un collega, abbiamo la BRO assieme.
@@ -341,6 +361,8 @@ Opzioni di dialogo con la persona Elia
     Elia: Paola è mia sorella, e questa è facile.
     Elia: Ma Paola anche se è alta meno di me, dentro di lei c'è un pallone che si gonfia.
     Elia: Me l'ha detto Greta.
+    {are_two_entities_together(Paola, Elia): Paola: Interessante.}
+    {are_two_entities_together(Greta, Elia): Greta: Non ho idea di che cosa stia dicendo.}
     Elia: E io una volta ho ingoiato un intero pallone e poi l'ho gonfiato.
     Elia: Ricordo poco perché poi sono andato all'ospedale e mi hanno sediato.
     Elia: Non ricordo neanche la sedia.

@@ -217,6 +217,7 @@ Opzioni di dialogo con la persona Zeca
             - - - (money) Zeca: No: Matteo è l'unico qui dentro che campa sulle spalle dei due fratelli.
                 -> advance_time ->    
                     -> zeca_talking_second_tier
+        
         + + (love3){trueLoveStorylet && new_this_loop(->love3)} Ettore: Come ti senti, ora che Elia ti ha dichiarato il suo amore?
                     ~ inConversazione += Zeca
             Zeca: E come lo sai?
@@ -253,9 +254,25 @@ Opzioni di dialogo con la persona Zeca
                 -> advance_time ->
                 ~ pauseStorylet = true
                     -> zeca_talking_second_tier
-        + + Marco scrivi qualcosa
-            TODO: qua va scritto qualcosa
-            -> zeca_talking_second_tier
+        
+        + + Ettore: Anche uccidere Paola?
+                Zeca: Bimbo, ti spiego una cosa.
+                Zeca: Paola è quel tipo di persona che ti dà motivazioni a sufficienza di suo per ucciderla.
+                Zeca: PERO'. PERO'.
+                Zeca: No, niente però.
+                Zeca: A te non è venuta voglia per lo meno di darle una testata?
+                    + + + Ettore: Sono contro ogni forma di violenza.
+                        Zeca: Certo, e io sono Milly Carlucci.
+                        Zeca: E ora vado a danzare con le stelle, via.
+                    + + + Ettore: A me sta simpatica!
+                        Zeca: Dio, questa è la cosa più kink che abbia mai sentito.
+                        Zeca: Se ami farti umiliare, per lo meno non dirlo in giro!
+                    + + + Ettore: Beh, se non venissi visto..
+                        Zeca: ESATTO!
+                        Zeca: Probabilmente anche questo tavolo, se potesse muoversi, le darebbe una capocciata.
+                                -> advance_time ->
+                                    ~ pauseStorylet = true
+                                    -> zeca_talking_second_tier
 
     //SCELTE CONDIZIONALI OGGETTI//
     + (lettera) {inventoryContents has Lettera && new_this_loop(->lettera)} Ettore: Hai idea di chi sia questa lettera?

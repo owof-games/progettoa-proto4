@@ -11,7 +11,7 @@ namespace Febucci.UI
 {
     public class TextAnimatorSetupWindow : EditorWindow
     {
-        private const string currentVersion = "2.2.1";
+        const string currentVersion = "2.3.0";
         const string path_defaultInstallation = "Assets/Plugins/Febucci/Text Animator";
 
         public const string url_discord = "https://discord.gg/j4pySDa5rU";
@@ -33,17 +33,17 @@ namespace Febucci.UI
         }
 
         /// <summary>
-        ///     Creates built-in effects databases and assigns it to the settings file as default.
+        /// Creates built-in effects databases and assigns it to the settings file as default.
         /// </summary>
         /// <remarks>
-        ///     In case the settings file doesn't exist, it'll be created as well.
-        ///     In case the built-in effects or databases already exist, they'll be overwritten.
+        /// In case the settings file doesn't exist, it'll be created as well.
+        /// In case the built-in effects or databases already exist, they'll be overwritten.
         /// </remarks>
         public static void ResetToBuiltIn()
         {
             //makes sure the asset is installed
             GetOrCreateInstallationData();
-            if (!TryGetInstallationFolder(out var installationFolder))
+            if (!TryGetInstallationFolder(out string installationFolder))
             {
                 Debug.LogError("Something went wrong in locating TextAnimator's installation data.");
                 return;
@@ -61,16 +61,19 @@ namespace Febucci.UI
         #region Updating to new versions
 
         /// <summary>
-        ///     Checks for stuff and updates some project files if needed
+        /// Checks for stuff and updates some project files if needed
         /// </summary>
         /// <param name="installationData"></param>
-        private static bool UpdateProject(TextAnimatorInstallationData installationData, Version oldVersion,
-            bool performUpdate)
+        static bool UpdateProject(TextAnimatorInstallationData installationData, Version oldVersion, bool performUpdate)
         {
-            if (!TryGetInstallationFolder(out var installationFolder)) return false;
+            if (!TryGetInstallationFolder(out string installationFolder))
+            {
+                return false;
+            }
 
-            var shouldUpdate = false;
+            bool shouldUpdate = false;
             if (!string.IsNullOrEmpty(installationData.latestVersion))
+            {
                 // 2.1.0 added Style Sheets
                 if (oldVersion < new Version(2, 1, 0))
                 {
@@ -83,6 +86,7 @@ namespace Febucci.UI
 
                     shouldUpdate = true;
                 }
+            }
 
             installationData.latestVersion = currentVersion;
             EditorUtility.SetDirty(installationData);
@@ -332,7 +336,7 @@ namespace Febucci.UI
         /// <param name="appearances"></param>
         /// <param name="actions"></param>
         /// <remarks>In case they already exist, they'll get overwritten.</remarks>
-        private static void CreateDefaultDatabases(string installationFolder, out AnimationsDatabase behaviors,
+        static void CreateDefaultDatabases(string installationFolder, out AnimationsDatabase behaviors,
             out AnimationsDatabase appearances, out ActionDatabase actions, out StyleSheetScriptable styleSheet)
         {
             string progressTitle = "Text Animator";
@@ -380,8 +384,7 @@ namespace Febucci.UI
             return database;
         }
 
-        private static bool TryCreatingDefaultTagScriptable(Type type, EffectCategory category,
-            out ScriptableObject result)
+        static bool TryCreatingDefaultTagScriptable(Type type, EffectCategory category, out ScriptableObject result)
         {
             var attribute =
                 type.GetCustomAttributes(typeof(TagInfoAttribute), true).FirstOrDefault() as TagInfoAttribute;
@@ -541,7 +544,7 @@ namespace Febucci.UI
         static StyleSheetScriptable CreateStyleSheet(string installationFolder)
         {
             var result =
-                _CreateScriptableAssetAtPath<StyleSheetScriptable>(installationFolder + "/Styles",
+                _CreateScriptableAssetAtPath<StyleSheetScriptable>(installationFolder + $"/Styles",
                     fileName_stylesheet);
             EditorUtility.SetDirty(result);
             return result;

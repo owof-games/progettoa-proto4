@@ -529,7 +529,8 @@ namespace FMODUnity
                         GUID guid;
                         eventDesc.getID(out guid);
 
-                        EditorEventRef eventRef = eventCache.EditorEvents.Find((x) => x.Path == path);
+                        EditorEventRef eventRef = eventCache.EditorEvents.Find((x) =>
+                            string.Compare(x.Path, path, StringComparison.CurrentCultureIgnoreCase) == 0);
                         if (eventRef == null)
                         {
                             eventRef = ScriptableObject.CreateInstance<EditorEventRef>();

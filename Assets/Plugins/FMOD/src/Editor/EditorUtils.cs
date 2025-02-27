@@ -42,6 +42,7 @@ namespace FMODUnity
         private static EventDescription previewEventDesc;
         private static EventInstance previewEventInstance;
         private static NetworkStream networkStream = null;
+        private static StreamReader streamReader = null;
         private static Socket socket = null;
         private static IAsyncResult socketConnection = null;
 
@@ -104,12 +105,25 @@ namespace FMODUnity
                         socketConnection = null;
                         socket = null;
                         networkStream = null;
-
+                        streamReader = null;
                         throw e;
                     }
                 }
 
                 return networkStream;
+            }
+        }
+
+        private static StreamReader ScriptStreamReader
+        {
+            get
+            {
+                if (streamReader == null)
+                {
+                    streamReader = new StreamReader(ScriptStream);
+                }
+
+                return streamReader;
             }
         }
 
@@ -549,13 +563,14 @@ namespace FMODUnity
                     {
                         paramValues.Add(param.Name, param.Default);
                     }
+
                     foreach (ParamRef param in behavior.Parameters)
                     {
                         paramValues[param.Name] = param.Value;
                     }
 
-                    args.eventInstance =
- PreviewEvent(eventRef, paramValues, behavior.CurrentVolume, behavior.ClipStartTime);
+                    args.eventInstance = PreviewEvent(eventRef, paramValues, behavior.CurrentVolume,
+                        behavior.ClipStartTime);
                 }
             };
 
@@ -564,16 +579,14 @@ namespace FMODUnity
                 FMODEventPlayableBehavior behavior = sender as FMODEventPlayableBehavior;
                 if (behavior.StopType != STOP_MODE.None)
                 {
-                    FMOD.Studio.STOP_MODE stopType =
- behavior.StopType == STOP_MODE.Immediate ? FMOD.Studio.STOP_MODE.IMMEDIATE : FMOD.Studio.STOP_MODE.ALLOWFADEOUT;
+                    FMOD.Studio.STOP_MODE stopType = behavior.StopType == STOP_MODE.Immediate
+                        ? FMOD.Studio.STOP_MODE.IMMEDIATE
+                        : FMOD.Studio.STOP_MODE.ALLOWFADEOUT;
                     PreviewStop(args.eventInstance, stopType);
                 }
             };
 
-            FMODEventPlayableBehavior.GraphStop += (sender, args) =>
-            {
-                PreviewStop(args.eventInstance);
-            };
+            FMODEventPlayableBehavior.GraphStop += (sender, args) => { PreviewStop(args.eventInstance); };
 
             FMODEventPlayable.OnCreatePlayable += (sender, args) =>
             {
@@ -581,7 +594,7 @@ namespace FMODUnity
                 if (playable.Parameters.Length > 0 || playable.Template.ParameterLinks.Count > 0)
                 {
                     LoadPreviewBanks();
-                    FMOD.Studio.EventDescription eventDescription;
+                    EventDescription eventDescription;
                     system.getEventByID(playable.EventReference.Guid, out eventDescription);
                     playable.LinkParameters(eventDescription);
                 }
@@ -765,7 +778,7 @@ namespace FMODUnity
             CheckResult(lowlevel.getVersion(out version));
 
             string text = string.Format(
-                "Version: {0}\n\nCopyright \u00A9 Firelight Technologies Pty, Ltd. 2014-2024 \n\n" +
+                "Version: {0}\n\nCopyright \u00A9 Firelight Technologies Pty, Ltd. 2014-2025 \n\n" +
                 "See LICENSE.TXT for additional license information.",
                 VersionString(version));
 
@@ -863,7 +876,8 @@ namespace FMODUnity
             }
         }
 
-        public static void PreviewStop(EventInstance eventInstance, STOP_MODE stopMode = STOP_MODE.IMMEDIATE)
+        public static void PreviewStop(EventInstance eventInstance,
+            FMOD.Studio.STOP_MODE stopMode = FMOD.Studio.STOP_MODE.IMMEDIATE)
         {
             if (previewEventInstances.Contains(eventInstance))
             {
@@ -971,12 +985,12 @@ namespace FMODUnity
                 {
                     networkStream.Close();
                     networkStream = null;
+                    streamReader = null;
                 }
 
                 return false;
             }
         }
-
 
         public static string GetScriptOutput(string command)
         {
@@ -984,9 +998,32 @@ namespace FMODUnity
             try
             {
                 ScriptStream.Write(commandBytes, 0, commandBytes.Length);
-                byte[] commandReturnBytes = new byte[2048];
-                int read = ScriptStream.Read(commandReturnBytes, 0, commandReturnBytes.Length);
-                string result = Encoding.UTF8.GetString(commandReturnBytes, 0, read - 1);
+                char[] myReadBuffer = new char[2048];
+                StringBuilder myCompleteMessage = new StringBuilder();
+                int numberOfCharactersRead = ScriptStreamReader.Read(myReadBuffer, 0, myReadBuffer.Length);
+
+                while (numberOfCharactersRead > 0)
+                {
+                    int nullIndex = Array.IndexOf(myReadBuffer, '\0', 0, numberOfCharactersRead);
+
+                    if (nullIndex > 0)
+                    {
+                        myCompleteMessage.Append(myReadBuffer, 0, nullIndex - 1);
+                    }
+                    else if (nullIndex < 0)
+                    {
+                        myCompleteMessage.Append(myReadBuffer, 0, numberOfCharactersRead);
+                    }
+
+                    if (nullIndex >= 0)
+                    {
+                        break;
+                    }
+
+                    numberOfCharactersRead = ScriptStreamReader.Read(myReadBuffer, 0, myReadBuffer.Length);
+                }
+
+                string result = myCompleteMessage.ToString();
                 if (result.StartsWith("out():"))
                 {
                     return result.Substring(6).Trim();
@@ -998,6 +1035,7 @@ namespace FMODUnity
             {
                 networkStream.Close();
                 networkStream = null;
+                streamReader = null;
                 return null;
             }
         }

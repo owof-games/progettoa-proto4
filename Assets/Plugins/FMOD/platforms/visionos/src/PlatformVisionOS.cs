@@ -113,7 +113,7 @@ namespace FMODUnity
 #endif
 
 #if !UNITY_EDITOR
-        internal override void LoadPlugins(FMOD.System coreSystem, System.Action<FMOD.RESULT, string> reportResult)
+        internal override void LoadPlugins(FMOD.System coreSystem, Action<FMOD.RESULT, string> reportResult)
         {
             PlatformIOS.StaticLoadPlugins(this, coreSystem, reportResult);
         }

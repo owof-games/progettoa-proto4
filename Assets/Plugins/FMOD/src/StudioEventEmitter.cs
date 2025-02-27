@@ -347,7 +347,7 @@ namespace FMODUnity
 
             if (instance.isValid())
             {
-                instance.stop(AllowFadeout ? STOP_MODE.ALLOWFADEOUT : STOP_MODE.IMMEDIATE);
+                instance.stop(AllowFadeout ? FMOD.Studio.STOP_MODE.ALLOWFADEOUT : FMOD.Studio.STOP_MODE.IMMEDIATE);
                 instance.release();
                 if (!AllowFadeout)
                 {

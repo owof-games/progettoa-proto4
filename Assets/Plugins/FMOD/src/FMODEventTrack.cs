@@ -1,4 +1,5 @@
 ﻿#if UNITY_TIMELINE_EXIST
+
 using System;
 using System.ComponentModel;
 using UnityEngine;
@@ -39,8 +40,7 @@ namespace FMODUnity
     [Serializable]
     public class FMODEventMixerBehaviour : PlayableBehaviour
     {
-        [Range(0, 1)]
-        public float volume = 1;
+        [Range(0, 1)] public float volume = 1;
 
         public override void ProcessFrame(Playable playable, FrameData info, object playerData)
         {
@@ -62,7 +62,7 @@ namespace FMODUnity
             for (int i = 0; i < inputCount; i++)
             {
                 ScriptPlayable<FMODEventPlayableBehavior> inputPlayable =
- (ScriptPlayable<FMODEventPlayableBehavior>)playable.GetInput(i);
+                    (ScriptPlayable<FMODEventPlayableBehavior>)playable.GetInput(i);
                 FMODEventPlayableBehavior input = inputPlayable.GetBehaviour();
 
                 input.UpdateBehavior(time, volume);

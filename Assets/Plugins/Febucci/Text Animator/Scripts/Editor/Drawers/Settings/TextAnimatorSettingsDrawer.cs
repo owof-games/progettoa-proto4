@@ -1,4 +1,3 @@
-using System;
 using UnityEditor;
 using UnityEngine;
 
@@ -7,12 +6,13 @@ namespace Febucci.UI
     [CustomEditor(typeof(TextAnimatorSettings))]
     public class TextAnimatorSettingsDrawer : Editor
     {
-        bool extraSettings = false;
+        SerializedProperty actions;
+        SerializedProperty appearances;
 
         SerializedProperty behaviors;
-        SerializedProperty appearances;
+        SerializedProperty controlTags;
+        bool extraSettings = false;
         SerializedProperty styles;
-        SerializedProperty actions;
 
 
         void OnEnable()
@@ -21,6 +21,7 @@ namespace Febucci.UI
             appearances = serializedObject.FindProperty(nameof(TextAnimatorSettings.appearances));
             styles = serializedObject.FindProperty(nameof(TextAnimatorSettings.defaultStyleSheet));
             actions = serializedObject.FindProperty(nameof(TextAnimatorSettings.actions));
+            controlTags = serializedObject.FindProperty(nameof(TextAnimatorSettings.controlTags));
         }
 
         void DrawEffects()
@@ -31,7 +32,7 @@ namespace Febucci.UI
             EditorGUILayout.PropertyField(appearances);
             EditorGUI.indentLevel--;
         }
-        
+
         void DrawActions()
         {
             EditorGUILayout.LabelField("Actions", EditorStyles.boldLabel);
@@ -47,21 +48,26 @@ namespace Febucci.UI
             EditorGUILayout.PropertyField(styles);
             EditorGUI.indentLevel--;
         }
-        
+
         public override void OnInspectorGUI()
         {
-            EditorGUILayout.HelpBox($"For this to work, make sure that it's named {TextAnimatorSettings.expectedName} and it's placed inside the Resources folder.", MessageType.Info);
+            EditorGUILayout.HelpBox(
+                $"For this to work, make sure that it's named {TextAnimatorSettings.expectedName} and it's placed inside the Resources folder.",
+                MessageType.Info);
             EditorGUILayout.Space();
-            
+
             DrawEffects();
             EditorGUILayout.Space();
-            
+
             DrawActions();
             EditorGUILayout.Space();
-            
+
             DrawStyles();
             EditorGUILayout.Space();
-            
+
+            EditorGUILayout.PropertyField(controlTags);
+            EditorGUILayout.Space();
+
             extraSettings = EditorGUILayout.Foldout(extraSettings, "Extra Settings", EditorStyles.foldoutHeader);
             if (extraSettings)
             {

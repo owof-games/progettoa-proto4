@@ -31,18 +31,12 @@ namespace FMODUnity
         private static readonly string HelpText =
             string.Format("Click {0} to search your project for obsolete event references.", SearchButtonText);
 
-        private readonly string[] SearchFolders =
-        {
-            "Assets",
-        };
+        [NonSerialized] private static GUIContent AssetContent = new GUIContent("Asset");
 
-        private SceneSetup[] sceneSetup;
+        private static GUIContent ComponentTypeContent = new GUIContent("Component Type");
+        private static GUIContent GameObjectContent = new GUIContent("Game Object");
 
-        private IEnumerator<string> processingState;
-
-        private SearchProgress prefabProgress;
-        private SearchProgress sceneProgress;
-        private SearchProgress scriptableObjectProgress;
+        private static readonly Assembly SystemAssembly = typeof(object).Assembly;
 
         [SerializeField] private List<Asset> assets = new List<Asset>();
 
@@ -50,21 +44,180 @@ namespace FMODUnity
 
         [SerializeField] private List<Task> tasks = new List<Task>();
 
+        private readonly string[] SearchFolders =
+        {
+            "Assets",
+        };
+
         private int executableTaskCount = 0;
-
-        private TreeViewState taskViewState = new TreeViewState();
-
-        private TaskView taskView;
-
-        [NonSerialized] private GUIContent status = GUIContent.none;
-
-        [NonSerialized] private Task selectedTask;
 
         [NonSerialized] private Vector2 manualDescriptionScrollPosition;
 
-        [NonSerialized] private static GUIContent AssetContent = new GUIContent("Asset");
-        private static GUIContent ComponentTypeContent = new GUIContent("Component Type");
-        private static GUIContent GameObjectContent = new GUIContent("Game Object");
+        private SearchProgress prefabProgress;
+
+        private IEnumerator<string> processingState;
+        private SearchProgress sceneProgress;
+
+        private SceneSetup[] sceneSetup;
+        private SearchProgress scriptableObjectProgress;
+
+        [NonSerialized] private Task selectedTask;
+
+        [NonSerialized] private GUIContent status = GUIContent.none;
+
+        private TaskView taskView;
+
+        private TreeViewState taskViewState = new TreeViewState();
+
+        private bool IsProcessing
+        {
+            get { return processingState != null; }
+        }
+
+        private void OnEnable()
+        {
+            taskView = new TaskView(taskViewState, tasks, assets, components);
+            taskView.Reload();
+            taskView.taskSelected += OnTaskSelected;
+            taskView.taskDoubleClicked += OnTaskDoubleClicked;
+            taskView.taskEnableStateChanged += OnTaskEnableStateChanged;
+            taskView.assetEnableStateChanged += ApplyAssetEnableStateToTasks;
+
+            EditorApplication.update += UpdateProcessing;
+        }
+
+        private void OnDisable()
+        {
+            EditorApplication.update -= UpdateProcessing;
+        }
+
+        private void OnGUI()
+        {
+            Styles.Affirm();
+
+            float buttonHeight = EditorGUIUtility.singleLineHeight * 2;
+
+            // Task List
+            using (var scope = new EditorGUILayout.VerticalScope(GUILayout.ExpandHeight(true)))
+            {
+                taskView.DrawLayout(scope.rect);
+            }
+
+            // Selected Task
+            if (selectedTask != null)
+            {
+                Asset asset = assets[selectedTask.AssetIndex];
+                Component component = components[selectedTask.ComponentIndex];
+
+                DrawSelectableLabel(selectedTask.PlainDescription(), EditorStyles.wordWrappedLabel);
+
+                using (new EditorGUI.IndentLevelScope())
+                {
+                    EditorGUILayout.LabelField(AssetContent,
+                        new GUIContent(asset.Path, Icons.GetAssetIcon(asset.Type)));
+                    EditorGUILayout.LabelField(ComponentTypeContent,
+                        new GUIContent(component.Type, Icons.GetComponentIcon(component)));
+
+                    if (!string.IsNullOrEmpty(component.Path))
+                    {
+                        EditorGUILayout.LabelField(GameObjectContent, new GUIContent(component.Path, Icons.GameObject));
+                    }
+
+                    if (selectedTask.IsManual())
+                    {
+                        Rect buttonsRect = EditorGUILayout.GetControlRect(false, buttonHeight);
+                        buttonsRect = EditorGUI.IndentedRect(buttonsRect);
+
+                        GUIContent openScriptContent = new GUIContent("Open " + component.ScriptPath);
+
+                        Rect openScriptRect = buttonsRect;
+                        openScriptRect.width = GUI.skin.button.CalcSize(openScriptContent).x;
+
+                        if (GUI.Button(openScriptRect, openScriptContent))
+                        {
+                            MonoScript script = AssetDatabase.LoadAssetAtPath<MonoScript>(component.ScriptPath);
+                            AssetDatabase.OpenAsset(script);
+                        }
+
+                        GUIContent viewDocumentationContent = new GUIContent("View Documentation");
+
+                        Rect viewDocumentationRect = buttonsRect;
+                        viewDocumentationRect.x = openScriptRect.xMax + GUI.skin.button.margin.left;
+                        viewDocumentationRect.width = GUI.skin.button.CalcSize(viewDocumentationContent).x;
+
+                        if (GUI.Button(viewDocumentationRect, viewDocumentationContent))
+                        {
+                            EditorUtils.OpenOnlineDocumentation("unity", "tools", "manual-tasks");
+                        }
+
+                        using (var scope = new EditorGUILayout.ScrollViewScope(manualDescriptionScrollPosition,
+                                   GUILayout.Height(100)))
+                        {
+                            manualDescriptionScrollPosition = scope.scrollPosition;
+
+                            DrawSelectableLabel(selectedTask.ManualInstructions(component),
+                                EditorStyles.wordWrappedLabel);
+                        }
+                    }
+                    else
+                    {
+                        GUIContent buttonContent = new GUIContent("Execute");
+
+                        Rect buttonRect = EditorGUILayout.GetControlRect(false, buttonHeight);
+                        buttonRect.width = EditorGUIUtility.labelWidth;
+                        buttonRect = EditorGUI.IndentedRect(buttonRect);
+
+                        if (GUI.Button(buttonRect, buttonContent))
+                        {
+                            ExecuteTask(selectedTask, SavePolicy.AskToSave);
+                        }
+                    }
+                }
+            }
+
+            // Status
+            if (IsProcessing)
+            {
+                DrawProgressBar("Prefabs", prefabProgress);
+                DrawProgressBar("ScriptableObjects", scriptableObjectProgress);
+                DrawProgressBar("Scenes", sceneProgress);
+            }
+
+            GUILayout.Label(status, Styles.RichTextBox);
+
+            // Buttons
+            using (new EditorGUILayout.HorizontalScope())
+            {
+                if (GUILayout.Button("Cancel", GUILayout.Height(buttonHeight)))
+                {
+                    Cancel();
+                }
+
+                using (new EditorGUI.DisabledScope(IsProcessing))
+                {
+                    if (GUILayout.Button(SearchButtonText, GUILayout.Height(buttonHeight)))
+                    {
+                        BeginSearching();
+                    }
+
+                    using (new EditorGUI.DisabledScope(executableTaskCount == 0))
+                    {
+                        if (GUILayout.Button(ExecuteButtonText(), GUILayout.Height(buttonHeight)))
+                        {
+                            BeginExecuting();
+                        }
+                    }
+                }
+            }
+
+            if (focusedWindow == this
+                && Event.current.type == EventType.KeyDown
+                && Event.current.keyCode == KeyCode.Escape)
+            {
+                Cancel();
+                Event.current.Use();
+            }
+        }
 
         private string ExecuteButtonText()
         {
@@ -168,36 +321,6 @@ namespace FMODUnity
             else
             {
                 Close();
-            }
-        }
-
-        private bool IsProcessing
-        {
-            get { return processingState != null; }
-        }
-
-        private struct SearchProgress
-        {
-            private int maximum;
-            private int current;
-
-            public float Fraction()
-            {
-                return (maximum > 0) ? (current / (float)maximum) : 1;
-            }
-
-            public void Increment()
-            {
-                if (current < maximum)
-                {
-                    ++current;
-                }
-            }
-
-            public SearchProgress(int total)
-            {
-                this.maximum = total;
-                this.current = 0;
             }
         }
 
@@ -517,8 +640,6 @@ namespace FMODUnity
             return Attribute.GetCustomAttribute(field, typeof(T)) as T;
         }
 
-        private static readonly Assembly SystemAssembly = typeof(object).Assembly;
-
         private static IEnumerable<Task> GetGenericUpdateTasks(object target, string subObjectPath = null,
             IEnumerable<object> parents = null)
         {
@@ -697,7 +818,20 @@ namespace FMODUnity
                         if (value is IEnumerable && !(value is string))
                         {
                             int index = 0;
-                            var valueEnumerator = (value as IEnumerable).GetEnumerator();
+                            IEnumerator valueEnumerator = null;
+
+                            try
+                            {
+                                valueEnumerator = (value as IEnumerable).GetEnumerator();
+                            }
+                            catch (Exception ex)
+                            {
+                                RuntimeUtils.DebugLogWarningFormat(
+                                    "[FMOD] Failed to get enumerator for value in field '{0}': {1}",
+                                    subObjectField.Name, ex.Message);
+                                continue;
+                            }
+
                             for (;;)
                             {
                                 object item = null;
@@ -761,15 +895,6 @@ namespace FMODUnity
             }
         }
 
-        private enum AssetType
-        {
-            Scene,
-            Prefab,
-            PrefabModel,
-            PrefabVariant,
-            ScriptableObject,
-        }
-
         private static bool IsPrefab(AssetType type)
         {
             return type == AssetType.Prefab
@@ -793,6 +918,420 @@ namespace FMODUnity
             {
                 return AssetType.Prefab;
             }
+        }
+
+        private static string FieldPath(string subObjectPath, string fieldName)
+        {
+            if (subObjectPath != null)
+            {
+                return string.Format("{0}.{1}", subObjectPath, fieldName);
+            }
+            else
+            {
+                return fieldName;
+            }
+        }
+
+        private static string FieldPath(string subObjectPath, string fieldName, int index)
+        {
+            if (subObjectPath != null)
+            {
+                return string.Format("{0}.{1}[{2}]", subObjectPath, fieldName, index);
+            }
+            else
+            {
+                return string.Format("{0}[{1}]", fieldName, index);
+            }
+        }
+
+        private static object FindSubObject(object o, string path)
+        {
+            if (path == null)
+            {
+                return o;
+            }
+
+            object result = o;
+
+            foreach (string pathElement in path.Split('.'))
+            {
+                Type type = result.GetType();
+
+                Regex regex = new Regex(@"(\w+)\[(\d+)\]$");
+                Match match = regex.Match(pathElement);
+                int index = -1;
+                string fieldName = pathElement;
+
+                if (match.Success)
+                {
+                    fieldName = match.Groups[1].Value;
+                    index = int.Parse(match.Groups[2].Value);
+                }
+
+                FieldInfo field = type.GetField(fieldName, DefaultBindingFlags);
+
+                if (field == null)
+                {
+                    return null;
+                }
+
+                result = field.GetValue(result);
+
+                if (index >= 0)
+                {
+                    IEnumerable enumerable = result as IEnumerable;
+
+                    result = null;
+
+                    if (enumerable != null)
+                    {
+                        int i = 0;
+
+                        foreach (object obj in enumerable)
+                        {
+                            if (index == i)
+                            {
+                                result = obj;
+                                break;
+                            }
+
+                            i++;
+                        }
+                    }
+                }
+
+                if (result == null)
+                {
+                    return null;
+                }
+            }
+
+            return result;
+        }
+
+        private void ExecuteTask(Task task, SavePolicy savePolicy)
+        {
+            Asset asset = assets[task.AssetIndex];
+
+            if (asset.Type == AssetType.ScriptableObject)
+            {
+                ExecuteScriptableObjectTask(task, savePolicy);
+            }
+            else
+            {
+                ExecuteGameObjectTask(task, savePolicy);
+            }
+        }
+
+        private void ExecuteScriptableObjectTask(Task task, SavePolicy savePolicy)
+        {
+            Asset asset = assets[task.AssetIndex];
+            Component component = components[task.ComponentIndex];
+
+            IEnumerable<ScriptableObject> scriptableObjects =
+                AssetDatabase.LoadAllAssetsAtPath(asset.Path).OfType<ScriptableObject>();
+
+            foreach (ScriptableObject scriptableObject in scriptableObjects)
+            {
+                if (scriptableObject.GetType().Name == component.Type)
+                {
+                    if (task.Execute(scriptableObject))
+                    {
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void ExecuteGameObjectTask(Task task, SavePolicy savePolicy)
+        {
+            GameObject gameObject = LoadTargetGameObject(task, savePolicy);
+
+            if (gameObject == null)
+            {
+                return;
+            }
+
+            Selection.activeGameObject = gameObject;
+            EditorGUIUtility.PingObject(gameObject);
+
+            Component component = components[task.ComponentIndex];
+
+            foreach (MonoBehaviour behaviour in gameObject.GetComponents<MonoBehaviour>())
+            {
+                if (behaviour.GetType().Name == component.Type)
+                {
+                    if (task.Execute(behaviour))
+                    {
+                        break;
+                    }
+                }
+            }
+        }
+
+        private GameObject LoadTargetGameObject(Task task, SavePolicy savePolicy)
+        {
+            Asset asset = assets[task.AssetIndex];
+            Component component = components[task.ComponentIndex];
+
+            if (IsPrefab(asset.Type))
+            {
+                GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(asset.Path);
+
+                if (prefab == null)
+                {
+                    return null;
+                }
+
+                if (!AssetDatabase.OpenAsset(prefab))
+                {
+                    return null;
+                }
+
+                return GlobalObjectId.GlobalObjectIdentifierToObjectSlow(component.GameObjectID) as GameObject;
+            }
+            else if (asset.Type == AssetType.Scene)
+            {
+                Scene scene = SceneManager.GetSceneByPath(asset.Path);
+
+                if (!scene.IsValid())
+                {
+                    if (savePolicy == SavePolicy.AskToSave)
+                    {
+                        if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+                        {
+                            return null;
+                        }
+                    }
+                    else if (savePolicy == SavePolicy.AutoSave)
+                    {
+                        EditorSceneManager.SaveOpenScenes();
+                    }
+                    else
+                    {
+                        throw new ArgumentException("Unrecognized SavePolicy: " + savePolicy, "savePolicy");
+                    }
+
+                    scene = EditorSceneManager.OpenScene(asset.Path, OpenSceneMode.Single);
+
+                    if (!scene.IsValid())
+                    {
+                        return null;
+                    }
+                }
+
+                return GlobalObjectId.GlobalObjectIdentifierToObjectSlow(component.GameObjectID) as GameObject;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        private int AddAsset(AssetType type, string path)
+        {
+            Asset asset = new Asset()
+            {
+                Type = type,
+                Path = path,
+            };
+
+            assets.Add(asset);
+
+            return assets.Count - 1;
+        }
+
+        private int AddComponent(MonoBehaviour behaviour, GameObject root)
+        {
+            MonoScript script = MonoScript.FromMonoBehaviour(behaviour);
+
+            Component component = new Component()
+            {
+                GameObjectID = GlobalObjectId.GetGlobalObjectIdSlow(behaviour.gameObject),
+                Type = behaviour.GetType().Name,
+                Path = EditorUtils.GameObjectPath(behaviour, root),
+                ScriptPath = AssetDatabase.GetAssetPath(script),
+            };
+
+            components.Add(component);
+
+            return components.Count - 1;
+        }
+
+        private int AddComponent(ScriptableObject scriptableObject)
+        {
+            MonoScript script = MonoScript.FromScriptableObject(scriptableObject);
+
+            Component component = new Component()
+            {
+                Type = scriptableObject.GetType().Name,
+                ScriptPath = AssetDatabase.GetAssetPath(script),
+            };
+
+            components.Add(component);
+
+            return components.Count - 1;
+        }
+
+        private void UpdateExecutableTaskCount()
+        {
+            executableTaskCount = tasks.Count(t => t.CanExecute());
+        }
+
+        private void AddTask(Task task)
+        {
+            tasks.Add(task);
+            UpdateExecutableTaskCount();
+            taskView.Reload();
+            taskView.ExpandAll();
+        }
+
+        private void UpdateProcessing()
+        {
+            if (processingState != null)
+            {
+                if (processingState.MoveNext())
+                {
+                    SetStatus(processingState.Current);
+                }
+                else
+                {
+                    StopProcessing(true);
+                }
+
+                Repaint();
+            }
+        }
+
+        private void OnTaskSelected(Task task)
+        {
+            selectedTask = task;
+        }
+
+        private void OnTaskDoubleClicked(Task task)
+        {
+            Asset asset = assets[task.AssetIndex];
+
+            if (asset.Type == AssetType.ScriptableObject)
+            {
+                Object target = AssetDatabase.LoadAssetAtPath<Object>(asset.Path);
+
+                if (target == null)
+                {
+                    return;
+                }
+
+                if (!AssetDatabase.OpenAsset(target))
+                {
+                    return;
+                }
+
+                Component component = components[task.ComponentIndex];
+
+                IEnumerable<ScriptableObject> scriptableObjects =
+                    AssetDatabase.LoadAllAssetsAtPath(asset.Path).OfType<ScriptableObject>();
+
+                foreach (ScriptableObject scriptableObject in scriptableObjects)
+                {
+                    if (scriptableObject.GetType().Name == component.Type
+                        && task.IsValid(scriptableObject))
+                    {
+                        Selection.activeObject = scriptableObject;
+                    }
+                }
+            }
+            else
+            {
+                GameObject gameObject = LoadTargetGameObject(task, SavePolicy.AskToSave);
+
+                if (gameObject == null)
+                {
+                    return;
+                }
+
+                Selection.activeGameObject = gameObject;
+                EditorGUIUtility.PingObject(gameObject);
+            }
+        }
+
+        private void OnTaskEnableStateChanged(Task task)
+        {
+            UpdateAssetEnableState(task.AssetIndex);
+            UpdateExecutableTaskCount();
+        }
+
+        private void UpdateAssetEnableState(int assetIndex)
+        {
+            Asset asset = assets[assetIndex];
+
+            asset.EnableState = tasks
+                .Where(t => t.AssetIndex == assetIndex)
+                .Select(t => t.Enabled ? EnableState.Enabled : EnableState.Disabled)
+                .Aggregate((current, next) => (current == next) ? current : EnableState.Mixed);
+        }
+
+        private void ApplyAssetEnableStateToTasks(Asset asset)
+        {
+            int assetIndex = assets.IndexOf(asset);
+
+            foreach (Task task in tasks.Where(t => t.AssetIndex == assetIndex))
+            {
+                task.Enabled = (asset.EnableState == EnableState.Enabled);
+            }
+
+            UpdateExecutableTaskCount();
+        }
+
+        private void SetStatus(string text)
+        {
+            status = new GUIContent(text, EditorGUIUtility.IconContent("console.infoicon.sml").image);
+        }
+
+        private static void DrawProgressBar(string label, SearchProgress progress)
+        {
+            Rect rect = EditorGUILayout.GetControlRect();
+            EditorGUI.ProgressBar(rect, progress.Fraction(), label);
+        }
+
+        private static void DrawSelectableLabel(string text, GUIStyle style)
+        {
+            float height = style.CalcHeight(new GUIContent(text), EditorGUIUtility.currentViewWidth);
+
+            EditorGUILayout.SelectableLabel(text, style, GUILayout.Height(height));
+        }
+
+        private struct SearchProgress
+        {
+            private int maximum;
+            private int current;
+
+            public float Fraction()
+            {
+                return (maximum > 0) ? (current / (float)maximum) : 1;
+            }
+
+            public void Increment()
+            {
+                if (current < maximum)
+                {
+                    ++current;
+                }
+            }
+
+            public SearchProgress(int total)
+            {
+                this.maximum = total;
+                this.current = 0;
+            }
+        }
+
+        private enum AssetType
+        {
+            Scene,
+            Prefab,
+            PrefabModel,
+            PrefabVariant,
+            ScriptableObject,
         }
 
         private enum EnableState
@@ -822,198 +1361,18 @@ namespace FMODUnity
         [Serializable]
         private class Task
         {
-            public bool Enabled = true;
-            public int AssetIndex; // index into the assets list
-            public int ComponentIndex; // index into the components list
-
-            private Type type;
-            private string[] Data;
-
             private const string EmitterEventField = "Event";
             private const string EmitterEventReferenceField = "EventReference";
             private const string PlayableEventNameField = "eventName";
             private const string PlayableEventReferenceField = "eventReference";
 
-            private delegate string DescriptionDelegate(string[] data);
-
-            private delegate string ManualInstructionsDelegate(string[] data, Component component);
-
-            private delegate bool IsValidDelegate(string[] data, Object target);
-
-            private delegate void ExecuteDelegate(string[] data, Object target);
-
             private static readonly Delegates[] Implementations;
+            public bool Enabled = true;
+            public int AssetIndex; // index into the assets list
+            public int ComponentIndex; // index into the components list
+            private string[] Data;
 
-            private enum Type
-            {
-                EmitterClearEvent,
-                EmitterMoveEventToEventReference,
-                EmitterMoveEventOverrideToEventReference,
-                PlayableClearEventName,
-                PlayableMoveEventNameToEventReference,
-                GenericRemoveEventRefField,
-                GenericRemoveEmptyEventRefField,
-                GenericMoveEventRefFieldToEventReferenceField,
-                GenericAddMigrationTarget,
-                GenericUpdateEventReferencePath,
-                GenericUpdateEventReferenceGuid,
-                GenericFixMigrationTargetConflict,
-
-                Count
-            }
-
-            public bool HasExecuted { get; private set; }
-
-            // Suppress warnings about using the obsolete StudioEventEmitter.Event and FMODEventPlayable.eventName fields
-#pragma warning disable 0618
-            public static Task ClearEvent(StudioEventEmitter emitter)
-            {
-                return new Task()
-                {
-                    type = Type.EmitterClearEvent,
-                    Data = new string[] { emitter.Event },
-                };
-            }
-
-#if UNITY_TIMELINE_EXIST
-            public static Task ClearEventName(FMODEventPlayable playable)
-            {
-                return new Task()
-                {
-                    type = Type.PlayableClearEventName,
-                    Data = new string[] { playable.eventName },
-                };
-            }
-#endif
-
-            public static Task MoveEventToEventReference(StudioEventEmitter emitter)
-            {
-                return new Task()
-                {
-                    type = Type.EmitterMoveEventToEventReference,
-                    Data = new string[] { emitter.Event },
-                };
-            }
-
-
-#if UNITY_TIMELINE_EXIST
-            public static Task MoveEventNameToEventReference(FMODEventPlayable playable)
-            {
-                return new Task()
-                {
-                    type = Type.PlayableMoveEventNameToEventReference,
-                    Data = new string[] { playable.eventName },
-                };
-            }
-#endif
-
-            public static Task MoveEventOverrideToEventReference(StudioEventEmitter emitter)
-            {
-                return new Task()
-                {
-                    type = Type.EmitterMoveEventOverrideToEventReference,
-                    Data = new string[] { emitter.Event },
-                };
-            }
-#pragma warning restore 0618
-
-            public static Task RemoveEventRefField(string subObjectPath, string value, string fieldName,
-                string targetType)
-            {
-                return new Task()
-                {
-                    type = Type.GenericRemoveEventRefField,
-                    Data = new string[] { subObjectPath, value, fieldName, targetType },
-                };
-            }
-
-            public static Task RemoveEmptyEventRefField(string subObjectPath, string fieldName, string targetType)
-            {
-                return new Task()
-                {
-                    type = Type.GenericRemoveEmptyEventRefField,
-                    Data = new string[] { subObjectPath, fieldName, targetType },
-                };
-            }
-
-            public static Task MoveEventRefFieldToEventReferenceField(
-                string subObjectPath, string value, string oldFieldName, string newFieldName)
-            {
-                return new Task()
-                {
-                    type = Type.GenericMoveEventRefFieldToEventReferenceField,
-                    Data = new string[] { subObjectPath, value, oldFieldName, newFieldName },
-                };
-            }
-
-            public static Task AddMigrationTarget(string subObjectPath, string value, string fieldName,
-                string targetType,
-                string targetName = null)
-            {
-                return new Task()
-                {
-                    type = Type.GenericAddMigrationTarget,
-                    Data = new string[] { subObjectPath, value, fieldName, targetType, targetName },
-                };
-            }
-
-            public static Task UpdateEventReferencePath(string subObjectPath, string fieldName,
-                string oldPath, string newPath, GUID guid)
-            {
-                return new Task()
-                {
-                    type = Type.GenericUpdateEventReferencePath,
-                    Data = new string[] { subObjectPath, fieldName, oldPath, newPath, guid.ToString() },
-                };
-            }
-
-            public static Task UpdateEventReferenceGuid(string subObjectPath, string fieldName,
-                GUID oldGuid, GUID newGuid, string path)
-            {
-                return new Task()
-                {
-                    type = Type.GenericUpdateEventReferenceGuid,
-                    Data = new string[] { subObjectPath, fieldName, oldGuid.ToString(), newGuid.ToString(), path },
-                };
-            }
-
-            public static Task FixMigrationTargetConflict(string subObjectPath, string targetType,
-                IEnumerable<string> fieldNames)
-            {
-                return new Task()
-                {
-                    type = Type.GenericFixMigrationTargetConflict,
-                    Data = (new string[] { subObjectPath, targetType }).Concat(fieldNames).ToArray(),
-                };
-            }
-
-            private struct Delegates
-            {
-                public DescriptionDelegate Description;
-                public ManualInstructionsDelegate ManualInstructions;
-                public IsValidDelegate IsValid;
-                public ExecuteDelegate Execute;
-            }
-
-            private static void Implement(Type type,
-                DescriptionDelegate Description,
-                IsValidDelegate IsValid,
-                ExecuteDelegate Execute,
-                ManualInstructionsDelegate ManualInstructions = null)
-            {
-                Implementations[(int)type] = new Delegates()
-                {
-                    Description = Description,
-                    IsValid = IsValid,
-                    Execute = Execute,
-                    ManualInstructions = ManualInstructions,
-                };
-            }
-
-            private Delegates GetDelegates()
-            {
-                return Implementations[(int)type];
-            }
+            private Type type;
 
             static Task()
             {
@@ -1148,14 +1507,18 @@ namespace FMODUnity
 
 #if UNITY_TIMELINE_EXIST
                 Implement(Type.PlayableClearEventName,
-                    Description: (data) => {
-                        return string.Format("Clear <b>'{0}'</b> from the <b>{1}</b> field", data[0], PlayableEventNameField);
+                    Description: (data) =>
+                    {
+                        return string.Format("Clear <b>'{0}'</b> from the <b>{1}</b> field", data[0],
+                            PlayableEventNameField);
                     },
-                    IsValid: (data, target) => {
+                    IsValid: (data, target) =>
+                    {
                         FMODEventPlayable playable = target as FMODEventPlayable;
                         return playable != null && playable.eventName == data[0] && !playable.EventReference.IsNull;
                     },
-                    Execute: (data, target) => {
+                    Execute: (data, target) =>
+                    {
                         FMODEventPlayable playable = target as FMODEventPlayable;
 
                         playable.eventName = string.Empty;
@@ -1163,15 +1526,18 @@ namespace FMODUnity
                     }
                 );
                 Implement(Type.PlayableMoveEventNameToEventReference,
-                    Description: (data) => {
+                    Description: (data) =>
+                    {
                         return string.Format("Move <b>'{0}'</b> from <b>{1}</b> to <b>{2}</b>",
                             data[0], PlayableEventNameField, PlayableEventReferenceField);
                     },
-                    IsValid: (data, target) => {
+                    IsValid: (data, target) =>
+                    {
                         FMODEventPlayable playable = target as FMODEventPlayable;
                         return playable != null && playable.eventName == data[0] && playable.EventReference.IsNull;
                     },
-                    Execute: (data, target) => {
+                    Execute: (data, target) =>
+                    {
                         FMODEventPlayable playable = target as FMODEventPlayable;
 
                         playable.EventReference.Path = playable.eventName;
@@ -1494,6 +1860,98 @@ namespace FMODUnity
 #pragma warning restore 0618
             }
 
+            public bool HasExecuted { get; private set; }
+
+            public static Task RemoveEventRefField(string subObjectPath, string value, string fieldName,
+                string targetType)
+            {
+                return new Task()
+                {
+                    type = Type.GenericRemoveEventRefField,
+                    Data = new string[] { subObjectPath, value, fieldName, targetType },
+                };
+            }
+
+            public static Task RemoveEmptyEventRefField(string subObjectPath, string fieldName, string targetType)
+            {
+                return new Task()
+                {
+                    type = Type.GenericRemoveEmptyEventRefField,
+                    Data = new string[] { subObjectPath, fieldName, targetType },
+                };
+            }
+
+            public static Task MoveEventRefFieldToEventReferenceField(
+                string subObjectPath, string value, string oldFieldName, string newFieldName)
+            {
+                return new Task()
+                {
+                    type = Type.GenericMoveEventRefFieldToEventReferenceField,
+                    Data = new string[] { subObjectPath, value, oldFieldName, newFieldName },
+                };
+            }
+
+            public static Task AddMigrationTarget(string subObjectPath, string value, string fieldName,
+                string targetType,
+                string targetName = null)
+            {
+                return new Task()
+                {
+                    type = Type.GenericAddMigrationTarget,
+                    Data = new string[] { subObjectPath, value, fieldName, targetType, targetName },
+                };
+            }
+
+            public static Task UpdateEventReferencePath(string subObjectPath, string fieldName,
+                string oldPath, string newPath, GUID guid)
+            {
+                return new Task()
+                {
+                    type = Type.GenericUpdateEventReferencePath,
+                    Data = new string[] { subObjectPath, fieldName, oldPath, newPath, guid.ToString() },
+                };
+            }
+
+            public static Task UpdateEventReferenceGuid(string subObjectPath, string fieldName,
+                GUID oldGuid, GUID newGuid, string path)
+            {
+                return new Task()
+                {
+                    type = Type.GenericUpdateEventReferenceGuid,
+                    Data = new string[] { subObjectPath, fieldName, oldGuid.ToString(), newGuid.ToString(), path },
+                };
+            }
+
+            public static Task FixMigrationTargetConflict(string subObjectPath, string targetType,
+                IEnumerable<string> fieldNames)
+            {
+                return new Task()
+                {
+                    type = Type.GenericFixMigrationTargetConflict,
+                    Data = (new string[] { subObjectPath, targetType }).Concat(fieldNames).ToArray(),
+                };
+            }
+
+            private static void Implement(Type type,
+                DescriptionDelegate Description,
+                IsValidDelegate IsValid,
+                ExecuteDelegate Execute,
+                ManualInstructionsDelegate ManualInstructions = null)
+            {
+                Implementations[(int)type] = new Delegates()
+                {
+                    Description = Description,
+                    IsValid = IsValid,
+                    Execute = Execute,
+                    ManualInstructions = ManualInstructions,
+                };
+            }
+
+            private Delegates GetDelegates()
+            {
+                return Implementations[(int)type];
+            }
+
             public override string ToString()
             {
                 return GetDelegates().Description(Data);
@@ -1552,391 +2010,99 @@ namespace FMODUnity
                     return false;
                 }
             }
-        }
 
-        private static string FieldPath(string subObjectPath, string fieldName)
-        {
-            if (subObjectPath != null)
-            {
-                return string.Format("{0}.{1}", subObjectPath, fieldName);
-            }
-            else
-            {
-                return fieldName;
-            }
-        }
+            private delegate string DescriptionDelegate(string[] data);
 
-        private static string FieldPath(string subObjectPath, string fieldName, int index)
-        {
-            if (subObjectPath != null)
-            {
-                return string.Format("{0}.{1}[{2}]", subObjectPath, fieldName, index);
-            }
-            else
-            {
-                return string.Format("{0}[{1}]", fieldName, index);
-            }
-        }
+            private delegate string ManualInstructionsDelegate(string[] data, Component component);
 
-        private static object FindSubObject(object o, string path)
-        {
-            if (path == null)
+            private delegate bool IsValidDelegate(string[] data, Object target);
+
+            private delegate void ExecuteDelegate(string[] data, Object target);
+
+            private enum Type
             {
-                return o;
+                EmitterClearEvent,
+                EmitterMoveEventToEventReference,
+                EmitterMoveEventOverrideToEventReference,
+                PlayableClearEventName,
+                PlayableMoveEventNameToEventReference,
+                GenericRemoveEventRefField,
+                GenericRemoveEmptyEventRefField,
+                GenericMoveEventRefFieldToEventReferenceField,
+                GenericAddMigrationTarget,
+                GenericUpdateEventReferencePath,
+                GenericUpdateEventReferenceGuid,
+                GenericFixMigrationTargetConflict,
+
+                Count
             }
 
-            object result = o;
-
-            foreach (string pathElement in path.Split('.'))
+            private struct Delegates
             {
-                Type type = result.GetType();
+                public DescriptionDelegate Description;
+                public ManualInstructionsDelegate ManualInstructions;
+                public IsValidDelegate IsValid;
+                public ExecuteDelegate Execute;
+            }
 
-                Regex regex = new Regex(@"(\w+)\[(\d+)\]$");
-                Match match = regex.Match(pathElement);
-                int index = -1;
-                string fieldName = pathElement;
-
-                if (match.Success)
+            // Suppress warnings about using the obsolete StudioEventEmitter.Event and FMODEventPlayable.eventName fields
+#pragma warning disable 0618
+            public static Task ClearEvent(StudioEventEmitter emitter)
+            {
+                return new Task()
                 {
-                    fieldName = match.Groups[1].Value;
-                    index = int.Parse(match.Groups[2].Value);
-                }
-
-                FieldInfo field = type.GetField(fieldName, DefaultBindingFlags);
-
-                if (field == null)
-                {
-                    return null;
-                }
-
-                result = field.GetValue(result);
-
-                if (index >= 0)
-                {
-                    IEnumerable enumerable = result as IEnumerable;
-
-                    result = null;
-
-                    if (enumerable != null)
-                    {
-                        int i = 0;
-
-                        foreach (object obj in enumerable)
-                        {
-                            if (index == i)
-                            {
-                                result = obj;
-                                break;
-                            }
-
-                            i++;
-                        }
-                    }
-                }
-
-                if (result == null)
-                {
-                    return null;
-                }
+                    type = Type.EmitterClearEvent,
+                    Data = new string[] { emitter.Event },
+                };
             }
 
-            return result;
-        }
-
-        private void ExecuteTask(Task task, SavePolicy savePolicy)
-        {
-            Asset asset = assets[task.AssetIndex];
-
-            if (asset.Type == AssetType.ScriptableObject)
+#if UNITY_TIMELINE_EXIST
+            public static Task ClearEventName(FMODEventPlayable playable)
             {
-                ExecuteScriptableObjectTask(task, savePolicy);
-            }
-            else
-            {
-                ExecuteGameObjectTask(task, savePolicy);
-            }
-        }
-
-        private void ExecuteScriptableObjectTask(Task task, SavePolicy savePolicy)
-        {
-            Asset asset = assets[task.AssetIndex];
-            Component component = components[task.ComponentIndex];
-
-            IEnumerable<ScriptableObject> scriptableObjects =
-                AssetDatabase.LoadAllAssetsAtPath(asset.Path).OfType<ScriptableObject>();
-
-            foreach (ScriptableObject scriptableObject in scriptableObjects)
-            {
-                if (scriptableObject.GetType().Name == component.Type)
+                return new Task()
                 {
-                    if (task.Execute(scriptableObject))
-                    {
-                        break;
-                    }
-                }
+                    type = Type.PlayableClearEventName,
+                    Data = new string[] { playable.eventName },
+                };
             }
-        }
+#endif
 
-        private void ExecuteGameObjectTask(Task task, SavePolicy savePolicy)
-        {
-            GameObject gameObject = LoadTargetGameObject(task, savePolicy);
-
-            if (gameObject == null)
+            public static Task MoveEventToEventReference(StudioEventEmitter emitter)
             {
-                return;
-            }
-
-            Selection.activeGameObject = gameObject;
-            EditorGUIUtility.PingObject(gameObject);
-
-            Component component = components[task.ComponentIndex];
-
-            foreach (MonoBehaviour behaviour in gameObject.GetComponents<MonoBehaviour>())
-            {
-                if (behaviour.GetType().Name == component.Type)
+                return new Task()
                 {
-                    if (task.Execute(behaviour))
-                    {
-                        break;
-                    }
-                }
+                    type = Type.EmitterMoveEventToEventReference,
+                    Data = new string[] { emitter.Event },
+                };
             }
+
+
+#if UNITY_TIMELINE_EXIST
+            public static Task MoveEventNameToEventReference(FMODEventPlayable playable)
+            {
+                return new Task()
+                {
+                    type = Type.PlayableMoveEventNameToEventReference,
+                    Data = new string[] { playable.eventName },
+                };
+            }
+#endif
+
+            public static Task MoveEventOverrideToEventReference(StudioEventEmitter emitter)
+            {
+                return new Task()
+                {
+                    type = Type.EmitterMoveEventOverrideToEventReference,
+                    Data = new string[] { emitter.Event },
+                };
+            }
+#pragma warning restore 0618
         }
 
         private enum SavePolicy
         {
             AskToSave,
             AutoSave,
-        }
-
-        private GameObject LoadTargetGameObject(Task task, SavePolicy savePolicy)
-        {
-            Asset asset = assets[task.AssetIndex];
-            Component component = components[task.ComponentIndex];
-
-            if (IsPrefab(asset.Type))
-            {
-                GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(asset.Path);
-
-                if (prefab == null)
-                {
-                    return null;
-                }
-
-                if (!AssetDatabase.OpenAsset(prefab))
-                {
-                    return null;
-                }
-
-                return GlobalObjectId.GlobalObjectIdentifierToObjectSlow(component.GameObjectID) as GameObject;
-            }
-            else if (asset.Type == AssetType.Scene)
-            {
-                Scene scene = SceneManager.GetSceneByPath(asset.Path);
-
-                if (!scene.IsValid())
-                {
-                    if (savePolicy == SavePolicy.AskToSave)
-                    {
-                        if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
-                        {
-                            return null;
-                        }
-                    }
-                    else if (savePolicy == SavePolicy.AutoSave)
-                    {
-                        EditorSceneManager.SaveOpenScenes();
-                    }
-                    else
-                    {
-                        throw new ArgumentException("Unrecognized SavePolicy: " + savePolicy, "savePolicy");
-                    }
-
-                    scene = EditorSceneManager.OpenScene(asset.Path, OpenSceneMode.Single);
-
-                    if (!scene.IsValid())
-                    {
-                        return null;
-                    }
-                }
-
-                return GlobalObjectId.GlobalObjectIdentifierToObjectSlow(component.GameObjectID) as GameObject;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        private int AddAsset(AssetType type, string path)
-        {
-            Asset asset = new Asset()
-            {
-                Type = type,
-                Path = path,
-            };
-
-            assets.Add(asset);
-
-            return assets.Count - 1;
-        }
-
-        private int AddComponent(MonoBehaviour behaviour, GameObject root)
-        {
-            MonoScript script = MonoScript.FromMonoBehaviour(behaviour);
-
-            Component component = new Component()
-            {
-                GameObjectID = GlobalObjectId.GetGlobalObjectIdSlow(behaviour.gameObject),
-                Type = behaviour.GetType().Name,
-                Path = EditorUtils.GameObjectPath(behaviour, root),
-                ScriptPath = AssetDatabase.GetAssetPath(script),
-            };
-
-            components.Add(component);
-
-            return components.Count - 1;
-        }
-
-        private int AddComponent(ScriptableObject scriptableObject)
-        {
-            MonoScript script = MonoScript.FromScriptableObject(scriptableObject);
-
-            Component component = new Component()
-            {
-                Type = scriptableObject.GetType().Name,
-                ScriptPath = AssetDatabase.GetAssetPath(script),
-            };
-
-            components.Add(component);
-
-            return components.Count - 1;
-        }
-
-        private void UpdateExecutableTaskCount()
-        {
-            executableTaskCount = tasks.Count(t => t.CanExecute());
-        }
-
-        private void AddTask(Task task)
-        {
-            tasks.Add(task);
-            UpdateExecutableTaskCount();
-            taskView.Reload();
-            taskView.ExpandAll();
-        }
-
-        private void UpdateProcessing()
-        {
-            if (processingState != null)
-            {
-                if (processingState.MoveNext())
-                {
-                    SetStatus(processingState.Current);
-                }
-                else
-                {
-                    StopProcessing(true);
-                }
-
-                Repaint();
-            }
-        }
-
-        private void OnEnable()
-        {
-            taskView = new TaskView(taskViewState, tasks, assets, components);
-            taskView.Reload();
-            taskView.taskSelected += OnTaskSelected;
-            taskView.taskDoubleClicked += OnTaskDoubleClicked;
-            taskView.taskEnableStateChanged += OnTaskEnableStateChanged;
-            taskView.assetEnableStateChanged += ApplyAssetEnableStateToTasks;
-
-            EditorApplication.update += UpdateProcessing;
-        }
-
-        private void OnDisable()
-        {
-            EditorApplication.update -= UpdateProcessing;
-        }
-
-        private void OnTaskSelected(Task task)
-        {
-            selectedTask = task;
-        }
-
-        private void OnTaskDoubleClicked(Task task)
-        {
-            Asset asset = assets[task.AssetIndex];
-
-            if (asset.Type == AssetType.ScriptableObject)
-            {
-                Object target = AssetDatabase.LoadAssetAtPath<Object>(asset.Path);
-
-                if (target == null)
-                {
-                    return;
-                }
-
-                if (!AssetDatabase.OpenAsset(target))
-                {
-                    return;
-                }
-
-                Component component = components[task.ComponentIndex];
-
-                IEnumerable<ScriptableObject> scriptableObjects =
-                    AssetDatabase.LoadAllAssetsAtPath(asset.Path).OfType<ScriptableObject>();
-
-                foreach (ScriptableObject scriptableObject in scriptableObjects)
-                {
-                    if (scriptableObject.GetType().Name == component.Type
-                        && task.IsValid(scriptableObject))
-                    {
-                        Selection.activeObject = scriptableObject;
-                    }
-                }
-            }
-            else
-            {
-                GameObject gameObject = LoadTargetGameObject(task, SavePolicy.AskToSave);
-
-                if (gameObject == null)
-                {
-                    return;
-                }
-
-                Selection.activeGameObject = gameObject;
-                EditorGUIUtility.PingObject(gameObject);
-            }
-        }
-
-        private void OnTaskEnableStateChanged(Task task)
-        {
-            UpdateAssetEnableState(task.AssetIndex);
-            UpdateExecutableTaskCount();
-        }
-
-        private void UpdateAssetEnableState(int assetIndex)
-        {
-            Asset asset = assets[assetIndex];
-
-            asset.EnableState = tasks
-                .Where(t => t.AssetIndex == assetIndex)
-                .Select(t => t.Enabled ? EnableState.Enabled : EnableState.Disabled)
-                .Aggregate((current, next) => (current == next) ? current : EnableState.Mixed);
-        }
-
-        private void ApplyAssetEnableStateToTasks(Asset asset)
-        {
-            int assetIndex = assets.IndexOf(asset);
-
-            foreach (Task task in tasks.Where(t => t.AssetIndex == assetIndex))
-            {
-                task.Enabled = (asset.EnableState == EnableState.Enabled);
-            }
-
-            UpdateExecutableTaskCount();
         }
 
         private class Styles
@@ -2020,152 +2186,6 @@ namespace FMODUnity
             {
                 return AssetDatabase.GetCachedIcon(component.ScriptPath) as Texture2D;
             }
-        }
-
-        private void SetStatus(string text)
-        {
-            status = new GUIContent(text, EditorGUIUtility.IconContent("console.infoicon.sml").image);
-        }
-
-        private void OnGUI()
-        {
-            Styles.Affirm();
-
-            float buttonHeight = EditorGUIUtility.singleLineHeight * 2;
-
-            // Task List
-            using (var scope = new EditorGUILayout.VerticalScope(GUILayout.ExpandHeight(true)))
-            {
-                taskView.DrawLayout(scope.rect);
-            }
-
-            // Selected Task
-            if (selectedTask != null)
-            {
-                Asset asset = assets[selectedTask.AssetIndex];
-                Component component = components[selectedTask.ComponentIndex];
-
-                DrawSelectableLabel(selectedTask.PlainDescription(), EditorStyles.wordWrappedLabel);
-
-                using (new EditorGUI.IndentLevelScope())
-                {
-                    EditorGUILayout.LabelField(AssetContent,
-                        new GUIContent(asset.Path, Icons.GetAssetIcon(asset.Type)));
-                    EditorGUILayout.LabelField(ComponentTypeContent,
-                        new GUIContent(component.Type, Icons.GetComponentIcon(component)));
-
-                    if (!string.IsNullOrEmpty(component.Path))
-                    {
-                        EditorGUILayout.LabelField(GameObjectContent, new GUIContent(component.Path, Icons.GameObject));
-                    }
-
-                    if (selectedTask.IsManual())
-                    {
-                        Rect buttonsRect = EditorGUILayout.GetControlRect(false, buttonHeight);
-                        buttonsRect = EditorGUI.IndentedRect(buttonsRect);
-
-                        GUIContent openScriptContent = new GUIContent("Open " + component.ScriptPath);
-
-                        Rect openScriptRect = buttonsRect;
-                        openScriptRect.width = GUI.skin.button.CalcSize(openScriptContent).x;
-
-                        if (GUI.Button(openScriptRect, openScriptContent))
-                        {
-                            MonoScript script = AssetDatabase.LoadAssetAtPath<MonoScript>(component.ScriptPath);
-                            AssetDatabase.OpenAsset(script);
-                        }
-
-                        GUIContent viewDocumentationContent = new GUIContent("View Documentation");
-
-                        Rect viewDocumentationRect = buttonsRect;
-                        viewDocumentationRect.x = openScriptRect.xMax + GUI.skin.button.margin.left;
-                        viewDocumentationRect.width = GUI.skin.button.CalcSize(viewDocumentationContent).x;
-
-                        if (GUI.Button(viewDocumentationRect, viewDocumentationContent))
-                        {
-                            EditorUtils.OpenOnlineDocumentation("unity", "tools", "manual-tasks");
-                        }
-
-                        using (var scope = new EditorGUILayout.ScrollViewScope(manualDescriptionScrollPosition,
-                                   GUILayout.Height(100)))
-                        {
-                            manualDescriptionScrollPosition = scope.scrollPosition;
-
-                            DrawSelectableLabel(selectedTask.ManualInstructions(component),
-                                EditorStyles.wordWrappedLabel);
-                        }
-                    }
-                    else
-                    {
-                        GUIContent buttonContent = new GUIContent("Execute");
-
-                        Rect buttonRect = EditorGUILayout.GetControlRect(false, buttonHeight);
-                        buttonRect.width = EditorGUIUtility.labelWidth;
-                        buttonRect = EditorGUI.IndentedRect(buttonRect);
-
-                        if (GUI.Button(buttonRect, buttonContent))
-                        {
-                            ExecuteTask(selectedTask, SavePolicy.AskToSave);
-                        }
-                    }
-                }
-            }
-
-            // Status
-            if (IsProcessing)
-            {
-                DrawProgressBar("Prefabs", prefabProgress);
-                DrawProgressBar("ScriptableObjects", scriptableObjectProgress);
-                DrawProgressBar("Scenes", sceneProgress);
-            }
-
-            GUILayout.Label(status, Styles.RichTextBox);
-
-            // Buttons
-            using (new EditorGUILayout.HorizontalScope())
-            {
-                if (GUILayout.Button("Cancel", GUILayout.Height(buttonHeight)))
-                {
-                    Cancel();
-                }
-
-                using (new EditorGUI.DisabledScope(IsProcessing))
-                {
-                    if (GUILayout.Button(SearchButtonText, GUILayout.Height(buttonHeight)))
-                    {
-                        BeginSearching();
-                    }
-
-                    using (new EditorGUI.DisabledScope(executableTaskCount == 0))
-                    {
-                        if (GUILayout.Button(ExecuteButtonText(), GUILayout.Height(buttonHeight)))
-                        {
-                            BeginExecuting();
-                        }
-                    }
-                }
-            }
-
-            if (focusedWindow == this
-                && Event.current.type == EventType.KeyDown
-                && Event.current.keyCode == KeyCode.Escape)
-            {
-                Cancel();
-                Event.current.Use();
-            }
-        }
-
-        private static void DrawProgressBar(string label, SearchProgress progress)
-        {
-            Rect rect = EditorGUILayout.GetControlRect();
-            EditorGUI.ProgressBar(rect, progress.Fraction(), label);
-        }
-
-        private static void DrawSelectableLabel(string text, GUIStyle style)
-        {
-            float height = style.CalcHeight(new GUIContent(text), EditorGUIUtility.currentViewWidth);
-
-            EditorGUILayout.SelectableLabel(text, style, GUILayout.Height(height));
         }
 
         private class TaskView : TreeView

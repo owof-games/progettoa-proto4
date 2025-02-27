@@ -52,7 +52,7 @@ namespace FMODUnityResonance
         private static readonly string listenerPluginName = "Resonance Audio Listener";
 
         // Size of |RoomProperties| struct in bytes.
-        private static readonly int roomPropertiesSize = MarshalHelper.SizeOf(typeof(RoomProperties));
+        private static readonly int roomPropertiesSize = Marshal.SizeOf<RoomProperties>();
 
         // Plugin data parameter index for the room properties.
         private static readonly int roomPropertiesIndex = 1;

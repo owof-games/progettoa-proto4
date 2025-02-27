@@ -5,13 +5,13 @@ namespace Febucci.UI.Core.Editors
     [CustomEditor(typeof(TypewriterByCharacter), true)]
     class TypewriterByCharacterDrawer : TypewriterCoreDrawer
     {
-        private SerializedProperty avoidMultiplePunctuationWait;
-        private PropertyWithDifferentLabel disappearanceSpeedMultiplier;
-        private PropertyWithDifferentLabel disappearanceWaitTime;
+        SerializedProperty avoidMultiplePunctuationWait;
+        PropertyWithDifferentLabel disappearanceSpeedMultiplier;
+        PropertyWithDifferentLabel disappearanceWaitTime;
 
-        private PropertyWithDifferentLabel useTypewriterWaitForDisappearances;
-        private SerializedProperty waitForLastCharacter;
-        private SerializedProperty waitForNewLines;
+        PropertyWithDifferentLabel useTypewriterWaitForDisappearances;
+        SerializedProperty waitForLastCharacter;
+        SerializedProperty waitForNewLines;
         SerializedProperty waitForNormalChars;
         SerializedProperty waitLong;
         SerializedProperty waitMiddle;
@@ -36,18 +36,19 @@ namespace Febucci.UI.Core.Editors
 
         protected override string[] GetPropertiesToExclude()
         {
-            string[] newProperties =
+            string[] newProperties = new string[]
             {
                 "script",
                 "waitForNormalChars",
                 "waitLong",
                 "waitMiddle",
                 "avoidMultiplePunctuactionWait",
+                "avoidMultiplePunctuationWait",
                 "waitForNewLines",
                 "waitForLastCharacter",
                 "useTypewriterWaitForDisappearances",
                 "disappearanceSpeedMultiplier",
-                "disappearanceWaitTime"
+                "disappearanceWaitTime",
             };
 
             string[] baseProperties = base.GetPropertiesToExclude();

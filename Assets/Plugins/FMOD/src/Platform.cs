@@ -576,8 +576,8 @@ namespace FMODUnity
                     return;
                 }
 
-                System.Reflection.MethodInfo method = type.GetMethod(RegisterStaticPluginsFunctionName,
-                    System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
+                MethodInfo method = type.GetMethod(RegisterStaticPluginsFunctionName,
+                    BindingFlags.Public | BindingFlags.Static);
 
                 if (method == null)
                 {

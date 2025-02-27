@@ -13,8 +13,8 @@ namespace Febucci.UI.Styles
     {
         [SerializeField] Style[] styles = Array.Empty<Style>();
 
-        private bool built;
-        private Dictionary<string, Style> dictionary;
+        bool built;
+        Dictionary<string, Style> dictionary;
 
         public Style[] Styles
         {

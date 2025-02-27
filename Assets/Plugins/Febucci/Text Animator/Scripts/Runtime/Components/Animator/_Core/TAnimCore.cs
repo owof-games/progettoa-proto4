@@ -17,33 +17,31 @@ namespace Febucci.UI.Core
         public enum DefaultTagsMode
         {
             /// <summary>
-            ///     Applies effects only to characters that don't have any.
+            /// Applies effects only to characters that don't have any.
             /// </summary>
             Fallback = 0,
 
             /// <summary>
-            ///     Applies effects to all the characters, even if they already have other tags via text.
+            /// Applies effects to all the characters, even if they already have other tags via text.
             /// </summary>
             Constant = 1
         }
 
         /// <summary>
-        ///     Contains TextAnimator's current time values.
+        /// Contains TextAnimator's current time values.
         /// </summary>
         [HideInInspector] public TimeData time;
 
         /// <summary>
-        ///     Controls how default tags should be applied.\n"Fallback" will apply the effects only to characters that don't have
-        ///     any.\n"Constant" will apply the default effects to all the characters, even if they already have other tags via
-        ///     text.
+        /// Controls how default tags should be applied.\n"Fallback" will apply the effects only to characters that don't have any.\n"Constant" will apply the default effects to all the characters, even if they already have other tags via text.
         /// </summary>
         [Tooltip(
             "Controls how default tags should be applied.\n\"Fallback\" will apply the effects only to characters that don't have any.\n\"Constant\" will apply the default effects to all the characters, even if they already have other tags via text.")]
         public DefaultTagsMode defaultTagsMode = DefaultTagsMode.Fallback;
 
-        private bool requiresMeshUpdate;
+        bool requiresMeshUpdate;
 
-        private void Awake()
+        void Awake()
         {
             requiresTagRefresh = true;
             TryInitializing();
@@ -59,18 +57,20 @@ namespace Febucci.UI.Core
 
         #endregion
 
-        private void ForceMeshUpdate()
+        void ForceMeshUpdate()
         {
             requiresMeshUpdate = false;
             OnForceMeshUpdate();
         }
 
-        private void TryInitializing()
+        void TryInitializing()
         {
 #if UNITY_EDITOR
             if (!Application.isPlaying)
+            {
                 if (characters == null) //forces reset in editor
                     initialized = false;
+            }
 #endif
 
             if (initialized) return;
@@ -89,6 +89,7 @@ namespace Febucci.UI.Core
             disappearances = new AnimationRegion[0];
             actions = new ActionMarker[0];
             events = new EventMarker[0];
+            typewriterDisabledRange = Array.Empty<Vector2Int>();
 
             if (DatabaseActions) DatabaseActions.ForceBuildRefresh();
             if (DatabaseAppearances) DatabaseAppearances.ForceBuildRefresh();
@@ -100,49 +101,44 @@ namespace Febucci.UI.Core
 
 
         /// <summary>
-        ///     Returns the first character index inside the page, in case the text has an overflow mode set up and the text is
-        ///     paginated.
+        /// Returns the first character index inside the page, in case the text has an overflow mode set up and the text is paginated.
         /// </summary>
         /// <example>
-        ///     If each page has 5 characters, and we're on page 2, then this method would return 5 as the starting index of the
-        ///     text.
+        /// If each page has 5 characters, and we're on page 2, then this method would return 5 as the starting index of the text.
         /// </example>
         /// <returns></returns>
-        public virtual int GetFirstCharacterIndexInsidePage()
-        {
-            return 0;
-        }
+        public virtual int GetFirstCharacterIndexInsidePage() => 0;
 
         /// <summary>
-        ///     Returns the number of characters that fit inside the page, in case the text has an overflow mode set up and the
-        ///     text is paginated. (otherwise simply returns the characters count)
+        /// Returns the number of characters that fit inside the page, in case the text has an overflow mode set up and the text is paginated. (otherwise simply returns the characters count)
         /// </summary>
         /// <returns></returns>
-        public virtual int GetRenderedCharactersCountInsidePage()
-        {
-            return CharactersCount;
-        }
+        public virtual int GetRenderedCharactersCountInsidePage() => CharactersCount;
 
-        private void UpdateUniformIntensity()
+        void UpdateUniformIntensity()
         {
             if (useDynamicScaling)
-                for (var i = 0; i < characters.Length; i++)
+            {
+                for (int i = 0; i < characters.Length; i++)
+                {
                     // multiplies by current character size, which could be modified by "size" tags and so
                     // be different than the basic tmp font size value 
                     characters[i].UpdateIntensity(referenceFontSize);
+                }
+            }
             else
-                for (var i = 0; i < characters.Length; i++)
+            {
+                for (int i = 0; i < characters.Length; i++)
+                {
                     characters[i].uniformIntensity = 1;
+                }
+            }
         }
 
         /// <summary>
-        ///     Schedules that a mesh refresh is required as soon as possible, which will be applied before the next animation loop
-        ///     starts.
+        /// Schedules that a mesh refresh is required as soon as possible, which will be applied before the next animation loop starts. 
         /// </summary>
-        public void ScheduleMeshRefresh()
-        {
-            requiresMeshUpdate = true;
-        }
+        public void ScheduleMeshRefresh() => requiresMeshUpdate = true;
 
         public void ForceDatabaseRefresh()
         {
@@ -155,24 +151,18 @@ namespace Febucci.UI.Core
         }
 
         /// <summary>
-        ///     Enables or disables behavior effects animation *LOCALLY* on this Text Animator component.
-        ///     To change this globally, see <see cref="TextAnimatorSettings.SetBehaviorsActive" />
+        /// Enables or disables behavior effects animation *LOCALLY* on this Text Animator component.
+        /// To change this globally, see <see cref="TextAnimatorSettings.SetBehaviorsActive"/>
         /// </summary>
         /// <param name="isCategoryEnabled"></param>
-        public void SetBehaviorsActive(bool isCategoryEnabled)
-        {
-            isAnimatingBehaviors = isCategoryEnabled;
-        }
+        public void SetBehaviorsActive(bool isCategoryEnabled) => isAnimatingBehaviors = isCategoryEnabled;
 
         /// <summary>
-        ///     Enables or disables appearance effects animation *LOCALLY* on this Text Animator component.
-        ///     To change this globally, see <see cref="TextAnimatorSettings.SetAppearancesActive" />
+        /// Enables or disables appearance effects animation *LOCALLY* on this Text Animator component.
+        /// To change this globally, see <see cref="TextAnimatorSettings.SetAppearancesActive"/>
         /// </summary>
         /// <param name="isCategoryEnabled"></param>
-        public void SetAppearancesActive(bool isCategoryEnabled)
-        {
-            isAnimatingAppearances = isCategoryEnabled;
-        }
+        public void SetAppearancesActive(bool isCategoryEnabled) => isAnimatingAppearances = isCategoryEnabled;
 
         public void ResetState()
         {
@@ -231,7 +221,7 @@ namespace Febucci.UI.Core
                 {
                     Debug.LogError(
                         $"Typewriter component is null on GameObject {gameObject.name}. Please add a typewriter on the same GameObject or set 'Typewriter Starts Automatically' to false.",
-                        gameObject);
+                        this.gameObject);
                 }
 #else
                 _tAnimPlayer = GetComponent<TAnimPlayerBase>();
@@ -264,8 +254,8 @@ namespace Febucci.UI.Core
         /// <summary>
         /// The original text pasted to Text Animator, with all its tags
         /// </summary>
-        [SerializeField] [TextArea(4, 10)] [HideInInspector]
-        private string _text = string.Empty;
+        [SerializeField, TextArea(4, 10), HideInInspector]
+        string _text = string.Empty;
 
         public string textFull
         {
@@ -318,15 +308,17 @@ namespace Febucci.UI.Core
 
                 for (int i = 0; i < charactersCount; i++)
                 {
-                    if (!characters[i].isVisible)
+                    if (characters[i].isVisible)
                     {
-                        if (characters[i].passedTime <= 0)
+                        // not fully shown yet
+                        if (characters[i].info.isRendered &&
+                            characters[i].passedTime < characters[i].info.appearancesMaxDuration)
                             return false;
                     }
                     else
                     {
-                        if (characters[i].info.isRendered &&
-                            characters[i].passedTime < characters[i].info.appearancesMaxDuration)
+                        // hidden
+                        if (characters[i].passedTime <= 0)
                             return false;
                     }
                 }
@@ -342,7 +334,7 @@ namespace Febucci.UI.Core
         /// <remarks>
         /// You can use this to check if the disappearance effects are still running.
         /// </remarks>
-        public bool anyLetterVisible //TODO test 
+        public bool anyLetterVisible
         {
             get
             {
@@ -358,7 +350,7 @@ namespace Febucci.UI.Core
                     return true;
 
                 //searches for the other, which might still be running their appearance/disappearance
-                for (var i = 1; i < charactersCount - 1; i++)
+                for (int i = 1; i < charactersCount - 1; i++)
                     if (IsCharacterVisible(i))
                         return true;
 
@@ -540,6 +532,37 @@ namespace Febucci.UI.Core
             set => disappearances = value;
         }
 
+        Vector2Int[] typewriterDisabledRange;
+
+        /// <summary>
+        /// Holds any range where the typewriter should be skipped entirely and show the entire text.
+        /// Only takes effect if you're using a <see cref="TypewriterCore"/>
+        /// </summary>
+        /// <remarks><seealso cref="IsTypewriterEnabledAtIndex"/>
+        ///P.S. this value is reset every time you set a new text, calculating the "notypewriter" tags in it
+        /// </remarks>
+        public Vector2Int[] TypewriterDisabledRange
+        {
+            get => typewriterDisabledRange;
+            set => typewriterDisabledRange = value;
+        }
+
+        /// <summary>
+        /// True if the typewriter should calculate a <see cref="CharacterData"/> appearance or disappearance time.
+        /// Calculated from <see cref="TypewriterDisabledRange"/> 
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public bool IsTypewriterEnabledAtIndex(int index)
+        {
+            foreach (var range in typewriterDisabledRange)
+            {
+                if (index >= range.x && index < range.y) return false;
+            }
+
+            return true;
+        }
+
         #endregion
 
         #region Actions and Events
@@ -599,7 +622,7 @@ namespace Febucci.UI.Core
             }
         }
 
-        [SerializeField] private string[] defaultAppearancesTags = { "size" };
+        [SerializeField] string[] defaultAppearancesTags = new[] { "size" };
 
         /// <summary>
         /// Fallback/Constant tags that will be applied to the entire text, if no other tags are found, based on the <see cref="defaultTagsMode"/> value.
@@ -614,7 +637,7 @@ namespace Febucci.UI.Core
             }
         }
 
-        [SerializeField] private string[] defaultDisappearancesTags = { "fade" };
+        [SerializeField] string[] defaultDisappearancesTags = new[] { "fade" };
 
         /// <summary>
         /// Fallback/Constant tags that will be applied to the entire text, if no other tags are found, based on the <see cref="defaultTagsMode"/> value.
@@ -934,7 +957,7 @@ namespace Febucci.UI.Core
                 //adds the default regions to the current effects
                 int prevCount = currentEffects.Length;
                 Array.Resize(ref currentEffects, currentEffects.Length + defaultRegions.Count);
-                for (var i = 0; i < defaultRegions.Count; i++)
+                for (int i = 0; i < defaultRegions.Count; i++)
                 {
                     currentEffects[prevCount + i] = defaultRegions[i].region;
                 }
@@ -969,18 +992,21 @@ namespace Febucci.UI.Core
                 settings.appearances.closingSymbol, VisibilityMode.OnVisible, databaseAppearances);
             var ruleDisappearance = new AnimationParser<AnimationScriptableBase>(settings.appearances.openingSymbol,
                 '/', '#', settings.appearances.closingSymbol, VisibilityMode.OnHiding, databaseAppearances);
-            var ruleActions = new ActionParser(settings.actions.openingSymbol, '/',
+            ActionParser ruleActions = new ActionParser(settings.actions.openingSymbol, '/',
                 settings.actions.closingSymbol, databaseActions);
             EventParser ruleEvents = new EventParser('<', '/', '>');
 
+            var typewriterDisabled = new PlainTagParser(settings.controlTags.disableTypewriter, '<', '/', '>');
+
             //TODO optimize
-            var parsers = new List<TagParserBase>
+            var parsers = new List<TagParserBase>()
             {
                 ruleBehavior,
                 ruleAppearance,
                 ruleDisappearance,
                 ruleActions,
-                ruleEvents
+                ruleEvents,
+                typewriterDisabled
             };
 
             foreach (var extraParser in GetExtraParsers())
@@ -1008,6 +1034,7 @@ namespace Febucci.UI.Core
             disappearances = ruleDisappearance.results;
             actions = ruleActions.results;
             events = ruleEvents.results;
+            typewriterDisabledRange = typewriterDisabled.results;
 
             //Adds fallback effects to characters that have no effect assigned
             AddFallbackEffectsFor(ref behaviors, VisibilityMode.Persistent, databaseBehaviors, defaultBehaviorsTags);
@@ -1085,10 +1112,8 @@ namespace Febucci.UI.Core
         /// </summary>
         /// <param name="text"></param>
         /// <param name="hideText"></param>
-        public void SetText(string text, bool hideText)
-        {
+        public void SetText(string text, bool hideText) =>
             ConvertText(text, hideText ? ShowTextMode.Hidden : ShowTextMode.Shown);
-        }
 
         //TODO optimize, only add new stuff without recalculating text
         /// <summary>
@@ -1185,7 +1210,7 @@ namespace Febucci.UI.Core
             if (index < 0 || index >= wordsCount) return;
 
             WordInfo word = words[index];
-            for (var i = Mathf.Max(word.firstCharacterIndex, 0);
+            for (int i = Mathf.Max(word.firstCharacterIndex, 0);
                  i <= word.lastCharacterIndex && i < charactersCount;
                  i++)
             {
@@ -1342,7 +1367,7 @@ namespace Febucci.UI.Core
             TryInitializing(); //called here as well since this might be called from outside
 
             //Prepare characters
-            for (var i = 0; i < charactersCount && i < characters.Length; i++)
+            for (int i = 0; i < charactersCount && i < characters.Length; i++)
             {
                 //forces hiding character if from source it's not rendered
                 if (!characters[i].info.isRendered)
@@ -1429,16 +1454,12 @@ namespace Febucci.UI.Core
         /// </summary>
         /// <param name="skipAppearanceEffects">Set this to true if you want all letters to appear instantly (without any appearance effect)</param>
         [Obsolete("Use SetVisibilityEntireText instead")]
-        public void ShowAllCharacters(bool skipAppearanceEffects)
-        {
+        public void ShowAllCharacters(bool skipAppearanceEffects) =>
             SetVisibilityEntireText(true, skipAppearanceEffects);
-        }
 
         [Obsolete("Use 'Animate' instead.")]
-        public void UpdateEffects()
-        {
+        public void UpdateEffects() =>
             Animate(timeScale == TimeScale.Unscaled ? Time.unscaledDeltaTime : Time.deltaTime);
-        }
 
         [Obsolete(
             "Events are not tied to TextAnimators anymore, but to their Typewriters. Please invoke 'TriggerRemainingEvents' on the Typewriter component instead.")]

@@ -16,21 +16,21 @@ namespace Febucci.UI
     [AddComponentMenu("Febucci/TextAnimator/Text Animator - Text Mesh Pro")]
     public sealed class TextAnimator_TMP : TAnimCore
     {
-        private TMP_InputField attachedInputField;
+        TMP_InputField attachedInputField;
 
         //----- Values cache -----
-        private bool autoSize;
+        bool autoSize;
         //-----
 
-        private bool componentsCached;
-        private bool isUI;
-        private Color sourceColor;
-        private Rect sourceRect;
-        private TMP_TextInfo textInfo;
+        bool componentsCached;
+        bool isUI;
+        Color sourceColor;
+        Rect sourceRect;
+        TMP_TextInfo textInfo;
 
-        private TMP_Text tmpComponent;
-        private int tmpFirstVisibleCharacter;
-        private int tmpMaxVisibleCharacters;
+        TMP_Text tmpComponent;
+        int tmpFirstVisibleCharacter;
+        int tmpMaxVisibleCharacters;
 
         /// <summary>
         /// The TextMeshPro text component linked to this Text Animator
@@ -74,17 +74,11 @@ namespace Febucci.UI
             tmpComponent.renderMode = TextRenderFlags.DontRender;
         }
 
-        protected override bool IsReady()
-        {
-            return componentsCached && (!isUI || tmpComponent.canvas);
-        }
+        protected override bool IsReady() => componentsCached && (!isUI || tmpComponent.canvas);
 
         #region Characters
 
-        protected override int GetCharactersCount()
-        {
-            return textInfo.characterCount;
-        }
+        protected override int GetCharactersCount() => textInfo.characterCount;
 
         #endregion
 
@@ -206,17 +200,17 @@ namespace Febucci.UI
 
                 //Updates colors
                 for (byte k = 0; k < TextUtilities.verticesPerChar; k++)
+                {
                     characters[i].source.colors[k] = textInfo.meshInfo[currentCharInfo.materialReferenceIndex]
                         .colors32[currentCharInfo.vertexIndex + k];
+                }
             }
         }
 
-        public override int GetRenderedCharactersCountInsidePage()
-        {
-            return TMProComponent.overflowMode != TextOverflowModes.Overflow
+        public override int GetRenderedCharactersCountInsidePage() =>
+            TMProComponent.overflowMode != TextOverflowModes.Overflow
                 ? TMProComponent.firstOverflowCharacterIndex
                 : base.GetRenderedCharactersCountInsidePage();
-        }
 
         public override int GetFirstCharacterIndexInsidePage()
         {

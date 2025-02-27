@@ -1,44 +1,37 @@
 ﻿#if UNITY_TIMELINE_EXIST
+
 using System;
 using System.Collections.Generic;
+using FMOD.Studio;
 using UnityEngine;
 using UnityEngine.Playables;
-using UnityEngine.Timeline;
 using UnityEngine.Serialization;
+using UnityEngine.Timeline;
 
 namespace FMODUnity
 {
-    [System.Serializable]
+    [Serializable]
     public class FMODEventPlayable : PlayableAsset, ITimelineClipAsset
     {
-        [FormerlySerializedAs("template")]
-        public FMODEventPlayableBehavior Template = new FMODEventPlayableBehavior();
+        [FormerlySerializedAs("template")] public FMODEventPlayableBehavior Template = new FMODEventPlayableBehavior();
 
-        [FormerlySerializedAs("eventLength")]
-        public float EventLength; //In seconds.
+        [FormerlySerializedAs("eventLength")] public float EventLength; //In seconds.
 
-        [Obsolete("Use the eventReference field instead")]
-        [SerializeField]
+        [Obsolete("Use the eventReference field instead")] [SerializeField]
         public string eventName;
 
-        [FormerlySerializedAs("eventReference")]
-        [SerializeField]
+        [FormerlySerializedAs("eventReference")] [SerializeField]
         public EventReference EventReference;
 
-        [FormerlySerializedAs("stopType")]
-        [SerializeField]
+        [FormerlySerializedAs("stopType")] [SerializeField]
         public STOP_MODE StopType;
 
-        [FormerlySerializedAs("parameters")]
-        [SerializeField]
+        [FormerlySerializedAs("parameters")] [SerializeField]
         public ParamRef[] Parameters = new ParamRef[0];
 
-        [NonSerialized]
-        public bool CachedParameters = false;
-
-        public static event System.EventHandler<EventArgs> OnCreatePlayable;
-
         private FMODEventPlayableBehavior behavior;
+
+        [NonSerialized] public bool CachedParameters = false;
 
         public GameObject TrackTargetObject { get; set; }
 
@@ -57,14 +50,16 @@ namespace FMODUnity
             }
         }
 
+        public TimelineClip OwningClip { get; set; }
+
         public ClipCaps clipCaps
         {
             get { return ClipCaps.None; }
         }
 
-        public TimelineClip OwningClip { get; set; }
+        public static event EventHandler<EventArgs> OnCreatePlayable;
 
-        public void LinkParameters(FMOD.Studio.EventDescription eventDescription)
+        public void LinkParameters(EventDescription eventDescription)
         {
 #if UNITY_EDITOR
             if (!EventReference.IsNull)
@@ -74,7 +69,7 @@ namespace FMODUnity
             {
                 for (int i = 0; i < Parameters.Length; i++)
                 {
-                    FMOD.Studio.PARAMETER_DESCRIPTION parameterDescription;
+                    PARAMETER_DESCRIPTION parameterDescription;
                     eventDescription.getParameterDescriptionByName(Parameters[i].Name, out parameterDescription);
                     Parameters[i].ID = parameterDescription.id;
                 }
@@ -83,7 +78,7 @@ namespace FMODUnity
 
                 for (int i = 0; i < parameterLinks.Count; i++)
                 {
-                    FMOD.Studio.PARAMETER_DESCRIPTION parameterDescription;
+                    PARAMETER_DESCRIPTION parameterDescription;
                     eventDescription.getParameterDescriptionByName(parameterLinks[i].Name, out parameterDescription);
                     parameterLinks[i].ID = parameterDescription.id;
                 }
@@ -137,6 +132,7 @@ namespace FMODUnity
                     OwningClip.displayName = EventReference.Path.Substring(index + 1);
                 }
             }
+
             if (behavior != null)
             {
                 behavior.EventReference = EventReference;
@@ -156,56 +152,47 @@ namespace FMODUnity
     public class ParameterAutomationLink
     {
         public string Name;
-        public FMOD.Studio.PARAMETER_ID ID;
         public int Slot;
+        public PARAMETER_ID ID;
     }
 
     [Serializable]
     public class FMODEventPlayableBehavior : PlayableBehaviour
     {
-        public FMODEventPlayableBehavior()
-        {
-            CurrentVolume = 1;
-        }
-
-        public class EventArgs : System.EventArgs
-        {
-            public FMOD.Studio.EventInstance eventInstance { get; set; }
-        }
-
-        public static event System.EventHandler<EventArgs> Enter;
-        public static event System.EventHandler<EventArgs> Exit;
-        public static event System.EventHandler<EventArgs> GraphStop;
-
         [FormerlySerializedAs("eventReference")]
         public EventReference EventReference;
 
-        [FormerlySerializedAs("stopType")]
-        public STOP_MODE StopType = STOP_MODE.AllowFadeout;
+        [FormerlySerializedAs("stopType")] public STOP_MODE StopType = STOP_MODE.AllowFadeout;
 
-        [FormerlySerializedAs("parameters")]
-        [NotKeyable]
+        [FormerlySerializedAs("parameters")] [NotKeyable]
         public ParamRef[] Parameters = new ParamRef[0];
 
         [FormerlySerializedAs("parameterLinks")]
         public List<ParameterAutomationLink> ParameterLinks = new List<ParameterAutomationLink>();
 
-        [NonSerialized]
-        public GameObject TrackTargetObject;
-
-        [NonSerialized]
-        public TimelineClip OwningClip;
-
         [FormerlySerializedAs("parameterAutomation")]
         public AutomatableSlots ParameterAutomation;
 
+        private EventInstance eventInstance;
+
         private bool isPlayheadInside = false;
 
-        private FMOD.Studio.EventInstance eventInstance;
+        [NonSerialized] public TimelineClip OwningClip;
+
+        [NonSerialized] public GameObject TrackTargetObject;
+
+        public FMODEventPlayableBehavior()
+        {
+            CurrentVolume = 1;
+        }
 
         public float ClipStartTime { get; private set; } = 0.0f;
 
         public float CurrentVolume { get; private set; }
+
+        public static event EventHandler<EventArgs> Enter;
+        public static event EventHandler<EventArgs> Exit;
+        public static event EventHandler<EventArgs> GraphStop;
 
         protected void PlayEvent()
         {
@@ -219,14 +206,16 @@ namespace FMODUnity
 #if UNITY_PHYSICS_EXIST
                     if (TrackTargetObject.GetComponent<Rigidbody>())
                     {
-                        RuntimeManager.AttachInstanceToGameObject(eventInstance, TrackTargetObject, TrackTargetObject.GetComponent<Rigidbody>());
+                        RuntimeManager.AttachInstanceToGameObject(eventInstance, TrackTargetObject,
+                            TrackTargetObject.GetComponent<Rigidbody>());
                     }
                     else
 #endif
 #if UNITY_PHYSICS2D_EXIST
                     if (TrackTargetObject.GetComponent<Rigidbody2D>())
                     {
-                        RuntimeManager.AttachInstanceToGameObject(eventInstance, TrackTargetObject, TrackTargetObject.GetComponent<Rigidbody2D>());
+                        RuntimeManager.AttachInstanceToGameObject(eventInstance, TrackTargetObject,
+                            TrackTargetObject.GetComponent<Rigidbody2D>());
                     }
                     else
 #endif
@@ -282,8 +271,11 @@ namespace FMODUnity
                     {
                         if (StopType != STOP_MODE.None)
                         {
-                            eventInstance.stop(StopType == STOP_MODE.Immediate ? FMOD.Studio.STOP_MODE.IMMEDIATE : FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                            eventInstance.stop(StopType == STOP_MODE.Immediate
+                                ? FMOD.Studio.STOP_MODE.IMMEDIATE
+                                : FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                         }
+
                         eventInstance.release();
                         eventInstance.clearHandle();
                     }
@@ -353,6 +345,11 @@ namespace FMODUnity
                 args.eventInstance = eventInstance;
                 GraphStop.Invoke(this, args);
             }
+        }
+
+        public class EventArgs : System.EventArgs
+        {
+            public EventInstance eventInstance { get; set; }
         }
     }
 }

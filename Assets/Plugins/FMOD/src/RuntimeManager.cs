@@ -10,6 +10,7 @@ using UnityEngine.AddressableAssets;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Text;
 using AOT;
 using FMOD;
@@ -124,8 +125,7 @@ namespace FMODUnity
         private static RESULT ERROR_CALLBACK(IntPtr system, SYSTEM_CALLBACK_TYPE type, IntPtr commanddata1,
             IntPtr commanddata2, IntPtr userdata)
         {
-            ERRORCALLBACK_INFO callbackInfo =
-                (ERRORCALLBACK_INFO)MarshalHelper.PtrToStructure(commanddata1, typeof(ERRORCALLBACK_INFO));
+            ERRORCALLBACK_INFO callbackInfo = Marshal.PtrToStructure<ERRORCALLBACK_INFO>(commanddata1);
 
             // Filter out benign expected errors.
             if ((callbackInfo.instancetype == ERRORCALLBACK_INSTANCETYPE.CHANNEL ||
@@ -557,9 +557,9 @@ namespace FMODUnity
                     {
                         ATTRIBUTES_3D attribs;
                         eventPositionWarnings[i].get3DAttributes(out attribs);
-                        if (attribs.position.x == 1e+18F &&
-                            attribs.position.y == 1e+18F &&
-                            attribs.position.z == 1e+18F)
+                        if (attribs.position.x == 1e+17F &&
+                            attribs.position.y == 1e+17F &&
+                            attribs.position.z == 1e+17F)
                         {
                             string path;
                             EventDescription desc;
@@ -943,7 +943,7 @@ namespace FMODUnity
         }
 
 #if UNITY_ANDROID || UNITY_WEBGL
-        private System.Collections.IEnumerator loadFromWeb(string bankPath, string bankName, bool loadSamples)
+        private IEnumerator loadFromWeb(string bankPath, string bankName, bool loadSamples)
         {
             byte[] loadWebResult;
             FMOD.RESULT loadResult;
@@ -1285,8 +1285,8 @@ namespace FMODUnity
             eventDesc.is3D(out is3D);
             if (is3D)
             {
-                // Set position to 1e+18F, set3DAttributes should be called by the dev after this.
-                newInstance.set3DAttributes(RuntimeUtils.To3DAttributes(new Vector3(1e+18F, 1e+18F, 1e+18F)));
+                // Set position to 1e+17F, set3DAttributes should be called by the dev after this.
+                newInstance.set3DAttributes(RuntimeUtils.To3DAttributes(new Vector3(1e+17F, 1e+17F, 1e+17F)));
                 instance.eventPositionWarnings.Add(newInstance);
             }
 #endif
@@ -1435,22 +1435,6 @@ namespace FMODUnity
                     RuntimeUtils.To3DAttributes(gameObject.transform, rigidBody));
             }
         }
-
-        public static void SetListenerLocation(int listenerIndex, GameObject gameObject,
-            GameObject attenuationObject = null, Vector3 velocity = new Vector3())
-        {
-            if (attenuationObject)
-            {
-                Instance.studioSystem.setListenerAttributes(listenerIndex,
-                    RuntimeUtils.To3DAttributes(gameObject.transform, velocity),
-                    RuntimeUtils.ToFMODVector(attenuationObject.transform.position));
-            }
-            else
-            {
-                Instance.studioSystem.setListenerAttributes(listenerIndex,
-                    RuntimeUtils.To3DAttributes(gameObject.transform, velocity));
-            }
-        }
 #endif
 
 #if UNITY_PHYSICS2D_EXIST
@@ -1476,6 +1460,22 @@ namespace FMODUnity
             }
         }
 #endif
+
+        public static void SetListenerLocation(int listenerIndex, GameObject gameObject,
+            GameObject attenuationObject = null, Vector3 velocity = new Vector3())
+        {
+            if (attenuationObject)
+            {
+                Instance.studioSystem.setListenerAttributes(listenerIndex,
+                    RuntimeUtils.To3DAttributes(gameObject.transform, velocity),
+                    RuntimeUtils.ToFMODVector(attenuationObject.transform.position));
+            }
+            else
+            {
+                Instance.studioSystem.setListenerAttributes(listenerIndex,
+                    RuntimeUtils.To3DAttributes(gameObject.transform, velocity));
+            }
+        }
 
         public static void SetListenerLocation(GameObject gameObject, GameObject attenuationObject = null)
         {

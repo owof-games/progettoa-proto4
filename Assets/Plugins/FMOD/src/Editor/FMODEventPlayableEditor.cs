@@ -1,31 +1,30 @@
 ﻿#if UNITY_TIMELINE_EXIST
+
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.Timeline;
+using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.Timeline;
-using System;
-using System.Linq;
-using System.Reflection;
 
 namespace FMODUnity
 {
     [CustomEditor(typeof(FMODEventPlayable))]
     public class FMODEventPlayableEditor : Editor
     {
-        private FMODEventPlayable eventPlayable;
         private EditorEventRef editorEventRef;
-        private List<EditorParamRef> missingInitialParameterValues = new List<EditorParamRef>();
-        private List<EditorParamRef> missingParameterAutomations = new List<EditorParamRef>();
-
-        private SerializedProperty parametersProperty;
-        private SerializedProperty parameterLinksProperty;
-        private SerializedProperty parameterAutomationProperty;
-
-        private ListView parameterLinksView;
-        private ListView initialParameterValuesView;
 
         private string eventPath;
+        private FMODEventPlayable eventPlayable;
+        private ListView initialParameterValuesView;
+        private List<EditorParamRef> missingInitialParameterValues = new List<EditorParamRef>();
+        private List<EditorParamRef> missingParameterAutomations = new List<EditorParamRef>();
+        private SerializedProperty parameterAutomationProperty;
+        private SerializedProperty parameterLinksProperty;
+
+        private ListView parameterLinksView;
+
+        private SerializedProperty parametersProperty;
 
         public void OnEnable()
         {
@@ -103,7 +102,7 @@ namespace FMODUnity
                     SerializedProperty name = current.FindPropertyRelative("Name");
 
                     EditorParamRef paramRef =
- editorEventRef.LocalParameters.FirstOrDefault(p => p.Name == name.stringValue);
+                        editorEventRef.LocalParameters.FirstOrDefault(p => p.Name == name.stringValue);
 
                     if (paramRef != null)
                     {
@@ -116,7 +115,7 @@ namespace FMODUnity
                     }
                 }
 
-                foreach(string name in namesToDelete)
+                foreach (string name in namesToDelete)
                 {
                     DeleteInitialParameterValue(name);
                 }
@@ -134,7 +133,7 @@ namespace FMODUnity
                     }
                 }
 
-                foreach(string name in namesToDelete)
+                foreach (string name in namesToDelete)
                 {
                     DeleteParameterAutomation(name);
                 }
@@ -197,16 +196,16 @@ namespace FMODUnity
             }
         }
 
-        private void DoAddInitialParameterValueMenu(Rect rect, UnityEditorInternal.ReorderableList list)
+        private void DoAddInitialParameterValueMenu(Rect rect, ReorderableList list)
         {
             GenericMenu menu = new GenericMenu();
             menu.AddItem(new GUIContent("All"), false, () =>
+            {
+                foreach (EditorParamRef parameter in missingInitialParameterValues)
                 {
-                    foreach (EditorParamRef parameter in missingInitialParameterValues)
-                    {
-                        AddInitialParameterValue(parameter);
-                    }
-                });
+                    AddInitialParameterValue(parameter);
+                }
+            });
 
             menu.AddSeparator(string.Empty);
 
@@ -220,10 +219,7 @@ namespace FMODUnity
                 }
 
                 menu.AddItem(new GUIContent(text), false,
-                    (userData) =>
-                    {
-                        AddInitialParameterValue(userData as EditorParamRef);
-                    },
+                    (userData) => { AddInitialParameterValue(userData as EditorParamRef); },
                     parameter);
             }
 
@@ -279,16 +275,16 @@ namespace FMODUnity
             }
         }
 
-        private void DoAddParameterLinkMenu(Rect rect, UnityEditorInternal.ReorderableList list)
+        private void DoAddParameterLinkMenu(Rect rect, ReorderableList list)
         {
             GenericMenu menu = new GenericMenu();
             menu.AddItem(new GUIContent("All"), false, () =>
+            {
+                foreach (EditorParamRef parameter in missingParameterAutomations)
                 {
-                    foreach (EditorParamRef parameter in missingParameterAutomations)
-                    {
-                        AddParameterAutomation(parameter.Name);
-                    }
-                });
+                    AddParameterAutomation(parameter.Name);
+                }
+            });
 
             menu.AddSeparator(string.Empty);
 
@@ -302,10 +298,7 @@ namespace FMODUnity
                 }
 
                 menu.AddItem(new GUIContent(text), false,
-                    (userData) =>
-                    {
-                        AddParameterAutomation(userData as string);
-                    },
+                    (userData) => { AddParameterAutomation(userData as string); },
                     parameter.Name);
             }
 
@@ -378,7 +371,8 @@ namespace FMODUnity
             {
                 DeleteParameterAutomation(editorParamRef.Name);
 
-                parametersProperty.ArrayAdd(p => {
+                parametersProperty.ArrayAdd(p =>
+                {
                     p.FindPropertyRelative("Name").stringValue = editorParamRef.Name;
                     p.FindPropertyRelative("Value").floatValue = editorParamRef.Default;
                 });
@@ -432,7 +426,8 @@ namespace FMODUnity
                 {
                     DeleteInitialParameterValue(name);
 
-                    parameterLinksProperty.ArrayAdd(p => {
+                    parameterLinksProperty.ArrayAdd(p =>
+                    {
                         p.FindPropertyRelative("Name").stringValue = name;
                         p.FindPropertyRelative("Slot").intValue = slot;
                     });
@@ -483,7 +478,8 @@ namespace FMODUnity
 
         private static EditorCurveBinding GetParameterCurveBinding(int index)
         {
-            EditorCurveBinding result = new EditorCurveBinding() {
+            EditorCurveBinding result = new EditorCurveBinding()
+            {
                 path = string.Empty,
                 type = typeof(FMODEventPlayable),
                 propertyName = string.Format("parameterAutomation.slot{0:D2}", index),

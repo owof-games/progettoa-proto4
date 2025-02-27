@@ -158,7 +158,7 @@ Chi chiami?
                 Amica: See, quello non è il migliore amico! Quello è.
                 Amica: Merda, sta per ripartire Temptation Island.
                 Amica: No, quell'altro, non ricordo come si chiama.
-                - (sindacato) Amica: Michele, Mirco, Marco.
+                - - (sindacato) Amica: Michele, Mirco, Marco.
                 Amica: Il casino sembra sia partito proprio per le resistenze di Mistress Londar.
                 Amica: A quel punto quel tipo con la M ha dato il tutto per tutto, secondo me.
                 Amica: Ma sono solo speculazioni. Ora scappo, ma tienimi aggiornata!

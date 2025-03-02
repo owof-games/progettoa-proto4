@@ -42,14 +42,13 @@
 
 
 //CONVERSAZIONI ORIGLIATE
-    - are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Ettore) && peopleTalking == false && new_this_loop(->sheIsTheBestStorylet):
+    - (are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Elia, Ettore)) && is_this_entity_near_Ettore(Elia) && peopleTalking == false && new_this_loop(->sheIsTheBestStorylet):
             -> sheIsTheBestStorylet
             
-    - are_two_entities_together(Elia, Greta) && elia_acting.sincero && is_this_entity_near_Ettore(Elia) == true && peopleTalking == false && new_this_loop(->anEavesdropAboutFriendshipStorylet):
+    - elia_acting.sincero && (are_two_entities_together(Elia, Greta) && not are_two_entities_together (Elia, Ettore)) && is_this_entity_near_Ettore(Elia) == true && peopleTalking == false && new_this_loop(->anEavesdropAboutFriendshipStorylet):
             -> anEavesdropAboutFriendshipStorylet
 
-TODO: mettere origliato
-    - are_three_entities_together(Matteo, Greta, Ettore) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && hardTrueFeelingsStorylet && peopleTalking == false && new_this_loop(->itsOverisntItStorylet):
+    - hardTrueFeelingsStorylet && (are_two_entities_together(Matteo, Greta) && not are_two_entities_together(Matteo, Ettore)) && is_this_entity_near_Ettore(Matteo) &&  peopleTalking == false && new_this_loop(->itsOverisntItStorylet):
             -> itsOverisntItStorylet
 
 

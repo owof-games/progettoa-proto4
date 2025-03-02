@@ -115,6 +115,7 @@ Opzioni di dialogo con la persona Elia
                 Elia: Ma quelle boom clap, va bene?
                     - - - (indagini3) Zeca: Va bene bimbo. Ora andiamo.
                         -> advance_time ->
+                        ~ pauseStorylet = true
                        ~ move_this_entity_in_a_different_room(Zeca)
                        ~ move_this_entity_in_a_different_room(Elia)
                         -> intro
@@ -187,7 +188,7 @@ Opzioni di dialogo con la persona Elia
                     Elia: Ero a chiamare con Greta.
                         -> advance_time ->
                         ~ pauseStorylet = true
-                            -> elia_talking_second_tier
+                        -> elia_talking_second_tier
             
             + + Ettore: Sono molto confuso.
                 Elia: Benvenuto nel club.
@@ -256,7 +257,7 @@ Opzioni di dialogo con la persona Elia
             Elia: Ma possono sindicarli, perché non è scritto diversamente da nessuna parte, no?
                 -> advance_time ->
                 ~ pauseStorylet = true
-                    -> elia_talking_second_tier
+                -> elia_talking_second_tier
  
    
 
@@ -266,6 +267,7 @@ Opzioni di dialogo con la persona Elia
             Elia: Ce ne sono tante qui, di lettere.
             Elia: Quale in particolare?
             Ettore: Lo prendo come un "no".
+                ~ pauseStorylet = true
     
     + (torta) {inventoryContents has Torta && new_this_loop(->torta)}Ettore: Sai per chi è questa torta?
             Elia: Per il festeggiato?
@@ -275,6 +277,7 @@ Opzioni di dialogo con la persona Elia
             Elia: E la mamma del festeggiato.
             Elia: Sei la mamma del festeggiato?
             Elia: Perché avrei bisogno di una mano coi compiti di matematica.
+                ~ pauseStorylet = true
                 -> advance_time -> 
     
     + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Questo è il vino che avete comprato?
@@ -301,12 +304,13 @@ Opzioni di dialogo con la persona Elia
             Elia: E di concerto.
             Elia: E..
             Ettore: <cry>Vado, vado, vado!</cry>
-            ~ pauseStorylet = true
-                -> advance_time -> 
+                -> advance_time ->
+                ~ pauseStorylet = true
     
     + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Sai di chi sia questo flaconcino?
             Elia: Mia sorella!
             Elia: Nel senso che è di mia sorella, non che è mia sorella.
+                ~ pauseStorylet = true
     
     + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} Ettore: Sai qualcosa su questa sigaretta elettronica?
             Elia: Che puzza.
@@ -326,7 +330,7 @@ Opzioni di dialogo con la persona Elia
             Elia: Dovrebbe esserci un deltoide molto carico.
             Elia: Ma invece sembro morbido.
             Elia: Devo assolutamente allenarmi, ora!
-            ~ pauseStorylet = true
+                ~ pauseStorylet = true
                 -> advance_time -> 
     
     + [Conosci meglio Elia]-> esplora_elia
@@ -425,9 +429,9 @@ Opzioni di dialogo con la persona Elia
     Elia: Ed è difficile parlare senza respirare per contare fino a cento.
     Elia: Però mi aiuta a non pensare, aveva ragione!
     Elia: Lui è sempre molto intelligente!
-    -> advance_time ->
-    ~ pauseStorylet = true
-    -> elia_talking_second_tier
+        -> advance_time ->
+        ~ pauseStorylet = true
+        -> elia_talking_second_tier
 
 
 
@@ -559,8 +563,8 @@ Opzioni di dialogo con la persona Elia
         Elia: Zeca dice che può mettermi in contatto con la mafia gay.
         Elia: Forse sanno dove parcheggiare le sei Maserati che ho preso per le fotografie.
         Elia: Sono molto confuso, Ettore, molto confuso.
-            -> advance_time ->
-            ~ pauseStorylet = true
+                -> advance_time ->
+                ~ pauseStorylet = true
                 -> elia_talking_second_tier
 
 /* ---------------------------------

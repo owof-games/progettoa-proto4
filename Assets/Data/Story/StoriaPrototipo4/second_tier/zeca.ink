@@ -74,9 +74,9 @@ Opzioni di dialogo con la persona Zeca
         Zeca: Ma cosa ti dico queste cose a te?
         Zeca: Sei così vestito male che sei o etero o woke.
         Zeca: <hesitate>Devo chiedere aiuto a Paola, è l'unica opzione che mi rimane.
-            -> advance_time ->
-            ~ pauseStorylet = true
-                 -> zeca_talking_second_tier
+                -> advance_time ->
+                ~ pauseStorylet = true
+                -> zeca_talking_second_tier
 
     + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Tu e Paola andate d'accordo?
                 ~ inConversazione += Zeca
@@ -98,6 +98,7 @@ Opzioni di dialogo con la persona Zeca
         Zeca: PERO'. PERO'.
         Zeca: Ci uscirei a fare serata e sparlare di Elia, quello sì.
         {are_two_entities_together(Zeca, Paola): Paola: Io ci sto.}
+            ~ pauseStorylet = true
             
             + + [Cambi argomento] -> zeca_talking_second_tier
 
@@ -158,24 +159,25 @@ Opzioni di dialogo con la persona Zeca
                     Zeca: Vero, Elia mi ha chiesto di farlo, ma io non gli ho mai detto di sì.
                         -> advance_time ->
                                                 {
-            - currentTime >= 600:
-            -> paolaIsDeadStorylet    
+                        - currentTime >= 600:
+                        -> paolaIsDeadStorylet    
 
-            }
+                        }
                     Zeca: Ma visto che sono una signora ci ho pure provato qualche minuto dopo a portare un paio di bottiglie.
                     Zeca: E magari ad aprirmene una.
                     Zeca: PERO'. PERO'.
                     Zeca: La sala gialla, dove dovevamo fare il buffet, era serrata.
                     Zeca: E qualcuno dentro ansimava come se avesse fatto le scale di corsa, molto di corsa.
                     Zeca: E per scale, intendo tutta una squadra di calcio.
-                {
-                    - are_two_entities_together(Paola, Zeca): Zeca: Ma il resto te lo dico quando siamo soli.
-                         ~ pauseStorylet = true
-                            -> zeca_talking_second_tier
-                } 
+                        {
+                            - are_two_entities_together(Paola, Zeca): Zeca: Ma il resto te lo dico quando siamo soli.
+                                 ~ pauseStorylet = true
+                                    -> zeca_talking_second_tier
+                        } 
                     - - - (allestimento2) Zeca: Forse era Paola col suo vibratore a saltellare sul tavolo del buffet. Una elder millenial sicuro che ne ha sempre uno con sé.
                     Zeca: Anche se non ho sentito il solito puzzo di cesso delle sue sigarette elettroniche.
-                     -> advance_time ->
+                        -> advance_time ->
+                        ~ pauseStorylet = true
                         -> zeca_talking_second_tier
                 
                 + + {paola_talking_second_tier.allestimento} Ettore: Paola dice di aver sentito litigare te e Matteo nella stanza gialla.
@@ -207,11 +209,13 @@ Opzioni di dialogo con la persona Zeca
                        + + + Ettore: Forte e chiaro.
                       
                     Zeca: Bene. Ora lasciami nel mio silenzio a odiare te e il resto del mondo, grazie.
-                        -> advance_time ->       
+                            -> advance_time ->
+                            ~ pauseStorylet = true
                             -> zeca_talking_second_tier
                 + + Ettore: Ehm, no, niente di utile, no.
                     Zeca: Come sempre, insomma.
-                    -> advance_time ->
+                        -> advance_time ->
+                        ~ pauseStorylet = true
                         -> zeca_talking_second_tier
     
 
@@ -273,8 +277,8 @@ Opzioni di dialogo con la persona Zeca
             Zeca: Quando ha ringhiato contro il tuo date e ti tocca una notte senza cazzo?
             Zeca: Non ho mai avuto manco un criceto, e ho il timore di annoiarmi entro un paio di settimane.
             Zeca: Nel caso lo passo a quella disperata di Greta.
-                -> advance_time ->
-                ~ pauseStorylet = true
+                    -> advance_time ->
+                    ~ pauseStorylet = true
                     -> zeca_talking_second_tier
 
         + + (love4){(elia_talking_second_tier.indagini2 or greta_talking_second_tier.indagini) && not are_two_entities_together(Elia, Zeca)} Ettore: Sapevi che Paola vuole estromettere Elia dalla Londar?
@@ -290,8 +294,8 @@ Opzioni di dialogo con la persona Zeca
             Zeca: Povero.
             Zeca: Stupido.
             Zeca: <joy>Bimbo.</joy>      
-                -> advance_time ->
-                ~ pauseStorylet = true
+                    -> advance_time ->
+                    ~ pauseStorylet = true
                     -> zeca_talking_second_tier
         
         + + Ettore: Anche uccidere Paola?
@@ -314,7 +318,7 @@ Opzioni di dialogo con la persona Zeca
                     + + + Ettore: Beh, se non venissi visto..
                         Zeca: ESATTO!
                         Zeca: Probabilmente anche questo tavolo, se potesse muoversi, le darebbe una capocciata.
-                                -> advance_time ->
+                                    -> advance_time ->
                                     ~ pauseStorylet = true
                                     -> zeca_talking_second_tier
 
@@ -499,6 +503,7 @@ Opzioni di dialogo con la persona Zeca
         + Ettore: No no scusa non c'ho tempo per questa conversazione.
             Zeca: Cafone! Col cazzo che mi chiedi ancora qualcosa!
                 ~ loopableVariables += pausaRapportoZeca
+                ~ pauseStorylet = true
                 -> intro
         -
     {are_two_entities_together(Ettore, Elia): Elia: Mi chiamo <joy>Elia!<joy>}    
@@ -592,8 +597,9 @@ Opzioni di dialogo con la persona Zeca
              + Ettore: Che meno ti devo parlare meglio è.
                 Zeca: Ah, è facile: non ti parlo più, così stai bene, <joy>stronzetta.</joy>
                     ~ loopableVariables += pausaRapportoZeca
-                -> advance_time ->
-                -> intro
+                    -> advance_time ->
+                    ~ pauseStorylet = true
+                    -> intro
             + Ettore: Sei acidello, ma divertente.
                 Zeca: Ho sentito di peggio, dai.
                 Zeca: Mia madre a sedici anni mi ha portato dall'esorcista.

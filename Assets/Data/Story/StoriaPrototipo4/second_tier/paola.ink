@@ -134,8 +134,9 @@ Opzioni di dialogo con la persona Paola
                 Paola: Anche se è così stupido da non capire la differenza tra due tette e due chiappe.
                 Paola: Tra me e me: credo che Elia sia ancora vergine.
                 Paola: <joy>Piccola puttanella.</joy>
-                    ~ pauseStorylet = true
                     -> advance_time ->
+                    ~ pauseStorylet = true
+                    
 
     + (foto3) {zeca_talking_second_tier.allestimento2 && new_this_loop(-> foto3)} Ettore: <hesitate>Per caso ti sei tipo masturbata nella sala gialla?
             ~ inConversazione += Paola
@@ -155,8 +156,9 @@ Opzioni di dialogo con la persona Paola
                 Paola: Un premio che farà felice anche quella merdaccina di Zeca.
                 {are_two_entities_together(Paola, Zeca): Zeca: Ehi!}
                 Paola: Fai il tuo dovere, <joy>mio cagnolino.</joy>
+                -> advance_time ->
                 ~ pauseStorylet = true
-                    -> advance_time ->
+  
 
     * (foto2) {greta_talking_second_tier.foto2 && not are_two_entities_together(Paola, Greta) && new_this_loop(-> foto2)} Ettore: Siamo soli, hai qualcosa per me?
             ~ inConversazione += Paola
@@ -174,8 +176,9 @@ Opzioni di dialogo con la persona Paola
                 ~ inventoryContents += Foto
             }
             
+            -> advance_time ->
             ~ pauseStorylet = true
-                -> advance_time ->
+                
     
     * {greta_talking_second_tier.foto2 && not are_two_entities_together(Paola, Greta) && not new_this_loop(-> foto2) && inventoryContents==()}
         Ettore: Ora ho spazio per la foto.
@@ -184,8 +187,9 @@ Opzioni di dialogo con la persona Paola
         Paola: Un bravo bimbo fa mamma Paola felice.
         Paola: Eccoti il tuo premio.
             ~ inventoryContents += Foto
+            -> advance_time ->
             ~ pauseStorylet = true
-                -> advance_time ->
+        
 
         
             
@@ -204,8 +208,8 @@ Opzioni di dialogo con la persona Paola
         Paola: Pensa che da piccola sono andata in coma per tre giorni.
         Paola: Per risvegliarmi e trovarmi davanti Elia che mi chiedeva: Ma ora sei Cristo?
         Paola: Ora sei resuscitata, come Vegeta?
-            ~ pauseStorylet = true
             -> advance_time ->
+            ~ pauseStorylet = true
     
     + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)}Ettore: Che, uhm, che sai di questa bottiglia?
         Paola: <joy>Amo da morire questo vino.</joy>
@@ -232,12 +236,13 @@ Opzioni di dialogo con la persona Paola
             ~ objectStorageContents += SigarettaElettronica
         Ettore: Ma non si può fumare ov...
         Paola: Ah, finalmente! Quanto mi sei mancata!
-            ~ pauseStorylet = true
             -> advance_time ->
+            ~ pauseStorylet = true
+      
     
     + (fotografia) {inventoryContents has Foto && new_this_loop(->fotografia)} Ettore: Guarda questa foto.
         Paola: Ettore, ho di meglio da fare, sloggia.
-
+            ~ pauseStorylet = true
 
     + [Fai domande sulla persona Paola]
         -> esplora_paola

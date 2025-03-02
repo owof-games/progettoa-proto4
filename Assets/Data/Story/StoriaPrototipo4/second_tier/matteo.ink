@@ -213,7 +213,8 @@ Opzioni di dialogo con la persona Matteo
     + {matteo_talking_second_tier.lavoro2 && not new_this_loop(->lavoro2)} Ettore: Posso chiederti perché hai creato un sindacato alla Londar?
         {
             - are_two_entities_together (Matteo, Paola) or are_two_entities_together (Matteo,Elia) or are_two_entities_together: Matteo: Forse non è il momento adatto ora. Chiedimelo quando siamo soli. -> matteo_talking_second_tier
-            - else: -> evilJobStorylet
+            - else:
+                -> evilJobStorylet
         }
 
     + (allestimento) {paola_talking_second_tier.allestimento && new_this_loop(->allestimento)} Ettore: Paola dice che tu e Zeca avete litigato nella stanza gialla prima delle prove.

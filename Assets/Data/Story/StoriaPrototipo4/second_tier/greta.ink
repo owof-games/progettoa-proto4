@@ -35,8 +35,9 @@ Opzioni di dialogo con la persona Greta
             Greta: E l'armadio è aperto e sei sicura di averlo chiuso prima di andare a dormire perché ne hai ancora paura anche se hai trentasei anni.
             Greta: E poi una gruccia casca a terra.
             Greta: <fear>E il letto trema.</fear>
-                ~ pauseStorylet = true
                 -> advance_time ->
+                ~ pauseStorylet = true
+
             
             + + (dejavu) {matteo_talking_second_tier.loop2} Ettore: In realtà pensavo più a dei loop[.], e Matteo crede tu sia la persona giusta con cui parlarne.
                         ~ inConversazione += Greta
@@ -63,7 +64,7 @@ Opzioni di dialogo con la persona Greta
                     Greta: E se siamo in loop, uccidimi: quante occasioni ci sono di morire due volte?
                         -> advance_time ->
                         ~ pauseStorylet = true
-                            -> greta_talking_second_tier
+                        -> greta_talking_second_tier
             
             + + Ettore: Perché temo che finirà molto male?
                         ~ inConversazione += Greta
@@ -94,8 +95,8 @@ Opzioni di dialogo con la persona Greta
             {are_two_entities_together(Paola, Greta): Greta: Ma non ti dirò altro fintanto che lei è qui. -> greta_talking_second_tier}
             Greta: Ma con Paola ogni giorno è l'antiNatale: ti svegli e avrai qualcosa di meno a sorpresa.
             Greta: Prima o poi mi venderà qualche organo senza che me ne renda conto.
-                ~ pauseStorylet = true
                 -> advance_time ->
+                ~ pauseStorylet = true
 
         + + {phone.indagini} Ettore: Non ti preoccupano le indagini?
                     ~ inConversazione += Greta
@@ -169,7 +170,7 @@ Opzioni di dialogo con la persona Greta
                         Greta: Vedo che sei sveglio, Ettore.
                         Greta: Ma la maestra è stanca e ti lascia un compito per casa: chi ha così influenza su Elia da trattarlo come una marionetta?
                         Greta: E per quale vantaggio?
-                    -> advance_time ->
+                        -> advance_time ->
                         ~ pauseStorylet = true
                         -> greta_talking_second_tier
                         
@@ -178,7 +179,7 @@ Opzioni di dialogo con la persona Greta
                         Greta: Ma non mi piace chi mi accusa di cose a caso.
                         Greta: <rage>Vattene<waitrage> e<waitrage> non<waitrage> parlarmi<waitrage> più!</rage> 
                         ~ loopableVariables += pausaRapportoGreta
-                    -> advance_time ->
+                        -> advance_time ->
                         ~ pauseStorylet = true
                         -> intro
     
@@ -208,7 +209,7 @@ Opzioni di dialogo con la persona Greta
                             ~ loopableVariables += pausaRapportoGreta
                             -> advance_time ->
                             ~ pauseStorylet = true
-                                -> intro
+                            -> intro
                     
                     + + + Ettore: Avrei cercato di ottenere ogni minimo vantaggio.
                         ~ inConversazione += Greta
@@ -235,7 +236,7 @@ Opzioni di dialogo con la persona Greta
                         Greta: E quando non c'è giustizia, l'unica cosa che rimane per sopravvivere è la violenza.
                             -> advance_time ->
                             ~ pauseStorylet = true
-                                -> greta_talking_second_tier
+                            -> greta_talking_second_tier
                         
         + + Ettore: Ripensandoci, non ho altro da chiederti. -> greta_talking_second_tier
 
@@ -290,7 +291,7 @@ Opzioni di dialogo con la persona Greta
                                 Greta: Poi ci sarà tempo per riscrivere quel disastro.
                                     -> advance_time ->
                                     ~ pauseStorylet = true
-                                        -> greta_talking_second_tier
+                                    -> greta_talking_second_tier
                                     
                     + + + Ettore: Suuuubdolo!
                                 ~ inConversazione += Greta

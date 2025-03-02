@@ -43,8 +43,10 @@ Opzioni di dialogo con il personaggio Matteo
                     -> advance_time ->
                 Ettore: Magari non ora, amore.
                 Matteo: Non mi giudicare: ognuno elabora il lutto come può.
-                ~ pauseStorylet = true
-                    -> matteo_acting    
+                    -> advance_time ->
+                    ~ pauseStorylet = true
+                    -> matteo_acting  
+                    
             + + [Cambi argomento]
                 -> matteo_acting
 
@@ -65,8 +67,8 @@ Opzioni di dialogo con il personaggio Matteo
         Matteo: Comunque no, nessuno avrebbe potuto odiarla, figurarsi ucciderla.
         Matteo: Eppure è morta.
         Matteo: <hesitate>La vita è un mistero.
-             -> advance_time ->
-             ~ pauseStorylet = true
+                -> advance_time ->
+                ~ pauseStorylet = true
                 -> matteo_acting  
     
     //SCELTE CONDIZIONALI//
@@ -82,9 +84,9 @@ Opzioni di dialogo con il personaggio Matteo
             Matteo: No, al fallito, a quello che fa vergognare tutta la famiglia.
             Matteo: Quello che si è rovinato la vita per tirare su <rage>un<waitrage> collettivo<waitrage> di<waitrage> videogiochi</rage>.
             Matteo: Ma andasse a zappare!
-            -> advance_time ->
+                -> advance_time ->
                 ~ pauseStorylet = true
-                    -> matteo_acting 
+                -> matteo_acting  
                     
     + (sposo) {new_this_loop(->sposo) && new_this_loop(->hardTrueFeelingsStorylet) && elia_acting.uniti} Ettore: Amore, avrei un favore da chiederti in merito al matrimonio.
             ->hardTrueFeelingsStorylet->
@@ -100,7 +102,7 @@ Opzioni di dialogo con il personaggio Matteo
             {are_two_entities_together(Zeca, Matteo): Zeca: Ettore, spero davvero tu possa aprire gli occhi.}
                 -> advance_time ->
                 ~ pauseStorylet = true
-                    -> matteo_acting 
+                -> matteo_acting  
         
     + (matteoGreta2) {itsOverisntItStorylet && greta_acting.matteoGreta && new_this_loop(->matteoGreta2)} Ettore: Cos'è questa storia del debito con Greta?
             Matteo: <rage>Come lo sai?!?!</rage>
@@ -111,37 +113,38 @@ Opzioni di dialogo con il personaggio Matteo
             Matteo: E ha scoperto che mio padre in realtà è...
             Matteo: Ma perché te lo sto dicendo? Manco stiamo più assieme! 
             Matteo: Vattene, va!
+                -> advance_time ->
                 ~ pauseStorylet = true
-                    -> advance_time ->        
+                -> matteo_acting        
         
     //SCELTE CONDIZIONALI OGGETTI//
     + (pugnale) {inventoryContents has AnticoPugnale && new_this_loop(->pugnale)} Ettore: Hai mai visto questo pugnale?
             -> aStrangeKnifeStorylet
                 ~ pauseStorylet = true
-                -> matteo_acting
+                -> matteo_acting  
                 
     + (spiedino) {inventoryContents has SpiedinoCocktail && new_this_loop(->spiedino)} Ettore: Hai mai visto questo spiedino?
             Matteo: Mmm, hai in mente qualcosa di kinky?
                 ~ pauseStorylet = true
-                -> matteo_acting            
+                -> matteo_acting              
                 
     + (minacce) {inventoryContents has Lettera && new_this_loop(->minacce)} Ettore: Riconosci questa lettera?
             Matteo: Come? <fear>Mettila via, subito!</fear>
             Ettore: Perché?
             Matteo: <cry>SUBITO!</cry>
                 ~ pauseStorylet = true
-                    -> matteo_acting 
+                -> matteo_acting 
     
     + (limetta) {inventoryContents has LimettaUnghie && new_this_loop(->limetta)}Ettore: Sai di chi sia questa limetta?
             Matteo: Pacchiana, economica, e con tracce di schifo? Deve essere di Greta.
                 ~ pauseStorylet = true
-                    -> matteo_acting 
+                -> matteo_acting 
     
     + (torta) {inventoryContents has Torta && new_this_loop(->torta)} Ettore: Hai portato tu questa torta?
             Matteo: Palesemente è stata cucinata, e io non ho il tempo di cucinare.
             Matteo: Lo sai che ho la mia azienda da portare avanti!
                 ~ pauseStorylet = true
-                    -> matteo_acting 
+                -> matteo_acting 
     
     + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Riconosci questa bottiglia di vino?
             Matteo: Dai qui. Uh, un negroamaro.
@@ -152,9 +155,9 @@ Opzioni di dialogo con il personaggio Matteo
             Matteo: Come un momento di rara felicità.
             Matteo: Come quando eravamo al sicuro, prottetti, e non lo sapevamo.
             Matteo: Fa schifo, portalo via!
-            -> advance_time ->
+                -> advance_time ->
                 ~ pauseStorylet = true
-                    -> matteo_acting 
+                -> matteo_acting 
     
     + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Sai chi ha problemi d'asma?
             Matteo: Chi non lavora.
@@ -164,7 +167,7 @@ Opzioni di dialogo con il personaggio Matteo
             Matteo: La malattia è una invenzione di ecologisti e comunisti, tutti scansafatiche!
             Ettore: Stai tremando, sai?
             Matteo: Ah sì, ho la dengue da un paio di giorni, niente di grave.
-            -> advance_time ->
+                -> advance_time ->
                 ~ pauseStorylet = true
                 -> matteo_acting 
     
@@ -179,7 +182,7 @@ Opzioni di dialogo con il personaggio Matteo
             Ettore: Uh, questo è poco lusinghiero.
             Matteo: Con le lusinghe non si manda avanti l'economia, <joy>non si salva il Paese!</joy>
             Matteo: Ora via, che c'ho da pensare!      
-            -> advance_time ->
+                -> advance_time ->
                 ~ pauseStorylet = true
                 -> matteo_acting 
       
@@ -220,8 +223,8 @@ Opzioni di dialogo con il personaggio Matteo
             Matteo: Diffondere l'amore, saziarci nei nostri corpi fino a raggiungere le stelle.
             Ettore: Ti va una merendina?
             Matteo: Ecco, sì, una merendina sarebbe perfetta.
-                    -> advance_time ->
-                    ~ pauseStorylet = true
+                -> advance_time ->
+                ~ pauseStorylet = true
                 -> matteo_acting 
 
     = second_qn
@@ -236,8 +239,8 @@ Opzioni di dialogo con il personaggio Matteo
             Matteo: E i nonni sono i nonni. Insomma, son vecchi e quindi noiosi.
             Matteo: Ma almeno mi hanno dato una mano con l'azienda.
             Matteo: Ma solo una mano, giuro, il resto ho fatto da solo!
-                    -> advance_time ->
-                    ~ pauseStorylet = true
+                -> advance_time ->
+                ~ pauseStorylet = true
                 -> matteo_acting     
 
     = third_qn
@@ -253,8 +256,8 @@ Opzioni di dialogo con il personaggio Matteo
         Matteo: Certi ragazzi non sanno stare più allo scherzo.
         Ettore: E cosa pensi di me, ora?
         Matteo: Che ti porterei in bagno e te lo mangerei, quel gran bel culo.
-                    -> advance_time ->
-                    ~ pauseStorylet = true
+                -> advance_time ->
+                ~ pauseStorylet = true
                 -> matteo_acting
 
 
@@ -317,7 +320,7 @@ Opzioni di dialogo con la persona Matteo
         Ettore: Hai idea del perché?
         Matteo: <hesitate> Diciamo che non sono cose che si dicono a chi non fa parte dell'inner circle.
         Matteo: Ma se ti capitasse un cellulare sotto mano, beh: cerca Londar INC tra le notizie e avrai le idee un po' più chiare.
-                -> advance_time ->
+            -> advance_time ->
             -> matteo_talking 
 
     = second_qn
@@ -355,7 +358,7 @@ Opzioni di dialogo con la persona Matteo
                     Ettore: Beh, possiamo risolvere rimanendo nudi.
                 -
         Matteo: Grazie per questo momento di umanità, Ettore. Lo dico col cuore.
-                -> advance_time ->                       
+            -> advance_time ->                       
             -> matteo_talking    
 
     = third_qn

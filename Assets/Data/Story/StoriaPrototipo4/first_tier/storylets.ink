@@ -15,7 +15,7 @@
 
 
 //SCENA INIZIALE
-    - are_six_entities_together(Elia, Matteo, Ettore, Greta, Paola, Zeca) && not startingDinnerStorylet && peopleTalking == false && new_this_loop(->startingDinnerStorylet) :
+    - are_six_entities_together(Elia, Matteo, Ettore, Greta, Paola, Zeca) && (not startingDinnerStorylet) && peopleTalking == false && new_this_loop(->startingDinnerStorylet) :
             -> startingDinnerStorylet
 
     - pauseStorylet:
@@ -24,11 +24,11 @@
 
 
 //STORYLET "NORMALI"
-    - are_two_entities_together(Matteo, Ettore) && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Zeca) && not are_two_entities_together(Ettore, Greta) && peopleTalking == false && new_this_loop(->marryMeStorylet):
+    - are_two_entities_together(Matteo, Ettore) && (not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Zeca) && not are_two_entities_together(Ettore, Greta)) && peopleTalking == false && new_this_loop(->marryMeStorylet):
             -> marryMeStorylet
 
 
-    - are_three_entities_together(Elia, Matteo, Ettore) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Greta) && (marryMeStorylet.matteoSiSposa or marryMeStorylet.matteoSiSposa2) && peopleTalking == false && new_this_loop(->weddingAtThePubStorylet):
+    - are_three_entities_together(Elia, Matteo, Ettore) && (not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Greta)) && (marryMeStorylet.matteoSiSposa or marryMeStorylet.matteoSiSposa2) && peopleTalking == false && new_this_loop(->weddingAtThePubStorylet):
             -> weddingAtThePubStorylet
     
     
@@ -36,7 +36,7 @@
             -> aStrangeKnifeStorylet
 
 
-    - are_two_entities_together(Zeca, Ettore) && not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Matteo) && not are_two_entities_together(Ettore, Greta) && peopleTalking == false && new_this_loop(->worstBestManStorylet):
+    - are_two_entities_together(Zeca, Ettore) && (not are_two_entities_together(Elia, Ettore) && not are_two_entities_together(Ettore, Matteo) && not are_two_entities_together(Ettore, Greta)) && peopleTalking == false && new_this_loop(->worstBestManStorylet):
             -> worstBestManStorylet
     
 
@@ -176,7 +176,7 @@
         Elia: <fear>E io, io, io ho paura!</fear>
             -> advance_time ->
             ~ pauseStorylet = true
-        -> intro
+            -> intro
 
 
 
@@ -211,9 +211,9 @@
             Elia: <rage>Sei<waitrage> uno<waitrage> stronzo!</rage>
             Elia: Me ne vado.
                     ~ move_this_entity_in_a_different_room(Elia)
-                    -> advance_time ->
-                    ~ pauseStorylet = true
-            -> intro
+                -> advance_time ->
+                ~ pauseStorylet = true
+                -> intro
 
 
 
@@ -250,7 +250,7 @@
         
                 -> advance_time ->
                 ~ pauseStorylet = true
-            -> intro
+                -> intro
 
     
     
@@ -366,7 +366,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
             ~ move_this_entity_in_a_different_room(Elia)
             -> advance_time ->
             ~ pauseStorylet = true
-        -> intro
+            -> intro
 
 
 //CONFESSIONI SOLITARIE 
@@ -390,7 +390,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
         Matteo: Dove trovo del sangue vergine per purificarlo dal tuo tocco impuro, ora?    
                 -> advance_time ->
                 ~ pauseStorylet = true
-            -> intro
+                -> intro
 
 
 === marryMeStorylet
@@ -448,7 +448,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
             Matteo: Ti va di fare quella fusione, ora?
                      -> advance_time ->
                      ~ pauseStorylet = true
-                -> intro
+                    -> intro
      
  
      = quickTalk   
@@ -504,7 +504,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
     Zeca: Lasciami a meditare amico mio, lasciami a meditare.
         -> advance_time ->
         ~ pauseStorylet = true
-    -> intro
+        -> intro
 
 
 
@@ -543,7 +543,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
             ~ move_this_entity_in_a_different_room(Matteo)
             -> advance_time ->
             ~ pauseStorylet = true
-        ->intro  
+            ->intro  
         
     + (mono) Ettore: Sai che non mi importa molto della monogamia.
         Matteo: Ma importa a me.
@@ -557,8 +557,8 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Matteo: Fammi andare via di qui!
             -> advance_time ->
             ~ move_this_entity_in_a_different_room(Matteo)
-        ~ pauseStorylet = true
-        -> intro
+            ~ pauseStorylet = true
+            -> intro
 
 
     = quickTalk
@@ -569,7 +569,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         ~ move_this_entity_in_a_different_room(Matteo)
             -> advance_time ->
             ~ pauseStorylet = true
-        -> intro
+            -> intro
 
 
 //MATERIALI PER TUTORIAL
@@ -633,7 +633,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
             -> resting_time ->
             -> advance_time ->
             
-    -> intro
+        -> intro
 
 
 

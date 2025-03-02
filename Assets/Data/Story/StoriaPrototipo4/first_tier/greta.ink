@@ -32,6 +32,7 @@ Opzioni di dialogo con il personaggio Greta
         Greta: Le volevo bene, ma eravamo molto diverse e quindi non ci capivamo.
         Greta: Contento?
                 -> advance_time ->   
+            
             + + Ettore: E come ti senti ora che è morta?
                 Greta: Come dovrei sentirmi?
                 Greta: C'è un buco da qualche parte, che non riesco a guardare.
@@ -43,11 +44,11 @@ Opzioni di dialogo con il personaggio Greta
                 Greta: E kebab.
                         -> advance_time ->
                         ~ pauseStorylet = true
-                    -> greta_acting
+                        -> greta_acting
             
             + + [Cambi argomento]
-                ~ pauseStorylet = true
-                -> greta_acting
+                    ~ pauseStorylet = true
+                    -> greta_acting
 
         
     + {new_this_loop(->omicidio) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Secondo te chi ha ucciso Paola?
@@ -65,7 +66,7 @@ Opzioni di dialogo con il personaggio Greta
             Greta: Mi sta evitando e non capisco perché.
                     -> advance_time ->
                     ~ pauseStorylet = true
-                -> greta_acting
+                    -> greta_acting
 
    
     
@@ -74,14 +75,18 @@ Opzioni di dialogo con il personaggio Greta
     //Se Greta ci ha dato la missione, ma in un loop precedente e ancora Elia e Greta non si sono parlati
     + (elia) {omicidio && new_this_loop(->omicidio) && (not are_two_entities_together(Greta, Elia)) && (loopableVariables hasnt EliaRaggiungeGreta) && (not seen_in_this_loop(->elia))} Ettore: So che vuoi parlare con Elia, ma ancora non l'ho convinto.
             Greta: Mi stupisce: quel ragazzo {~ha il cervello di un pesce bollito|ha smesso di ragionare nel novantasei|ha un unico neurone, ed è disperso dall'undici settembre|crede che la noce moscata sia un insetto}, non deve essere difficile!
+                -> advance_time ->
+                ~ pauseStorylet = true
+                -> greta_acting
             
     + (elia2){elia_acting.senzatetto && new_this_loop(->elia2) && loopableVariables has EliaRaggiungeGreta} Ettore: Elia dice che ce l'avevi con Paola per dei senzatetto.
         Greta: Ah, è per questa cazzata che mi evita?
         Greta: E per onore di cronaca non ce l'avevo con Paola per quello.
         Greta: Ma non sono cavoli tuoi.
         Greta: Convincilo a venire qui e chiudiamo questo casino inutile.
-            ~ pauseStorylet = true
-            -> advance_time ->
+                -> advance_time ->
+                ~ pauseStorylet = true
+                -> greta_acting
     
     + (paolaPerfetta) {loopableVariables has EliaRaggiungeGreta} Ettore: Ho fatto quello che mi hai chiesto, Greta.
             Greta: E Greta te ne è grata, gretino.
@@ -90,8 +95,9 @@ Opzioni di dialogo con il personaggio Greta
             Greta: È l'unica persona che non posso davvero insultare, perché sarebbe come insultare un'icona.
             Greta: Fossi religiosa, penserei che l'abbia uccisa un demone.
             Greta: O il fisco. So che aveva aperto partita IVA da poco, ed è cosa peggiore dell'inferno.
+                -> advance_time ->
                 ~ pauseStorylet = true
-                    -> advance_time ->
+                -> greta_acting
      
      + (matteoGreta) {hardTrueFeelingsStorylet.matteoGreta && new_this_loop(->matteoGreta)} Ettore: Quindi, Matteo ti ama?
                  ~ inConversazione += Greta
@@ -105,6 +111,7 @@ Opzioni di dialogo con il personaggio Greta
             Greta: A un certo punto pensavo fosse mio padre.
             {are_two_entities_together(Greta, Matteo): Matteo: Oh. Mio. Dio.}
             Greta: Scusa, un po' di daddy issues li abbiamo tutti, <hesitate>no?
+                    
                     -> advance_time ->
             Greta: Cioè, anche tu a uscire con Matteo, che ha ottant'anni da quando andava all'asilo.
             Greta: Ma no, niente amore, mai.
@@ -116,8 +123,9 @@ Opzioni di dialogo con il personaggio Greta
                 - -
             Greta: Te la butto lì: fatti dare un indennizzo, tanto i nonni sono pieni di soldi.
             Greta: E facciamoci tre settimane in Messico a sperimentare un po' di <joy>allucinogeni</joy>.
+                -> advance_time ->
                 ~ pauseStorylet = true
-                    -> advance_time ->
+                -> greta_acting
     
     + (matteoGreta2) {itsOverisntItStorylet && greta_acting.matteoGreta && new_this_loop(->matteoGreta2)} Ettore: Cos'è questa storia del debito con Matteo?
             Greta: Dopo quello che ti ha fatto, lo difendi?
@@ -125,8 +133,9 @@ Opzioni di dialogo con il personaggio Greta
             Greta: Sesso, ricatti, corpi alieni nel bagagliaio della macchina.
             Greta: E tutte le cazzate che posso tirarti per allontanarti da qui.
             Greta: Ne vuoi altre?
+                -> advance_time ->
                 ~ pauseStorylet = true
-                    -> advance_time ->
+                -> greta_acting
         
         
     + (zecaAlcool) {new_this_loop(-> zecaAlcool) && zeca_acting.matteoGreta} Ettore: Zeca dice che stai ricattando Matteo.
@@ -135,8 +144,9 @@ Opzioni di dialogo con il personaggio Greta
         Greta: Ah, no, lo so: i funghetti con cui ha strippato due anni fa.
         Greta: Zeca vede il male ovunque.
         Greta: Ma è solo il suo.
-            ~ pauseStorylet = true
                 -> advance_time ->
+                ~ pauseStorylet = true
+                -> greta_acting
     
     + (EliaGreta) {anEavesdropAboutFriendshipStorylet && new_this_loop(-> EliaGreta)} Ettore: Mi spiace che sei stata senza casa per un po'.
         Greta: SAPEVO CHE QUALCUNO CI STAVA ASCOLTANDO!
@@ -145,8 +155,9 @@ Opzioni di dialogo con il personaggio Greta
         Greta: Il mio motto è: o menti, o muori.
         Greta: E poi c'è del vero in ogni bugia.
         Greta: Ad esempio: se non mi libero dell'influenza che Paola ha su Elia, presto o tardi resterò senza lavoro.
-                ~ pauseStorylet = true
                 -> advance_time ->
+                ~ pauseStorylet = true
+                -> greta_acting
 
     
     
@@ -157,18 +168,20 @@ Opzioni di dialogo con il personaggio Greta
             ~ inventoryContents -= Lettera
             ~ objectStorageContents += Lettera
             ~ gretaHaLaLettera = true
-            ~ pauseStorylet = true
-                -> advance_time ->
+                ~ pauseStorylet = true
+                -> greta_acting
     
     + (pugnale) {inventoryContents has AnticoPugnale && new_this_loop(->pugnale)} Ettore: Hai mai visto questo pugnale?
         Greta: Solo in qualche film dell'orrore.
         Greta: O al battesimo di mia zia Selma.
         Greta: Oh sì che sapeva come farci divertire, la vecchia sagoma!
             ~ pauseStorylet = true
+            -> greta_acting
     
     + (spiedino) {inventoryContents has SpiedinoCocktail && new_this_loop(->spiedino)} Ettore: Sai qualcosa su questo spiedino?
             Greta: <i>FEG</i>? Questa è la sigla del locale mio e di Elia, ma non ricordo di averne mai visto uno prima d'ora.
             ~ pauseStorylet = true
+            -> greta_acting
     
     + (limetta) {inventoryContents has LimettaUnghie && new_this_loop(->limetta)} Ettore: Riconosci questa limetta per unghie?
         Greta: Yep, è mia.
@@ -178,8 +191,9 @@ Opzioni di dialogo con il personaggio Greta
         Greta: Devo limarla spesso o fa male.
         Greta: Ma non voglio levarla, lo schifo che mi genera è liberatorio.
         Greta: Per questo l'ho chiamata <i>Zeca</i>.
+            -> advance_time ->
             ~ pauseStorylet = true
-                -> advance_time ->
+            -> greta_acting
     
     + (torta) {inventoryContents has Torta && new_this_loop(->torta)} Ettore: Conosci questa torta?
         Greta: Naa, non le ho chiesto il nome, nulla.
@@ -189,8 +203,9 @@ Opzioni di dialogo con il personaggio Greta
         Greta: Quindi è un "Fintanto che farai domande stupide, avrai risposte stupide".
         Greta: Però sul sesso è un peccato: sei davvero belloccio.
         Greta: Ma ormai so troppo di te per poterti trovare sexy.
+            -> advance_time ->
             ~ pauseStorylet = true
-                -> advance_time ->
+            -> greta_acting
     
     + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Sai da dove viene questa bottiglia di vino?
         Greta: Puglia.
@@ -200,8 +215,9 @@ Opzioni di dialogo con il personaggio Greta
         Greta: Sarebbe una scoperta interessante.
         Greta: E un segno di acutezza ben maggiore di quella di Elia.
         Greta: O di qualcuno che va in giro a fare domande a caso.
-            ~ pauseStorylet = true
             -> advance_time ->
+            ~ pauseStorylet = true
+            -> greta_acting
     
     + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Greta, guarda questo flaconcino per l'asma!
         Greta: Non ho tempo, ho cose più interessanti da fare.
@@ -209,14 +225,16 @@ Opzioni di dialogo con il personaggio Greta
         Ettore: Ma non c'è alcun serial killer, no?
         Ettore: C'è stato un solo omicidio.
         Greta: Dipenderà molto da quante domande continuerai a fare.
-            ~ pauseStorylet = true
             -> advance_time ->
+            ~ pauseStorylet = true
+            -> greta_acting
     
     + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} Ettore: Sai chi potrebbe averla persa?
         Greta: No.
         Ettore: Ma..
         Greta: <cry>No.</cry>
             ~ pauseStorylet = true
+            -> greta_acting
 
     + [Chiedi a Greta di raccontarti qualcosa di sè]
         -> esplora_greta_personaggia
@@ -253,9 +271,9 @@ Opzioni di dialogo con il personaggio Greta
             Greta: e quella famiglia che magari prima era un po' infelice, ora ha qualcosa di bello attorno a cui riunirsi,
             Greta: e ogni giorno sembra Natale, una festa di compleanno, un matrimonio?
             Greta: Ecco, io per loro sono <joy>i vermi</joy> del micino, e la diarrea che ti caccerà per tutta casa.
-                    -> advance_time ->
-                    ~ pauseStorylet = true
-                -> greta_acting 
+                -> advance_time ->
+                ~ pauseStorylet = true
+                -> greta_acting
 
     = second_qn
      ~ GretaActing++
@@ -267,8 +285,8 @@ Opzioni di dialogo con il personaggio Greta
             Greta: Cosa che ora mi renderebbe tutto questo più sopportabile.
             Greta: E non intendo la morte di Paola.
             Greta: Intendo questa conversazione.
-                    -> advance_time ->
-                    ~ pauseStorylet = true
+                -> advance_time ->
+                ~ pauseStorylet = true
                 -> greta_acting     
 
     = third_qn
@@ -283,8 +301,8 @@ Opzioni di dialogo con il personaggio Greta
             Ettore: Ehm, io ora non ricordo bene.
             Greta: Non parla mai di me, vero?
             Greta: Meglio: adoro essere ignorata dalla mia divinità, è una cosa così cattolica.
-                    -> advance_time ->
-                    ~ pauseStorylet = true
+                -> advance_time ->
+                ~ pauseStorylet = true
                 -> greta_acting
 
 
@@ -345,7 +363,7 @@ Opzioni di dialogo con la persona Greta
         Greta: <cry>LE MIE PRIME FERIEEEEE!</cry>
         Greta: E ora il massimo del sole che prenderò sarà come sempre la luce del frigorifero.
         Greta: Forse, se faccio bere Paola a sufficienza, si potrebbe dimenticare di ogni cosa, no?
-                -> advance_time ->
+            -> advance_time ->
             -> greta_talking 
 
     
@@ -376,7 +394,7 @@ Opzioni di dialogo con la persona Greta
         Greta: Per cui non potresti denunciarci neanche in caso di menomazione.
         Greta: A differenza della tizia dell'anno scorso.
         Greta: C'è altro?
-                -> advance_time ->
+            -> advance_time ->
             -> greta_talking    
 
 
@@ -404,5 +422,5 @@ Opzioni di dialogo con la persona Greta
         Greta: Un po' la cosa ti farebbe incazzare, no?
         Greta: E mi immagino il povero Zeca, come potrebbe sentirsi.
         Greta: <hesitate> Soprattutto se questa ragazza immaginaria non fosse poi così tanto immaginaria.
-                -> advance_time ->
+            -> advance_time ->
             -> greta_talking

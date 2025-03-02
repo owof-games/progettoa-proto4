@@ -73,8 +73,7 @@ Opzioni di dialogo con la persona Paola
         Paola: Ora la uccido.
         {are_two_entities_together(Greta, Paola): Greta: Merda.} 
             -> advance_time ->
-        
-        -> paola_talking 
+            -> paola_talking 
 
     = second_qn
      ~ PaolaTalking++
@@ -89,7 +88,7 @@ Opzioni di dialogo con la persona Paola
         Paola: E odio parenti, dipendenti e conoscenti.
         Paola: E se vuoi sopravvivere stasera, vedi di non diventare nessuna delle tre cose.
             -> advance_time ->
-        -> paola_talking  
+            -> paola_talking  
 
 
     = third_qn
@@ -103,7 +102,7 @@ Opzioni di dialogo con la persona Paola
         Paola: Non si lava l'ombelico da quando ha sei anni: è convinto che facendolo gli si aprirà la pancia, le viscere usciranno tutte, e morirà.
         Paola: Non dovrebbe pulirsi il culo da solo, figurati gestire un colosso come la Londar.
             -> advance_time ->
-        -> paola_talking
+            -> paola_talking
 
 
 

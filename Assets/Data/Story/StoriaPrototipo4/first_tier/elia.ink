@@ -29,8 +29,8 @@ Opzioni di dialogo con il personaggio Elia
                 Elia: No, lei è qui con noi.
                 Ettore: Non sapevo fossi religioso.
                 Elia: Solo per lei. Paola era la mia religione.
-                    ~ pauseStorylet = true
                     -> advance_time ->
+                    ~ pauseStorylet = true
                     -> elia_acting
                     
             + + [Cambi argomento]
@@ -45,9 +45,9 @@ Opzioni di dialogo con il personaggio Elia
         Elia: E Paola non va contro Dio. E quindi:
         Elia: Paola non è morta.
         Elia: Il caso è chiuso.
-            ~ pauseStorylet = true
-            -> advance_time ->
-            -> elia_acting
+                    -> advance_time ->
+                    ~ pauseStorylet = true
+                    -> elia_acting
 
      
 
@@ -66,9 +66,9 @@ Opzioni di dialogo con il personaggio Elia
             Elia: Per cui se sei un suo semplice, <cry>vattene!</cry>
             Ettore: Semplice?
             Elia: Hai capito. <cry>Via!</cry>
-                ~ pauseStorylet = true
-                -> advance_time ->
-                -> elia_acting
+                    -> advance_time ->
+                    ~ pauseStorylet = true
+                    -> elia_acting
 
     //Questa è il successivo default se so del matrimonio, so che Elia ho parlato con greta e non sono con lei o Matteo.
     + (uniti){weddingAtThePubStorylet && greta_acting.omicidio && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && new_this_loop(->uniti)} Ettore: Che ne dici se ci facciamo un favore a vicenda?
@@ -82,12 +82,14 @@ Opzioni di dialogo con il personaggio Elia
             Elia: <fear>Quindi vuoi davvero che io muoia?</fear> Va bene.
             Elia: Se ci riesci, parlerò con quella arpia.
             Elia: Ma magari aiutami a proteggermi!
-                ~ pauseStorylet = true
-                -> advance_time ->   
+                    -> advance_time ->
+                    ~ pauseStorylet = true
+                    -> elia_acting 
     
     + {(not new_this_loop(->uniti)) && elia_acting.uniti && (not are_two_entities_together(Greta, Elia)) && loopableVariables hasnt EliaRaggiungeGreta && (not hardTrueFeelingsStorylet.ah or hardTrueFeelingsStorylet.mono)} Ettore: Sto ancora cercando il modo di convincere Matteo, ma ce la farò!
             Elia: Non ho fretta di morire, tranquillo!
-
+                    ~ pauseStorylet = true
+                    -> elia_acting
   
     + (sincero) {(hardTrueFeelingsStorylet.ah or hardTrueFeelingsStorylet.mono) && (not are_two_entities_together(Greta, Elia)) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Matteo mi ha detto di lui e di Greta.
             ~ inConversazione += Elia
@@ -95,8 +97,8 @@ Opzioni di dialogo con il personaggio Elia
             Elia: Sapevo da tempo che Matteo provava qualcosa per Greta, ma non sapevo come dirtelo!
             {new_this_loop(->senzatetto): Elia: Andrò da Greta, te lo devo.|Ettore: A proposito di Greta, la raggiungeresti? Deve parlarti}
             Elia: Dove la trovo?
-                ~ pauseStorylet = true
-                -> advance_time ->
+                    -> advance_time ->
+                    ~ pauseStorylet = true
             
             + + {whiteRoomContents hasnt Ettore} Ettore: Ti aspetta nella stanza bianca.
                 ~ move_entity(Elia, WhiteRoom)
@@ -151,8 +153,9 @@ Opzioni di dialogo con il personaggio Elia
             {are_two_entities_together(Matteo, Elia): Matteo: Questo è vero, me lo sono ritrovato in casa una volta e boh. l'ho preso come un segno del destino.}
             Elia: Paola dice che è un santanista e per questo finirà all'inferno.
             {are_two_entities_together(Matteo, Elia): Matteo: All'inferno ci finirò ascoltando queste cazzate.}
-                ~ pauseStorylet = true
-                -> advance_time ->
+                    -> advance_time ->
+                    ~ pauseStorylet = true
+                    -> elia_acting
     
     + (spiedino) {inventoryContents has SpiedinoCocktail && new_this_loop(->spiedino)} Ettore: Elia, hai mai visto questo spiedino?
         Elia: <hesitate>No, non mi è mai caduto dalla tasca.
@@ -164,8 +167,9 @@ Opzioni di dialogo con il personaggio Elia
             {hardTrueFeelingsStorylet.matteoGreta: Ettore: Il non più matrimonio mio e di Matteo?|Ettore: Il matrimonio mio e di Matteo?}
             Elia: No, il suo. <joy>Paola si sposa.</joy>
             - - - (paolaSiSposa) Elia: Ha organizzato un matrimonio in fretta e furia, manco sappiamo con chi.
-                    ~ pauseStorylet = true
                     -> advance_time ->
+                    ~ pauseStorylet = true
+                    -> elia_acting
 
     + (minacce) {inventoryContents has Lettera && new_this_loop(->minacce)} Ettore: Elia, tu sai chi possa aver scritto questa lettera?
             Elia: Ehm, cosa, ehm.
@@ -176,12 +180,15 @@ Opzioni di dialogo con il personaggio Elia
             Elia: Sembra una roba da Matteo. Quando è pissato è capace di dire qualunque cosa.
             Elia: Una volta da piccoli mi ha fatto mangiare le crocchette del gatto.
             Elia: E solo perché era convinto che fossero avvelenate.
-                ~ pauseStorylet = true
-                -> advance_time ->
+                    -> advance_time ->
+                    ~ pauseStorylet = true
+                    -> elia_acting
             
     + (limetta) {inventoryContents has LimettaUnghie && new_this_loop(->limetta)} Ettore: Sai di chi è questa limetta per le unghie?
             Elia: Di Zeca?
-           
+                    ~ pauseStorylet = true
+                    -> elia_acting     
+                    
     + (torta) {inventoryContents has Torta && new_this_loop(->torta)} Ettore: Sai chi potrebbe aver portato la torta?
             Elia: Il fornaio?
             Ettore: Intendi il catering?
@@ -190,8 +197,9 @@ Opzioni di dialogo con il personaggio Elia
             Elia: E la farina la usa il fornaio.
             Elia: E i dolci son del fornaio, no?
             Elia: E Paola che dice che non capisco nulla.
-                ~ pauseStorylet = true
-                -> advance_time ->
+                    -> advance_time ->
+                    ~ pauseStorylet = true
+                    -> elia_acting
             
     + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Hai mai visto questa bottiglia di...
             Elia: No non bevo grazie.
@@ -203,8 +211,9 @@ Opzioni di dialogo con il personaggio Elia
             Ettore: <cry>CHI HA PORTATO QUESTA BOTTIGLIA?!?</cry>
             Elia: Paola. Credo sia della collezione di Paola.
             Elia: E guarda che non serve urlare!
-                ~ pauseStorylet = true
-                -> advance_time ->
+                    -> advance_time ->
+                    ~ pauseStorylet = true
+                    -> elia_acting
             
     + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Sei tu a soffrire d'asma?
             Elia: È quella cosa che ti viene quando hai paura di tutto?
@@ -215,8 +224,9 @@ Opzioni di dialogo con il personaggio Elia
             Ettore: Di asola? O di asma?
             Elia: No, di quelle per saltare.
             Ettore: Quella è, oh, lascia fare.
-                ~ pauseStorylet = true
-                -> advance_time ->
+                    -> advance_time ->
+                    ~ pauseStorylet = true
+                    -> elia_acting
             
     + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} Ettore: Sai di chi sia questa sigaretta elettronica?
             Elia: Non dovrebbe essere "a liquidi?"
@@ -228,8 +238,9 @@ Opzioni di dialogo con il personaggio Elia
             Elia: No, non posso saperlo, non ora. Non so se mi capisci.
             Ettore: No Elia, non ti capisco.
             Elia: <hesitate>Nessuno mi capisce, è sempre stato così.
-                ~ pauseStorylet = true
-                -> advance_time ->
+                    -> advance_time ->
+                    ~ pauseStorylet = true
+                    -> elia_acting
     
     + [Chiedi a Elia di raccontarti qualcosa di sè]
         -> esplora_elia_personaggia   
@@ -276,9 +287,9 @@ Opzioni di dialogo con il personaggio Elia
         Elia: Però posso rimanere a torso nudo.
         Elia: Dice che fa bene ai guadagni.
         {are_two_entities_together(Greta, Elia): Greta: E il top è quando non parli.}
-                ~ pauseStorylet = true
-                -> advance_time ->
-                -> elia_acting 
+                    -> advance_time ->
+                    ~ pauseStorylet = true
+                    -> elia_acting
 
     = second_qn
      ~ EliaActing++
@@ -298,9 +309,9 @@ Opzioni di dialogo con il personaggio Elia
         Elia: Anni fa, quando nonno ha insistito, mi ha messo a distribuire pacchi e comunicazioni.
         Elia: Ma mi ha licenziato quando, vestito da Babbo Natale, gli ho portato in ufficio i carabinieri con un avviso di garanzia.
         Elia: Quando ho cantato "Merry Xmas" i carabinieri hanno dovuto staccarmelo di forza.
-                ~ pauseStorylet = true
-                -> advance_time ->
-                -> elia_acting     
+                    -> advance_time ->
+                    ~ pauseStorylet = true
+                    -> elia_acting 
 
     = third_qn
     ~ EliaActing++
@@ -324,10 +335,10 @@ Opzioni di dialogo con il personaggio Elia
         Ettore: Ma di chi stai parlando, Elia?
         Elia: Di Sonia, la mia certosina, la mia povera piccola angioletta.
         Ettore: Io, io. Niente. Lascia fare.
-            ~ pauseStorylet = true
-            -> advance_time ->
-            -> elia_acting
-
+                    -> advance_time ->
+                    ~ pauseStorylet = true
+                    -> elia_acting
+                    
 /* ---------------------------------
 Opzioni di dialogo con la persona Elia
  ----------------------------------*/
@@ -350,9 +361,11 @@ Opzioni di dialogo con la persona Elia
         -> intro
     - else:
         { shuffle once:
-        - {not are_two_entities_together(Zeca, Elia)}: -> first_qn
+        - {not are_two_entities_together(Zeca, Elia)}:
+            -> first_qn
         -   -> second_qn
-        - {not are_two_entities_together(Elia, Paola)};  -> third_qn
+        - {not are_two_entities_together(Elia, Paola)}:
+            -> third_qn
         
         }
     }
@@ -434,7 +447,7 @@ Opzioni di dialogo con la persona Elia
         Ettore: Ehm, facciamo un altro giorno, tipo mai?
         Elia: Forse dovrei farle a Matteo. Palese che è fuori forma.
                 -> advance_time ->
-            -> elia_talking    
+                -> elia_talking    
 
     = third_qn
     ~ EliaTalking++

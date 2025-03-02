@@ -310,7 +310,8 @@ Opzioni di dialogo con la persona Matteo
     = second_qn
      ~ MatteoTalking++
                      ~ inConversazione += Matteo
-        Matteo: Dio, quanto vorrei avere il ruolo del morto, almeno potrei dormire.
+        
+        Matteo: Dio, quanto vorrei avere il ruolo del morto in questa recita, almeno potrei dormire.
         Ettore: Sei molto stanco?
         Matteo: Questa risposta è sempre vera negli ultimi sei anni.
         Matteo: Per campare in questa economia mi tocca fare due lavori. E ora persino recitare.
@@ -347,7 +348,8 @@ Opzioni di dialogo con la persona Matteo
     = third_qn
     ~ MatteoTalking++
                     ~ inConversazione += Matteo
-        Matteo: Ehi Ettore!
+        
+        Matteo: Ciao Ettore!
         Matteo: Come te la cavi con le bugie?
             + Ettore: Mi faccio sgamare in tre secondi.
                 Matteo: Ahah allora capirai il mio dramma.

@@ -16,6 +16,7 @@
         ->->
 
 //STORYLET "NORMALI"    
+TODO: tutti questi storylets partono sempre, per poi venir bloccati se c'è una personaggia che è assolutamente da evitare. Le altre invece fanno qualche commento idiota e bona.
 
     - are_three_entities_together(Elia, Ettore, Zeca) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Paola) && not are_two_entities_together(Elia, Matteo) && elia_talking_second_tier.indagini3 && pauseStorylet == false && new_this_loop(-> liarCallLiarStorylet):
             -> liarCallLiarStorylet
@@ -34,7 +35,7 @@
         -> trueLoveStorylet
     
     - matteo_talking_second_tier.allestimento && (are_two_entities_together(Matteo, Zeca) && not are_two_entities_together(Matteo, Ettore)) && is_this_entity_near_Ettore(Matteo) && new_this_loop(-> iTryToBeAGoodFriendStorylet):
-        -> iTryToBeAGoodFriendStorylet  
+        -> iTryToBeAGoodFriendStorylet
     
     
     - (are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Ettore)) && is_this_entity_near_Ettore(Matteo) && new_this_loop(-> liesAndPromisesStorylet):

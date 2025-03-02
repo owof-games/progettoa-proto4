@@ -308,7 +308,9 @@ Opzioni di dialogo con la persona Greta
         Ettore: Forse è il caso che me ne vada.
         Greta: <cry>NO, NON LASCIARMI SOLA!</cry>
         Ettore: Sono confuso in questo momento.
-        Greta: Tu sei un attore professionista. Quindi, dimmi: quanto fa schifo questa roba?
+        Greta: Tu sei un attore professionista. 
+        Greta: Ti hanno pagato per questa farsi di recita.
+        Greta: Quindi, dimmi: quanto fa schifo questa roba?
                 -> advance_time ->
             + Ettore: Dai, livello Alberto Tomba in "Alex l'ariete".
             + Ettore: Le blatte non se la sono cavata male.

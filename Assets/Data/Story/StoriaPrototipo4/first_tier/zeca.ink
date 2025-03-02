@@ -296,6 +296,7 @@ Opzioni di dialogo con la persona Zeca
     = first_qn
     ~ ZecaTalking++
                 ~ inConversazione += Zeca
+        
         Zeca: Puoi dirmelo se ti piace, lo capirei. Non si può negare che è <joy>irresistibile.</joy>
         Ettore: Chi? Cosa? Quando? Come?
         Zeca: Elia, ovviamente. Se ne innamorano tutti, subito. Quel ragazzo ha un superpotere.
@@ -334,6 +335,7 @@ Opzioni di dialogo con la persona Zeca
     = second_qn
      ~ ZecaTalking++
                  ~ inConversazione += Zeca
+        
         Zeca: Che hai visto Anastasia per caso?
         Ettore: Anastasia?
         Zeca: Sì, l'orfanella. Greta. L'hai vista?
@@ -350,6 +352,7 @@ Opzioni di dialogo con la persona Zeca
     = third_qn
     ~ ZecaTalking++
                 ~ inConversazione += Zeca
+        
         Zeca: Ci mancava la lettera del mistero, mannaggia al gatto del prete.
         Ettore: Lettera del mistero?
         Zeca: Lascia fare. Qui si sta a fare un casino tra oggetti di scena, oggetti privati e casini personali.

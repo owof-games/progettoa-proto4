@@ -79,10 +79,10 @@ VAR notebookPage = 1
 {greta_acting.paolaPerfetta: Greta: Sinceramente, non ho idea di chi possa aver ucciso Paola, lei era perfetta. #slot-6}
 
     ~ notebookPage = 5
-    ~ temp info_greta = anEavesdropAboutFriendshipStorylet.one or zeca_acting.matteoGreta
+    ~ temp info_greta = anEavesdropAboutFriendshipStorylet or zeca_acting.matteoGreta
     
 {info_greta: <i>Informazioni sul personaggio Greta</i> #slot-1}
-{anEavesdropAboutFriendshipStorylet.one: Greta: E così papà ed io abbiamo vissuto per mesi per strada. #slot-2}
+{anEavesdropAboutFriendshipStorylet: Greta: E così papà ed io abbiamo vissuto per mesi per strada. #slot-2}
 {zeca_acting.matteoGreta: Zeca: Sinceramente, non ho mai creduto che a Greta interessi tanto il pub, quanto controllare Elia. #slot-3}
 {zeca_acting.matteoGreta: Zeca: Non mi stupirebbe se Greta stesse ricattando Matteo in qualche modo. #slot-4}
 

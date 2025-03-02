@@ -45,9 +45,10 @@
     - are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Ettore) && peopleTalking == false && new_this_loop(->sheIsTheBestStorylet):
             -> sheIsTheBestStorylet
             
-    - are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Matteo) && not are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Ettore) && elia_acting.sincero && is_this_entity_near_Ettore(Elia) == true && peopleTalking == false && new_this_loop(->anEavesdropAboutFriendshipStorylet):
+    - are_two_entities_together(Elia, Greta) && elia_acting.sincero && is_this_entity_near_Ettore(Elia) == true && peopleTalking == false && new_this_loop(->anEavesdropAboutFriendshipStorylet):
             -> anEavesdropAboutFriendshipStorylet
 
+TODO: mettere origliato
     - are_three_entities_together(Matteo, Greta, Ettore) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && hardTrueFeelingsStorylet && peopleTalking == false && new_this_loop(->itsOverisntItStorylet):
             -> itsOverisntItStorylet
 
@@ -231,34 +232,23 @@
         Greta: <i>Prima che le nostre madri si fidanzassero, sono stata povera.</i>
         Greta: <i>Papà era un influencer, ma dopo lo scandalo del torrone ha perso followers e non ha saputo più come affrontare la realtà.</i>
         Greta: <i>E così papà ed io abbiamo vissuto per mesi per strada.</i>
-        {
-                - are_two_entities_together(Ettore, Elia) or are_two_entities_together(Elia, Matteo) or are_two_entities_together(Elia, Zeca): -> quickTalk
-                -else: -> one
-        }    
-            
-            
-        = one
+        
+            -> advance_time ->
+        Greta: <i>Me ne sono sempre vergognata così tanto, sai?</i>
+        Greta: <i>Mesi e mesi a vedere le persone passarci davanti.</i>
+        Greta: <i>A spiare dentro la nostra roulotte.</i>
+        Greta: <i>A farci commenti spietati sul colore della carrozzeria.</i>
+        Greta: <i>Una volta<hesitate> ho dovuto persino rinunciare a una borsetta Hermes.</i>
+        Elia: <i>Deve essere stato tremendo.</i>
+        Greta: <i>Non ne hai idea. E per questo ora non voglio rivivere quel trauma.</i>
+        Greta: <i>Non posso aver contatto con altri senzatetto puzzolenti, mi capisci Elia, vero?</i>
+        Elia: <i>Io. No, ma sarò sempre dalla tua parte Greta, promesso!</i>
                 -> advance_time ->
-            Greta: <i>Me ne sono sempre vergognata così tanto, sai?</i>
-            Greta: <i>Mesi e mesi a vedere le persone passarci davanti.</i>
-            Greta: <i>A spiare dentro la nostra roulotte.</i>
-            Greta: <i>A farci commenti spietati sul colore della carrozzeria.</i>
-            Greta: <i>Una volta<hesitate> ho dovuto persino rinunciare a una borsetta Hermes.</i>
-            Elia: <i>Deve essere stato tremendo.</i>
-            Greta: <i>Non ne hai idea. E per questo ora non voglio rivivere quel trauma.</i>
-            Greta: <i>Non posso aver contatto con altri senzatetto puzzolenti, mi capisci Elia, vero?</i>
-            Elia: <i>Io. No, ma sarò sempre dalla tua parte Greta, promesso!</i>
-                    -> advance_time ->
-                    ~ pauseStorylet = true
-                -> intro
+                ~ pauseStorylet = true
+            -> intro
 
     
-    = quickTalk
-        -> advance_time ->
-            <i>Greta: Ma ovvio che tu sei lì a raccontare i cazzi tuoi e entra qualcun altro.</i>
-            <i>Greta: Scusa Elia, ne riparliamo in un altro momento.</i>
-            ~ pauseStorylet = true
-        -> intro
+    
 
 
 === itsOverisntItStorylet

@@ -682,7 +682,20 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Greta: Ma poi qui ci sono motivi a sufficienza per tutti!
         Greta: Quindi nel tuo piano tutti hanno ucciso Paola?
         Greta: <rage>Paola<waitrage> mi<waitrage> rispondi?!?</rage>
-            ~ move_first_entity_to_second_entity_location(Ettore,Paola)
+            //~ move_first_entity_to_second_entity_location(Ettore,Paola)
+            ~ temp ettore_location = entity_location(Ettore)
+            { ettore_location == YellowRoom:
+                ~ move_entity(Ettore, GreenRoom)
+                ~ ettore_location = GreenRoom
+            }
+            { ettore_location == GreenRoom:
+                ~ move_entity(Ettore, RedRoom)
+                ~ ettore_location = RedRoom
+            }
+            { ettore_location == RedRoom:
+                ~ move_entity(Ettore, WhiteRoom)
+                ~ ettore_location = WhiteRoom
+            }
 //Grida di chi è in scena
         {
         - are_two_entities_together(Elia, Paola):

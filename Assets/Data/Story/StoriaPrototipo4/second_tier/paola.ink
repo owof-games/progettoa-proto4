@@ -357,16 +357,16 @@ Opzioni di dialogo con la persona Paola
 === paola_is_dead
      Ettore: {~ Non c'è dubbio, è morta|Il corpo è ancora caldo|Cosa è giusto fare, adesso?}
         + (briciole) [Ci sono tracce di briciole]
-            Sono rimasugli all'angolo della bocca. Forse qualcosa di dolce.
+            Ettore: Sono rimasugli all'angolo della bocca. Forse qualcosa di dolce.
             -> loop_reset
         + (sigaretta) [Controlli la sigaretta elettronica]
-            Il dispenser del liquido è completamnte svuotato.
+            Ettore: Il dispenser del liquido è completamente svuotato.
             -> loop_reset
         + (asma) [Ispezioni il boccettino dell'asma]
-            Paola lo stringe ancora forte in pugno, come fosse un'arma. O un'ancora di salvezza.
+            Ettore: Paola lo stringe ancora forte in pugno, come fosse un'arma. O un'ancora di salvezza.
             -> loop_reset
         + (vino) [Esamini la boccia di vino]
-            Rimane solo un goccio sul fondo. Le labbra di Paola hanno lo stesso colore.
+            Ettore: Rimane solo un goccio sul fondo. Le labbra di Paola hanno lo stesso colore.
             -> loop_reset
         + Lascio perdere
             -> intro

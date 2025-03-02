@@ -361,7 +361,7 @@ Opzioni di dialogo con la persona Greta
 
     //SCELTE CONDIZIONALI//
 
-    + (love) {trueLoveStorylet && new_this_loop(->love) && not are_two_entities_together(Elia, Greta) or not are_two_entities_together(Zeca, Greta)} Ettore: Sapevi della relazione tra Elia e Zeca?
+    + (love) {trueLoveStorylet && new_this_loop(->love) && (not are_two_entities_together(Elia, Greta) or not are_two_entities_together(Zeca, Greta))} Ettore: Sapevi della relazione tra Elia e Zeca?
             Greta: Quell'obbrobrio che chiamano "Bro"?
             
              + + Ettore: Ah ah sì, esatto, proprio quello.
@@ -428,7 +428,7 @@ Opzioni di dialogo con la persona Greta
                         
     
 
-    + (allestimento4) {zeca_talking_second_tier.allestimento2 && not are_two_entities_together(Zeca, Greta) or not are_two_entities_together(Matteo, Greta) && new_this_loop(->allestimento4)} Ettore: Mi aiuti a capire una cosa?
+    + (allestimento4) {zeca_talking_second_tier.allestimento2 && (not are_two_entities_together(Zeca, Greta) or not are_two_entities_together(Matteo, Greta)) && new_this_loop(->allestimento4)} Ettore: Mi aiuti a capire una cosa?
                 ~ inConversazione += Greta
             Ettore: Sembra che nessuno si sia occupato del buffet prima delle prove.
             Ettore: Da quel che ho capito, tu ed Elia vi dovevate occupare del vino, Matteo e Zeca dei dolci.

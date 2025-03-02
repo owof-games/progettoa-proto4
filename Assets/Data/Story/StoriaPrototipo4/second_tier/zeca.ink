@@ -277,7 +277,7 @@ Opzioni di dialogo con la persona Zeca
                 ~ pauseStorylet = true
                     -> zeca_talking_second_tier
 
-        + + (love4){elia_talking_second_tier.indagini2 && greta_talking_second_tier.indagini && not are_two_entities_together(Elia, Zeca)} Ettore: Sapevi che Paola vuole estromettere Elia dalla Londar?
+        + + (love4){(elia_talking_second_tier.indagini2 or greta_talking_second_tier.indagini) && not are_two_entities_together(Elia, Zeca)} Ettore: Sapevi che Paola vuole estromettere Elia dalla Londar?
                 {
                     - are_two_entities_together(Paola, Zeca): Zeca: Chiedimelo quando siamo soli.
                          ~ pauseStorylet = true

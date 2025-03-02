@@ -391,7 +391,7 @@ Opzioni di dialogo con la persona Zeca
         Ettore: Non sono io a decidere, è l'agente che se ne occupa.
         Zeca: A bene perfetto bravo, digli al tuo agente di trovarmi un lavoro e di chiamarmi.
         Zeca: Magari con <joy>Filippo Timi</joy>, che è così bono!
-        Zeca: Devo assolutamente dirlo ad Elia.
+        Zeca: Devo assolutamente dirlo a Elia.
         Zeca: <cry>ELIAAAAAAAAA! ETTORE MI FA LAVORARE CON TIMI! ELIAAAAA!</cry>
         {are_two_entities_together(Zeca, Elia): Elia: La pianta?} 
                 -> advance_time ->

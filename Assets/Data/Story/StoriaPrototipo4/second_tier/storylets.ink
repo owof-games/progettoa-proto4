@@ -520,7 +520,7 @@ TODO: tutti questi storylets partono sempre, per poi venir bloccati se c'è una 
             -> uno
 
     = uno
-        Matteo: Sono entrato in Londar tre anni fa, e ci sono entrato grazie ad Elia.
+        Matteo: Sono entrato in Londar tre anni fa, e ci sono entrato grazie a Elia.
         Matteo: Per i primi mesi ho fatto il responsabili in un call centre, per la parte di recupero crediti.
         Matteo: E ammetto che mi piaceva: buono stipendio, e le pressioni per lo più erano su chi rispondeva.
         Matteo: Poi Elia e Paola hanno iniziato a litigare, e molto.
@@ -720,7 +720,7 @@ Ettore: Ed è qui che si complicano le cose.
     {ZC: Ettore: La lettera scritta da Zeca.}
     {GR: Ettore: La lettera scritta da Greta.}
     {MT: Ettore: La lettera indirizzata a Matteo.}
-    {EL: Ettore: La lettera indirizzata ad Elia.}
+    {EL: Ettore: La lettera indirizzata a Elia.}
     {VN: Ettore: La stanza dove si trovava il vino avvelenato.}
     {TR: Ettore: La stanza dove si trovava la torta piena di arachidi.}
     {AS: Ettore: Qualcuno ha svuotato il boccettino dell'asma di Paola.}

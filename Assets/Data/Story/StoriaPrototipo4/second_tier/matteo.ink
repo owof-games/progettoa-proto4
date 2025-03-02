@@ -26,7 +26,7 @@ Opzioni di dialogo con la persona Matteo
 
     + (loop) {new_this_loop(->loop)} Ettore: Non stai notando nulla di strano?
                 ~ inConversazione += Matteo
-            Matteo: Intendi il provare da ore una storia senza senso? Prova ad essere più specifico.
+            Matteo: Intendi il provare da ore una storia senza senso? Prova a essere più specifico.
                 
                 + + (opzioneScarica3) {new_this_loop(->opzioneScarica3)}Ettore: Ho come questo senso di deja-vu...
                         Ettore: Abbiamo già vissuto tutto questo, anche se in modo diverso.
@@ -48,14 +48,14 @@ Opzioni di dialogo con la persona Matteo
                                 Ettore: Che una volta ci hai provato con Elia perché non sapevi più se eri Matteo, o il personaggio.
                                 Matteo: Uh, interessante.
                                 Matteo: Prova a parlarne con Greta. Lei sa un sacco di cose strane.
-                                Matteo: Ma se siamo davvero in un loop, allora <joy>vorrei un tuo bacio prima o poi.</joy>
+                                Matteo: Ma se siamo davvero in un loop temporale, allora <joy>vorrei un tuo bacio prima o poi.</joy>
                                 Matteo: Almeno una cosa bella continuerà a ripetersi.
                                     -> advance_time ->
                                     ~ pauseStorylet = true
                                     -> matteo_talking_second_tier
 
                             + + + (loop3) {matteo_talking_second_tier.loop2} [Baci Matteo]
-                                Ettore: Scusa, ma mi hai detto in un altro loop di farlo.
+                                Ettore: Scusa, ma mi hai detto in un altro loop temporale di farlo.
                                 Ettore: Hai detto che almeno sarebbe capitato di nuovo qualcosa di bello.
                                 Matteo: Ok, questa è una cosa che potrei aver davvero detto. Perché <joy>mi piaci da che ti ho visto.</joy>
                                 Matteo: E tu stai cercando di fermare tutto questo?

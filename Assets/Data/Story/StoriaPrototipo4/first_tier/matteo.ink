@@ -309,7 +309,7 @@ Opzioni di dialogo con la persona Matteo
             + Ettore: Sono colpevole di essere qui per scelta.
                 Matteo: Beh, almeno se butta male puoi andartene.
             -
-        Ettore: Ma come mai sei obbligato ad essere qui?
+        Ettore: Ma come mai sei obbligato a essere qui?
         Matteo: Oh, lo siamo un po' tutti, direi.
             -> advance_time ->
         Matteo: Greta è la segretaria di Paola.

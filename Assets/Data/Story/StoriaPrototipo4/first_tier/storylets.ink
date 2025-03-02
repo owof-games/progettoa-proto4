@@ -298,7 +298,7 @@
         Greta: E non dovrei essere io la persona che te lo dice, ma sei un coglione.
         Greta: Sai quante possibilità ci sono che qualcuno possa mai amare un idiota come te?
         Matteo: Ma tu mi vuoi!
-        Greta: Cristo, come fai ad essere così coglione?
+        Greta: Cristo, come fai a essere così coglione?
         Greta: No che non ti voglio. Voglio solo che chiudiamo il nostro accordo, una volta per tutte.
         Matteo: Quindi ora sono libero?
         Greta: Libero di andare a fanculo, sì. Ma non libero dal debito.
@@ -643,7 +643,7 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
     ~ inConversazione += Paola
             
         Paola: <cry>STOP STOP STOP DI NUOVO!</cry>
-        Paola: <cry>GRETA! Ma l'hai dato il taccuino ad Ettore?!?</cry>
+        Paola: <cry>GRETA! Ma l'hai dato il taccuino a Ettore?!?</cry>
             ~ move_first_entity_to_second_entity_location(Greta,Ettore)
         Greta: Io, ehm, no, io...
         Paola: <cry>Daglielo, ora, svampita!</cry>

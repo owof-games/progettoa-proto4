@@ -39,9 +39,9 @@ Opzioni di dialogo con la persona Greta
                 ~ pauseStorylet = true
 
             
-            + + (dejavu) {matteo_talking_second_tier.loop2} Ettore: In realtà pensavo più a dei loop[.], e Matteo crede tu sia la persona giusta con cui parlarne.
+            + + (dejavu) {matteo_talking_second_tier.loop2} Ettore: In realtà pensavo più a dei loop temporali[.], e Matteo crede tu sia la persona giusta con cui parlarne.
                         ~ inConversazione += Greta
-                    Greta: <joy>So tutto sui loop!</joy>
+                    Greta: <joy>So tutto sui loop temporali!</joy>
                     Greta: La mia teoria preferita è che siano seconde possibilità.
                     Greta: Occasioni di non ripetere errori che hai commesso in altri tempi, altre vite.
                     Ettore: E se non ho commesso nulla di male?
@@ -61,7 +61,7 @@ Opzioni di dialogo con la persona Greta
                     Ettore: E se non ci dovessi riuscire?
                     Greta: Beh: hai l'occasione di fare quello che vuoi senza pagarne le conseguenze, perché tanto tutto si resetta.
                     Greta: <joy>Goditela!</joy>
-                    Greta: E se siamo in loop, uccidimi: quante occasioni ci sono di morire due volte?
+                    Greta: E se siamo in un loop temporale, uccidimi: quante occasioni ci sono di morire due volte?
                         -> advance_time ->
                         ~ pauseStorylet = true
                         -> greta_talking_second_tier
@@ -255,7 +255,7 @@ Opzioni di dialogo con la persona Greta
             
             + + Ettore: E qui con cosa la si potrebbe uccidere?
                         ~ inConversazione += Greta
-                Greta: Girl, stai chiedendo ad una appassionata di true crime come commettere un omicidio, in questo posto?
+                Greta: Girl, stai chiedendo a una appassionata di true crime come commettere un omicidio, in questo posto?
                 Greta: Mmm, fammi pensare.
                 Greta: Morte violenta o qualcosa di più subdolo?
                     -> advance_time ->

@@ -143,7 +143,7 @@ Opzioni di dialogo con la persona Zeca
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
             }
-        Zeca: Comunque sì, Matteo ed io ci siamo occupati di tabacco e cibo, ma non abbiamo preparato noi il buffet.
+        Zeca: Comunque sì, Matteo e io ci siamo occupati di tabacco e cibo, ma non abbiamo preparato noi il buffet.
         Zeca: Né io né Matteo abbiamo messo piede nella stanza gialla prima delle prove.
                {
                     - are_two_entities_together(Greta, Zeca): Zeca: Ma il resto te lo dico quando siamo soli.
@@ -356,7 +356,7 @@ Opzioni di dialogo con la persona Zeca
             
     + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Hai comprato tu questa bottiglia di vino?
                 ~ inConversazione += Zeca
-            - - (allestimento3) Zeca: Sì, la boccia l'abbiamo presa Matteo ed io.
+            - - (allestimento3) Zeca: Sì, la boccia l'abbiamo presa Matteo e io.
             Zeca: Mmm, ora che ci penso, non esattamente.
             Ettore: In che senso?
             Zeca: Ufficialmente l'ha comprata Matteo, per quanto fossimo assieme.

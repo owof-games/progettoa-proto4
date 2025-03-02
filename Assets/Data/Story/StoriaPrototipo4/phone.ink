@@ -185,12 +185,15 @@ Chi chiami?
 
 = maiali
         Polizia: Qui è il 112, buonasera.
-        Ettore: Qualcuno è morto, è stato ucciso.
+        {tierState has SecondTier: Ettore: Qualcuno è morto, è stato ucciso.|Ettore: Qualcuno sta per essere ucciso.}
         Polizia: Dove? Chi? Lei è al sicuro?
         Ettore: Non mi ero posto questa domanda.
         Ettore: Hanno ucciso Paola Londar.
         Ettore: Siamo in un, non ho idea di cosa sia.
         Ettore: Al civico 13 di via Quattordici Marzo.
+        Ettore: In un locale dove si fanno le foto per i social.
+        Ettore: Ha le stanze tutte colorate.
+        Ettore: E qualcosa con "fun" nel nome, si vede bene già dalla strada.
         Polizia: Arriviamo subito!
                 -> advance_time ->        
 -> contents

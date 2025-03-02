@@ -59,7 +59,7 @@ VAR notebookPage = 1
 {hardTrueFeelingsStorylet: Matteo: Ettore, non voglio sposarti.#slot-3}
 {hardTrueFeelingsStorylet.ah or hardTrueFeelingsStorylet.mono: Matteo: Amo Greta. Il matrimonio era solo una scusa per farla ingelosire. #slot-4}
 {greta_acting.matteoGreta: Greta: Abbiamo scopato solo una volta, ed ero molto molto molto ubriaca, e Matteo ha perso la testa. #slot-5}
-{weddingAtThePubStorylet.matteoSiSposa or weddingAtThePubStorylet.matteoSiSposa2: Matteo: Elia, non festeggerò mai il mio matrimonio nel tuo bar triste con la tua insopportabile collega! #slot-6}
+{weddingAtThePubStorylet.matteoSiSposa: Matteo: Elia, non festeggerò mai il mio matrimonio nel tuo bar triste con la tua insopportabile collega! #slot-6}
 {marryMeStorylet.matteoSiSposa or marryMeStorylet.matteoSiSposa2: Matteo: Ettore, sei il miglior pacchetto azionario della mia vita, sposami! #slot-7}
 {zeca_acting.matteoGreta: Zeca: Non mi stupirebbe se Greta stesse ricattando Matteo in qualche modo. #slot-8}
 {zeca_acting.matrimonio: Zeca: No. Matteo mi ha detto che ti avrebbe sposato mesi fa, quando ha prenotato il luogo, l'orchestra e mandato gli inviti. #slot-9}
@@ -107,12 +107,14 @@ VAR notebookPage = 1
 {cb_first_tier_antico_pugnale.primoCheck: Un pugnale dall'aria antica, con simboli che non hai mai visto. #slot-2}
 {elia_acting.pugnale:Elia: Matteo era disperato, l'aveva perso da settimane! #slot-3}
 {zeca_acting.pugnale: Zeca: Matteo lo usa in modo <b>ossessivo</b> per pulirsi la soletta delle scarpe! #slot-4}
+{aStrangeKnifeStorylet: Matteo: Ehi, ma quello è il mio antico pugnale sacrificale! #slot-5}
 
     ~ notebookPage = 9
 {cb_first_tier_lettera.primoCheck: <i>Informazioni sulla lettera</i> #slot-1}
 {cb_first_tier_lettera.primoCheck: Con una calligrafia nervosa è stato scritto: <i>So cosa hai fatto e la pagherai!</i>. Non c'è firma. #slot-2}
 {greta_acting.minacce: Greta: Uh, è la calligrafia di Paola. Dove l'hai trovata? #slot-3}
 {elia_acting.minacce:Elia: Sembra una roba da Matteo. Quando è pissato è capace di dire qualunque cosa. #slot-4}
+{matteo_acting.minacce: Matteo: Mettila via, subito! #slot-5}
     
     ~ notebookPage = 10
 

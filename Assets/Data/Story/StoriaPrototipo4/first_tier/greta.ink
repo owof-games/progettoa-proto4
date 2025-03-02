@@ -44,6 +44,7 @@ Opzioni di dialogo con il personaggio Greta
                         -> advance_time ->
                         ~ pauseStorylet = true
                     -> greta_acting
+            
             + + [Cambi argomento]
                 ~ pauseStorylet = true
                 -> greta_acting
@@ -71,7 +72,7 @@ Opzioni di dialogo con il personaggio Greta
     //SCELTE CONDIZIONALI//
     
     //Se Greta ci ha dato la missione, ma in un loop precedente e ancora Elia e Greta non si sono parlati
-    + (elia) {omicidio && new_this_loop(->omicidio) && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta && not seen_in_this_loop(->elia)} Ettore: So che vuoi parlare con Elia, ma ancora non l'ho convinto.
+    + (elia) {omicidio && new_this_loop(->omicidio) && (not are_two_entities_together(Greta, Elia)) && (loopableVariables hasnt EliaRaggiungeGreta) && (not seen_in_this_loop(->elia))} Ettore: So che vuoi parlare con Elia, ma ancora non l'ho convinto.
             Greta: Mi stupisce: quel ragazzo {~ha il cervello di un pesce bollito|ha smesso di ragionare nel novantasei|ha un unico neurone, ed è disperso dall'undici settembre|crede che la noce moscata sia un insetto}, non deve essere difficile!
             
     + (elia2){elia_acting.senzatetto && new_this_loop(->elia2) && loopableVariables has EliaRaggiungeGreta} Ettore: Elia dice che ce l'avevi con Paola per dei senzatetto.
@@ -96,10 +97,13 @@ Opzioni di dialogo con il personaggio Greta
                  ~ inConversazione += Greta
             Ettore: Mi ha scaricato, vuole sposare te.
             Greta: Uh, questa mi è nuova.
+            {are_two_entities_together(Greta, Matteo): Matteo: Ettore, non direi i cazzi miei in giro.}
+            {are_two_entities_together(Greta, Matteo): Greta: Zitto tu, facciamo i conti dopo.}
             Ettore: Quindi non è vero che avete fatto sesso?
             Greta: Non ho detto questo.
             Greta: Abbiamo scopato solo una volta, ed ero molto molto molto ubriaca, e Matteo ha perso la testa.
             Greta: A un certo punto pensavo fosse mio padre.
+            {are_two_entities_together(Greta, Matteo): Matteo: Oh. Mio. Dio.}
             Greta: Scusa, un po' di daddy issues li abbiamo tutti, <hesitate>no?
                     -> advance_time ->
             Greta: Cioè, anche tu a uscire con Matteo, che ha ottant'anni da quando andava all'asilo.
@@ -112,19 +116,40 @@ Opzioni di dialogo con il personaggio Greta
                 - -
             Greta: Te la butto lì: fatti dare un indennizzo, tanto i nonni sono pieni di soldi.
             Greta: E facciamoci tre settimane in Messico a sperimentare un po' di <joy>allucinogeni</joy>.
-            Greta: Comunque, nel dubbio, due chiacchiere con lui le faccio appena capita.
+                ~ pauseStorylet = true
+                    -> advance_time ->
+    
+    + (matteoGreta2) {itsOverisntItStorylet && greta_acting.matteoGreta && new_this_loop(->matteoGreta2)} Ettore: Cos'è questa storia del debito con Matteo?
+            Greta: Dopo quello che ti ha fatto, lo difendi?
+            Greta: Comunque nulla di che.
+            Greta: Sesso, ricatti, corpi alieni nel bagagliaio della macchina.
+            Greta: E tutte le cazzate che posso tirarti per allontanarti da qui.
+            Greta: Ne vuoi altre?
                 ~ pauseStorylet = true
                     -> advance_time ->
         
-        + (zecaAlcool) {new_this_loop(-> zecaAlcool) && zeca_acting.matteoGreta} Ettore: Zeca dice che stai ricattando Matteo.
-            Greta: Gliel'ha detto la bottiglia di vodka?
-            Greta: O quella di rhum.
-            Greta: Ah, no, lo so: i funghetti con cui ha strippato due anni fa.
-            Greta: Zeca vede il male ovunque.
-            Greta: Ma è solo il suo.
+        
+    + (zecaAlcool) {new_this_loop(-> zecaAlcool) && zeca_acting.matteoGreta} Ettore: Zeca dice che stai ricattando Matteo.
+        Greta: Gliel'ha detto la bottiglia di vodka?
+        Greta: O quella di rhum.
+        Greta: Ah, no, lo so: i funghetti con cui ha strippato due anni fa.
+        Greta: Zeca vede il male ovunque.
+        Greta: Ma è solo il suo.
+            ~ pauseStorylet = true
+                -> advance_time ->
+    
+    + (EliaGreta) {anEavesdropAboutFriendshipStorylet && new_this_loop(-> EliaGreta)} Ettore: Mi spiace che sei stata senza casa per un po'.
+        Greta: SAPEVO CHE QUALCUNO CI STAVA ASCOLTANDO!
+        Greta: Ma non c'è nulla di vero.
+        Ettore: Hai mentito così, spudoratamente?
+        Greta: Il mio motto è: o menti, o muori.
+        Greta: E poi c'è del vero in ogni bugia.
+        Greta: Ad esempio: se non mi libero dell'influenza che Paola ha su Elia, presto o tardi resterò senza lavoro.
                 ~ pauseStorylet = true
-                    -> advance_time ->
+                -> advance_time ->
 
+    
+    
     //SCELTE CONDIZIONALI OGGETTI//
     + (minacce) {inventoryContents has Lettera && new_this_loop(->minacce)} Ettore: Sai da dove viene questa lettera?
         Greta: <fear>La calligrafia è di Paola</fear>. Dove l'hai trovata?

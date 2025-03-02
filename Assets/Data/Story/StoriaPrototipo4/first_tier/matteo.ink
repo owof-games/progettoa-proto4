@@ -102,7 +102,17 @@ Opzioni di dialogo con il personaggio Matteo
                 ~ pauseStorylet = true
                     -> matteo_acting 
         
-            
+    + (matteoGreta2) {itsOverisntItStorylet && greta_acting.matteoGreta && new_this_loop(->matteoGreta2)} Ettore: Cos'è questa storia del debito con Greta?
+            Matteo: <rage>Come lo sai?!?!</rage>
+            Matteo: Non è nulla di che.
+            Matteo: Greta aveva bisogno di soldi per aprire il pub.
+            Matteo: Io non glieli volevo dare.
+            Matteo: Lei ha investigato sul mio passato per ricattarmi.
+            Matteo: E ha scoperto che mio padre in realtà è...
+            Matteo: Ma perché te lo sto dicendo? Manco stiamo più assieme! 
+            Matteo: Vattene, va!
+                ~ pauseStorylet = true
+                    -> advance_time ->        
         
     //SCELTE CONDIZIONALI OGGETTI//
     + (pugnale) {inventoryContents has AnticoPugnale && new_this_loop(->pugnale)} Ettore: Hai mai visto questo pugnale?
@@ -199,6 +209,7 @@ Opzioni di dialogo con il personaggio Matteo
 
     = first_qn
     ~ MatteoActing++
+    
             Ettore: Come posso tirarti su il morale, Matteo?
             Matteo: Un pompino in bagno?
             Ettore: Non credo sia il caso.
@@ -215,6 +226,7 @@ Opzioni di dialogo con il personaggio Matteo
 
     = second_qn
      ~ MatteoActing++
+     
             Ettore: Non mi parli mai molto della tua famiglia, come mai?
             Matteo: Ovvio: sono tutti invidiosi.
             Matteo: Zeca è un fallito e pensa solo a chiedermi prestiti.
@@ -230,6 +242,7 @@ Opzioni di dialogo con il personaggio Matteo
 
     = third_qn
     ~ MatteoActing++
+    
         Matteo: Ti ricordi la sera in cui ci siamo conosciuti?
         Ettore: E come potrei dimenticarla? Pensavo sarebbe stato un semplice colloquio di lavoro, ed eccoci quì.
         Matteo: Sai qual è stata la prima cosa che ho pensato quando ti ho visto entrare?

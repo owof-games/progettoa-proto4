@@ -197,10 +197,15 @@
         Elia: Una volte c'è venuta anche Antonella Elia!
         Matteo: No. Ho già prenotato al Superbo Castello dei Conti de Viscontinis.
         Elia: Ma non facciamo mai nulla in famiglia, mai!
-        + (matteoSiSposa) Ettore: Amore, Elia ha ragione.
-            Ettore: Non è meglio restare in famiglia?
-        + (matteoSiSposa2) Ettore: Elia, ehm, perdonami[...],ma Matteo mi ha raccontato che avete letteralmente una famiglia stabile di blatte nel pub.
-        -
+        Elia: Festeggiate il vostro matrimonio da me!
+        Elia: Ettore, diglielo che sarebbe bellissimo festeggiare al pub!
+        Elia: Ci sono anche i <joy>comici</joy>
+        Matteo: Dio santissimo, i comici!
+        
+            + Ettore: Amore, Elia ha ragione.
+                Ettore: Non è meglio restare in famiglia?
+            + Ettore: Elia, ehm, perdonami[...],ma Matteo mi ha raccontato che avete letteralmente una famiglia stabile di blatte nel pub.
+        - (matteoSiSposa)
             Matteo: Elia, non festeggerò mai il mio matrimonio nel tuo bar triste con la tua insopportabile collega!
             Matteo: Questa è la cosa peggiore che potrebbe capitarmi, ed è il <b>mio</b> matrimonio, capito?!?
             Elia: <rage>Sei<waitrage> uno<waitrage> stronzo!</rage>
@@ -226,22 +231,23 @@
             + {anEavesdropAboutFriendshipStorylet > 1} [Resti]
             + ->
             -
-        Elia: <i>Come hai fatto con Paola. Per via dei senzatetto e del pub!</i>
-        Greta: <i>Elia. Credi davvero che. Oh, lascia che ti spieghi una cosa.</i>
-        Greta: <i>Prima che le nostre madri si fidanzassero, sono stata povera.</i>
-        Greta: <i>Papà era un influencer, ma dopo lo scandalo del torrone ha perso followers e non ha saputo più come affrontare la realtà.</i>
-        Greta: <i>E così papà ed io abbiamo vissuto per mesi per strada.</i>
-        
+        Elia: Come hai fatto con Paola. Per via dei senzatetto e del pub!
+        Greta: Elia. Credi davvero che. Oh, lascia che ti spieghi una cosa.
+        Greta: Prima che le nostre madri si fidanzassero, sono stata povera.
+        Greta: Papà era un influencer, ma dopo lo scandalo del torrone ha perso followers e non ha saputo più come affrontare la realtà.
+        Greta: E così papà ed io abbiamo vissuto per mesi per strada.
             -> advance_time ->
-        Greta: <i>Me ne sono sempre vergognata così tanto, sai?</i>
-        Greta: <i>Mesi e mesi a vedere le persone passarci davanti.</i>
-        Greta: <i>A spiare dentro la nostra roulotte.</i>
-        Greta: <i>A farci commenti spietati sul colore della carrozzeria.</i>
-        Greta: <i>Una volta<hesitate> ho dovuto persino rinunciare a una borsetta Hermes.</i>
-        Elia: <i>Deve essere stato tremendo.</i>
-        Greta: <i>Non ne hai idea. E per questo ora non voglio rivivere quel trauma.</i>
-        Greta: <i>Non posso aver contatto con altri senzatetto puzzolenti, mi capisci Elia, vero?</i>
-        Elia: <i>Io. No, ma sarò sempre dalla tua parte Greta, promesso!</i>
+            
+        Greta: Me ne sono sempre vergognata così tanto, sai?
+        Greta: Mesi e mesi a vedere le persone passarci davanti.
+        Greta: A spiare dentro la nostra roulotte.
+        Greta: A farci commenti spietati sul colore della carrozzeria.
+        Greta: Una volta<hesitate> ho dovuto persino rinunciare a una borsetta Hermes.
+        Elia: Deve essere stato tremendo.
+        Greta: Non ne hai idea. E per questo ora non voglio rivivere quel trauma.
+        Greta: Non posso aver contatto con altri senzatetto puzzolenti, mi capisci Elia, vero?
+        Elia: Io. No, ma sarò sempre dalla tua parte Greta, promesso!
+        
                 -> advance_time ->
                 ~ pauseStorylet = true
             -> intro
@@ -252,19 +258,19 @@
 
 === itsOverisntItStorylet
     Greta: <rage>Co<waitrage>glio<waitrage>ne</rage>.
-    Greta: <i>Cosa cazzo vai in giro a dire che staremo assieme?</i>
-    Greta: <i>Matteo, sei un coglione infinito.</i>
+    Greta: Cosa cazzo vai in giro a dire che staremo assieme?
+    Greta: Matteo, sei un coglione infinito.
         + {itsOverisntItStorylet > 1} [Ti allontani.]
             ~ pauseStorylet = true
             -> intro
         + {itsOverisntItStorylet > 1} [Resti.]
         + ->
         -
-    Matteo: <i>Non è quello che ti piace di me?</i>
-    Greta: <i>No, non mi piace nulla di te, Matteo.</i>
-    Greta: <i>A parte i soldi, ma sappiamo benissimo che non sono tuoi.</i>
-    Matteo: <i>Ma quella scopata, dimmi che non è stata la scopata del secolo.</i>
-    Greta: <i>Al massimo, del secondo.</i>
+    Matteo: Non è quello che ti piace di me?
+    Greta: No, non mi piace nulla di te, Matteo.
+    Greta: A parte i soldi, ma sappiamo benissimo che non sono tuoi.
+    Matteo: Ma quella scopata, dimmi che non è stata la scopata del secolo.
+    Greta: Al massimo, del secondo.
            -> advance_time ->
     {
         - greta_acting.loVoglio: -> perEttore
@@ -273,31 +279,31 @@
     }
 
     = perEttore
-        Greta: <i>Ascoltami. Non so come sia possibile, ma quel disgraziato di Ettore ti ama ancora.
-        Greta: <i>E credo sia pronto a perdonarti.</i>
-        Greta: <i>Per cui vedi di fare qualcosa e andare da lui, ora, e facci la pace.</i>
-        Matteo: <i>Quindi posso ritenere il nostro debito saldato?</i>
-        Greta: <i>Oh no, piccolo animaletto da compagnia. Assolutamente no.</i>
-        Matteo: <i>Ma col matrimonio...</i>
-        Greta: <i>Pensi davvero che avrei accettato?</i>
-        Greta: <i>Ora vai a fare qualcosa di buono nella tua vita, su.</i>
-        Greta: <i>Io vado a lavarmi le orecchie da questa conversazione.</i></i>
+        Greta: Ascoltami. Non so come sia possibile, ma quel disgraziato di Ettore ti ama ancora.
+        Greta: E credo sia pronto a perdonarti.
+        Greta: Per cui vedi di fare qualcosa e andare da lui, ora, e facci la pace.
+        Matteo: Quindi posso ritenere il nostro debito saldato?
+        Greta: Oh no, piccolo animaletto da compagnia. Assolutamente no.
+        Matteo: Ma col matrimonio...
+        Greta: Pensi davvero che avrei accettato?
+        Greta: Ora vai a fare qualcosa di buono nella tua vita, su.
+        Greta: Io vado a lavarmi le orecchie da questa conversazione.
                 ~ move_this_entity_in_a_different_room(Greta)
                 -> advance_time ->
                 ~ pauseStorylet = true
             -> intro
     
     =poveroEttore
-        Greta: <i>Hai spezzato il cuore di un poveretto.</i>
-        Greta: <i>E non dovrei essere io la persona che te lo dice, ma sei un coglione.</i>
-        Greta: <i>Sai quante possibilità ci sono che qualcuno possa mai amare un idiota come te?</i>
-        Matteo: <i>Ma tu mi vuoi!</i>
-        Greta: <i>Cristo, come fai ad essere così coglione?</i>
-        Greta: <i>No che non ti voglio. Voglio solo che chiudiamo il nostro accordo, una volta per tutte.</i>
-        Matteo: <i>Quindi ora sono libero?</i>
-        Greta: <i>Libero di andare a fanculo, sì. Ma non libero dal debito.</i>
-        Greta: <i>Fatti una pugnetta, rilassati, e pensa a come darmi quel che mi spetta, coglione.</i>
-        Greta: <i>E stammi lontano.</i>
+        Greta: Hai spezzato il cuore di un poveretto.
+        Greta: E non dovrei essere io la persona che te lo dice, ma sei un coglione.
+        Greta: Sai quante possibilità ci sono che qualcuno possa mai amare un idiota come te?
+        Matteo: Ma tu mi vuoi!
+        Greta: Cristo, come fai ad essere così coglione?
+        Greta: No che non ti voglio. Voglio solo che chiudiamo il nostro accordo, una volta per tutte.
+        Matteo: Quindi ora sono libero?
+        Greta: Libero di andare a fanculo, sì. Ma non libero dal debito.
+        Greta: Fatti una pugnetta, rilassati, e pensa a come darmi quel che mi spetta, coglione.
+        Greta: E stammi lontano.
             ~ move_this_entity_in_a_different_room(Greta)
             -> advance_time ->    
             ~ pauseStorylet = true
@@ -440,7 +446,6 @@ PS: ricordarsi di resettare la variabile al reset_loop
             Ettore: Oh sì, sì, sì! Accetto!
             Matteo: Oh, sono così felice Ettore!
             Matteo: Ti va di fare quella fusione, ora?
-            Ettore: Chiudi i pantaloni, futuro marito.
                      -> advance_time ->
                      ~ pauseStorylet = true
                 -> intro

@@ -55,8 +55,9 @@ Opzioni di dialogo con il personaggio Elia
     //SCELTE CONDIZIONALI//
 
     //Questa è la prima interazione sul tema ed è accessibile fino a quando non ho Wedding At The Pub Storylet
-    + (senzatetto){greta_acting.omicidio && not weddingAtThePubStorylet && new_this_loop(->senzatetto) && not are_two_entities_together(Greta, Elia) && new_this_loop(-> uniti)} Ettore: Sai Elia, Greta vorrebbe parlare con te.
+    + (senzatetto){greta_acting.omicidio && (not weddingAtThePubStorylet) && new_this_loop(->senzatetto) && (not are_two_entities_together(Greta, Elia)) && new_this_loop(-> uniti)} Ettore: Sai Elia, Greta vorrebbe parlare con te.
         Elia: Così può uccidere anche me?
+        
         + + Ettore: In che senso?
             Elia: Chi altri avrebbe potuto uccidere Paola?
             Elia: Paola voleva rilevare il pub per trasformarlo in un rifugio per senzatetto.
@@ -84,11 +85,11 @@ Opzioni di dialogo con il personaggio Elia
                 ~ pauseStorylet = true
                 -> advance_time ->   
     
-    + {not new_this_loop(->uniti) && elia_acting.uniti && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Sto ancora cercando il modo di convincere Matteo, ma ce la farò!
+    + {(not new_this_loop(->uniti)) && elia_acting.uniti && (not are_two_entities_together(Greta, Elia)) && loopableVariables hasnt EliaRaggiungeGreta && (not hardTrueFeelingsStorylet.ah or hardTrueFeelingsStorylet.mono)} Ettore: Sto ancora cercando il modo di convincere Matteo, ma ce la farò!
             Elia: Non ho fretta di morire, tranquillo!
 
   
-    + (sincero) {(hardTrueFeelingsStorylet.ah or hardTrueFeelingsStorylet.mono) && not are_two_entities_together(Greta, Elia) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Matteo mi ha detto di lui e di Greta.
+    + (sincero) {(hardTrueFeelingsStorylet.ah or hardTrueFeelingsStorylet.mono) && (not are_two_entities_together(Greta, Elia)) && loopableVariables hasnt EliaRaggiungeGreta} Ettore: Matteo mi ha detto di lui e di Greta.
             ~ inConversazione += Elia
             Elia: Merda, mi spiace. Per questo volevo fare il matrimonio al pub.
             Elia: Sapevo da tempo che Matteo provava qualcosa per Greta, ma non sapevo come dirtelo!
@@ -97,7 +98,6 @@ Opzioni di dialogo con il personaggio Elia
                 ~ pauseStorylet = true
                 -> advance_time ->
             
-            ~ move_entity_from_object_storage_to_Ettore_location(SpiedinoCocktail)
             + + {whiteRoomContents hasnt Ettore} Ettore: Ti aspetta nella stanza bianca.
                 ~ move_entity(Elia, WhiteRoom)
                 {
@@ -105,6 +105,7 @@ Opzioni di dialogo con il personaggio Elia
                 ~ loopableVariables += EliaRaggiungeGreta
                 }
                     -> intro
+                    
             + + {greenRoomContents hasnt Ettore} Ettore: La trovi nella stanza verde.
                 ~ move_entity(Elia, GreenRoom)
                 {
@@ -112,6 +113,7 @@ Opzioni di dialogo con il personaggio Elia
                 ~ loopableVariables += EliaRaggiungeGreta
                 }
                     -> intro
+                    
             + + {yellowRoomContents hasnt Ettore} Ettore: Sta cazzeggiando nella stanza gialla.              
                 ~ move_entity(Elia, YellowRoom)
                 {
@@ -119,6 +121,7 @@ Opzioni di dialogo con il personaggio Elia
                 ~ loopableVariables += EliaRaggiungeGreta
                 }
                     -> intro
+                    
             + + {redRoomContents hasnt Ettore} Ettore: Nella stanza rossa.             
                 ~ move_entity(Elia, RedRoom)
                 {
@@ -359,6 +362,7 @@ Opzioni di dialogo con la persona Elia
     = first_qn
     ~ EliaTalking++
             ~ inConversazione += Elia
+        
         Elia: Mi scusi, ha visto Zeca?
         Ettore: Non mi dare del lei, dammi pure del tu.
         Elia: Ha ragione. Mi scusi, <i>tu</i> ha visto Zeca?
@@ -392,6 +396,7 @@ Opzioni di dialogo con la persona Elia
     = second_qn
      ~ EliaTalking++
              ~ inConversazione += Elia
+        
         Ettore: Che fai di bello nella vita, Elia?
         Elia: <joy>Sono felice che abbia notato che sono bello!</joy>
         Ettore: Non è quello che...
@@ -434,6 +439,7 @@ Opzioni di dialogo con la persona Elia
     = third_qn
     ~ EliaTalking++
             ~ inConversazione += Elia
+        
         Elia: Sono così orgoglioso di mia sorella!
         Ettore: Hai una sorella?
         Elia: In che senso "Hai una sorella?"?
@@ -447,7 +453,7 @@ Opzioni di dialogo con la persona Elia
         Elia: Uh, scusa. A volte è tutto così confuso.
         Ettore: Ricominciamo. Sei orgoglioso di tua sorella, e tua sorella è Paola.
         Elia: E come lo sai?
-        Ettore: Me l'hai detto poco fa.
+        Ettore: Me l'hai detto prima!
         Elia: <fear>Sei uno di quelli? Un telepratico?</fear>
         Elia: Zeca dice che una volta un telepratico le ha sistemato un dolore alla spalla che si portava da anni.
             -> advance_time ->

@@ -348,7 +348,7 @@ Opzioni di dialogo con la persona Elia
  {debug: <i>Passo per elia_talking</i>}
     //INFO GENERALI//
     + [Conosci meglio Elia] -> esplora_elia
-    + [Te ne vai] -> intro
+    + [Lasci la conversazione] -> intro
     -
     
     -> elia_talking

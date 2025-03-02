@@ -99,7 +99,7 @@ Opzioni di dialogo con il personaggio Greta
                 ~ pauseStorylet = true
                 -> greta_acting
      
-     + (matteoGreta) {hardTrueFeelingsStorylet.matteoGreta && new_this_loop(->matteoGreta)} Ettore: Quindi, Matteo ti ama?
+    * (matteoGreta) {hardTrueFeelingsStorylet.matteoGreta && new_this_loop(->matteoGreta)} Ettore: Quindi, Matteo ti ama?
                  ~ inConversazione += Greta
             Ettore: Mi ha scaricato, vuole sposare te.
             Greta: Uh, questa mi è nuova.
@@ -111,8 +111,6 @@ Opzioni di dialogo con il personaggio Greta
             Greta: A un certo punto pensavo fosse mio padre.
             {are_two_entities_together(Greta, Matteo): Matteo: Oh. Mio. Dio.}
             Greta: Scusa, un po' di daddy issues li abbiamo tutti, <hesitate>no?
-                    
-                    -> advance_time ->
             Greta: Cioè, anche tu a uscire con Matteo, che ha ottant'anni da quando andava all'asilo.
             Greta: Ma no, niente amore, mai.
             Greta: Greta ama solo due cose: psilocibina e Kesha.
@@ -121,6 +119,7 @@ Opzioni di dialogo con il personaggio Greta
                 + + (loVoglio)Ettore: Sì, è l'uomo giusto per me.
                 + + Ettore: No, te lo puoi tenere.
                 - -
+                    -> advance_time ->
             Greta: Te la butto lì: fatti dare un indennizzo, tanto i nonni sono pieni di soldi.
             Greta: E facciamoci tre settimane in Messico a sperimentare un po' di <joy>allucinogeni</joy>.
                 -> advance_time ->
@@ -238,7 +237,7 @@ Opzioni di dialogo con il personaggio Greta
 
     + [Chiedi a Greta di raccontarti qualcosa di sè]
         -> esplora_greta_personaggia
-    + [Te ne vai]
+    + [Lasci la conversazione]
         -> intro
       
 
@@ -317,7 +316,7 @@ Opzioni di dialogo con la persona Greta
  ~ move_locked_entities(false)
     //INFO GENERALI//
     + [Fai una chiacchierata con Greta] -> esplora_greta
-    + [Te ne vai] -> intro
+    + [Lasci la conversazione] -> intro
     -
     
     -> greta_talking

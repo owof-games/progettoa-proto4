@@ -189,7 +189,7 @@ Opzioni di dialogo con il personaggio Zeca
     
     + [Chiedi a Zeca di raccontarti qualcosa di sè]
         -> esplora_zeca_personaggia
-    + [Te ne vai]
+    + [Lasci la conversazione]
         -> intro
     -
 ->->
@@ -270,7 +270,7 @@ Opzioni di dialogo con la persona Zeca
     + [Scambia due parole con Zeca]
     -> esplora_zeca
       
-    + [Te ne vai]
+    + [Lasci la conversazione]
     -> intro
     -
     

@@ -275,7 +275,7 @@ Opzioni di dialogo con la persona Matteo
 
     + [Chiacchiera con Matteo]
         -> esplora_matteo
-    + [Te ne vai]
+    + [Lasci la conversazione]
         -> intro
     -
     

@@ -188,7 +188,7 @@ Opzioni di dialogo con il personaggio Matteo
       
     + [Chiedi a Matteo di raccontarti qualcosa di sè]
         -> esplora_matteo_personaggia
-    + [Te ne vai]
+    + [Lasci la conversazione]
         -> intro
     -
 ->->

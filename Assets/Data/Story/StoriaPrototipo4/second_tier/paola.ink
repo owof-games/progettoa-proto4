@@ -246,7 +246,7 @@ Opzioni di dialogo con la persona Paola
 
     + [Fai domande sulla persona Paola]
         -> esplora_paola
-    + [Te ne vai]
+    + [Lasci la conversazione]
         -> intro
     -
     

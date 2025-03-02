@@ -35,7 +35,7 @@ Opzioni di dialogo con la persona Paola
  ~ move_locked_entities(false)
     //INFO GENERALI//
     + [Conosci meglio Paola] -> esplora_paola
-    + [Te ne vai]
+    + [Lasci la conversazione]
     -> intro
     -
     

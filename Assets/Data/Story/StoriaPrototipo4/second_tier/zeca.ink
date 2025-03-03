@@ -24,7 +24,9 @@ Opzioni di dialogo con la persona Zeca
  {debug: <i>Passo per zeca_talking_second_tier</i>}
  {loopableVariables has pausaRapportoZeca: Zeca: Ma stammi lontano, cafone! -> intro.}
     //INFO GENERALI//
-    + (loop) {new_this_loop(->loop)} Ettore: Zeca, non hai notato cose strane negli ultimi minuti?
+    + (loop) {new_this_loop(->loop)}
+    [{Chiedigli se ha notato qualcosa di strano.|Richiedigli se ha notato qualcosa di strano.}]    
+        Ettore: Zeca, non hai notato cose strane negli ultimi minuti?
             ~ inConversazione += Zeca
         Zeca: Tipo?
             + {loop > 1} [Interrompi la conversazione.]
@@ -84,7 +86,9 @@ Opzioni di dialogo con la persona Zeca
                 ~ pauseStorylet = true
                 -> zeca_talking_second_tier
 
-    + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Tu e Paola andate d'accordo?
+    + (rapportoPaola) {new_this_loop(->rapportoPaola)}
+    [{Chiedigli del suo rapporto con Paola.|Richiedigli del suo rapporto con Paola.}]
+        Ettore: Tu e Paola andate d'accordo?
                 ~ inConversazione += Zeca
         Zeca: Non mi dispiace, ma non ci pigliamo.
         Zeca: Lei è un po' troppo bossy, non so se ci capiamo.
@@ -106,9 +110,11 @@ Opzioni di dialogo con la persona Zeca
         {are_two_entities_together(Zeca, Paola): Paola: Io ci sto.}
             ~ pauseStorylet = true
             
-            + + [Cambi argomento] -> zeca_talking_second_tier
+            + + [Cambia argomento.] -> zeca_talking_second_tier
 
-    + (omicidio) {new_this_loop(->omicidio)} Ettore: Secondo te qualcuno potrebbe volere del male a Paola?
+    + (omicidio) {new_this_loop(->omicidio)}
+    [{Chiedigli se qualcuno potrebbe fare male a Paola.|Richiedigli se qualcuno potrebbe fare male a Paola.}]
+        Ettore: Secondo te qualcuno potrebbe volere del male a Paola?
                {
                     - are_two_entities_together(Paola, Zeca): Zeca: Sono così scemo da risponderti mentre è qui?
                          ~ pauseStorylet = true
@@ -134,7 +140,9 @@ Opzioni di dialogo con la persona Zeca
 
 
     //SCELTE CONDIZIONALI//
-    + (allestimento4) {notABigSecretPartTwoStorylet.allestimento && new_this_loop(->allestimento4)} Ettore: Zeca, ho una domanda sul buffet e su chi se ne è occupato.
+    + (allestimento4) {notABigSecretPartTwoStorylet.allestimento && new_this_loop(->allestimento4)}
+        [{Chiedigli chi si è occupato del buffet.|{elia_talking_second_tier.allestimento: Digli che la sua versione e quella di Elia sull'allestimento non combaciano|Richiedigli chi si è occupato del buffet.}}]
+        Ettore: Zeca, ho una domanda sul buffet e su chi se ne è occupato.
                 ~ inConversazione += Zeca
         Zeca: Ecco che torna a fare domande.
             + + {allestimento4 > 1} [Interrompi la conversazione.]
@@ -186,54 +194,58 @@ Opzioni di dialogo con la persona Zeca
                                  ~ pauseStorylet = true
                                     -> zeca_talking_second_tier
                         } 
-                    - - - (allestimento2) Zeca: Forse era Paola col suo vibratore a saltellare sul tavolo del buffet. Una elder millenial sicuro che ne ha sempre uno con sé.
+                        - - - (allestimento2) Zeca: Forse era Paola col suo vibratore a saltellare sul tavolo del buffet. Una elder millenial sicuro che ne ha sempre uno con sé.
                     Zeca: Anche se non ho sentito il solito puzzo di cesso delle sue sigarette elettroniche.
                         -> advance_time ->
                         ~ pauseStorylet = true
                         -> zeca_talking_second_tier
                 
-                + + {paola_talking_second_tier.allestimento} Ettore: Paola dice di aver sentito litigare te e Matteo nella stanza gialla.
-               {
-                    - are_two_entities_together(Paola, Zeca): Zeca: Se vuoi vivere, continua questo discorso quando lei non è qui.
-                         ~ pauseStorylet = true
-                            -> zeca_talking_second_tier
-                }                 
-                    Ettore: Ma prima hai detto di non essere mai entrato nella stanza gialla prima delle prove.
-                    Zeca: <hesitate>Oh va bene, mi hai colto in flagrante.
-                    Zeca: Tira fuori le manette e <joy>sculacciami</joy> perché sono un bimbo cattivo.
-                    Zeca: Ho mentito.
-                    Zeca: PERO'. PERO'.
-                    Zeca: Non ti sei chiesto il perché, Sherlock?
-                    Zeca: <rage>È perché non sono cazzi tuoi.</rage>
-                        -> advance_time ->
-                                                {
-            - currentTime >= 600:
-            -> paolaIsDeadStorylet    
- 
-            }
-                    Zeca: Gli amici litigano.
-                    Zeca: Gli amici fanno la pace.
-                    Zeca: Gli sconosciuti litigano.
-                    Zeca: Gli sconosciuti NON fanno la pace.
-                    Zeca: Non so se ci siamo capiti.
-                       + + + {matteo_talking_second_tier.allestimento} Ettore: Quando ho detto la stessa cosa a Matteo, è corso a cercarti.
-                            Zeca: E ci siamo trovati, e ora va tutto bene.
-                       + + + Ettore: Forte e chiaro.
-                      
-                    Zeca: Bene. Ora lasciami nel mio silenzio a odiare te e il resto del mondo, grazie.
-                            -> advance_time ->
-                            ~ pauseStorylet = true
-                            -> zeca_talking_second_tier
                 + + Ettore: Ehm, no, niente di utile, no.
                     Zeca: Come sempre, insomma.
                         -> advance_time ->
                         ~ pauseStorylet = true
                         -> zeca_talking_second_tier
     
+    + (paolaAllestimento) {paola_talking_second_tier.allestimento && new_this_loop(->paolaAllestimento)}
+    [{Digli che Paola ha sentito qualcuno litigare.|Ridigli che Paola ha sentito qualcuno litigare.}]
+        Ettore: Paola dice di aver sentito litigare te e Matteo nella stanza gialla.
+            {
+            - are_two_entities_together(Paola, Zeca): Zeca: Se vuoi vivere, continua questo discorso quando lei non è qui.
+                 ~ pauseStorylet = true
+                    -> zeca_talking_second_tier
+            }                 
+            Ettore: Ma prima hai detto di non essere mai entrato nella stanza gialla prima delle prove.
+            Zeca: <hesitate>Oh va bene, mi hai colto in flagrante.
+            Zeca: Tira fuori le manette e <joy>sculacciami</joy> perché sono un bimbo cattivo.
+            Zeca: Ho mentito.
+            Zeca: PERO'. PERO'.
+            Zeca: Non ti sei chiesto il perché, Sherlock?
+            Zeca: <rage>È perché non sono cazzi tuoi.</rage>
+            -> advance_time ->
+                {
+                - currentTime >= 600:
+                -> paolaIsDeadStorylet    
+            
+                }
+            Zeca: Gli amici litigano.
+            Zeca: Gli amici fanno la pace.
+            Zeca: Gli sconosciuti litigano.
+            Zeca: Gli sconosciuti NON fanno la pace.
+            Zeca: Non so se ci siamo capiti.
+                + + {matteo_talking_second_tier.allestimento} Ettore: Quando ho detto la stessa cosa a Matteo, è corso a cercarti.
+                    Zeca: E ci siamo trovati, e ora va tutto bene.
+                + + Ettore: Forte e chiaro.
+                    Zeca: Bene. Ora lasciami nel mio silenzio a odiare te e il resto del mondo, grazie.
+                - -    
+                    -> advance_time ->
+                    ~ pauseStorylet = true
+                    -> zeca_talking_second_tier
 
-    + (love){zeca_talking_second_tier.omicidio && new_this_loop(->love)} Ettore: Zeca, prima hai detto che faresti di tutto per Elia.
+    + (love){zeca_talking_second_tier.omicidio && new_this_loop(->love)}
+    [{Indaga il suo rapporto con Elia.|{paola_talking_second_tier.money && (not love2): Digli che Paola sostiene che tenga ad Elia per i soldi| {trueLoveStorylet && (not love3): Chiedigli come sta ora che Elia ha dichiarato il suo amore|Richiedigli che rapporto ha con Elia.}}}]
+        Ettore: Zeca, prima hai detto che faresti di tutto per Elia.
         
-        + + (love2){paola_talking_second_tier.money && new_this_loop(->love2)} Ettore: Secondo Paola, è perché i tuoi soldi provengono da Elia.
+        + + (love2){paola_talking_second_tier.money} Ettore: Secondo Paola, è perché i tuoi soldi provengono da Elia.
                     ~ inConversazione += Zeca
             Zeca: Al massimo è il contrario.
             Zeca: Prima della nostra collab Elia proponeva foto a sciampiste su Grindr.
@@ -293,23 +305,6 @@ Opzioni di dialogo con la persona Zeca
                     ~ pauseStorylet = true
                     -> zeca_talking_second_tier
 
-        + + (love4){(elia_talking_second_tier.indagini2 or greta_talking_second_tier.indagini) && not are_two_entities_together(Elia, Zeca)} Ettore: Sapevi che Paola vuole estromettere Elia dalla Londar?
-                {
-                    - are_two_entities_together(Paola, Zeca): Zeca: Chiedimelo quando siamo soli.
-                         ~ pauseStorylet = true
-                            -> zeca_talking_second_tier
-                }        
-            Zeca: <rage> Quindi lo sta per fare davvero? La stronza!</rage>
-            Ettore: Ed Elia non l'ha presa bene. Se provo a parlargli della cosa, mette la musica a manetta e non mi ascolta.
-            Zeca: Ok, ci penso io.
-            Zeca: Povero stupido bimbo.
-            Zeca: Povero.
-            Zeca: Stupido.
-            Zeca: <joy>Bimbo.</joy>      
-                    -> advance_time ->
-                    ~ pauseStorylet = true
-                    -> zeca_talking_second_tier
-        
         + + Ettore: Anche uccidere Paola?
                     {
                     - are_two_entities_together(Paola, Zeca): Zeca: Chiedimelo quando siamo soli.
@@ -333,7 +328,28 @@ Opzioni di dialogo con la persona Zeca
                                     -> advance_time ->
                                     ~ pauseStorylet = true
                                     -> zeca_talking_second_tier
+                                    
+    
 
+    + (love4){(elia_talking_second_tier.indagini2 or greta_talking_second_tier.indagini) && not are_two_entities_together(Elia, Zeca)}
+    [{Digli che Paola vuole estromettere Elia dalla Londar.|Ridigli che Paola vuole estromettere Elia dalla Londar.}]
+            Ettore: Sapevi che Paola vuole estromettere Elia dalla Londar?
+                {
+                    - are_two_entities_together(Paola, Zeca): Zeca: Chiedimelo quando siamo soli.
+                         ~ pauseStorylet = true
+                            -> zeca_talking_second_tier
+                }        
+            Zeca: <rage> Quindi lo sta per fare davvero? La stronza!</rage>
+            Ettore: Ed Elia non l'ha presa bene. Se provo a parlargli della cosa, mette la musica a manetta e non mi ascolta.
+            Zeca: Ok, ci penso io.
+            Zeca: Povero stupido bimbo.
+            Zeca: Povero.
+            Zeca: Stupido.
+            Zeca: <joy>Bimbo.</joy>      
+                    -> advance_time ->
+                    ~ pauseStorylet = true
+                    -> zeca_talking_second_tier                                    
+                                    
     //SCELTE CONDIZIONALI OGGETTI//
     + (lettera) {inventoryContents has Lettera && new_this_loop(->lettera)}
         [{lettera == 0: Mostragli la lettera.|Mostragli di nuovo la lettera.}]

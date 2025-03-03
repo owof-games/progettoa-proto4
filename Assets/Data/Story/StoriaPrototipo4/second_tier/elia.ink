@@ -39,7 +39,7 @@ Opzioni di dialogo con la persona Elia
 
 
     + (rapportoPaola) {new_this_loop(->rapportoPaola)}
-    [{Chiedigli del suo rapporto con Paola.|Continua ad esplorare il suo rapporto con Paola|Richiedigli se ha notato qualcosa di strano.}]
+    [{Chiedigli del suo rapporto con Paola.|Continua ad esplorare il suo rapporto con Paola|Richiedigli del suo rapporto con Paola.}]
         Ettore: Che rapporto hai con Paola?
             -> rapporto_Elia_Paola
 

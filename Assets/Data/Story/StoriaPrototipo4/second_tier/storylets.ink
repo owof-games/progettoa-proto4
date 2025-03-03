@@ -15,42 +15,47 @@
         // evita che tutti gli storylet dopo questo possano partire attaccati l'uno all'altro
         ->->
 
-//STORYLET "NORMALI"    
-TODO: tutti questi storylets partono sempre, per poi venir bloccati se c'è una personaggia che è assolutamente da evitare. Le altre invece fanno qualche commento idiota e bona.
+//STORYLET "NORMALI".
+//Obiettivo: le conversazioni che sono direttamente con Ettore partono sempre, con la formula però "se c'è X non parlo.". Quelle invece tra personagge, che non riguardano noi, non possiamo skipparle.
 
-    - are_three_entities_together(Elia, Ettore, Zeca) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Paola) && not are_two_entities_together(Elia, Matteo) && elia_talking_second_tier.indagini3 && pauseStorylet == false && new_this_loop(-> liarCallLiarStorylet):
+        //Condizioni necessarie: no Paola vicina.
+    - elia_talking_second_tier.indagini3 && are_three_entities_together(Elia, Ettore, Zeca) && (not are_two_entities_together(Elia, Paola)) && pauseStorylet == false && new_this_loop(-> liarCallLiarStorylet):
             -> liarCallLiarStorylet
-    
-    - inventoryContents has Foto && are_two_entities_together(Zeca, Ettore) && not are_two_entities_together(Zeca, Elia) && not are_two_entities_together(Zeca,Greta) && not are_two_entities_together(Zeca, Paola): -> iLlKillThatBitchStorylet    
-
-    - are_two_entities_together(Matteo, Ettore) && not are_two_entities_together(Matteo,Greta) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && not new_this_loop (->trueLoveStorylet) && new_this_loop(->forMeHeIsStupidAFStorylet):
+        
+        //Condizioni necessarie: no Greta vicina. Foto. Elia e Paola non vincolanti.
+    - inventoryContents has Foto && are_two_entities_together(Zeca, Ettore) && new_this_loop(-> iLlKillThatBitchStorylet):
+        -> iLlKillThatBitchStorylet
+        
+        //Condizioni necessarie: Ettore e Matteo soli. Paola non necessaria.
+    - are_two_entities_together(Matteo, Ettore) && not new_this_loop (->trueLoveStorylet) && new_this_loop(->forMeHeIsStupidAFStorylet):
         -> forMeHeIsStupidAFStorylet
+        
+        //Condizioni necessarie: Matteo ed Ettore nella YellowRoom
+    - are_entities_together_in(Matteo, Ettore, YellowRoom) && new_this_loop(->notABigSecretPartOneStorylet):
+            -> notABigSecretPartOneStorylet
+        
+        //Condizioni necessarie: Matteo ed Elia nella YellowRoom
+    - are_entities_together_in(Ettore, Elia, YellowRoom) && new_this_loop(->notABigSecretPartTwoStorylet):
+            -> notABigSecretPartTwoStorylet    
 
 //CONVERSAZIONI ORIGLIATE
 
-    - greta_talking_second_tier.indagini && (are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Ettore)) && is_this_entity_near_Ettore(Elia) && loopableVariables == (EliaSpaventatoPerZeca) && new_this_loop(-> whisperingSecretsStorylet):
+        //Sappiamo della prossima estromissione di Elia dalla Londar.
+    - greta_talking_second_tier.indagini && (are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Ettore)) && is_this_entity_near_Ettore(Elia) && loopableVariables has EliaSpaventatoPerZeca && new_this_loop(-> whisperingSecretsStorylet):
             -> whisperingSecretsStorylet
     
-    - iLlKillThatBitchStorylet && (are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Ettore)) && is_this_entity_near_Ettore(Elia) && not are_two_entities_together(Elia, Matteo) && new_this_loop(-> trueLoveStorylet):
+        //Condizioni: Zeca ha scoperto di Greta ed Elia. No vincoli altri png.
+    - iLlKillThatBitchStorylet && (are_two_entities_together(Elia, Zeca) && not are_two_entities_together(Elia, Ettore)) && is_this_entity_near_Ettore(Elia) && new_this_loop(-> trueLoveStorylet):
         -> trueLoveStorylet
-    
+        
+        //Condizioni: Matteo sa che Paola ha sentito litigare lui e Zeca.
     - matteo_talking_second_tier.allestimento && (are_two_entities_together(Matteo, Zeca) && not are_two_entities_together(Matteo, Ettore)) && is_this_entity_near_Ettore(Matteo) && new_this_loop(-> iTryToBeAGoodFriendStorylet):
         -> iTryToBeAGoodFriendStorylet
     
-    
+        //Condizioni: Greta ed Elia da soli.
     - (are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Ettore)) && is_this_entity_near_Ettore(Matteo) && new_this_loop(-> liesAndPromisesStorylet):
         -> liesAndPromisesStorylet
     
-
-//CONVERSAZIONI IN ALTRE STANZE, CHE NON ORIGLIAMO, E CHE CONTINUANO QUANDO ENTRIAMO
-
-
-//CONFESSIONI SOLITARIE 
-    - are_entities_together_in(Matteo, Ettore, YellowRoom) && not are_two_entities_together(Matteo, Greta) && not are_two_entities_together(Matteo, Paola) && not are_two_entities_together(Matteo, Elia) && not are_two_entities_together(Matteo, Zeca) && new_this_loop(->notABigSecretPartOneStorylet):
-            -> notABigSecretPartOneStorylet
-
-    - are_entities_together_in(Ettore, Elia, YellowRoom) && not are_two_entities_together(Elia, Greta) && not are_two_entities_together(Elia, Paola) && not are_two_entities_together(Elia, Matteo) && not are_two_entities_together(Elia, Zeca) && new_this_loop(->notABigSecretPartTwoStorylet):
-            -> notABigSecretPartTwoStorylet
 
 
 // MORTE DI PAOLA
@@ -195,10 +200,14 @@ TODO: tutti questi storylets partono sempre, per poi venir bloccati se c'è una 
                             - currentTime >= 600:
                             -> paolaIsDeadStorylet
                         }
-        - (indagini) Zeca: La polizia ha avuto accesso a dati personali di Paola. Dati che solo la sua segretaria potrebbe avere.
+            - (indagini) Zeca: La polizia ha avuto accesso a dati personali di Paola. Dati che solo la sua segretaria potrebbe avere.
+        {are_two_entities_together(Zeca,Greta): Greta: Zeca, non sai di cosa stai parlando e stai confondendo il povero Elia.}
+        {are_two_entities_together(Zeca,Greta): Zeca: Zitta, stronza.}      
         Zeca: PERO'. PERO'.
         Zeca: A te non ha detto nulla la tua amica, vero?
         Zeca: E non ha fatto un passo che uno per aiutarti quando Paola ha iniziato a mettere in giro voci per incolparti.
+        {are_two_entities_together(Zeca,Matteo): Matteo: Greta non farebbe male a una mosca.}
+        {are_two_entities_together(Zeca,Matteo): Zeca: È arrivata Pollyanna.}
         Elia: Cosa sono i giornali?
         Zeca: <joy>Elia: tu hai solo me.</joy>
         Zeca: Gli altri se ne approfitteranno sempre della tua innocenza.
@@ -229,12 +238,17 @@ TODO: tutti questi storylets partono sempre, per poi venir bloccati se c'è una 
                 + {iLlKillThatBitchStorylet > 1} [Resti.]
                 + ->
                 -        
-        Zeca: <rage> La uccido, io la uccido!</rage> 
-        Zeca: E lui. Lui. Lui.
+        {are_two_entities_together(Zeca, Greta):Zeca: <rage>Ti uccido Greta, io ti uccido!</rage>|Zeca: <rage>La uccido Greta, io la uccido!</rage>}
+        {are_two_entities_together(Zeca, Elia): Zeca: E tu, Elia. tu!|Zeca: E lui. Lui. Lui.}
         Zeca: Io. Io.
         Zeca: Solo.
         Zeca: <fear>Sono solo.</fear>
-        Zeca: VATTENE TU AMEBA, ORA!
+        {are_two_entities_together(Zeca, Paola): Zeca: E ovviamente tu sapevi tutto, Paola, vero?}
+        {are_two_entities_together(Zeca, Paola): Paola: Sì. Ma questa cosa ha stupito anche me.}
+        {are_two_entities_together(Zeca, Paola): Paola: Ho sempre pensato che Elia avesse più buongusto.}
+        {are_two_entities_together(Zeca, Greta): Greta: Zeca, la stai facendo più grossa del dovuto. Non siete solo colleghi?}
+        {are_two_entities_together(Zeca, Greta): Zeca: Io, io. Fanculo. Tu. Tu. Fanculo!}           
+        Zeca: VATTENE TU ETTORE, AMEBA, ORA!        
         Zeca: <cry>Anzi no, me ne andrò io.</cry>
             -> advance_time -> 
             ~ move_this_entity_in_a_different_room(Zeca)
@@ -246,18 +260,23 @@ TODO: tutti questi storylets partono sempre, per poi venir bloccati se c'è una 
 ~ inConversazione += Matteo
     Matteo: Non me lo sarei mai aspettato.
     Ettore: Cosa?
-            + {forMeHeIsStupidAFStorylet> 1} [Ti allontani.] 
-            ~ pauseStorylet = true
-            -> intro
-            + {forMeHeIsStupidAFStorylet> 1} [Resti.]
-            + ->
-            - 
+        {
+            - are_two_entities_together(Matteo,Greta or are_two_entities_together(Matteo, Elia) or are_two_entities_together(Matteo, Zeca)): Matteo: Scusa, parlavo tra me e me.
+                Matteo: C'è troppa gente qui, ora.
+                Matteo: Ma se rimanessimo soli...
+                ~ pauseStorylet = true
+                -> intro
+            - else:
+                ->->
+    
+        }
     Matteo: Che Elia confessasse i suoi sentimenti a Zeca.
     Ettore: {trueLoveStorylet: Mi sembra una cosa tenera|Non ne sapevo nulla}.
     Matteo: Detto fra me e te: adoro Elia, ma è un coglione.
     Matteo: E sono sicuro che farà del male a Zeca.
     Matteo: Ma si dice che si impara al meglio dai nostri errori, no?
     Matteo: Mi chiedo chi altri soffrirà per tutto questo.
+        
         + {greta_talking_second_tier.indagini3}Ettore: Greta. Greta è innamorata di Elia.
             -> advance_time ->
             {
@@ -266,7 +285,8 @@ TODO: tutti questi storylets partono sempre, per poi venir bloccati se c'è una 
                         }
             Matteo: Quindi lo sapevi anche tu?
             Ettore: {iTryToBeAGoodFriendStorylet: Prima stavi cercando di farlo capire a Zeca, vero?|Greta è stata molto diretta.}
-            Matteo: {iTryToBeAGoodFriendStorylet: Sì. Ma poi ho tentennato, e mi vergogno.|Interessante. So che lei è forte, ma magari vedo di tirarle su il morale.}
+            Matteo: {iTryToBeAGoodFriendStorylet: Sì. Ma poi ho tentennato, e ora me ne vergogno.|Interessante. So che lei è forte, ma magari vedo di tirarle su il morale.}
+        
         + Ettore: Voglio rimanere ottimista. L'amore è amore.
             Matteo: E la cicuta è cicuta, e per questo ti uccide.
             Ettore: Non credi nell'amore?
@@ -284,28 +304,28 @@ TODO: tutti questi storylets partono sempre, per poi venir bloccati se c'è una 
 === whisperingSecretsStorylet
 ~ inConversazione += Elia
 ~ inConversazione += Zeca
-        Elia: <i>Sono la ciotola, o sono il cane?</i>
-        Zeca: <i>Che stai dicendo?</i>
+        Elia: Sono la ciotola, o sono il cane? 
+        Zeca: Che stai dicendo? 
             + {whisperingSecretsStorylet> 1} [Ti allontani.] 
             ~ pauseStorylet = true
             -> intro
             + {whisperingSecretsStorylet> 1} [Resti.]
             + ->
             -         
-        Elia: <i>Paola, vuoi fare del male a Paola?</i>
-        Zeca: <i>Tutti i giorni, Elia.</i>
-        Elia: <i>E sono la ciotola o il cane?</i>
-        Elia: <i>Mi bevi, o mi petti?</i>
-        Elia: <i>Le fai del male per me?</i>
-        Zeca: <i>Perché dovrei farle del male per te?</i>
+        Elia: Paola, vuoi fare del male a Paola? 
+        Zeca: Tutti i giorni, Elia. 
+        Elia: E sono la ciotola o il cane? 
+        Elia: Mi bevi, o mi coccoli? 
+        Elia: Le fai del male per me? 
+        Zeca: Perché dovrei farle del male per te? 
             -> advance_time ->   
-        Elia: <i>Dici sempre che fai di tutto per proteggermi.</i>
-        Elia: <i>Paola forse mi vuole fare male.</i>
-        Elia: <i>E tu che fai?</i>
-        Zeca: <i>Sei preoccupato? O speri che ti protegga?</i>
-        Elia: <i><joy>Voglio essere il tuo cane.</joy></i>
-        Elia: <i><fear>Ma ho paura di essere solo la cotola.</fear></i>
-        Elia: <i><fear>Non bermi.</fear></i>
+        Elia: Dici sempre che fai di tutto per proteggermi. 
+        Elia: Paola forse mi vuole fare male. 
+        Elia: E tu che fai? 
+        Zeca: Sei preoccupato? O speri che ti protegga? 
+        Elia: <joy>Voglio essere il tuo cane.</joy> 
+        Elia: <fear>Ma ho paura di essere solo la cotola.</fear> 
+        Elia: <fear>Non bermi.</fear> 
             -> advance_time ->  
             ~ pauseStorylet = true
     -> intro
@@ -314,40 +334,40 @@ TODO: tutti questi storylets partono sempre, per poi venir bloccati se c'è una 
 === iTryToBeAGoodFriendStorylet
 ~ inConversazione += Matteo
 ~ inConversazione += Zeca
-        Zeca: /i>Te lo ripeto: non voglio parlare con te.</i>
-        Matteo: <i>Zeca, Paola vuole mettere zizzania tra noi, e per ques-
-        Zeca: <i>Per quello basti tu.</i>
+        Zeca: Te lo ripeto: non voglio più parlare con te.
+        Matteo: Zeca, Paola vuole mettere zizzania tra noi, e per ques-
+        Zeca: Per quello basti tu. 
             + {iTryToBeAGoodFriendStorylet> 1} [Ti allontani.] 
             ~ pauseStorylet = true
             -> intro
             + {iTryToBeAGoodFriendStorylet> 1} [Resti.]
             + ->
             -          
-        Matteo: <i>Ma perché non vuoi ascoltarmi?</i>
-        Zeca: <i>PERO'. PERO'.</i>
-        Zeca: <i>Come se fosse possibile farti stare zitto.</i>
-        Matteo: <i>Sto cercando solo di essere un buon amico.</i>
-        Matteo: <i>E di evitare che tu stia male.</i>
+        Matteo: Ma perché non vuoi ascoltarmi? 
+        Zeca: PERO'. PERO'. 
+        Zeca: Come se fosse possibile farti stare zitto. 
+        Matteo: Sto cercando solo di essere un buon amico. 
+        Matteo: E di evitare che tu stia male. 
         Zeca: <rage>No, tu sei solo geloso, e per questo vuoi sabotare la mia relazione.</rage>
             -> advance_time ->   
-        Zeca: <i>So che ti è sempre piaciuto Elia, non serve un genio per vedere come lo guardi.</i>
-        Matteo: <i>Zeca, lo guardo come un bambino guarderebbe un gorilla allo zoo: incuriosito e spaventato.</i>
-        Matteo: <i>Ma no, non mi piace Elia.</i>
-        Matteo: <i>Ma soprattutto, è inaffidabile. Ti farà del male.</i>
-        Zeca: <i>Ma non hai le prove, è solo una sensazione, no? Una comoda sensazione.</i>
-        Matteo: <i>Io, insomma, ho visto ma non posso perché, no.</i>
-        Matteo: <i>Zeca, ti prego, fidati di me.</i>
-        Zeca: <i>Matteo: io mi fido di te.</i>
+        Zeca: So che ti è sempre piaciuto Elia, non serve un genio per vedere come lo guardi. 
+        Matteo: Zeca, lo guardo come un bambino guarderebbe un gorilla allo zoo: incuriosito e spaventato. 
+        Matteo: Ma no, non mi piace Elia. 
+        Matteo: Ma soprattutto, è inaffidabile. Ti farà del male. 
+        Zeca: Ma non hai le prove, è solo una sensazione, no? Una comoda sensazione. 
+        Matteo: Io, insomma, ho visto ma non posso perché, no. 
+        Matteo: Zeca, ti prego, fidati di me. 
+        Zeca: Matteo: io mi fido di te. 
             -> advance_time ->   
-        Zeca: <i>Ma sono innamorato di quel coglione.</i>
-        Zeca: <i>E su questo, non posso farci niente.</i>
-        Matteo: <i>Ha una tipa. Si scopa una tipa.</i>
-        Zeca: <i>Gli farò dimenticare qualsiasi cretinetta.</i>
-        Matteo: <i>Non è qualsiasi cretinetta, Zeca.</i>
-        Zeca: <i>E io non sono qualsiasi Zeca.</i>
-        Zeca: <i>Dammi il nome della stronza.</i>
-        Matteo: <i>Non posso. Mi spiace, non posso.</i>
-        Zeca: <i>Allora lasciami in pace. Ora.</i>
+        Zeca: Ma sono innamorato di quel coglione. 
+        Zeca: E su questo, non posso farci niente. 
+        Matteo: Ha una tipa. Si scopa una tipa. 
+        Zeca: Gli farò dimenticare qualsiasi cretinetta. 
+        Matteo: Non è qualsiasi cretinetta, Zeca. 
+        Zeca: E io non sono qualsiasi Zeca. 
+        Zeca: Dammi il nome della stronza. 
+        Matteo: Non posso. Mi spiace, non posso. 
+        Zeca: Allora lasciami in pace. Ora. 
             -> advance_time ->   
             ~ pauseStorylet = true
     -> intro
@@ -358,20 +378,20 @@ TODO: tutti questi storylets partono sempre, per poi venir bloccati se c'è una 
 === liesAndPromisesStorylet
 ~ inConversazione += Greta
 ~ inConversazione += Elia
-    Greta: <i>Dimmelo di nuovo, ti prego.</i>
-    Elia: <i>Era una cosa sbagliata?</i>
+    Greta: Dimmelo di nuovo, ti prego. 
+    Elia: Era una cosa sbagliata? 
             + {liesAndPromisesStorylet> 1} [Ti allontani.]
             ~ pauseStorylet = true
             -> intro
             + {liesAndPromisesStorylet> 1} [Resti.]
             + ->
             -     
-    Elia: <i>Sbaglio tutto io, scusa.</i>
-    Greta: <i>No no no, ridimmela perché è un cosa bella.</i>
-    - (promise)Elia: </i>Ti amo, Greta.</i>
+    Elia: Sbaglio tutto io, scusa. 
+    Greta: No no no, ridimmela perché è un cosa bella. 
+    - (promise)Elia:  Ti amo, Greta. 
     Greta: <joy>Ti amo anche io, Elia.</joy>
     Elia: <joy>Ora mi fai i grattini?</joy>
-    Greta: <i>Alza quella maglietta e ti faccio tutti i grattini del mondo.</i>
+    Greta: Alza quella maglietta e ti faccio tutti i grattini del mondo. 
         -> advance_time ->  
         ~ pauseStorylet = true
     -> intro
@@ -380,46 +400,46 @@ TODO: tutti questi storylets partono sempre, per poi venir bloccati se c'è una 
 === trueLoveStorylet
 ~ inConversazione += Zeca
 ~ inConversazione += Elia
-        Zeca: <i>No, non ti dico come lo so.</i>
-        Zeca: <i>Quindi, ti scopi quella?</i>
+        Zeca: No, non ti dico come lo so.
+        Zeca: Quindi, ti scopi quella?
             + {trueLoveStorylet> 1} [Ti allontani.] 
             ~ pauseStorylet = true
             -> intro
             + {trueLoveStorylet> 1} [Resti.]
             + ->
             -           
-        Zeca: <i>La ami?</i>
-        Elia: <i>No. Ma sai come faccio.</i>
-        Elia: <i>Mi fanno i grattini, vado su di giri e poi accadono cose.</i>
-        Zeca: <i>Con me non è mai successo.</i>
-        Elia: <i>Perché con te é diverso.</i>
-        Elia: <i><joy>Tu sei un mio fratello.</joy></i>
+        Zeca: La ami?
+        Elia: No. Ma sai come faccio.
+        Elia: Mi fanno i grattini, vado su di giri e poi accadono cose.
+        Zeca: Con me non è mai successo.
+        Elia: Perché con te é diverso.
+        Elia: <joy>Tu sei un mio fratello.</joy>
             -> advance_time ->
                             {
                             - currentTime >= 600:
                             -> paolaIsDeadStorylet
                         }
-        Zeca: <i>Proprio quello che sognavo.</i>
-        Elia: <i>Vuol dire che mi sogni? Perché io ti sogno.</i>
-        Elia: <i>Sogno che ti proteggo.</i>
-        Elia: <i>Sogno che ti schiaccio forte a me.</i>
-        Elia: <i>Sogno che mi fai i grattini e poi mi eccito.</i>
-        Elia: <i>Ma tu non mi fai mai i grattini.</i>
-        Zeca: <i>E se volessi essere l'unica persona che ti fa i grattini, Elia?</i>
+        Zeca: Proprio quello che sognavo. 
+        Elia: Vuol dire che mi sogni? Perché io ti sogno. 
+        Elia: Sogno che ti proteggo. 
+        Elia: Sogno che ti schiaccio forte a me. 
+        Elia: Sogno che mi fai i grattini e poi mi eccito. 
+        Elia: Ma tu non mi fai mai i grattini. 
+        Zeca: E se volessi essere l'unica persona che ti fa i grattini, Elia? 
             -> advance_time ->
                             {
                             - currentTime >= 600:
                             -> paolaIsDeadStorylet
                         }
-        Zeca: <i>Se volessi che nessun altro, e nessuna stronza orfanella in particolare, ti facesse i grattini, per te sarebbe ok?</i>
-        Elia: <i><joy>Me ne fai due qui?</joy></i>
-        Elia: <i><joy>Mi dici che sono un bravo ragazzo?</joy></i>
-        Elia: <i>E non mi prendi in giro quando ti dico che ti amo?</i>
-        Zeca: <i>Elia, perché dovrei prenderti in giro?</i>
+        Zeca: Se volessi che nessun altro, e nessuna stronza orfanella in particolare, ti facesse i grattini, per te sarebbe ok? 
+        Elia: <joy>Me ne fai due qui?</joy> 
+        Elia: <joy>Mi dici che sono un bravo ragazzo?</joy> 
+        Elia: E non mi prendi in giro quando ti dico che ti amo? 
+        Zeca: Elia, perché dovrei prenderti in giro? 
         Elia: <fear>Perché tutti pensano che sono stupido.</fear>
-        Elia: <i>E quindi lo sono anche i miei sentimenti.</i>
-        Elia: <i><joy>Ma io so cosa provo quando sono con te.</joy></i>
-        - (promise) Elia: Abbracciami. <i>Te lo prometto Zeca: basta grattini con Greta o qualsiasi altra persona.</i>
+        Elia: E quindi lo sono anche i miei sentimenti. 
+        Elia: <joy>Ma io so cosa provo quando sono con te.</joy> 
+        - (promise) Elia: Abbracciami. Te lo prometto Zeca: basta grattini con Greta o qualsiasi altra persona. 
             -> advance_time ->  
             ~ pauseStorylet = true
     -> intro    
@@ -444,7 +464,7 @@ TODO: tutti questi storylets partono sempre, per poi venir bloccati se c'è una 
             -> advance_time -> 
                     ~ updateEntitiesLocations()
             {
-                - are_three_entities_together(Matteo, Ettore, Elia) or are_three_entities_together(Matteo, Ettore, Greta) or are_three_entities_together(Matteo, Ettore, Zeca): -> quickTalk
+                - are_three_entities_together(Matteo, Ettore, Elia) or are_three_entities_together(Matteo, Ettore, Greta): -> quickTalk
             }
         - (allestimento) Matteo: Certo: Greta ed Elia potevano recuperare pure del vino decente. E hanno lasciato in tutta la stanza il puzzo delle loro cose da scenografi.
         Matteo: Due cose dovevano fare: riparare le seggiole, allestire il buffet.
@@ -478,9 +498,10 @@ TODO: tutti questi storylets partono sempre, per poi venir bloccati se c'è una 
         Elia: Vorrei fare due tiri.
                     -> advance_time -> 
              ~ updateEntitiesLocations()
-                    {
-                        - are_three_entities_together(Matteo, Ettore, Elia) or are_three_entities_together(Elia, Ettore, Greta) or are_three_entities_together(Elia, Ettore, Zeca): -> quickTalk
-                    }
+            {
+                - are_three_entities_together(Matteo, Ettore, Elia) or are_three_entities_together(Elia, Ettore, Zeca):
+                    -> quickTalk
+            }
         Ettore: Quindi ora non stai trovando un pallone?
         Elia: No, quello l'ho in garage.
         Elia: Sono le barrette che non trovo.
@@ -491,9 +512,10 @@ TODO: tutti questi storylets partono sempre, per poi venir bloccati se c'è una 
         Elia: Se non le mangio ogni tre ore perderò tutti i muscoli.
                     -> advance_time -> 
             ~ updateEntitiesLocations()
-                    {
-                        - are_three_entities_together(Matteo, Ettore, Elia) or are_three_entities_together(Elia, Ettore, Greta) or are_three_entities_together(Elia, Ettore, Zeca): -> quickTalk
-                    }
+            {
+                - are_three_entities_together(Matteo, Ettore, Elia) or are_three_entities_together(Elia, Ettore, Zeca):
+                    -> quickTalk
+            }
         Elia: Maledizione.
             - (allestimento) 
         Elia: Zeca e Matteo sono andati a prendere il cibo, e non le hanno prese.

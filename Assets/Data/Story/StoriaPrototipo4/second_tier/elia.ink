@@ -132,12 +132,12 @@ Opzioni di dialogo con la persona Elia
             ~ inConversazione += Elia
         Elia: Esatto. Greta e io abbiamo comprato il vino.
         Ettore: Questa è stata facile!
-            + {allestimento > 1} [Interrompi la conversazione.]
+            + + {allestimento > 1} [Interrompi la conversazione.]
                 ~ pauseStorylet = true
                 -> intro
-            + {allestimento > 1} [Continui ad ascoltare.]
-            + ->
-            -            
+            + + {allestimento > 1} [Continui ad ascoltare.]
+            + + ->
+            - -         
         Elia: Però.
         Ettore: No! Lascia che questa conversazione sia facile!
         Elia: Sì, però non le abbiamo consegnate.

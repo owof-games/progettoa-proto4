@@ -137,12 +137,12 @@ Opzioni di dialogo con la persona Zeca
     + (allestimento4) {notABigSecretPartTwoStorylet.allestimento && new_this_loop(->allestimento4)} Ettore: Zeca, ho una domanda sul buffet e su chi se ne è occupato.
                 ~ inConversazione += Zeca
         Zeca: Ecco che torna a fare domande.
-            + {allestimento4 > 1} [Interrompi la conversazione.]
+            + + {allestimento4 > 1} [Interrompi la conversazione.]
                 ~ pauseStorylet = true
                 -> intro
-            + {allestimento4 > 1} [Continui ad ascoltare.]
-            + ->
-            -         
+            + + {allestimento4 > 1} [Continui ad ascoltare.]
+            + + ->
+            - -      
         Ettore: Ok, niente domande allora.
         Ettore: Elia prima mi ha detto che tu e Matteo vi siete occupati del cibo e delle sigarette di Paola.
         Zeca: Sai che anche se non ci metti un punto interrogativo, questa è una domanda?

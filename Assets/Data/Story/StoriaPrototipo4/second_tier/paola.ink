@@ -23,44 +23,49 @@ Opzioni di dialogo con la persona Paola
     {debug: <i>Passo per paola_talking</i>}
     
     //INFO GENERALI//
-    + (loop) {new_this_loop(->loop)} Ettore: Paola, ehm, hai notato nulla di problematico?
-        Paola: Io che cerco una biro dopo che non scrivo dal duemila e quattro?
-        Paola: Oggetti personali lasciati in giro come se fossero oggetti di scena?
-        Paola: Gente che tira parole a caso perché non ricorda uno script basilare?
-        Paola: Il mio reflusso che spacca più del solito e mi sento mancare l'aria?
-        Paola: Ah no, queste son cose normali quando lavori con dei deficienti.
-        Paola: <rage>Dei mentecatti.</rage>
-        Paola: Gente a cui dovrebbero strappare ovaie e testicoli perché non si riproducano.
-        Paola: L'unica cosa strana qui è che abbia ancora voglia di vivere.
-            -> advance_time ->
-            ~ pauseStorylet = true
+    + (loop) {new_this_loop(->loop)} [{paola_talking_second_tier.loop == 0: Chiedi a Paola se ha notato qualcosa di problematico.|Richiedi a Paola se ha notato qualcosa di problematico.}]
+            Ettore: Paola, ehm, hai notato nulla di problematico?
+            Paola: Io che cerco una biro dopo che non scrivo dal duemila e quattro?
+            Paola: Oggetti personali lasciati in giro come se fossero oggetti di scena?
+            Paola: Gente che tira parole a caso perché non ricorda uno script basilare?
+            Paola: Il mio reflusso che spacca più del solito e mi sento mancare l'aria?
+            Paola: Ah no, queste son cose normali quando lavori con dei deficienti.
+            Paola: <rage>Dei mentecatti.</rage>
+            Paola: Gente a cui dovrebbero strappare ovaie e testicoli perché non si riproducano.
+            Paola: L'unica cosa strana qui è che abbia ancora voglia di vivere.
+                -> advance_time ->
+                ~ pauseStorylet = true
+                    -> paola_talking_second_tier
+
+    + (rapportoPaola) {new_this_loop(->rapportoPaola)} [{rapportoPaola == 0: Chiedi a Paola se prova del dolore.|Richiedi a Paola se prova del dolore.}]
+        Ettore: Non, ti, forse. Ok. Ti fa male da qualche parte? In modo quasi mortale?
+            Paola: Che carino a preoccuparti per me, Ettore.
+            Paola: Nulla di particolare, giusto quel mix di raffreddore soffocante.
+            Paola: Asma.
+            Paola: Emicrania.
+            Paola: Reflusso cronico.
+            Paola: Nausea.
+            Paola: Voglia di bere il mondo per dimenticarmi che quella specie di australopiteco di Elia è mio fratello.
+            {are_two_entities_together(Paola, Elia): Elia: Andiamo in Australia?}
+            Paola: E la non insolita speranza che qualcuno mi uccida.
+            Paola: Hai visto il mio boccettino per l'asma? L'ho comprato giusto stamani, cazzo.
+                -> advance_time ->
+                ~ pauseStorylet = true
                 -> paola_talking_second_tier
 
-    + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Non, ti, forse. Ok. Ti fa male da qualche parte? In modo quasi mortale?
-        Paola: Che carino a preoccuparti per me, Ettore.
-        Paola: Nulla di particolare, giusto quel mix di raffreddore soffocante.
-        Paola: Asma.
-        Paola: Emicrania.
-        Paola: Reflusso cronico.
-        Paola: Nausea.
-        Paola: Voglia di bere il mondo per dimenticarmi che quella specie di australopiteco di Elia è mio fratello.
-        {are_two_entities_together(Paola, Elia): Elia: Andiamo in Australia?}
-        Paola: E la non insolita speranza che qualcuno mi uccida.
-        Paola: Hai visto il mio boccettino per l'asma? L'ho comprato giusto stamani, cazzo.
-            -> advance_time ->
-            ~ pauseStorylet = true
-
-    + (omicidio) {new_this_loop(->omicidio)} Ettore: C'è, c'è. C'è qualcuno qui che vorrebbe ucciderti?
-        Paola: Dipende.
-        Paola: Per il patrimonio, molti.
-        Paola: Anche se l'unico che può sperare di accederci è Elia.
-        Paola: E solo fino a domattina.
-        {are_two_entities_together(Paola, Elia): Elia: Poi smetto di esistere?}
-        Paola: Per il resto, sono tutti liberi di andarsene.
-        Paola: Prima che li uccida io.
-        Paola: Sei qui per entrare nella lista dei morti?
-            -> advance_time ->
-            ~ pauseStorylet = true
+    + (omicidio) {new_this_loop(->omicidio)} [{paola_talking_second_tier.omicidio == 0: Chiedi a Paola se qualcuno vorrebbe ucciderla.|Richiedi a Paola se qualcuno vorrebbe ucciderla.}] 
+            Ettore: C'è, c'è. C'è qualcuno qui che vorrebbe ucciderti?
+            Paola: Dipende.
+            Paola: Per il patrimonio, molti.
+            Paola: Anche se l'unico che può sperare di accederci è Elia.
+            Paola: E solo fino a domattina.
+            {are_two_entities_together(Paola, Elia): Elia: Poi smetto di esistere?}
+            Paola: Per il resto, sono tutti liberi di andarsene.
+            Paola: Prima che li uccida io.
+            Paola: Sei qui per entrare nella lista dei morti?
+                -> advance_time ->
+                ~ pauseStorylet = true
+                -> paola_talking_second_tier
 
     
 
@@ -69,48 +74,52 @@ Opzioni di dialogo con la persona Paola
 
 
     //SCELTE CONDIZIONALI//
-    +  (buffet) {zeca_talking_second_tier.allestimento && elia_talking_second_tier.allestimento && new_this_loop(->buffet)} Ettore: Può essere una domanda strana, ma sai chi si è occupato di sistemare il buffet?
-        ~ inConversazione += Paola
-        Ettore: Zeca dice che lui e Matteo hanno smollato tutto a Greta.
-        {are_two_entities_together(Ettore, Zeca): Zeca: Non è che Zeca dice, è così.}
-        Ettore: E Elia dice che lui e Greta aveva altro da fare.
-        {are_two_entities_together(Ettore, Greta): Greta: Molto da fare!}
-        Paola: Faceva schifo, vero?
-        Paola: Il vino troppo amaro.
-        Paola: La torta troppo dolce.
-        Paola: E Zeca troppo vivo.
-        {are_two_entities_together(Ettore, Zeca): Zeca: Mannaggia al...}
-        Paola: Cosa che mi stupisce, sinceramente.
-            -> advance_time ->
-        Ettore: Come mai?
-            {
-                - are_two_entities_together(Ettore, Zeca) or are_two_entities_together(Ettore, Matteo): Paola: Richiedimelo quando saremo da soli.
+    +  (buffet) {zeca_talking_second_tier.allestimento && elia_talking_second_tier.allestimento && new_this_loop(->buffet)}
+        [{paola_talking_second_tier.buffet== 0: Chiedi a Paola se sa chi ha sistemato il buffet.|Richiedi a Paola se sa chi ha sistemato il buffet.}] 
+            Ettore: Può essere una domanda strana, ma sai chi si è occupato di sistemare il buffet?
+            ~ inConversazione += Paola
+            Ettore: Zeca dice che lui e Matteo hanno smollato tutto a Greta.
+            {are_two_entities_together(Ettore, Zeca): Zeca: Non è che Zeca dice, è così.}
+            Ettore: E Elia dice che lui e Greta aveva altro da fare.
+            {are_two_entities_together(Ettore, Greta): Greta: Molto da fare!}
+            Paola: Faceva schifo, vero?
+            Paola: Il vino troppo amaro.
+            Paola: La torta troppo dolce.
+            Paola: E Zeca troppo vivo.
+            {are_two_entities_together(Ettore, Zeca): Zeca: Mannaggia al...}
+            Paola: Cosa che mi stupisce, sinceramente.
+                -> advance_time ->
+            Ettore: Come mai?
+                {
+                    - are_two_entities_together(Ettore, Zeca) or are_two_entities_together(Ettore, Matteo): Paola: Richiedimelo quando saremo da soli.
+                        ~ pauseStorylet = true
+                        -> paola_talking_second_tier
+                }
+            Paola: Beh, nella stanza gialla Matteo e Zeca si sono urlati contro come se ne andasse dell'intero universo.
+            Paola: O come due gatte in calore.
+                - - (allestimento) Paola: E Matteo è uscito piangendo.
+                Paola: Sinceramente? <joy>Mi masturberò sull'immagine di quella faccina disperata stasera.</joy>
+                Paola: L'unica cosa decente di questa serata.
+                Paola: Già che ci sono potrei andare da Zeca e stuzzicarlo un po' per capire perché hanno litigato.
+                Paola: Magari piange anche quella fighetta.
+                    -> advance_time ->
                     ~ pauseStorylet = true
                     -> paola_talking_second_tier
-            }
-        Paola: Beh, nella stanza gialla Matteo e Zeca si sono urlati contro come se ne andasse dell'intero universo.
-        Paola: O come due gatte in calore.
-            - - (allestimento) Paola: E Matteo è uscito piangendo.
-            Paola: Sinceramente? <joy>Mi masturberò sull'immagine di quella faccina disperata stasera.</joy>
-            Paola: L'unica cosa decente di questa serata.
-            Paola: Già che ci sono potrei andare da Zeca e stuzzicarlo un po' per capire perché hanno litigato.
-            Paola: Magari piange anche quella fighetta.
-                -> advance_time ->
-                ~ pauseStorylet = true
-                -> paola_talking_second_tier
 
     
 
-    + (liar) {liarCallLiarStorylet.indagini && new_this_loop(-> liar)}: Ettore: Quindi: qualcuno ha dato tuoi dati personali alla polizia.
+    + (liar) {liarCallLiarStorylet.indagini && new_this_loop(-> liar)}
+        [{paola_talking_second_tier.liar == 0: Dì a Paola che qualcuno ha dato i suoi dati alla polizia.|Riparla con Paola dei dati personali dati alla polizia.}]
+        Ettore: Quindi: qualcuno ha dato tuoi dati personali alla polizia.
         ~ inConversazione += Paola
             Paola: Ecco, così mi si deve parlare: <joy>fuori dai denti.</joy>
             Paola: Niente cazzate del cazzo.
-                + {liar > 1} [Interrompi la conversazione.]
+                + + {liar > 1} [Interrompi la conversazione.]
                     ~ pauseStorylet = true
                     -> intro
-                + {liar > 1} [Continui ad ascoltare.]
-                + ->
-                - 
+                + + {liar > 1} [Continui ad ascoltare.]
+                + + ->
+                - -
             Paola: Come se potessi fare paura.
             Paola: Come se sapere dove vivi, dove vive tua madre e avere la possilibità di ricattare il tuo agente fino al midollo mi rendesse minacciosa.
             Ettore: Eh eh ehm coff coff esatto.
@@ -144,26 +153,40 @@ Opzioni di dialogo con la persona Paola
                     ~ pauseStorylet = true
                     
 
-    + (foto3) {zeca_talking_second_tier.allestimento2 && new_this_loop(-> foto3)} Ettore: <hesitate>Per caso ti sei tipo masturbata nella sala gialla?
-            ~ inConversazione += Paola
-            Paola: Ettore. Per masturbarmi mi serve una mezz'ora di silenzio.
-            Paola: E un po' di popper.
-            Paola: E il mio amico vibratore.
-            Paola: Ma anche quelle tue belle manone potrebbero essere utili.
-            Paola: Ma dato che non sei così coglione, chi ti ha messo in testa questa cazzata?
-            Ettore: Non voglio creare pro-
-            Paola: <cry>DIMMELO!</cry>
-                -> advance_time ->
-            Ettore: Zeca.
-            Paola: Bravo bimbo.
-            Paola: E i bravi bimbi meritano un premio.
-                - -(foto) Paola: Se allontani Greta da questa stanza o se passi quando non c'è, ti darò il tuo premio.
-                {are_two_entities_together(Paola, Greta): Greta: Cos?!?}
-                Paola: Un premio che farà felice anche quella merdaccina di Zeca.
-                {are_two_entities_together(Paola, Zeca): Zeca: Ehi!}
-                Paola: Fai il tuo dovere, <joy>mio cagnolino.</joy>
-                -> advance_time ->
-                ~ pauseStorylet = true
+    + (foto3) {zeca_talking_second_tier.allestimento2 && new_this_loop(-> foto3)}
+        [{paola_talking_second_tier.foto3 == 0: Chiedi a Paola se si è masturbata nella stanza gialla.|Richiedi a Paola se si è masturbata nella stanza gialla.}]
+                Ettore: <hesitate>Per caso ti sei tipo masturbata nella sala gialla?
+                ~ inConversazione += Paola
+                Paola: Ettore. Per masturbarmi mi serve una mezz'ora di silenzio.
+                Paola: E un po' di popper.
+                Paola: E il mio amico vibratore.
+                Paola: Ma anche quelle tue belle manone potrebbero essere utili.
+                Paola: Ma dato che non sei così coglione, chi ti ha messo in testa questa cazzata?
+                Ettore: Non voglio creare pro-
+                Paola: <cry>DIMMELO!</cry>
+                    -> advance_time ->
+                Ettore: Zeca.
+
+                {
+                    - picture == false: 
+                        -> foto
+                    - picture == true:
+                        Paola: Bene. Ora levati di culo.
+                        -> advance_time ->
+                        ~ pauseStorylet = true
+                        -> intro
+                        
+                }
+                    - -(foto)
+                    Paola: Bravo bimbo.
+                    Paola: E i bravi bimbi meritano un premio.
+                    Paola: Se allontani Greta da questa stanza o se passi quando non c'è, ti darò il tuo premio.
+                    {are_two_entities_together(Paola, Greta): Greta: Cos?!?}
+                    Paola: Un premio che farà felice anche quella merdaccina di Zeca.
+                    {are_two_entities_together(Paola, Zeca): Zeca: Ehi!}
+                    Paola: Fai il tuo dovere, <joy>mio cagnolino.</joy>
+                    -> advance_time ->
+                    ~ pauseStorylet = true
   
 
     * (foto2) {greta_talking_second_tier.foto2 && not are_two_entities_together(Paola, Greta) && new_this_loop(-> foto2)} Ettore: Siamo soli, hai qualcosa per me?
@@ -180,6 +203,7 @@ Opzioni di dialogo con la persona Paola
             ~ throw_exception("Paola: Peccato tu abbia le mani piene. Torna quando non avrai altro, bimbo.")
             - else:
                 ~ inventoryContents += Foto
+                ~ picture = true
             }
             
             -> advance_time ->
@@ -193,66 +217,77 @@ Opzioni di dialogo con la persona Paola
         Paola: Un bravo bimbo fa mamma Paola felice.
         Paola: Eccoti il tuo premio.
             ~ inventoryContents += Foto
+            ~ picture = true
             -> advance_time ->
             ~ pauseStorylet = true
         
 
-        
-            
                 
     //SCELTE CONDIZIONALI OGGETTI//
-     + (minacce) {inventoryContents has Lettera && new_this_loop(->minacce)} Ettore: Hai mai visto questa lettera?
-        Paola: Non c'ho cazzi Ettore, dammi qui e dopo ci butto un occhio.
-            ~ inventoryContents -= Lettera
-            ~ objectStorageContents += Lettera
+     + (minacce) {inventoryContents has Lettera && new_this_loop(->minacce)}
+    [{minacce == 0: Mostra la lettera a Paola.|Mostra di nuovo la lettera a Paola.}]
+            Ettore: Hai mai visto questa lettera?
+            Paola: Non c'ho cazzi Ettore, dammi qui e dopo ci butto un occhio.
+                ~ inventoryContents -= Lettera
+                ~ objectStorageContents += Lettera
     
-    + (torta) {inventoryContents has Torta && new_this_loop(->torta)} Ettore: Hai idea di chi abbia preso questa torta?
-        Paola: Qualcuno che vuole uccidermi?
-        Paola: Scherzo.
-        Paola: Ma pensavo tutti sapessero che sono allergica alle arachidi, mortalmente. E questa è piena di crema d'arachidi.
-        Paola: Fortuna che oramai ne riconosco l'odore.
-        Paola: Pensa che da piccola sono andata in coma per tre giorni.
-        Paola: Per risvegliarmi e trovarmi davanti Elia che mi chiedeva: Ma ora sei Cristo?
-        Paola: Ora sei resuscitata, come Vegeta?
-            -> advance_time ->
-            ~ pauseStorylet = true
+    + (torta) {inventoryContents has Torta && new_this_loop(->torta)}
+    [{torta == 0: Mostra la torta a Paola.|Mostra di nuovo la torta a Paola.}]
+            Ettore: Hai idea di chi abbia preso questa torta?
+            Paola: Qualcuno che vuole uccidermi?
+            Paola: Scherzo.
+            Paola: Ma pensavo tutti sapessero che sono allergica alle arachidi, mortalmente. E questa è piena di crema d'arachidi.
+            Paola: Fortuna che oramai ne riconosco l'odore.
+            Paola: Pensa che da piccola sono andata in coma per tre giorni.
+            Paola: Per risvegliarmi e trovarmi davanti Elia che mi chiedeva: Ma ora sei Cristo?
+            Paola: Ora sei resuscitata, come Vegeta?
+                -> advance_time ->
+                ~ pauseStorylet = true
     
-    + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)}Ettore: Che, uhm, che sai di questa bottiglia?
-        Paola: <joy>Amo da morire questo vino.</joy>
-        Paola: E che per questo spero ce ne siano almeno altre tre bottiglie da qualche parte.
+    + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)}
+    [{vino == 0: Mostra la bottiglia di vino a Paola.|Mostra di nuovo la bottiglia di vino a Paola.}]
+            Ettore: Che, uhm, che sai di questa bottiglia?
+            Paola: <joy>Amo da morire questo vino.</joy>
+            Paola: E che per questo spero ce ne siano almeno altre tre bottiglie da qualche parte.
+        
+    + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)}
+    [{asma == 0: Mostra il boccettino dell'asma a Paola.|Mostra di nuovo il boccettino dell'asma a Paola.}]
+            Ettore: Ho trovato questo.
+            Paola: <joy>Oh, grazie al cielo!</joy>
+            Paola: Non sapevo più dove diavolo fosse finito.
+            Paola: Tra polvere e muffa in questo posto, senza potrei morire.
+                ~ inventoryContents -= FlaconcinoAsma
+                ~ objectStorageContents += FlaconcinoAsma
+            Paola: Ma è vuoto! Come cazzo è possibile che sia vuoto, che era nuovo?
     
-    + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Ho trovato questo.
-        Paola: <joy>Oh, grazie al cielo!</joy>
-        Paola: Non sapevo più dove diavolo fosse finito.
-        Paola: Tra polvere e muffa in questo posto, senza potrei morire.
-            ~ inventoryContents -= FlaconcinoAsma
-            ~ objectStorageContents += FlaconcinoAsma
-        Paola: Ma è vuoto! Come cazzo è possibile che sia vuoto, che era nuovo?
-    
-    + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} Ettore: Sai chi fuma qui tra noi?
-        Paola: Erba? Zeca.
-        {are_two_entities_together(Paola, Zeca): Zeca: Solo per dormire!}
-        Paola: Oppio? Matteo.
-        {are_two_entities_together(Paola, Matteo): Matteo: E chi se lo può permettere?}
-        Paola: Tabacco? Greta.
-        Paola: Vorrei capire di cosa è fatto Elia per essere così cretino, invece.
-        Paola: Io vivo di sigaretta elettronica. Adoro i suoi sapori chimici, la possibilità di fumarla ovunque.
-        Paola: Ed è esattamente quella che hai in mano.
-            ~ inventoryContents -= SigarettaElettronica
-            ~ objectStorageContents += SigarettaElettronica
-        Ettore: Ma non si può fumare ov...
-        Paola: Ah, finalmente! Quanto mi sei mancata!
-            -> advance_time ->
-            ~ pauseStorylet = true
+    + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)}
+    [{sigaretta == 0: Mostra la sigaretta elettronica a Paola.|Mostra di nuovo la sigaretta elettronica a Paola.}]    
+            Ettore: Sai chi fuma qui tra noi?
+            Paola: Erba? Zeca.
+            {are_two_entities_together(Paola, Zeca): Zeca: Solo per dormire!}
+            Paola: Oppio? Matteo.
+            {are_two_entities_together(Paola, Matteo): Matteo: E chi se lo può permettere?}
+            Paola: Tabacco? Greta.
+            Paola: Vorrei capire di cosa è fatto Elia per essere così cretino, invece.
+            Paola: Io vivo di sigaretta elettronica. Adoro i suoi sapori chimici, la possibilità di fumarla ovunque.
+            Paola: Ed è esattamente quella che hai in mano.
+                ~ inventoryContents -= SigarettaElettronica
+                ~ objectStorageContents += SigarettaElettronica
+            Ettore: Ma non si può fumare ov...
+            Paola: Ah, finalmente! Quanto mi sei mancata!
+                -> advance_time ->
+                ~ pauseStorylet = true
       
     
-    + (fotografia) {inventoryContents has Foto && new_this_loop(->fotografia)} Ettore: Guarda questa foto.
-        Paola: Ettore, ho di meglio da fare, sloggia.
-            ~ pauseStorylet = true
+    + (fotografia)
+    [{fotografia == 0: Mostra la fotografia a Paola.|Mostra di nuovo la fotografia a Paola.}]      
+        {inventoryContents has Foto && new_this_loop(->fotografia)} Ettore: Guarda questa foto.
+            Paola: Ettore, ho di meglio da fare, sloggia.
+                ~ pauseStorylet = true
 
-    + [Fai domande sulla persona Paola]
+    + [Conosci meglio Paola]
         -> esplora_paola
-    + [Lasci la conversazione]
+    + [Lascia la conversazione]
         -> intro
     -
     
@@ -262,25 +297,26 @@ Opzioni di dialogo con la persona Paola
 {debug: <i>Passo per esplora_paola</i>}
 
 
-{
-- PaolaTalking > 1: Paola: Bimbo, sloggia ora, grazie.
-    -> advance_time ->
-    -> intro
-- else:
-    { shuffle:
-    -   -> first_qn
-    -   -> second_qn
-    -   -> third_qn
-    
+    {
+    - PaolaTalking > 1: Paola: Bimbo, sloggia ora, grazie.
+        -> advance_time ->
+        -> intro
+    - else:
+        { shuffle:
+        -   -> first_qn
+        -   -> second_qn
+        -   -> third_qn
+        
+        }
     }
-}
 
 //DOMANDE SUllA PERSONA PAOLA
 
 = first_qn
 ~ PaolaTalking++
         ~ inConversazione += Paola
-    Paola: Sono consapevole che la gente mi odia.
+    
+    Paola: So che la gente mi odia.
     Paola: Ma è il peso di essere una donna arrivata.
     Paola: Devi fare l'uomo, più dell'uomo.
     Paola: Se sei gentile penseranno che sei debole, e se passi per debole ti piegano in due e ti gettano nell'umido.
@@ -304,6 +340,7 @@ Opzioni di dialogo con la persona Paola
 = second_qn
  ~ PaolaTalking++
          ~ inConversazione += Paola
+        
         Paola: I poveri hanno perso la lotta di classe, l'hanno persa quando li abbiamo convinti che fosse roba del passato.
         Paola: Risolta con la fast fashion e la celebrità social.
         Paola: Ma il tuo piccolo cervellino proletario non può capire quello che sto dicendo vero <cry>EttorAAAAAAA!</cry>
@@ -342,6 +379,7 @@ Opzioni di dialogo con la persona Paola
 = third_qn
 ~ PaolaTalking++
         ~ inConversazione += Paola
+    
     Paola: Sai chi è il mio mito?
     Paola: Ayn Rand.
     Paola: Ma sai la cosa più bella?

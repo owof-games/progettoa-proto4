@@ -23,7 +23,7 @@ LIST loopableVariables =
   dontCheckStorylets
 
 //list to set the current tier
-LIST tierState = (FirstTier), SecondTier
+LIST tierState = FirstTier, (SecondTier)
 ////////////////////////////////////////////////////////////
 
 
@@ -70,6 +70,7 @@ VAR peopleTalking = false
 VAR activeNotebook = false
 VAR activePhone = false
 VAR activeObjects = false
+VAR picture = false
 
 // eventi specifici nella storia
 VAR gretaHaLaLettera = false

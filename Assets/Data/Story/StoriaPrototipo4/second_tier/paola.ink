@@ -285,9 +285,9 @@ Opzioni di dialogo con la persona Paola
             Paola: Ettore, ho di meglio da fare, sloggia.
                 ~ pauseStorylet = true
 
-    + [Conosci meglio Paola]
+    + [Conosci meglio Paola.]
         -> esplora_paola
-    + [Lascia la conversazione]
+    + [Lascia la conversazione.]
         -> intro
     -
     

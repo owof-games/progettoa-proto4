@@ -26,7 +26,10 @@ Opzioni di dialogo con la persona Greta
     
     //INFO GENERALI//
     
-    + (loop) {new_this_loop(->loop)} Ettore: Greta, secondo te qui è tutto normale?
+    + (loop) {new_this_loop(->loop)} 
+    [{greta_talking_second_tier.loop == 0: Chiedi a Greta se ha notato qualcosa di strano.|{matteo_talking_second_tier.loop2: Dopo il consiglio di Matteo, riprendi il discordo dei loop con Greta.| Richiedi a Greta se ha notato qualcosa di strano.}}]
+    
+            Ettore: Greta, secondo te qui è tutto normale?
             ~ inConversazione += Greta
             Greta: Sinceramente, ho la sensazione che stia per accadere qualcosa di terribile.
             Ettore: Anche io. Come se l'avessi già vissuta, questa cosa.
@@ -89,16 +92,20 @@ Opzioni di dialogo con la persona Greta
             + + Ettore: Mi spiace ma non sono pronto per questa conversazione. -> greta_talking_second_tier
 
     
-    + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Quindi tu lavori per Paola?
-                ~ inConversazione += Greta
-            Greta: Per ora, sembrerebbe di sì.
-            {are_two_entities_together(Paola, Greta): Greta: Ma non ti dirò altro fintanto che lei è qui. -> greta_talking_second_tier}
-            Greta: Ma con Paola ogni giorno è l'antiNatale: ti svegli e avrai qualcosa di meno a sorpresa.
-            Greta: Prima o poi mi venderà qualche organo senza che me ne renda conto.
-                -> advance_time ->
-                ~ pauseStorylet = true
+    + (rapportoPaola) {new_this_loop(->rapportoPaola) && (not phone.indagini) && (not elia_talking_second_tier.indagini) && (not liarCallLiarStorylet.indagini)}
+        [{greta_talking_second_tier.loop == 0: Chiedile del lavoro con Paola.|Richiedile del lavoro con Paola.}]
+            Ettore: Quindi tu lavori per Paola?
+                    ~ inConversazione += Greta
+                Greta: Per ora, sembrerebbe di sì.
+                {are_two_entities_together(Paola, Greta): Greta: Ma non ti dirò altro fintanto che lei è qui. -> greta_talking_second_tier}
+                Greta: Ma con Paola ogni giorno è l'antiNatale: ti svegli e avrai qualcosa di meno a sorpresa.
+                Greta: Prima o poi mi venderà qualche organo senza che me ne renda conto.
+                    -> advance_time ->
+                    ~ pauseStorylet = true
 
-        + + {phone.indagini} Ettore: Non ti preoccupano le indagini?
+    + (rapportoPaola2) {new_this_loop(->rapportoPaola2) && phone.indagini}
+        [{rapportoPaola2 == 0: Parla con Greta delle indagini.|Riparla con Greta delle indagini.}]
+            Ettore: Visto che lavori con Paola, non ti preoccupano le indagini?
                     ~ inConversazione += Greta
                 {
                     - are_two_entities_together(Paola, Greta): Greta: Indagini? Quali indagini? Non ci sono indagini, vero Paola?
@@ -116,7 +123,7 @@ Opzioni di dialogo con la persona Greta
             Greta: E la caduta è attutita da qualche decina di cadaveri.
             Greta: E a questo giro, il corpo sarà quello di Elia.
             Ettore: In che senso?
-                - - -(indagini) Greta: Beh: Paola sta cercando far estromettere Elia dalla Londar.
+                - - (indagini) Greta: Beh: Paola sta cercando far estromettere Elia dalla Londar.
                     -> advance_time ->
                     {
                         - currentTime >= 600:
@@ -131,117 +138,122 @@ Opzioni di dialogo con la persona Greta
                     ~ pauseStorylet = true
                      -> greta_talking_second_tier
     
-        + + {elia_talking_second_tier.indagini} Ettore: Paola sa già che hai passato info segrete a Matteo?
-                    ~ inConversazione += Greta
-                {
-                    - are_two_entities_together(Paola, Greta): Paola: QUALI INFORMAZIONI?
-                        Greta: Niente, niente Paola!
-                        Paola: Ora tu vieni con me, piccola stronza!
-                        ~ move_this_entity_in_a_different_room(Greta)
-                        ~ move_this_entity_in_a_different_room(Paola)
-                        ~ loopableVariables += pausaRapportoGreta
-                         ~ pauseStorylet = true
-                            -> intro
-                }        
-            Greta: Quali informazioni?
-            Ettore: Piccoli segreti utili a rafforzare il suo lavoro di contrattazione col sindacato.
-            Greta: Dimmi: è stato lui a dirtelo?
-            Ettore: No, Elia.
-            Greta: Ahah piccolo infame. <rage>Piccolo<waitrage> schifoso<waitrage> infame.</rage>
-            Greta: Secondo te chi si rafforza se Paola si mostra fallibile?
-                + + + Ettore: Gli azionisti?
-                + + + Ettore: Il consiglio di amministrazione?
-                + + + Ettore: Il resto dell'umanità?
-                - - -
+    + (rapportoPaola3) {new_this_loop(->rapportoPaola3) && elia_talking_second_tier.indagini}
+    [{rapportoPaola3 == 0: Chiedi a Greta delle info che ha passato a Matteo.|Richiedi a Greta delle info che ha passato a Matteo.}]
+        Ettore: Paola sa già che hai passato info segrete a Matteo?
+                ~ inConversazione += Greta
+            {
+                - are_two_entities_together(Paola, Greta): Paola: QUALI INFORMAZIONI?
+                    Greta: Niente, niente Paola!
+                    Paola: Ora tu vieni con me, piccola stronza!
+                    ~ move_this_entity_in_a_different_room(Greta)
+                    ~ move_this_entity_in_a_different_room(Paola)
+                    ~ loopableVariables += pausaRapportoGreta
+                     ~ pauseStorylet = true
+                        -> intro
+            }        
+        Greta: Quali informazioni?
+        Ettore: Piccoli segreti utili a rafforzare il suo lavoro di contrattazione col sindacato.
+        Greta: Dimmi: è stato lui a dirtelo?
+        Ettore: No, Elia.
+        Greta: Ahah piccolo infame. <rage>Piccolo<waitrage> schifoso<waitrage> infame.</rage>
+        Greta: Secondo te chi si rafforza se Paola si mostra fallibile?
+            + +  Ettore: Gli azionisti?
+            + +  Ettore: Il consiglio di amministrazione?
+            + +  Ettore: Il resto dell'umanità?
+            - - 
+            -> advance_time ->
+            {
+                - currentTime >= 600:
+                -> paolaIsDeadStorylet    
+            }
+
+        Greta: <hesitate>Elia.
+        Greta: Almeno fino a domattina, Elia è ancora a metà proprietario dell'azienda.
+        {are_two_entities_together(Paola, Greta) or are_two_entities_together(Elia, Greta) or are_two_entities_together(Matteo, Greta) or are_two_entities_together(Zeca, Greta): Greta: Ma non ti dirò altro fintanto che non siamo soli. -> greta_talking_second_tier}
+        Greta: E se Paola capitola, lui finisce diritto in consiglio di amministrazione.
+        Ettore: Quindi cosa mi stai dicendo?
+            - - (indagini2) Greta: Elia sta usando l'amicizia con Matteo per usare il sindacato contro Paola.
+            
+            + + Ettore: Perdonami, ma Elia non mi sembra così macchiavellico.
+                    Greta: Vedo che sei sveglio, Ettore.
+                    Greta: Ma la maestra è stanca e ti lascia un compito per casa: chi ha così influenza su Elia da trattarlo come una marionetta?
+                    Greta: E per quale vantaggio?
+                    -> advance_time ->
+                    ~ pauseStorylet = true
+                    -> greta_talking_second_tier
+                    
+            + + Ettore: Questo però non risponde alla mia domanda[.]: hai passato le informazioni a Matteo?
+                    Greta: Mmm, mi stavi quasi simpatico, Ettore, quasi.
+                    Greta: Ma non mi piace chi mi accusa di cose a caso.
+                    Greta: <rage>Vattene<waitrage> e<waitrage> non<waitrage> parlarmi<waitrage> più!</rage> 
+                    ~ loopableVariables += pausaRapportoGreta
+                    -> advance_time ->
+                    ~ pauseStorylet = true
+                    -> intro
+    
+    + (rapportoPaola4) {new_this_loop(->rapportoPaola4) && liarCallLiarStorylet.indagini}
+    [{rapportoPaola3 == 0: Chiedi a Greta se ha passato lei le info alla polizia.|Richiedi a Greta se ha passato lei le info alla polizia.}]
+            Ettore: Ci hai ragionato a lungo, prima di tradire Paola?
+                ~ inConversazione += Greta
+            Greta: Cosa vorresti dire?
+            Ettore: Zeca sostiene che la polizia abbia avuto dati molto molto personali su Paola.
+            Ettore: Cose che solo la sua segretaria potrebbe sapere.
+            {are_two_entities_together(Paola, Greta): Greta: E secondo te ti rispondo con lei qui? -> greta_talking_second_tier}
+            Greta: <rage>E<waitrage> se<waitrage> anche<waitrage> fosse?</rage>
+            Greta: Qualcuno ha tutto, tu non hai niente, e ti si apre lo spiraglio per un cambiamento, per un vantaggio.
+            Greta: Al posto mio cosa avresti fatto?
                 -> advance_time ->
                 {
                     - currentTime >= 600:
                     -> paolaIsDeadStorylet    
                 }
-
-            Greta: <hesitate>Elia.
-            Greta: Almeno fino a domattina, Elia è ancora a metà proprietario dell'azienda.
-            {are_two_entities_together(Paola, Greta) or are_two_entities_together(Elia, Greta) or are_two_entities_together(Matteo, Greta) or are_two_entities_together(Zeca, Greta): Greta: Ma non ti dirò altro fintanto che non siamo soli. -> greta_talking_second_tier}
-            Greta: E se Paola capitola, lui finisce diritto in consiglio di amministrazione.
-            Ettore: Quindi cosa mi stai dicendo?
-                - - -(indagini2) Greta: Elia sta usando l'amicizia con Matteo per usare il sindacato contro Paola.
                 
-                + + + Ettore: Perdonami, ma Elia non mi sembra così macchiavellico.
-                        Greta: Vedo che sei sveglio, Ettore.
-                        Greta: Ma la maestra è stanca e ti lascia un compito per casa: chi ha così influenza su Elia da trattarlo come una marionetta?
-                        Greta: E per quale vantaggio?
-                        -> advance_time ->
-                        ~ pauseStorylet = true
-                        -> greta_talking_second_tier
-                        
-                + + + Ettore: Questo però non risponde alla mia domanda[.]: hai passato le informazioni a Matteo?
-                        Greta: Mmm, mi stavi quasi simpatico, Ettore, quasi.
-                        Greta: Ma non mi piace chi mi accusa di cose a caso.
-                        Greta: <rage>Vattene<waitrage> e<waitrage> non<waitrage> parlarmi<waitrage> più!</rage> 
+                + + Ettore: La fiducia non si tradisce, mai.
+                    Greta: Deve essere bello vivere nella tua torre del privilegio.
+                    Greta: Ma il mondo reale non funziona così.
+                    Greta: Soprattutto non con i ricchi del cazzo.
+                    Greta: Hanno così poca considerazione di noi da non ritenerci manco umani a volte.
+                    Greta: Per loro tutto è un gioco, perché tanto non possono mai davvero perdere.
+                    Greta: Io ho già perso mille volte, e sinceramente son stanca.
+                    Greta: E stanca di te.
+                    Greta: Non mi parlare più, <rage>fighetto del cazzo.</rage>
                         ~ loopableVariables += pausaRapportoGreta
                         -> advance_time ->
                         ~ pauseStorylet = true
                         -> intro
-    
-        + + {liarCallLiarStorylet.indagini} Ettore: Per questo avrebbe senso tradirla il prima possibile?
+                
+                + + Ettore: Avrei cercato di ottenere ogni minimo vantaggio.
                     ~ inConversazione += Greta
-                Greta: Cosa vorresti dire?
-                Ettore: Zeca sostiene che la polizia abbia avuto dati molto molto personali su Paola.
-                Ettore: Cose che solo la sua segretaria potrebbe sapere.
-                {are_two_entities_together(Paola, Greta): Greta: E secondo te ti rispondo con lei qui? -> greta_talking_second_tier}
-                Greta: <rage>E<waitrage> se<waitrage> anche<waitrage> fosse?</rage>
-                Greta: Qualcuno ha tutto, tu non hai niente, e ti si apre lo spiraglio per un cambiamento, per un vantaggio.
-                Greta: Al posto mio cosa avresti fatto?
-                    -> advance_time ->
-                    {
-                        - currentTime >= 600:
-                        -> paolaIsDeadStorylet    
-                    }
-                    + + + Ettore: La fiducia non si tradisce, mai.
-                        Greta: Deve essere bello vivere nella tua torre del privilegio.
-                        Greta: Ma il mondo reale non funziona così.
-                        Greta: Soprattutto non con i ricchi del cazzo.
-                        Greta: Hanno così poca considerazione di noi da non ritenerci manco umani a volte.
-                        Greta: Per loro tutto è un gioco, perché tanto non possono mai davvero perdere.
-                        Greta: Io ho già perso mille volte, e sinceramente son stanca.
-                        Greta: E stanca di te.
-                        Greta: Non mi parlare più, <rage>fighetto del cazzo.</rage>
-                            ~ loopableVariables += pausaRapportoGreta
-                            -> advance_time ->
-                            ~ pauseStorylet = true
-                            -> intro
+                    Greta: Esatto.
+                    Greta: Immagino anche tu venga dal nulla, e per questo puoi capirmi.
+                    Greta: Non so cosa potrà esserci dopo Paola, ma peggio non potrà essere.
+                    Greta: E per Matteo è lo stesso.
+                    Greta: Viviamo assieme da anni, sai? <joy>Ed è l'unica persona in tutta la mia vita che mi abbia mai davvero capito.</joy>
+                    Greta: Ha un enorme senso della giustizia.
+                    Greta: E sa anche che viviamo in un mondo profondamente ingiusto.
+                        -> advance_time ->
+                        {
+                            - currentTime >= 600:
+                            -> paolaIsDeadStorylet    
+                        }
+
+                    Greta: E che per questo a volte vanno fatte cose, anche crudeli, per un bene più grande.
+                    Greta: Paola ha già avuto tutto dalla vita.
+                    Greta: A parte un cuore.
+                    Greta: Se anche ora perdesse la sua fottuta azienda, ha abbastanza soldi per comprarsi il Molise e farci una gigantesca casa vacanze.
+                    Greta: Ti sembra giusto?
+                    Greta: Ci sono famiglie che muoiono di fame per colpa sua.
+                    Greta: A questo mondo non c'è giustizia.
+                    Greta: E quando non c'è giustizia, l'unica cosa che rimane per sopravvivere è la violenza.
+                        -> advance_time ->
+                        ~ pauseStorylet = true
+                        -> greta_talking_second_tier
                     
-                    + + + Ettore: Avrei cercato di ottenere ogni minimo vantaggio.
-                        ~ inConversazione += Greta
-                        Greta: Esatto.
-                        Greta: Immagino anche tu venga dal nulla, e per questo puoi capirmi.
-                        Greta: Non so cosa potrà esserci dopo Paola, ma peggio non potrà essere.
-                        Greta: E per Matteo è lo stesso.
-                        Greta: Viviamo assieme da anni, sai? <joy>Ed è l'unica persona in tutta la mia vita che mi abbia mai davvero capito.</joy>
-                        Greta: Ha un enorme senso della giustizia.
-                        Greta: E sa anche che viviamo in un mondo profondamente ingiusto.
-                            -> advance_time ->
-                            {
-                                - currentTime >= 600:
-                                -> paolaIsDeadStorylet    
-                            }
-
-                        Greta: E che per questo a volte vanno fatte cose, anche crudeli, per un bene più grande.
-                        Greta: Paola ha già avuto tutto dalla vita.
-                        Greta: A parte un cuore.
-                        Greta: Se anche ora perdesse la sua fottuta azienda, ha abbastanza soldi per comprarsi il Molise e farci una gigantesca casa vacanze.
-                        Greta: Ti sembra giusto?
-                        Greta: Ci sono famiglie che muoiono di fame per colpa sua.
-                        Greta: A questo mondo non c'è giustizia.
-                        Greta: E quando non c'è giustizia, l'unica cosa che rimane per sopravvivere è la violenza.
-                            -> advance_time ->
-                            ~ pauseStorylet = true
-                            -> greta_talking_second_tier
-                        
-        + + Ettore: Ripensandoci, non ho altro da chiederti. -> greta_talking_second_tier
-
     
-    + (omicidio) {new_this_loop(->omicidio)} Ettore: Secondo te qualcuno potrebbe volere del male a Paola?
+    + (omicidio) {new_this_loop(->omicidio)}
+    [{omicidio == 0: Chiedi a Greta se qualcuno potrebbe uccidere Paola.|Richiedi a Greta se qualcuno potrebbe uccidere Paola.}]
+    Ettore: Secondo te qualcuno potrebbe volere del male a Paola?
                 ~ inConversazione += Greta
             {
                 - are_two_entities_together(Paola, Greta):
@@ -362,7 +374,9 @@ Opzioni di dialogo con la persona Greta
 
     //SCELTE CONDIZIONALI//
 
-    + (love) {trueLoveStorylet && new_this_loop(->love) && (not are_two_entities_together(Elia, Greta) or not are_two_entities_together(Zeca, Greta))} Ettore: Sapevi della relazione tra Elia e Zeca?
+    + (love) {trueLoveStorylet && new_this_loop(->love)}
+    [{love == 0: Chiedile se sapeva della relazione tra Elia e Zeca.|Richiedile se sapeva della relazione tra Elia e Zeca.}]
+    Ettore: Sapevi della relazione tra Elia e Zeca?
             Greta: Quell'obbrobrio che chiamano "Bro"?
             
              + + Ettore: Ah ah sì, esatto, proprio quello.
@@ -429,7 +443,10 @@ Opzioni di dialogo con la persona Greta
                         
     
 
-    + (allestimento4) {zeca_talking_second_tier.allestimento2 && (not are_two_entities_together(Zeca, Greta) or not are_two_entities_together(Matteo, Greta)) && new_this_loop(->allestimento4)} Ettore: Sai Greta che non sto capendo chi ha fatto cosa per gli allestimenti?
+    + (allestimento4) {zeca_talking_second_tier.allestimento2 && (not are_two_entities_together(Zeca, Greta) or not are_two_entities_together(Matteo, Greta)) && new_this_loop(->allestimento4)}
+    [{allestimento4 == 0: Chiedile informazioni su chi ha fatto gli allestimenti.|Richiedile informazioni su chi ha fatto gli allestimenti.}]
+    
+        Ettore: Sai Greta che non sto capendo chi ha fatto cosa per gli allestimenti?
                 ~ inConversazione += Greta
             Ettore: Sembra che nessuno si sia occupato del buffet prima delle prove.
             Ettore: Da quel che ho capito, tu ed Elia vi dovevate occupare del vino, Matteo e Zeca dei dolci.
@@ -457,7 +474,9 @@ Opzioni di dialogo con la persona Greta
                     -> greta_talking_second_tier
 
 
-    + (foto) {paola_talking_second_tier.foto && new_this_loop(->foto)} Ettore: Greta, prima ti stavano cercando.
+    + (foto) {paola_talking_second_tier.foto}
+    [{foto == 0: Cerca di allontanare Greta dalla stanza.|Riprova ad allontanare Greta dalla stanza.}]
+        Ettore: Greta, prima ti stavano cercando.
         {new_this_loop(->foto): Greta: Chi? -> secondo|Greta: Non ci ricasco Ettore!}
                     ~ inConversazione += Greta
             - - (secondo)
@@ -480,12 +499,16 @@ Opzioni di dialogo con la persona Greta
 
 
     //SCELTE CONDIZIONALI OGGETTI//
-    + (minacce) {inventoryContents has Lettera && new_this_loop(->minacce)} Ettore: Hai visto questa lettera?
+    + (minacce) {inventoryContents has Lettera && new_this_loop(->minacce)}
+    [{minacce == 0: Mostra la lettera a Greta.|Mostra di nuovo la lettera a Greta.}]
+    Ettore: Hai visto questa lettera?
         {greta_acting.minacce: Greta: La stessa che ti ho levato prima?|Greta: Ho altro per la testa.}
         {greta_acting.minacce: Greta: Vabbè, scegli pure la tua morte.|Greta: Tipo come non far pissare Paola con una lettera.}
                 -> greta_talking_second_tier
         
-    + (torta) {inventoryContents has Torta && new_this_loop(->torta)} Ettore: Hai mai assaggiato questa Torta?
+    + (torta) {inventoryContents has Torta && new_this_loop(->torta)}
+    [{torta == 0: Mostra la torta a Greta.|Mostra di nuovo la torta a Greta.}]
+        Ettore: Hai mai assaggiato questa Torta?
         Greta: Cos'è? Uno di quei kink dove si riempie qualcuno di cibo?
         Greta: Perché non sono in queste cose.
         Greta: L'unica cosa che mi interessa è il sesso alieno.
@@ -497,19 +520,25 @@ Opzioni di dialogo con la persona Greta
                 ~ pauseStorylet = true
             -> greta_talking_second_tier
     
-    + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Hai mai visto questa bottiglia di vino?
+    + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)}
+    [{vino == 0: Mostra la bottiglia di vino a Greta.|Mostra di nuovo la bottiglia di vino a Greta.}]   
+        Ettore: Hai mai visto questa bottiglia di vino?
         Greta: Sì, è tra quelle che abbiamo comprato al supermercato.
         Greta: Ma non dirlo a Paola: abbiamo preso la roba che costava meno e con l'etichetta più spocchiosa.
         Greta: E da come ha sorriso, credo abbia funzionato!
             ~ pauseStorylet = true
             -> greta_talking_second_tier
             
-    + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Sai di chi sia questo flaconcino per l'asma?
+    + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)}
+    [{asma == 0: Mostra il boccettino dell'asma a Greta.|Mostra di nuovo il boccettino dell'asma a Greta.}]
+    Ettore: Sai di chi sia questo flaconcino per l'asma?
         Greta: Paola, punto.
             ~ pauseStorylet = true
             -> greta_talking_second_tier
             
-    + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} Ettore: Ho trovato questa sigaretta elettronica!
+    + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} 
+        [{sigaretta == 0: Mostra la sigaretta elettronica a Greta.|Mostra di nuovo la sigaretta elettronica a Greta.}]
+            Ettore: Ho trovato questa sigaretta elettronica!
             Greta: Ah sì.
             Greta: Sant'iddio, tra l'altro ho chiesto Zeca di comprarle la ricarica.
             Greta: E invece di prendere il solito aroma al rabarbaro, mica le prende della roba mentolata?
@@ -521,7 +550,9 @@ Opzioni di dialogo con la persona Greta
                     ~ pauseStorylet = true
             -> greta_talking_second_tier
             
-    + (fotografia) {inventoryContents has Foto && new_this_loop(->fotografia)} Ettore: Guarda questa foto.
+    + (fotografia) {inventoryContents has Foto && new_this_loop(->fotografia)}
+    [{fotografia == 0: Mostra la fotografia a Greta.|Mostra di nuovo la fotografia a Greta.}]
+            Ettore: Guarda questa foto.
             Greta: Chi te l'ha data?
             Greta: Anzi, sai che c'è? Non mi importa.
             Greta: Qui nessuno si fa i cazzi propri ormai, è una causa persa.
@@ -534,10 +565,10 @@ Opzioni di dialogo con la persona Greta
                 ~ pauseStorylet = true
             -> greta_talking_second_tier
     
-    + [Conosci meglio Greta]
+    + [Conosci meglio Greta.]
         -> esplora_greta
 
-    + [Lascia la conversazione]
+    + [Lascia la conversazione.]
         -> intro
     
 

@@ -23,7 +23,9 @@ Opzioni di dialogo con la persona Elia
 {loopableVariables has pausaRapportoElia: Elia: Sei cattivo, vai via! -> intro.}
     //INFO GENERALI//
 
-    + (loop) {new_this_loop(->loop)} Ettore: Elia, non stai notando nulla di strano?
+    + (loop) {new_this_loop(->loop)}
+    [{loop == 0: Chiedigli se ha notato qualcosa di strano.|Richiedigli se ha notato qualcosa di strano.}]
+        Ettore: Elia, non stai notando nulla di strano?
         Elia: In effetti, sì.
         Ettore: <fear>Oh, allora non sto perdendo la testa!</fear>
         Elia: No no, lo sto notando anche io.
@@ -36,11 +38,15 @@ Opzioni di dialogo con la persona Elia
             -> elia_talking_second_tier
 
 
-    + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Che rapporto hai con Paola?
+    + (rapportoPaola) {new_this_loop(->rapportoPaola)}
+    [{Chiedigli del suo rapporto con Paola.|Continua ad esplorare il suo rapporto con Paola|Richiedigli se ha notato qualcosa di strano.}]
+        Ettore: Che rapporto hai con Paola?
             -> rapporto_Elia_Paola
 
 
-    + (omicidio) {new_this_loop(->omicidio)} Ettore: Conosci qualcuno che vorrebbe far male a Paola?
+    + (omicidio) {new_this_loop(->omicidio)}
+    [{Chiedigli se qualcuno potrebbe fare male a Paola.|Richiedigli se qualcuno potrebbe fare male a Paola.}]
+        Ettore: Conosci qualcuno che vorrebbe far male a Paola?
         ~ inConversazione += Elia
         Elia: <fear>Uh, spero non i tizi delle piramidi, vero?</fear>
         Elia: O le lontre giganti.
@@ -56,32 +62,31 @@ Opzioni di dialogo con la persona Elia
             -> paolaIsDeadStorylet    
             }
            
-            + + (minacce) {zeca_talking_second_tier.love && phone.indagini && elia_talking_second_tier.indagini2} Ettore: E Zeca, potrebbe voler far del male a Paola?
-                {
-                    - are_two_entities_together(Paola, Elia) or are_two_entities_together(Zeca, Elia): Elia: BRO! Parliamo quando non è qui!
-                         ~ pauseStorylet = true
-                            -> intro
-                }        
-                Ettore: Sapeva delle indagini, e ha detto che farebbe di tutto per proteggerti.
-                Elia: No.
-                Ettore: Tiene molto a te, no?
-                Elia: No. No. No.
-                Elia: Lui è il mio socio d'affari, e gli affari si puliscono sempre in famiglia assieme all'acqua del bambino e la ciotola del cane.
-                Elia: Lo dice sempre Paola.
-                Elia: Oh. <hesitate>Ma forse sono io il cane?
-                Elia: O la ciotola?
-                Elia: Devo trovare Zeca!
-                Elia: <cry>E tu stammi lontano!</cry>
-                    ~ move_first_entity_to_second_entity_location(Elia,Zeca)
-                    ~ loopableVariables += EliaSpaventatoPerZeca
-                    ~ loopableVariables += pausaRapportoElia
-                    -> advance_time ->
-                    ~ pauseStorylet = true
-                    -> elia_talking_second_tier
-            
-            + + Ettore: Ehm, magari passo.
-                ~ pauseStorylet = true
-                -> elia_talking_second_tier
+    + (minacce) {(zeca_talking_second_tier.omicidio or phone.indagini or elia_talking_second_tier.indagini2) && new_this_loop(->minacce)}
+    [{Chiedigli se Zeca potrebbe fare male a Paola.|Richiedigli se Zeca potrebbe fare male a Paola.}]
+        Ettore: Zeca potrebbe voler far del male a Paola?
+        {
+            - are_two_entities_together(Paola, Elia) or are_two_entities_together(Zeca, Elia): Elia: BRO! Parliamo quando non è qui!
+                 ~ pauseStorylet = true
+                    -> intro
+        }        
+        Ettore: Ha detto che farebbe di tutto per proteggerti.
+        Elia: No.
+        Ettore: Tiene molto a te, no?
+        Elia: No. No. No.
+        Elia: Lui è il mio socio d'affari, e gli affari si puliscono sempre in famiglia assieme all'acqua del bambino e la ciotola del cane.
+        Elia: Lo dice sempre Paola.
+        Elia: Oh. <hesitate>Ma forse sono io il cane?
+        Elia: O la ciotola?
+        Elia: Devo trovare Zeca!
+        Elia: <cry>E tu stammi lontano!</cry>
+            ~ move_first_entity_to_second_entity_location(Elia,Zeca)
+            ~ loopableVariables += EliaSpaventatoPerZeca
+            ~ loopableVariables += pausaRapportoElia
+            -> advance_time ->
+            ~ pauseStorylet = true
+            -> elia_talking_second_tier
+    
 
     
 
@@ -89,8 +94,10 @@ Opzioni di dialogo con la persona Elia
     + {primaContraddizione && secondaContraddizione} [È il momento di fermare l’omicida di Paola!] Ettore: Venite tutti, ho bisogno di parlarvi! -> arringa_finale
 
     //SCELTE CONDIZIONALI//
-    + (indagini2) {greta_talking_second_tier.indagini && not are_two_entities_together(Elia, Zeca) && new_this_loop(->indagini2)} Ettore: Elia, sapevi che Paola vuole estrometterti dalla Londar?
-            ~ inConversazione += Elia
+    + (indagini2) {greta_talking_second_tier.indagini && not are_two_entities_together(Elia, Zeca) && new_this_loop(->indagini2)}
+    [{Chiedigli se sa della estromissione dalla Londar.|{zeca_talking_second_tier.love4 && (not zeca): Chiama Zeca, così che spenga la musica|Richiedigli se sa della estromissione dalla Londar.}}]
+        ~ inConversazione += Elia
+        Ettore: Elia, sapevi che Paola vuole estrometterti dalla Londar?
         Elia: <hesitate>Estroflettermi?
         Ettore: Cacciarti.
         Ettore: Rimanere l'unica responsabile.
@@ -103,7 +110,7 @@ Opzioni di dialogo con la persona Elia
             -> paolaIsDeadStorylet    
             }
            
-            + + {zeca_talking_second_tier.love4 && not are_two_entities_together(Paola, Ettore)} Ettore: ZECAAAAAAA!
+            + + (zeca) {zeca_talking_second_tier.love4} Ettore: ZECAAAAAAA!
                 ~ move_first_entity_to_second_entity_location(Elia,Zeca)
                 Zeca: <cry>Elia, abbassa la musica, va tutto bene.</cry>
                 // ~ start_distracting_music("gigi_dag", Elia)
@@ -128,7 +135,9 @@ Opzioni di dialogo con la persona Elia
             
             
 
-    + (allestimento) {notABigSecretPartOneStorylet.allestimento && new_this_loop(-> allestimento)} Ettore: Elia, è vero che tu e Greta avete comprato il vino?
+    + (allestimento) {notABigSecretPartOneStorylet.allestimento && new_this_loop(-> allestimento)}
+        [{Chiedigli se lui e Greta hanno comprato il vino.|Richiedigli se lui e Greta hanno comprato il vino.}]    
+        Ettore: Elia, è vero che tu e Greta avete comprato il vino?
             ~ inConversazione += Elia
         Elia: Esatto. Greta e io abbiamo comprato il vino.
         Ettore: Questa è stata facile!
@@ -172,37 +181,35 @@ Opzioni di dialogo con la persona Elia
         {are_two_entities_together(Greta, Ettore): Elia: Greta! Non ho chiamato i comici!|Elia: Devo dirlo a Greta prima che mi mangi vivo!}
         {are_two_entities_together(Greta, Ettore): Greta: Tranqui, Elia, ci sei già tu come buffone.}
             -> advance_time -> 
-                                    {
-            - currentTime >= 600:
-            -> paolaIsDeadStorylet    
-
-            }
-            + + {zeca_talking_second_tier.allestimento2} Ettore: Zeca però ha sentito qualcuno nella stanza gialla.
-                Ettore: E a suo dire stava scopando.
-                    - - - (allestimento2) Elia: Naa, Zeca sente sesso ovunque.
-                    {
-                        - are_two_entities_together(Zeca, Elia) or are_two_entities_together(Greta, Elia): Elia: Te lo dico solo se non c'è nessuno.
-                         ~ pauseStorylet = true
-                            -> elia_talking_second_tier
-                    }
-                    Elia: Pensa che dorme sentendo le balene scopare.
-                    Elia: E io non ho fatto sesso, no.
-                    Elia: Mai fatto sesso.
-                    Ettore: Mai.
-                    Elia: Mai ora.
-                    Elia: <hesitate>Mai adesso.
-                    Elia: Ero a chiamare con Greta.
-                        -> advance_time ->
-                        ~ pauseStorylet = true
-                        -> elia_talking_second_tier
-            
-            + + Ettore: Sono molto confuso.
-                Elia: Benvenuto nel club.
                 ~ pauseStorylet = true
                 -> elia_talking_second_tier
-                - -
 
-    + (conversazione) {iTryToBeAGoodFriendStorylet && new_this_loop(-> conversazione)} Ettore: Prima ho ascoltato una conversazione tra Zeca e Matteo...
+
+    + (scopare) {zeca_talking_second_tier.allestimento2 && new_this_loop(-> scopare)}
+      [{Chiedigli se sa chi stava scopando nella stanza gialla.|Richiedigli se sa chi stava scopando nella stanza gialla.}]  
+        Ettore: Zeca  ha sentito qualcuno nella stanza gialla.
+        Ettore: E a suo dire stava scopando.
+            - - (allestimento2) Elia: Naa, Zeca sente sesso ovunque.
+            {
+                - are_two_entities_together(Zeca, Elia) or are_two_entities_together(Greta, Elia): Elia: Te lo dico solo se non c'è nessuno.
+                 ~ pauseStorylet = true
+                    -> elia_talking_second_tier
+            }
+            Elia: Pensa che dorme sentendo le balene scopare.
+            Elia: E io non ho fatto sesso, no.
+            Elia: Mai fatto sesso.
+            Ettore: Mai.
+            Elia: Mai ora.
+            Elia: <hesitate>Mai adesso.
+            Elia: Ero a chiamare con Greta.
+                -> advance_time ->
+                ~ pauseStorylet = true
+                -> elia_talking_second_tier
+            
+
+    + (conversazione) {iTryToBeAGoodFriendStorylet && new_this_loop(-> conversazione)}
+    [{Digli della conversazione origliata tra Matteo e Zeca.|Ridigli della conversazione origliata tra Matteo e Zeca.}] 
+        Ettore: Prima ho ascoltato una conversazione tra Zeca e Matteo...
             ~ inConversazione += Elia
             {
             - are_two_entities_together(Zeca, Elia) or are_two_entities_together(Matteo, Elia): Elia: Fermo. Dimmi questa cosa solo se non ci sono loro!
@@ -275,13 +282,17 @@ Opzioni di dialogo con la persona Elia
 
     
     //SCELTE CONDIZIONALI OGGETTI//
-    + (lettera) {inventoryContents has Lettera && new_this_loop(->lettera)} Ettore: Hai mai visto questa lettera?
+    + (lettera) {inventoryContents has Lettera && new_this_loop(->lettera)}
+        [{lettera == 0: Mostragli la lettera.|Mostragli di nuovo la lettera.}]
+        Ettore: Hai mai visto questa lettera?
             Elia: Ce ne sono tante qui, di lettere.
             Elia: Quale in particolare?
             Ettore: Lo prendo come un "no".
                 ~ pauseStorylet = true
     
-    + (torta) {inventoryContents has Torta && new_this_loop(->torta)}Ettore: Sai per chi è questa torta?
+    + (torta) {inventoryContents has Torta && new_this_loop(->torta)}
+            [{torta == 0: Mostragli la torta.|Mostragli di nuovo la torta.}]
+            Ettore: Sai per chi è questa torta?
             Elia: Per il festeggiato?
             Ettore: Qualcuno è festeggiato?
             Elia: Tu! Sei tu che hai portato la torta!
@@ -292,7 +303,9 @@ Opzioni di dialogo con la persona Elia
                 ~ pauseStorylet = true
                 -> advance_time -> 
     
-    + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Questo è il vino che avete comprato?
+    + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)}
+            [{vino == 0: Mostragli la bottiglia di vino.|Mostragli di nuovo la bottiglia di vino.}]
+            Ettore: Questo è il vino che avete comprato?
             ~ inConversazione += Elia
             Elia: Gli somiglia molto, ma non ne sono sicuro.
             Elia: Questa cosa che tutte le bottiglie sono uguali mi confonde.
@@ -319,12 +332,16 @@ Opzioni di dialogo con la persona Elia
                 -> advance_time ->
                 ~ pauseStorylet = true
     
-    + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Sai di chi sia questo flaconcino?
+    + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)}
+            [{asma == 0: Mostragli il boccettino dell'asma.|Mostragli di nuovo il boccettino dell'asma.}]
+            Ettore: Sai di chi sia questo flaconcino?
             Elia: Mia sorella!
             Elia: Nel senso che è di mia sorella, non che è mia sorella.
                 ~ pauseStorylet = true
     
-    + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} Ettore: Sai qualcosa su questa sigaretta elettronica?
+    + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)}
+            [{sigaretta == 0: Mostragli la sigaretta elettronica.|Mostragli di nuovo la sigaretta elettronica.}]
+            Ettore: Sai qualcosa su questa sigaretta elettronica?
             Elia: Che puzza.
             Elia: Che fa male ai testimoli.
             Elia: Che non fa crescere i bambini.
@@ -334,7 +351,9 @@ Opzioni di dialogo con la persona Elia
             ~ pauseStorylet = true
                 -> advance_time -> 
     
-     + (fotografia) {inventoryContents has Foto && new_this_loop(->fotografia)} Ettore: Guarda questa foto.
+     + (fotografia) {inventoryContents has Foto && new_this_loop(->fotografia)}
+    [{fotografia == 0: Mostragli la fotografia.|Mostragli di nuovo la fotografia.}]
+            Ettore: Guarda questa foto.
             Elia: Mmm.
             Elia: Sembro grasso.
             Ettore: Cosa dici?!?
@@ -345,8 +364,10 @@ Opzioni di dialogo con la persona Elia
                 ~ pauseStorylet = true
                 -> advance_time -> 
     
-    + [Conosci meglio Elia]-> esplora_elia
-    + [Ti allontani]-> intro
+    + [Conosci meglio Elia.]
+        -> esplora_elia
+    + [Lascia la conversazione.]
+        -> intro
     -
     
     -> elia_talking_second_tier

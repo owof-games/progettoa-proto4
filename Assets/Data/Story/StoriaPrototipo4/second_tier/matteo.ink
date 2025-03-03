@@ -267,18 +267,18 @@ Opzioni di dialogo con la persona Matteo
     
     //SCELTE CONDIZIONALI OGGETTI//
     + (lettera) {inventoryContents has Lettera && new_this_loop(->lettera)}
-    [{lettera == 0: Mostragli la lettera.|Mostragli di nuovo la lettera.}]    
+        [{lettera == 0: Mostragli la lettera.|Mostragli di nuovo la lettera.}]
         Ettore: Hai mai visto questa lettera?
         Matteo: Mettila via, subito! Se Paola la trova ti mangia vivo!
     
     + (torta) {inventoryContents has Torta && new_this_loop(->torta)}
-    [{torta == 0: Mostragli la torta.|Mostragli di nuovo la torta.}]
+        [{torta == 0: Mostragli la torta.|Mostragli di nuovo la torta.}]
         Ettore: Questa torta l'avete portata tu e Zeca?
         Matteo: Strano: Zeca e io abbiamo preso la roba al supermercato, ma non ricordo questa torta!
         Matteo: Anche perché tutte queste arachidi ucciderebbero Paola.
     
     + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)}
-    [{vino == 0: Mostragli la bottiglia di vino.|Mostragli di nuovo la bottiglia di vino.}] 
+        [{vino == 0: Mostragli la bottiglia di vino.|Mostragli di nuovo la bottiglia di vino.}] 
         Ettore: Riconosci questa bottiglia di vino?
         Matteo: Mi spiace Ettore, bevo solo roba sotto i tre euro.
     
@@ -300,9 +300,9 @@ Opzioni di dialogo con la persona Matteo
         Matteo: Ma ti prego, non farla vedere a Zeca.
         Matteo: <fear>Gli spezzeresti il cuore.</fear>
 
-    + [Chiacchiera con Matteo]
+    + [Chiacchiera con Matteo.]
         -> esplora_matteo
-    + [Lasci la conversazione]
+    + [Lasci la conversazione.]
         -> intro
     -
     

@@ -335,7 +335,9 @@ Opzioni di dialogo con la persona Zeca
                                     -> zeca_talking_second_tier
 
     //SCELTE CONDIZIONALI OGGETTI//
-    + (lettera) {inventoryContents has Lettera && new_this_loop(->lettera)} Ettore: Hai idea di chi sia questa lettera?
+    + (lettera) {inventoryContents has Lettera && new_this_loop(->lettera)}
+        [{lettera == 0: Mostragli la lettera.|Mostragli di nuovo la lettera.}]
+        Ettore: Hai idea di chi sia questa lettera?
         Zeca: No, mai vista.
         + + {matteo_talking_second_tier.lettera2} Ettore: Eppure Matteo crede l'abbia scritta tu.
             Zeca: Se per questo Matteo crede pure di poter piacere a qualcuno.
@@ -350,7 +352,9 @@ Opzioni di dialogo con la persona Zeca
                 ~ pauseStorylet = true
                 -> zeca_talking_second_tier
     
-    + (torta) {inventoryContents has Torta && new_this_loop(->torta)} Ettore: Hai mai...
+    + (torta) {inventoryContents has Torta && new_this_loop(->torta)}
+        [{torta == 0: Mostragli la torta.|Mostragli di nuovo la torta.}]
+        Ettore: Hai mai...
                 ~ inConversazione += Zeca
         Zeca: Visto questa torta?
         Zeca: Mangiato questa torta?
@@ -366,7 +370,9 @@ Opzioni di dialogo con la persona Zeca
             ~ pauseStorylet = true
             -> zeca_talking_second_tier
             
-    + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Hai comprato tu questa bottiglia di vino?
+    + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)}
+    [{vino == 0: Mostragli la bottiglia di vino.|Mostragli di nuovo la bottiglia di vino.}]    
+        Ettore: Hai comprato tu questa bottiglia di vino?
                 ~ inConversazione += Zeca
             - - (allestimento3) Zeca: Sì, la boccia l'abbiamo presa Matteo e io.
             Zeca: Mmm, ora che ci penso, non esattamente.
@@ -381,22 +387,26 @@ Opzioni di dialogo con la persona Zeca
                 ~ pauseStorylet = true
                 -> zeca_talking_second_tier
                     
-    + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Hai mai visto questo flaconcino per l'asma?
+    + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)}
+        [{asma == 0: Mostragli il boccettino dell'asma.|Mostragli di nuovo il boccettino dell'asma.}]
+        Ettore: Hai mai visto questo flaconcino per l'asma?
         Zeca: Dio.
         Zeca: <fear>Se mai la vita dovesse portarmi a un tale entusiasmo per un flaconcino, uccidetemi.</fear>
             ~ pauseStorylet = true
             -> zeca_talking_second_tier
             
-    + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} Ettore: Sai di chi sia questa sigaretta elettronica?
+    + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)}
+        [{sigaretta == 0: Mostragli la sigaretta elettronica.|Mostragli di nuovo la sigaretta elettronica.}]
+        Ettore: Sai di chi sia questa sigaretta elettronica?
         Zeca: Di Paola, è lei la tossica del gruppo.
         Zeca: No, quello sono io.
         Zeca: Ma è lei che fuma.
             ~ pauseStorylet = true
             -> zeca_talking_second_tier
     
-    + [Chiacchiera con Zeca]
+    + [Chiacchiera con Zeca.]
         -> esplora_zeca
-    + [Ti allontani]
+    + [Lascia la conversazione.]
         -> intro
     -
     

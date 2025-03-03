@@ -93,7 +93,7 @@ Opzioni di dialogo con la persona Greta
 
     
     + (rapportoPaola) {new_this_loop(->rapportoPaola) && (not phone.indagini) && (not elia_talking_second_tier.indagini) && (not liarCallLiarStorylet.indagini)}
-        [{greta_talking_second_tier.loop == 0: Chiedile del lavoro con Paola.|Richiedile del lavoro con Paola.}]
+        [{Chiedile del lavoro con Paola.|Richiedile del lavoro con Paola.}]
             Ettore: Quindi tu lavori per Paola?
                     ~ inConversazione += Greta
                 Greta: Per ora, sembrerebbe di sì.

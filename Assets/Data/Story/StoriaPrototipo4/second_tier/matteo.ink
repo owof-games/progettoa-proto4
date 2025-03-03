@@ -24,7 +24,9 @@ Opzioni di dialogo con la persona Matteo
     //INFO GENERALI//
 {loopableVariables has pausaRapportoMatteo: Matteo: Non ho niente da dirti. -> intro.}
 
-    + (loop) {new_this_loop(->loop)} Ettore: Non stai notando nulla di strano?
+    + (loop) {new_this_loop(->loop)}
+    [{loop == 0: Chiedi a Matteo se ha notato qualcosa di strano.|{(not loop3): Dimostra a Matteo che siete in un loop.|Richiedi a Matteo se ha notato qualcosa di strano.}}]
+            Ettore: Non stai notando nulla di strano?
                 ~ inConversazione += Matteo
             Matteo: Intendi il provare da ore una storia senza senso? Prova a essere più specifico.
                 
@@ -70,7 +72,9 @@ Opzioni di dialogo con la persona Matteo
                 - -
                 -> advance_time ->
 
-    + (rapportoPaola) {new_this_loop(->rapportoPaola)} Ettore: Teo, tu e Paola che rapporto avete?
+    + (rapportoPaola) {new_this_loop(->rapportoPaola) && (not zeca_talking_second_tier.money)}
+    [{rapportoPaola == 0: Chiedigli del rapporto con Paola.|Richiedigli del rapporto con Paola.}]
+        Ettore: Teo, tu e Paola che rapporto avete?
                     ~ inConversazione += Matteo
         Matteo: <joy>Che cosa carina che mi chiami Teo.</joy>
         Matteo: <hesitate>La conosco poco nulla.
@@ -84,124 +88,135 @@ Opzioni di dialogo con la persona Matteo
             -> paolaIsDeadStorylet    
  
             }
+
+
+    + (lavoro) {zeca_talking_second_tier.money && new_this_loop(->lavoro)}
+        [{lavoro == 0: Digli che Zeca dice che Matteo conosce Paola.|Ridigli che Zeca dice che Matteo conosce Paola.}]
+        Ettore: Zeca dice che tu Paola la conosci.
+        {
+        -   are_two_entities_together(Zeca, Matteo):
+            Matteo: Se vuoi sentire cosa penso davvero, parlami quando lui non è qui.
+            ~ pauseStorylet = true
+                    -> matteo_talking_second_tier
+        }
+        Ettore: Dice che campi alle spalle sue e di Elia.
+        {are_two_entities_together(Elia, Matteo): Elia: Le mie spalle sono così <joy>grandi.</joy>}
+        Matteo: Lavoro per la sua azienda, che è diverso. Ma non ci ho mai avuto a che fare direttamente.
+        Matteo: Però le insinuazioni di Zeca hanno senso: le mie entrate dipendono dal lavoro per lei, e dalle pulizie a casa di Elia.
+        Matteo: Ma mi chiedo: perché tutto questo dovrebbe importarti?
+
+            + + (opzioneScarica2) Ettore: Sto cercando di conoscervi meglio.
+                    Matteo: Allora la prossima volta chiedimi <joy>dove mi piace cenare.</joy>
+                    Matteo: <joy>O il colore del mio intimo.</joy>
+                        -> advance_time ->
+                        ~ pauseStorylet = true
+                    -> matteo_talking_second_tier
             
-            + + (lavoro) {zeca_talking_second_tier.money} Ettore: Zeca dice che tu Paola la conosci.
-                {
-                -   are_two_entities_together(Zeca, Matteo):
-                    Matteo: Se vuoi sentire cosa penso davvero, parlami quando lui non è qui.
+    + (minacce) {cb_second_tier_lettera.primoCheck && new_this_loop(->minacce) && new_this_loop(->lettera)}
+    [{minacce == 0: Digli della lettera di minacce.|Ridigli della lettera di minacce.}]    
+        Ettore: C'è una lettera, una lettera di minacce.
+        Ettore: Sto cercando di capire chi l'ha scritta, e contro chi.
+            {
+                -   are_two_entities_together(Zeca, Matteo) or are_two_entities_together(Paola, Matteo):
+                    Matteo: E lo saprai se mi parlerai quando non ci saranno qui Zeca o Paola.
                     ~ pauseStorylet = true
-                            -> matteo_talking_second_tier
+                    -> matteo_talking_second_tier
+            }
+                    - -(lettera2) Matteo: Solo due persone in questo posto mossono minacciare qualcuno: Paola e Zeca.
+                        Matteo: Ma sono così inutile qui, che dubito qualcuno voglia minacciarmi per qualcosa.
+                        -> advance_time ->
+                        ~ pauseStorylet = true
+                        -> matteo_talking_second_tier
+
+    + (lettera3) {cb_second_tier_lettera.primoCheck && not new_this_loop(->lettera)}
+    [{lettera3 == 0: Insisti nel mostrargli la lettera.}] 
+        Ettore: Perché me l'hai fatta mettere via, impaurito da Paola?
+                {
+                    -   are_two_entities_together(Paola, Matteo):
+                        Matteo: Sei bellino Ettore, ma è idiota parlarne ora che lei è qui.
+                        ~ pauseStorylet = true
+                        -> matteo_talking_second_tier
                 }
-                Ettore: Dice che campi alle spalle sue e di Elia.
-                {are_two_entities_together(Elia, Matteo): Elia: Le mie spalle sono così <joy>grandi.</joy>}
-                Matteo: Lavoro per la sua azienda, che è diverso. Ma non ci ho mai avuto a che fare direttamente.
-                Matteo: Però le insinuazioni di Zeca hanno senso: le mie entrate dipendono dal lavoro per lei, e dalle pulizie a casa di Elia.
-                Matteo: Ma mi chiedo: perché tutto questo dovrebbe importarti?
-
-                    + + + (opzioneScarica2) Ettore: Sto cercando di conoscervi meglio.
-                            Matteo: Allora la prossima volta chiedimi <joy>dove mi piace cenare.</joy>
-                            Matteo: <joy>O il colore del mio intimo.</joy>
-                                -> advance_time ->
-                                ~ pauseStorylet = true
-                            -> matteo_talking_second_tier
-                    
-                    + + + {cb_second_tier_lettera.primoCheck} Ettore: C'è una lettera, una lettera di minacce.
-                            Ettore: Sto cercando di capire chi l'ha scritta, e contro chi.
-                            {
-                                -   are_two_entities_together(Zeca, Matteo) or are_two_entities_together(Paola, Matteo):
-                                    Matteo: E lo saprai se mi parlerai quando non ci saranno qui Zeca o Paola.
-                                    ~ pauseStorylet = true
-                                    -> matteo_talking_second_tier
-                            }
-                                - - - -(lettera2) Matteo: Solo due persone in questo posto mossono minacciare qualcuno: Paola e Zeca.
-                                    Matteo: Ma sono così inutile qui, che dubito qualcuno voglia minacciarmi per qualcosa.
-                                    -> advance_time ->
-                                    ~ pauseStorylet = true
-                                    -> matteo_talking_second_tier
-
-                    + + + (lettera3) {not new_this_loop(->lettera)} Ettore: Per la lettera che ti ho mostrato prima.
-                            Ettore: Quella che mi hai fatto mettere via, impaurito da Paola.
-                            {
-                                -   are_two_entities_together(Paola, Matteo):
-                                    Matteo: Sei bellino Ettore, ma è idiota parlarne ora che lei è qui.
-                                    ~ pauseStorylet = true
-                                    -> matteo_talking_second_tier
-                            }
-                            
-                            Matteo: Non ero impaurito da Paola, ma impaurito per te.
-                            Matteo: Quella è la sua calligrafia.
-                                -> advance_time ->
-                                            {
-                            - currentTime >= 600:
-                            -> paolaIsDeadStorylet    
-                   
-                            }
-                            Ettore: Vorrei capire a chi è indirizzata.
-                            Matteo: E perché? Tu sei uno sconosciuto in questo gruppo tossico.
-                            Ettore: Perché credo potrebbe succedere qualcosa di brutto.
-                            Matteo: E allora, lascia che accada.
-                            Matteo: Ci sono cose tra Elia e Paola, tra Paola e Greta, tra Zeca ed Elia che vanno avanti da anni.
-                            Matteo: Non sarai tu a risolverle stasera.
-                            Matteo: Beviti un goccio di vino, recita quello che devi recitare, e fuggi da qui.
-                                -> advance_time ->
-                                ~ pauseStorylet = true
-                            -> matteo_talking_second_tier
-
-                    + + + (lavoro2) {phone.sindacato} Ettore: Credo che Paola ti stia minacciando[.], per via del sindacato.
-                    
-                            {
-                                -   are_two_entities_together(Paola, Matteo):
-                                        Paola: Sindacato? Ancora con quel cazzo di sindacato?
-                                        Paola: Matteo: vieni con me!
-                                        ~ pauseStorylet = true
-                                        ~ move_this_entity_in_a_different_room(Matteo)
-                                        ~ move_this_entity_in_a_different_room(Paola)
-                                    -> intro
-                            }
-                            
-                          {new_this_loop(->lettera): Ettore: C'è una lettera minatoria, e credo sia scritta da lei.}
-                          {not new_this_loop(->lettera): Matteo: Per quella lettera di prima?}
-                          Matteo: Sei preoccupato per me?
-                            -> advance_time ->
                 
-                            + + + + (lavoro3) Ettore: Sì, credo che lei possa farti del male.
-                                    Matteo: Questa è una cosa tenera, Ettore.
-                                    Matteo: Facciamo così: la prossima volta che c'è una pausa e siamo soli, chiedimi di raccontarti tutto, e lo farò.
-                                    Matteo: Ora però lascia che mi rilassi un poco.
-                                    ~ pauseStorylet = true
-                                        -> matteo_talking_second_tier
-                            
-                            + + + + Ettore: Sì, credo che tu possa farle del male.
-                                    Matteo: Beh, se hai già deciso che sono una cattiva persona, che senso ha parlarmi ancora?
-                                        ~ loopableVariables += pausaRapportoMatteo
-                                        ~ pauseStorylet = true
-                                        -> intro
-
-            + + [Cambi argomento] -> matteo_talking_second_tier
-
-    + (omicidio) {new_this_loop(->omicidio)} Ettore: Matteo, secondo te chi vorrebbe fare del male a Paola?
-                    ~ inConversazione += Matteo
-                        {
-                            -   are_two_entities_together(Paola, Matteo):
-                                Matteo: Non è una buona idea parlarne mentre lei è qui.
-                                    ~ pauseStorylet = true
-                                    -> matteo_talking_second_tier
-                        }                    
-            Matteo: Credo un bel po' di gente.
-            Matteo: Dal cassiere del supermercato alla autista privata.
-            Matteo: Dalla postina al tizio che le cura i cani.
-            Matteo: Passando poi per il consiglio di amministrazione.
-            Matteo: E le famiglie che distrugge con le sua attività.
-            Matteo: E i comuni che hanno debiti con lei.
+            Matteo: Non ero impaurito da Paola, ma impaurito per te.
+            Matteo: Quella è la sua calligrafia.
                 -> advance_time ->
-                        {
+                            {
             - currentTime >= 600:
             -> paolaIsDeadStorylet    
+   
             }
-            Ettore: E tra le persone qui presenti?
-            Matteo: Un bel po' di gente.
-            ~ pauseStorylet = true
-                -> matteo_talking_second_tier
+            Ettore: Vorrei capire a chi è indirizzata.
+            Matteo: E perché? Tu sei uno sconosciuto in questo gruppo tossico.
+            Ettore: Perché credo potrebbe succedere qualcosa di brutto.
+            Matteo: E allora, lascia che accada.
+            Matteo: Ci sono cose tra Elia e Paola, tra Paola e Greta, tra Zeca ed Elia che vanno avanti da anni.
+            Matteo: Non sarai tu a risolverle stasera.
+            Matteo: Beviti un goccio di vino, recita quello che devi recitare, e fuggi da qui.
+                -> advance_time ->
+                ~ pauseStorylet = true
+            -> matteo_talking_second_tier
+        
+
+    + (lavoro2) {phone.sindacato && new_this_loop(->lavoro2)}
+    [{lavoro2 == 0: Digli di Paola e del sindacato.|Ridigli di Paola e del sindacato.}]     
+        Ettore: Credo che Paola ti stia minacciando[.], per via del sindacato.
+    
+            {
+                -   are_two_entities_together(Paola, Matteo):
+                        Paola: Sindacato? Ancora con quel cazzo di sindacato?
+                        Paola: Matteo: vieni con me!
+                        ~ pauseStorylet = true
+                        ~ move_this_entity_in_a_different_room(Matteo)
+                        ~ move_this_entity_in_a_different_room(Paola)
+                    -> intro
+            }
+            
+          {new_this_loop(->lettera): Ettore: C'è una lettera minatoria, e credo sia scritta da lei.}
+          {not new_this_loop(->lettera): Matteo: Per quella lettera di prima?}
+          Matteo: Sei preoccupato per me?
+            -> advance_time ->
+
+            + + (lavoro3) Ettore: Sì, credo che lei possa farti del male.
+                    Matteo: Questa è una cosa tenera, Ettore.
+                    Matteo: Facciamo così: la prossima volta che c'è una pausa e siamo soli, chiedimi di raccontarti tutto, e lo farò.
+                    Matteo: Ora però lascia che mi rilassi un poco.
+                    ~ pauseStorylet = true
+                        -> matteo_talking_second_tier
+            
+            + + Ettore: Sì, credo che tu possa farle del male.
+                    Matteo: Beh, se hai già deciso che sono una cattiva persona, che senso ha parlarmi ancora?
+                        ~ loopableVariables += pausaRapportoMatteo
+                        ~ pauseStorylet = true
+                        -> intro
+
+
+
+    + (omicidio) {new_this_loop(->omicidio)}
+    [{omicidio == 0: Chiedigli chi potrebbe fare male a Paola.|Richiedigli chi potrebbe fare male a Paola.}]     
+        Ettore: Matteo, secondo te chi vorrebbe fare del male a Paola?
+        ~ inConversazione += Matteo
+            {
+                -   are_two_entities_together(Paola, Matteo):
+                    Matteo: Non è una buona idea parlarne mentre lei è qui.
+                        ~ pauseStorylet = true
+                        -> matteo_talking_second_tier
+            }                    
+        Matteo: Credo un bel po' di gente.
+        Matteo: Dal cassiere del supermercato alla autista privata.
+        Matteo: Dalla postina al tizio che le cura i cani.
+        Matteo: Passando poi per il consiglio di amministrazione.
+        Matteo: E le famiglie che distrugge con le sua attività.
+        Matteo: E i comuni che hanno debiti con lei.
+            -> advance_time ->
+                    {
+        - currentTime >= 600:
+        -> paolaIsDeadStorylet    
+        }
+        Ettore: E tra le persone qui presenti?
+        Matteo: Un bel po' di gente.
+        ~ pauseStorylet = true
+            -> matteo_talking_second_tier
 
     
     
@@ -251,24 +266,36 @@ Opzioni di dialogo con la persona Matteo
    
     
     //SCELTE CONDIZIONALI OGGETTI//
-    + (lettera) {inventoryContents has Lettera && new_this_loop(->lettera)} Ettore: Hai mai visto questa lettera?
+    + (lettera) {inventoryContents has Lettera && new_this_loop(->lettera)}
+    [{lettera == 0: Mostragli la lettera.|Mostragli di nuovo la lettera.}]    
+        Ettore: Hai mai visto questa lettera?
         Matteo: Mettila via, subito! Se Paola la trova ti mangia vivo!
     
-    + (torta) {inventoryContents has Torta && new_this_loop(->torta)} Ettore: Questa torta l'avete portata tu e Zeca?
+    + (torta) {inventoryContents has Torta && new_this_loop(->torta)}
+    [{torta == 0: Mostragli la torta.|Mostragli di nuovo la torta.}]
+        Ettore: Questa torta l'avete portata tu e Zeca?
         Matteo: Strano: Zeca e io abbiamo preso la roba al supermercato, ma non ricordo questa torta!
         Matteo: Anche perché tutte queste arachidi ucciderebbero Paola.
     
-    + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)} Ettore: Riconosci questa bottiglia di vino?
+    + (vino) {inventoryContents has BottigliaDiVino && new_this_loop(->vino)}
+    [{vino == 0: Mostragli la bottiglia di vino.|Mostragli di nuovo la bottiglia di vino.}] 
+        Ettore: Riconosci questa bottiglia di vino?
         Matteo: Mi spiace Ettore, bevo solo roba sotto i tre euro.
     
-    + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)} Ettore: Sai di chi sia questo flaconcino per l'asma?
+    + (asma) {inventoryContents has FlaconcinoAsma && new_this_loop(->asma)}
+        [{asma == 0: Mostragli il boccettino dell'asma.|Mostragli di nuovo il boccettino dell'asma.}]
+        Ettore: Sai di chi sia questo flaconcino per l'asma?
         Matteo: Zero totale.
     
-    + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)} Ettore: Hai idea di chi abbia perso questa sigaretta elettronica?
+    + (sigaretta) {inventoryContents has SigarettaElettronica && new_this_loop(->sigaretta)}
+        [{sigaretta == 0: Mostragli la sigaretta elettronica.|Mostragli di nuovo la sigaretta elettronica.}]    
+        Ettore: Hai idea di chi abbia perso questa sigaretta elettronica?
         Matteo: Di Paola. Con Zeca siamo passati a recuperarle le ricariche.
         Matteo: E le abbiamo preso un sapore schifoso, così, pe il piacere di darle fastidio.
     
-     + (fotografia) {inventoryContents has Foto && new_this_loop(->fotografia)} Ettore: Hai già visto questa foto?
+     + (fotografia) {inventoryContents has Foto && new_this_loop(->fotografia)}
+        [{fotografia == 0: Mostragli la fotografia.|Mostragli di nuovo la fotografia.}]
+        Ettore: Hai già visto questa foto?
         Matteo: No.
         Matteo: Ma ti prego, non farla vedere a Zeca.
         Matteo: <fear>Gli spezzeresti il cuore.</fear>

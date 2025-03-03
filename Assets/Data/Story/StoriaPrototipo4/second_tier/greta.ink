@@ -429,7 +429,7 @@ Opzioni di dialogo con la persona Greta
                         
     
 
-    + (allestimento4) {zeca_talking_second_tier.allestimento2 && (not are_two_entities_together(Zeca, Greta) or not are_two_entities_together(Matteo, Greta)) && new_this_loop(->allestimento4)} Ettore: Mi aiuti a capire una cosa?
+    + (allestimento4) {zeca_talking_second_tier.allestimento2 && (not are_two_entities_together(Zeca, Greta) or not are_two_entities_together(Matteo, Greta)) && new_this_loop(->allestimento4)} Ettore: Sai Greta che non sto capendo chi ha fatto cosa per gli allestimenti?
                 ~ inConversazione += Greta
             Ettore: Sembra che nessuno si sia occupato del buffet prima delle prove.
             Ettore: Da quel che ho capito, tu ed Elia vi dovevate occupare del vino, Matteo e Zeca dei dolci.
@@ -630,6 +630,12 @@ Opzioni di dialogo con la persona Greta
     Greta: Lo senti?
     Ettore: Cosa?
     Greta: Il silenzio.
+        + {third_qn > 1} [Interrompi la conversazione.]
+            ~ pauseStorylet = true
+            -> intro
+        + {third_qn > 1} [Continui ad ascoltare.]
+        + ->
+        -   
     Greta: Qualcosa di raro, qualcosa di magico.
     Greta: Fino a quando non ti fermi e ti rendi conto che è spaventoso.
     Greta: E di solito lo è perché hai troppi pensieri in testa.

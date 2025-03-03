@@ -188,7 +188,7 @@
 ~ inConversazione += Elia
         Matteo: Te l'ho già detto più volte, Elia: è una scelta pacchiana.
         Elia: Ma il nostro pub non è pacchiano!
-            + {weddingAtThePubStorylet > 1} [Ti allontani.]
+            + {weddingAtThePubStorylet > 1} [Interrompi la conversazione.]
                 ~ pauseStorylet = true
                 -> intro
             + {weddingAtThePubStorylet > 1} [Resti]
@@ -225,7 +225,7 @@
 ~ inConversazione += Greta
         Elia: <i><fear>Quindi ora vuoi uccidermi?</fear></i>
         Greta: <i>Ucciderti?</i>
-            + {anEavesdropAboutFriendshipStorylet > 1} [Ti allontani.]
+            + {anEavesdropAboutFriendshipStorylet > 1} [Interrompi la conversazione.]
                 ~ pauseStorylet = true
                 -> intro
             + {anEavesdropAboutFriendshipStorylet > 1} [Resti]
@@ -260,7 +260,7 @@
     Greta: <rage>Co<waitrage>glio<waitrage>ne</rage>.
     Greta: Cosa cazzo vai in giro a dire che staremo assieme?
     Greta: Matteo, sei un coglione infinito.
-        + {itsOverisntItStorylet > 1} [Ti allontani.]
+        + {itsOverisntItStorylet > 1} [Interrompi la conversazione.]
             ~ pauseStorylet = true
             -> intro
         + {itsOverisntItStorylet > 1} [Resti.]
@@ -328,7 +328,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
 
         Elia: Non trattare Paola come un autobus.
         Matteo: In che senso?
-            + {sheIsTheBestStorylet > 1} [Ti allontani.]
+            + {sheIsTheBestStorylet > 1} [Interrompi la conversazione.]
                 ~ pauseStorylet = true
                 -> intro
             + {sheIsTheBestStorylet > 1} [Resti.]
@@ -375,7 +375,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
 {debug: <i>Passo per aStrangeKnifeStorylet</i>}
         Matteo: Ehi, ma quello è il mio antico pugnale sacrificale!
         Matteo: Grazie per avermelo riportato!
-            + {aStrangeKnifeStorylet > 1} [Ti allontani.]
+            + {aStrangeKnifeStorylet > 1} [Interrompi la conversazione.]
                 ~ pauseStorylet = true
                 -> intro
             + {aStrangeKnifeStorylet > 1} [Resti.]
@@ -398,7 +398,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
 {debug: <i>Passo per marryMe</i>}
         Matteo: <joy>Finalmente soli, amore.</joy>
         Matteo: Dio, quanto sei bello, te l'ho mai detto?
-            + {marryMeStorylet > 1} [Ti allontani.]
+            + {marryMeStorylet > 1} [Interrompi la conversazione.]
             ~ pauseStorylet = true
             -> intro
             + {marryMeStorylet > 1} [Resti.]
@@ -469,7 +469,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
     Zeca: Mio nuovo giovane amico, che bello rivederti.
     {not new_this_loop(->zeca_acting.rapportoPaola): Zeca: Forse adesso è un buon momento per rispondere alla tua domanda di prima.}
     Zeca: La vita sa essere crudele, sai?
-        + {worstBestManStorylet > 1} [Ti allontani.]
+        + {worstBestManStorylet > 1} [Interrompi la conversazione.]
         ~ pauseStorylet = true
         -> intro
         + {worstBestManStorylet > 1} [Resti.]
@@ -515,7 +515,7 @@ PS: ricordarsi di resettare la variabile al reset_loop
 {debug: <i>Passo per hardTrueFeelingsStorylet</i>}
 Matteo: Anche io.
 Ettore: Uh, dimmi pure.
-    + {hardTrueFeelingsStorylet > 1} [Ti allontani.]
+    + {hardTrueFeelingsStorylet > 1} [Interrompi la conversazione.]
     ~ pauseStorylet = true
     -> intro
     + {hardTrueFeelingsStorylet > 1} [Resti.]

@@ -105,6 +105,12 @@ Opzioni di dialogo con la persona Paola
         ~ inConversazione += Paola
             Paola: Ecco, così mi si deve parlare: <joy>fuori dai denti.</joy>
             Paola: Niente cazzate del cazzo.
+                + {liar > 1} [Interrompi la conversazione.]
+                    ~ pauseStorylet = true
+                    -> intro
+                + {liar > 1} [Continui ad ascoltare.]
+                + ->
+                - 
             Paola: Come se potessi fare paura.
             Paola: Come se sapere dove vivi, dove vive tua madre e avere la possilibità di ricattare il tuo agente fino al midollo mi rendesse minacciosa.
             Ettore: Eh eh ehm coff coff esatto.
@@ -301,6 +307,12 @@ Opzioni di dialogo con la persona Paola
         Paola: I poveri hanno perso la lotta di classe, l'hanno persa quando li abbiamo convinti che fosse roba del passato.
         Paola: Risolta con la fast fashion e la celebrità social.
         Paola: Ma il tuo piccolo cervellino proletario non può capire quello che sto dicendo vero <cry>EttorAAAAAAA!</cry>
+            + {second_qn > 1} [Interrompi la conversazione.]
+                ~ pauseStorylet = true
+                -> intro
+            + {second_qn > 1} [Continui ad ascoltare.]
+            + ->
+            - 
         Paola: <cry>Non voglio morire non voglio morire non voglio morire non voglio.</cry>
         Ettore: Come, scusa?!?
         Paola: <cry>L'aria manca, presto saremo cenere.</cry>

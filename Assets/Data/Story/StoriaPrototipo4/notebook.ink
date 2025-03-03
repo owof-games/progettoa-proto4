@@ -213,7 +213,7 @@ VAR notebookPage = 1
 
 {zeca_talking_second_tier.money: Zeca: No: Matteo è l'unico qui dentro che campa sulle spalle dei due fratelli.#slot-2}  
 {paola_talking_second_tier.allestimento: Paola: Beh, nella stanza gialla Matteo e Zeca si sono urlati contro come se ne andasse dell'intero universo. E Matteo è uscito piangendo. #slot-3} 
-{notABigSecretPartTwoStorylet.allestimento: Elia: Zeca e Matteo sono andati a prendere il cibo, e non le hanno prese. Sono passati anche in farmacia e dal tabacchi per la sigaretta di Paola, e anche lì ci sono le mie barrette. Ma non le hanno prese!#slot-4}  
+{notABigSecretPartTwoStorylet.allestimento: Elia: Zeca e Matteo sono andati a prendere il cibo. Sono passati anche in farmacia e dal tabacchi per la sigaretta di Paola. #slot-4}  
 {phone.sindacato: Amica: E fresca fresca di oggi, il migliore amico di Elia che sta tirando su un sindacato contro la sorella. Michele, Mirco, Marco.#slot-5} 
 
 

@@ -7,7 +7,7 @@
 {
 
 //SCENA INIZIALE
-    - are_six_entities_together(Elia, Matteo, Ettore, Greta, Paola, Zeca) && peopleTalking == false && new_this_loop(->reStartingDinnerStorylet):
+    - are_six_entities_together(Elia, Matteo, Ettore, Greta, Paola, Zeca) && peopleTalking == false && (not reStartingDinnerStorylet):
     -> reStartingDinnerStorylet
     
 
@@ -132,7 +132,8 @@ TODO: tutti questi storylets partono sempre, per poi venir bloccati se c'è una 
             + Ettore: Ma non è che c'è dell'altro vino in giro?
             -
             -> advance_time ->
-
+            
+            - (restart)
             ~ move_entity(Elia,WhiteRoom)
         Elia: Siamo tutti colpevoli...
             ~ change_status(Elia, EliaUnalived)
@@ -494,7 +495,10 @@ TODO: tutti questi storylets partono sempre, per poi venir bloccati se c'è una 
                         - are_three_entities_together(Matteo, Ettore, Elia) or are_three_entities_together(Elia, Ettore, Greta) or are_three_entities_together(Elia, Ettore, Zeca): -> quickTalk
                     }
         Elia: Maledizione.
-        - (allestimento)  Elia: Zeca e Matteo sono andati a prendere il cibo, e non le hanno prese. Sono passati anche in farmacia e dal tabacchi per la sigaretta di Paola, e anche lì ci sono le mie barrette. Ma non le hanno prese!
+            - (allestimento) 
+        Elia: Zeca e Matteo sono andati a prendere il cibo, e non le hanno prese.
+        Elia: Sono passati anche in farmacia e dal tabacchi per la sigaretta di Paola, e anche lì ci sono le mie barrette.
+        Elia: Ma non le hanno prese!
         Elia: Ora perderò tutti i miei muscoli e sarò una persona normale, come te!
         Elia: Povero me!
         ~ pauseStorylet = true

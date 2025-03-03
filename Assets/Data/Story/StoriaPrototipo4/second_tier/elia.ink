@@ -132,6 +132,12 @@ Opzioni di dialogo con la persona Elia
             ~ inConversazione += Elia
         Elia: Esatto. Greta e io abbiamo comprato il vino.
         Ettore: Questa è stata facile!
+            + {allestimento > 1} [Interrompi la conversazione.]
+                ~ pauseStorylet = true
+                -> intro
+            + {allestimento > 1} [Continui ad ascoltare.]
+            + ->
+            -            
         Elia: Però.
         Ettore: No! Lascia che questa conversazione sia facile!
         Elia: Sì, però non le abbiamo consegnate.
@@ -205,6 +211,12 @@ Opzioni di dialogo con la persona Elia
             }            
         Ettore: Ed ero convinto che Matteo fosse tuo amico.
         Elia: Non al passato. Non fosse, ma è.
+            + {conversazione > 1} [Interrompi la conversazione.]
+                ~ pauseStorylet = true
+                -> intro
+            + {conversazione > 1} [Continui ad ascoltare.]
+            + ->
+            -
         Elia: Zeca invece è un collega, abbiamo la BRO assieme.
         Elia: Parlavano di quanto è figa la BRO, vero?!?
         Ettore: No, ehm.
@@ -363,6 +375,12 @@ Opzioni di dialogo con la persona Elia
         ~ inConversazione += Elia
     Elia: Sai che ho una cosa che mi lega a ogni persona qui dentro?
     Elia: Paola è mia sorella, e questa è facile.
+            + {first_qn > 1} [Interrompi la conversazione.]
+                ~ pauseStorylet = true
+                -> intro
+            + {first_qn > 1} [Continui ad ascoltare.]
+            + ->
+            -
     Elia: Ma Paola anche se è alta meno di me, dentro di lei c'è un pallone che si gonfia.
     Elia: Me l'ha detto Greta.
     {are_two_entities_together(Paola, Elia): Paola: Interessante.}
@@ -514,6 +532,12 @@ Opzioni di dialogo con la persona Elia
             ~ inConversazione += Elia
         Elia: Un po' complicato, per colpa delle piramidi.
         Ettore: Aiuto.
+            + {third_paola > 1} [Interrompi la conversazione.]
+                ~ pauseStorylet = true
+                -> intro
+            + {third_paola > 1} [Continui ad ascoltare.]
+            + ->
+            -
         Elia: Eh sì, mi serve aiuto.
         Elia: Praticamente sono entrato in questa piramide di fotografi.
         Elia: E la cosa è che dovevo comprare delle macchine fotografiche.

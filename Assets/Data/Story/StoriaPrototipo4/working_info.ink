@@ -1,3 +1,5 @@
+TODO: se ho pazienza: dopo che mi è stato detto da un personaggio " ti dico quella cosa se siamo soli", posso riprendere la conversazione se siamo nello stesso loop.
+
 //NOMENCLATURE
 //Funzioni: sempre_col_cammello
 //nome variabili o liste: scritteCosi

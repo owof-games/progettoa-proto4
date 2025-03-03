@@ -311,7 +311,8 @@ Opzioni di dialogo con la persona Zeca
                 Zeca: Scherzo, ovviamente. Siamo solo amici. E lui è etero. Povero me.
             -    
         Zeca: Lui per me è come il boccettino dell'asma per Paola: senza, non respiro.
-        Zeca: Ma non so come farglielo capire, sai?
+        Zeca: PERO'. PERO'.
+        Zeca: Non so come farglielo capire, sai?
                 -> advance_time ->
         Zeca: Tu cosa faresti al mio posto?
             + Ettore: Confesserei i miei sentimenti.
@@ -330,6 +331,7 @@ Opzioni di dialogo con la persona Zeca
         Zeca: Cosa sei? Un metro e settanta per settanta chili?
         Zeca: Pancetta da birra, occhiaie da canne e pippe.
         Zeca: Tieni il mio numero. Non per scopà, sia chiaro. Ma per venire a provare i nostri workout.
+        Zeca: PERO'. PERO'.
         Zeca: <joy>Forse c'è speranza anche per te.</joy>
                     -> advance_time ->
                     -> zeca_talking 
@@ -359,6 +361,7 @@ Opzioni di dialogo con la persona Zeca
         Ettore: Lettera del mistero?
         Zeca: Lascia fare. Qui si sta a fare un casino tra oggetti di scena, oggetti privati e casini personali.
         Zeca: Ti giuro che io per primo non capisco chi recita e chi è sincero.
+        Zeca: PERO'. PERO'.
         Zeca: Tu però te la cavi bene, non hai mai tentennato!
             + Ettore: Sai com'è, faccio questo lavoro da una vita!
                 Zeca: Ehi, vola basso uccellino.

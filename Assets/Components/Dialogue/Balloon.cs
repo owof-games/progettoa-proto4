@@ -22,6 +22,7 @@ namespace Components.Dialogue
         [SerializeField] private Image backgroundImage;
         [SerializeField] private TextMeshProUGUI textMeshProUGUI;
         [SerializeField] private GameObject advanceButton;
+        [SerializeField] private GameObject advanceButtonArrow;
         [SerializeField] private StringEvent continueEvent;
         [SerializeField] private GameObject singleChoicePrefab;
         [SerializeField] private RectTransform choicesContainer;
@@ -41,6 +42,7 @@ namespace Components.Dialogue
         private void Awake()
         {
             Assert.IsNotNull(advanceButton);
+            Assert.IsNotNull(advanceButtonArrow);
             Assert.IsNotNull(continueEvent);
             Assert.IsNotNull(container);
             Assert.IsNotNull(layoutElement);
@@ -111,12 +113,14 @@ namespace Components.Dialogue
                 _showAdvance = false;
                 CurrentBalloonWithChoices = this;
                 _currentChoice = sc;
+                advanceButtonArrow.SetActive(false);
             }
             else
             {
                 _showAdvance = true;
                 CurrentBalloonWithChoices = null;
                 _currentChoice = null;
+                advanceButtonArrow.SetActive(true);
             }
 
             _onDone = onDone;
@@ -147,7 +151,6 @@ namespace Components.Dialogue
         public void OnTextShowed()
         {
             _isWriting = false;
-            _onDone?.Invoke();
             UpdateShowAdvanceButton();
         }
 
@@ -188,7 +191,15 @@ namespace Components.Dialogue
         public void OnAdvanceButtonClick()
         {
             ShowAdvanceButton(false);
-            continueEvent.Raise(null);
+            if (_onDone != null)
+            {
+                _onDone.Invoke();
+                _onDone = null;
+            }
+            else
+            {
+                continueEvent.Raise(null);
+            }
         }
 
         public event Action<int> ChoiceTaken;

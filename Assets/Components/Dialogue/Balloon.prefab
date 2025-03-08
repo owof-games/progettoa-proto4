@@ -189,6 +189,8 @@ MonoBehaviour:
   triggerEventsOnSkip: 0
   resetTypingSpeedAtStartup: 1
   disappearanceOrientation: 0
+  triggerShowedAfterEffectsEnd: 0
+  triggerDisappearedAfterEffectsEnd: 0
   onTextShowed:
     m_PersistentCalls:
       m_Calls:
@@ -680,6 +682,7 @@ MonoBehaviour:
   backgroundImage: {fileID: 4146642191529307697}
   textMeshProUGUI: {fileID: 7253120422696042893}
   advanceButton: {fileID: 3003057351719588100}
+  advanceButtonArrow: {fileID: 866710551924045945}
   continueEvent: {fileID: 11400000, guid: f1836d32c09bf4f4ca4b1bc5567fda79, type: 2}
   singleChoicePrefab: {fileID: 6626954479111026206, guid: f264fb7b22b2ec942834eab77ac740ba, type: 3}
   choicesContainer: {fileID: 2064204461409268787}

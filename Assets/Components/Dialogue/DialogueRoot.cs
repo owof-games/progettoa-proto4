@@ -161,7 +161,7 @@ namespace Components.Dialogue
 
             void OnDone()
             {
-                if (choices is not { Length: > 0 }) return;
+                Debug.Assert(choices is { Length: > 0 });
                 var choicesDialogueRow = CreateAndGetDialogueRow();
                 var choicesArray = (from choice in choices
                     let choiceText = choice.text
@@ -181,7 +181,8 @@ namespace Components.Dialogue
             if (text == "")
                 OnDone();
             else
-                dialogueRow.SetUp(character, _columnRemapper[column], text, showAdvance, onDone: OnDone);
+                dialogueRow.SetUp(character, _columnRemapper[column], text, true,
+                    onDone: choices is not { Length: > 1 } ? null : OnDone);
             // }
         }
 

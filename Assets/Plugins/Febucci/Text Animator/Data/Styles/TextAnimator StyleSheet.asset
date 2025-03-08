@@ -20,7 +20,7 @@ MonoBehaviour:
     openingTag: <waitfor=1>
     closingTag: 
   - styleTag: fear
-    openingTag: <shake>
+    openingTag: <shake a=0.5>
     closingTag: </shake>
   - styleTag: rage
     openingTag: <b>

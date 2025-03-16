@@ -81,6 +81,7 @@
     -
 ->->
 
+
 === cb_second_tier_cibo ===
 + {are_two_entities_together(Ettore, Torta)} [object:{Torta}]
     -> cibo ->

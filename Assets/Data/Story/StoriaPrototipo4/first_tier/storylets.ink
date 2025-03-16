@@ -763,6 +763,8 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
             ~ gretaHaLaLettera = false
             ~ loopableVariables += dontCheckStorylets
             ~ loopableVariables += PaolaDavveroMorta
+            ~ move_entity(SpiedinoCocktail, objectStorageContents)
+            
                 -> advance_time ->
 
     -> cb_second_tier

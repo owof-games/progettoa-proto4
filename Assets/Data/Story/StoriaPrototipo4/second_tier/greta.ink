@@ -26,7 +26,7 @@ Opzioni di dialogo con la persona Greta
     
     //INFO GENERALI//
     
-    + (loop) {new_this_loop(->loop)} 
+    + {new_this_loop(->loop) && new_this_loop(->loopX)} 
     [{greta_talking_second_tier.loop == 0: Chiedi a Greta se ha notato qualcosa di strano.|{matteo_talking_second_tier.loop2: Dopo il consiglio di Matteo, riprendi il discordo dei loop con Greta.| Richiedi a Greta se ha notato qualcosa di strano.}}]
     
             Ettore: Greta, secondo te qui è tutto normale?
@@ -65,6 +65,7 @@ Opzioni di dialogo con la persona Greta
                     Greta: Beh: hai l'occasione di fare quello che vuoi senza pagarne le conseguenze, perché tanto tutto si resetta.
                     Greta: <joy>Goditela!</joy>
                     Greta: E se siamo in un loop temporale, uccidimi: quante occasioni ci sono di morire due volte?
+                    - - - (loop) 
                         -> advance_time ->
                         ~ pauseStorylet = true
                         -> greta_talking_second_tier
@@ -86,6 +87,7 @@ Opzioni di dialogo con la persona Greta
 
                     Greta: Ma scusa, mi sono persa un attimo.
                     Greta: <joy>Bella maglietta, comunque.</joy>
+                    - - - (loopX) 
                         ~ pauseStorylet = true
                         -> greta_talking_second_tier
             
@@ -104,7 +106,7 @@ Opzioni di dialogo con la persona Greta
                     ~ pauseStorylet = true
                     -> greta_talking_second_tier
 
-    + (rapportoPaola2) {new_this_loop(->rapportoPaola2) && phone.indagini}
+    + {new_this_loop(->rapportoPaola2) && phone.indagini}
         [{rapportoPaola2 == 0: Parla con Greta delle indagini.|Riparla con Greta delle indagini.}]
             Ettore: Visto che lavori con Paola, non ti preoccupano le indagini?
                     ~ inConversazione += Greta
@@ -135,11 +137,12 @@ Opzioni di dialogo con la persona Greta
                 Greta: E se i conti sono stati fatti per bene, Elia ricerverà la convocazione domani, via lettera, esattamente con venti minuti di ritardo.
                 Greta: Non che cambi molto: l'ultima volta che si è visto in azienda è perché aveva un appuntamento con una stagista.
                 Greta: Paola l'ha licenziata il giorno dopo.
+                - - (rapportoPaola2) 
                     -> advance_time ->
                     ~ pauseStorylet = true
                      -> greta_talking_second_tier
     
-    + (rapportoPaola3) {new_this_loop(->rapportoPaola3) && elia_talking_second_tier.indagini}
+    + {new_this_loop(->rapportoPaola3) && new_this_loop(->rapportoPaola3X) && elia_talking_second_tier.indagini}
     [{rapportoPaola3 == 0: Chiedi a Greta delle info che ha passato a Matteo.|Richiedi a Greta delle info che ha passato a Matteo.}]
         Ettore: Paola sa già che hai passato info segrete a Matteo?
                 ~ inConversazione += Greta
@@ -180,6 +183,7 @@ Opzioni di dialogo con la persona Greta
                     Greta: Vedo che sei sveglio, Ettore.
                     Greta: Ma la maestra è stanca e ti lascia un compito per casa: chi ha così influenza su Elia da trattarlo come una marionetta?
                     Greta: E per quale vantaggio?
+                    - - - (rapportoPaola3) 
                     -> advance_time ->
                     ~ pauseStorylet = true
                     -> greta_talking_second_tier
@@ -187,13 +191,14 @@ Opzioni di dialogo con la persona Greta
             + + Ettore: Questo però non risponde alla mia domanda[.]: hai passato le informazioni a Matteo?
                     Greta: Mmm, mi stavi quasi simpatico, Ettore, quasi.
                     Greta: Ma non mi piace chi mi accusa di cose a caso.
-                    Greta: <rage>Vattene<waitrage> e<waitrage> non<waitrage> parlarmi<waitrage> più!</rage> 
+                    Greta: <rage>Vattene<waitrage> e<waitrage> non<waitrage> parlarmi<waitrage> più!</rage>
+                    - - - (rapportoPaola3X) 
                     ~ loopableVariables += pausaRapportoGreta
                     -> advance_time ->
                     ~ pauseStorylet = true
                     -> intro
     
-    + (rapportoPaola4) {new_this_loop(->rapportoPaola4) && liarCallLiarStorylet.indagini}
+    + {new_this_loop(->rapportoPaola4) && new_this_loop(->rapportoPaola4X) && liarCallLiarStorylet.indagini}
     [{rapportoPaola3 == 0: Chiedi a Greta se ha passato lei le info alla polizia.|Richiedi a Greta se ha passato lei le info alla polizia.}]
             Ettore: Ci hai ragionato a lungo, prima di tradire Paola?
                 ~ inConversazione += Greta
@@ -219,6 +224,7 @@ Opzioni di dialogo con la persona Greta
                     Greta: Io ho già perso mille volte, e sinceramente son stanca.
                     Greta: E stanca di te.
                     Greta: Non mi parlare più, <rage>fighetto del cazzo.</rage>
+                        - - - (rapportoPaola4)
                         ~ loopableVariables += pausaRapportoGreta
                         -> advance_time ->
                         ~ pauseStorylet = true
@@ -247,12 +253,13 @@ Opzioni di dialogo con la persona Greta
                     Greta: Ci sono famiglie che muoiono di fame per colpa sua.
                     Greta: A questo mondo non c'è giustizia.
                     Greta: E quando non c'è giustizia, l'unica cosa che rimane per sopravvivere è la violenza.
+                        - - - (rapportoPaola4X) 
                         -> advance_time ->
                         ~ pauseStorylet = true
                         -> greta_talking_second_tier
                     
     
-    + (omicidio) {new_this_loop(->omicidio)}
+    + {new_this_loop(->omicidio) && new_this_loop(->omicidioX)}
     [{omicidio == 0: Chiedi a Greta se qualcuno potrebbe uccidere Paola.|Richiedi a Greta se qualcuno potrebbe uccidere Paola.}]
     Ettore: Secondo te qualcuno potrebbe volere del male a Paola?
                 ~ inConversazione += Greta
@@ -302,6 +309,7 @@ Opzioni di dialogo con la persona Greta
                                 Greta: Quando chiudiamo la recita mostrati sorpreso e dì a Paola che è un genio.
                                 Greta: Così ti sgancia un bonus sulla paga, sicuro.
                                 Greta: Poi ci sarà tempo per riscrivere quel disastro.
+                                - - - - (omicidio) 
                                     -> advance_time ->
                                     ~ pauseStorylet = true
                                     -> greta_talking_second_tier
@@ -357,6 +365,7 @@ Opzioni di dialogo con la persona Greta
                                     }
     
                                 Greta: Che ne pensi?
+                                - - - - (omicidioX) 
                                 + + + + Ettore: Che non devo farti arrabbiare, mai.
                                         Greta: Bravo ragazzo!
                                              -> greta_talking_second_tier
@@ -375,7 +384,7 @@ Opzioni di dialogo con la persona Greta
 
     //SCELTE CONDIZIONALI//
 
-    + (love) {trueLoveStorylet && new_this_loop(->love)}
+    + {trueLoveStorylet && new_this_loop(->love) && new_this_loop(->loveX)}
     [{love == 0: Chiedile se sapeva della relazione tra Elia e Zeca.|Richiedile se sapeva della relazione tra Elia e Zeca.}]
     Ettore: Sapevi della relazione tra Elia e Zeca?
             Greta: Quell'obbrobrio che chiamano "Bro"?
@@ -424,6 +433,7 @@ Opzioni di dialogo con la persona Greta
                                 - - - - (indagini3) Greta: E io che, stupida, coprivo i furti di denaro di Elia in azienda.
                                 Greta: Convinta che ci avremmo costruito una casa assieme, con quei soldi.
                                 Greta: Ho bisogno di un poco di privacy Ettore, scusami.
+                                - - - - (love) 
                                 ~ loopableVariables += pausaRapportoGreta
                                 -> advance_time ->
                                 ~ pauseStorylet = true
@@ -437,6 +447,7 @@ Opzioni di dialogo con la persona Greta
                                 Greta: Ma ora è tutto finito.
                                 Greta: L'unica traccia di luce nella mia vita, svanita.
                                 Greta: Lasciami un poco da sola, per favore.
+                                - - - - (loveX) 
                                 ~ loopableVariables += pausaRapportoGreta
                                 -> advance_time ->
                                 ~ pauseStorylet = true
@@ -444,7 +455,7 @@ Opzioni di dialogo con la persona Greta
                         
     
 
-    + (allestimento4) {zeca_talking_second_tier.allestimento2 && (not are_two_entities_together(Zeca, Greta) or not are_two_entities_together(Matteo, Greta)) && new_this_loop(->allestimento4)}
+    + {zeca_talking_second_tier.allestimento2 && (not are_two_entities_together(Zeca, Greta) or not are_two_entities_together(Matteo, Greta)) && new_this_loop(->allestimento4)}
     [{allestimento4 == 0: Chiedile informazioni su chi ha fatto gli allestimenti.|Richiedile informazioni su chi ha fatto gli allestimenti.}]
     
         Ettore: Sai Greta che non sto capendo chi ha fatto cosa per gli allestimenti?
@@ -470,6 +481,7 @@ Opzioni di dialogo con la persona Greta
                 Greta: Roba da maschi, che le altre due signorine non sanno come affrontare.
                 Greta: Mio dio, Elia ci ha quasi lasciato un dito.
                 Greta: Che vita difficile che ho!
+                - - (allestimento4)
                         -> advance_time ->
                         ~ pauseStorylet = true
                     -> greta_talking_second_tier

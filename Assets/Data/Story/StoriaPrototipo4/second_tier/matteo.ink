@@ -24,7 +24,7 @@ Opzioni di dialogo con la persona Matteo
     //INFO GENERALI//
 {loopableVariables has pausaRapportoMatteo: Matteo: Non ho niente da dirti. -> intro.}
 
-    + (loop) {new_this_loop(->loop)}
+    + {new_this_loop(->loop) && new_this_loop(->loopY) && new_this_loop(->loopX)}
     [{loop == 0: Chiedi a Matteo se ha notato qualcosa di strano.|{(not loop3): Dimostra a Matteo che siete in un loop.|Richiedi a Matteo se ha notato qualcosa di strano.}}]
             Ettore: Non stai notando nulla di strano?
                 ~ inConversazione += Matteo
@@ -42,6 +42,7 @@ Opzioni di dialogo con la persona Matteo
                                 Matteo: Ma se vedi che butta male, chiedi una pausa più lunga a Paola.
                                 Matteo: O fai finta di svenire, che forse è efficace.
                                 Matteo: O dille che ha i capelli fuori posto, e ci guadagnamo mezz'ora sicura!
+                                - - - - (loop) 
                                         -> advance_time ->
                                         ~ pauseStorylet = true
                                     -> matteo_talking_second_tier
@@ -52,6 +53,7 @@ Opzioni di dialogo con la persona Matteo
                                 Matteo: Prova a parlarne con Greta. Lei sa un sacco di cose strane.
                                 Matteo: Ma se siamo davvero in un loop temporale, allora <joy>vorrei un tuo bacio prima o poi.</joy>
                                 Matteo: Almeno una cosa bella continuerà a ripetersi.
+                                - - - - (loopX)
                                     -> advance_time ->
                                     ~ pauseStorylet = true
                                     -> matteo_talking_second_tier
@@ -63,6 +65,7 @@ Opzioni di dialogo con la persona Matteo
                                 Matteo: E tu stai cercando di fermare tutto questo?
                                 Ettore: Sì, perché qualcuno sta per morire.
                                 Matteo: Quando avrai risolto il crimine, allora, <joy>ridammi un altro bacio, e portami via da qui.</joy>
+                                - - - - (loopY)
                                     -> advance_time ->
                                     ~ pauseStorylet = true
                                     -> matteo_talking_second_tier
@@ -81,11 +84,8 @@ Opzioni di dialogo con la persona Matteo
         Matteo: Sono qui sostanzialmente per lui.
         Matteo: E un po' perché da sempre vorrei fare l'attore, ma non è di sicuro questo il posto dove venire scoperto.
             -> advance_time ->
-            {
-            - currentTime >= 600:
-            -> paolaIsDeadStorylet    
- 
-            }
+            ~ pauseStorylet = true
+            -> matteo_talking_second_tier
 
 
     + (lavoro) {zeca_talking_second_tier.money && new_this_loop(->lavoro)}
@@ -126,7 +126,7 @@ Opzioni di dialogo con la persona Matteo
                         ~ pauseStorylet = true
                         -> matteo_talking_second_tier
 
-    + (lettera3) {cb_second_tier_lettera.primoCheck && not new_this_loop(->lettera)}
+    + {cb_second_tier_lettera.primoCheck && not new_this_loop(->lettera)}
     [{lettera3 == 0: Insisti nel mostrargli la lettera.}] 
         Ettore: Perché me l'hai fatta mettere via, impaurito da Paola?
                 {
@@ -151,6 +151,7 @@ Opzioni di dialogo con la persona Matteo
             Matteo: Ci sono cose tra Elia e Paola, tra Paola e Greta, tra Zeca ed Elia che vanno avanti da anni.
             Matteo: Non sarai tu a risolverle stasera.
             Matteo: Beviti un goccio di vino, recita quello che devi recitare, e fuggi da qui.
+            - -(lettera3) 
                 -> advance_time ->
                 ~ pauseStorylet = true
             -> matteo_talking_second_tier

@@ -135,7 +135,7 @@ Opzioni di dialogo con la persona Elia
             
             
 
-    + (allestimento) {notABigSecretPartOneStorylet.allestimento && new_this_loop(-> allestimento)}
+    + {notABigSecretPartOneStorylet.allestimento && new_this_loop(-> allestimento)}
         [{Chiedigli se lui e Greta hanno comprato il vino.|Richiedigli se lui e Greta hanno comprato il vino.}]    
         Ettore: Elia, è vero che tu e Greta avete comprato il vino?
             ~ inConversazione += Elia
@@ -180,6 +180,7 @@ Opzioni di dialogo con la persona Elia
         Elia: Ora che ci penso: non abbiamo chiamato nessun comico.
         {are_two_entities_together(Greta, Ettore): Elia: Greta! Non ho chiamato i comici!|Elia: Devo dirlo a Greta prima che mi mangi vivo!}
         {are_two_entities_together(Greta, Ettore): Greta: Tranqui, Elia, ci sei già tu come buffone.}
+        - - - (allestimento) 
             -> advance_time -> 
                 ~ pauseStorylet = true
                 -> elia_talking_second_tier
@@ -207,8 +208,7 @@ Opzioni di dialogo con la persona Elia
                 -> elia_talking_second_tier
             
 
-TODO: per blocchi di testo ampi, metti l'etichetta "(conversazione)" in fondo
-    + (conversazione) {iTryToBeAGoodFriendStorylet && new_this_loop(-> conversazione)}
+    +  {iTryToBeAGoodFriendStorylet && new_this_loop(-> conversazione)}
     [{Digli della conversazione origliata tra Matteo e Zeca.|Ridigli della conversazione origliata tra Matteo e Zeca.}] 
         Ettore: Prima ho ascoltato una conversazione tra Zeca e Matteo...
             ~ inConversazione += Elia
@@ -275,6 +275,7 @@ TODO: per blocchi di testo ampi, metti l'etichetta "(conversazione)" in fondo
             - - (indagini) Elia: Vuole aiutarlo con questa cosa del sindicato, così che Matteo possa sindicare meglio sindicando Paola e venendo sindicato dai colleghi del sindicato.
             Elia: E io l'ho detto a Greta che fa bene, perché nessuno deve indicare i miei amici.
             Elia: Ma possono sindicarli, perché non è scritto diversamente da nessuna parte, no?
+            - - (conversazione)
                 -> advance_time ->
                 ~ pauseStorylet = true
                 -> elia_talking_second_tier

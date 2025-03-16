@@ -74,7 +74,7 @@ Opzioni di dialogo con la persona Paola
 
 
     //SCELTE CONDIZIONALI//
-    +  (buffet) {zeca_talking_second_tier.allestimento && elia_talking_second_tier.allestimento && new_this_loop(->buffet)}
+    +  {zeca_talking_second_tier.allestimento && elia_talking_second_tier.allestimento && new_this_loop(->buffet)}
         [{paola_talking_second_tier.buffet== 0: Chiedi a Paola se sa chi ha sistemato il buffet.|Richiedi a Paola se sa chi ha sistemato il buffet.}] 
             Ettore: Può essere una domanda strana, ma sai chi si è occupato di sistemare il buffet?
             ~ inConversazione += Paola
@@ -102,13 +102,14 @@ Opzioni di dialogo con la persona Paola
                 Paola: L'unica cosa decente di questa serata.
                 Paola: Già che ci sono potrei andare da Zeca e stuzzicarlo un po' per capire perché hanno litigato.
                 Paola: Magari piange anche quella fighetta.
+                - - (buffet)
                     -> advance_time ->
                     ~ pauseStorylet = true
                     -> paola_talking_second_tier
 
     
 
-    + (liar) {liarCallLiarStorylet.indagini && new_this_loop(-> liar)}
+    + {liarCallLiarStorylet.indagini && new_this_loop(-> liar)}
         [{paola_talking_second_tier.liar == 0: Dì a Paola che qualcuno ha dato i suoi dati alla polizia.|Riparla con Paola dei dati personali dati alla polizia.}]
         Ettore: Quindi: qualcuno ha dato tuoi dati personali alla polizia.
         ~ inConversazione += Paola
@@ -141,7 +142,7 @@ Opzioni di dialogo con la persona Paola
             Paola: Il coglione palestrato da spremere fino al midollo per un progetto inutile.
             Paola: E a quel punto cosa gli resta se non tornare a farsi pagare per le pompe all'Autogrill?
                 -> advance_time ->
-                - -(money)  Paola: Elia per Zeca è la gallina delle uova d'oro, ma di galline non se ne trovano due in questa vita.
+                - - (money)  Paola: Elia per Zeca è la gallina delle uova d'oro, ma di galline non se ne trovano due in questa vita.
                 Paola: E a me è toccato essere la gallina di me stessa.
                 Paola: Certo, la morte dei miei genitori mi ha dato una grossa mano.
                 Paola: Ma sapevi che Zeca si è fatto sbiancare il buco del culo?
@@ -149,11 +150,12 @@ Opzioni di dialogo con la persona Paola
                 Paola: Anche se è così stupido da non capire la differenza tra due tette e due chiappe.
                 Paola: Tra me e me: credo che Elia sia ancora vergine.
                 Paola: <joy>Piccola puttanella.</joy>
+                - - (liar) 
                     -> advance_time ->
                     ~ pauseStorylet = true
                     
 
-    + (foto3) {zeca_talking_second_tier.allestimento2 && new_this_loop(-> foto3)}
+    + {zeca_talking_second_tier.allestimento2 && new_this_loop(-> foto3)}
         [{paola_talking_second_tier.foto3 == 0: Chiedi a Paola se si è masturbata nella stanza gialla.|Richiedi a Paola se si è masturbata nella stanza gialla.}]
                 Ettore: <hesitate>Per caso ti sei tipo masturbata nella sala gialla?
                 ~ inConversazione += Paola
@@ -184,7 +186,7 @@ Opzioni di dialogo con la persona Paola
                     {are_two_entities_together(Paola, Greta): Greta: Cos?!?}
                     Paola: Un premio che farà felice anche quella merdaccina di Zeca.
                     {are_two_entities_together(Paola, Zeca): Zeca: Ehi!}
-                    Paola: Fai il tuo dovere, <joy>mio cagnolino.</joy>
+                    - - (foto3) Paola: Fai il tuo dovere, <joy>mio cagnolino.</joy>
                     -> advance_time ->
                     ~ pauseStorylet = true
   

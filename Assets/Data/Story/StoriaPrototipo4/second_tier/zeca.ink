@@ -24,7 +24,7 @@ Opzioni di dialogo con la persona Zeca
  {debug: <i>Passo per zeca_talking_second_tier</i>}
  {loopableVariables has pausaRapportoZeca: Zeca: Ma stammi lontano, cafone! -> intro.}
     //INFO GENERALI//
-    + (loop) {new_this_loop(->loop)}
+    + {new_this_loop(->loop)}
     [{Chiedigli se ha notato qualcosa di strano.|Richiedigli se ha notato qualcosa di strano.}]    
         Ettore: Zeca, non hai notato cose strane negli ultimi minuti?
             ~ inConversazione += Zeca
@@ -82,6 +82,7 @@ Opzioni di dialogo con la persona Zeca
         Zeca: Ma cosa ti dico queste cose a te?
         Zeca: Sei così vestito male che sei o etero o woke.
         Zeca: <hesitate>Devo chiedere aiuto a Paola, è l'unica opzione che mi rimane.
+            - -(loop)
                 -> advance_time ->
                 ~ pauseStorylet = true
                 -> zeca_talking_second_tier
@@ -140,7 +141,7 @@ Opzioni di dialogo con la persona Zeca
 
 
     //SCELTE CONDIZIONALI//
-    + (allestimento4) {notABigSecretPartTwoStorylet.allestimento && new_this_loop(->allestimento4)}
+    + {notABigSecretPartTwoStorylet.allestimento && new_this_loop(->allestimento4) && new_this_loop(->allestimento4X)}
         [{Chiedigli chi si è occupato del buffet.|{elia_talking_second_tier.allestimento: Digli che la sua versione e quella di Elia sull'allestimento non combaciano|Richiedigli chi si è occupato del buffet.}}]
         Ettore: Zeca, ho una domanda sul buffet e su chi se ne è occupato.
                 ~ inConversazione += Zeca
@@ -196,12 +197,14 @@ Opzioni di dialogo con la persona Zeca
                         } 
                         - - - (allestimento2) Zeca: Forse era Paola col suo vibratore a saltellare sul tavolo del buffet. Una elder millenial sicuro che ne ha sempre uno con sé.
                     Zeca: Anche se non ho sentito il solito puzzo di cesso delle sue sigarette elettroniche.
+                    - - - - (allestimento4) 
                         -> advance_time ->
                         ~ pauseStorylet = true
                         -> zeca_talking_second_tier
                 
                 + + Ettore: Ehm, no, niente di utile, no.
                     Zeca: Come sempre, insomma.
+                    - - - - (allestimento4X)
                         -> advance_time ->
                         ~ pauseStorylet = true
                         -> zeca_talking_second_tier

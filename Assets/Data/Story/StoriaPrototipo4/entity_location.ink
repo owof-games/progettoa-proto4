@@ -203,7 +203,12 @@
 
     - 0 && not objects_tutorial:
         ~ move_entity(LimettaUnghie, GreenRoom)
-        ~ move_entity(SpiedinoCocktail, RedRoom)
+        {
+            - tierState has FirstTier:
+                ~ move_entity(SpiedinoCocktail, RedRoom)
+
+        }
+        
         ~ move_entity(AnticoPugnale, GreenRoom)
         ~ move_entity(Lettera, YellowRoom)
         ~ move_entity(BottigliaDiVino, YellowRoom)

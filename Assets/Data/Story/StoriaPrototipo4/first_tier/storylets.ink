@@ -758,13 +758,14 @@ Matteo: Ettore: io amo Greta. Il matrimonio era solo una scusa per farla ingelos
         Greta: Ettore, tieni, chiama la polizia!
         Greta: Sei l'unico che non la conosce, e che può riuscire a non balbettare.
         
-            ~ activePhone = true
-            ~ tierState = SecondTier
-            ~ gretaHaLaLettera = false
-            ~ loopableVariables += dontCheckStorylets
-            ~ loopableVariables += PaolaDavveroMorta
+        ~ activePhone = true
+        ~ tierState = SecondTier
+        ~ gretaHaLaLettera = false
+        ~ loopableVariables += dontCheckStorylets
+        ~ loopableVariables += PaolaDavveroMorta
+        {tierState has FirstTier:
             ~ move_entity(SpiedinoCocktail, objectStorageContents)
-            
-                -> advance_time ->
+        }
+        -> advance_time ->
 
     -> cb_second_tier

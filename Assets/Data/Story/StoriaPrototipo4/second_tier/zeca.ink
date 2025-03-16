@@ -29,12 +29,12 @@ Opzioni di dialogo con la persona Zeca
         Ettore: Zeca, non hai notato cose strane negli ultimi minuti?
             ~ inConversazione += Zeca
         Zeca: Tipo?
-            + {loop > 1} [Interrompi la conversazione.]
+            ++ {loop > 1} [Interrompi la conversazione.]
                 ~ pauseStorylet = true
                 -> intro
-            + {loop > 1} [Continui ad ascoltare.]
-            + ->
-            -         
+            ++ {loop > 1} [Continui ad ascoltare.]
+            ++ ->
+            --
         Ettore: Che sembra che state dimenticando le cose, e fate cose strane.
         Zeca: Tipo?
         Ettore: Tipo: durante la recita prima Paola è morta, morta davvero, e ora fate finta di niente.
@@ -325,6 +325,7 @@ Opzioni di dialogo con la persona Zeca
                     + + + Ettore: Beh, se non venissi visto..
                         Zeca: ESATTO!
                         Zeca: Probabilmente anche questo tavolo, se potesse muoversi, le darebbe una capocciata.
+                    - - -
                                     -> advance_time ->
                                     ~ pauseStorylet = true
                                     -> zeca_talking_second_tier

@@ -69,8 +69,6 @@ Opzioni di dialogo con la persona Matteo
 
                             - - -    
                 + + Ettore: Lascia perdere, è solo un'inutile preoccupazione. -> matteo_talking_second_tier
-                - -
-                -> advance_time ->
 
     + (rapportoPaola) {new_this_loop(->rapportoPaola) && (not zeca_talking_second_tier.money)}
     [{rapportoPaola == 0: Chiedigli del rapporto con Paola.|Richiedigli del rapporto con Paola.}]
@@ -252,17 +250,18 @@ Opzioni di dialogo con la persona Matteo
         Matteo: Quella strega! Devo subito trovare Zeca, sai dove possa essere?
         
             + + {whiteRoomContents hasnt Ettore} Ettore: Credo sia nella stanza bianca.
-                    ~ move_entity(Matteo, WhiteRoom)
+                ~ move_entity(Matteo, WhiteRoom)
             + + {greenRoomContents hasnt Ettore} Ettore: Forse nella stanza verde?
-                    ~ move_entity(Matteo, GreenRoom)
+                ~ move_entity(Matteo, GreenRoom)
             + + {yellowRoomContents hasnt Ettore} Ettore: Dovresti trovarlo nella camera gialla.                
-                    ~ move_entity(Matteo, YellowRoom)
+                ~ move_entity(Matteo, YellowRoom)
             + + {redRoomContents hasnt Ettore} Ettore: Quasi certamente nella stanza rossa.               
-                    ~ move_entity(Matteo, RedRoom)
-            + + Ettore:"Non ho idea di dove sia, mi spiace.
+                ~ move_entity(Matteo, RedRoom)
+            + + Ettore: Non ho idea di dove sia, mi spiace.
                 Matteo: Provo a cercarlo, grazie Ettore!
-                    ~ move_this_entity_in_a_different_room(Matteo)
-                -> intro
+                ~ move_this_entity_in_a_different_room(Matteo)
+            - -
+            -> intro
    
     
     //SCELTE CONDIZIONALI OGGETTI//

@@ -218,12 +218,12 @@ Opzioni di dialogo con la persona Elia
             }            
         Ettore: Ed ero convinto che Matteo fosse tuo amico.
         Elia: Non al passato. Non fosse, ma è.
-            + {conversazione > 1} [Interrompi la conversazione.]
+            + + {conversazione > 1} [Interrompi la conversazione.]
                 ~ pauseStorylet = true
                 -> intro
-            + {conversazione > 1} [Continui ad ascoltare.]
-            + ->
-            -
+            + + {conversazione > 1} [Continui ad ascoltare.]
+            + + ->
+            - -
         Elia: Zeca invece è un collega, abbiamo la BRO assieme.
         Elia: Parlavano di quanto è figa la BRO, vero?!?
         Ettore: No, ehm.

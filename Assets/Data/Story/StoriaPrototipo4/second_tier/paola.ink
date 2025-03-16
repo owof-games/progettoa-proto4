@@ -224,7 +224,7 @@ Opzioni di dialogo con la persona Paola
 
                 
     //SCELTE CONDIZIONALI OGGETTI//
-     + (minacce) {inventoryContents has Lettera && new_this_loop(->minacce)}
+    + (minacce) {inventoryContents has Lettera && new_this_loop(->minacce)}
     [{minacce == 0: Mostra la lettera a Paola.|Mostra di nuovo la lettera a Paola.}]
             Ettore: Hai mai visto questa lettera?
             Paola: Non c'ho cazzi Ettore, dammi qui e dopo ci butto un occhio.

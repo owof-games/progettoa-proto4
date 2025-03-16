@@ -421,13 +421,13 @@ Opzioni di dialogo con la persona Greta
                                 }
                                 Greta: Mi ha promesso amore.
                                 Greta: Mi ha regalato le piattole.
-                                    - - - -(indagini3) Greta: E io che, stupida, coprivo i furti di denaro di Elia in azienda.
-                                    Greta: Convinta che ci avremmo costruito una casa assieme, con quei soldi.
-                                     Greta: Ho bisogno di un poco di privacy Ettore, scusami.
-                                        ~ loopableVariables += pausaRapportoGreta
-                                            -> advance_time ->
-                                            ~ pauseStorylet = true
-                                        -> intro
+                                - - - - (indagini3) Greta: E io che, stupida, coprivo i furti di denaro di Elia in azienda.
+                                Greta: Convinta che ci avremmo costruito una casa assieme, con quei soldi.
+                                Greta: Ho bisogno di un poco di privacy Ettore, scusami.
+                                ~ loopableVariables += pausaRapportoGreta
+                                -> advance_time ->
+                                ~ pauseStorylet = true
+                                -> intro
                         
                         + + + Ettore: Quindi, lui ti piace davvero?
                                     ~ inConversazione += Greta
@@ -437,10 +437,10 @@ Opzioni di dialogo con la persona Greta
                                 Greta: Ma ora è tutto finito.
                                 Greta: L'unica traccia di luce nella mia vita, svanita.
                                 Greta: Lasciami un poco da sola, per favore.
-                                    ~ loopableVariables += pausaRapportoGreta
-                                        -> advance_time ->
-                                        ~ pauseStorylet = true
-                                    -> intro
+                                ~ loopableVariables += pausaRapportoGreta
+                                -> advance_time ->
+                                ~ pauseStorylet = true
+                                -> intro
                         
     
 

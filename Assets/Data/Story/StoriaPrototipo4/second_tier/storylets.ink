@@ -215,15 +215,12 @@
             + Ettore: Cringe.
                 Zeca: <rage>Fottiti. E non osare più parlarmi.</rage>
                 ~ loopableVariables += pausaRapportoZeca
-                -> advance_time ->  
-                ~ pauseStorylet = true
-        -> intro
-        
             + Ettore: Romantico.
                 Zeca: Si tratta di lavoro, solo di lavoro.
-            -> advance_time -> 
+            -
+            -> advance_time ->  
             ~ pauseStorylet = true
-        -> intro
+            -> intro
 
 
 === iLlKillThatBitchStorylet
@@ -736,7 +733,7 @@ Ettore: Ed è qui che si complicano le cose.
             Paola: Che schifo!
         + (TR) {cb_second_tier_cibo.primoCheck or paola_is_dead.briciole} Ettore: La torta e un classico shock anafilattico.
             Ettore: Quella torta è un concetrato di arachidi, e Paola è allergica alle arachidi.
-    -
+        -
     Paola: Rimane il perché, però.
     Paola: Perché qualcuno dovrebbe uccidermi?
     Ettore: Proviamo a mettere assieme i pezzi.

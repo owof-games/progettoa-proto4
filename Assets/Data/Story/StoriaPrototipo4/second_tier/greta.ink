@@ -102,6 +102,7 @@ Opzioni di dialogo con la persona Greta
                 Greta: Prima o poi mi venderà qualche organo senza che me ne renda conto.
                     -> advance_time ->
                     ~ pauseStorylet = true
+                    -> greta_talking_second_tier
 
     + (rapportoPaola2) {new_this_loop(->rapportoPaola2) && phone.indagini}
         [{rapportoPaola2 == 0: Parla con Greta delle indagini.|Riparla con Greta delle indagini.}]

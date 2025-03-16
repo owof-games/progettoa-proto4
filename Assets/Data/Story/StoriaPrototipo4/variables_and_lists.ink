@@ -23,7 +23,7 @@ LIST loopableVariables =
   dontCheckStorylets
 
 //list to set the current tier
-LIST tierState = FirstTier, (SecondTier)
+LIST tierState = (FirstTier), SecondTier
 ////////////////////////////////////////////////////////////
 
 

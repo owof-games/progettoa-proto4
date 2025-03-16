@@ -207,6 +207,7 @@ Opzioni di dialogo con la persona Elia
                 -> elia_talking_second_tier
             
 
+TODO: per blocchi di testo ampi, metti l'etichetta "(conversazione)" in fondo
     + (conversazione) {iTryToBeAGoodFriendStorylet && new_this_loop(-> conversazione)}
     [{Digli della conversazione origliata tra Matteo e Zeca.|Ridigli della conversazione origliata tra Matteo e Zeca.}] 
         Ettore: Prima ho ascoltato una conversazione tra Zeca e Matteo...

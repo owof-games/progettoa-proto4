@@ -74,14 +74,14 @@ Opzioni di dialogo con il personaggio Matteo
     //SCELTE CONDIZIONALI//
     
     + (paolaSiSposa) {new_this_loop(->paolaSiSposa) && elia_acting.paolaSiSposa} Ettore: Matteo, ma tu sapevi che Paola si stava per sposare?
-        {not marryMeStorylet: Matteo: Era un po' un segreto di pulcinella.}
-        {marryMeStorylet: Matteo: Paola ha organizzato il matrimonio appena le ho confidato che avrei voluto sposarti, la stronza.}
-        + + {marryMeStorylet && not are_two_entities_together(Zeca, Matteo)} Ettore: E come l'hai presa?
+        Matteo: {marryMeStorylet:Paola ha organizzato il matrimonio appena le ho confidato che avrei voluto sposarti, la stronza.|Era un po' un segreto di pulcinella.}
+        + + Ettore: E come l'hai presa?
             Matteo: Mi sono incazzato. Ma non così tanto da volerla uccidere, se è quello il tuo dubbio.
             - - (paolaZeca) Matteo: Ma la cosa più ridicola è che abbia chiesto a Zeca di fare da testimone.
             Matteo: Quando sappiamo tutti in famiglia che Zeca odia Paola da sempre!
             Matteo: E non a me, il fratello fedele che le dava un sacco di soldi per le sue opere di carità.
             Matteo: No, al fallito, a quello che fa vergognare tutta la famiglia.
+            {are_two_entities_together(Zeca, Matteo): Zeca: Ehi, fallito sarai tu!}
             Matteo: Quello che si è rovinato la vita per tirare su <rage>un<waitrage> collettivo<waitrage> di<waitrage> videogiochi</rage>.
             Matteo: Ma andasse a zappare!
                 -> advance_time ->

@@ -279,7 +279,7 @@ Opzioni di dialogo con la persona Paola
                 ~ pauseStorylet = true
       
     
-    + (fotografia)
+    + (fotografia) {inventoryContents has Foto && new_this_loop(->fotografia)}
     [{fotografia == 0: Mostra la fotografia a Paola.|Mostra di nuovo la fotografia a Paola.}]      
         {inventoryContents has Foto && new_this_loop(->fotografia)} Ettore: Guarda questa foto.
             Paola: Ettore, ho di meglio da fare, sloggia.

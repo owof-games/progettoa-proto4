@@ -2,10 +2,10 @@
 LIST QuestionAnswer = True, False, DontKnow, Unexplored
 
 // tutte le altre variabili che indicano quali scelte abbiamo preso...
-VAR choice_MatteoVuoleSposareEttore = Unexplored
-VAR choice_MenteZeca = Unexplored
-VAR choice_WhoWasInChargeOfTheBuffet = Unexplored
-VAR choice_ForWhomTheLetterWas = Unexplored
+// VAR choice_MatteoVuoleSposareEttore = Unexplored
+// VAR choice_MenteZeca = Unexplored
+// VAR choice_WhoWasInChargeOfTheBuffet = Unexplored
+// VAR choice_ForWhomTheLetterWas = Unexplored
 
 //Contraddizioni per il finale, secondo tier
 VAR primaContraddizione = false

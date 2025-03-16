@@ -258,7 +258,7 @@
     Matteo: Non me lo sarei mai aspettato.
     Ettore: Cosa?
         {
-            - are_two_entities_together(Matteo,Greta or are_two_entities_together(Matteo, Elia) or are_two_entities_together(Matteo, Zeca)): Matteo: Scusa, parlavo tra me e me.
+            - are_two_entities_together(Matteo,Greta) or are_two_entities_together(Matteo, Elia) or are_two_entities_together(Matteo, Zeca): Matteo: Scusa, parlavo tra me e me.
                 Matteo: C'è troppa gente qui, ora.
                 Matteo: Ma se rimanessimo soli...
                 ~ pauseStorylet = true

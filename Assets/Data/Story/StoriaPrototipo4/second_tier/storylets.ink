@@ -715,7 +715,7 @@ Ettore: Ed è qui che si complicano le cose.
     Elia: Questa sceneggiatura mi piace!
     Greta: Chi ha portato i funghetti e non li ha condivisi?
     Matteo: Ettore, tutto bene?
-    Paola: /cry>LASCIATELO PARLARE!</cry>
+    Paola: <cry>LASCIATELO PARLARE!</cry>
     Paola: Sentiamo che cazzata ha da dire.
     Ettore: Grazie per la fiducia, davvero!
     Ettore: Dicevo: non abbiamo ancora l'assassino, ma c'è un ultimo elemento su cui riflettere.

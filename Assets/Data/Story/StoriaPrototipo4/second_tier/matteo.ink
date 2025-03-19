@@ -25,7 +25,7 @@ Opzioni di dialogo con la persona Matteo
 {loopableVariables has pausaRapportoMatteo: Matteo: Non ho niente da dirti. -> intro.}
 
     + {new_this_loop(->loop) && new_this_loop(->loopY) && new_this_loop(->loopX)}
-    [{loop == 0: Chiedi a Matteo se ha notato qualcosa di strano.|{(not loop3): Dimostra a Matteo che siete in un loop.|Richiedi a Matteo se ha notato qualcosa di strano.}}]
+    [{loop == 0 && loopX == 0 && loopY == 0: Chiedi a Matteo se ha notato qualcosa di strano.|{(not loop3): Dimostra a Matteo che siete in un loop.|Richiedi a Matteo se ha notato qualcosa di strano.}}]
             Ettore: Non stai notando nulla di strano?
                 ~ inConversazione += Matteo
             Matteo: Intendi il provare da ore una storia senza senso? Prova a essere più specifico.

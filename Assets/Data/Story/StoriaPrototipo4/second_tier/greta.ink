@@ -27,7 +27,7 @@ Opzioni di dialogo con la persona Greta
     //INFO GENERALI//
     
     + {new_this_loop(->loop) && new_this_loop(->loopX)} 
-    [{greta_talking_second_tier.loop == 0: Chiedi a Greta se ha notato qualcosa di strano.|{matteo_talking_second_tier.loop2: Dopo il consiglio di Matteo, riprendi il discordo dei loop con Greta.| Richiedi a Greta se ha notato qualcosa di strano.}}]
+    [{loop == 0 && loopX == 0: Chiedi a Greta se ha notato qualcosa di strano.|{matteo_talking_second_tier.loop2: Dopo il consiglio di Matteo, riprendi il discordo dei loop con Greta.| Richiedi a Greta se ha notato qualcosa di strano.}}]
     
             Ettore: Greta, secondo te qui è tutto normale?
             ~ inConversazione += Greta
@@ -95,7 +95,7 @@ Opzioni di dialogo con la persona Greta
 
     
     + (rapportoPaola) {new_this_loop(->rapportoPaola) && (not phone.indagini) && (not elia_talking_second_tier.indagini) && (not liarCallLiarStorylet.indagini)}
-        [{Chiedile del lavoro con Paola.|Richiedile del lavoro con Paola.}]
+        [{rapportoPaola == 0: Chiedile del lavoro con Paola.|Richiedile del lavoro con Paola.}]
             Ettore: Quindi tu lavori per Paola?
                     ~ inConversazione += Greta
                 Greta: Per ora, sembrerebbe di sì.
@@ -143,7 +143,7 @@ Opzioni di dialogo con la persona Greta
                      -> greta_talking_second_tier
     
     + {new_this_loop(->rapportoPaola3) && new_this_loop(->rapportoPaola3X) && elia_talking_second_tier.indagini}
-    [{rapportoPaola3 == 0: Chiedi a Greta delle info che ha passato a Matteo.|Richiedi a Greta delle info che ha passato a Matteo.}]
+    [{rapportoPaola3 == 0 && rapportoPaola3X == 0: Chiedi a Greta delle info che ha passato a Matteo.|Richiedi a Greta delle info che ha passato a Matteo.}]
         Ettore: Paola sa già che hai passato info segrete a Matteo?
                 ~ inConversazione += Greta
             {
@@ -199,7 +199,7 @@ Opzioni di dialogo con la persona Greta
                     -> intro
     
     + {new_this_loop(->rapportoPaola4) && new_this_loop(->rapportoPaola4X) && liarCallLiarStorylet.indagini}
-    [{rapportoPaola3 == 0: Chiedi a Greta se ha passato lei le info alla polizia.|Richiedi a Greta se ha passato lei le info alla polizia.}]
+    [{rapportoPaola4 == 0 && rapportoPaola4X == 0: Chiedi a Greta se ha passato lei le info alla polizia.|Richiedi a Greta se ha passato lei le info alla polizia.}]
             Ettore: Ci hai ragionato a lungo, prima di tradire Paola?
                 ~ inConversazione += Greta
             Greta: Cosa vorresti dire?
@@ -260,7 +260,7 @@ Opzioni di dialogo con la persona Greta
                     
     
     + {new_this_loop(->omicidio) && new_this_loop(->omicidioX)}
-    [{omicidio == 0: Chiedi a Greta se qualcuno potrebbe uccidere Paola.|Richiedi a Greta se qualcuno potrebbe uccidere Paola.}]
+    [{omicidio == 0 && omicidioX == 0: Chiedi a Greta se qualcuno potrebbe uccidere Paola.|Richiedi a Greta se qualcuno potrebbe uccidere Paola.}]
     Ettore: Secondo te qualcuno potrebbe volere del male a Paola?
                 ~ inConversazione += Greta
             {
@@ -385,7 +385,7 @@ Opzioni di dialogo con la persona Greta
     //SCELTE CONDIZIONALI//
 
     + {trueLoveStorylet && new_this_loop(->love) && new_this_loop(->loveX)}
-    [{love == 0: Chiedile se sapeva della relazione tra Elia e Zeca.|Richiedile se sapeva della relazione tra Elia e Zeca.}]
+    [{love == 0 && loveX == 0: Chiedile se sapeva della relazione tra Elia e Zeca.|Richiedile se sapeva della relazione tra Elia e Zeca.}]
     Ettore: Sapevi della relazione tra Elia e Zeca?
             Greta: Quell'obbrobrio che chiamano "Bro"?
             

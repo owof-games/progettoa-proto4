@@ -39,13 +39,13 @@ Opzioni di dialogo con la persona Elia
 
 
     + (rapportoPaola) {new_this_loop(->rapportoPaola)}
-    [{Chiedigli del suo rapporto con Paola.|Continua ad esplorare il suo rapporto con Paola|Richiedigli del suo rapporto con Paola.}]
+    [{rapportoPaola == 0: Chiedigli del suo rapporto con Paola.|Continua ad esplorare il suo rapporto con Paola.}]
         Ettore: Che rapporto hai con Paola?
             -> rapporto_Elia_Paola
 
 
     + (omicidio) {new_this_loop(->omicidio)}
-    [{Chiedigli se qualcuno potrebbe fare male a Paola.|Richiedigli se qualcuno potrebbe fare male a Paola.}]
+    [{omicidio == 0: Chiedigli se qualcuno potrebbe fare male a Paola.|Richiedigli se qualcuno potrebbe fare male a Paola.}]
         Ettore: Conosci qualcuno che vorrebbe far male a Paola?
         ~ inConversazione += Elia
         Elia: <fear>Uh, spero non i tizi delle piramidi, vero?</fear>
@@ -63,7 +63,7 @@ Opzioni di dialogo con la persona Elia
             }
            
     + (minacce) {(zeca_talking_second_tier.omicidio or phone.indagini or elia_talking_second_tier.indagini2) && new_this_loop(->minacce)}
-    [{Chiedigli se Zeca potrebbe fare male a Paola.|Richiedigli se Zeca potrebbe fare male a Paola.}]
+    [{minacce == 0: Chiedigli se Zeca potrebbe fare male a Paola.|Richiedigli se Zeca potrebbe fare male a Paola.}]
         Ettore: Zeca potrebbe voler far del male a Paola?
         {
             - are_two_entities_together(Paola, Elia) or are_two_entities_together(Zeca, Elia): Elia: BRO! Parliamo quando non è qui!
@@ -95,7 +95,7 @@ Opzioni di dialogo con la persona Elia
 
     //SCELTE CONDIZIONALI//
     + (indagini2) {greta_talking_second_tier.indagini && not are_two_entities_together(Elia, Zeca) && new_this_loop(->indagini2)}
-    [{Chiedigli se sa della estromissione dalla Londar.|{zeca_talking_second_tier.love4 && (not zeca): Chiama Zeca, così che spenga la musica|Richiedigli se sa della estromissione dalla Londar.}}]
+    [{indagini2 == 0: Chiedigli se sa della estromissione dalla Londar.|{zeca_talking_second_tier.love4 && (not zeca): Chiama Zeca, così che spenga la musica|Richiedigli se sa della estromissione dalla Londar.}}]
         ~ inConversazione += Elia
         Ettore: Elia, sapevi che Paola vuole estrometterti dalla Londar?
         Elia: <hesitate>Estroflettermi?
@@ -136,7 +136,7 @@ Opzioni di dialogo con la persona Elia
             
 
     + {notABigSecretPartOneStorylet.allestimento && new_this_loop(-> allestimento)}
-        [{Chiedigli se lui e Greta hanno comprato il vino.|Richiedigli se lui e Greta hanno comprato il vino.}]    
+        [{allestimento == 0: Chiedigli se lui e Greta hanno comprato il vino.|Richiedigli se lui e Greta hanno comprato il vino.}]    
         Ettore: Elia, è vero che tu e Greta avete comprato il vino?
             ~ inConversazione += Elia
         Elia: Esatto. Greta e io abbiamo comprato il vino.
@@ -187,7 +187,7 @@ Opzioni di dialogo con la persona Elia
 
 
     + (scopare) {zeca_talking_second_tier.allestimento2 && new_this_loop(-> scopare)}
-      [{Chiedigli se sa chi stava scopando nella stanza gialla.|Richiedigli se sa chi stava scopando nella stanza gialla.}]  
+      [{scopare == 0: Chiedigli se sa chi stava scopando nella stanza gialla.|Richiedigli se sa chi stava scopando nella stanza gialla.}]  
         Ettore: Zeca  ha sentito qualcuno nella stanza gialla.
         Ettore: E a suo dire stava scopando.
             - - (allestimento2) Elia: Naa, Zeca sente sesso ovunque.
@@ -209,7 +209,7 @@ Opzioni di dialogo con la persona Elia
             
 
     +  {iTryToBeAGoodFriendStorylet && new_this_loop(-> conversazione)}
-    [{Digli della conversazione origliata tra Matteo e Zeca.|Ridigli della conversazione origliata tra Matteo e Zeca.}] 
+    [{conversazione == 0: Digli della conversazione origliata tra Matteo e Zeca.|Ridigli della conversazione origliata tra Matteo e Zeca.}] 
         Ettore: Prima ho ascoltato una conversazione tra Zeca e Matteo...
             ~ inConversazione += Elia
             {

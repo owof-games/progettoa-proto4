@@ -157,8 +157,8 @@
         Matteo: E non ha polso.
         Greta: Questo non cambia la mia teoria.
         Matteo: Fratelli, Greta: Paola è morta!
-            + (paolaMorta) Ettore: [Chiamiamo la polizia!]<fear>Chiamiamo la polizia!</fear> 
-            -
+            + Ettore: [Chiamiamo la polizia!]<fear>Chiamiamo la polizia!</fear> 
+            - (paolaMorta) 
         Matteo: Non esiste.
         Greta: Qui le cose si affrontano in famiglia.
         Zeca: E infatti ci odiamo tutti.

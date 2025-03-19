@@ -23,7 +23,7 @@ Opzioni di dialogo con la persona Paola
     {debug: <i>Passo per paola_talking</i>}
     
     //INFO GENERALI//
-    + (loop) {new_this_loop(->loop)} [{paola_talking_second_tier.loop == 0: Chiedi a Paola se ha notato qualcosa di problematico.|Richiedi a Paola se ha notato qualcosa di problematico.}]
+    + (loop) {new_this_loop(->loop)} [{loop == 0: Chiedi a Paola se ha notato qualcosa di problematico.|Richiedi a Paola se ha notato qualcosa di problematico.}]
             Ettore: Paola, ehm, hai notato nulla di problematico?
             Paola: Io che cerco una biro dopo che non scrivo dal duemila e quattro?
             Paola: Oggetti personali lasciati in giro come se fossero oggetti di scena?
@@ -53,7 +53,7 @@ Opzioni di dialogo con la persona Paola
                 ~ pauseStorylet = true
                 -> paola_talking_second_tier
 
-    + (omicidio) {new_this_loop(->omicidio)} [{paola_talking_second_tier.omicidio == 0: Chiedi a Paola se qualcuno vorrebbe ucciderla.|Richiedi a Paola se qualcuno vorrebbe ucciderla.}] 
+    + (omicidio) {new_this_loop(->omicidio)} [{omicidio == 0: Chiedi a Paola se qualcuno vorrebbe ucciderla.|Richiedi a Paola se qualcuno vorrebbe ucciderla.}] 
             Ettore: C'è, c'è. C'è qualcuno qui che vorrebbe ucciderti?
             Paola: Dipende.
             Paola: Per il patrimonio, molti.
@@ -75,7 +75,7 @@ Opzioni di dialogo con la persona Paola
 
     //SCELTE CONDIZIONALI//
     +  {zeca_talking_second_tier.allestimento && elia_talking_second_tier.allestimento && new_this_loop(->buffet)}
-        [{paola_talking_second_tier.buffet== 0: Chiedi a Paola se sa chi ha sistemato il buffet.|Richiedi a Paola se sa chi ha sistemato il buffet.}] 
+        [{buffet== 0: Chiedi a Paola se sa chi ha sistemato il buffet.|Richiedi a Paola se sa chi ha sistemato il buffet.}] 
             Ettore: Può essere una domanda strana, ma sai chi si è occupato di sistemare il buffet?
             ~ inConversazione += Paola
             Ettore: Zeca dice che lui e Matteo hanno smollato tutto a Greta.
@@ -110,7 +110,7 @@ Opzioni di dialogo con la persona Paola
     
 
     + {liarCallLiarStorylet.indagini && new_this_loop(-> liar)}
-        [{paola_talking_second_tier.liar == 0: Dì a Paola che qualcuno ha dato i suoi dati alla polizia.|Riparla con Paola dei dati personali dati alla polizia.}]
+        [{liar == 0: Dì a Paola che qualcuno ha dato i suoi dati alla polizia.|Riparla con Paola dei dati personali dati alla polizia.}]
         Ettore: Quindi: qualcuno ha dato tuoi dati personali alla polizia.
         ~ inConversazione += Paola
             Paola: Ecco, così mi si deve parlare: <joy>fuori dai denti.</joy>
@@ -156,7 +156,7 @@ Opzioni di dialogo con la persona Paola
                     
 
     + {zeca_talking_second_tier.allestimento2 && new_this_loop(-> foto3)}
-        [{paola_talking_second_tier.foto3 == 0: Chiedi a Paola se si è masturbata nella stanza gialla.|Richiedi a Paola se si è masturbata nella stanza gialla.}]
+        [{foto3 == 0: Chiedi a Paola se si è masturbata nella stanza gialla.|Richiedi a Paola se si è masturbata nella stanza gialla.}]
                 Ettore: <hesitate>Per caso ti sei tipo masturbata nella sala gialla?
                 ~ inConversazione += Paola
                 Paola: Ettore. Per masturbarmi mi serve una mezz'ora di silenzio.

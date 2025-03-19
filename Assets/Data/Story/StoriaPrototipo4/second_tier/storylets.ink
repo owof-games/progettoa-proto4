@@ -449,10 +449,10 @@
 ~ inConversazione += Matteo
         Matteo: Uh, ehi, ciao Ettore.
         Matteo: Mi hai colto di sorpresa.
-            + {notABigSecretPartOneStorylet> 1} [Ti allontani.]
-            ~ pauseStorylet = true
-            -> intro
-            + {notABigSecretPartOneStorylet> 1} [Resti.]
+            + {allestimento> 1} [Ti allontani.]
+                ~ pauseStorylet = true
+                -> intro
+            + {allestimento> 1} [Resti.]
             + ->
             -           
         Ettore: Tutto ok?
@@ -481,10 +481,10 @@
 ~ inConversazione += Elia
         Elia: Non le trovo!
         Ettore: Cosa?
-            + {notABigSecretPartTwoStorylet> 1} [Ti allontani.] 
-            ~ pauseStorylet = true
-            -> intro
-            + {notABigSecretPartTwoStorylet> 1} [Resti.]
+            + {allestimento > 1} [Ti allontani.] 
+                ~ pauseStorylet = true
+                -> intro
+            + {allestimento > 1} [Resti.]
             + ->
             -          
         Elia: Eh, se lo trovassi saprei cosa.
@@ -528,6 +528,7 @@
         Elia: Lamentarsi è brutto.
         Elia: Gli uomini non si lamentano.
         Elia: Gli uomini soffrono.
+            
         ~ pauseStorylet = true
             -> intro
 

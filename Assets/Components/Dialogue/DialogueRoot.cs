@@ -182,7 +182,7 @@ namespace Components.Dialogue
                 OnDone();
             else
                 dialogueRow.SetUp(character, _columnRemapper[column], text, true,
-                    onDone: choices is not { Length: > 1 } ? null : OnDone);
+                    onDone: choices is { Length: 0 } ? null : OnDone);
             // }
         }
 
